@@ -1238,6 +1238,299 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "ai-agents-supply-chain-500b",
+    title:
+      "AI agents autonomously managing corporate supply chains expected to handle $500B in procurement by 2027",
+    body:
+      "McKinsey & Company projects that AI agents operating autonomously within corporate supply chains will manage approximately $500 billion in procurement decisions by 2027, driven by advances in multi-agent orchestration and real-time data integration.",
+    domain: "ai",
+    claimantName: "McKinsey & Company",
+    subjectKind: "organization",
+    sourceUrl:
+      "https://www.mckinsey.com/capabilities/operations/our-insights/ai-agents-in-supply-chain-procurement-2026",
+    sourceTitle: "AI Agents in Supply Chain: The $500B Procurement Frontier",
+    sourcePublisher: "McKinsey & Company",
+    sourceQuality: "reputable secondary",
+    attributionScore: 85,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The claim is directly sourced from a McKinsey research report, a well-known management consultancy, though McKinsey's projections are analytical estimates rather than primary data.",
+    veracityScore: 40,
+    veracityLabel: "Evidence suggests uncertain",
+    veracityExplanation:
+      "The $500B figure is a forward-looking projection with significant uncertainty; current autonomous procurement deployments remain limited in scope and decision authority.",
+    createdAt: "2026-05-26T01:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-gartner-supply-chain-ai",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Gartner's 2026 supply chain technology report identifies autonomous AI agents as a top-3 transformative technology, projecting that 45% of large enterprises will pilot agent-based procurement by 2027.",
+        sourceUrl:
+          "https://www.gartner.com/en/supply-chain/trends/ai-agents-autonomous-procurement",
+        sourceTitle:
+          "Gartner: Top Supply Chain Technology Trends 2026",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-supply-chain-skepticism",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Industry procurement leaders express skepticism about fully autonomous AI decision-making, citing liability concerns, supplier relationship complexity, and the inability of current AI to handle exception-heavy negotiations that dominate real-world procurement.",
+        sourceUrl:
+          "https://hbr.org/2026/04/why-autonomous-procurement-agents-arent-ready",
+        sourceTitle:
+          "HBR: Why Autonomous Procurement Agents Aren't Ready",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "fortune-500-chatgpt-ban-60pct",
+    title:
+      "More than 60% of Fortune 500 companies have banned employee use of ChatGPT for sensitive internal data",
+    body:
+      "A Reuters survey of corporate AI policies claims that over 60% of Fortune 500 companies have implemented formal restrictions or outright bans on employee use of ChatGPT and similar generative AI tools when handling sensitive internal data, intellectual property, or client information.",
+    domain: "technology",
+    claimantName: "Reuters",
+    subjectKind: "company",
+    sourceUrl:
+      "https://www.reuters.com/technology/corporate-ai-policy-survey-fortune-500-chatgpt-restrictions-2026-05",
+    sourceTitle:
+      "Corporate AI Policy Survey: Fortune 500 ChatGPT Restrictions",
+    sourcePublisher: "Reuters",
+    sourceQuality: "reputable secondary",
+    attributionScore: 70,
+    attributionLabel: "Moderate attribution",
+    attributionExplanation:
+      "Reuters is a reputable news organization, but the 60% figure relies on survey methodology and self-reporting by companies, which introduces potential response bias.",
+    veracityScore: 55,
+    veracityLabel: "Evidence mixed",
+    veracityExplanation:
+      "While many companies have issued AI usage policies, the 60% ban figure is contested by evidence showing widespread unofficial adoption and shadow AI usage across the same companies.",
+    createdAt: "2026-05-26T01:02:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-company-ai-policies",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Multiple public company disclosures and SEC filings from JPMorgan, Samsung, Apple, and others confirm formal policies restricting generative AI use for internal data, lending credibility to the broader trend.",
+        sourceUrl:
+          "https://www.cnbc.com/2026/03/companies-banning-chatgpt-generative-ai-policies.html",
+        sourceTitle:
+          "CNBC: Major Companies Restricting ChatGPT Usage",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:02:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-shadow-ai-adoption",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "A Microsoft and LinkedIn Work Trend Index report found that 78% of AI users at large enterprises bring their own AI tools to work, suggesting that formal bans have limited practical effect and actual adoption rates contradict stated restrictions.",
+        sourceUrl:
+          "https://www.microsoft.com/en-us/worklab/work-trend-index/ai-at-work-2026",
+        sourceTitle:
+          "Microsoft Work Trend Index: AI at Work 2026",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:02:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "ai-music-30pct-streaming-2028",
+    title:
+      "AI-generated music will account for 30% of all streaming content by 2028",
+    body:
+      "The CEO of Universal Music Group predicted at the 2026 Global Music Summit that AI-generated music — including fully synthetic compositions and AI-assisted productions — will constitute 30% of all music streaming content by 2028, fundamentally reshaping royalty structures and artist economics.",
+    domain: "ai",
+    claimantName: "Universal Music Group CEO",
+    subjectKind: "organization",
+    sourceUrl:
+      "https://variety.com/2026/music/news/universal-music-ceo-ai-generated-music-30-percent-streaming-1236789012/",
+    sourceTitle:
+      "UMG CEO Predicts AI-Generated Music Will Hit 30% of Streaming by 2028",
+    sourcePublisher: "Variety",
+    sourceQuality: "reputable secondary",
+    attributionScore: 80,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The claim is attributed through a reputable entertainment trade publication reporting on a named executive's public keynote remarks.",
+    veracityScore: 35,
+    veracityLabel: "Evidence suggests uncertain",
+    veracityExplanation:
+      "The 30% projection is speculative and lacks methodological backing; current AI music represents a small fraction of streams, and regulatory and quality barriers may limit growth.",
+    createdAt: "2026-05-26T01:04:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-spotify-ai-music-growth",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Spotify's 2026 Q1 transparency report showed AI-generated or AI-assisted tracks grew 340% year-over-year and now represent approximately 8% of new uploads, suggesting a rapid growth trajectory that could approach the predicted figure.",
+        sourceUrl:
+          "https://newsroom.spotify.com/2026-04-ai-music-transparency-report/",
+        sourceTitle:
+          "Spotify Newsroom: AI Music Transparency Report Q1 2026",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:04:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-ai-music-quality-regulation",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Music industry analysts and the Recording Industry Association argue that AI-generated music faces significant quality ceilings, listener fatigue, and emerging EU regulatory frameworks requiring AI content labeling — all of which could suppress rather than accelerate streaming share growth.",
+        sourceUrl:
+          "https://www.billboard.com/pro/ai-generated-music-regulation-quality-barriers-2026/",
+        sourceTitle:
+          "Billboard: AI Music Faces Regulation and Quality Barriers",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:04:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "open-source-ai-5pct-gap",
+    title:
+      "Open-source AI models have closed the capability gap with proprietary models to within 5%",
+    body:
+      "Meta AI Research claims that open-source large language models, specifically Llama 4, have narrowed the performance gap with leading proprietary models like GPT-4o and Claude to within 5% across major benchmarks, challenging the assumption that closed-source development is necessary for frontier capabilities.",
+    domain: "ai",
+    claimantName: "Meta AI Research",
+    subjectKind: "organization",
+    sourceUrl:
+      "https://ai.meta.com/blog/llama-4-open-source-closing-the-gap/",
+    sourceTitle: "Llama 4: Closing the Gap with Open Source",
+    sourcePublisher: "Meta AI",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The claim originates from Meta AI's official research blog, making it a primary source for Meta's own assertion about Llama 4 performance.",
+    veracityScore: 50,
+    veracityLabel: "Evidence mixed",
+    veracityExplanation:
+      "Benchmark parity claims are contested; while open-source models show strong results on standard benchmarks, enterprise deployment, instruction-following quality, and safety alignment gaps remain less documented.",
+    createdAt: "2026-05-26T01:06:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-llama-benchmark-parity",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Independent evaluations on MMLU, HumanEval, and MATH benchmarks show Llama 4 405B scoring within 2-5% of GPT-4o and Claude 3.5 Sonnet, corroborating Meta's narrowing-gap claim on standardized benchmarks.",
+        sourceUrl:
+          "https://arxiv.org/abs/2605.12345",
+        sourceTitle:
+          "Independent LLM Benchmark Comparison: Open vs. Proprietary Models (May 2026)",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:06:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-enterprise-deployment-gaps",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Enterprise AI deployment reports from Databricks and Anyscale indicate that open-source models require 3-5x more engineering effort for production-grade safety, reliability, and compliance — suggesting the capability gap is larger than benchmark scores imply in real-world settings.",
+        sourceUrl:
+          "https://www.databricks.com/blog/state-of-enterprise-ai-2026",
+        sourceTitle:
+          "Databricks: State of Enterprise AI 2026",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:06:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "autonomous-ai-research-agents-papers",
+    title:
+      "Autonomous AI research agents produced 3 peer-reviewed papers without human intervention",
+    body:
+      "Stanford's Institute for Human-Centered AI (HAI) reported that autonomous AI research agents independently designed experiments, ran analyses, and drafted 3 papers that passed peer review at recognized venues — all without direct human intervention beyond initial goal specification.",
+    domain: "ai",
+    claimantName: "Stanford HAI",
+    subjectKind: "organization",
+    sourceUrl:
+      "https://hai.stanford.edu/news/autonomous-ai-research-agents-quarterly-report-q1-2026",
+    sourceTitle:
+      "Autonomous AI Research Agents: HAI Quarterly Report Q1 2026",
+    sourcePublisher: "Stanford HAI",
+    sourceQuality: "primary",
+    attributionScore: 75,
+    attributionLabel: "Moderate attribution",
+    attributionExplanation:
+      "Stanford HAI is a credible research institute and the report is a primary source, though the exact definition of 'without human intervention' requires scrutiny given the initial goal-setting and infrastructure setup.",
+    veracityScore: 45,
+    veracityLabel: "Evidence suggests uncertain",
+    veracityExplanation:
+      "While the published papers exist, significant questions remain about the degree of autonomy claimed, the rigor of the peer review venues, and whether human oversight was more extensive than reported.",
+    createdAt: "2026-05-26T01:08:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-hai-published-papers",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Three papers listed in the HAI report appear in proceedings of recognized ML workshops and a second-tier NLP conference, with author metadata indicating the AI agent system as sole contributor and HAI researchers listed only as system developers.",
+        sourceUrl:
+          "https://hai.stanford.edu/research/autonomous-agents-publications",
+        sourceTitle:
+          "Stanford HAI: Autonomous Agent Publications List",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:08:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-methodology-oversight-concerns",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "AI research methodology critics, including researchers at DeepMind, argue that the 'without human intervention' framing is misleading — noting that human researchers selected the research questions, curated training data, defined evaluation criteria, and iteratively debugged agent failures before the final successful runs.",
+        sourceUrl:
+          "https://www.nature.com/articles/d41586-026-01234-5",
+        sourceTitle:
+          "Nature: The Autonomy Illusion in AI Research Agents",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T01:08:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 
