@@ -197,6 +197,7 @@ export default function ClaimsClient() {
   const [importText, setImportText] = useState("");
   const [importMessage, setImportMessage] = useState("");
   const [missionMessage, setMissionMessage] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [supabaseMessage, setSupabaseMessage] = useState("");
   const [requestedClaimId, setRequestedClaimId] = useState("");
   const [claimSubmitting, setClaimSubmitting] = useState(false);
@@ -282,16 +283,26 @@ export default function ClaimsClient() {
   }, [remoteClaims, storedClaims]);
 
   const filteredClaims = useMemo(() => {
-    const domainClaims =
-      activeDomain === "all"
-        ? claims
-        : claims.filter((claim) => claim.domain === activeDomain);
+    let result = activeDomain === "all"
+      ? claims
+      : claims.filter((claim) => claim.domain === activeDomain);
 
-    if (activeTriage === "all") {
-      return domainClaims;
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      result = result.filter(
+        (claim) =>
+          claim.title.toLowerCase().includes(query) ||
+          claim.body.toLowerCase().includes(query) ||
+          claim.claimantName.toLowerCase().includes(query) ||
+          claim.domain.toLowerCase().includes(query)
+      );
     }
 
-    return domainClaims.filter((claim) => {
+    if (activeTriage === "all") {
+      return result;
+    }
+
+    return result.filter((claim) => {
       const health = evidenceHealth(claim);
 
       if (activeTriage === "needs-challenge") {
@@ -304,7 +315,7 @@ export default function ClaimsClient() {
 
       return health.hasHighQualitySource;
     });
-  }, [activeDomain, activeTriage, claims]);
+  }, [activeDomain, activeTriage, claims, searchQuery]);
 
   const selectedClaim = useMemo(() => {
     return claims.find((claim) => claim.id === selectedId) ?? filteredClaims[0];
@@ -666,6 +677,17 @@ export default function ClaimsClient() {
           <Link className="button compact" href="/submit">
             Submit
           </Link>
+        </div>
+
+        <div className="search-box" aria-label="Search claims">
+          <input
+            type="search"
+            placeholder="Search claims…"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+            id="claim-search"
+          />
         </div>
 
         <div className="filters" aria-label="Claim domain filters">
