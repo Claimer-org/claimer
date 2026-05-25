@@ -1270,6 +1270,240 @@ textarea {
   line-height: 1.5;
 }
 
+/* Profiles */
+.profiles-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.5fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.profile-directory,
+.profile-detail {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--gradient-card);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+}
+
+.profile-directory {
+  position: sticky;
+  top: 80px;
+}
+
+.profile-directory h2,
+.profile-detail h2,
+.profile-activity h3,
+.profile-empty-state h2 {
+  margin: 0;
+}
+
+.profile-list,
+.activity-list,
+.profile-detail,
+.profile-activity {
+  display: grid;
+  gap: 12px;
+}
+
+.profile-list {
+  margin-top: 16px;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  padding: 12px;
+  transition: all var(--transition-fast);
+}
+
+.profile-row:hover,
+.profile-row.active {
+  border-color: var(--accent);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-glow);
+}
+
+.profile-row span:last-child {
+  display: grid;
+  min-width: 0;
+}
+
+.profile-row strong,
+.profile-row small,
+.activity-item h4,
+.activity-item p {
+  overflow-wrap: anywhere;
+}
+
+.profile-row small,
+.profile-empty,
+.profile-empty-state p,
+.profile-hero p,
+.activity-item small {
+  color: var(--foreground-dim);
+}
+
+.profile-avatar-small,
+.profile-avatar-large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--gradient-hero);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.profile-avatar-small {
+  width: 36px;
+  height: 36px;
+  font-size: 0.78rem;
+}
+
+.profile-avatar-large {
+  width: 82px;
+  height: 82px;
+  font-size: 1.6rem;
+}
+
+.profile-hero {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  min-width: 0;
+}
+
+.profile-hero > div {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.profile-hero h2 {
+  font-size: 2rem;
+  font-weight: 850;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.profile-hero p {
+  margin: 0;
+}
+
+.profile-score-grid,
+.profile-activity-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.profile-score-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.profile-score-grid div,
+.activity-item,
+.profile-empty-state {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  padding: 16px;
+}
+
+.profile-score-grid span,
+.profile-score-grid small {
+  display: block;
+}
+
+.profile-score-grid span {
+  color: var(--foreground-dim);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.profile-score-grid strong {
+  display: block;
+  margin: 6px 0;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-score-grid small {
+  color: var(--foreground-dim);
+  font-size: 0.82rem;
+}
+
+.profile-activity-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.activity-item {
+  display: grid;
+  gap: 8px;
+}
+
+.activity-item h4,
+.activity-item p {
+  margin: 0;
+}
+
+.activity-item a {
+  color: var(--accent-strong);
+  transition: color var(--transition-fast);
+}
+
+.activity-item a:hover {
+  color: #c7d2fe;
+}
+
+.stance-badge {
+  width: max-content;
+  max-width: 100%;
+  border-radius: 999px;
+  background: var(--context-bg);
+  color: var(--context);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stance-badge.support {
+  background: var(--support-bg);
+  color: var(--support);
+}
+
+.stance-badge.challenge {
+  background: var(--challenge-bg);
+  color: var(--challenge);
+}
+
+.profile-empty-state {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+}
+
 @media (max-width: 680px) {
   .auth-panel {
     padding: 24px;
@@ -1277,6 +1511,21 @@ textarea {
 
   .auth-widget-name {
     display: none;
+  }
+
+  .profiles-layout,
+  .profile-score-grid,
+  .profile-activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-directory {
+    position: static;
+  }
+
+  .profile-hero {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 

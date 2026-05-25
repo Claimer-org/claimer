@@ -48,6 +48,7 @@ export default function RootLayout({
           <nav aria-label="Primary navigation">
             <Link href="/claims">Claims</Link>
             <Link href="/submit">Submit</Link>
+            <Link href="/profiles">Profiles</Link>
             <AuthWidget />
             <Link href="/terms">Terms</Link>
             <Link href="/disclaimer">Disclaimer</Link>

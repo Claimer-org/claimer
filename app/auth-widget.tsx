@@ -61,7 +61,7 @@ export default function AuthWidget() {
 
   return (
     <div className="auth-widget">
-      <div className="auth-widget-user">
+      <Link className="auth-widget-user" href={`/profiles?user=${user.id}`}>
         {avatar ? (
           <img
             alt={name}
@@ -76,7 +76,7 @@ export default function AuthWidget() {
           </span>
         )}
         <span className="auth-widget-name">{name}</span>
-      </div>
+      </Link>
       <button
         className="auth-widget-signout"
         onClick={() => {
