@@ -2,6 +2,11 @@ import type { User } from "@supabase/supabase-js";
 import { getSupabaseClient, hasSupabaseConfig } from "./supabase";
 
 const appBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const googleAuthEnabled = process.env.NEXT_PUBLIC_GOOGLE_AUTH_ENABLED === "true";
+
+export function canUseGoogleAuth() {
+  return googleAuthEnabled;
+}
 
 /**
  * Returns the URL to redirect users to after OAuth or magic link sign-in.
@@ -56,6 +61,10 @@ export async function signInWithMagicLink(email: string) {
  * Signs in with Google OAuth.
  */
 export async function signInWithGoogle() {
+  if (!canUseGoogleAuth()) {
+    throw new Error("Google sign-in is not configured yet.");
+  }
+
   const supabase = getSupabaseClient();
   if (!supabase) {
     throw new Error("Supabase is not configured.");
