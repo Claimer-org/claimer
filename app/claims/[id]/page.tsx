@@ -8,6 +8,7 @@ import {
   reviewMission,
   seedClaims
 } from "../../../lib/claims";
+import ClaimShareSection from "./claim-share";
 
 const siteUrl = "https://smithmatric-boop.github.io/claimer";
 
@@ -75,6 +76,11 @@ export default async function ClaimDetailPage({
           <h1>{claim.title}</h1>
         </div>
       </div>
+      <ClaimShareSection
+        title={claim.title}
+        text={claim.veracityLabel}
+        claimId={claim.id}
+      />
       <p>{claim.body}</p>
 
       <div className="score-grid">

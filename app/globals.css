@@ -1549,3 +1549,165 @@ textarea {
 .panel:nth-child(2) { animation-delay: 0.1s; }
 .panel:nth-child(3) { animation-delay: 0.2s; }
 .panel:nth-child(4) { animation-delay: 0.3s; }
+
+/* Share Buttons */
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0 4px;
+}
+
+.share-label {
+  color: var(--foreground-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 4px;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  color: var(--foreground-dim);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  color: var(--foreground);
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.share-x:hover { color: #fff; background: #000; border-color: #333; }
+.share-reddit:hover { color: #fff; background: #ff4500; border-color: #ff4500; }
+.share-hn:hover { color: #fff; background: #ff6600; border-color: #ff6600; }
+.share-copy:hover { color: var(--accent-strong); border-color: var(--accent); }
+.share-copy.copied { color: var(--support); border-color: var(--support); background: var(--support-bg); }
+
+/* How It Works */
+.how-it-works {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.step-card {
+  position: relative;
+  padding: 28px 24px;
+  background: var(--gradient-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-smooth);
+}
+
+.step-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-subtle);
+  color: var(--accent-strong);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.step-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.step-card p {
+  margin: 0;
+  color: var(--foreground-dim);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* Trending Badge */
+.trending-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(251, 146, 60, 0.15));
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  color: #fb923c;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.trending-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* CTA Banner */
+.cta-banner {
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.08) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.cta-banner h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.cta-banner p {
+  margin: 0 0 24px;
+  color: var(--foreground-dim);
+  font-size: 1rem;
+}
+
+.cta-banner .actions {
+  justify-content: center;
+}
+
+@media (max-width: 680px) {
+  .share-buttons {
+    gap: 6px;
+  }
+  .share-btn span {
+    display: none;
+  }
+  .share-btn {
+    padding: 8px;
+  }
+  .how-it-works {
+    grid-template-columns: 1fr;
+  }
+  .cta-banner {
+    padding: 28px 20px;
+  }
+}

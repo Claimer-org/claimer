@@ -103,6 +103,45 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <section className="panel" aria-labelledby="how-it-works-title">
+        <h2 id="how-it-works-title">How it works</h2>
+        <div className="how-it-works">
+          <div className="step-card">
+            <div className="step-number">1</div>
+            <h3>Submit a claim</h3>
+            <p>Post any public claim about AI, technology, or science with at least one verifiable source URL.</p>
+          </div>
+          <div className="step-card">
+            <div className="step-number">2</div>
+            <h3>Add evidence</h3>
+            <p>Support or challenge claims with source-backed evidence. Every link is visible and traceable.</p>
+          </div>
+          <div className="step-card">
+            <div className="step-number">3</div>
+            <h3>Build reputation</h3>
+            <p>Your accuracy is tracked over time. The most reliable contributors rise to the top.</p>
+          </div>
+          <div className="step-card">
+            <div className="step-number">4</div>
+            <h3>Community assessment</h3>
+            <p>Claims get scored by the community. No black-box verdicts — every score is explainable.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-banner">
+        <h2>Know something that needs fact-checking?</h2>
+        <p>Submit a claim, add evidence, and let the community assess it.</p>
+        <div className="actions">
+          <Link className="button primary" href="/submit">
+            Submit a claim
+          </Link>
+          <Link className="button" href="/claims">
+            Browse claims
+          </Link>
+        </div>
+      </section>
     </section>
   );
 }
