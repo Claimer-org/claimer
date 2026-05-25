@@ -65,8 +65,47 @@ export default async function ClaimDetailPage({
   const health = evidenceHealth(claim);
   const mission = reviewMission(claim);
 
+  // ClaimReview JSON-LD for Google rich results
+  const claimReviewJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ClaimReview",
+    url: `${siteUrl}/claims/${claim.id}/`,
+    claimReviewed: claim.title,
+    itemReviewed: {
+      "@type": "Claim",
+      name: claim.title,
+      author: {
+        "@type": claim.subjectKind === "company" ? "Organization" : "Person",
+        name: claim.claimantName
+      },
+      datePublished: claim.createdAt,
+      appearance: {
+        "@type": "CreativeWork",
+        url: claim.sourceUrl,
+        name: claim.sourceTitle
+      }
+    },
+    author: {
+      "@type": "Organization",
+      name: "Claimer Community",
+      url: siteUrl
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: claim.veracityScore,
+      bestRating: 100,
+      worstRating: 0,
+      alternateName: claim.veracityLabel
+    },
+    datePublished: claim.createdAt
+  };
+
   return (
     <article className="detail standalone">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(claimReviewJsonLd) }}
+      />
       <Link className="button compact" href="/claims">
         Back to claims
       </Link>

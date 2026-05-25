@@ -13,7 +13,27 @@ export default function HomePage() {
     (total, claim) => total + claim.evidence.length,
     0
   );
+
+  // Hot debates: claims that are disputed or inconclusive
+  const hotDebates = seedClaims
+    .filter(
+      (c) =>
+        c.veracityLabel === "Evidence suggests disputed" ||
+        c.veracityLabel === "Evidence inconclusive"
+    )
+    .slice(0, 4);
+
+  // If we don't have enough disputed claims, fill with lowest veracity scores
+  const debateClaims =
+    hotDebates.length >= 3
+      ? hotDebates
+      : seedClaims
+          .slice()
+          .sort((a, b) => a.veracityScore - b.veracityScore)
+          .slice(0, 4);
+
   const topClaims = seedClaims.slice(0, 3);
+  const domainsSet = new Set(seedClaims.map((c) => c.domain));
 
   return (
     <section className="stack">
@@ -25,33 +45,87 @@ export default function HomePage() {
           support and challenge evidence, and separate attribution accuracy from
           claim veracity.
         </p>
+        <div className="hero-subtitle">
+          <span className="hero-tag">🔍 Source-verified</span>
+          <span className="hero-tag">⚖️ Two-sided evidence</span>
+          <span className="hero-tag">📊 Explainable scores</span>
+        </div>
         <div className="actions">
           <Link className="button primary" href="/claims">
-            Open claims
+            Browse claims
           </Link>
           <Link className="button" href="/submit">
-            Submit claim
-          </Link>
-          <Link className="button" href="/feedback">
-            Send feedback
+            Submit a claim
           </Link>
         </div>
       </div>
 
-      <section className="metric-strip" aria-label="MVP content metrics">
-        <div>
+      <section className="stat-highlight" aria-label="Platform statistics">
+        <div className="stat-item">
           <strong>{seedClaims.length}</strong>
-          <span>seed claims</span>
+          <span>Active claims</span>
         </div>
-        <div>
+        <div className="stat-item">
           <strong>{evidenceTotal}</strong>
-          <span>source links</span>
+          <span>Source links</span>
         </div>
-        <div>
+        <div className="stat-item">
+          <strong>{domainsSet.size}</strong>
+          <span>Domains covered</span>
+        </div>
+        <div className="stat-item">
           <strong>2</strong>
-          <span>score dimensions</span>
+          <span>Score dimensions</span>
         </div>
       </section>
+
+      {debateClaims.length > 0 && (
+        <section className="panel hot-debates" aria-labelledby="debates-title">
+          <div className="section-heading">
+            <h2 id="debates-title">🔥 Hot debates</h2>
+            <Link href="/claims">View all claims</Link>
+          </div>
+          <div className="grid">
+            {debateClaims.map((claim) => {
+              const counts = evidenceCounts(claim);
+              const isDisputed =
+                claim.veracityLabel === "Evidence suggests disputed";
+              const isInconclusive =
+                claim.veracityLabel === "Evidence inconclusive";
+              const badgeClass = isDisputed
+                ? "disputed"
+                : isInconclusive
+                  ? "inconclusive"
+                  : "";
+              const cardClass = `card claim-card ${badgeClass}`;
+              return (
+                <article className={cardClass} key={`debate-${claim.id}`}>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "8px",
+                      alignItems: "center"
+                    }}
+                  >
+                    <span className="claim-domain">{claim.domain}</span>
+                    {badgeClass && (
+                      <span className={`debate-badge ${badgeClass}`}>
+                        {isDisputed ? "Disputed" : "Inconclusive"}
+                      </span>
+                    )}
+                  </div>
+                  <h3>{claim.title}</h3>
+                  <p>{claim.veracityLabel}</p>
+                  <Link href={`/claims/${claim.id}`}>
+                    {counts.support + counts.challenge + counts.context} source
+                    links · {claim.veracityScore}% veracity
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <section className="panel" aria-labelledby="featured-title">
         <div className="section-heading">
@@ -142,9 +216,6 @@ export default function HomePage() {
           </Link>
           <Link className="button" href="/claims">
             Browse claims
-          </Link>
-          <Link className="button" href="/feedback">
-            Send feedback
           </Link>
         </div>
       </section>

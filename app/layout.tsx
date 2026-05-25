@@ -50,16 +50,22 @@ export default function RootLayout({
             <Link href="/submit">Submit</Link>
             <Link href="/profiles">Profiles</Link>
             <Link href="/about">About</Link>
-            <Link href="/feedback">Feedback</Link>
             <AuthWidget />
-            <Link href="/terms">Terms</Link>
-            <Link href="/disclaimer">Disclaimer</Link>
           </nav>
         </header>
         <main>{children}</main>
         <footer className="site-footer">
-          <span>Community assessment, source links, and explainable scores.</span>
-          <span>Automated analysis is labeled wherever it appears.</span>
+          <div className="footer-main">
+            <span className="footer-brand">Claimer</span>
+            <span>Community assessment · Source links · Explainable scores</span>
+          </div>
+          <nav className="footer-links" aria-label="Footer navigation">
+            <Link href="/feedback">Feedback</Link>
+            <Link href="/about">About</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/disclaimer">Disclaimer</Link>
+            <span className="footer-disclosure">Automated analysis is labeled wherever it appears.</span>
+          </nav>
         </footer>
       </body>
     </html>
