@@ -14,6 +14,13 @@ import {
   reviewMission,
   seedClaims
 } from "../../lib/claims";
+import {
+  canPersistEvidenceToSupabase,
+  canUseSupabase,
+  loadSupabaseClaims,
+  publishClaimToSupabase,
+  publishEvidenceToSupabase
+} from "../../lib/supabase-claims";
 
 type StoredClaims = Record<string, Claim>;
 
@@ -175,6 +182,7 @@ function claimsFromPack(value: unknown): Claim[] {
 
 export default function ClaimsClient() {
   const [storedClaims, setStoredClaims] = useState<StoredClaims>({});
+  const [remoteClaims, setRemoteClaims] = useState<Claim[]>([]);
   const [activeDomain, setActiveDomain] = useState<ClaimDomain | "all">("all");
   const [activeTriage, setActiveTriage] = useState<
     "all" | "needs-challenge" | "needs-support" | "primary-direct"
@@ -186,6 +194,7 @@ export default function ClaimsClient() {
   const [importText, setImportText] = useState("");
   const [importMessage, setImportMessage] = useState("");
   const [missionMessage, setMissionMessage] = useState("");
+  const [supabaseMessage, setSupabaseMessage] = useState("");
   const [requestedClaimId, setRequestedClaimId] = useState("");
 
   const [claimForm, setClaimForm] = useState({
@@ -218,12 +227,49 @@ export default function ClaimsClient() {
     }
   }, []);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadLiveClaims() {
+      if (!canUseSupabase()) {
+        setSupabaseMessage("Local mode: configure Supabase env vars to publish live.");
+        return;
+      }
+
+      try {
+        const liveClaims = await loadSupabaseClaims();
+        if (!isMounted) {
+          return;
+        }
+        setRemoteClaims(liveClaims);
+        setSupabaseMessage(
+          liveClaims.length > 0
+            ? `${liveClaims.length} live claim${liveClaims.length === 1 ? "" : "s"} loaded from Supabase.`
+            : "Live database connected. New submissions will publish to Supabase."
+        );
+      } catch (error) {
+        if (!isMounted) {
+          return;
+        }
+        setSupabaseMessage(
+          error instanceof Error ? error.message : "Supabase claim load failed."
+        );
+      }
+    }
+
+    loadLiveClaims();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const claims = useMemo(() => {
     const localClaims = Object.values(storedClaims).sort((a, b) =>
       b.createdAt.localeCompare(a.createdAt)
     );
-    return [...localClaims, ...seedClaims];
-  }, [storedClaims]);
+    return [...remoteClaims, ...localClaims, ...seedClaims];
+  }, [remoteClaims, storedClaims]);
 
   const filteredClaims = useMemo(() => {
     const domainClaims =
@@ -287,7 +333,7 @@ export default function ClaimsClient() {
     writeStoredClaims(nextClaims);
   }
 
-  function submitClaim(event: React.FormEvent<HTMLFormElement>) {
+  async function submitClaim(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setClaimMessage("");
 
@@ -309,6 +355,36 @@ export default function ClaimsClient() {
         "The MVP excludes private-person, medical, betting, and broad high-risk claims."
       );
       return;
+    }
+
+    if (canUseSupabase()) {
+      try {
+        const liveClaim = await publishClaimToSupabase(claimForm);
+        setRemoteClaims((currentClaims) => [
+          liveClaim,
+          ...currentClaims.filter((claim) => claim.id !== liveClaim.id)
+        ]);
+        setSelectedId(liveClaim.id);
+        setClaimForm({
+          title: "",
+          body: "",
+          domain: "ai",
+          claimantName: "",
+          subjectKind: "company",
+          sourceUrl: "",
+          sourceTitle: "",
+          sourceQuality: "unverifiable"
+        });
+        setClaimMessage("Claim published to the live Supabase database.");
+        setSupabaseMessage("Live database write succeeded.");
+        return;
+      } catch (error) {
+        setSupabaseMessage(
+          error instanceof Error
+            ? `${error.message} Saved this submission locally instead.`
+            : "Supabase write failed. Saved this submission locally instead."
+        );
+      }
     }
 
     const now = new Date().toISOString();
@@ -368,7 +444,7 @@ export default function ClaimsClient() {
     setClaimMessage("Claim published locally with a required source URL.");
   }
 
-  function submitEvidence(event: React.FormEvent<HTMLFormElement>) {
+  async function submitEvidence(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setEvidenceMessage("");
 
@@ -385,6 +461,42 @@ export default function ClaimsClient() {
     if (!isPublicUrl(evidenceForm.sourceUrl)) {
       setEvidenceMessage("Evidence requires a public http or https source URL.");
       return;
+    }
+
+    if (canUseSupabase() && canPersistEvidenceToSupabase(selectedClaim.id)) {
+      try {
+        const liveEvidence = await publishEvidenceToSupabase(selectedClaim.id, evidenceForm);
+        setRemoteClaims((currentClaims) =>
+          currentClaims.map((claim) =>
+            claim.id === selectedClaim.id
+              ? {
+                  ...claim,
+                  evidence: [liveEvidence, ...claim.evidence],
+                  veracityLabel: "Community assessment updated",
+                  veracityExplanation:
+                    "New live evidence has been added. Review the support and challenge source mix before relying on the score."
+                }
+              : claim
+          )
+        );
+        setEvidenceForm({
+          stance: "support",
+          assessmentTarget: "veracity",
+          summary: "",
+          sourceUrl: "",
+          sourceTitle: "",
+          sourceQuality: "unverifiable",
+          aiAssisted: false
+        });
+        setEvidenceMessage("Evidence published to the live Supabase database.");
+        setSupabaseMessage("Live evidence write succeeded.");
+        return;
+      } catch (error) {
+        setEvidenceMessage(
+          error instanceof Error ? error.message : "Supabase evidence write failed."
+        );
+        return;
+      }
     }
 
     const evidence: EvidenceEntry = {
@@ -568,6 +680,7 @@ export default function ClaimsClient() {
             </button>
           ))}
         </div>
+        {supabaseMessage ? <p className="form-message">{supabaseMessage}</p> : null}
 
         <div className="claim-list">
           {filteredClaims.map((claim) => {
@@ -946,7 +1059,7 @@ export default function ClaimsClient() {
             </select>
           </label>
           <button className="button primary" type="submit">
-            Publish locally
+            {canUseSupabase() ? "Publish live" : "Publish locally"}
           </button>
         </form>
         {claimMessage ? <p className="form-message">{claimMessage}</p> : null}

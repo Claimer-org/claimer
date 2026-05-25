@@ -12,6 +12,11 @@ import type { SupabaseDatabase } from "./supabase-contract";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
+let browserClient: ReturnType<typeof createClient<SupabaseDatabase>> | null = null;
+
+export function hasSupabaseConfig() {
+  return Boolean(supabaseUrl && supabaseAnonKey);
+}
 
 /**
  * Returns a typed Supabase client, or null when the required env vars
@@ -21,7 +26,10 @@ export function getSupabaseClient() {
   if (!supabaseUrl || !supabaseAnonKey) {
     return null;
   }
-  return createClient<SupabaseDatabase>(supabaseUrl, supabaseAnonKey);
+  if (!browserClient) {
+    browserClient = createClient<SupabaseDatabase>(supabaseUrl, supabaseAnonKey);
+  }
+  return browserClient;
 }
 
 /**

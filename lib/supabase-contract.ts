@@ -270,6 +270,7 @@ export type TableContract<Row, Insert, Update> = {
   Row: Row;
   Insert: Insert;
   Update: Update;
+  Relationships: [];
 };
 
 export type SupabaseDatabase = {
@@ -294,6 +295,8 @@ export type SupabaseDatabase = {
         VeracityScoreUpdate
       >;
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
     Enums: {
       claim_domain: ClaimDomain;
       claim_stance: ClaimStance;
@@ -302,5 +305,6 @@ export type SupabaseDatabase = {
       score_method: ScoreMethod;
       public_subject_kind: PublicSubjectKind;
     };
+    CompositeTypes: Record<string, never>;
   };
 };
