@@ -22,59 +22,77 @@ export default function AuthClient() {
   const [sending, setSending] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
+
     if (!hasSupabaseConfig()) {
       setLoading(false);
       setMessage("Supabase is not configured. Auth is unavailable in local mode.");
-      return;
+      return () => {
+        isMounted = false;
+      };
     }
 
-    // Handle hash fragment from OAuth redirect
-    const hash = window.location.hash;
-    if (hash && hash.includes("access_token")) {
+    async function loadAuthState() {
       const supabase = getSupabaseClient();
-      if (supabase) {
-        // Supabase client auto-parses the hash fragment
-        supabase.auth.getSession().then(({ data }) => {
+
+      try {
+        const hash = window.location.hash;
+        if (hash && hash.includes("access_token") && supabase) {
+          const { data } = await supabase.auth.getSession();
           const sessionUser = data.session?.user ?? null;
-          if (sessionUser) {
+          if (sessionUser && isMounted) {
             setUser(sessionUser);
-            ensureProfile(sessionUser);
+            await ensureProfile(sessionUser);
             setMessage(`Welcome, ${displayName(sessionUser)}!`);
           }
+          window.history.replaceState(null, "", window.location.pathname);
+          return;
+        }
+
+        const currentUser = await getCurrentUser();
+        if (currentUser && !currentUser.is_anonymous && isMounted) {
+          setUser(currentUser);
+          await ensureProfile(currentUser);
+        }
+      } catch (error) {
+        if (isMounted) {
+          setMessage(
+            error instanceof Error
+              ? `Auth state failed to load: ${error.message}`
+              : "Auth state failed to load."
+          );
+        }
+      } finally {
+        if (isMounted) {
           setLoading(false);
-        });
-        // Clean up the URL
-        window.history.replaceState(null, "", window.location.pathname);
-        return;
+        }
       }
     }
-
-    getCurrentUser().then((u) => {
-      if (u && !u.is_anonymous) {
-        setUser(u);
-      }
-      setLoading(false);
-    });
 
     const supabase = getSupabaseClient();
-    if (!supabase) {
-      return;
-    }
-
-    const {
-      data: { subscription }
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    const subscription = supabase?.auth.onAuthStateChange((_event, session) => {
       const sessionUser = session?.user ?? null;
       if (sessionUser && !sessionUser.is_anonymous) {
         setUser(sessionUser);
-        ensureProfile(sessionUser);
+        void ensureProfile(sessionUser).catch((error) => {
+          if (isMounted) {
+            setMessage(
+              error instanceof Error
+                ? `Profile sync failed: ${error.message}`
+                : "Profile sync failed."
+            );
+          }
+        });
       } else {
         setUser(null);
       }
-    });
+    }).data.subscription;
+
+    void loadAuthState();
 
     return () => {
-      subscription.unsubscribe();
+      isMounted = false;
+      subscription?.unsubscribe();
     };
   }, []);
 
@@ -108,9 +126,14 @@ export default function AuthClient() {
   }
 
   async function handleSignOut() {
-    await signOut();
-    setUser(null);
-    setMessage("Signed out successfully.");
+    setMessage("");
+    try {
+      await signOut();
+      setUser(null);
+      setMessage("Signed out successfully.");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Sign out failed.");
+    }
   }
 
   if (loading) {

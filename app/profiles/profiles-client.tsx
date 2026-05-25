@@ -83,6 +83,29 @@ function provisionalScore(claims: ProfileClaim[], evidence: ProfileEvidence[]) {
   return claims.length * 5 + evidence.length * 3 + stanceSpread * 4;
 }
 
+function DirectoryLoadingState() {
+  return (
+    <div className="skeleton-list" aria-label="Loading contributors">
+      <span className="skeleton-row" />
+      <span className="skeleton-row" />
+      <span className="skeleton-row" />
+    </div>
+  );
+}
+
+function ProfileLoadingState() {
+  return (
+    <div className="profile-loading" aria-label="Loading profile">
+      <span className="profile-avatar-large skeleton-dot" />
+      <div className="skeleton-stack">
+        <span className="skeleton-line short" />
+        <span className="skeleton-line" />
+        <span className="skeleton-line medium" />
+      </div>
+    </div>
+  );
+}
+
 export default function ProfilesClient() {
   const [profileState, setProfileState] =
     useState<ProfileState>(emptyProfileState);
@@ -99,122 +122,139 @@ export default function ProfilesClient() {
     let isMounted = true;
 
     async function loadProfiles() {
-      if (!hasSupabaseConfig()) {
-        setLoadingProfile(false);
-        setDirectoryState({ profiles: [], loading: false });
-        setMessage("Live profiles need Supabase env vars in this build.");
-        return;
-      }
+      try {
+        if (!hasSupabaseConfig()) {
+          setLoadingProfile(false);
+          setDirectoryState({ profiles: [], loading: false });
+          setMessage("Live profiles need Supabase env vars in this build.");
+          return;
+        }
 
-      const supabase = getSupabaseClient();
-      if (!supabase) {
-        setLoadingProfile(false);
-        setDirectoryState({ profiles: [], loading: false });
-        setMessage("Supabase client unavailable.");
-        return;
-      }
+        const supabase = getSupabaseClient();
+        if (!supabase) {
+          setLoadingProfile(false);
+          setDirectoryState({ profiles: [], loading: false });
+          setMessage("Supabase client unavailable.");
+          return;
+        }
 
-      const requestedUserId = new URLSearchParams(window.location.search).get(
-        "user"
-      );
-      const currentUser = await getCurrentUser();
-      const realUser = currentUser && !currentUser.is_anonymous ? currentUser : null;
-
-      if (realUser) {
-        await ensureProfile(realUser);
-      }
-
-      const profileId = requestedUserId ?? realUser?.id ?? "";
-      if (isMounted) {
-        setCurrentUserId(realUser?.id ?? "");
-        setSelectedUserId(profileId);
-      }
-
-      const { data: directory, error: directoryError } = await supabase
-        .from("profiles")
-        .select("id, display_name, handle, bio, reputation_points, created_at, updated_at")
-        .order("created_at", { ascending: false })
-        .limit(24);
-
-      if (!isMounted) {
-        return;
-      }
-
-      if (directoryError) {
-        setMessage(`Profile directory failed: ${directoryError.message}`);
-        setDirectoryState({ profiles: [], loading: false });
-      } else {
-        setDirectoryState({
-          profiles: (directory ?? []) as ProfileRow[],
-          loading: false
-        });
-      }
-
-      if (!profileId) {
-        setLoadingProfile(false);
-        setProfileState(emptyProfileState);
-        return;
-      }
-
-      const [
-        { data: profile, error: profileError },
-        { data: claims, error: claimsError },
-        { data: evidence, error: evidenceError }
-      ] = await Promise.all([
-        supabase
-          .from("profiles")
-          .select(
-            "id, display_name, handle, bio, reputation_points, created_at, updated_at"
-          )
-          .eq("id", profileId)
-          .maybeSingle(),
-        supabase
-          .from("claims")
-          .select("id, domain, title, source_url, created_at")
-          .eq("submitted_by", profileId)
-          .order("created_at", { ascending: false })
-          .limit(20),
-        supabase
-          .from("evidence_entries")
-          .select(
-            `
-              id,
-              claim_id,
-              stance,
-              assessment_target,
-              summary,
-              source_url,
-              created_at,
-              claims (
-                id,
-                title
-              )
-            `
-          )
-          .eq("submitted_by", profileId)
-          .order("created_at", { ascending: false })
-          .limit(20)
-      ]);
-
-      if (!isMounted) {
-        return;
-      }
-
-      if (profileError || claimsError || evidenceError) {
-        setMessage(
-          profileError?.message ??
-            claimsError?.message ??
-            evidenceError?.message ??
-            "Profile activity failed to load."
+        const requestedUserId = new URLSearchParams(window.location.search).get(
+          "user"
         );
-      }
+        const currentUser = await getCurrentUser();
+        const realUser = currentUser && !currentUser.is_anonymous ? currentUser : null;
 
-      setProfileState({
-        profile: (profile as ProfileRow | null) ?? null,
-        claims: (claims ?? []) as ProfileClaim[],
-        evidence: (evidence ?? []) as ProfileEvidence[]
-      });
-      setLoadingProfile(false);
+        if (realUser) {
+          await ensureProfile(realUser);
+        }
+
+        const profileId = requestedUserId ?? realUser?.id ?? "";
+        if (isMounted) {
+          setCurrentUserId(realUser?.id ?? "");
+          setSelectedUserId(profileId);
+        }
+
+        const { data: directory, error: directoryError } = await supabase
+          .from("profiles")
+          .select("id, display_name, handle, bio, reputation_points, created_at, updated_at")
+          .order("created_at", { ascending: false })
+          .limit(24);
+
+        if (!isMounted) {
+          return;
+        }
+
+        if (directoryError) {
+          setMessage(`Profile directory failed: ${directoryError.message}`);
+          setDirectoryState({ profiles: [], loading: false });
+        } else {
+          setDirectoryState({
+            profiles: (directory ?? []) as ProfileRow[],
+            loading: false
+          });
+        }
+
+        if (!profileId) {
+          setLoadingProfile(false);
+          setProfileState(emptyProfileState);
+          return;
+        }
+
+        const [
+          { data: profile, error: profileError },
+          { data: claims, error: claimsError },
+          { data: evidence, error: evidenceError }
+        ] = await Promise.all([
+          supabase
+            .from("profiles")
+            .select(
+              "id, display_name, handle, bio, reputation_points, created_at, updated_at"
+            )
+            .eq("id", profileId)
+            .maybeSingle(),
+          supabase
+            .from("claims")
+            .select("id, domain, title, source_url, created_at")
+            .eq("submitted_by", profileId)
+            .order("created_at", { ascending: false })
+            .limit(20),
+          supabase
+            .from("evidence_entries")
+            .select(
+              `
+                id,
+                claim_id,
+                stance,
+                assessment_target,
+                summary,
+                source_url,
+                created_at,
+                claims (
+                  id,
+                  title
+                )
+              `
+            )
+            .eq("submitted_by", profileId)
+            .order("created_at", { ascending: false })
+            .limit(20)
+        ]);
+
+        if (!isMounted) {
+          return;
+        }
+
+        if (profileError || claimsError || evidenceError) {
+          setMessage(
+            profileError?.message ??
+              claimsError?.message ??
+              evidenceError?.message ??
+              "Profile activity failed to load."
+          );
+        } else if (requestedUserId && !profile) {
+          setMessage("That public profile is not available yet.");
+        }
+
+        setProfileState({
+          profile: (profile as ProfileRow | null) ?? null,
+          claims: (claims ?? []) as ProfileClaim[],
+          evidence: (evidence ?? []) as ProfileEvidence[]
+        });
+        setLoadingProfile(false);
+      } catch (error) {
+        if (!isMounted) {
+          return;
+        }
+
+        setMessage(
+          error instanceof Error
+            ? `Profile load failed: ${error.message}`
+            : "Profile load failed."
+        );
+        setDirectoryState({ profiles: [], loading: false });
+        setProfileState(emptyProfileState);
+        setLoadingProfile(false);
+      }
     }
 
     loadProfiles();
@@ -254,7 +294,7 @@ export default function ProfilesClient() {
         </div>
 
         {directoryState.loading ? (
-          <p className="profile-empty">Loading contributors...</p>
+          <DirectoryLoadingState />
         ) : directoryState.profiles.length > 0 ? (
           <div className="profile-list">
             {directoryState.profiles.map((directoryProfile) => (
@@ -286,7 +326,7 @@ export default function ProfilesClient() {
         {message ? <p className="form-message">{message}</p> : null}
 
         {loadingProfile ? (
-          <p className="profile-empty">Loading profile...</p>
+          <ProfileLoadingState />
         ) : profile ? (
           <>
             <div className="profile-hero">

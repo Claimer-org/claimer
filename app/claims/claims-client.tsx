@@ -183,6 +183,9 @@ function claimsFromPack(value: unknown): Claim[] {
 export default function ClaimsClient() {
   const [storedClaims, setStoredClaims] = useState<StoredClaims>({});
   const [remoteClaims, setRemoteClaims] = useState<Claim[]>([]);
+  const [liveClaimsState, setLiveClaimsState] = useState<
+    "idle" | "loading" | "ready" | "error"
+  >("idle");
   const [activeDomain, setActiveDomain] = useState<ClaimDomain | "all">("all");
   const [activeTriage, setActiveTriage] = useState<
     "all" | "needs-challenge" | "needs-support" | "primary-direct"
@@ -196,6 +199,8 @@ export default function ClaimsClient() {
   const [missionMessage, setMissionMessage] = useState("");
   const [supabaseMessage, setSupabaseMessage] = useState("");
   const [requestedClaimId, setRequestedClaimId] = useState("");
+  const [claimSubmitting, setClaimSubmitting] = useState(false);
+  const [evidenceSubmitting, setEvidenceSubmitting] = useState(false);
 
   const [claimForm, setClaimForm] = useState({
     title: "",
@@ -232,9 +237,12 @@ export default function ClaimsClient() {
 
     async function loadLiveClaims() {
       if (!canUseSupabase()) {
+        setLiveClaimsState("ready");
         setSupabaseMessage("Local mode: configure Supabase env vars to publish live.");
         return;
       }
+
+      setLiveClaimsState("loading");
 
       try {
         const liveClaims = await loadSupabaseClaims();
@@ -242,6 +250,7 @@ export default function ClaimsClient() {
           return;
         }
         setRemoteClaims(liveClaims);
+        setLiveClaimsState("ready");
         setSupabaseMessage(
           liveClaims.length > 0
             ? `${liveClaims.length} live claim${liveClaims.length === 1 ? "" : "s"} loaded from Supabase.`
@@ -251,6 +260,7 @@ export default function ClaimsClient() {
         if (!isMounted) {
           return;
         }
+        setLiveClaimsState("error");
         setSupabaseMessage(
           error instanceof Error ? error.message : "Supabase claim load failed."
         );
@@ -357,91 +367,97 @@ export default function ClaimsClient() {
       return;
     }
 
-    if (canUseSupabase()) {
-      try {
-        const liveClaim = await publishClaimToSupabase(claimForm);
-        setRemoteClaims((currentClaims) => [
-          liveClaim,
-          ...currentClaims.filter((claim) => claim.id !== liveClaim.id)
-        ]);
-        setSelectedId(liveClaim.id);
-        setClaimForm({
-          title: "",
-          body: "",
-          domain: "ai",
-          claimantName: "",
-          subjectKind: "company",
-          sourceUrl: "",
-          sourceTitle: "",
-          sourceQuality: "unverifiable"
-        });
-        setClaimMessage("Claim published to the live Supabase database.");
-        setSupabaseMessage("Live database write succeeded.");
-        return;
-      } catch (error) {
-        setSupabaseMessage(
-          error instanceof Error
-            ? `${error.message} Saved this submission locally instead.`
-            : "Supabase write failed. Saved this submission locally instead."
-        );
-      }
-    }
+    setClaimSubmitting(true);
 
-    const now = new Date().toISOString();
-    const sourceTitle =
-      claimForm.sourceTitle.trim() || new URL(claimForm.sourceUrl).hostname;
-    const claim: Claim = {
-      id: makeId("claim"),
-      title: claimForm.title.trim(),
-      body: claimForm.body.trim(),
-      domain: claimForm.domain,
-      claimantName: claimForm.claimantName.trim(),
-      subjectKind: claimForm.subjectKind,
-      sourceUrl: claimForm.sourceUrl.trim(),
-      sourceTitle,
-      sourcePublisher: new URL(claimForm.sourceUrl).hostname,
-      sourceQuality: claimForm.sourceQuality,
-      attributionScore: 50,
-      attributionLabel: "Needs community review",
-      attributionExplanation:
-        "This claim was submitted locally and needs community assessment of the attribution source.",
-      veracityScore: 50,
-      veracityLabel: "Evidence still developing",
-      veracityExplanation:
-        "One source is present. Add support and challenge evidence before treating the assessment as useful.",
-      createdAt: now,
-      submittedBy: "Local user",
-      aiAssisted: false,
-      evidence: [
-        {
-          id: makeId("ev"),
-          stance: "context",
-          assessmentTarget: "attribution",
-          summary: "Initial attribution source submitted with the claim.",
-          sourceUrl: claimForm.sourceUrl.trim(),
-          sourceTitle,
-          sourceQuality: claimForm.sourceQuality,
-          submittedBy: "Local user",
-          createdAt: now,
-          aiAssisted: false
+    try {
+      if (canUseSupabase()) {
+        try {
+          const liveClaim = await publishClaimToSupabase(claimForm);
+          setRemoteClaims((currentClaims) => [
+            liveClaim,
+            ...currentClaims.filter((claim) => claim.id !== liveClaim.id)
+          ]);
+          setSelectedId(liveClaim.id);
+          setClaimForm({
+            title: "",
+            body: "",
+            domain: "ai",
+            claimantName: "",
+            subjectKind: "company",
+            sourceUrl: "",
+            sourceTitle: "",
+            sourceQuality: "unverifiable"
+          });
+          setClaimMessage("Claim published to the live Supabase database.");
+          setSupabaseMessage("Live database write succeeded.");
+          return;
+        } catch (error) {
+          setSupabaseMessage(
+            error instanceof Error
+              ? `${error.message} Saved this submission locally instead.`
+              : "Supabase write failed. Saved this submission locally instead."
+          );
         }
-      ]
-    };
+      }
 
-    const nextClaims = { ...storedClaims, [claim.id]: claim };
-    saveClaims(nextClaims);
-    setSelectedId(claim.id);
-    setClaimForm({
-      title: "",
-      body: "",
-      domain: "ai",
-      claimantName: "",
-      subjectKind: "company",
-      sourceUrl: "",
-      sourceTitle: "",
-      sourceQuality: "unverifiable"
-    });
-    setClaimMessage("Claim published locally with a required source URL.");
+      const now = new Date().toISOString();
+      const sourceTitle =
+        claimForm.sourceTitle.trim() || new URL(claimForm.sourceUrl).hostname;
+      const claim: Claim = {
+        id: makeId("claim"),
+        title: claimForm.title.trim(),
+        body: claimForm.body.trim(),
+        domain: claimForm.domain,
+        claimantName: claimForm.claimantName.trim(),
+        subjectKind: claimForm.subjectKind,
+        sourceUrl: claimForm.sourceUrl.trim(),
+        sourceTitle,
+        sourcePublisher: new URL(claimForm.sourceUrl).hostname,
+        sourceQuality: claimForm.sourceQuality,
+        attributionScore: 50,
+        attributionLabel: "Needs community review",
+        attributionExplanation:
+          "This claim was submitted locally and needs community assessment of the attribution source.",
+        veracityScore: 50,
+        veracityLabel: "Evidence still developing",
+        veracityExplanation:
+          "One source is present. Add support and challenge evidence before treating the assessment as useful.",
+        createdAt: now,
+        submittedBy: "Local user",
+        aiAssisted: false,
+        evidence: [
+          {
+            id: makeId("ev"),
+            stance: "context",
+            assessmentTarget: "attribution",
+            summary: "Initial attribution source submitted with the claim.",
+            sourceUrl: claimForm.sourceUrl.trim(),
+            sourceTitle,
+            sourceQuality: claimForm.sourceQuality,
+            submittedBy: "Local user",
+            createdAt: now,
+            aiAssisted: false
+          }
+        ]
+      };
+
+      const nextClaims = { ...storedClaims, [claim.id]: claim };
+      saveClaims(nextClaims);
+      setSelectedId(claim.id);
+      setClaimForm({
+        title: "",
+        body: "",
+        domain: "ai",
+        claimantName: "",
+        subjectKind: "company",
+        sourceUrl: "",
+        sourceTitle: "",
+        sourceQuality: "unverifiable"
+      });
+      setClaimMessage("Claim published locally with a required source URL.");
+    } finally {
+      setClaimSubmitting(false);
+    }
   }
 
   async function submitEvidence(event: React.FormEvent<HTMLFormElement>) {
@@ -463,78 +479,84 @@ export default function ClaimsClient() {
       return;
     }
 
-    if (canUseSupabase() && canPersistEvidenceToSupabase(selectedClaim.id)) {
-      try {
-        const liveEvidence = await publishEvidenceToSupabase(selectedClaim.id, evidenceForm);
-        setRemoteClaims((currentClaims) =>
-          currentClaims.map((claim) =>
-            claim.id === selectedClaim.id
-              ? {
-                  ...claim,
-                  evidence: [liveEvidence, ...claim.evidence],
-                  veracityLabel: "Community assessment updated",
-                  veracityExplanation:
-                    "New live evidence has been added. Review the support and challenge source mix before relying on the score."
-                }
-              : claim
-          )
-        );
-        setEvidenceForm({
-          stance: "support",
-          assessmentTarget: "veracity",
-          summary: "",
-          sourceUrl: "",
-          sourceTitle: "",
-          sourceQuality: "unverifiable",
-          aiAssisted: false
-        });
-        setEvidenceMessage("Evidence published to the live Supabase database.");
-        setSupabaseMessage("Live evidence write succeeded.");
-        return;
-      } catch (error) {
-        setEvidenceMessage(
-          error instanceof Error ? error.message : "Supabase evidence write failed."
-        );
-        return;
+    setEvidenceSubmitting(true);
+
+    try {
+      if (canUseSupabase() && canPersistEvidenceToSupabase(selectedClaim.id)) {
+        try {
+          const liveEvidence = await publishEvidenceToSupabase(selectedClaim.id, evidenceForm);
+          setRemoteClaims((currentClaims) =>
+            currentClaims.map((claim) =>
+              claim.id === selectedClaim.id
+                ? {
+                    ...claim,
+                    evidence: [liveEvidence, ...claim.evidence],
+                    veracityLabel: "Community assessment updated",
+                    veracityExplanation:
+                      "New live evidence has been added. Review the support and challenge source mix before relying on the score."
+                  }
+                : claim
+            )
+          );
+          setEvidenceForm({
+            stance: "support",
+            assessmentTarget: "veracity",
+            summary: "",
+            sourceUrl: "",
+            sourceTitle: "",
+            sourceQuality: "unverifiable",
+            aiAssisted: false
+          });
+          setEvidenceMessage("Evidence published to the live Supabase database.");
+          setSupabaseMessage("Live evidence write succeeded.");
+          return;
+        } catch (error) {
+          setEvidenceMessage(
+            error instanceof Error ? error.message : "Supabase evidence write failed."
+          );
+          return;
+        }
       }
+
+      const evidence: EvidenceEntry = {
+        id: makeId("ev"),
+        stance: evidenceForm.stance,
+        assessmentTarget: evidenceForm.assessmentTarget,
+        summary: evidenceForm.summary.trim(),
+        sourceUrl: evidenceForm.sourceUrl.trim(),
+        sourceTitle:
+          evidenceForm.sourceTitle.trim() || new URL(evidenceForm.sourceUrl).hostname,
+        sourceQuality: evidenceForm.sourceQuality,
+        submittedBy: "Local user",
+        createdAt: new Date().toISOString(),
+        aiAssisted: evidenceForm.aiAssisted
+      };
+
+      const baseClaim = storedClaims[selectedClaim.id] ?? selectedClaim;
+      const nextClaim: Claim = {
+        ...baseClaim,
+        evidence: [evidence, ...baseClaim.evidence],
+        veracityLabel: "Community assessment updated",
+        veracityExplanation:
+          "New local evidence has been added. Review the support and challenge source mix before relying on the score."
+      };
+
+      const nextClaims = { ...storedClaims, [nextClaim.id]: nextClaim };
+      saveClaims(nextClaims);
+      setSelectedId(nextClaim.id);
+      setEvidenceForm({
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary: "",
+        sourceUrl: "",
+        sourceTitle: "",
+        sourceQuality: "unverifiable",
+        aiAssisted: false
+      });
+      setEvidenceMessage("Evidence added locally with source link.");
+    } finally {
+      setEvidenceSubmitting(false);
     }
-
-    const evidence: EvidenceEntry = {
-      id: makeId("ev"),
-      stance: evidenceForm.stance,
-      assessmentTarget: evidenceForm.assessmentTarget,
-      summary: evidenceForm.summary.trim(),
-      sourceUrl: evidenceForm.sourceUrl.trim(),
-      sourceTitle:
-        evidenceForm.sourceTitle.trim() || new URL(evidenceForm.sourceUrl).hostname,
-      sourceQuality: evidenceForm.sourceQuality,
-      submittedBy: "Local user",
-      createdAt: new Date().toISOString(),
-      aiAssisted: evidenceForm.aiAssisted
-    };
-
-    const baseClaim = storedClaims[selectedClaim.id] ?? selectedClaim;
-    const nextClaim: Claim = {
-      ...baseClaim,
-      evidence: [evidence, ...baseClaim.evidence],
-      veracityLabel: "Community assessment updated",
-      veracityExplanation:
-        "New local evidence has been added. Review the support and challenge source mix before relying on the score."
-    };
-
-    const nextClaims = { ...storedClaims, [nextClaim.id]: nextClaim };
-    saveClaims(nextClaims);
-    setSelectedId(nextClaim.id);
-    setEvidenceForm({
-      stance: "support",
-      assessmentTarget: "veracity",
-      summary: "",
-      sourceUrl: "",
-      sourceTitle: "",
-      sourceQuality: "unverifiable",
-      aiAssisted: false
-    });
-    setEvidenceMessage("Evidence added locally with source link.");
   }
 
   async function exportLocalClaims() {
@@ -682,30 +704,48 @@ export default function ClaimsClient() {
         </div>
         {supabaseMessage ? <p className="form-message">{supabaseMessage}</p> : null}
 
-        <div className="claim-list">
-          {filteredClaims.map((claim) => {
-            const counts = evidenceCounts(claim);
-            const health = evidenceHealth(claim);
-            return (
-              <button
-                className={selectedClaim?.id === claim.id ? "claim-row active" : "claim-row"}
-                key={claim.id}
-                onClick={() => setSelectedId(claim.id)}
-                type="button"
-              >
-                <span className="claim-domain">{claim.domain}</span>
-                <strong>{claim.title}</strong>
-                <span>
-                  {counts.support} support / {counts.challenge} challenge /{" "}
-                  {counts.context} context
-                </span>
-                <span className={health.needsChallenge ? "triage need" : "triage"}>
-                  {health.balanceLabel} · {health.highQualityCount} strong source
-                  {health.highQualityCount === 1 ? "" : "s"}
-                </span>
-              </button>
-            );
-          })}
+        <div
+          className="claim-list"
+          aria-busy={liveClaimsState === "loading"}
+          aria-live="polite"
+        >
+          {liveClaimsState === "loading" ? (
+            <div className="skeleton-list" aria-label="Loading live claims">
+              <span className="skeleton-row" />
+              <span className="skeleton-row" />
+            </div>
+          ) : null}
+
+          {filteredClaims.length > 0 ? (
+            filteredClaims.map((claim) => {
+              const counts = evidenceCounts(claim);
+              const health = evidenceHealth(claim);
+              return (
+                <button
+                  className={selectedClaim?.id === claim.id ? "claim-row active" : "claim-row"}
+                  key={claim.id}
+                  onClick={() => setSelectedId(claim.id)}
+                  type="button"
+                >
+                  <span className="claim-domain">{claim.domain}</span>
+                  <strong>{claim.title}</strong>
+                  <span>
+                    {counts.support} support / {counts.challenge} challenge /{" "}
+                    {counts.context} context
+                  </span>
+                  <span className={health.needsChallenge ? "triage need" : "triage"}>
+                    {health.balanceLabel} · {health.highQualityCount} strong source
+                    {health.highQualityCount === 1 ? "" : "s"}
+                  </span>
+                </button>
+              );
+            })
+          ) : liveClaimsState !== "loading" ? (
+            <div className="empty-state compact">
+              <strong>No claims match these filters.</strong>
+              <span>Clear a filter or submit a sourced public claim.</span>
+            </div>
+          ) : null}
         </div>
       </aside>
 
@@ -948,14 +988,23 @@ export default function ClaimsClient() {
                   />
                   AI-assisted summary
                 </label>
-                <button className="button primary" type="submit">
-                  Add evidence
+                <button
+                  className="button primary"
+                  disabled={evidenceSubmitting}
+                  type="submit"
+                >
+                  {evidenceSubmitting ? "Adding..." : "Add evidence"}
                 </button>
               </form>
               {evidenceMessage ? <p className="form-message">{evidenceMessage}</p> : null}
             </section>
           </>
-        ) : null}
+        ) : (
+          <section className="empty-state">
+            <h2>No claim selected</h2>
+            <p>Choose a claim from the queue or submit a sourced public claim.</p>
+          </section>
+        )}
       </div>
 
       <aside className="submit-panel" aria-labelledby="claim-form-title">
@@ -1058,8 +1107,12 @@ export default function ClaimsClient() {
               ))}
             </select>
           </label>
-          <button className="button primary" type="submit">
-            {canUseSupabase() ? "Publish live" : "Publish locally"}
+          <button className="button primary" disabled={claimSubmitting} type="submit">
+            {claimSubmitting
+              ? "Publishing..."
+              : canUseSupabase()
+                ? "Publish live"
+                : "Publish locally"}
           </button>
         </form>
         {claimMessage ? <p className="form-message">{claimMessage}</p> : null}
