@@ -148,6 +148,7 @@ async function ensureAuthenticatedProfile() {
   const { data: sessionData } = await supabase.auth.getSession();
   let user = sessionData.session?.user ?? null;
 
+  // Use existing real session; only fall back to anonymous if no session
   if (!user) {
     const { data, error } = await supabase.auth.signInAnonymously();
     if (error) {
@@ -181,7 +182,7 @@ async function ensureAuthenticatedProfile() {
     }
   }
 
-  return user.id;
+  return { userId: user.id, isAnonymous: user.is_anonymous ?? false };
 }
 
 function mapEvidence(row: EvidenceWithSource): EvidenceEntry {
