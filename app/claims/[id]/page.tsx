@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -8,8 +9,43 @@ import {
   seedClaims
 } from "../../../lib/claims";
 
+const siteUrl = "https://smithmatric-boop.github.io/claimer";
+
 export function generateStaticParams() {
   return seedClaims.map((claim) => ({ id: claim.id }));
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const claim = findSeedClaim(id);
+
+  if (!claim) {
+    return { title: "Claim not found — Claimer" };
+  }
+
+  const description = `${claim.veracityLabel} · Attribution ${claim.attributionScore}% · ${claim.evidence.length} evidence entries. ${claim.body}`.slice(0, 200);
+
+  return {
+    title: `${claim.title} — Claimer`,
+    description,
+    openGraph: {
+      title: claim.title,
+      description,
+      type: "article",
+      url: `${siteUrl}/claims/${id}/`,
+      siteName: "Claimer",
+      locale: "en_US"
+    },
+    twitter: {
+      card: "summary",
+      title: claim.title,
+      description
+    }
+  };
 }
 
 export default async function ClaimDetailPage({

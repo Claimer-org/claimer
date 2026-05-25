@@ -5,9 +5,31 @@ import AuthWidget from "./auth-widget";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Claimer",
+  title: {
+    default: "Claimer — Source-Backed Community Assessment",
+    template: "%s — Claimer"
+  },
   description:
-    "A community assessment platform for source-backed claims and explainable evidence."
+    "Submit public claims with source links, inspect support and challenge evidence, and separate attribution accuracy from claim veracity. Community-powered truth assessment.",
+  metadataBase: new URL("https://smithmatric-boop.github.io/claimer"),
+  openGraph: {
+    type: "website",
+    siteName: "Claimer",
+    title: "Claimer — Source-Backed Community Assessment",
+    description:
+      "Submit claims with verifiable sources. Build reputation through accurate assessments.",
+    locale: "en_US"
+  },
+  twitter: {
+    card: "summary",
+    title: "Claimer — Source-Backed Community Assessment",
+    description:
+      "Submit claims with verifiable sources. Build reputation through accurate assessments."
+  },
+  robots: {
+    index: true,
+    follow: true
+  }
 };
 
 export default function RootLayout({
