@@ -9,6 +9,7 @@ create extension if not exists pgcrypto;
 
 create type public.claim_domain as enum ('ai', 'news', 'technology');
 create type public.claim_stance as enum ('support', 'challenge', 'context');
+create type public.assessment_target as enum ('attribution', 'veracity', 'context');
 create type public.source_quality as enum (
   'primary',
   'direct_witness',
@@ -36,7 +37,8 @@ create table public.profiles (
   bio text,
   reputation_points integer not null default 0,
   created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
+  updated_at timestamptz not null default now(),
+  constraint profiles_display_name_not_blank check (nullif(trim(display_name), '') is not null)
 );
 
 create table public.sources (
@@ -46,7 +48,7 @@ create table public.sources (
   publisher text,
   published_at timestamptz,
   quality public.source_quality not null default 'unverifiable',
-  created_by uuid references public.profiles (id) on delete set null,
+  created_by uuid default auth.uid() references public.profiles (id) on delete set null,
   created_at timestamptz not null default now(),
   constraint sources_url_http_check check (url ~* '^https?://')
 );
@@ -65,6 +67,7 @@ create table public.claims (
   ai_disclosure text,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
+  constraint claims_title_not_blank check (nullif(trim(title), '') is not null),
   constraint claims_source_url_http_check check (source_url ~* '^https?://'),
   constraint claims_ai_disclosure_check check (
     is_ai_generated = false
@@ -76,6 +79,7 @@ create table public.evidence_entries (
   id uuid primary key default gen_random_uuid(),
   claim_id uuid not null references public.claims (id) on delete cascade,
   stance public.claim_stance not null,
+  assessment_target public.assessment_target not null default 'veracity',
   summary text not null,
   source_id uuid references public.sources (id) on delete restrict,
   source_url text not null,
@@ -84,6 +88,7 @@ create table public.evidence_entries (
   ai_disclosure text,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
+  constraint evidence_entries_summary_not_blank check (nullif(trim(summary), '') is not null),
   constraint evidence_entries_source_url_http_check check (source_url ~* '^https?://'),
   constraint evidence_entries_ai_disclosure_check check (
     is_ai_generated = false
@@ -99,6 +104,7 @@ create table public.attribution_scores (
   explanation text not null,
   created_by uuid not null default auth.uid() references public.profiles (id) on delete restrict,
   created_at timestamptz not null default now(),
+  constraint attribution_scores_explanation_not_blank check (nullif(trim(explanation), '') is not null),
   constraint attribution_scores_range_check check (score >= 0 and score <= 100)
 );
 
@@ -110,6 +116,7 @@ create table public.veracity_scores (
   explanation text not null,
   created_by uuid not null default auth.uid() references public.profiles (id) on delete restrict,
   created_at timestamptz not null default now(),
+  constraint veracity_scores_explanation_not_blank check (nullif(trim(explanation), '') is not null),
   constraint veracity_scores_range_check check (score >= 0 and score <= 100)
 );
 
@@ -124,6 +131,26 @@ alter table public.claims enable row level security;
 alter table public.evidence_entries enable row level security;
 alter table public.attribution_scores enable row level security;
 alter table public.veracity_scores enable row level security;
+
+grant usage on schema public to anon, authenticated, service_role;
+
+grant select
+  on table public.profiles,
+  public.sources,
+  public.claims,
+  public.evidence_entries,
+  public.attribution_scores,
+  public.veracity_scores
+  to anon, authenticated, service_role;
+
+grant insert
+  on table public.profiles,
+  public.sources,
+  public.claims,
+  public.evidence_entries,
+  public.attribution_scores,
+  public.veracity_scores
+  to authenticated, service_role;
 
 create policy "public read profiles"
   on public.profiles for select

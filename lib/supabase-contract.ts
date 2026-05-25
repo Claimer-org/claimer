@@ -3,6 +3,7 @@ export type Timestamp = string;
 
 export type ClaimDomain = "ai" | "news" | "technology";
 export type ClaimStance = "support" | "challenge" | "context";
+export type AssessmentTarget = "attribution" | "veracity" | "context";
 export type SourceQuality =
   | "primary"
   | "direct_witness"
@@ -184,6 +185,7 @@ export type EvidenceEntryRow = {
   id: UUID;
   claim_id: UUID;
   stance: ClaimStance;
+  assessment_target: AssessmentTarget;
   summary: string;
   source_id: UUID | null;
   source_url: string;
@@ -198,6 +200,7 @@ export type EvidenceEntryInsert = {
   id?: UUID;
   claim_id: UUID;
   stance: ClaimStance;
+  assessment_target?: AssessmentTarget;
   summary: string;
   source_id?: UUID | null;
   source_url: PublicSourceUrl;
@@ -294,6 +297,7 @@ export type SupabaseDatabase = {
     Enums: {
       claim_domain: ClaimDomain;
       claim_stance: ClaimStance;
+      assessment_target: AssessmentTarget;
       source_quality: SourceQuality;
       score_method: ScoreMethod;
       public_subject_kind: PublicSubjectKind;
