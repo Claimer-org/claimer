@@ -49,6 +49,7 @@ export default function RootLayout({
             <Link href="/claims">Claims</Link>
             <Link href="/submit">Submit</Link>
             <Link href="/profiles">Profiles</Link>
+            <Link href="/about">About</Link>
             <AuthWidget />
             <Link href="/terms">Terms</Link>
             <Link href="/disclaimer">Disclaimer</Link>
