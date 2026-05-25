@@ -173,7 +173,7 @@ export default async function ClaimDetailPage({
           <h2 id="review-mission-title">{mission.title}</h2>
           <p>{mission.description}</p>
         </div>
-        <Link className="button compact" href={`/submit?claim=${claim.id}`}>
+        <Link className="button compact" href={`/submit/${claim.id}`}>
           Add evidence
         </Link>
       </section>
@@ -224,7 +224,7 @@ export default async function ClaimDetailPage({
             If evidence suggests support, challenge, or context, add it with a
             source.
           </p>
-          <Link className="button compact" href={`/submit?claim=${claim.id}`}>
+          <Link className="button compact" href={`/submit/${claim.id}`}>
             Add evidence
           </Link>
         </div>

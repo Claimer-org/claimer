@@ -18,9 +18,28 @@ export default function ShareButtons({ title, text, claimId }: ShareButtonsProps
 
   const shareText = `${title}\n\n${text}\n\nCheck the evidence on Claimer:`;
 
+  const trackedUrl = (source: string) => {
+    if (!url) {
+      return "";
+    }
+
+    try {
+      const nextUrl = new URL(url);
+      nextUrl.searchParams.set("utm_source", source);
+      nextUrl.searchParams.set("utm_medium", "social_share");
+      nextUrl.searchParams.set("utm_campaign", "claim_share");
+      nextUrl.searchParams.set("utm_content", claimId);
+      nextUrl.searchParams.set("claim_id", claimId);
+      nextUrl.searchParams.set("ref", "claim_share");
+      return nextUrl.toString();
+    } catch {
+      return url;
+    }
+  };
+
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(url);
+      await navigator.clipboard.writeText(trackedUrl("copy"));
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -28,9 +47,9 @@ export default function ShareButtons({ title, text, claimId }: ShareButtonsProps
     }
   };
 
-  const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`;
-  const redditUrl = `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
-  const hnUrl = `https://news.ycombinator.com/submitlink?u=${encodeURIComponent(url)}&t=${encodeURIComponent(title)}`;
+  const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(trackedUrl("x"))}`;
+  const redditUrl = `https://reddit.com/submit?url=${encodeURIComponent(trackedUrl("reddit"))}&title=${encodeURIComponent(title)}`;
+  const hnUrl = `https://news.ycombinator.com/submitlink?u=${encodeURIComponent(trackedUrl("hackernews"))}&t=${encodeURIComponent(title)}`;
 
   return (
     <div className="share-buttons" aria-label="Share this claim">

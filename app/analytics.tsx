@@ -6,7 +6,20 @@ import { getSupabaseClient, hasSupabaseConfig } from "../lib/supabase";
 
 const visitorStorageKey = "claimer.analytics.visitorId.v1";
 const sessionStorageKey = "claimer.analytics.sessionId.v1";
+const campaignStorageKey = "claimer.analytics.campaign.v1";
 const appBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const campaignParams = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "ref"
+] as const;
+
+type CampaignProperties = Partial<Record<(typeof campaignParams)[number], string>> & {
+  landing_path?: string;
+};
 
 function randomId() {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -47,8 +60,77 @@ function normalizedPath(pathname: string | null) {
 }
 
 function claimIdFromPath(path: string) {
-  const match = path.match(/^\/claims\/([A-Za-z0-9_-]{1,120})\/?$/);
+  const match = path.match(/^\/(?:claims|submit)\/([A-Za-z0-9_-]{1,120})\/?$/);
   return match?.[1] ?? null;
+}
+
+function sanitizeCampaignValue(value: string) {
+  return value.replace(/[^A-Za-z0-9._-]/g, "").slice(0, 80);
+}
+
+function campaignFromSearch(path: string) {
+  const params = new URLSearchParams(window.location.search);
+  const campaign: CampaignProperties = {};
+
+  for (const key of campaignParams) {
+    const value = params.get(key);
+    if (value) {
+      campaign[key] = sanitizeCampaignValue(value);
+    }
+  }
+
+  if (Object.keys(campaign).length === 0) {
+    return null;
+  }
+
+  return { ...campaign, landing_path: path };
+}
+
+function storedCampaign(path: string) {
+  try {
+    const currentCampaign = campaignFromSearch(path);
+    if (currentCampaign) {
+      window.sessionStorage.setItem(
+        campaignStorageKey,
+        JSON.stringify(currentCampaign)
+      );
+      return currentCampaign;
+    }
+
+    const stored = window.sessionStorage.getItem(campaignStorageKey);
+    if (!stored) {
+      return {};
+    }
+
+    const parsed = JSON.parse(stored) as CampaignProperties;
+    return isCampaignProperties(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function isCampaignProperties(value: unknown): value is CampaignProperties {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) {
+    return false;
+  }
+
+  return Object.values(value).every((item) => typeof item === "string");
+}
+
+function claimIdFromLocation(path: string) {
+  const pathClaimId = claimIdFromPath(path);
+  if (pathClaimId) {
+    return pathClaimId;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const queryClaimId = params.get("claim_id") ?? params.get("claim");
+
+  if (!queryClaimId) {
+    return null;
+  }
+
+  return sanitizeCampaignValue(queryClaimId) || null;
 }
 
 function referrerOrigin() {
@@ -86,6 +168,8 @@ export default function AnalyticsTracker() {
 
     const visitorId = storedId(window.localStorage, visitorStorageKey);
     const sessionId = storedId(window.sessionStorage, sessionStorageKey);
+    const campaign = storedCampaign(path);
+    const claimId = claimIdFromLocation(path);
 
     void (async () => {
       try {
@@ -94,9 +178,9 @@ export default function AnalyticsTracker() {
           path,
           visitor_id: visitorId,
           session_id: sessionId,
-          claim_id: claimIdFromPath(path),
+          claim_id: claimId,
           referrer_origin: referrerOrigin(),
-          properties: {}
+          properties: campaign
         });
       } catch {
         // Analytics must never block the claim workflow.

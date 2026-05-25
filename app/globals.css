@@ -80,6 +80,16 @@ textarea {
   font: inherit;
 }
 
+code {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(10, 14, 23, 0.62);
+  color: var(--foreground);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  padding: 1px 5px;
+}
+
 /* Header & Footer */
 .site-header,
 .site-footer {
@@ -793,6 +803,55 @@ main {
 .mission-instruction {
   border-top: 1px solid var(--line);
   padding-top: 12px;
+}
+
+/* Launch Kit */
+.launch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.launch-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--gradient-card);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  transition: all var(--transition-smooth);
+}
+
+.launch-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.launch-card h2,
+.launch-card p {
+  margin: 0;
+}
+
+.launch-card h2 {
+  font-size: 1.18rem;
+  line-height: 1.24;
+  overflow-wrap: anywhere;
+}
+
+.copy-line {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(10, 14, 23, 0.62);
+  color: var(--foreground-dim);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  padding: 10px;
 }
 
 /* Assessment Checklist */
