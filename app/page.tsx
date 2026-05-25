@@ -54,6 +54,9 @@ export default function HomePage() {
           <Link className="button primary" href="/claims">
             Browse claims
           </Link>
+          <Link className="button" href="/review">
+            Review evidence
+          </Link>
           <Link className="button" href="/submit">
             Submit a claim
           </Link>
@@ -153,7 +156,7 @@ export default function HomePage() {
       <section className="panel" aria-labelledby="missions-title">
         <div className="section-heading">
           <h2 id="missions-title">Review missions</h2>
-          <Link href="/claims">Open queue</Link>
+          <Link href="/review">Open queue</Link>
         </div>
         <div className="grid">
           {seedClaims.slice(0, 3).map((claim) => {
@@ -163,7 +166,7 @@ export default function HomePage() {
                 <span className="claim-domain">{mission.stance}</span>
                 <h3>{mission.title}</h3>
                 <p>{claim.title}</p>
-                <Link href={`/submit?claim=${claim.id}`}>Start review</Link>
+                <Link href={`/submit/${claim.id}`}>Start review</Link>
               </article>
             );
           })}
@@ -214,8 +217,8 @@ export default function HomePage() {
           <Link className="button primary" href="/submit">
             Submit a claim
           </Link>
-          <Link className="button" href="/claims">
-            Browse claims
+          <Link className="button" href="/review">
+            Review evidence
           </Link>
         </div>
       </section>

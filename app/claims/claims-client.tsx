@@ -23,6 +23,18 @@ import {
 } from "../../lib/supabase-claims";
 
 type StoredClaims = Record<string, Claim>;
+type ClaimsClientProps = {
+  initialClaimId?: string;
+};
+type EvidenceFormState = {
+  stance: EvidenceStance;
+  assessmentTarget: AssessmentTarget;
+  summary: string;
+  sourceUrl: string;
+  sourceTitle: string;
+  sourceQuality: SourceQuality;
+  aiAssisted: boolean;
+};
 
 const storageKey = "claimer.localClaims.v1";
 const claimPackType = "claimer.claim-pack";
@@ -57,6 +69,32 @@ const blockedTerms = [
   "wager"
 ];
 
+const defaultEvidenceForm: EvidenceFormState = {
+  stance: "support" as EvidenceStance,
+  assessmentTarget: "veracity" as AssessmentTarget,
+  summary: "",
+  sourceUrl: "",
+  sourceTitle: "",
+  sourceQuality: "unverifiable" as SourceQuality,
+  aiAssisted: false
+};
+
+function evidenceFormForMission(claimId: string): EvidenceFormState {
+  const claim = seedClaims.find((item) => item.id === claimId);
+
+  if (!claim) {
+    return defaultEvidenceForm;
+  }
+
+  const mission = reviewMission(claim);
+
+  return {
+    ...defaultEvidenceForm,
+    stance: mission.stance,
+    assessmentTarget: mission.stance === "context" ? "context" : "veracity"
+  };
+}
+
 function isPublicUrl(value: string) {
   try {
     const url = new URL(value);
@@ -73,7 +111,7 @@ function makeId(prefix: string) {
 }
 
 function claimSubmitPath(claimId: string) {
-  return `/submit?claim=${encodeURIComponent(claimId)}`;
+  return `/submit/${encodeURIComponent(claimId)}`;
 }
 
 function claimSubmitUrl(claimId: string) {
@@ -82,7 +120,7 @@ function claimSubmitUrl(claimId: string) {
   }
 
   return new URL(
-    `${appBasePath}/submit/?claim=${encodeURIComponent(claimId)}`,
+    `${appBasePath}/submit/${encodeURIComponent(claimId)}/`,
     window.location.origin
   ).toString();
 }
@@ -180,7 +218,8 @@ function claimsFromPack(value: unknown): Claim[] {
   return Object.values(value).filter(isClaim);
 }
 
-export default function ClaimsClient() {
+export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps) {
+  const initialSelectedId = initialClaimId || seedClaims[0]?.id || "";
   const [storedClaims, setStoredClaims] = useState<StoredClaims>({});
   const [remoteClaims, setRemoteClaims] = useState<Claim[]>([]);
   const [liveClaimsState, setLiveClaimsState] = useState<
@@ -190,7 +229,7 @@ export default function ClaimsClient() {
   const [activeTriage, setActiveTriage] = useState<
     "all" | "needs-challenge" | "needs-support" | "primary-direct"
   >("all");
-  const [selectedId, setSelectedId] = useState(seedClaims[0]?.id ?? "");
+  const [selectedId, setSelectedId] = useState(initialSelectedId);
   const [claimMessage, setClaimMessage] = useState("");
   const [evidenceMessage, setEvidenceMessage] = useState("");
   const [exportMessage, setExportMessage] = useState("");
@@ -199,7 +238,7 @@ export default function ClaimsClient() {
   const [missionMessage, setMissionMessage] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [supabaseMessage, setSupabaseMessage] = useState("");
-  const [requestedClaimId, setRequestedClaimId] = useState("");
+  const [requestedClaimId, setRequestedClaimId] = useState(initialClaimId);
   const [claimSubmitting, setClaimSubmitting] = useState(false);
   const [evidenceSubmitting, setEvidenceSubmitting] = useState(false);
 
@@ -214,24 +253,22 @@ export default function ClaimsClient() {
     sourceQuality: "unverifiable" as SourceQuality
   });
 
-  const [evidenceForm, setEvidenceForm] = useState({
-    stance: "support" as EvidenceStance,
-    assessmentTarget: "veracity" as AssessmentTarget,
-    summary: "",
-    sourceUrl: "",
-    sourceTitle: "",
-    sourceQuality: "unverifiable" as SourceQuality,
-    aiAssisted: false
-  });
+  const [evidenceForm, setEvidenceForm] = useState(() =>
+    evidenceFormForMission(initialClaimId)
+  );
 
   useEffect(() => {
     setStoredClaims(readStoredClaims());
 
     const queryClaim = new URLSearchParams(window.location.search).get("claim");
     if (queryClaim) {
+      setSelectedId(queryClaim);
       setRequestedClaimId(queryClaim);
+    } else if (initialClaimId) {
+      setSelectedId(initialClaimId);
+      setRequestedClaimId(initialClaimId);
     }
-  }, []);
+  }, [initialClaimId]);
 
   useEffect(() => {
     let isMounted = true;
@@ -509,15 +546,7 @@ export default function ClaimsClient() {
                 : claim
             )
           );
-          setEvidenceForm({
-            stance: "support",
-            assessmentTarget: "veracity",
-            summary: "",
-            sourceUrl: "",
-            sourceTitle: "",
-            sourceQuality: "unverifiable",
-            aiAssisted: false
-          });
+          setEvidenceForm(defaultEvidenceForm);
           setEvidenceMessage("Evidence published to the live Supabase database.");
           setSupabaseMessage("Live evidence write succeeded.");
           return;
@@ -555,15 +584,7 @@ export default function ClaimsClient() {
       const nextClaims = { ...storedClaims, [nextClaim.id]: nextClaim };
       saveClaims(nextClaims);
       setSelectedId(nextClaim.id);
-      setEvidenceForm({
-        stance: "support",
-        assessmentTarget: "veracity",
-        summary: "",
-        sourceUrl: "",
-        sourceTitle: "",
-        sourceQuality: "unverifiable",
-        aiAssisted: false
-      });
+      setEvidenceForm(defaultEvidenceForm);
       setEvidenceMessage("Evidence added locally with source link.");
     } finally {
       setEvidenceSubmitting(false);

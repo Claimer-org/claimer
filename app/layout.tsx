@@ -47,6 +47,7 @@ export default function RootLayout({
           </Link>
           <nav aria-label="Primary navigation">
             <Link href="/claims">Claims</Link>
+            <Link href="/review">Review</Link>
             <Link href="/submit">Submit</Link>
             <Link href="/profiles">Profiles</Link>
             <Link href="/about">About</Link>
@@ -60,6 +61,7 @@ export default function RootLayout({
             <span>Community assessment · Source links · Explainable scores</span>
           </div>
           <nav className="footer-links" aria-label="Footer navigation">
+            <Link href="/review">Review</Link>
             <Link href="/feedback">Feedback</Link>
             <Link href="/about">About</Link>
             <Link href="/terms">Terms</Link>

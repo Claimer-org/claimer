@@ -711,6 +711,90 @@ main {
   color: var(--foreground-dim);
 }
 
+/* Mission Queue */
+.mission-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.mission-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--context);
+  border-radius: var(--radius-lg);
+  background: var(--gradient-card);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  transition: all var(--transition-smooth);
+}
+
+.mission-card:hover {
+  border-color: var(--line-strong);
+  border-left-color: var(--accent-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.mission-card.support {
+  border-left-color: var(--support);
+}
+
+.mission-card.challenge {
+  border-left-color: var(--challenge);
+}
+
+.mission-card h2,
+.mission-card p {
+  margin: 0;
+}
+
+.mission-card h2 {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.mission-card p {
+  color: var(--foreground-dim);
+  overflow-wrap: anywhere;
+}
+
+.mission-meta,
+.mission-stats,
+.mission-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.mission-priority,
+.mission-stats span {
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  color: var(--foreground-dim);
+  font-size: 0.73rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.mission-priority {
+  background: rgba(244, 63, 94, 0.12);
+  color: var(--challenge);
+}
+
+.mission-instruction {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
 /* Assessment Checklist */
 .assessment-checklist {
   display: grid;
@@ -1131,6 +1215,7 @@ textarea {
   .submit-panel,
   .form-panel,
   .detail,
+  .mission-card,
   .card,
   .claim {
     padding: 14px;
