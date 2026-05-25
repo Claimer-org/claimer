@@ -12,6 +12,12 @@ export type SourceQuality =
   | "unverifiable";
 export type ScoreMethod = "community" | "ai_assisted" | "manual_seed";
 export type AnalyticsEventName = "page_view";
+export type FeedbackUseCase =
+  | "browse_claims"
+  | "submit_claim"
+  | "add_evidence"
+  | "research_decision"
+  | "other";
 export type PublicSubjectKind =
   | "company"
   | "organization"
@@ -295,6 +301,30 @@ export type AnalyticsEventUpdate = Partial<
   Omit<AnalyticsEventInsert, "event_name" | "visitor_id" | "session_id">
 >;
 
+export type FeedbackEntryRow = {
+  id: UUID;
+  page_path: string;
+  visitor_id: UUID | null;
+  use_case: FeedbackUseCase;
+  rating: number;
+  summary: string;
+  metadata: Record<string, unknown>;
+  created_at: Timestamp;
+};
+
+export type FeedbackEntryInsert = {
+  id?: UUID;
+  page_path: string;
+  visitor_id?: UUID | null;
+  use_case: FeedbackUseCase;
+  rating: number;
+  summary: string;
+  metadata?: Record<string, unknown>;
+  created_at?: Timestamp;
+};
+
+export type FeedbackEntryUpdate = Partial<FeedbackEntryInsert>;
+
 export type TableContract<Row, Insert, Update> = {
   Row: Row;
   Insert: Insert;
@@ -327,6 +357,11 @@ export type SupabaseDatabase = {
         AnalyticsEventRow,
         AnalyticsEventInsert,
         AnalyticsEventUpdate
+      >;
+      feedback_entries: TableContract<
+        FeedbackEntryRow,
+        FeedbackEntryInsert,
+        FeedbackEntryUpdate
       >;
     };
     Views: Record<string, never>;

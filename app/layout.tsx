@@ -50,6 +50,7 @@ export default function RootLayout({
             <Link href="/submit">Submit</Link>
             <Link href="/profiles">Profiles</Link>
             <Link href="/about">About</Link>
+            <Link href="/feedback">Feedback</Link>
             <AuthWidget />
             <Link href="/terms">Terms</Link>
             <Link href="/disclaimer">Disclaimer</Link>

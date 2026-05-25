@@ -32,6 +32,9 @@ export default function HomePage() {
           <Link className="button" href="/submit">
             Submit claim
           </Link>
+          <Link className="button" href="/feedback">
+            Send feedback
+          </Link>
         </div>
       </div>
 
@@ -139,6 +142,9 @@ export default function HomePage() {
           </Link>
           <Link className="button" href="/claims">
             Browse claims
+          </Link>
+          <Link className="button" href="/feedback">
+            Send feedback
           </Link>
         </div>
       </section>
