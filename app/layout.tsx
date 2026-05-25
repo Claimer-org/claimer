@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnalyticsTracker from "./analytics";
+import AuthWidget from "./auth-widget";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
           <nav aria-label="Primary navigation">
             <Link href="/claims">Claims</Link>
             <Link href="/submit">Submit</Link>
+            <AuthWidget />
             <Link href="/terms">Terms</Link>
             <Link href="/disclaimer">Disclaimer</Link>
           </nav>
