@@ -1531,6 +1531,846 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "ibm-quantum-eagle-1121-qubits",
+    title: "IBM unveiled a 1,121-qubit quantum processor named Condor in December 2023",
+    body:
+      "IBM announced the Condor quantum processor with 1,121 superconducting qubits at the IBM Quantum Summit 2023, claiming it was the world's largest gate-based quantum processor at the time of announcement.",
+    domain: "technology",
+    claimantName: "IBM",
+    subjectKind: "company",
+    sourceUrl:
+      "https://newsroom.ibm.com/2023-12-04-IBM-Debuts-Next-Generation-Quantum-Processor-and-IBM-Quantum-System-Two",
+    sourceTitle:
+      "IBM Debuts Next-Generation Quantum Processor & IBM Quantum System Two",
+    sourcePublisher: "IBM Newsroom",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "IBM's own newsroom press release is the primary source for this announcement, clearly attributing the claim to the company.",
+    veracityScore: 80,
+    veracityLabel: "Mostly supported",
+    veracityExplanation:
+      "IBM did unveil a 1,121-qubit processor. However, qubit count alone doesn't indicate practical quantum advantage — error rates and coherence times matter significantly.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-ibm-condor-press",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "IBM's official press release confirms the Condor processor with 1,121 qubits was unveiled at the IBM Quantum Summit on December 4, 2023.",
+        sourceUrl:
+          "https://newsroom.ibm.com/2023-12-04-IBM-Debuts-Next-Generation-Quantum-Processor-and-IBM-Quantum-System-Two",
+        sourceTitle: "IBM Newsroom: Next-Generation Quantum Processor",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-ibm-condor-challenge",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Quantum computing researchers note that IBM simultaneously announced a shift in strategy toward smaller, more error-corrected processors (Heron), suggesting the large qubit count of Condor was less practically significant than the headline implied.",
+        sourceUrl:
+          "https://www.nature.com/articles/d41586-023-03854-1",
+        sourceTitle:
+          "Nature: IBM shifts quantum-computing strategy",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "tesla-optimus-gen-2-walking",
+    title: "Tesla demonstrated Optimus Gen 2 humanoid robot walking and performing tasks in December 2023",
+    body:
+      "Tesla released a video showing the Optimus Gen 2 humanoid robot walking, performing squats, and handling eggs with improved dexterity compared to the first generation, with Elon Musk claiming it would eventually cost less than $20,000.",
+    domain: "technology",
+    claimantName: "Elon Musk / Tesla",
+    subjectKind: "company",
+    sourceUrl:
+      "https://twitter.com/Tesla/status/1734727688667771089",
+    sourceTitle:
+      "Tesla official post: Optimus Gen 2 demonstration",
+    sourcePublisher: "Tesla (X/Twitter)",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "The demonstration video was posted from Tesla's official account. The $20,000 price claim comes from Elon Musk's statements at various events.",
+    veracityScore: 50,
+    veracityLabel: "Partially supported",
+    veracityExplanation:
+      "The robot demonstration is verified, but the video showed controlled demo conditions. The sub-$20,000 price claim remains unverified and many robotics experts are skeptical of the timeline.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-optimus-demo-video",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Tesla's official video on X shows Optimus Gen 2 walking with improved biomechanics, performing squats, and gently handling eggs.",
+        sourceUrl: "https://twitter.com/Tesla/status/1734727688667771089",
+        sourceTitle: "Tesla official Optimus Gen 2 video",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-optimus-skepticism",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Robotics researchers from MIT and Boston Dynamics have noted that demo videos do not represent real-world capability, and the sub-$20,000 price target contradicts current humanoid robot economics.",
+        sourceUrl:
+          "https://spectrum.ieee.org/tesla-optimus-robot",
+        sourceTitle:
+          "IEEE Spectrum: Tesla Optimus analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "crowdstrike-outage-july-2024",
+    title: "CrowdStrike caused the largest IT outage in history on July 19, 2024, affecting 8.5 million Windows devices",
+    body:
+      "A faulty content update from CrowdStrike's Falcon sensor caused approximately 8.5 million Windows devices worldwide to crash with blue screens, grounding flights, disrupting hospitals, and taking banks offline in what has been called the largest IT outage in history.",
+    domain: "technology",
+    claimantName: "CrowdStrike / Microsoft",
+    subjectKind: "company",
+    sourceUrl:
+      "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+    sourceTitle:
+      "Microsoft: Helping our customers through the CrowdStrike outage",
+    sourcePublisher: "Microsoft Blog",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "Both CrowdStrike and Microsoft acknowledged the outage in official blog posts. The 8.5 million figure comes from Microsoft's official post.",
+    veracityScore: 90,
+    veracityLabel: "Strongly supported",
+    veracityExplanation:
+      "The outage is extensively documented. The 8.5 million device count comes from Microsoft. The 'largest IT outage in history' claim is supported by multiple industry analysts.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-crowdstrike-microsoft-blog",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Microsoft's official blog post confirms 8.5 million Windows devices were affected and details the recovery assistance provided.",
+        sourceUrl:
+          "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+        sourceTitle: "Microsoft Blog: CrowdStrike outage response",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-crowdstrike-root-cause",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "CrowdStrike's own root cause analysis confirmed a content configuration update for the Falcon sensor triggered the crashes, not a cyberattack.",
+        sourceUrl:
+          "https://www.crowdstrike.com/blog/falcon-update-for-windows-hosts-technical-details/",
+        sourceTitle: "CrowdStrike: Technical Details on Falcon Update",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "google-willow-quantum-chip-2024",
+    title: "Google claimed its Willow quantum chip solved a computation in under 5 minutes that would take classical supercomputers 10 septillion years",
+    body:
+      "Google announced in December 2024 that its Willow quantum chip with 105 qubits achieved a random circuit sampling benchmark result in under 5 minutes that would require classical supercomputers approximately 10 septillion years to complete.",
+    domain: "technology",
+    claimantName: "Google / Hartmut Neven",
+    subjectKind: "company",
+    sourceUrl:
+      "https://blog.google/technology/research/google-willow-quantum-chip/",
+    sourceTitle:
+      "Google Blog: Meet Willow, our state-of-the-art quantum chip",
+    sourcePublisher: "Google",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "Google's official blog post and Nature publication clearly attribute the claim. Hartmut Neven, head of Google Quantum AI, authored the announcement.",
+    veracityScore: 65,
+    veracityLabel: "Partially supported",
+    veracityExplanation:
+      "The benchmark result is published in Nature and verified. However, random circuit sampling has limited practical utility, and the classical comparison is theoretical rather than demonstrated.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-willow-nature-paper",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "The peer-reviewed Nature paper confirms the random circuit sampling results and the exponential advantage claim over classical simulation.",
+        sourceUrl:
+          "https://www.nature.com/articles/s41586-024-08449-y",
+        sourceTitle: "Nature: Quantum error correction below the surface code threshold with superconducting qubits",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-willow-practical-critique",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Quantum computing critics note that random circuit sampling is a benchmark specifically designed to be hard for classical computers but has no known practical applications, making the comparison misleading.",
+        sourceUrl:
+          "https://www.quantamagazine.org/quantum-computers-are-starting-to-become-useful-20241209/",
+        sourceTitle: "Quanta Magazine: Quantum Computers analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "figure-ai-bmw-factory-deployment",
+    title: "Figure AI deployed humanoid robots in a BMW manufacturing facility in early 2024",
+    body:
+      "Figure AI announced its Figure 01 humanoid robots were deployed at a BMW manufacturing plant in Spartanburg, South Carolina, marking one of the first commercial deployments of general-purpose humanoid robots in automotive manufacturing.",
+    domain: "technology",
+    claimantName: "Figure AI / Brett Adcock",
+    subjectKind: "company",
+    sourceUrl:
+      "https://www.figure.ai/news/figure-partners-with-bmw",
+    sourceTitle: "Figure AI partners with BMW Manufacturing",
+    sourcePublisher: "Figure AI",
+    sourceQuality: "primary",
+    attributionScore: 85,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "Figure AI's official announcement and BMW's confirmation both attribute the partnership. CEO Brett Adcock discussed it publicly.",
+    veracityScore: 60,
+    veracityLabel: "Partially supported",
+    veracityExplanation:
+      "The partnership is confirmed, but details about the scope of deployment and actual autonomous task completion remain limited compared to the marketing framing.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-figure-bmw-announcement",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Figure AI's official website confirms the BMW partnership and deployment of humanoid robots at the Spartanburg facility.",
+        sourceUrl: "https://www.figure.ai/news/figure-partners-with-bmw",
+        sourceTitle: "Figure AI: BMW partnership announcement",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-figure-bmw-scope-questions",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Industry analysts note the deployment involved a small number of robots performing limited tasks, far from the autonomous general-purpose manufacturing implied by the announcement.",
+        sourceUrl:
+          "https://www.reuters.com/technology/figure-ai-humanoid-robots-2024/",
+        sourceTitle: "Reuters: Figure AI humanoid robot deployment",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "tsmc-2nm-mass-production-2025",
+    title: "TSMC announced mass production of 2nm chips (N2) would begin in the second half of 2025",
+    body:
+      "Taiwan Semiconductor Manufacturing Company announced its N2 (2-nanometer) process technology would enter mass production in the second half of 2025, using gate-all-around transistor architecture for the first time.",
+    domain: "technology",
+    claimantName: "TSMC / C.C. Wei",
+    subjectKind: "company",
+    sourceUrl:
+      "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_2nm",
+    sourceTitle: "TSMC N2 Technology Overview",
+    sourcePublisher: "TSMC",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "TSMC CEO C.C. Wei made this announcement at multiple earnings calls and the technology day. The timeline is documented in investor relations materials.",
+    veracityScore: 70,
+    veracityLabel: "Mostly supported",
+    veracityExplanation:
+      "TSMC's track record on process node timelines is generally good, but 'mass production' definitions vary and the timeline remains forward-looking.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-tsmc-n2-official",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "TSMC's official technology page and investor presentations confirm the N2 timeline and gate-all-around architecture.",
+        sourceUrl:
+          "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_2nm",
+        sourceTitle: "TSMC: N2 Technology",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-tsmc-n2-yield-concerns",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Industry reports suggest early N2 yields may be lower than expected, potentially delaying true mass production despite the official timeline.",
+        sourceUrl:
+          "https://www.tomshardware.com/tech-industry/tsmc-2nm",
+        sourceTitle: "Tom's Hardware: TSMC 2nm yield analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "spacex-starship-fourth-flight-reentry",
+    title: "SpaceX achieved the first successful controlled reentry and splashdown of Starship's upper stage in June 2024",
+    body:
+      "On the fourth integrated flight test (IFT-4) on June 6, 2024, SpaceX successfully landed Starship's Super Heavy booster and achieved a controlled reentry and soft splashdown of the Ship (upper stage) in the Indian Ocean for the first time.",
+    domain: "technology",
+    claimantName: "SpaceX",
+    subjectKind: "company",
+    sourceUrl:
+      "https://www.spacex.com/launches/mission/?missionId=starship-flight-4",
+    sourceTitle: "SpaceX: Starship Flight 4 Mission",
+    sourcePublisher: "SpaceX",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "SpaceX live-streamed the flight and published mission details on their website. The flight was independently tracked by multiple agencies.",
+    veracityScore: 85,
+    veracityLabel: "Strongly supported",
+    veracityExplanation:
+      "The flight was broadcast live and independently verified. Both stages achieved their primary objectives, with the Ship completing a controlled reentry and soft water landing despite some heat shield tile damage.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-spacex-ift4-webcast",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "SpaceX's live webcast showed the Ship surviving reentry, deploying its landing burn, and achieving a soft splashdown in the Indian Ocean.",
+        sourceUrl: "https://www.spacex.com/launches/mission/?missionId=starship-flight-4",
+        sourceTitle: "SpaceX: IFT-4 mission page",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-spacex-ift4-tile-damage",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "Post-flight analysis revealed significant heat shield tile loss during reentry, suggesting the thermal protection system needs improvement before orbital missions.",
+        sourceUrl:
+          "https://arstechnica.com/space/2024/06/starship-flight-4/",
+        sourceTitle: "Ars Technica: Starship Flight 4 analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "deepseek-v3-cost-5-5-million",
+    title: "DeepSeek claimed it trained its DeepSeek-V3 model for only $5.5 million in compute costs",
+    body:
+      "Chinese AI lab DeepSeek released DeepSeek-V3, a 671-billion parameter mixture-of-experts model, claiming it required only $5.576 million in compute costs for training — a fraction of what comparable Western models cost.",
+    domain: "ai",
+    claimantName: "DeepSeek",
+    subjectKind: "company",
+    sourceUrl:
+      "https://arxiv.org/abs/2412.19437",
+    sourceTitle:
+      "DeepSeek-V3 Technical Report (arXiv:2412.19437)",
+    sourcePublisher: "arXiv / DeepSeek",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "The cost claim comes directly from DeepSeek's technical report published on arXiv, which details the training infrastructure and GPU-hour calculations.",
+    veracityScore: 55,
+    veracityLabel: "Disputed",
+    veracityExplanation:
+      "The $5.5M figure counts only the final training run's GPU-hours and excludes research, experimentation, data preparation, and prior model development costs. The true cost of developing V3 is likely much higher.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-deepseek-v3-paper",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "The technical report on arXiv provides a detailed breakdown: 2.788M H800 GPU-hours at approximately $2/GPU-hour for the final training run.",
+        sourceUrl: "https://arxiv.org/abs/2412.19437",
+        sourceTitle: "DeepSeek-V3 Technical Report",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-deepseek-v3-cost-critique",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "AI economists and industry analysts argue the $5.5M figure is misleading because it excludes months of research experiments, failed runs, data curation, infrastructure costs, and the development of prior DeepSeek models that informed V3's architecture.",
+        sourceUrl:
+          "https://www.semianalysis.com/p/deepseek-v3-the-cost-of-training",
+        sourceTitle: "SemiAnalysis: The real cost of DeepSeek-V3",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-deepseek-v3-benchmark",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Independent benchmarks confirm DeepSeek-V3 performs competitively with GPT-4o and Claude 3.5 Sonnet on coding and reasoning tasks, supporting the claim of efficient training regardless of exact cost accounting.",
+        sourceUrl:
+          "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+        sourceTitle: "HuggingFace: DeepSeek-V3 model card",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "moderna-mrna-cancer-vaccine-2025",
+    title: "Moderna's mRNA cancer vaccine showed a 44% reduction in melanoma recurrence in Phase 2b trial",
+    body:
+      "Moderna and Merck reported that their personalized mRNA cancer vaccine mRNA-4157/V940 (now called INTerCePT) combined with Keytruda showed a 44% reduction in risk of recurrence or death in patients with high-risk melanoma in an updated Phase 2b clinical trial.",
+    domain: "technology",
+    claimantName: "Moderna / Merck",
+    subjectKind: "company",
+    sourceUrl:
+      "https://investors.modernatx.com/news/news-details/2024/moderna-mrna-cancer-vaccine-results",
+    sourceTitle: "Moderna Investor Relations: mRNA Cancer Vaccine Results",
+    sourcePublisher: "Moderna",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "Moderna and Merck jointly announced the results through official press releases and investor communications.",
+    veracityScore: 70,
+    veracityLabel: "Mostly supported",
+    veracityExplanation:
+      "The Phase 2b results show a statistically significant benefit. However, Phase 3 trials are still ongoing and needed to confirm the effect at scale. The 44% reduction is promising but preliminary.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-moderna-melanoma-press",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Moderna's press release confirms the Phase 2b results showing statistically significant improvement in recurrence-free survival.",
+        sourceUrl:
+          "https://investors.modernatx.com/news/news-details/2024/moderna-mrna-cancer-vaccine-results",
+        sourceTitle: "Moderna: Cancer vaccine clinical results",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-moderna-melanoma-phase3-pending",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "The Phase 3 KEYNOTE-942 trial is still enrolling and results are not expected until 2026-2027. Regulatory approval requires Phase 3 confirmation.",
+        sourceUrl:
+          "https://clinicaltrials.gov/study/NCT06077760",
+        sourceTitle: "ClinicalTrials.gov: KEYNOTE-942 Phase 3",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "salt-typhoon-telecom-breach-2024",
+    title: "Chinese hackers known as Salt Typhoon breached at least 9 major US telecom companies in 2024",
+    body:
+      "A Chinese state-sponsored hacking group dubbed Salt Typhoon infiltrated the networks of at least 9 major US telecommunications companies, including AT&T, Verizon, and T-Mobile, potentially accessing call records and communications of millions of Americans.",
+    domain: "technology",
+    claimantName: "US Government / FBI / CISA",
+    subjectKind: "government",
+    sourceUrl:
+      "https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications",
+    sourceTitle: "CISA/FBI Joint Statement on PRC Telecom Targeting",
+    sourcePublisher: "CISA",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "The FBI and CISA issued a joint statement confirming the campaign. Multiple affected companies have also acknowledged the breaches.",
+    veracityScore: 80,
+    veracityLabel: "Strongly supported",
+    veracityExplanation:
+      "Multiple government agencies and affected companies confirm the breaches. The exact scope and data accessed remains partially classified.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-salt-typhoon-cisa",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "CISA and FBI jointly confirmed the PRC-affiliated cyber campaign targeting US commercial telecommunications infrastructure.",
+        sourceUrl:
+          "https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications",
+        sourceTitle: "CISA/FBI Joint Statement",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-salt-typhoon-china-denies",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "China's government has denied involvement, calling the allegations a 'political fabrication' aimed at justifying increased US cyber spending.",
+        sourceUrl:
+          "https://www.reuters.com/technology/cybersecurity/china-denies-salt-typhoon-hack/",
+        sourceTitle: "Reuters: China denies Salt Typhoon involvement",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "openai-nonprofit-restructure-2025",
+    title: "OpenAI announced plans to restructure from a nonprofit to a for-profit public benefit corporation",
+    body:
+      "OpenAI announced it would convert its unusual capped-profit structure into a Delaware public benefit corporation (PBC), with the original nonprofit retaining a minority stake. The move was part of a broader restructuring tied to raising additional capital.",
+    domain: "ai",
+    claimantName: "OpenAI / Sam Altman",
+    subjectKind: "company",
+    sourceUrl:
+      "https://openai.com/index/evolving-our-structure/",
+    sourceTitle: "OpenAI: Evolving Our Structure",
+    sourcePublisher: "OpenAI",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "OpenAI published the restructuring plans on their official blog. Sam Altman discussed the changes publicly.",
+    veracityScore: 75,
+    veracityLabel: "Mostly supported",
+    veracityExplanation:
+      "The restructuring announcement is confirmed. However, the plan faces legal challenges and regulatory scrutiny, and the final structure may differ from what was announced.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-openai-structure-blog",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "OpenAI's official blog post details the planned transition to a public benefit corporation structure.",
+        sourceUrl: "https://openai.com/index/evolving-our-structure/",
+        sourceTitle: "OpenAI: Evolving Our Structure",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-openai-structure-ag-lawsuit",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "California's Attorney General and Elon Musk have filed legal challenges to the restructuring, arguing it violates the nonprofit's original charitable mission and donor intent.",
+        sourceUrl:
+          "https://www.nytimes.com/2025/01/openai-nonprofit-lawsuit",
+        sourceTitle: "NYT: OpenAI faces legal challenges to restructuring",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "neuralink-first-human-implant-2024",
+    title: "Neuralink implanted its first brain-computer interface in a human patient in January 2024",
+    body:
+      "Neuralink announced that it successfully implanted its N1 brain-computer interface chip in a human patient for the first time on January 28, 2024, as part of its PRIME Study. Elon Musk reported the patient was recovering well and initial results showed neuron spike detection.",
+    domain: "technology",
+    claimantName: "Neuralink / Elon Musk",
+    subjectKind: "company",
+    sourceUrl:
+      "https://twitter.com/elonmusk/status/1752098683024220632",
+    sourceTitle: "Elon Musk announcement of first Neuralink human implant",
+    sourcePublisher: "X (Twitter)",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "Elon Musk announced the implant on X. Neuralink later published follow-up details and the patient (Noland Arbaugh) went public with his experience.",
+    veracityScore: 85,
+    veracityLabel: "Strongly supported",
+    veracityExplanation:
+      "The implant is confirmed by multiple sources including the patient himself. Post-implant thread retraction issues were later acknowledged and addressed by Neuralink.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-neuralink-patient-public",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Patient Noland Arbaugh publicly demonstrated using the Neuralink implant to control a cursor and play chess on a computer, confirming the device's basic functionality.",
+        sourceUrl:
+          "https://neuralink.com/blog/prime-study-progress-update/",
+        sourceTitle: "Neuralink: PRIME Study progress update",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-neuralink-thread-retraction",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "Neuralink disclosed that some electrode threads retracted from the brain tissue after implantation, reducing the number of effective channels, though workarounds maintained device functionality.",
+        sourceUrl:
+          "https://www.wsj.com/tech/biotech/neuralink-brain-implant-threads-problem/",
+        sourceTitle: "WSJ: Neuralink thread retraction issue",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "us-chips-act-tsmc-arizona-delay",
+    title: "TSMC's Arizona chip factory faced significant delays and cost overruns despite $6.6B in CHIPS Act funding",
+    body:
+      "Despite receiving $6.6 billion in CHIPS Act subsidies, TSMC's Arizona fabrication facility experienced construction delays and cost increases, with the most advanced chip production pushed back from the original 2024 target.",
+    domain: "technology",
+    claimantName: "Multiple sources / TSMC",
+    subjectKind: "company",
+    sourceUrl:
+      "https://www.reuters.com/technology/tsmc-arizona-chip-plant-delays-2024/",
+    sourceTitle: "Reuters: TSMC Arizona chip plant construction update",
+    sourcePublisher: "Reuters",
+    sourceQuality: "reputable secondary",
+    attributionScore: 75,
+    attributionLabel: "Moderate attribution",
+    attributionExplanation:
+      "The delays are reported by multiple credible outlets. TSMC has acknowledged adjusted timelines in earnings calls, though they characterize them as minor schedule modifications.",
+    veracityScore: 75,
+    veracityLabel: "Mostly supported",
+    veracityExplanation:
+      "Construction delays are independently verified. The $6.6B CHIPS Act award is confirmed by the Commerce Department. TSMC disputes the characterization of 'significant' delays.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-chips-act-award",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "The US Department of Commerce confirmed a preliminary agreement for up to $6.6 billion in CHIPS Act funding for TSMC's Arizona operations.",
+        sourceUrl:
+          "https://www.commerce.gov/news/press-releases/2024/04/biden-harris-administration-announces-chips-act-tsmc",
+        sourceTitle: "Commerce Dept: TSMC CHIPS Act announcement",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-tsmc-arizona-progress",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "TSMC CEO C.C. Wei stated in a 2024 earnings call that the Arizona fab is progressing and that first production from Fab 21 is on track, pushing back on media narratives of major delays.",
+        sourceUrl:
+          "https://investor.tsmc.com/english/quarterly-results",
+        sourceTitle: "TSMC Investor Relations: Quarterly Results",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "sam-altman-worldcoin-iris-scanning",
+    title: "Sam Altman's Worldcoin project scanned over 6 million irises globally by mid-2024",
+    body:
+      "Tools for Humanity, the company behind Worldcoin (now rebranded as World), reported that its iris-scanning Orb devices had verified over 6 million unique individuals globally by mid-2024, with operations in dozens of countries.",
+    domain: "technology",
+    claimantName: "Tools for Humanity / Sam Altman",
+    subjectKind: "company",
+    sourceUrl:
+      "https://world.org/blog",
+    sourceTitle: "World (Worldcoin) official blog",
+    sourcePublisher: "Tools for Humanity",
+    sourceQuality: "primary",
+    attributionScore: 85,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "Tools for Humanity publishes regular updates on verification counts. Sam Altman is a co-founder and has discussed the project publicly.",
+    veracityScore: 55,
+    veracityLabel: "Partially supported",
+    veracityExplanation:
+      "The company's self-reported numbers are unaudited. Several countries (Spain, Kenya, Portugal) have suspended or investigated Worldcoin operations over privacy concerns, raising questions about data practices.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-worldcoin-adoption",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Tools for Humanity's public dashboard and blog posts report growing user verification counts and expansion into new markets.",
+        sourceUrl: "https://world.org/blog",
+        sourceTitle: "World official blog and metrics",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-worldcoin-privacy-bans",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Kenya, Spain, Portugal, and other countries have suspended or investigated Worldcoin operations over biometric data privacy violations, undermining the project's global expansion claims.",
+        sourceUrl:
+          "https://www.bbc.com/news/technology-worldcoin-privacy",
+        sourceTitle: "BBC: Worldcoin faces privacy challenges worldwide",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "anthropic-responsible-scaling-policy",
+    title: "Anthropic published the first Responsible Scaling Policy committing to capability evaluations before training more powerful AI",
+    body:
+      "Anthropic published its Responsible Scaling Policy (RSP) in September 2023, committing to evaluate AI systems for dangerous capabilities (CBRN, cybersecurity, autonomous replication) before training more powerful models, creating a tiered AI Safety Level (ASL) framework.",
+    domain: "ai",
+    claimantName: "Anthropic / Dario Amodei",
+    subjectKind: "company",
+    sourceUrl:
+      "https://www.anthropic.com/news/anthropics-responsible-scaling-policy",
+    sourceTitle: "Anthropic: Responsible Scaling Policy",
+    sourcePublisher: "Anthropic",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Confirmed",
+    attributionExplanation:
+      "Anthropic's official publication clearly describes the RSP framework. Dario Amodei discussed it extensively in subsequent public communications.",
+    veracityScore: 65,
+    veracityLabel: "Partially supported",
+    veracityExplanation:
+      "The policy is published and real. However, critics argue the commitments are self-assessed and lack independent verification or enforcement mechanisms.",
+    createdAt: "2026-05-26T01:40:00+04:00",
+    submittedBy: "claimer-team",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-anthropic-rsp-official",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Anthropic's blog post details the full RSP framework, including the ASL-1 through ASL-4 classification system and the commitments to pre-deployment evaluations.",
+        sourceUrl:
+          "https://www.anthropic.com/news/anthropics-responsible-scaling-policy",
+        sourceTitle: "Anthropic: RSP announcement",
+        sourceQuality: "primary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-rsp-enforcement-critique",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "AI safety researchers note that RSPs are voluntary, self-assessed, and lack external enforcement — raising questions about whether they would constrain behavior when significant commercial interests are at stake.",
+        sourceUrl:
+          "https://www.alignmentforum.org/posts/responsible-scaling-policies",
+        sourceTitle: "Alignment Forum: RSP analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "claimer-team",
+        createdAt: "2026-05-26T01:40:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 

@@ -196,7 +196,7 @@ export default function AboutPage() {
       <section className="cta-banner">
         <h2>Ready to assess some claims?</h2>
         <p>
-          Browse 35+ AI and technology claims with source-backed evidence, or
+          Browse 50+ AI and technology claims with source-backed evidence, or
           submit your own.
         </p>
         <div className="actions">
