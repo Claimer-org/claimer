@@ -29,6 +29,7 @@ create type public.public_subject_kind as enum (
   'publication',
   'other_public'
 );
+create type public.analytics_event_name as enum ('page_view');
 
 create table public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
@@ -120,10 +121,40 @@ create table public.veracity_scores (
   constraint veracity_scores_range_check check (score >= 0 and score <= 100)
 );
 
+create table public.analytics_events (
+  id uuid primary key default gen_random_uuid(),
+  event_name public.analytics_event_name not null,
+  path text not null,
+  visitor_id uuid not null,
+  session_id uuid not null,
+  claim_id text,
+  referrer_origin text,
+  properties jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  constraint analytics_events_path_check check (
+    path ~ '^/[A-Za-z0-9/_-]{0,255}$'
+  ),
+  constraint analytics_events_claim_id_check check (
+    claim_id is null
+    or claim_id ~ '^[A-Za-z0-9][A-Za-z0-9_-]{0,120}$'
+  ),
+  constraint analytics_events_referrer_origin_check check (
+    referrer_origin is null
+    or referrer_origin ~* '^https?://[^/?#]{1,253}$'
+  ),
+  constraint analytics_events_properties_object_check check (
+    jsonb_typeof(properties) = 'object'
+    and octet_length(properties::text) <= 2048
+  )
+);
+
 create index claims_domain_created_at_idx on public.claims (domain, created_at desc);
 create index evidence_entries_claim_id_created_at_idx on public.evidence_entries (claim_id, created_at desc);
 create index attribution_scores_claim_id_created_at_idx on public.attribution_scores (claim_id, created_at desc);
 create index veracity_scores_claim_id_created_at_idx on public.veracity_scores (claim_id, created_at desc);
+create index analytics_events_created_at_idx on public.analytics_events (created_at desc);
+create index analytics_events_dau_idx
+  on public.analytics_events (event_name, created_at desc, visitor_id);
 
 alter table public.profiles enable row level security;
 alter table public.sources enable row level security;
@@ -131,6 +162,7 @@ alter table public.claims enable row level security;
 alter table public.evidence_entries enable row level security;
 alter table public.attribution_scores enable row level security;
 alter table public.veracity_scores enable row level security;
+alter table public.analytics_events enable row level security;
 
 grant usage on schema public to anon, authenticated, service_role;
 
@@ -151,6 +183,18 @@ grant insert
   public.attribution_scores,
   public.veracity_scores
   to authenticated, service_role;
+
+grant insert
+  on table public.analytics_events
+  to anon, authenticated, service_role;
+
+revoke select, update, delete
+  on table public.analytics_events
+  from anon, authenticated;
+
+grant select, update, delete
+  on table public.analytics_events
+  to service_role;
 
 create policy "public read profiles"
   on public.profiles for select
@@ -211,3 +255,15 @@ create policy "authenticated insert veracity scores"
   on public.veracity_scores for insert
   to authenticated
   with check (created_by = auth.uid());
+
+create policy "public insert page views"
+  on public.analytics_events for insert
+  to anon, authenticated
+  with check (
+    event_name = 'page_view'
+    and path ~ '^/[A-Za-z0-9/_-]{0,255}$'
+    and jsonb_typeof(properties) = 'object'
+    and octet_length(properties::text) <= 2048
+    and created_at >= now() - interval '10 minutes'
+    and created_at <= now() + interval '2 minutes'
+  );

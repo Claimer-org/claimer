@@ -11,6 +11,7 @@ export type SourceQuality =
   | "indirect_secondary"
   | "unverifiable";
 export type ScoreMethod = "community" | "ai_assisted" | "manual_seed";
+export type AnalyticsEventName = "page_view";
 export type PublicSubjectKind =
   | "company"
   | "organization"
@@ -266,6 +267,34 @@ export type VeracityScoreUpdate = Partial<
   Omit<VeracityScoreInsert, "claim_id" | "created_by">
 >;
 
+export type AnalyticsEventRow = {
+  id: UUID;
+  event_name: AnalyticsEventName;
+  path: string;
+  visitor_id: UUID;
+  session_id: UUID;
+  claim_id: string | null;
+  referrer_origin: string | null;
+  properties: Record<string, unknown>;
+  created_at: Timestamp;
+};
+
+export type AnalyticsEventInsert = {
+  id?: UUID;
+  event_name: AnalyticsEventName;
+  path: string;
+  visitor_id: UUID;
+  session_id: UUID;
+  claim_id?: string | null;
+  referrer_origin?: string | null;
+  properties?: Record<string, unknown>;
+  created_at?: Timestamp;
+};
+
+export type AnalyticsEventUpdate = Partial<
+  Omit<AnalyticsEventInsert, "event_name" | "visitor_id" | "session_id">
+>;
+
 export type TableContract<Row, Insert, Update> = {
   Row: Row;
   Insert: Insert;
@@ -294,6 +323,11 @@ export type SupabaseDatabase = {
         VeracityScoreInsert,
         VeracityScoreUpdate
       >;
+      analytics_events: TableContract<
+        AnalyticsEventRow,
+        AnalyticsEventInsert,
+        AnalyticsEventUpdate
+      >;
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
@@ -304,6 +338,7 @@ export type SupabaseDatabase = {
       source_quality: SourceQuality;
       score_method: ScoreMethod;
       public_subject_kind: PublicSubjectKind;
+      analytics_event_name: AnalyticsEventName;
     };
     CompositeTypes: Record<string, never>;
   };
