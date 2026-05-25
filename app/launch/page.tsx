@@ -247,15 +247,17 @@ export default function LaunchPage() {
           <article className="card">
             <h3>Campaign fields</h3>
             <p>
-              Page views store <code>utm_source</code>, <code>utm_medium</code>,
-              <code>utm_campaign</code>, <code>utm_content</code>, <code>ref</code>,
-              and <code>landing_path</code> in analytics properties.
+              Page views store <code>utm_source</code>,{" "}
+              <code>utm_medium</code>, <code>utm_campaign</code>,{" "}
+              <code>utm_content</code>, <code>ref</code>, and{" "}
+              <code>landing_path</code> in analytics properties.
             </p>
           </article>
           <article className="card">
             <h3>Claim context</h3>
             <p>
               Claim IDs are captured from claim and submit routes, or from a
+              {" "}
               <code>claim_id</code> query parameter.
             </p>
           </article>
