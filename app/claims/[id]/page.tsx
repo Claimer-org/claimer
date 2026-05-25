@@ -30,7 +30,7 @@ export async function generateMetadata({
   const description = `${claim.veracityLabel} · Attribution ${claim.attributionScore}% · ${claim.evidence.length} evidence entries. ${claim.body}`.slice(0, 200);
 
   return {
-    title: `${claim.title} — Claimer`,
+    title: claim.title,
     description,
     openGraph: {
       title: claim.title,
