@@ -19,6 +19,7 @@ type StoredClaims = Record<string, Claim>;
 
 const storageKey = "claimer.localClaims.v1";
 const claimPackType = "claimer.claim-pack";
+const appBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const subjectKinds = [
   "company",
   "organization",
@@ -62,6 +63,21 @@ function makeId(prefix: string) {
   return `${prefix}-${Date.now().toString(36)}-${Math.random()
     .toString(36)
     .slice(2, 8)}`;
+}
+
+function claimSubmitPath(claimId: string) {
+  return `/submit?claim=${encodeURIComponent(claimId)}`;
+}
+
+function claimSubmitUrl(claimId: string) {
+  if (typeof window === "undefined") {
+    return claimSubmitPath(claimId);
+  }
+
+  return new URL(
+    `${appBasePath}/submit/?claim=${encodeURIComponent(claimId)}`,
+    window.location.origin
+  ).toString();
 }
 
 function readStoredClaims(): StoredClaims {
@@ -170,6 +186,7 @@ export default function ClaimsClient() {
   const [importText, setImportText] = useState("");
   const [importMessage, setImportMessage] = useState("");
   const [missionMessage, setMissionMessage] = useState("");
+  const [requestedClaimId, setRequestedClaimId] = useState("");
 
   const [claimForm, setClaimForm] = useState({
     title: "",
@@ -194,6 +211,11 @@ export default function ClaimsClient() {
 
   useEffect(() => {
     setStoredClaims(readStoredClaims());
+
+    const queryClaim = new URLSearchParams(window.location.search).get("claim");
+    if (queryClaim) {
+      setRequestedClaimId(queryClaim);
+    }
   }, []);
 
   const claims = useMemo(() => {
@@ -237,6 +259,28 @@ export default function ClaimsClient() {
       setSelectedId(selectedClaim.id);
     }
   }, [selectedClaim, selectedId]);
+
+  useEffect(() => {
+    if (!requestedClaimId) {
+      return;
+    }
+
+    const requestedClaim = claims.find((claim) => claim.id === requestedClaimId);
+
+    if (!requestedClaim) {
+      return;
+    }
+
+    const mission = reviewMission(requestedClaim);
+    setSelectedId(requestedClaim.id);
+    setEvidenceForm((currentForm) => ({
+      ...currentForm,
+      stance: mission.stance,
+      assessmentTarget: mission.stance === "context" ? "context" : "veracity"
+    }));
+    setEvidenceMessage(`Ready to add ${mission.stance} evidence for this claim.`);
+    setRequestedClaimId("");
+  }, [claims, requestedClaimId]);
 
   function saveClaims(nextClaims: StoredClaims) {
     setStoredClaims(nextClaims);
@@ -460,12 +504,13 @@ export default function ClaimsClient() {
     const payload = [
       "Claimer review mission",
       `Claim: ${selectedClaim.title}`,
+      `Claim ID: ${selectedClaim.id}`,
       `Current source: ${selectedClaim.sourceUrl}`,
       `Needed stance: ${mission.stance}`,
       `Assessment target: ${mission.stance === "context" ? "attribution/context" : "claim veracity"}`,
       `Task: ${mission.prompt}`,
       "Rules: use a public http/https source URL, avoid private-person claims, and disclose AI-assisted summaries.",
-      "Submit at: /submit"
+      `Submit at: ${claimSubmitUrl(selectedClaim.id)}`
     ].join("\n");
 
     try {

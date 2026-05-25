@@ -86,7 +86,7 @@ export default function HomePage() {
                 <span className="claim-domain">{mission.stance}</span>
                 <h3>{mission.title}</h3>
                 <p>{claim.title}</p>
-                <Link href={`/claims/${claim.id}`}>Review claim</Link>
+                <Link href={`/submit?claim=${claim.id}`}>Start review</Link>
               </article>
             );
           })}
