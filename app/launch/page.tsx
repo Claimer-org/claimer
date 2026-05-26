@@ -4,9 +4,9 @@ import { evidenceHealth, reviewMission, seedClaims } from "../../lib/claims";
 import { siteUrl } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Launch Kit",
+  title: "Reviewer Launch Kit",
   description:
-    "Measured Claimer launch links for evidence review, claim browsing, and priority review missions."
+    "Measured Claimer reviewer launch links for evidence review, claim browsing, feedback, and priority review missions."
 };
 
 const campaignName = "milestone4-launch";
@@ -120,16 +120,17 @@ export default function LaunchPage() {
   return (
     <section className="stack">
       <header className="page-heading" aria-labelledby="launch-title">
-        <p className="eyebrow">Measured distribution</p>
-        <h1 id="launch-title">Launch kit</h1>
+        <p className="eyebrow">Reviewer distribution</p>
+        <h1 id="launch-title">Reviewer launch kit</h1>
         <p>
-          Channel-ready entry points for Milestone 4. Each link carries campaign
-          parameters into first-party analytics so DAU, review intent, and claim
-          interest can be traced back to a launch source.
+          Channel-ready entry points for AI and technology claim reviewers.
+          Each link carries campaign parameters into first-party analytics so
+          DAU, review intent, feedback, and claim interest can be traced back to
+          a launch source.
         </p>
         <div className="actions">
           <Link className="button primary" href="/review">
-            Open review queue
+            Open reviewer queue
           </Link>
           <Link className="button" href="/metrics">
             Open metrics
@@ -180,15 +181,24 @@ export default function LaunchPage() {
               Contribute source-backed evidence to improve the community assessment
               without presenting Claimer as an official truth authority.
             </p>
-            <Link className="button compact" href="/review?ref=reviewer_launch_pack">
-              Start review
-            </Link>
+            <div className="mission-actions">
+              <Link className="button compact" href="/review?ref=reviewer_launch_pack">
+                Start review
+              </Link>
+              <Link
+                className="button compact"
+                href="/feedback?use_case=add_evidence&ref=reviewer_launch_pack"
+              >
+                Send feedback
+              </Link>
+            </div>
           </article>
           <article className="card">
             <h3>Reuse the public data surface</h3>
             <p>
-              Pull public claim review data where evidence suggests a machine-readable
-              summary can help AI and tech reviewers inspect the record.
+              Open source URLs, evidence stances, scores, and ClaimReview-compatible
+              community assessment data so reviewers can audit the record without
+              scraping pages.
             </p>
             <div className="mission-actions">
               <Link className="button compact" href="/data?ref=reviewer_launch_pack">

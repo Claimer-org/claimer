@@ -23,7 +23,7 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 ## Corpus Snapshot
 - Claims: 95
 - Sources: 67
-- Latest generated: 2026-05-26T14:14:05.473Z
+- Latest generated: 2026-05-26T15:02:07.748Z
 
 ## Recent Claims
 - Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao: https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/

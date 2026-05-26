@@ -15,6 +15,12 @@ const principles = [
 
 const launchSprintLinks = [
   {
+    label: "Reviewer",
+    title: "Share the reviewer launch kit",
+    body: "Send AI and tech reviewers to source-backed claim missions, feedback, and the ClaimReview-compatible data export.",
+    href: "/launch?ref=home_sprint_reviewer"
+  },
+  {
     label: "Daily",
     title: "Start today's review pack",
     body: "Open the three highest-value evidence missions with measured links for Milestone 4 attribution.",
@@ -31,12 +37,6 @@ const launchSprintLinks = [
     title: "Tell us what blocked trust",
     body: "Share where the claim workflow, evidence language, or scoring felt unclear.",
     href: "/feedback?use_case=review&ref=home_sprint"
-  },
-  {
-    label: "Launch",
-    title: "Share a measured entry point",
-    body: "Use the launch kit to send new reviewers into source-backed claim queues.",
-    href: "/launch?ref=home_sprint"
   },
   {
     label: "Trending",
@@ -97,6 +97,9 @@ export default function HomePage() {
           </Link>
           <Link className="button" href="/review">
             Review evidence
+          </Link>
+          <Link className="button" href="/launch?ref=home_hero_reviewer">
+            Reviewer launch kit
           </Link>
           <Link className="button" href="/submit">
             Submit a claim
