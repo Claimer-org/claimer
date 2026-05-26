@@ -7,6 +7,96 @@
   "language": "en-US",
   "items": [
     {
+      "id": "google-gemini-search-overhaul-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/google-gemini-search-overhaul-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=google-gemini-search-overhaul-2026&claim_id=google-gemini-search-overhaul-2026&ref=json_feed",
+      "title": "Google has officially overhauled its search engine to be entirely powered by Gemini 3.5 Flash AI",
+      "content_text": "Evidence suggests supported. Attribution 90%; veracity 75%. 2 evidence entries: 1 support, 1 challenge, 0 context. Google announced a full transition of its core search product to Gemini 3.5 Flash, replacing the traditional ranking algorithm with AI-generated overviews as the default experience. Source: McGill University analysis of Google's AI-powered search transition (https://www.mcgill.ca/newsroom/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.mcgill.ca/newsroom/",
+      "authors": [
+        {
+          "name": "Google"
+        }
+      ]
+    },
+    {
+      "id": "huawei-14nm-logicfolding-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/huawei-14nm-logicfolding-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=huawei-14nm-logicfolding-2026&claim_id=huawei-14nm-logicfolding-2026&ref=json_feed",
+      "title": "Huawei announces proprietary LogicFolding technology breakthrough, aims to produce 1.4nm chips by 2031",
+      "content_text": "Evidence suggests uncertain. Attribution 82%; veracity 45%. 2 evidence entries: 1 support, 1 challenge, 0 context. Huawei claims its new LogicFolding architecture enables significant transistor density improvements, targeting 1.4nm-class chip production by 2031 despite ongoing US export restrictions on advanced semiconductor equipment. Source: Huawei unveils LogicFolding chip technology, targets 1.4nm by 2031 (https://economictimes.indiatimes.com/tech/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests uncertain"
+      ],
+      "external_url": "https://economictimes.indiatimes.com/tech/",
+      "authors": [
+        {
+          "name": "Huawei"
+        }
+      ]
+    },
+    {
+      "id": "airbnb-cto-ai-hollowing-out-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/airbnb-cto-ai-hollowing-out-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=airbnb-cto-ai-hollowing-out-2026&claim_id=airbnb-cto-ai-hollowing-out-2026&ref=json_feed",
+      "title": "Airbnb CTO Ahmad Al-Dahle warns new grad hiring by tech companies has dropped 50% since 2019 due to AI automating entry-level tasks",
+      "content_text": "Partially supported. Attribution 88%; veracity 65%. 2 evidence entries: 1 support, 1 challenge, 0 context. Airbnb CTO Ahmad Al-Dahle states that AI is creating a 'hollowing out' effect in tech hiring, with new graduate recruitment declining approximately 50% since 2019 as AI tools automate tasks traditionally assigned to junior engineers. Source: Airbnb CTO warns of AI hollowing out effect on entry-level tech hiring (https://dataconomy.com/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Partially supported"
+      ],
+      "external_url": "https://dataconomy.com/",
+      "authors": [
+        {
+          "name": "Ahmad Al-Dahle"
+        }
+      ]
+    },
+    {
+      "id": "clickup-ai-restructuring-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/clickup-ai-restructuring-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=clickup-ai-restructuring-2026&claim_id=clickup-ai-restructuring-2026&ref=json_feed",
+      "title": "ClickUp announces 22% layoffs while restructuring around AI, offering salary bands up to $1M for high-impact AI workers",
+      "content_text": "Mostly supported. Attribution 85%; veracity 72%. 2 evidence entries: 1 support, 1 challenge, 0 context. ClickUp CEO confirms a 22% workforce reduction as the company pivots to an AI-first strategy, simultaneously announcing salary bands up to $1M for key AI engineering and research roles. Source: ClickUp cuts 22% of workforce, offers million-dollar AI salaries in restructuring (https://www.indiatimes.com/technology/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Mostly supported"
+      ],
+      "external_url": "https://www.indiatimes.com/technology/",
+      "authors": [
+        {
+          "name": "ClickUp"
+        }
+      ]
+    },
+    {
+      "id": "ai-circular-financing-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/ai-circular-financing-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-circular-financing-2026&claim_id=ai-circular-financing-2026&ref=json_feed",
+      "title": "Market analysts warn major cloud providers' AI revenue comes substantially from startups they themselves fund, creating circular financing comparable to dot-com era patterns",
+      "content_text": "Evidence mixed. Attribution 78%; veracity 60%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple market analysts have raised concerns that a significant portion of reported AI cloud revenue growth at major providers is driven by consumption from startups funded by the providers' own venture arms, creating a circular financing dynamic reminiscent of 1990s dot-com accounting practices. Source: AI circular financing: are cloud giants inflating their own AI revenue? (https://artificiallyintimidating.com/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "ai",
+        "indirect secondary",
+        "Evidence mixed"
+      ],
+      "external_url": "https://artificiallyintimidating.com/",
+      "authors": [
+        {
+          "name": "Market analysts"
+        }
+      ]
+    },
+    {
       "id": "pope-leo-xiv-ai-encyclical-2026",
       "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pope-leo-xiv-ai-encyclical-2026&claim_id=pope-leo-xiv-ai-encyclical-2026&ref=json_feed",
       "title": "Pope Leo XIV issues first papal encyclical on AI, calling for 'disarming' of artificial intelligence",
@@ -363,96 +453,6 @@
       "authors": [
         {
           "name": "Google"
-        }
-      ]
-    },
-    {
-      "id": "microsoft-agentic-ai-timeline",
-      "url": "https://claimer-org.github.io/claimer/claims/microsoft-agentic-ai-timeline/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=microsoft-agentic-ai-timeline&claim_id=microsoft-agentic-ai-timeline&ref=json_feed",
-      "title": "Microsoft's AI chief predicted human-level performance on professional computer tasks within 12–18 months",
-      "content_text": "Speculative. Attribution 82%; veracity 40%. 2 evidence entries: 1 support, 1 challenge, 0 context. A senior Microsoft AI executive stated that agentic AI systems could achieve human-level performance on many professional computer-based tasks within 12 to 18 months, positioning the company's push toward autonomous software-operating agents. Source: Microsoft AI leadership statements (https://www.microsoft.com/en-us/ai)",
-      "date_published": "2026-05-26T06:20:00+04:00",
-      "tags": [
-        "ai",
-        "primary",
-        "Speculative"
-      ],
-      "external_url": "https://www.microsoft.com/en-us/ai",
-      "authors": [
-        {
-          "name": "Microsoft"
-        }
-      ]
-    },
-    {
-      "id": "anthropic-spacex-compute-deal",
-      "url": "https://claimer-org.github.io/claimer/claims/anthropic-spacex-compute-deal/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-spacex-compute-deal&claim_id=anthropic-spacex-compute-deal&ref=json_feed",
-      "title": "Anthropic secured access to SpaceX's Colossus 1 data center with over 220,000 Nvidia GPUs",
-      "content_text": "Plausible. Attribution 70%; veracity 62%. 1 evidence entry: 1 support, 0 challenge, 0 context. A reported compute partnership between Anthropic and SpaceX provides Anthropic access to the Colossus 1 data center infrastructure featuring over 220,000 Nvidia GPUs, representing one of the largest AI compute deals in the industry. Source: Reuters – Anthropic compute partnership (https://www.reuters.com/technology/)",
-      "date_published": "2026-05-26T06:20:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Plausible"
-      ],
-      "external_url": "https://www.reuters.com/technology/",
-      "authors": [
-        {
-          "name": "Industry reports"
-        }
-      ]
-    },
-    {
-      "id": "openai-chatgpt-ads-platform",
-      "url": "https://claimer-org.github.io/claimer/claims/openai-chatgpt-ads-platform/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=openai-chatgpt-ads-platform&claim_id=openai-chatgpt-ads-platform&ref=json_feed",
-      "title": "OpenAI launched a self-serve advertising platform within ChatGPT",
-      "content_text": "Evidence suggests supported. Attribution 88%; veracity 78%. 2 evidence entries: 1 support, 1 challenge, 0 context. OpenAI introduced a self-serve advertising platform allowing businesses to place ads within ChatGPT conversations, marking a significant commercialization milestone and a potential shift in the company's revenue model. Source: OpenAI – ChatGPT ads announcement (https://openai.com/)",
-      "date_published": "2026-05-26T06:20:00+04:00",
-      "tags": [
-        "technology",
-        "primary",
-        "Evidence suggests supported"
-      ],
-      "external_url": "https://openai.com/",
-      "authors": [
-        {
-          "name": "OpenAI"
-        }
-      ]
-    },
-    {
-      "id": "penn-photonic-chip-breakthrough",
-      "url": "https://claimer-org.github.io/claimer/claims/penn-photonic-chip-breakthrough/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=penn-photonic-chip-breakthrough&claim_id=penn-photonic-chip-breakthrough&ref=json_feed",
-      "title": "University of Pennsylvania developed hybrid light-matter particles for photonic AI chips",
-      "content_text": "Promising but early. Attribution 92%; veracity 58%. 1 evidence entry: 1 support, 0 challenge, 0 context. Researchers at the University of Pennsylvania announced a breakthrough in hybrid light-matter particle technology that could enable photonic chips processing information using light instead of electricity, potentially offering dramatic energy efficiency improvements for AI workloads. Source: Penn Today – Photonic chip research (https://penntoday.upenn.edu/)",
-      "date_published": "2026-05-26T06:20:00+04:00",
-      "tags": [
-        "technology",
-        "primary",
-        "Promising but early"
-      ],
-      "external_url": "https://penntoday.upenn.edu/",
-      "authors": [
-        {
-          "name": "University of Pennsylvania"
-        }
-      ]
-    },
-    {
-      "id": "meta-employee-tracking-ai-training",
-      "url": "https://claimer-org.github.io/claimer/claims/meta-employee-tracking-ai-training/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=meta-employee-tracking-ai-training&claim_id=meta-employee-tracking-ai-training&ref=json_feed",
-      "title": "Reports indicate Meta tracked internal employee activity through its 'Model Capability Initiative' to train AI models",
-      "content_text": "Disputed. Attribution 68%; veracity 52%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple reports surfaced alleging that Meta's 'Model Capability Initiative' monitored and collected data on internal employee workflows and activities to train AI models, coinciding with significant layoffs across the company. Source: The Verge – Meta employee tracking reports (https://www.theverge.com/)",
-      "date_published": "2026-05-26T06:20:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Disputed"
-      ],
-      "external_url": "https://www.theverge.com/",
-      "authors": [
-        {
-          "name": "Industry journalists"
         }
       ]
     }

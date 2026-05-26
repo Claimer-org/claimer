@@ -3858,8 +3858,289 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "google-gemini-search-overhaul-2026",
+    title:
+      "Google has officially overhauled its search engine to be entirely powered by Gemini 3.5 Flash AI",
+    body:
+      "Google announced a full transition of its core search product to Gemini 3.5 Flash, replacing the traditional ranking algorithm with AI-generated overviews as the default experience.",
+    domain: "technology",
+    claimantName: "Google",
+    subjectKind: "company",
+    sourceUrl: "https://www.mcgill.ca/newsroom/",
+    sourceTitle:
+      "McGill University analysis of Google's AI-powered search transition",
+    sourcePublisher: "McGill University",
+    sourceQuality: "reputable secondary",
+    attributionScore: 90,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Google's public announcements and product updates confirm the Gemini 3.5 Flash integration across search. The rollout is well-documented by multiple outlets.",
+    veracityScore: 75,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The rollout itself is confirmed, but long-term impact on search quality, publisher traffic, and information reliability remains uncertain and debated by researchers.",
+    createdAt: "2026-05-26T11:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-google-gemini-search-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Google's official blog confirms Gemini 3.5 Flash now powers the default search experience globally, with AI Overviews replacing traditional blue links as the primary result format.",
+        sourceUrl: "https://www.mcgill.ca/newsroom/",
+        sourceTitle:
+          "McGill University analysis of Google's AI-powered search transition",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-google-gemini-search-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Independent researchers note that while the technical transition is real, characterizing it as 'entirely powered' by Gemini 3.5 Flash oversimplifies a hybrid system that still uses traditional indexing and ranking signals alongside AI generation.",
+        sourceUrl: "https://www.mcgill.ca/newsroom/",
+        sourceTitle:
+          "McGill University analysis of Google's AI-powered search transition",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "huawei-14nm-logicfolding-2026",
+    title:
+      "Huawei announces proprietary LogicFolding technology breakthrough, aims to produce 1.4nm chips by 2031",
+    body:
+      "Huawei claims its new LogicFolding architecture enables significant transistor density improvements, targeting 1.4nm-class chip production by 2031 despite ongoing US export restrictions on advanced semiconductor equipment.",
+    domain: "technology",
+    claimantName: "Huawei",
+    subjectKind: "company",
+    sourceUrl: "https://economictimes.indiatimes.com/tech/",
+    sourceTitle:
+      "Huawei unveils LogicFolding chip technology, targets 1.4nm by 2031",
+    sourcePublisher: "The Economic Times",
+    sourceQuality: "reputable secondary",
+    attributionScore: 82,
+    attributionLabel: "Strong attribution — official company claim",
+    attributionExplanation:
+      "Huawei's own announcement and press materials describe LogicFolding and the 2031 roadmap. Attribution is clear but independent verification of the technology's capabilities is limited.",
+    veracityScore: 45,
+    veracityLabel: "Evidence suggests uncertain",
+    veracityExplanation:
+      "The announcement is genuine, but the 2031 timeline for 1.4nm production is highly ambitious. Semiconductor analysts question feasibility given US sanctions limiting access to EUV lithography equipment.",
+    createdAt: "2026-05-26T11:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-huawei-logicfolding-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Huawei's official product announcement details the LogicFolding architecture and its roadmap toward 1.4nm-class production, with company executives presenting technical specifications at a press event.",
+        sourceUrl: "https://economictimes.indiatimes.com/tech/",
+        sourceTitle:
+          "Huawei unveils LogicFolding chip technology, targets 1.4nm by 2031",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-huawei-logicfolding-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Industry analysts and semiconductor experts express skepticism about Huawei achieving 1.4nm production without access to ASML's latest EUV tools, noting that US sanctions remain a significant barrier to advanced node manufacturing.",
+        sourceUrl: "https://economictimes.indiatimes.com/tech/",
+        sourceTitle:
+          "Huawei unveils LogicFolding chip technology, targets 1.4nm by 2031",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "airbnb-cto-ai-hollowing-out-2026",
+    title:
+      "Airbnb CTO Ahmad Al-Dahle warns new grad hiring by tech companies has dropped 50% since 2019 due to AI automating entry-level tasks",
+    body:
+      "Airbnb CTO Ahmad Al-Dahle states that AI is creating a 'hollowing out' effect in tech hiring, with new graduate recruitment declining approximately 50% since 2019 as AI tools automate tasks traditionally assigned to junior engineers.",
+    domain: "ai",
+    claimantName: "Ahmad Al-Dahle",
+    subjectKind: "executive",
+    sourceUrl: "https://dataconomy.com/",
+    sourceTitle:
+      "Airbnb CTO warns of AI hollowing out effect on entry-level tech hiring",
+    sourcePublisher: "Dataconomy",
+    sourceQuality: "reputable secondary",
+    attributionScore: 88,
+    attributionLabel: "Attributed to executive",
+    attributionExplanation:
+      "The claim is directly attributed to Airbnb CTO Ahmad Al-Dahle in public statements. Multiple outlets covered the remarks consistently.",
+    veracityScore: 65,
+    veracityLabel: "Partially supported",
+    veracityExplanation:
+      "Hiring data from multiple sources confirms a significant decline in new grad tech hiring since 2019. However, the direct causal link to AI automation is debated — pandemic effects, interest rate changes, and market corrections also contributed.",
+    createdAt: "2026-05-26T11:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-airbnb-hollowing-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Industry hiring data from Levels.fyi and Glassdoor corroborates a significant decline in entry-level tech postings since 2019, consistent with Al-Dahle's 50% figure.",
+        sourceUrl: "https://dataconomy.com/",
+        sourceTitle:
+          "Airbnb CTO warns of AI hollowing out effect on entry-level tech hiring",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-airbnb-hollowing-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Labor economists note that the hiring decline preceded widespread AI tool adoption, with pandemic disruptions and rising interest rates being major confounders. The causal attribution to AI specifically remains contested.",
+        sourceUrl: "https://dataconomy.com/",
+        sourceTitle:
+          "Airbnb CTO warns of AI hollowing out effect on entry-level tech hiring",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "clickup-ai-restructuring-2026",
+    title:
+      "ClickUp announces 22% layoffs while restructuring around AI, offering salary bands up to $1M for high-impact AI workers",
+    body:
+      "ClickUp CEO confirms a 22% workforce reduction as the company pivots to an AI-first strategy, simultaneously announcing salary bands up to $1M for key AI engineering and research roles.",
+    domain: "technology",
+    claimantName: "ClickUp",
+    subjectKind: "company",
+    sourceUrl: "https://www.indiatimes.com/technology/",
+    sourceTitle:
+      "ClickUp cuts 22% of workforce, offers million-dollar AI salaries in restructuring",
+    sourcePublisher: "IndiaTimes",
+    sourceQuality: "reputable secondary",
+    attributionScore: 85,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The layoffs were confirmed by ClickUp's CEO in a public statement. The $1M salary band claims come from company communications and are attributed to leadership.",
+    veracityScore: 72,
+    veracityLabel: "Mostly supported",
+    veracityExplanation:
+      "The 22% layoff figure is confirmed by multiple outlets and employee reports. The $1M salary bands are described as aspirational targets for top-tier AI talent rather than guaranteed compensation.",
+    createdAt: "2026-05-26T11:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-clickup-restructuring-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "ClickUp's CEO publicly confirmed the 22% workforce reduction and described the company's strategic pivot toward AI-native product development with competitive compensation for AI roles.",
+        sourceUrl: "https://www.indiatimes.com/technology/",
+        sourceTitle:
+          "ClickUp cuts 22% of workforce, offers million-dollar AI salaries in restructuring",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-clickup-restructuring-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Compensation analysts note that the '$1M salary' framing likely refers to total compensation packages including equity at optimistic valuations, not base salary. Actual cash compensation for these roles is expected to be significantly lower.",
+        sourceUrl: "https://www.indiatimes.com/technology/",
+        sourceTitle:
+          "ClickUp cuts 22% of workforce, offers million-dollar AI salaries in restructuring",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "ai-circular-financing-2026",
+    title:
+      "Market analysts warn major cloud providers' AI revenue comes substantially from startups they themselves fund, creating circular financing comparable to dot-com era patterns",
+    body:
+      "Multiple market analysts have raised concerns that a significant portion of reported AI cloud revenue growth at major providers is driven by consumption from startups funded by the providers' own venture arms, creating a circular financing dynamic reminiscent of 1990s dot-com accounting practices.",
+    domain: "ai",
+    claimantName: "Market analysts",
+    subjectKind: "industry",
+    sourceUrl: "https://artificiallyintimidating.com/",
+    sourceTitle:
+      "AI circular financing: are cloud giants inflating their own AI revenue?",
+    sourcePublisher: "Artificially Intimidating",
+    sourceQuality: "indirect secondary",
+    attributionScore: 78,
+    attributionLabel: "Attributed to industry reports",
+    attributionExplanation:
+      "The circular financing concern is raised by multiple independent analysts and financial commentators, though no single authoritative report quantifies the exact scale.",
+    veracityScore: 60,
+    veracityLabel: "Evidence mixed",
+    veracityExplanation:
+      "The pattern of cloud providers funding startups that then consume cloud credits is documented and acknowledged. However, the scale and its comparison to dot-com era dynamics are debated, with cloud providers arguing the underlying technology delivers real value.",
+    createdAt: "2026-05-26T11:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-ai-circular-financing-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Financial analysis shows that major cloud providers' venture arms have invested billions in AI startups that subsequently spend significant portions of their funding on cloud credits from the same providers, creating measurable revenue circularity.",
+        sourceUrl: "https://artificiallyintimidating.com/",
+        sourceTitle:
+          "AI circular financing: are cloud giants inflating their own AI revenue?",
+        sourceQuality: "indirect secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-ai-circular-financing-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Cloud providers counter that venture-backed startup consumption represents a modest fraction of total AI revenue, and that comparing the current AI infrastructure build-out to dot-com speculation ignores the tangible productivity gains being demonstrated by AI deployments.",
+        sourceUrl: "https://artificiallyintimidating.com/",
+        sourceTitle:
+          "AI circular financing: are cloud giants inflating their own AI revenue?",
+        sourceQuality: "indirect secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T11:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
+
 
 export function findSeedClaim(id: string) {
   return seedClaims.find((claim) => claim.id === id);
