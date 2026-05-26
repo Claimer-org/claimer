@@ -4328,6 +4328,208 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "china-ai-platforms-exam-restrictions-2026",
+    title: "Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao",
+    body:
+      "Doubao, Alibaba's Tongyi Qianwen, Tencent's Yuanbao, Kimi, DeepSeek, and Baidu's Wenxin Yiyan have all restricted or suspended 'photo-to-solve' and academic research assistance features to prevent cheating during China's 2026 national college entrance examinations (gaokao).",
+    domain: "ai",
+    claimantName: "Multiple Chinese AI Companies",
+    subjectKind: "industry",
+    sourceUrl: "https://36kr.com/p/3268412983904768",
+    sourceTitle: "Chinese AI Platforms Restrict Exam Features for Gaokao 2026",
+    sourcePublisher: "36Kr",
+    sourceQuality: "reputable secondary",
+    attributionScore: 85,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "36Kr, a leading Chinese tech media outlet, reports the coordinated restriction across named platforms. Multiple platform announcements corroborate the collective action.",
+    veracityScore: 82,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The restrictions are verifiable through platform interfaces during the exam period. This follows precedent from prior years when similar restrictions were implemented. Independent verification requires checking each platform directly.",
+    createdAt: "2026-05-26T18:00:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-china-ai-exam-36kr",
+        stance: "support",
+        summary:
+          "36Kr reports that all major Chinese AI platforms including Doubao, Tongyi Qianwen, Yuanbao, Kimi, DeepSeek, and Wenxin Yiyan have restricted exam-related AI features ahead of the 2026 gaokao.",
+        sourceUrl: "https://36kr.com/p/3268412983904768",
+        sourceTitle: "36Kr Report on AI Exam Feature Restrictions",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T18:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "space-based-ai-data-centers-pentagon-skepticism-2026",
+    title: "Pentagon remains skeptical of orbital AI data centers despite growing industry interest in space-based compute",
+    body:
+      "While industry interest in orbital data centers (ODCs) for AI workloads is growing due to surging compute demand, government and defense officials remain cautious. Industry sources indicate that the Pentagon has not provided significant funding, waiting for commercial entities to prove both technical feasibility and a viable business case, outside of specific NASA lunar infrastructure plans.",
+    domain: "technology",
+    claimantName: "Breaking Defense",
+    subjectKind: "media",
+    sourceUrl: "https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/",
+    sourceTitle: "Pentagon Cautious on Orbital AI Data Centers",
+    sourcePublisher: "Breaking Defense",
+    sourceQuality: "reputable secondary",
+    attributionScore: 78,
+    attributionLabel: "Moderate attribution",
+    attributionExplanation:
+      "Breaking Defense is a credible defense and national security publication. The report cites unnamed industry and government sources, which lowers attribution specificity compared to named officials.",
+    veracityScore: 65,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The claim aligns with publicly known facts about Pentagon procurement timelines and the early-stage nature of orbital data center technology. No official Pentagon statement directly confirming or denying active evaluation has been identified.",
+    createdAt: "2026-05-26T18:00:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-odc-pentagon-breakingdefense",
+        stance: "support",
+        summary:
+          "Breaking Defense reports that while multiple startups are pursuing orbital data centers for AI, the Pentagon has not allocated significant funding and is waiting for commercial proof of concept.",
+        sourceUrl: "https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/",
+        sourceTitle: "Breaking Defense ODC Report",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T18:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "ai-therapy-session-recording-privacy-2026",
+    title: "Only 8% of Americans trust AI for mental health care as therapists increasingly use AI to record and transcribe sessions",
+    body:
+      "Therapists are increasingly using AI tools to record therapy sessions, transcribe them, and draft clinical notes for administrative efficiency. However, only 8% of Americans trust AI for mental health care according to recent polling, raising concerns about patient privacy, informed consent, and the impact on the therapeutic relationship.",
+    domain: "ai",
+    claimantName: "Iowa Public Radio / Multiple Sources",
+    subjectKind: "media",
+    sourceUrl: "https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy",
+    sourceTitle: "AI in Therapy: Privacy Concerns as Clinicians Adopt Recording Tools",
+    sourcePublisher: "Iowa Public Radio",
+    sourceQuality: "reputable secondary",
+    attributionScore: 80,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The report is published by Iowa Public Radio, a member of NPR. The 8% trust statistic is attributed to recent polling, though the specific polling source should be independently verified.",
+    veracityScore: 72,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The trend of AI transcription adoption in clinical settings is well-documented. The 8% trust figure needs independent polling verification. The privacy and consent concerns are substantiated by existing HIPAA and professional ethics frameworks.",
+    createdAt: "2026-05-26T18:00:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-ai-therapy-ipr",
+        stance: "support",
+        summary:
+          "Iowa Public Radio reports on the growing use of AI transcription tools by therapists and cites polling showing only 8% of Americans trust AI for mental health care.",
+        sourceUrl: "https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy",
+        sourceTitle: "IPR Report on AI Therapy Tools",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T18:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-ai-therapy-hipaa-challenge",
+        stance: "challenge",
+        summary:
+          "The adoption rate claim should be contextualized: many AI therapy recording tools operate under HIPAA-compliant BAAs, and some patient advocates argue the efficiency gains improve care quality by reducing clinician burnout.",
+        sourceUrl: "https://www.hipaajournal.com/ai-healthcare-tools-compliance/",
+        sourceTitle: "HIPAA Journal on AI Healthcare Compliance",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T18:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "micron-stock-ai-memory-boom-2026",
+    title: "Micron Technology stock surges on persistent AI memory shortages as HBM demand outpaces supply",
+    body:
+      "Micron Technology has seen significant stock growth driven by persistent memory shortages and strong demand for AI infrastructure, particularly High Bandwidth Memory (HBM). The memory sector continues to benefit from the AI boom as demand for HBM used in AI accelerators outpaces manufacturing capacity.",
+    domain: "technology",
+    claimantName: "24/7 Wall St / Market Analysts",
+    subjectKind: "media",
+    sourceUrl: "https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/",
+    sourceTitle: "Micron's AI Memory Boom Drives Stock Gains",
+    sourcePublisher: "24/7 Wall St",
+    sourceQuality: "reputable secondary",
+    attributionScore: 82,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "24/7 Wall St reports on publicly available stock performance data and market analyst assessments. The stock price movement is independently verifiable through financial data services.",
+    veracityScore: 78,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "Micron's stock performance is publicly verifiable. The HBM supply shortage has been reported across multiple financial outlets. However, stock performance attribution to specific factors (AI demand vs. general market trends) involves analytical judgment.",
+    createdAt: "2026-05-26T18:00:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-micron-ai-247wallst",
+        stance: "support",
+        summary:
+          "24/7 Wall St reports on Micron's stock gains driven by AI-related memory demand, citing persistent HBM shortages and strong AI infrastructure spending.",
+        sourceUrl: "https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/",
+        sourceTitle: "24/7 Wall St Micron AI Report",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T18:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "aic-nvidia-cmx-computex-2026",
+    title: "AIC showcases AI storage solutions integrated with NVIDIA Context Memory Platform (CMX) at COMPUTEX 2026",
+    body:
+      "AIC announced its participation in COMPUTEX 2026, focusing on next-generation AI infrastructure including storage solutions integrated with NVIDIA's Context Memory Platform (CMX). The solutions are designed to address memory bottlenecks in large language model inference by providing optimized storage tiers.",
+    domain: "technology",
+    claimantName: "AIC Inc.",
+    subjectKind: "company",
+    sourceUrl: "https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/",
+    sourceTitle: "AIC at COMPUTEX 2026: AI Storage with NVIDIA CMX",
+    sourcePublisher: "EQS News",
+    sourceQuality: "reputable secondary",
+    attributionScore: 88,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "EQS News distributes the company's official press release. The COMPUTEX participation and NVIDIA CMX integration claims are directly attributed to AIC.",
+    veracityScore: 68,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The COMPUTEX participation is verifiable through the event's exhibitor directory. The NVIDIA CMX integration capabilities would need independent technical verification beyond the company's own marketing claims.",
+    createdAt: "2026-05-26T18:00:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-aic-computex-eqsnews",
+        stance: "support",
+        summary:
+          "AIC's press release via EQS News details the company's COMPUTEX 2026 showcase including AI storage solutions designed for NVIDIA's CMX platform to reduce LLM inference memory bottlenecks.",
+        sourceUrl: "https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/",
+        sourceTitle: "AIC COMPUTEX 2026 Press Release",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T18:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 

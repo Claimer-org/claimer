@@ -13,6 +13,96 @@
   "language": "en-US",
   "items": [
     {
+      "id": "china-ai-platforms-exam-restrictions-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=china-ai-platforms-exam-restrictions-2026&claim_id=china-ai-platforms-exam-restrictions-2026&ref=json_feed",
+      "title": "Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao",
+      "content_text": "Evidence suggests supported. Attribution 85%; veracity 82%. 1 evidence entry: 1 support, 0 challenge, 0 context. Doubao, Alibaba's Tongyi Qianwen, Tencent's Yuanbao, Kimi, DeepSeek, and Baidu's Wenxin Yiyan have all restricted or suspended 'photo-to-solve' and academic research assistance features to prevent cheating during China's 2026 national college entrance examinations (gaokao). Source: Chinese AI Platforms Restrict Exam Features for Gaokao 2026 (https://36kr.com/p/3268412983904768)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://36kr.com/p/3268412983904768",
+      "authors": [
+        {
+          "name": "Multiple Chinese AI Companies"
+        }
+      ]
+    },
+    {
+      "id": "space-based-ai-data-centers-pentagon-skepticism-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/space-based-ai-data-centers-pentagon-skepticism-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=space-based-ai-data-centers-pentagon-skepticism-2026&claim_id=space-based-ai-data-centers-pentagon-skepticism-2026&ref=json_feed",
+      "title": "Pentagon remains skeptical of orbital AI data centers despite growing industry interest in space-based compute",
+      "content_text": "Evidence suggests supported. Attribution 78%; veracity 65%. 1 evidence entry: 1 support, 0 challenge, 0 context. While industry interest in orbital data centers (ODCs) for AI workloads is growing due to surging compute demand, government and defense officials remain cautious. Industry sources indicate that the Pentagon has not provided significant funding, waiting for commercial entities to prove both technical feasibility and a viable business case, outside of specific NASA lunar infrastructure plans. Source: Pentagon Cautious on Orbital AI Data Centers (https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/",
+      "authors": [
+        {
+          "name": "Breaking Defense"
+        }
+      ]
+    },
+    {
+      "id": "ai-therapy-session-recording-privacy-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/ai-therapy-session-recording-privacy-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-therapy-session-recording-privacy-2026&claim_id=ai-therapy-session-recording-privacy-2026&ref=json_feed",
+      "title": "Only 8% of Americans trust AI for mental health care as therapists increasingly use AI to record and transcribe sessions",
+      "content_text": "Evidence suggests supported. Attribution 80%; veracity 72%. 2 evidence entries: 1 support, 1 challenge, 0 context. Therapists are increasingly using AI tools to record therapy sessions, transcribe them, and draft clinical notes for administrative efficiency. However, only 8% of Americans trust AI for mental health care according to recent polling, raising concerns about patient privacy, informed consent, and the impact on the therapeutic relationship. Source: AI in Therapy: Privacy Concerns as Clinicians Adopt Recording Tools (https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy",
+      "authors": [
+        {
+          "name": "Iowa Public Radio / Multiple Sources"
+        }
+      ]
+    },
+    {
+      "id": "micron-stock-ai-memory-boom-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/micron-stock-ai-memory-boom-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=micron-stock-ai-memory-boom-2026&claim_id=micron-stock-ai-memory-boom-2026&ref=json_feed",
+      "title": "Micron Technology stock surges on persistent AI memory shortages as HBM demand outpaces supply",
+      "content_text": "Evidence suggests supported. Attribution 82%; veracity 78%. 1 evidence entry: 1 support, 0 challenge, 0 context. Micron Technology has seen significant stock growth driven by persistent memory shortages and strong demand for AI infrastructure, particularly High Bandwidth Memory (HBM). The memory sector continues to benefit from the AI boom as demand for HBM used in AI accelerators outpaces manufacturing capacity. Source: Micron's AI Memory Boom Drives Stock Gains (https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/",
+      "authors": [
+        {
+          "name": "24/7 Wall St / Market Analysts"
+        }
+      ]
+    },
+    {
+      "id": "aic-nvidia-cmx-computex-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/aic-nvidia-cmx-computex-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=aic-nvidia-cmx-computex-2026&claim_id=aic-nvidia-cmx-computex-2026&ref=json_feed",
+      "title": "AIC showcases AI storage solutions integrated with NVIDIA Context Memory Platform (CMX) at COMPUTEX 2026",
+      "content_text": "Evidence suggests supported. Attribution 88%; veracity 68%. 1 evidence entry: 1 support, 0 challenge, 0 context. AIC announced its participation in COMPUTEX 2026, focusing on next-generation AI infrastructure including storage solutions integrated with NVIDIA's Context Memory Platform (CMX). The solutions are designed to address memory bottlenecks in large language model inference by providing optimized storage tiers. Source: AIC at COMPUTEX 2026: AI Storage with NVIDIA CMX (https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/",
+      "authors": [
+        {
+          "name": "AIC Inc."
+        }
+      ]
+    },
+    {
       "id": "haystackid-eu-ai-act-compliance-expansion-2026",
       "url": "https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=haystackid-eu-ai-act-compliance-expansion-2026&claim_id=haystackid-eu-ai-act-compliance-expansion-2026&ref=json_feed",
       "title": "HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance",
@@ -369,96 +459,6 @@
       "authors": [
         {
           "name": "AI Weekly"
-        }
-      ]
-    },
-    {
-      "id": "anthropic-900b-valuation-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/anthropic-900b-valuation-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-900b-valuation-may-2026&claim_id=anthropic-900b-valuation-may-2026&ref=json_feed",
-      "title": "Anthropic's valuation could surpass $900 billion, making it the world's most valuable private startup",
-      "content_text": "Partially supported — round reportedly still being finalized. Attribution 78%; veracity 55%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple reports indicate Anthropic is closing a funding round exceeding $30 billion at a pre-money valuation above $900 billion, which would surpass OpenAI's $852 billion valuation. The round is co-led by Sequoia Capital, Dragoneer, Altimeter Capital, and Greenoaks. This follows a February 2026 Series G that also raised $30B at a $380B valuation — meaning the valuation has more than doubled in approximately three months. Source: Anthropic Valuation Analysis (https://seekingalpha.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "ai",
-        "reputable secondary",
-        "Partially supported — round reportedly still being finalized"
-      ],
-      "external_url": "https://seekingalpha.com/",
-      "authors": [
-        {
-          "name": "Multiple financial reports"
-        }
-      ]
-    },
-    {
-      "id": "trump-ai-safety-eo-cancelled-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=trump-ai-safety-eo-cancelled-may-2026&claim_id=trump-ai-safety-eo-cancelled-may-2026&ref=json_feed",
-      "title": "Trump cancelled an AI safety executive order after last-minute lobbying by Musk, Zuckerberg, and Sacks",
-      "content_text": "Disputed — cancellation confirmed but influence extent debated. Attribution 82%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. Hours before a scheduled White House signing ceremony on May 21, 2026, President Trump cancelled a planned executive order that would have established a voluntary 90-day pre-launch review of frontier AI models for national security risks. The decision reportedly followed last-minute phone calls from Elon Musk, Mark Zuckerberg, and former AI advisor David Sacks, who argued it would slow U.S. competitiveness against China. Source: Trump cancels AI safety executive order (https://www.washingtonpost.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Disputed — cancellation confirmed but influence extent debated"
-      ],
-      "external_url": "https://www.washingtonpost.com/",
-      "authors": [
-        {
-          "name": "Washington Post / LA Times"
-        }
-      ]
-    },
-    {
-      "id": "openai-gpt55-hallucination-reduction-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=openai-gpt55-hallucination-reduction-may-2026&claim_id=openai-gpt55-hallucination-reduction-may-2026&ref=json_feed",
-      "title": "OpenAI claims GPT-5.5 Instant reduces hallucinations by 52.5% on high-stakes prompts",
-      "content_text": "Unverified — based on internal benchmarks only. Attribution 92%; veracity 45%. 2 evidence entries: 1 support, 1 challenge, 0 context. OpenAI released GPT-5.5 Instant as the new default ChatGPT model, claiming internal benchmarks show it produces 52.5% fewer hallucinated claims than its predecessor GPT-5.3 Instant on high-stakes prompts in medicine, law, and finance. It also claims a 37.3% reduction in inaccurate claims on user-flagged factual error conversations. Source: GPT-5.5 Instant announcement (https://openai.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "ai",
-        "primary",
-        "Unverified — based on internal benchmarks only"
-      ],
-      "external_url": "https://openai.com/",
-      "authors": [
-        {
-          "name": "OpenAI"
-        }
-      ]
-    },
-    {
-      "id": "pope-leo-xiv-ai-encyclical-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pope-leo-xiv-ai-encyclical-may-2026&claim_id=pope-leo-xiv-ai-encyclical-may-2026&ref=json_feed",
-      "title": "Pope Leo XIV issued a major encyclical warning against AI dehumanization, with Anthropic's co-founder present",
-      "content_text": "Evidence suggests supported — well-documented public event. Attribution 94%; veracity 85%. 2 evidence entries: 1 support, 1 challenge, 0 context. Pope Leo XIV presented his first encyclical 'Magnifica Humanitas' at the Vatican on May 25, 2026, calling for robust AI regulation and warning against autonomous weapons, AI mimicking human relationships, and the concentration of power among tech companies. Anthropic co-founder Christopher Olah was invited to co-present. Source: Time Magazine coverage of papal AI encyclical (https://time.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Evidence suggests supported — well-documented public event"
-      ],
-      "external_url": "https://time.com/",
-      "authors": [
-        {
-          "name": "Pope Leo XIV / Vatican"
-        }
-      ]
-    },
-    {
-      "id": "anthropic-olah-labor-displacement-warning-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-olah-labor-displacement-warning-may-2026&claim_id=anthropic-olah-labor-displacement-warning-may-2026&ref=json_feed",
-      "title": "Anthropic co-founder warns AI could displace human labor on a 'very large scale' — while pursuing $900B valuation",
-      "content_text": "Debatable — statements are factual but sincerity questioned. Attribution 95%; veracity 50%. 2 evidence entries: 1 support, 1 challenge, 0 context. At the Vatican presentation on May 25, 2026, Anthropic co-founder Christopher Olah stated there is a 'real possibility' AI could displace human labor on a 'very large scale' and that supporting displaced workers would be a 'moral imperative of historic proportions.' He also argued AI development should not be left solely to tech companies. This comes as Anthropic simultaneously pursues a $900B valuation. Source: Christopher Olah's Vatican remarks on AI and labor (https://anthropic.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "ai",
-        "primary",
-        "Debatable — statements are factual but sincerity questioned"
-      ],
-      "external_url": "https://anthropic.com/",
-      "authors": [
-        {
-          "name": "Christopher Olah (Anthropic co-founder)"
         }
       ]
     }

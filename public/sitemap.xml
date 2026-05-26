@@ -673,6 +673,48 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/space-based-ai-data-centers-pentagon-skepticism-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-therapy-session-recording-privacy-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/micron-stock-ai-memory-boom-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/aic-nvidia-cmx-computex-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/24-7-wall-st/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/36kr/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://claimer-org.github.io/claimer/sources/ai-weekly/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -709,6 +751,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://claimer-org.github.io/claimer/sources/breaking-defense/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://claimer-org.github.io/claimer/sources/broadband-breakfast/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -740,6 +788,12 @@
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/dataconomy/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/eqs-news/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -818,6 +872,12 @@
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/investing-com/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/iowa-public-radio/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
