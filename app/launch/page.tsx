@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { evidenceHealth, reviewMission, seedClaims } from "../../lib/claims";
 import { siteUrl } from "../../lib/site";
+import LaunchShareDrafts, { type LaunchShareDraft } from "./launch-share-drafts";
 
 export const metadata: Metadata = {
   title: "Reviewer Launch Kit",
@@ -111,6 +112,33 @@ function missionScore(claim: (typeof seedClaims)[number]) {
   return score + Math.max(0, 4 - health.total) * 8;
 }
 
+const launchShareDrafts: LaunchShareDraft[] = [
+  {
+    id: "hackernews",
+    label: "Hacker News",
+    title: "Show HN: Claimer - source-backed community assessment for AI claims",
+    body:
+      "Claimer is a small community assessment board for AI and tech claims. Every claim starts with cited URLs, separates attribution accuracy from claim veracity, and keeps scores explainable instead of presenting official truth verdicts.\n\nI am looking for reviewers who can add support or challenge evidence, inspect weak source chains, and point out where the product should be clearer.",
+    url: campaignUrl("/review/", "hackernews", "community", "copy_draft_hn")
+  },
+  {
+    id: "reddit",
+    label: "Reddit or Discord",
+    title: "Looking for reviewers on source-backed AI and tech claims",
+    body:
+      "Claimer is testing a source-backed reviewer queue for AI and technology claims. Evidence suggests some claims need stronger support or challenge links, so the useful action is reviewing cited URLs and adding better sources.\n\nScores are community assessments, not official fact-check verdicts, and automated analysis is labeled.",
+    url: campaignUrl("/claims/", "reddit", "community", "copy_draft_reddit")
+  },
+  {
+    id: "direct",
+    label: "Direct share",
+    title: "Can you review one AI claim on Claimer?",
+    body:
+      "I am looking for quick reviewer feedback on Claimer, a source-backed community assessment tool for AI and tech claims. Each claim has cited URLs, support/challenge evidence, and explainable scores.\n\nThe goal is not a definitive verdict; it is to show what the evidence suggests and where better sources are needed.",
+    url: campaignUrl("/review/", "direct", "outreach", "copy_draft_direct")
+  }
+];
+
 export default function LaunchPage() {
   const missionClaims = seedClaims
     .slice()
@@ -158,6 +186,8 @@ export default function LaunchPage() {
           <span>claims measured</span>
         </div>
       </section>
+
+      <LaunchShareDrafts drafts={launchShareDrafts} />
 
       <section className="panel" aria-labelledby="reviewer-path-title">
         <div className="section-heading">
