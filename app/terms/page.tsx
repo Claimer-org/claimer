@@ -14,6 +14,11 @@ export default function TermsPage() {
         on visible sources and explainable scoring criteria.
       </p>
       <p>
+        Automated assistance may help summarize sources or explain score
+        factors, but it must be labeled and checked against the underlying
+        source URLs.
+      </p>
+      <p>
         Do not submit private personal information, unlawful content, harassment,
         or claims about private individuals without a public source. Claimer may
         remove content that creates legal, safety, spam, or integrity risk.

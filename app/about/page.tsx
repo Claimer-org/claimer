@@ -73,8 +73,8 @@ export default function AboutPage() {
             <h3>vs. Fact-checkers</h3>
             <p>
               Snopes and PolitiFact use editorial teams. Claimer is
-              community-driven — anyone can submit evidence. No editors deciding
-              what's true.
+              community-driven — anyone can submit evidence. No editors issuing
+              final truth verdicts.
             </p>
           </article>
           <article className="card">

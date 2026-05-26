@@ -1066,7 +1066,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                       setEvidenceForm({ ...evidenceForm, sourceUrl: event.target.value })
                     }
                     placeholder="https://..."
+                    pattern="https?://.+"
                     required
+                    title="Use a public http or https URL."
                     type="url"
                     value={evidenceForm.sourceUrl}
                   />
@@ -1201,7 +1203,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                 setClaimForm({ ...claimForm, sourceUrl: event.target.value })
               }
               placeholder="https://..."
+              pattern="https?://.+"
               required
+              title="Use a public http or https URL."
               type="url"
               value={claimForm.sourceUrl}
             />
