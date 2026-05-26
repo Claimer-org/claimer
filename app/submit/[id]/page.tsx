@@ -40,6 +40,8 @@ export default async function SubmitForClaimPage({
   }
 
   const mission = reviewMission(claim);
+  const targetLabel =
+    mission.stance === "context" ? "attribution context" : "claim veracity";
 
   return (
     <div className="stack">
@@ -48,6 +50,30 @@ export default async function SubmitForClaimPage({
         <h1 id="submit-title">{mission.title}</h1>
         <p>{claim.title}</p>
       </header>
+
+      <section className="review-mission" aria-labelledby="mission-brief-title">
+        <div>
+          <span>{mission.stance} evidence needed</span>
+          <h2 id="mission-brief-title">Add one public source for {targetLabel}</h2>
+          <p>
+            {mission.prompt} Check the current attribution source first, then
+            use the preselected Add evidence form below.
+          </p>
+        </div>
+        <div className="mission-actions">
+          <a
+            className="button compact"
+            href={claim.sourceUrl}
+            rel="noreferrer"
+            target="_blank"
+          >
+            Open current source
+          </a>
+          <a className="button primary compact" href="#evidence-form-title">
+            Jump to form
+          </a>
+        </div>
+      </section>
 
       <ClaimsClient initialClaimId={claim.id} />
     </div>
