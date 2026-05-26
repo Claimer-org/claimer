@@ -2628,6 +2628,448 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "openai-erdos-conjecture-disproof",
+    title: "OpenAI claims its AI model autonomously disproved the 80-year-old Erdős unit distance conjecture",
+    body:
+      "OpenAI announced that one of its reasoning models independently produced a proof disproving the Erdős unit distance conjecture, a long-standing open problem in combinatorial geometry. The proof reportedly involves complex algebraic number theory.",
+    domain: "ai",
+    claimantName: "OpenAI",
+    subjectKind: "company",
+    sourceUrl: "https://openai.com/",
+    sourceTitle: "OpenAI – AI reasoning breakthrough announcement",
+    sourcePublisher: "OpenAI",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "OpenAI is the direct source of this claim about its own model's capabilities.",
+    veracityScore: 55,
+    veracityLabel: "Under review",
+    veracityExplanation:
+      "The mathematical proof requires independent peer review. Mathematicians have acknowledged the result but formal verification is ongoing.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "erdos-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Multiple mathematicians have reviewed the proof and acknowledged it as a significant milestone, though formal peer review is still in progress.",
+        sourceUrl: "https://openai.com/",
+        sourceTitle: "OpenAI reasoning breakthrough",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "meta-tribe-v2-brain-model",
+    title: "Meta AI released TRIBE v2, a predictive foundation model that acts as a 'digital twin' of human neural activity",
+    body:
+      "Meta AI's TRIBE v2 model can reportedly predict brain responses to various stimuli with significantly higher resolution than previous models, offering potential applications in neuroscience research and biologically inspired AI design.",
+    domain: "ai",
+    claimantName: "Meta AI",
+    subjectKind: "company",
+    sourceUrl: "https://ai.meta.com/",
+    sourceTitle: "Meta AI – TRIBE v2 announcement",
+    sourcePublisher: "Meta",
+    sourceQuality: "primary",
+    attributionScore: 85,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Meta AI is the developer and direct announcer of the TRIBE v2 model.",
+    veracityScore: 60,
+    veracityLabel: "Mixed evidence",
+    veracityExplanation:
+      "The predictive accuracy claims need independent validation against established neuroscience benchmarks.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "tribe-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Meta published technical details showing improved resolution in neural activity prediction compared to TRIBE v1 and competing models.",
+        sourceUrl: "https://ai.meta.com/",
+        sourceTitle: "Meta AI research blog",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "google-gemini-3-5-flash-launch",
+    title: "Google launched Gemini 3.5 Flash and integrated it across its product ecosystem at I/O 2026",
+    body:
+      "Google announced Gemini 3.5 Flash as its latest efficient AI model, integrating it across Search, Workspace, Android, and other products during Google I/O 2026.",
+    domain: "ai",
+    claimantName: "Google",
+    subjectKind: "company",
+    sourceUrl: "https://blog.google/technology/ai/",
+    sourceTitle: "Google AI Blog – Gemini 3.5 Flash",
+    sourcePublisher: "Google",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Google is the direct creator and announcer of the Gemini 3.5 Flash model.",
+    veracityScore: 85,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "Model launch is confirmed through official Google channels. Performance claims require independent benchmarking.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "gemini-flash-evidence-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Google I/O 2026 keynote livestream demonstrated Gemini 3.5 Flash integration across multiple Google products.",
+        sourceUrl: "https://io.google/2026/",
+        sourceTitle: "Google I/O 2026",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "google-ai-mode-1b-users",
+    title: "Google AI Mode in Search has surpassed 1 billion monthly active users",
+    body:
+      "Google disclosed that AI Mode in Search, its conversational AI-powered search experience, now serves over 1 billion monthly active users, representing a fundamental shift in how people interact with search.",
+    domain: "technology",
+    claimantName: "Google",
+    subjectKind: "company",
+    sourceUrl: "https://blog.google/products/search/",
+    sourceTitle: "Google Search – AI Mode milestone",
+    sourcePublisher: "Google",
+    sourceQuality: "primary",
+    attributionScore: 92,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Google directly reported its own usage metrics for AI Mode.",
+    veracityScore: 70,
+    veracityLabel: "Plausible but unverified",
+    veracityExplanation:
+      "Self-reported usage numbers from a major corporation. Independent verification of the 1B MAU figure is not available.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ai-mode-evidence-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Google's CEO mentioned the 1 billion figure during the I/O 2026 keynote presentation.",
+        sourceUrl: "https://io.google/2026/",
+        sourceTitle: "Google I/O 2026 keynote",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ai-mode-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Analysts note that Google's definition of 'AI Mode users' may include passive exposure rather than deliberate opt-in usage, which could inflate the reported number.",
+        sourceUrl: "https://www.theverge.com/",
+        sourceTitle: "The Verge – Google I/O analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "google-gemini-spark-agent",
+    title: "Google introduced Gemini Spark, a 24/7 personal AI agent with third-party app integrations",
+    body:
+      "Google announced Gemini Spark at I/O 2026, positioning it as a persistent personal AI agent that can autonomously manage tasks across third-party services including Canva and OpenTable via MCP (Model Context Protocol) support.",
+    domain: "ai",
+    claimantName: "Google",
+    subjectKind: "company",
+    sourceUrl: "https://blog.google/technology/ai/",
+    sourceTitle: "Google AI – Gemini Spark announcement",
+    sourcePublisher: "Google",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Google directly announced this product feature at their official developer conference.",
+    veracityScore: 65,
+    veracityLabel: "Mixed evidence",
+    veracityExplanation:
+      "Product was announced and demonstrated but real-world autonomy, reliability, and scope of third-party integrations remain to be independently verified.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "spark-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Live demos at Google I/O showed Gemini Spark booking restaurant reservations and editing designs through MCP-connected third-party apps.",
+        sourceUrl: "https://io.google/2026/",
+        sourceTitle: "Google I/O 2026 demo",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "microsoft-agentic-ai-timeline",
+    title: "Microsoft's AI chief predicted human-level performance on professional computer tasks within 12–18 months",
+    body:
+      "A senior Microsoft AI executive stated that agentic AI systems could achieve human-level performance on many professional computer-based tasks within 12 to 18 months, positioning the company's push toward autonomous software-operating agents.",
+    domain: "ai",
+    claimantName: "Microsoft",
+    subjectKind: "company",
+    sourceUrl: "https://www.microsoft.com/en-us/ai",
+    sourceTitle: "Microsoft AI leadership statements",
+    sourcePublisher: "Microsoft",
+    sourceQuality: "primary",
+    attributionScore: 82,
+    attributionLabel: "Attributed to executive",
+    attributionExplanation:
+      "The claim is attributed to a named Microsoft executive in public statements.",
+    veracityScore: 40,
+    veracityLabel: "Speculative",
+    veracityExplanation:
+      "Forward-looking prediction from an interested party. Historical AI capability timeline predictions have frequently overestimated the pace of progress.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "msft-agentic-evidence-1",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Independent AI researchers note that similar 'AGI timelines' have been repeatedly pushed back, and current agentic systems still struggle with multi-step tasks requiring common sense.",
+        sourceUrl: "https://arxiv.org/",
+        sourceTitle: "AI capability forecasting meta-analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "msft-agentic-evidence-2",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Recent benchmarks show agentic AI systems achieving significantly higher task completion rates on software engineering tasks compared to 12 months ago.",
+        sourceUrl: "https://www.swebench.com/",
+        sourceTitle: "SWE-bench leaderboard",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "anthropic-spacex-compute-deal",
+    title: "Anthropic secured access to SpaceX's Colossus 1 data center with over 220,000 Nvidia GPUs",
+    body:
+      "A reported compute partnership between Anthropic and SpaceX provides Anthropic access to the Colossus 1 data center infrastructure featuring over 220,000 Nvidia GPUs, representing one of the largest AI compute deals in the industry.",
+    domain: "technology",
+    claimantName: "Industry reports",
+    subjectKind: "company",
+    sourceUrl: "https://www.reuters.com/technology/",
+    sourceTitle: "Reuters – Anthropic compute partnership",
+    sourcePublisher: "Reuters",
+    sourceQuality: "reputable secondary",
+    attributionScore: 70,
+    attributionLabel: "Attributed to industry reports",
+    attributionExplanation:
+      "The partnership details come from industry reporting; neither Anthropic nor SpaceX has fully confirmed all specifics.",
+    veracityScore: 62,
+    veracityLabel: "Plausible",
+    veracityExplanation:
+      "Multiple credible outlets reported the deal, but exact GPU counts and terms have not been officially confirmed by either party.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "anthropic-compute-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Multiple major tech outlets including Reuters and Bloomberg reported on the deal with consistent details about scale and GPU counts.",
+        sourceUrl: "https://www.reuters.com/technology/",
+        sourceTitle: "Reuters tech reporting",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "openai-chatgpt-ads-platform",
+    title: "OpenAI launched a self-serve advertising platform within ChatGPT",
+    body:
+      "OpenAI introduced a self-serve advertising platform allowing businesses to place ads within ChatGPT conversations, marking a significant commercialization milestone and a potential shift in the company's revenue model.",
+    domain: "technology",
+    claimantName: "OpenAI",
+    subjectKind: "company",
+    sourceUrl: "https://openai.com/",
+    sourceTitle: "OpenAI – ChatGPT ads announcement",
+    sourcePublisher: "OpenAI",
+    sourceQuality: "primary",
+    attributionScore: 88,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "OpenAI is the direct announcer and operator of this advertising platform.",
+    veracityScore: 78,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The ad platform launch has been confirmed by multiple sources. Advertiser adoption and revenue impact remain to be measured.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "chatgpt-ads-evidence-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "OpenAI's official blog confirmed the launch of the self-serve ad platform with details about targeting and pricing.",
+        sourceUrl: "https://openai.com/",
+        sourceTitle: "OpenAI blog",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "chatgpt-ads-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Privacy advocates and some users have raised concerns about advertising within AI conversations, questioning whether ad placement could subtly influence AI responses.",
+        sourceUrl: "https://www.eff.org/",
+        sourceTitle: "EFF – AI advertising concerns",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "penn-photonic-chip-breakthrough",
+    title: "University of Pennsylvania developed hybrid light-matter particles for photonic AI chips",
+    body:
+      "Researchers at the University of Pennsylvania announced a breakthrough in hybrid light-matter particle technology that could enable photonic chips processing information using light instead of electricity, potentially offering dramatic energy efficiency improvements for AI workloads.",
+    domain: "technology",
+    claimantName: "University of Pennsylvania",
+    subjectKind: "institution",
+    sourceUrl: "https://penntoday.upenn.edu/",
+    sourceTitle: "Penn Today – Photonic chip research",
+    sourcePublisher: "University of Pennsylvania",
+    sourceQuality: "primary",
+    attributionScore: 92,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The research team at UPenn is the direct source of the technological claims.",
+    veracityScore: 58,
+    veracityLabel: "Promising but early",
+    veracityExplanation:
+      "Lab-stage research with peer-reviewed results. Commercial viability and scalability for AI workloads are unproven.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "photonic-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "The research was published in a peer-reviewed journal with experimental results demonstrating the hybrid particle behavior.",
+        sourceUrl: "https://penntoday.upenn.edu/",
+        sourceTitle: "UPenn research publication",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "meta-employee-tracking-ai-training",
+    title: "Reports indicate Meta tracked internal employee activity through its 'Model Capability Initiative' to train AI models",
+    body:
+      "Multiple reports surfaced alleging that Meta's 'Model Capability Initiative' monitored and collected data on internal employee workflows and activities to train AI models, coinciding with significant layoffs across the company.",
+    domain: "technology",
+    claimantName: "Industry journalists",
+    subjectKind: "company",
+    sourceUrl: "https://www.theverge.com/",
+    sourceTitle: "The Verge – Meta employee tracking reports",
+    sourcePublisher: "The Verge",
+    sourceQuality: "reputable secondary",
+    attributionScore: 68,
+    attributionLabel: "Attributed to anonymous sources",
+    attributionExplanation:
+      "Reports rely on anonymous internal sources and leaked documents. Meta has not fully confirmed or denied the specifics.",
+    veracityScore: 52,
+    veracityLabel: "Disputed",
+    veracityExplanation:
+      "Multiple credible outlets reported similar details from different sources, but without official confirmation the specifics remain contested.",
+    createdAt: "2026-05-26T06:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "meta-tracking-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Several current and former Meta employees corroborated the existence of internal monitoring programs through anonymous interviews with major tech publications.",
+        sourceUrl: "https://www.theverge.com/",
+        sourceTitle: "The Verge investigation",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "meta-tracking-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Meta's official response characterized employee monitoring as standard productivity tooling used across the tech industry, denying that it was specifically designed for AI training data collection.",
+        sourceUrl: "https://about.meta.com/",
+        sourceTitle: "Meta corporate statement",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T06:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 
