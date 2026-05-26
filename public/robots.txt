@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smithmatric-boop.github.io/claimer/sitemap.xml
+Sitemap: https://claimer-org.github.io/claimer/sitemap.xml

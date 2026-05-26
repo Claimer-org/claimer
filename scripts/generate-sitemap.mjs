@@ -17,8 +17,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const require = createRequire(import.meta.url);
 
-const SITE = "https://smithmatric-boop.github.io/claimer";
+const SITE = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://claimer-org.github.io/claimer"
+).replace(/\/$/, "");
 const TODAY = new Date().toISOString().split("T")[0];
+const BUILD_TIME = new Date().toISOString();
 
 // --- Extract claim IDs from lib/claims.ts ---
 const claimsSource = readFileSync(resolve(ROOT, "lib/claims.ts"), "utf-8");
@@ -239,7 +242,7 @@ function exportClaimData() {
     `${JSON.stringify(
       {
         type: "claimer.claim-pack",
-        generatedAt: new Date().toISOString(),
+        generatedAt: BUILD_TIME,
         site: SITE,
         count: claims.length,
         claims
@@ -260,6 +263,94 @@ function exportClaimData() {
 }
 
 exportClaimData();
+
+function latestClaims(limit = 25) {
+  return [...seedClaims]
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+    .slice(0, limit);
+}
+
+function feedDescription(claim) {
+  const counts = evidenceCounts(claim);
+  const evidenceTotal = counts.support + counts.challenge + counts.context;
+
+  return [
+    `${claim.veracityLabel}.`,
+    `Attribution ${claim.attributionScore}%; veracity ${claim.veracityScore}%.`,
+    `${evidenceTotal} evidence ${evidenceTotal === 1 ? "entry" : "entries"}: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context.`,
+    claim.body,
+    `Source: ${claim.sourceTitle} (${claim.sourceUrl})`
+  ].join(" ");
+}
+
+function exportFeeds() {
+  const publicDir = resolve(ROOT, "public");
+  const feedClaims = latestClaims();
+  const latestDate =
+    feedClaims[0]?.createdAt ? new Date(feedClaims[0].createdAt) : new Date(BUILD_TIME);
+
+  const rssItems = feedClaims
+    .map((claim) => {
+      const url = `${SITE}/claims/${claim.id}/?utm_source=rss&utm_medium=feed&utm_campaign=organic_discovery&utm_content=${claim.id}&claim_id=${claim.id}&ref=rss`;
+      return `    <item>
+      <title>${escapeHtml(claim.title)}</title>
+      <link>${escapeHtml(url)}</link>
+      <guid isPermaLink="true">${escapeHtml(`${SITE}/claims/${claim.id}/`)}</guid>
+      <pubDate>${new Date(claim.createdAt).toUTCString()}</pubDate>
+      <category>${escapeHtml(claim.domain)}</category>
+      <description>${escapeHtml(feedDescription(claim))}</description>
+      <source url="${escapeHtml(claim.sourceUrl)}">${escapeHtml(claim.sourceTitle)}</source>
+    </item>`;
+    })
+    .join("\n");
+
+  const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Claimer Latest Claims</title>
+    <link>${SITE}/</link>
+    <description>Latest source-backed AI and technology claims with community assessment scores.</description>
+    <language>en-us</language>
+    <lastBuildDate>${latestDate.toUTCString()}</lastBuildDate>
+    <atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml" />
+${rssItems}
+  </channel>
+</rss>
+`;
+
+  const jsonFeed = {
+    version: "https://jsonfeed.org/version/1.1",
+    title: "Claimer Latest Claims",
+    home_page_url: `${SITE}/`,
+    feed_url: `${SITE}/feed.json`,
+    description:
+      "Latest source-backed AI and technology claims with attribution and veracity assessment scores.",
+    language: "en-US",
+    items: feedClaims.map((claim) => ({
+      id: claim.id,
+      url: `${SITE}/claims/${claim.id}/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=${claim.id}&claim_id=${claim.id}&ref=json_feed`,
+      title: claim.title,
+      content_text: feedDescription(claim),
+      date_published: claim.createdAt,
+      tags: [claim.domain, claim.sourceQuality, claim.veracityLabel],
+      external_url: claim.sourceUrl,
+      authors: [
+        {
+          name: claim.claimantName
+        }
+      ]
+    }))
+  };
+
+  writeFileSync(resolve(publicDir, "feed.xml"), rss, "utf-8");
+  writeFileSync(
+    resolve(publicDir, "feed.json"),
+    `${JSON.stringify(jsonFeed, null, 2)}\n`,
+    "utf-8"
+  );
+}
+
+exportFeeds();
 
 // --- Static routes ---
 const staticRoutes = [
@@ -318,7 +409,16 @@ ${urls.join("\n")}
 
 const outPath = resolve(ROOT, "public/sitemap.xml");
 writeFileSync(outPath, sitemap, "utf-8");
+writeFileSync(
+  resolve(ROOT, "public/robots.txt"),
+  `User-agent: *
+Allow: /
+
+Sitemap: ${SITE}/sitemap.xml
+`,
+  "utf-8"
+);
 
 console.log(
-  `Static export generated ${urls.length} sitemap URLs, ${seedClaims.length} claims, and ${seedClaims.length} embed widgets.`
+  `Static export generated ${urls.length} sitemap URLs, ${seedClaims.length} claims, ${seedClaims.length} embed widgets, and ${latestClaims().length} feed items.`
 );

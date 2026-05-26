@@ -4,6 +4,8 @@ import AnalyticsTracker from "./analytics";
 import AuthWidget from "./auth-widget";
 import "./globals.css";
 
+const siteUrl = "https://claimer-org.github.io/claimer";
+
 export const metadata: Metadata = {
   title: {
     default: "Claimer — Source-Backed Community Assessment",
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
   },
   description:
     "Submit public claims with source links, inspect support and challenge evidence, and separate attribution accuracy from claim veracity. Community-powered truth assessment.",
-  metadataBase: new URL("https://smithmatric-boop.github.io/claimer"),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
     siteName: "Claimer",
@@ -29,6 +31,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": `${siteUrl}/feed.xml`,
+      "application/feed+json": `${siteUrl}/feed.json`,
+      "application/json": `${siteUrl}/api/claims.json`
+    }
   }
 };
 
@@ -68,6 +77,7 @@ export default function RootLayout({
             <Link href="/trending">Trending</Link>
             <Link href="/topics">Topics</Link>
             <Link href="/embed">Embed</Link>
+            <Link href="/feed.xml">Feed</Link>
             <Link href="/review">Review</Link>
             <Link href="/launch">Launch</Link>
             <Link href="/metrics">Metrics</Link>

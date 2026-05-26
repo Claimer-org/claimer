@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Claimer Latest Claims</title>
+    <link>https://claimer-org.github.io/claimer/</link>
+    <description>Latest source-backed AI and technology claims with community assessment scores.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 May 2026 05:30:00 GMT</lastBuildDate>
+    <atom:link href="https://claimer-org.github.io/claimer/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope</title>
+      <link>https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=chinese-academy-aeye-1-ai-microscope&amp;claim_id=chinese-academy-aeye-1-ai-microscope&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/</guid>
+      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests plausible. Attribution 90%; veracity 65%. 2 evidence entries: 1 support, 0 challenge, 1 context. Scientists at the Dalian Institute of Chemical Physics (Chinese Academy of Sciences) announced Aeye-1, an AI-TEM system enabling fully autonomous operation — covering sample transfer, imaging, and analysis — with an efficiency over 300 times higher than manual processing. Source: CAS announcement of Aeye-1 AI-TEM system (https://english.cas.cn/)</description>
+      <source url="https://english.cas.cn/">CAS announcement of Aeye-1 AI-TEM system</source>
+    </item>
+    <item>
+      <title>AI platform discovers new gallium-based semiconductor materials, bypassing years of lab experiments</title>
+      <link>https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=flinders-ai-semiconductor-discovery&amp;claim_id=flinders-ai-semiconductor-discovery&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/</guid>
+      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests plausible. Attribution 88%; veracity 62%. 1 evidence entry: 1 support, 0 challenge, 0 context. An international research team led by Flinders University and Khalifa University developed a machine-learning platform — a 'smart materials discovery engine' — that predicts new gallium-based semiconductor compositions, potentially accelerating next-gen chip development. Source: Flinders University research announcement (https://news.flinders.edu.au/)</description>
+      <source url="https://news.flinders.edu.au/">Flinders University research announcement</source>
+    </item>
+    <item>
+      <title>Experts warn agentic AI in banking is outpacing governance — traditional testing frameworks are failing</title>
+      <link>https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=agentic-ai-banking-oversight-crisis&amp;claim_id=agentic-ai-banking-oversight-crisis&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/</guid>
+      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence suggests supported. Attribution 78%; veracity 72%. 2 evidence entries: 2 support, 0 challenge, 0 context. Financial industry experts warn that as banks deploy autonomous 'agentic' AI systems that can freeze accounts, transfer funds, and make decisions independently, traditional software testing and governance frameworks are insufficient to prevent liability events. Source: QA Financial report on agentic AI oversight in banking (https://www.qa-financial.com/)</description>
+      <source url="https://www.qa-financial.com/">QA Financial report on agentic AI oversight in banking</source>
+    </item>
+    <item>
+      <title>Nebius Group breaks ground on gigawatt-scale AI factory campus in Missouri</title>
+      <link>https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=nebius-gigawatt-ai-factory-missouri&amp;claim_id=nebius-gigawatt-ai-factory-missouri&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/</guid>
+      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests supported. Attribution 92%; veracity 75%. 2 evidence entries: 1 support, 0 challenge, 1 context. Nebius Group has begun construction of a gigawatt-scale AI factory campus in Independence, Missouri — the company's first major US digital infrastructure build, incorporating sustainability measures and community benefit programs. Source: Nebius Group AI factory announcement (https://nebius.com/)</description>
+      <source url="https://nebius.com/">Nebius Group AI factory announcement</source>
+    </item>
+    <item>
+      <title>Analysis: Tech industry is fundamentally misunderstanding why consumers resist AI adoption</title>
+      <link>https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=ai-consumer-backlash-misunderstood-2026&amp;claim_id=ai-consumer-backlash-misunderstood-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/</guid>
+      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence suggests plausible. Attribution 82%; veracity 68%. 2 evidence entries: 1 support, 1 challenge, 0 context. AI Weekly analysis argues that consumer AI resistance is not technophobia but stems from psychological loss of agency, fears of economic displacement, and deep-seated platform trust deficits — factors that current PR campaigns and UX improvements have failed to address. Source: AI Weekly analysis of consumer AI backlash (https://aiweekly.co/)</description>
+      <source url="https://aiweekly.co/">AI Weekly analysis of consumer AI backlash</source>
+    </item>
+    <item>
+      <title>Anthropic's valuation could surpass $900 billion, making it the world's most valuable private startup</title>
+      <link>https://claimer-org.github.io/claimer/claims/anthropic-900b-valuation-may-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=anthropic-900b-valuation-may-2026&amp;claim_id=anthropic-900b-valuation-may-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/anthropic-900b-valuation-may-2026/</guid>
+      <pubDate>Tue, 26 May 2026 03:00:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Partially supported — round reportedly still being finalized. Attribution 78%; veracity 55%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple reports indicate Anthropic is closing a funding round exceeding $30 billion at a pre-money valuation above $900 billion, which would surpass OpenAI's $852 billion valuation. The round is co-led by Sequoia Capital, Dragoneer, Altimeter Capital, and Greenoaks. This follows a February 2026 Series G that also raised $30B at a $380B valuation — meaning the valuation has more than doubled in approximately three months. Source: Anthropic Valuation Analysis (https://seekingalpha.com/)</description>
+      <source url="https://seekingalpha.com/">Anthropic Valuation Analysis</source>
+    </item>
+    <item>
+      <title>Trump cancelled an AI safety executive order after last-minute lobbying by Musk, Zuckerberg, and Sacks</title>
+      <link>https://claimer-org.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=trump-ai-safety-eo-cancelled-may-2026&amp;claim_id=trump-ai-safety-eo-cancelled-may-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/</guid>
+      <pubDate>Tue, 26 May 2026 03:00:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Disputed — cancellation confirmed but influence extent debated. Attribution 82%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. Hours before a scheduled White House signing ceremony on May 21, 2026, President Trump cancelled a planned executive order that would have established a voluntary 90-day pre-launch review of frontier AI models for national security risks. The decision reportedly followed last-minute phone calls from Elon Musk, Mark Zuckerberg, and former AI advisor David Sacks, who argued it would slow U.S. competitiveness against China. Source: Trump cancels AI safety executive order (https://www.washingtonpost.com/)</description>
+      <source url="https://www.washingtonpost.com/">Trump cancels AI safety executive order</source>
+    </item>
+    <item>
+      <title>OpenAI claims GPT-5.5 Instant reduces hallucinations by 52.5% on high-stakes prompts</title>
+      <link>https://claimer-org.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=openai-gpt55-hallucination-reduction-may-2026&amp;claim_id=openai-gpt55-hallucination-reduction-may-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/</guid>
+      <pubDate>Tue, 26 May 2026 03:00:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Unverified — based on internal benchmarks only. Attribution 92%; veracity 45%. 2 evidence entries: 1 support, 1 challenge, 0 context. OpenAI released GPT-5.5 Instant as the new default ChatGPT model, claiming internal benchmarks show it produces 52.5% fewer hallucinated claims than its predecessor GPT-5.3 Instant on high-stakes prompts in medicine, law, and finance. It also claims a 37.3% reduction in inaccurate claims on user-flagged factual error conversations. Source: GPT-5.5 Instant announcement (https://openai.com/)</description>
+      <source url="https://openai.com/">GPT-5.5 Instant announcement</source>
+    </item>
+    <item>
+      <title>Pope Leo XIV issued a major encyclical warning against AI dehumanization, with Anthropic's co-founder present</title>
+      <link>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=pope-leo-xiv-ai-encyclical-may-2026&amp;claim_id=pope-leo-xiv-ai-encyclical-may-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/</guid>
+      <pubDate>Tue, 26 May 2026 03:00:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests supported — well-documented public event. Attribution 94%; veracity 85%. 2 evidence entries: 1 support, 1 challenge, 0 context. Pope Leo XIV presented his first encyclical 'Magnifica Humanitas' at the Vatican on May 25, 2026, calling for robust AI regulation and warning against autonomous weapons, AI mimicking human relationships, and the concentration of power among tech companies. Anthropic co-founder Christopher Olah was invited to co-present. Source: Time Magazine coverage of papal AI encyclical (https://time.com/)</description>
+      <source url="https://time.com/">Time Magazine coverage of papal AI encyclical</source>
+    </item>
+    <item>
+      <title>Anthropic co-founder warns AI could displace human labor on a 'very large scale' — while pursuing $900B valuation</title>
+      <link>https://claimer-org.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=anthropic-olah-labor-displacement-warning-may-2026&amp;claim_id=anthropic-olah-labor-displacement-warning-may-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/</guid>
+      <pubDate>Tue, 26 May 2026 03:00:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Debatable — statements are factual but sincerity questioned. Attribution 95%; veracity 50%. 2 evidence entries: 1 support, 1 challenge, 0 context. At the Vatican presentation on May 25, 2026, Anthropic co-founder Christopher Olah stated there is a 'real possibility' AI could displace human labor on a 'very large scale' and that supporting displaced workers would be a 'moral imperative of historic proportions.' He also argued AI development should not be left solely to tech companies. This comes as Anthropic simultaneously pursues a $900B valuation. Source: Christopher Olah's Vatican remarks on AI and labor (https://anthropic.com/)</description>
+      <source url="https://anthropic.com/">Christopher Olah's Vatican remarks on AI and labor</source>
+    </item>
+    <item>
+      <title>OpenAI claims its AI model autonomously disproved the 80-year-old Erdős unit distance conjecture</title>
+      <link>https://claimer-org.github.io/claimer/claims/openai-erdos-conjecture-disproof/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=openai-erdos-conjecture-disproof&amp;claim_id=openai-erdos-conjecture-disproof&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/openai-erdos-conjecture-disproof/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Under review. Attribution 90%; veracity 55%. 1 evidence entry: 1 support, 0 challenge, 0 context. OpenAI announced that one of its reasoning models independently produced a proof disproving the Erdős unit distance conjecture, a long-standing open problem in combinatorial geometry. The proof reportedly involves complex algebraic number theory. Source: OpenAI – AI reasoning breakthrough announcement (https://openai.com/)</description>
+      <source url="https://openai.com/">OpenAI – AI reasoning breakthrough announcement</source>
+    </item>
+    <item>
+      <title>Meta AI released TRIBE v2, a predictive foundation model that acts as a 'digital twin' of human neural activity</title>
+      <link>https://claimer-org.github.io/claimer/claims/meta-tribe-v2-brain-model/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=meta-tribe-v2-brain-model&amp;claim_id=meta-tribe-v2-brain-model&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/meta-tribe-v2-brain-model/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Mixed evidence. Attribution 85%; veracity 60%. 1 evidence entry: 1 support, 0 challenge, 0 context. Meta AI's TRIBE v2 model can reportedly predict brain responses to various stimuli with significantly higher resolution than previous models, offering potential applications in neuroscience research and biologically inspired AI design. Source: Meta AI – TRIBE v2 announcement (https://ai.meta.com/)</description>
+      <source url="https://ai.meta.com/">Meta AI – TRIBE v2 announcement</source>
+    </item>
+    <item>
+      <title>Google launched Gemini 3.5 Flash and integrated it across its product ecosystem at I/O 2026</title>
+      <link>https://claimer-org.github.io/claimer/claims/google-gemini-3-5-flash-launch/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=google-gemini-3-5-flash-launch&amp;claim_id=google-gemini-3-5-flash-launch&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/google-gemini-3-5-flash-launch/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence suggests supported. Attribution 95%; veracity 85%. 1 evidence entry: 1 support, 0 challenge, 0 context. Google announced Gemini 3.5 Flash as its latest efficient AI model, integrating it across Search, Workspace, Android, and other products during Google I/O 2026. Source: Google AI Blog – Gemini 3.5 Flash (https://blog.google/technology/ai/)</description>
+      <source url="https://blog.google/technology/ai/">Google AI Blog – Gemini 3.5 Flash</source>
+    </item>
+    <item>
+      <title>Google AI Mode in Search has surpassed 1 billion monthly active users</title>
+      <link>https://claimer-org.github.io/claimer/claims/google-ai-mode-1b-users/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=google-ai-mode-1b-users&amp;claim_id=google-ai-mode-1b-users&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/google-ai-mode-1b-users/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Plausible but unverified. Attribution 92%; veracity 70%. 2 evidence entries: 1 support, 1 challenge, 0 context. Google disclosed that AI Mode in Search, its conversational AI-powered search experience, now serves over 1 billion monthly active users, representing a fundamental shift in how people interact with search. Source: Google Search – AI Mode milestone (https://blog.google/products/search/)</description>
+      <source url="https://blog.google/products/search/">Google Search – AI Mode milestone</source>
+    </item>
+    <item>
+      <title>Google introduced Gemini Spark, a 24/7 personal AI agent with third-party app integrations</title>
+      <link>https://claimer-org.github.io/claimer/claims/google-gemini-spark-agent/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=google-gemini-spark-agent&amp;claim_id=google-gemini-spark-agent&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/google-gemini-spark-agent/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Mixed evidence. Attribution 90%; veracity 65%. 1 evidence entry: 1 support, 0 challenge, 0 context. Google announced Gemini Spark at I/O 2026, positioning it as a persistent personal AI agent that can autonomously manage tasks across third-party services including Canva and OpenTable via MCP (Model Context Protocol) support. Source: Google AI – Gemini Spark announcement (https://blog.google/technology/ai/)</description>
+      <source url="https://blog.google/technology/ai/">Google AI – Gemini Spark announcement</source>
+    </item>
+    <item>
+      <title>Microsoft's AI chief predicted human-level performance on professional computer tasks within 12–18 months</title>
+      <link>https://claimer-org.github.io/claimer/claims/microsoft-agentic-ai-timeline/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=microsoft-agentic-ai-timeline&amp;claim_id=microsoft-agentic-ai-timeline&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/microsoft-agentic-ai-timeline/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Speculative. Attribution 82%; veracity 40%. 2 evidence entries: 1 support, 1 challenge, 0 context. A senior Microsoft AI executive stated that agentic AI systems could achieve human-level performance on many professional computer-based tasks within 12 to 18 months, positioning the company's push toward autonomous software-operating agents. Source: Microsoft AI leadership statements (https://www.microsoft.com/en-us/ai)</description>
+      <source url="https://www.microsoft.com/en-us/ai">Microsoft AI leadership statements</source>
+    </item>
+    <item>
+      <title>Anthropic secured access to SpaceX's Colossus 1 data center with over 220,000 Nvidia GPUs</title>
+      <link>https://claimer-org.github.io/claimer/claims/anthropic-spacex-compute-deal/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=anthropic-spacex-compute-deal&amp;claim_id=anthropic-spacex-compute-deal&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/anthropic-spacex-compute-deal/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Plausible. Attribution 70%; veracity 62%. 1 evidence entry: 1 support, 0 challenge, 0 context. A reported compute partnership between Anthropic and SpaceX provides Anthropic access to the Colossus 1 data center infrastructure featuring over 220,000 Nvidia GPUs, representing one of the largest AI compute deals in the industry. Source: Reuters – Anthropic compute partnership (https://www.reuters.com/technology/)</description>
+      <source url="https://www.reuters.com/technology/">Reuters – Anthropic compute partnership</source>
+    </item>
+    <item>
+      <title>OpenAI launched a self-serve advertising platform within ChatGPT</title>
+      <link>https://claimer-org.github.io/claimer/claims/openai-chatgpt-ads-platform/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=openai-chatgpt-ads-platform&amp;claim_id=openai-chatgpt-ads-platform&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/openai-chatgpt-ads-platform/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests supported. Attribution 88%; veracity 78%. 2 evidence entries: 1 support, 1 challenge, 0 context. OpenAI introduced a self-serve advertising platform allowing businesses to place ads within ChatGPT conversations, marking a significant commercialization milestone and a potential shift in the company's revenue model. Source: OpenAI – ChatGPT ads announcement (https://openai.com/)</description>
+      <source url="https://openai.com/">OpenAI – ChatGPT ads announcement</source>
+    </item>
+    <item>
+      <title>University of Pennsylvania developed hybrid light-matter particles for photonic AI chips</title>
+      <link>https://claimer-org.github.io/claimer/claims/penn-photonic-chip-breakthrough/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=penn-photonic-chip-breakthrough&amp;claim_id=penn-photonic-chip-breakthrough&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/penn-photonic-chip-breakthrough/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Promising but early. Attribution 92%; veracity 58%. 1 evidence entry: 1 support, 0 challenge, 0 context. Researchers at the University of Pennsylvania announced a breakthrough in hybrid light-matter particle technology that could enable photonic chips processing information using light instead of electricity, potentially offering dramatic energy efficiency improvements for AI workloads. Source: Penn Today – Photonic chip research (https://penntoday.upenn.edu/)</description>
+      <source url="https://penntoday.upenn.edu/">Penn Today – Photonic chip research</source>
+    </item>
+    <item>
+      <title>Reports indicate Meta tracked internal employee activity through its 'Model Capability Initiative' to train AI models</title>
+      <link>https://claimer-org.github.io/claimer/claims/meta-employee-tracking-ai-training/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=meta-employee-tracking-ai-training&amp;claim_id=meta-employee-tracking-ai-training&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/meta-employee-tracking-ai-training/</guid>
+      <pubDate>Tue, 26 May 2026 02:20:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Disputed. Attribution 68%; veracity 52%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple reports surfaced alleging that Meta's 'Model Capability Initiative' monitored and collected data on internal employee workflows and activities to train AI models, coinciding with significant layoffs across the company. Source: The Verge – Meta employee tracking reports (https://www.theverge.com/)</description>
+      <source url="https://www.theverge.com/">The Verge – Meta employee tracking reports</source>
+    </item>
+    <item>
+      <title>Central banks are treating AI as a structural economic force comparable to the industrial revolution that will displace millions of workers</title>
+      <link>https://claimer-org.github.io/claimer/claims/ai-worker-displacement-structural-force/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=ai-worker-displacement-structural-force&amp;claim_id=ai-worker-displacement-structural-force&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/ai-worker-displacement-structural-force/</guid>
+      <pubDate>Tue, 26 May 2026 01:12:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests disputed. Attribution 85%; veracity 55%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple central banks and economic bodies have begun modeling AI as a once-in-a-century structural shift, comparable to electrification, that requires fundamental changes to monetary policy and workforce planning. Source: Central banks model AI as structural economic force (https://www.pbs.org/newshour/economy/central-banks-ai-structural-force)</description>
+      <source url="https://www.pbs.org/newshour/economy/central-banks-ai-structural-force">Central banks model AI as structural economic force</source>
+    </item>
+    <item>
+      <title>Roughly 9% of university students submit AI-generated work as their own, but the real number may be much higher</title>
+      <link>https://claimer-org.github.io/claimer/claims/ai-academic-integrity-crisis-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=ai-academic-integrity-crisis-2026&amp;claim_id=ai-academic-integrity-crisis-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/ai-academic-integrity-crisis-2026/</guid>
+      <pubDate>Tue, 26 May 2026 01:09:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests disputed. Attribution 82%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. A May 2026 study estimates that 9% of students knowingly submit prohibited AI-generated work, with the rate significantly higher among daily AI users. Universities are struggling to detect and enforce policies. Source: AI academic integrity: 9% of students submit AI work (https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/)</description>
+      <source url="https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/">AI academic integrity: 9% of students submit AI work</source>
+    </item>
+    <item>
+      <title>The US federal government should preempt state-level AI regulation to prevent a patchwork of conflicting laws</title>
+      <link>https://claimer-org.github.io/claimer/claims/us-federal-preemption-state-ai-laws/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=us-federal-preemption-state-ai-laws&amp;claim_id=us-federal-preemption-state-ai-laws&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/us-federal-preemption-state-ai-laws/</guid>
+      <pubDate>Tue, 26 May 2026 01:06:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests disputed. Attribution 78%; veracity 50%. 2 evidence entries: 1 support, 1 challenge, 0 context. Tech companies argue that differing state AI laws in California, Colorado, and Illinois create compliance chaos that hampers innovation. Critics say federal preemption would eliminate the strongest consumer protections. Source: Federal preemption debate over state AI laws heats up (https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/)</description>
+      <source url="https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/">Federal preemption debate over state AI laws heats up</source>
+    </item>
+    <item>
+      <title>Major AI models from OpenAI, Anthropic, and Google are becoming less capable while prices increase</title>
+      <link>https://claimer-org.github.io/claimer/claims/ai-models-getting-worse-may-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=ai-models-getting-worse-may-2026&amp;claim_id=ai-models-getting-worse-may-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/ai-models-getting-worse-may-2026/</guid>
+      <pubDate>Tue, 26 May 2026 01:03:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence inconclusive. Attribution 68%; veracity 45%. 2 evidence entries: 1 support, 1 challenge, 0 context. Users report that ChatGPT, Claude, and Gemini have become more restrictive, less creative, and more expensive compared to earlier versions, suggesting a pattern of silent capability degradation. Source: AI getting worse: wave of user complaints in May 2026 (https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/)</description>
+      <source url="https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/">AI getting worse: wave of user complaints in May 2026</source>
+    </item>
+    <item>
+      <title>Pope Leo XIV called to 'disarm' artificial intelligence in a formal encyclical</title>
+      <link>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-disarm/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=pope-leo-xiv-ai-encyclical-disarm&amp;claim_id=pope-leo-xiv-ai-encyclical-disarm&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-disarm/</guid>
+      <pubDate>Tue, 26 May 2026 01:00:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests disputed. Attribution 92%; veracity 58%. 2 evidence entries: 1 support, 1 challenge, 0 context. The papal encyclical 'Magnifica Humanitas' explicitly calls for AI to be freed from logics of economic and military dominance, and warns against transhumanist visions. Source: Pope Leo XIV releases AI encyclical 'Magnifica Humanitas' (https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas)</description>
+      <source url="https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas">Pope Leo XIV releases AI encyclical 'Magnifica Humanitas'</source>
+    </item>
+  </channel>
+</rss>

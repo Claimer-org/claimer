@@ -1,571 +1,571 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/</loc>
+    <loc>https://claimer-org.github.io/claimer/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/trending/</loc>
+    <loc>https://claimer-org.github.io/claimer/trending/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/about/</loc>
+    <loc>https://claimer-org.github.io/claimer/about/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/review/</loc>
+    <loc>https://claimer-org.github.io/claimer/review/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/daily/</loc>
+    <loc>https://claimer-org.github.io/claimer/daily/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/embed/</loc>
+    <loc>https://claimer-org.github.io/claimer/embed/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/feedback/</loc>
+    <loc>https://claimer-org.github.io/claimer/feedback/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/launch/</loc>
+    <loc>https://claimer-org.github.io/claimer/launch/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/submit/</loc>
+    <loc>https://claimer-org.github.io/claimer/submit/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/profiles/</loc>
+    <loc>https://claimer-org.github.io/claimer/profiles/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/metrics/</loc>
+    <loc>https://claimer-org.github.io/claimer/metrics/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/terms/</loc>
+    <loc>https://claimer-org.github.io/claimer/terms/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/disclaimer/</loc>
+    <loc>https://claimer-org.github.io/claimer/disclaimer/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/topics/</loc>
+    <loc>https://claimer-org.github.io/claimer/topics/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/topics/ai-claims/</loc>
+    <loc>https://claimer-org.github.io/claimer/topics/ai-claims/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/topics/tech-verification/</loc>
+    <loc>https://claimer-org.github.io/claimer/topics/tech-verification/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/topics/ai-safety/</loc>
+    <loc>https://claimer-org.github.io/claimer/topics/ai-safety/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/topics/llm-benchmarks/</loc>
+    <loc>https://claimer-org.github.io/claimer/topics/llm-benchmarks/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/topics/ai-regulation/</loc>
+    <loc>https://claimer-org.github.io/claimer/topics/ai-regulation/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-gpt-4o-launch/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-gpt-4o-launch/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/apple-wwdc-2024-apple-intelligence/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/apple-wwdc-2024-apple-intelligence/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/anthropic-claude-3-5-sonnet/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/anthropic-claude-3-5-sonnet/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/eu-ai-act-2024/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/eu-ai-act-2024/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/nvidia-blackwell-announcement/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/nvidia-blackwell-announcement/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/microsoft-copilot-plus-pcs/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/microsoft-copilot-plus-pcs/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/google-gemini-1-5/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/google-gemini-1-5/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/meta-llama-3-release/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/meta-llama-3-release/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/perplexity-pages-launch/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/perplexity-pages-launch/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/mistral-large-2-release/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/mistral-large-2-release/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/google-gemini-embedding-2-preview/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/google-gemini-embedding-2-preview/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/microsoft-osmos-acquisition/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/microsoft-osmos-acquisition/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/meta-ai-glasses-impact-grants/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/meta-ai-glasses-impact-grants/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/nist-ai-agent-standards-initiative/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/nist-ai-agent-standards-initiative/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/eu-ai-act-august-2026-applicability/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/eu-ai-act-august-2026-applicability/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-gpt-5-4-release/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-gpt-5-4-release/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-122b-funding-round/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-122b-funding-round/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/google-gemini-3-pro-preview/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/google-gemini-3-pro-preview/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/google-gemini-3-5-flash-io-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/google-gemini-3-5-flash-io-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/anthropic-claude-opus-4-7/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/anthropic-claude-opus-4-7/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/eu-ai-act-enforcement-2025/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/eu-ai-act-enforcement-2025/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-generated-content-50-percent-web/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-generated-content-50-percent-web/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/nvidia-market-cap-3-trillion-2024/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/nvidia-market-cap-3-trillion-2024/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-training-energy-consumption-growing/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-training-energy-consumption-growing/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-revenue-projection-2025/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-revenue-projection-2025/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/deepfake-detection-falling-behind/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/deepfake-detection-falling-behind/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-coding-assistants-40-percent-code/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-coding-assistants-40-percent-code/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-job-displacement-imf-estimate/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-job-displacement-imf-estimate/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/apple-on-device-ai-privacy-approach/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/apple-on-device-ai-privacy-approach/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/china-ai-chip-restrictions-impact/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/china-ai-chip-restrictions-impact/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-agents-supply-chain-500b/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-agents-supply-chain-500b/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/fortune-500-chatgpt-ban-60pct/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/fortune-500-chatgpt-ban-60pct/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-music-30pct-streaming-2028/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-music-30pct-streaming-2028/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/open-source-ai-5pct-gap/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/open-source-ai-5pct-gap/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/autonomous-ai-research-agents-papers/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/autonomous-ai-research-agents-papers/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ibm-quantum-eagle-1121-qubits/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ibm-quantum-eagle-1121-qubits/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/tesla-optimus-gen-2-walking/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/tesla-optimus-gen-2-walking/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/crowdstrike-outage-july-2024/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/crowdstrike-outage-july-2024/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/google-willow-quantum-chip-2024/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/google-willow-quantum-chip-2024/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/figure-ai-bmw-factory-deployment/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/figure-ai-bmw-factory-deployment/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/tsmc-2nm-mass-production-2025/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/tsmc-2nm-mass-production-2025/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/spacex-starship-fourth-flight-reentry/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/spacex-starship-fourth-flight-reentry/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/deepseek-v3-cost-5-5-million/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/deepseek-v3-cost-5-5-million/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/moderna-mrna-cancer-vaccine-2025/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/moderna-mrna-cancer-vaccine-2025/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/salt-typhoon-telecom-breach-2024/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/salt-typhoon-telecom-breach-2024/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-nonprofit-restructure-2025/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-nonprofit-restructure-2025/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/neuralink-first-human-implant-2024/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/neuralink-first-human-implant-2024/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/us-chips-act-tsmc-arizona-delay/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/us-chips-act-tsmc-arizona-delay/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/sam-altman-worldcoin-iris-scanning/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/sam-altman-worldcoin-iris-scanning/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/anthropic-responsible-scaling-policy/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/anthropic-responsible-scaling-policy/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-disarm/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-disarm/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-models-getting-worse-may-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-models-getting-worse-may-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/us-federal-preemption-state-ai-laws/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/us-federal-preemption-state-ai-laws/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-academic-integrity-crisis-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-academic-integrity-crisis-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-worker-displacement-structural-force/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-worker-displacement-structural-force/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-erdos-conjecture-disproof/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-erdos-conjecture-disproof/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/meta-tribe-v2-brain-model/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/meta-tribe-v2-brain-model/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/google-gemini-3-5-flash-launch/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/google-gemini-3-5-flash-launch/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/google-ai-mode-1b-users/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/google-ai-mode-1b-users/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/google-gemini-spark-agent/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/google-gemini-spark-agent/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/microsoft-agentic-ai-timeline/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/microsoft-agentic-ai-timeline/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/anthropic-spacex-compute-deal/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/anthropic-spacex-compute-deal/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-chatgpt-ads-platform/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-chatgpt-ads-platform/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/penn-photonic-chip-breakthrough/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/penn-photonic-chip-breakthrough/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/meta-employee-tracking-ai-training/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/meta-employee-tracking-ai-training/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/anthropic-900b-valuation-may-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/anthropic-900b-valuation-may-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/flinders-ai-semiconductor-discovery/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://smithmatric-boop.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/</loc>
+    <loc>https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

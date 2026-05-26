@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "A focused Claimer review pack with priority evidence missions and debated AI and technology claims."
 };
 
-const siteUrl = "https://smithmatric-boop.github.io/claimer";
+const siteUrl = "https://claimer-org.github.io/claimer";
 const campaignName = "milestone4-daily-pack";
 
 function missionScore(claim: Claim) {

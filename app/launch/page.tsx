@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Measured Claimer launch links for evidence review, claim browsing, and priority review missions."
 };
 
-const siteUrl = "https://smithmatric-boop.github.io/claimer";
+const siteUrl = "https://claimer-org.github.io/claimer";
 const campaignName = "milestone4-launch";
 
 const channels = [

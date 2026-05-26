@@ -10,7 +10,7 @@ import {
 } from "../../../lib/claims";
 import ClaimShareSection from "./claim-share";
 
-const siteUrl = "https://smithmatric-boop.github.io/claimer";
+const siteUrl = "https://claimer-org.github.io/claimer";
 
 export function generateStaticParams() {
   return seedClaims.map((claim) => ({ id: claim.id }));

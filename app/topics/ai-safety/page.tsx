@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { seedClaims, evidenceCounts, type Claim } from "../../../lib/claims";
 
-const siteUrl = "https://smithmatric-boop.github.io/claimer";
+const siteUrl = "https://claimer-org.github.io/claimer";
 const pageUrl = `${siteUrl}/topics/ai-safety/`;
 
 export const metadata: Metadata = {

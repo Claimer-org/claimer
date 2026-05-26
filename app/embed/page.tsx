@@ -13,12 +13,13 @@ export const metadata: Metadata = {
   }
 };
 
-const baseUrl = "https://smithmatric-boop.github.io/claimer";
+const baseUrl = "https://claimer-org.github.io/claimer";
 
 const exampleClaimId = "openai-gpt-4o-launch";
 const exampleWidgetUrl = `${baseUrl}/widgets/claims/${exampleClaimId}.html`;
 const exampleClaimUrl = `${baseUrl}/claims/${exampleClaimId}/`;
 const jsonFeedUrl = `${baseUrl}/api/claims.json`;
+const rssFeedUrl = `${baseUrl}/feed.xml`;
 
 const iframeSnippet = `<iframe
   src="${exampleWidgetUrl}"
@@ -127,15 +128,23 @@ export default function EmbedPage() {
       </section>
 
       <section className="panel" aria-labelledby="api-title">
-        <h2 id="api-title">Option 3: JSON feed</h2>
+        <h2 id="api-title">Option 3: data feeds</h2>
         <p style={{ color: "var(--foreground-dim)", marginBottom: 16 }}>
-          All seed claim data is exported as static JSON at build time for
-          custom integrations, dashboards, and claim directories.
+          All seed claim data is exported as static JSON at build time, and the
+          latest claims are available as RSS for feed readers and directories.
         </p>
         <div className="code-block">
           <pre>
             <code>{jsonSnippet}</code>
           </pre>
+        </div>
+        <div className="actions" style={{ marginTop: 16 }}>
+          <a className="button compact" href={jsonFeedUrl} rel="noreferrer" target="_blank">
+            Open JSON
+          </a>
+          <a className="button compact" href={rssFeedUrl} rel="noreferrer" target="_blank">
+            Open RSS
+          </a>
         </div>
       </section>
 

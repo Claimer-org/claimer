@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const BASE_URL = "https://smithmatric-boop.github.io/claimer";
+const BASE_URL = "https://claimer-org.github.io/claimer";
 
 const claimsFile = fs.readFileSync(
   path.join(__dirname, "..", "lib", "claims.ts"),
