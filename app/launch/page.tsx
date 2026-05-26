@@ -158,6 +158,50 @@ export default function LaunchPage() {
         </div>
       </section>
 
+      <section className="panel" aria-labelledby="reviewer-path-title">
+        <div className="section-heading">
+          <h2 id="reviewer-path-title">Reviewer path for AI and tech claims</h2>
+          <Link href="/review?ref=reviewer_launch_pack">Open reviewer queue</Link>
+        </div>
+        <div className="grid">
+          <article className="card">
+            <h3>Inspect source-backed claims</h3>
+            <p>
+              Review claims with cited URLs and community assessment context;
+              evidence suggests where support and challenge material is still thin.
+            </p>
+            <Link className="button compact" href="/claims?ref=reviewer_launch_pack">
+              Browse claims
+            </Link>
+          </article>
+          <article className="card">
+            <h3>Add support or challenge evidence</h3>
+            <p>
+              Contribute source-backed evidence to improve the community assessment
+              without presenting Claimer as an official truth authority.
+            </p>
+            <Link className="button compact" href="/review?ref=reviewer_launch_pack">
+              Start review
+            </Link>
+          </article>
+          <article className="card">
+            <h3>Reuse the public data surface</h3>
+            <p>
+              Pull public claim review data where evidence suggests a machine-readable
+              summary can help AI and tech reviewers inspect the record.
+            </p>
+            <div className="mission-actions">
+              <Link className="button compact" href="/data?ref=reviewer_launch_pack">
+                Open data
+              </Link>
+              <Link className="button compact" href="/api/claimreview.json">
+                JSON feed
+              </Link>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section className="launch-grid" aria-label="Measured channel links">
         {channels.map((channel) => {
           const internalPath = internalCampaignPath(

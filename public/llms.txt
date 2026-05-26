@@ -23,7 +23,7 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 ## Corpus Snapshot
 - Claims: 90
 - Sources: 62
-- Latest generated: 2026-05-26T11:47:25.701Z
+- Latest generated: 2026-05-26T13:44:01.288Z
 
 ## Recent Claims
 - HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance: https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/
