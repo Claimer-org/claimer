@@ -35,6 +35,12 @@ type EvidenceFormState = {
   sourceQuality: SourceQuality;
   aiAssisted: boolean;
 };
+type ContributionPrompt = {
+  useCase: "submit_claim" | "add_evidence";
+  claimId: string;
+  title: string;
+  message: string;
+};
 
 const storageKey = "claimer.localClaims.v1";
 const claimPackType = "claimer.claim-pack";
@@ -123,6 +129,16 @@ function claimSubmitUrl(claimId: string) {
     `${appBasePath}/submit/${encodeURIComponent(claimId)}/`,
     window.location.origin
   ).toString();
+}
+
+function feedbackPath(useCase: ContributionPrompt["useCase"], claimId: string) {
+  const params = new URLSearchParams({
+    use_case: useCase,
+    ref: "post_contribution",
+    claim_id: claimId
+  });
+
+  return `/feedback?${params.toString()}`;
 }
 
 function readStoredClaims(): StoredClaims {
@@ -218,6 +234,29 @@ function claimsFromPack(value: unknown): Claim[] {
   return Object.values(value).filter(isClaim);
 }
 
+function ContributionPromptView({ prompt }: { prompt: ContributionPrompt }) {
+  return (
+    <div className="post-contribution" aria-live="polite">
+      <div>
+        <span className="claim-domain">Next signal</span>
+        <strong>{prompt.title}</strong>
+        <p>{prompt.message}</p>
+      </div>
+      <div className="mission-actions">
+        <Link
+          className="button primary compact"
+          href={feedbackPath(prompt.useCase, prompt.claimId)}
+        >
+          Send feedback
+        </Link>
+        <Link className="button compact" href="/review">
+          Next mission
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps) {
   const initialSelectedId = initialClaimId || seedClaims[0]?.id || "";
   const [storedClaims, setStoredClaims] = useState<StoredClaims>({});
@@ -239,6 +278,8 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
   const [searchQuery, setSearchQuery] = useState("");
   const [supabaseMessage, setSupabaseMessage] = useState("");
   const [requestedClaimId, setRequestedClaimId] = useState(initialClaimId);
+  const [contributionPrompt, setContributionPrompt] =
+    useState<ContributionPrompt | null>(null);
   const [claimSubmitting, setClaimSubmitting] = useState(false);
   const [evidenceSubmitting, setEvidenceSubmitting] = useState(false);
 
@@ -316,7 +357,16 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
     const localClaims = Object.values(storedClaims).sort((a, b) =>
       b.createdAt.localeCompare(a.createdAt)
     );
-    return [...remoteClaims, ...localClaims, ...seedClaims];
+    const seenClaimIds = new Set<string>();
+
+    return [...remoteClaims, ...localClaims, ...seedClaims].filter((claim) => {
+      if (seenClaimIds.has(claim.id)) {
+        return false;
+      }
+
+      seenClaimIds.add(claim.id);
+      return true;
+    });
   }, [remoteClaims, storedClaims]);
 
   const filteredClaims = useMemo(() => {
@@ -394,6 +444,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
   async function submitClaim(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setClaimMessage("");
+    setContributionPrompt(null);
 
     const searchableText = `${claimForm.title} ${claimForm.body}`.toLowerCase();
     const blockedTerm = blockedTerms.find((term) => searchableText.includes(term));
@@ -438,6 +489,13 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
           });
           setClaimMessage("Claim published to the live Supabase database.");
           setSupabaseMessage("Live database write succeeded.");
+          setContributionPrompt({
+            useCase: "submit_claim",
+            claimId: liveClaim.id,
+            title: "Claim saved",
+            message:
+              "Share what would make this flow worth returning to, or move straight into another evidence mission."
+          });
           return;
         } catch (error) {
           setSupabaseMessage(
@@ -503,6 +561,13 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
         sourceQuality: "unverifiable"
       });
       setClaimMessage("Claim published locally with a required source URL.");
+      setContributionPrompt({
+        useCase: "submit_claim",
+        claimId: claim.id,
+        title: "Claim saved locally",
+        message:
+          "Tell us what would make claim submission better, then keep the review loop moving with another mission."
+      });
     } finally {
       setClaimSubmitting(false);
     }
@@ -511,6 +576,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
   async function submitEvidence(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setEvidenceMessage("");
+    setContributionPrompt(null);
 
     if (!selectedClaim) {
       setEvidenceMessage("Select a claim before adding evidence.");
@@ -549,6 +615,13 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
           setEvidenceForm(defaultEvidenceForm);
           setEvidenceMessage("Evidence published to the live Supabase database.");
           setSupabaseMessage("Live evidence write succeeded.");
+          setContributionPrompt({
+            useCase: "add_evidence",
+            claimId: selectedClaim.id,
+            title: "Evidence captured",
+            message:
+              "Leave one note on what slowed you down, or pick the next source gap from the mission queue."
+          });
           return;
         } catch (error) {
           setEvidenceMessage(
@@ -586,6 +659,13 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       setSelectedId(nextClaim.id);
       setEvidenceForm(defaultEvidenceForm);
       setEvidenceMessage("Evidence added locally with source link.");
+      setContributionPrompt({
+        useCase: "add_evidence",
+        claimId: nextClaim.id,
+        title: "Evidence captured locally",
+        message:
+          "Send one friction note while the task is fresh, or continue to another open review mission."
+      });
     } finally {
       setEvidenceSubmitting(false);
     }
@@ -1040,6 +1120,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                 </button>
               </form>
               {evidenceMessage ? <p className="form-message">{evidenceMessage}</p> : null}
+              {contributionPrompt?.useCase === "add_evidence" ? (
+                <ContributionPromptView prompt={contributionPrompt} />
+              ) : null}
             </section>
           </>
         ) : (
@@ -1159,6 +1242,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
           </button>
         </form>
         {claimMessage ? <p className="form-message">{claimMessage}</p> : null}
+        {contributionPrompt?.useCase === "submit_claim" ? (
+          <ContributionPromptView prompt={contributionPrompt} />
+        ) : null}
 
         <section className="handoff-panel" aria-labelledby="handoff-title">
           <h3 id="handoff-title">Local claim handoff</h3>

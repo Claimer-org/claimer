@@ -9,6 +9,7 @@ export type FeedbackInput = {
   useCase: FeedbackUseCase;
   rating: number;
   summary: string;
+  metadata?: Record<string, string>;
 };
 
 export const feedbackUseCases: Array<{
@@ -41,6 +42,19 @@ function storedVisitorId() {
   }
 }
 
+function normalizedMetadata(value: Record<string, string> = {}) {
+  const metadata: Record<string, string> = {};
+
+  Object.entries(value)
+    .filter(([key, entry]) => /^[A-Za-z0-9_-]{1,40}$/.test(key) && entry.trim())
+    .slice(0, 12)
+    .forEach(([key, entry]) => {
+      metadata[key] = entry.replace(/[^\w .:/?&=%-]/g, "").slice(0, 180);
+    });
+
+  return metadata;
+}
+
 export async function publishFeedback(input: FeedbackInput) {
   const supabase = getSupabaseClient();
   if (!supabase) {
@@ -70,7 +84,7 @@ export async function publishFeedback(input: FeedbackInput) {
     use_case: useCase,
     rating,
     summary,
-    metadata: {}
+    metadata: normalizedMetadata(input.metadata)
   });
 
   if (error) {

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   canSubmitFeedback,
   feedbackUseCases,
@@ -17,13 +17,47 @@ const ratingOptions = [
   { value: 1, label: "1" }
 ];
 
+const metadataParams = [
+  "ref",
+  "claim_id",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content"
+];
+
+function validUseCase(value: string | null): FeedbackUseCase | null {
+  const option = feedbackUseCases.find((item) => item.value === value);
+  return option?.value ?? null;
+}
+
 export default function FeedbackClient() {
   const pathname = usePathname();
   const [useCase, setUseCase] = useState<FeedbackUseCase>("browse_claims");
   const [rating, setRating] = useState(5);
   const [summary, setSummary] = useState("");
+  const [metadata, setMetadata] = useState<Record<string, string>>({});
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const requestedUseCase = validUseCase(params.get("use_case"));
+    const nextMetadata: Record<string, string> = {};
+
+    metadataParams.forEach((key) => {
+      const value = params.get(key);
+      if (value) {
+        nextMetadata[key] = value;
+      }
+    });
+
+    if (requestedUseCase) {
+      setUseCase(requestedUseCase);
+    }
+
+    setMetadata(nextMetadata);
+  }, []);
 
   async function submitFeedback(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,11 +75,11 @@ export default function FeedbackClient() {
         pagePath: pathname || "/feedback",
         useCase,
         rating,
-        summary
+        summary,
+        metadata
       });
       setSummary("");
       setRating(5);
-      setUseCase("browse_claims");
       setMessage("Feedback sent. Thank you.");
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Feedback failed.");
