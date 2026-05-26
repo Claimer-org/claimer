@@ -1357,6 +1357,7 @@ textarea {
   .assessment-checklist,
   .score-grid,
   .form-grid,
+  .launch-grid,
   .metrics-detail-grid {
     grid-template-columns: 1fr;
   }

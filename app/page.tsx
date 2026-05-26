@@ -8,6 +8,33 @@ const principles = [
   "Any AI-generated analysis is disclosed as automated assistance."
 ];
 
+const launchSprintLinks = [
+  {
+    label: "Review",
+    title: "Add one source-backed assessment",
+    body: "Open priority missions that need support or challenge evidence from a verifiable URL.",
+    href: "/review?ref=home_sprint"
+  },
+  {
+    label: "Feedback",
+    title: "Tell us what blocked trust",
+    body: "Share where the claim workflow, evidence language, or scoring felt unclear.",
+    href: "/feedback?use_case=review&ref=home_sprint"
+  },
+  {
+    label: "Launch",
+    title: "Share a measured entry point",
+    body: "Use the launch kit to send new reviewers into source-backed claim queues.",
+    href: "/launch?ref=home_sprint"
+  },
+  {
+    label: "Metrics",
+    title: "Check the growth loop",
+    body: "Track review intent, feedback, claim activity, and launch source attribution.",
+    href: "/metrics?ref=home_sprint"
+  }
+];
+
 export default function HomePage() {
   const evidenceTotal = seedClaims.reduce(
     (total, claim) => total + claim.evidence.length,
@@ -79,6 +106,33 @@ export default function HomePage() {
         <div className="stat-item">
           <strong>2</strong>
           <span>Score dimensions</span>
+        </div>
+      </section>
+
+      <section className="panel" aria-labelledby="launch-sprint-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Launch sprint</p>
+            <h2 id="launch-sprint-title">Help Claimer reach its next reviewers</h2>
+          </div>
+          <Link href="/launch?ref=home_sprint">Open launch kit</Link>
+        </div>
+        <div className="launch-grid">
+          {launchSprintLinks.map((item) => (
+            <article className="launch-card" key={item.href}>
+              <div className="mission-meta">
+                <span className="claim-domain">{item.label}</span>
+                <span className="mission-priority">Milestone 4</span>
+              </div>
+              <h2>{item.title}</h2>
+              <p>{item.body}</p>
+              <div className="mission-actions">
+                <Link className="button primary compact" href={item.href}>
+                  Continue
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
