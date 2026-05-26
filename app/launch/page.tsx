@@ -131,6 +131,9 @@ export default function LaunchPage() {
           <Link className="button primary" href="/review">
             Open review queue
           </Link>
+          <Link className="button" href="/metrics">
+            Open metrics
+          </Link>
           <Link className="button" href="/feedback?use_case=other&ref=launch_kit">
             Open feedback
           </Link>

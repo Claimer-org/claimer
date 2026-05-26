@@ -325,33 +325,148 @@ export type FeedbackEntryInsert = {
 
 export type FeedbackEntryUpdate = Partial<FeedbackEntryInsert>;
 
-export type TableContract<Row, Insert, Update> = {
+export type GrowthSnapshotRow = {
+  metric: string;
+  label: string;
+  value: number;
+  window_label: string;
+  detail: Record<string, unknown>;
+  sort_order: number;
+};
+
+export type RelationshipContract = {
+  foreignKeyName: string;
+  columns: string[];
+  isOneToOne: boolean;
+  referencedRelation: string;
+  referencedColumns: string[];
+};
+
+export type TableContract<
+  Row,
+  Insert,
+  Update,
+  Relationships extends RelationshipContract[] = []
+> = {
   Row: Row;
   Insert: Insert;
   Update: Update;
-  Relationships: [];
+  Relationships: Relationships;
+};
+
+export type FunctionContract<Args, Returns> = {
+  Args: Args;
+  Returns: Returns;
 };
 
 export type SupabaseDatabase = {
   public: {
     Tables: {
       profiles: TableContract<ProfileRow, ProfileInsert, ProfileUpdate>;
-      sources: TableContract<SourceRow, SourceInsert, SourceUpdate>;
-      claims: TableContract<ClaimRow, ClaimInsert, ClaimUpdate>;
+      sources: TableContract<
+        SourceRow,
+        SourceInsert,
+        SourceUpdate,
+        [
+          {
+            foreignKeyName: "sources_created_by_fkey";
+            columns: ["created_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ]
+      >;
+      claims: TableContract<
+        ClaimRow,
+        ClaimInsert,
+        ClaimUpdate,
+        [
+          {
+            foreignKeyName: "claims_source_id_fkey";
+            columns: ["source_id"];
+            isOneToOne: false;
+            referencedRelation: "sources";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "claims_submitted_by_fkey";
+            columns: ["submitted_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ]
+      >;
       evidence_entries: TableContract<
         EvidenceEntryRow,
         EvidenceEntryInsert,
-        EvidenceEntryUpdate
+        EvidenceEntryUpdate,
+        [
+          {
+            foreignKeyName: "evidence_entries_claim_id_fkey";
+            columns: ["claim_id"];
+            isOneToOne: false;
+            referencedRelation: "claims";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "evidence_entries_source_id_fkey";
+            columns: ["source_id"];
+            isOneToOne: false;
+            referencedRelation: "sources";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "evidence_entries_submitted_by_fkey";
+            columns: ["submitted_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ]
       >;
       attribution_scores: TableContract<
         AttributionScoreRow,
         AttributionScoreInsert,
-        AttributionScoreUpdate
+        AttributionScoreUpdate,
+        [
+          {
+            foreignKeyName: "attribution_scores_claim_id_fkey";
+            columns: ["claim_id"];
+            isOneToOne: false;
+            referencedRelation: "claims";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "attribution_scores_created_by_fkey";
+            columns: ["created_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ]
       >;
       veracity_scores: TableContract<
         VeracityScoreRow,
         VeracityScoreInsert,
-        VeracityScoreUpdate
+        VeracityScoreUpdate,
+        [
+          {
+            foreignKeyName: "veracity_scores_claim_id_fkey";
+            columns: ["claim_id"];
+            isOneToOne: false;
+            referencedRelation: "claims";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "veracity_scores_created_by_fkey";
+            columns: ["created_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ]
       >;
       analytics_events: TableContract<
         AnalyticsEventRow,
@@ -365,7 +480,12 @@ export type SupabaseDatabase = {
       >;
     };
     Views: Record<string, never>;
-    Functions: Record<string, never>;
+    Functions: {
+      get_growth_snapshot: FunctionContract<
+        Record<PropertyKey, never>,
+        GrowthSnapshotRow[]
+      >;
+    };
     Enums: {
       claim_domain: ClaimDomain;
       claim_stance: ClaimStance;
