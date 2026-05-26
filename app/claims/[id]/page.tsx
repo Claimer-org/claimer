@@ -8,9 +8,8 @@ import {
   reviewMission,
   seedClaims
 } from "../../../lib/claims";
+import { siteUrl } from "../../../lib/site";
 import ClaimShareSection from "./claim-share";
-
-const siteUrl = "https://claimer-org.github.io/claimer";
 
 export function generateStaticParams() {
   return seedClaims.map((claim) => ({ id: claim.id }));

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { evidenceCounts, seedClaims } from "../../lib/claims";
+import { siteUrl } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Embed Claimer Claims",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   }
 };
 
-const baseUrl = "https://claimer-org.github.io/claimer";
+const baseUrl = siteUrl;
 
 const exampleClaimId = "openai-gpt-4o-launch";
 const exampleWidgetUrl = `${baseUrl}/widgets/claims/${exampleClaimId}.html`;

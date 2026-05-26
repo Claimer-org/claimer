@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { seedClaims, evidenceCounts, type Claim } from "../../../lib/claims";
+import { siteUrl } from "../../../lib/site";
 
-const siteUrl = "https://claimer-org.github.io/claimer";
 const pageUrl = `${siteUrl}/topics/llm-benchmarks/`;
 
 export const metadata: Metadata = {

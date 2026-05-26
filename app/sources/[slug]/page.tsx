@@ -3,8 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { evidenceCounts } from "../../../lib/claims";
 import { findSourceRecord, sourceRecords } from "../../../lib/source-reputation";
-
-const siteUrl = "https://claimer-org.github.io/claimer";
+import { siteUrl } from "../../../lib/site";
 
 export function generateStaticParams() {
   return sourceRecords.map((source) => ({ slug: source.slug }));

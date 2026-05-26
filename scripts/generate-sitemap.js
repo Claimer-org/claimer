@@ -1,7 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 
-const BASE_URL = "https://claimer-org.github.io/claimer";
+const BASE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://claimer-org.github.io/claimer"
+).replace(/\/$/, "");
 
 const claimsFile = fs.readFileSync(
   path.join(__dirname, "..", "lib", "claims.ts"),

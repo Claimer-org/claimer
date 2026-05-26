@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { evidenceHealth, reviewMission, seedClaims } from "../../lib/claims";
+import { siteUrl } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Launch Kit",
@@ -8,7 +9,6 @@ export const metadata: Metadata = {
     "Measured Claimer launch links for evidence review, claim browsing, and priority review missions."
 };
 
-const siteUrl = "https://claimer-org.github.io/claimer";
 const campaignName = "milestone4-launch";
 
 const channels = [

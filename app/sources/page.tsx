@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { sourceRecords } from "../../lib/source-reputation";
+import { siteUrl } from "../../lib/site";
 
-const siteUrl = "https://claimer-org.github.io/claimer";
 const pageUrl = `${siteUrl}/sources/`;
 
 export const metadata: Metadata = {
