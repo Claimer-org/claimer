@@ -89,15 +89,14 @@ function slugifySourceName(name) {
     .replace(/^-+|-+$/g, "");
 }
 
-const sourceSlugs = [
+const sourceNames = [
   ...new Set(
     seedClaims.map((claim) =>
-      slugifySourceName(
-        claim.sourcePublisher?.trim() || claim.claimantName?.trim() || "unknown-source"
-      )
+      claim.sourcePublisher?.trim() || claim.claimantName?.trim() || "unknown-source"
     )
   )
 ].sort();
+const sourceSlugs = sourceNames.map((name) => slugifySourceName(name));
 
 function duplicated(values) {
   const seen = new Set();
@@ -154,6 +153,7 @@ function validateSeedClaims() {
 }
 
 validateSeedClaims();
+assertUnique(sourceSlugs, "source slugs");
 
 function escapeHtml(value) {
   return String(value)
@@ -449,6 +449,47 @@ ${rssItems}
 
 exportFeeds();
 
+function exportLlmsText() {
+  const recentClaims = latestClaims(15);
+  const lines = [
+    "# Claimer",
+    "",
+    "> Source-backed community assessment for public AI and technology claims.",
+    "",
+    "Claimer separates attribution accuracy from claim veracity. Every public claim includes a source URL and an evidence chain with support, challenge, or context entries.",
+    "",
+    "## Core Pages",
+    `- Home: ${SITE}/`,
+    `- Claims: ${SITE}/claims/`,
+    `- Topics: ${SITE}/topics/`,
+    `- Sources: ${SITE}/sources/`,
+    `- Review queue: ${SITE}/review/`,
+    `- Submit: ${SITE}/submit/`,
+    `- Data exports: ${SITE}/data/`,
+    "",
+    "## Machine-Readable Data",
+    `- Claim pack JSON: ${SITE}/api/claims.json`,
+    `- RSS feed: ${SITE}/feed.xml`,
+    `- JSON Feed: ${SITE}/feed.json`,
+    `- Sitemap: ${SITE}/sitemap.xml`,
+    "",
+    "## Corpus Snapshot",
+    `- Claims: ${seedClaims.length}`,
+    `- Sources: ${sourceNames.length}`,
+    `- Latest generated: ${BUILD_TIME}`,
+    "",
+    "## Recent Claims",
+    ...recentClaims.map((claim) => `- ${claim.title}: ${SITE}/claims/${claim.id}/`),
+    "",
+    "## Source Directory",
+    ...sourceNames.slice(0, 30).map((name) => `- ${name}: ${SITE}/sources/${slugifySourceName(name)}/`)
+  ];
+
+  writeFileSync(resolve(ROOT, "public/llms.txt"), `${lines.join("\n")}\n`, "utf-8");
+}
+
+exportLlmsText();
+
 // --- Static routes ---
 const staticRoutes = [
   "/",
@@ -464,6 +505,7 @@ const staticRoutes = [
   "/submit/",
   "/profiles/",
   "/metrics/",
+  "/data/",
   "/terms/",
   "/disclaimer/",
   // Topics index + SEO pages

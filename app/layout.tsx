@@ -82,6 +82,7 @@ export default function RootLayout({
             <Link href="/review">Review</Link>
             <Link href="/launch">Launch</Link>
             <Link href="/metrics">Metrics</Link>
+            <Link href="/data">Data</Link>
             <Link href="/feedback">Feedback</Link>
             <Link href="/about">About</Link>
             <Link href="/terms">Terms</Link>

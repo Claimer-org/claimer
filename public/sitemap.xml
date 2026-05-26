@@ -79,6 +79,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://claimer-org.github.io/claimer/data/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://claimer-org.github.io/claimer/terms/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -667,18 +673,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://claimer-org.github.io/claimer/sources/arxiv/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://claimer-org.github.io/claimer/sources/arxiv-deepseek/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://claimer-org.github.io/claimer/sources/axios/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -697,13 +691,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://claimer-org.github.io/claimer/sources/chinese-academy-of-sciences/</loc>
+    <loc>https://claimer-org.github.io/claimer/sources/cisa/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://claimer-org.github.io/claimer/sources/cisa/</loc>
+    <loc>https://claimer-org.github.io/claimer/sources/chinese-academy-of-sciences/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -841,18 +835,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://claimer-org.github.io/claimer/sources/national-catholic-reporter/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://claimer-org.github.io/claimer/sources/nebius-group/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://claimer-org.github.io/claimer/sources/nist/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -860,6 +842,18 @@
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/nvidia-newsroom/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/national-catholic-reporter/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/nebius-group/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -925,6 +919,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://claimer-org.github.io/claimer/sources/tsmc/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://claimer-org.github.io/claimer/sources/tesla-x-twitter/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -961,12 +961,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://claimer-org.github.io/claimer/sources/tsmc/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://claimer-org.github.io/claimer/sources/university-of-pennsylvania/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -992,6 +986,18 @@
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/x-twitter/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/arxiv/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/arxiv-deepseek/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
