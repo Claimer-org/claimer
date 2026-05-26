@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[6710,["/claimer/_next/static/chunks/0bxd6so1rh1q9.js","/claimer/_next/static/chunks/0xf2gxq3w6nn2.js","/claimer/_next/static/chunks/0d3shmwh5_nmn.js","/claimer/_next/static/chunks/01fnp~f17zxbh.js"],"default"]
+3:I[97367,["/claimer/_next/static/chunks/0bxd6so1rh1q9.js","/claimer/_next/static/chunks/0xf2gxq3w6nn2.js","/claimer/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"stack","children":[["$","header",null,{"className":"page-heading","aria-labelledby":"submit-title","children":[["$","p",null,{"className":"eyebrow","children":"Review mission"}],["$","h1",null,{"id":"submit-title","children":"Find challenge evidence"}],["$","p",null,{"children":"Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance gaps"}]]}],["$","$L2",null,{"initialClaimId":"gartner-ai-agent-governance-2027"}]]}],[["$","script","script-0",{"src":"/claimer/_next/static/chunks/01fnp~f17zxbh.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Og0MGFI3HEI9PQ0s8KS58"}
+5:null

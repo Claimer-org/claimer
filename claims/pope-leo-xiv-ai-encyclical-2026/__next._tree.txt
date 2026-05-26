@@ -1,0 +1,2 @@
+:HL["/claimer/_next/static/chunks/15lcxdi-24np2.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":20,"slots":{"children":{"name":"claims","param":null,"prefetchHints":0,"slots":{"children":{"name":"id","param":{"type":"d","key":"pope-leo-xiv-ai-encyclical-2026","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"Og0MGFI3HEI9PQ0s8KS58"}

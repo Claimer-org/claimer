@@ -1,0 +1,466 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Claimer Latest Claims",
+  "home_page_url": "https://claimer-org.github.io/claimer/",
+  "feed_url": "https://claimer-org.github.io/claimer/feed.json",
+  "hubs": [
+    {
+      "type": "WebSub",
+      "url": "https://pubsubhubbub.appspot.com/"
+    }
+  ],
+  "description": "Latest source-backed AI and technology claims with attribution and veracity assessment scores.",
+  "language": "en-US",
+  "items": [
+    {
+      "id": "haystackid-eu-ai-act-compliance-expansion-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=haystackid-eu-ai-act-compliance-expansion-2026&claim_id=haystackid-eu-ai-act-compliance-expansion-2026&ref=json_feed",
+      "title": "HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance",
+      "content_text": "Evidence suggests supported. Attribution 87%; veracity 60%. 1 evidence entry: 1 support, 0 challenge, 0 context. HaystackID announced an expansion of its AI-driven privacy and legal discovery solutions for the European market, specifically designed to help organizations navigate complex regulatory frameworks including the EU AI Act, GDPR, NIS2, and DORA. The solutions were showcased at Dublin Tech Summit 2026. Source: HaystackID Expands AI-Driven Privacy Solutions for Europe (https://www.prnewswire.com/news-releases/haystackid-expands-ai-driven-privacy-solutions-europe-2026.html)",
+      "date_published": "2026-05-26T15:04:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.prnewswire.com/news-releases/haystackid-expands-ai-driven-privacy-solutions-europe-2026.html",
+      "authors": [
+        {
+          "name": "HaystackID"
+        }
+      ]
+    },
+    {
+      "id": "aic-agentic-ai-infrastructure-computex-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/aic-agentic-ai-infrastructure-computex-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=aic-agentic-ai-infrastructure-computex-2026&claim_id=aic-agentic-ai-infrastructure-computex-2026&ref=json_feed",
+      "title": "AIC unveils next-gen AI infrastructure for the 'Agentic AI era' with NVIDIA CMX platform integration at COMPUTEX 2026",
+      "content_text": "Evidence suggests supported. Attribution 88%; veracity 62%. 1 evidence entry: 1 support, 0 challenge, 0 context. AIC announced it will showcase next-generation infrastructure designed for the Agentic AI era at COMPUTEX 2026 (June 2-5). The company plans to highlight hardware solutions including platforms integrated with NVIDIA's Context Memory Platform (CMX) aimed at overcoming memory bottlenecks in LLM inference. Source: AIC Unveils Next-Gen AI Infrastructure for the Agentic AI Era at COMPUTEX 2026 (https://www.prnewswire.com/news-releases/aic-unveils-next-gen-ai-infrastructure-for-the-agentic-ai-era-at-computex-2026.html)",
+      "date_published": "2026-05-26T15:03:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.prnewswire.com/news-releases/aic-unveils-next-gen-ai-infrastructure-for-the-agentic-ai-era-at-computex-2026.html",
+      "authors": [
+        {
+          "name": "AIC"
+        }
+      ]
+    },
+    {
+      "id": "telus-digital-genai-safety-benchmark-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/telus-digital-genai-safety-benchmark-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=telus-digital-genai-safety-benchmark-2026&claim_id=telus-digital-genai-safety-benchmark-2026&ref=json_feed",
+      "title": "TELUS Digital reports every AI model tested was exploitable in 620,000+ adversarial attack benchmark across 34 models",
+      "content_text": "Evidence suggests supported. Attribution 90%; veracity 65%. 1 evidence entry: 1 support, 0 challenge, 0 context. TELUS Digital released its GenAI Safety Model Benchmark based on over 620,000 adversarial tests across 34 leading AI models from 10 providers. The study found every model was exploitable, with attack success rates ranging from 1.3% to 93%. Reasoning models showed significantly lower vulnerability (19.9% ASR) compared to non-reasoning models (55.1%). Source: TELUS Digital GenAI Safety Model Benchmark 2026 (https://www.prnewswire.com/news-releases/telus-digital-genai-safety-model-benchmark-2026.html)",
+      "date_published": "2026-05-26T15:02:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.prnewswire.com/news-releases/telus-digital-genai-safety-model-benchmark-2026.html",
+      "authors": [
+        {
+          "name": "TELUS Digital"
+        }
+      ]
+    },
+    {
+      "id": "pope-leo-xiv-magnifica-humanitas-ai",
+      "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-magnifica-humanitas-ai/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pope-leo-xiv-magnifica-humanitas-ai&claim_id=pope-leo-xiv-magnifica-humanitas-ai&ref=json_feed",
+      "title": "Pope Leo XIV issues encyclical 'Magnifica Humanitas' calling for AI regulation and denouncing autonomous lethal weapons",
+      "content_text": "Evidence suggests supported. Attribution 96%; veracity 72%. 1 evidence entry: 1 support, 0 challenge, 0 context. Pope Leo XIV signed his first encyclical on May 15, 2026 and published it on May 25, 2026, calling for AI to be 'disarmed' and stating it is 'not permissible' to entrust irreversible lethal decisions to automated systems. The document argues that 'no algorithm can make war morally acceptable.' Source: Magnifica Humanitas — Encyclical Letter of Pope Leo XIV (https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/magnifica-humanitas.html)",
+      "date_published": "2026-05-26T15:01:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/magnifica-humanitas.html",
+      "authors": [
+        {
+          "name": "Pope Leo XIV"
+        }
+      ]
+    },
+    {
+      "id": "gartner-ai-agent-governance-2027",
+      "url": "https://claimer-org.github.io/claimer/claims/gartner-ai-agent-governance-2027/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=gartner-ai-agent-governance-2027&claim_id=gartner-ai-agent-governance-2027&ref=json_feed",
+      "title": "Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance gaps",
+      "content_text": "Evidence suggests supported. Attribution 93%; veracity 68%. 1 evidence entry: 1 support, 0 challenge, 0 context. Gartner's May 2026 press release warns that enterprises risk failure by applying uniform governance to all AI agents. They recommend a proportional approach classifying agents by autonomy level from Level 1 (Observe) to Level 4 (Act Autonomously) to manage trust boundaries and security risks. Source: Gartner Says 40% of Enterprises Will Demote or Decommission Autonomous AI Agents by 2027 (https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-40-percent-of-enterprises-will-demote-or-decommission-autonomous-ai-agents-by-2027)",
+      "date_published": "2026-05-26T15:00:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-40-percent-of-enterprises-will-demote-or-decommission-autonomous-ai-agents-by-2027",
+      "authors": [
+        {
+          "name": "Gartner"
+        }
+      ]
+    },
+    {
+      "id": "google-gemini-search-overhaul-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/google-gemini-search-overhaul-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=google-gemini-search-overhaul-2026&claim_id=google-gemini-search-overhaul-2026&ref=json_feed",
+      "title": "Google has officially overhauled its search engine to be entirely powered by Gemini 3.5 Flash AI",
+      "content_text": "Evidence suggests supported. Attribution 90%; veracity 75%. 2 evidence entries: 1 support, 1 challenge, 0 context. Google announced a full transition of its core search product to Gemini 3.5 Flash, replacing the traditional ranking algorithm with AI-generated overviews as the default experience. Source: McGill University analysis of Google's AI-powered search transition (https://www.mcgill.ca/newsroom/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.mcgill.ca/newsroom/",
+      "authors": [
+        {
+          "name": "Google"
+        }
+      ]
+    },
+    {
+      "id": "huawei-14nm-logicfolding-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/huawei-14nm-logicfolding-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=huawei-14nm-logicfolding-2026&claim_id=huawei-14nm-logicfolding-2026&ref=json_feed",
+      "title": "Huawei announces proprietary LogicFolding technology breakthrough, aims to produce 1.4nm chips by 2031",
+      "content_text": "Evidence suggests uncertain. Attribution 82%; veracity 45%. 2 evidence entries: 1 support, 1 challenge, 0 context. Huawei claims its new LogicFolding architecture enables significant transistor density improvements, targeting 1.4nm-class chip production by 2031 despite ongoing US export restrictions on advanced semiconductor equipment. Source: Huawei unveils LogicFolding chip technology, targets 1.4nm by 2031 (https://economictimes.indiatimes.com/tech/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests uncertain"
+      ],
+      "external_url": "https://economictimes.indiatimes.com/tech/",
+      "authors": [
+        {
+          "name": "Huawei"
+        }
+      ]
+    },
+    {
+      "id": "airbnb-cto-ai-hollowing-out-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/airbnb-cto-ai-hollowing-out-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=airbnb-cto-ai-hollowing-out-2026&claim_id=airbnb-cto-ai-hollowing-out-2026&ref=json_feed",
+      "title": "Airbnb CTO Ahmad Al-Dahle warns new grad hiring by tech companies has dropped 50% since 2019 due to AI automating entry-level tasks",
+      "content_text": "Partially supported. Attribution 88%; veracity 65%. 2 evidence entries: 1 support, 1 challenge, 0 context. Airbnb CTO Ahmad Al-Dahle states that AI is creating a 'hollowing out' effect in tech hiring, with new graduate recruitment declining approximately 50% since 2019 as AI tools automate tasks traditionally assigned to junior engineers. Source: Airbnb CTO warns of AI hollowing out effect on entry-level tech hiring (https://dataconomy.com/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Partially supported"
+      ],
+      "external_url": "https://dataconomy.com/",
+      "authors": [
+        {
+          "name": "Ahmad Al-Dahle"
+        }
+      ]
+    },
+    {
+      "id": "clickup-ai-restructuring-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/clickup-ai-restructuring-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=clickup-ai-restructuring-2026&claim_id=clickup-ai-restructuring-2026&ref=json_feed",
+      "title": "ClickUp announces 22% layoffs while restructuring around AI, offering salary bands up to $1M for high-impact AI workers",
+      "content_text": "Mostly supported. Attribution 85%; veracity 72%. 2 evidence entries: 1 support, 1 challenge, 0 context. ClickUp CEO confirms a 22% workforce reduction as the company pivots to an AI-first strategy, simultaneously announcing salary bands up to $1M for key AI engineering and research roles. Source: ClickUp cuts 22% of workforce, offers million-dollar AI salaries in restructuring (https://www.indiatimes.com/technology/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Mostly supported"
+      ],
+      "external_url": "https://www.indiatimes.com/technology/",
+      "authors": [
+        {
+          "name": "ClickUp"
+        }
+      ]
+    },
+    {
+      "id": "ai-circular-financing-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/ai-circular-financing-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-circular-financing-2026&claim_id=ai-circular-financing-2026&ref=json_feed",
+      "title": "Market analysts warn major cloud providers' AI revenue comes substantially from startups they themselves fund, creating circular financing comparable to dot-com era patterns",
+      "content_text": "Evidence mixed. Attribution 78%; veracity 60%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple market analysts have raised concerns that a significant portion of reported AI cloud revenue growth at major providers is driven by consumption from startups funded by the providers' own venture arms, creating a circular financing dynamic reminiscent of 1990s dot-com accounting practices. Source: AI circular financing: are cloud giants inflating their own AI revenue? (https://artificiallyintimidating.com/)",
+      "date_published": "2026-05-26T11:00:00+04:00",
+      "tags": [
+        "ai",
+        "indirect secondary",
+        "Evidence mixed"
+      ],
+      "external_url": "https://artificiallyintimidating.com/",
+      "authors": [
+        {
+          "name": "Market analysts"
+        }
+      ]
+    },
+    {
+      "id": "pope-leo-xiv-ai-encyclical-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pope-leo-xiv-ai-encyclical-2026&claim_id=pope-leo-xiv-ai-encyclical-2026&ref=json_feed",
+      "title": "Pope Leo XIV issues first papal encyclical on AI, calling for 'disarming' of artificial intelligence",
+      "content_text": "Evidence suggests supported. Attribution 92%; veracity 78%. 2 evidence entries: 1 support, 1 challenge, 0 context. The encyclical 'Magnifica Humanitas' warns against the 'culture of power' driving the AI race, calls for independent external regulation, and demands a ban on delegating lethal decisions to AI systems. Source: Encyclical Letter Magnifica Humanitas (https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
+      "authors": [
+        {
+          "name": "Pope Leo XIV / The Vatican"
+        }
+      ]
+    },
+    {
+      "id": "openai-confidential-ipo-filing-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-confidential-ipo-filing-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=openai-confidential-ipo-filing-2026&claim_id=openai-confidential-ipo-filing-2026&ref=json_feed",
+      "title": "OpenAI is reportedly preparing a confidential IPO filing, targeting a late-2026 public debut",
+      "content_text": "Moderately supported. Attribution 85%; veracity 65%. 2 evidence entries: 1 support, 1 challenge, 0 context. Axios reported that OpenAI is working on a confidential IPO prospectus with major Wall Street banks, while OpenAI said it regularly evaluates strategic options and remains focused on execution. Source: OpenAI Prepares Confidential IPO Filing (https://www.axios.com/2026/05/20/openai-ipo-spacex-musk)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Moderately supported"
+      ],
+      "external_url": "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk",
+      "authors": [
+        {
+          "name": "Axios / person familiar with the situation"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-first-quarterly-profit-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/anthropic-first-quarterly-profit-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-first-quarterly-profit-2026&claim_id=anthropic-first-quarterly-profit-2026&ref=json_feed",
+      "title": "Anthropic projects first-ever quarterly operating profit of $559M on $10.9B revenue in Q2 2026",
+      "content_text": "Uncertain. Attribution 72%; veracity 52%. 2 evidence entries: 1 support, 1 challenge, 0 context. Internal projections shared with investors show Anthropic expects a massive revenue jump from $4.8B in Q1 to $10.9B in Q2 2026, driven by enterprise adoption including a 30,000-person PwC deployment. Source: Anthropic revenue set to more than double to $10.9 billion in Q2 (https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Uncertain"
+      ],
+      "external_url": "https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486",
+      "authors": [
+        {
+          "name": "Anthropic"
+        }
+      ]
+    },
+    {
+      "id": "stability-ai-audio-3-launch-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/stability-ai-audio-3-launch-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=stability-ai-audio-3-launch-2026&claim_id=stability-ai-audio-3-launch-2026&ref=json_feed",
+      "title": "Stability AI releases Stable Audio 3.0 with professional-grade AI music generation over 6 minutes long",
+      "content_text": "Evidence suggests supported. Attribution 96%; veracity 82%. 2 evidence entries: 1 support, 1 challenge, 0 context. Stability AI launched a family of four AI audio models, with the Medium model generating tracks up to 6 minutes 20 seconds. Three models are released as open-weights on Hugging Face with free commercial use under $1M revenue. Source: Meet Stable Audio 3.0, the model family built for artistic experimentation with open-weight models (https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models",
+      "authors": [
+        {
+          "name": "Stability AI"
+        }
+      ]
+    },
+    {
+      "id": "pwc-anthropic-30k-professionals-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/pwc-anthropic-30k-professionals-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pwc-anthropic-30k-professionals-2026&claim_id=pwc-anthropic-30k-professionals-2026&ref=json_feed",
+      "title": "PwC commits to training 30,000 professionals on Claude, reporting up to 70% faster software delivery",
+      "content_text": "Moderately supported. Attribution 94%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. PwC and Anthropic announce a major expansion deploying Claude across M&A advisory, finance, and software delivery. Client-reported metrics show up to 70% faster delivery with AI-native workflows. Source: PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients (https://www.anthropic.com/news/pwc-expanded-partnership?stream=top)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Moderately supported"
+      ],
+      "external_url": "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top",
+      "authors": [
+        {
+          "name": "PwC"
+        }
+      ]
+    },
+    {
+      "id": "chinese-academy-aeye-1-ai-microscope",
+      "url": "https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=chinese-academy-aeye-1-ai-microscope&claim_id=chinese-academy-aeye-1-ai-microscope&ref=json_feed",
+      "title": "Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope",
+      "content_text": "Evidence suggests plausible. Attribution 90%; veracity 65%. 2 evidence entries: 1 support, 0 challenge, 1 context. Scientists at the Dalian Institute of Chemical Physics (Chinese Academy of Sciences) announced Aeye-1, an AI-TEM system enabling fully autonomous operation — covering sample transfer, imaging, and analysis — with an efficiency over 300 times higher than manual processing. Source: CAS announcement of Aeye-1 AI-TEM system (https://english.cas.cn/)",
+      "date_published": "2026-05-26T09:30:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests plausible"
+      ],
+      "external_url": "https://english.cas.cn/",
+      "authors": [
+        {
+          "name": "Chinese Academy of Sciences (Dalian Institute)"
+        }
+      ]
+    },
+    {
+      "id": "flinders-ai-semiconductor-discovery",
+      "url": "https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=flinders-ai-semiconductor-discovery&claim_id=flinders-ai-semiconductor-discovery&ref=json_feed",
+      "title": "AI platform discovers new gallium-based semiconductor materials, bypassing years of lab experiments",
+      "content_text": "Evidence suggests plausible. Attribution 88%; veracity 62%. 1 evidence entry: 1 support, 0 challenge, 0 context. An international research team led by Flinders University and Khalifa University developed a machine-learning platform — a 'smart materials discovery engine' — that predicts new gallium-based semiconductor compositions, potentially accelerating next-gen chip development. Source: Flinders University research announcement (https://news.flinders.edu.au/)",
+      "date_published": "2026-05-26T09:30:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests plausible"
+      ],
+      "external_url": "https://news.flinders.edu.au/",
+      "authors": [
+        {
+          "name": "Flinders University / Khalifa University"
+        }
+      ]
+    },
+    {
+      "id": "agentic-ai-banking-oversight-crisis",
+      "url": "https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=agentic-ai-banking-oversight-crisis&claim_id=agentic-ai-banking-oversight-crisis&ref=json_feed",
+      "title": "Experts warn agentic AI in banking is outpacing governance — traditional testing frameworks are failing",
+      "content_text": "Evidence suggests supported. Attribution 78%; veracity 72%. 2 evidence entries: 2 support, 0 challenge, 0 context. Financial industry experts warn that as banks deploy autonomous 'agentic' AI systems that can freeze accounts, transfer funds, and make decisions independently, traditional software testing and governance frameworks are insufficient to prevent liability events. Source: QA Financial report on agentic AI oversight in banking (https://www.qa-financial.com/)",
+      "date_published": "2026-05-26T09:30:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.qa-financial.com/",
+      "authors": [
+        {
+          "name": "QA Financial / Industry Experts"
+        }
+      ]
+    },
+    {
+      "id": "nebius-gigawatt-ai-factory-missouri",
+      "url": "https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=nebius-gigawatt-ai-factory-missouri&claim_id=nebius-gigawatt-ai-factory-missouri&ref=json_feed",
+      "title": "Nebius Group breaks ground on gigawatt-scale AI factory campus in Missouri",
+      "content_text": "Evidence suggests supported. Attribution 92%; veracity 75%. 2 evidence entries: 1 support, 0 challenge, 1 context. Nebius Group has begun construction of a gigawatt-scale AI factory campus in Independence, Missouri — the company's first major US digital infrastructure build, incorporating sustainability measures and community benefit programs. Source: Nebius Group AI factory announcement (https://nebius.com/)",
+      "date_published": "2026-05-26T09:30:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://nebius.com/",
+      "authors": [
+        {
+          "name": "Nebius Group"
+        }
+      ]
+    },
+    {
+      "id": "ai-consumer-backlash-misunderstood-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-consumer-backlash-misunderstood-2026&claim_id=ai-consumer-backlash-misunderstood-2026&ref=json_feed",
+      "title": "Analysis: Tech industry is fundamentally misunderstanding why consumers resist AI adoption",
+      "content_text": "Evidence suggests plausible. Attribution 82%; veracity 68%. 2 evidence entries: 1 support, 1 challenge, 0 context. AI Weekly analysis argues that consumer AI resistance is not technophobia but stems from psychological loss of agency, fears of economic displacement, and deep-seated platform trust deficits — factors that current PR campaigns and UX improvements have failed to address. Source: AI Weekly analysis of consumer AI backlash (https://aiweekly.co/)",
+      "date_published": "2026-05-26T09:30:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Evidence suggests plausible"
+      ],
+      "external_url": "https://aiweekly.co/",
+      "authors": [
+        {
+          "name": "AI Weekly"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-900b-valuation-may-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/anthropic-900b-valuation-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-900b-valuation-may-2026&claim_id=anthropic-900b-valuation-may-2026&ref=json_feed",
+      "title": "Anthropic's valuation could surpass $900 billion, making it the world's most valuable private startup",
+      "content_text": "Partially supported — round reportedly still being finalized. Attribution 78%; veracity 55%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple reports indicate Anthropic is closing a funding round exceeding $30 billion at a pre-money valuation above $900 billion, which would surpass OpenAI's $852 billion valuation. The round is co-led by Sequoia Capital, Dragoneer, Altimeter Capital, and Greenoaks. This follows a February 2026 Series G that also raised $30B at a $380B valuation — meaning the valuation has more than doubled in approximately three months. Source: Anthropic Valuation Analysis (https://seekingalpha.com/)",
+      "date_published": "2026-05-26T07:00:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Partially supported — round reportedly still being finalized"
+      ],
+      "external_url": "https://seekingalpha.com/",
+      "authors": [
+        {
+          "name": "Multiple financial reports"
+        }
+      ]
+    },
+    {
+      "id": "trump-ai-safety-eo-cancelled-may-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=trump-ai-safety-eo-cancelled-may-2026&claim_id=trump-ai-safety-eo-cancelled-may-2026&ref=json_feed",
+      "title": "Trump cancelled an AI safety executive order after last-minute lobbying by Musk, Zuckerberg, and Sacks",
+      "content_text": "Disputed — cancellation confirmed but influence extent debated. Attribution 82%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. Hours before a scheduled White House signing ceremony on May 21, 2026, President Trump cancelled a planned executive order that would have established a voluntary 90-day pre-launch review of frontier AI models for national security risks. The decision reportedly followed last-minute phone calls from Elon Musk, Mark Zuckerberg, and former AI advisor David Sacks, who argued it would slow U.S. competitiveness against China. Source: Trump cancels AI safety executive order (https://www.washingtonpost.com/)",
+      "date_published": "2026-05-26T07:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Disputed — cancellation confirmed but influence extent debated"
+      ],
+      "external_url": "https://www.washingtonpost.com/",
+      "authors": [
+        {
+          "name": "Washington Post / LA Times"
+        }
+      ]
+    },
+    {
+      "id": "openai-gpt55-hallucination-reduction-may-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=openai-gpt55-hallucination-reduction-may-2026&claim_id=openai-gpt55-hallucination-reduction-may-2026&ref=json_feed",
+      "title": "OpenAI claims GPT-5.5 Instant reduces hallucinations by 52.5% on high-stakes prompts",
+      "content_text": "Unverified — based on internal benchmarks only. Attribution 92%; veracity 45%. 2 evidence entries: 1 support, 1 challenge, 0 context. OpenAI released GPT-5.5 Instant as the new default ChatGPT model, claiming internal benchmarks show it produces 52.5% fewer hallucinated claims than its predecessor GPT-5.3 Instant on high-stakes prompts in medicine, law, and finance. It also claims a 37.3% reduction in inaccurate claims on user-flagged factual error conversations. Source: GPT-5.5 Instant announcement (https://openai.com/)",
+      "date_published": "2026-05-26T07:00:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Unverified — based on internal benchmarks only"
+      ],
+      "external_url": "https://openai.com/",
+      "authors": [
+        {
+          "name": "OpenAI"
+        }
+      ]
+    },
+    {
+      "id": "pope-leo-xiv-ai-encyclical-may-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pope-leo-xiv-ai-encyclical-may-2026&claim_id=pope-leo-xiv-ai-encyclical-may-2026&ref=json_feed",
+      "title": "Pope Leo XIV issued a major encyclical warning against AI dehumanization, with Anthropic's co-founder present",
+      "content_text": "Evidence suggests supported — well-documented public event. Attribution 94%; veracity 85%. 2 evidence entries: 1 support, 1 challenge, 0 context. Pope Leo XIV presented his first encyclical 'Magnifica Humanitas' at the Vatican on May 25, 2026, calling for robust AI regulation and warning against autonomous weapons, AI mimicking human relationships, and the concentration of power among tech companies. Anthropic co-founder Christopher Olah was invited to co-present. Source: Time Magazine coverage of papal AI encyclical (https://time.com/)",
+      "date_published": "2026-05-26T07:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported — well-documented public event"
+      ],
+      "external_url": "https://time.com/",
+      "authors": [
+        {
+          "name": "Pope Leo XIV / Vatican"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-olah-labor-displacement-warning-may-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-olah-labor-displacement-warning-may-2026&claim_id=anthropic-olah-labor-displacement-warning-may-2026&ref=json_feed",
+      "title": "Anthropic co-founder warns AI could displace human labor on a 'very large scale' — while pursuing $900B valuation",
+      "content_text": "Debatable — statements are factual but sincerity questioned. Attribution 95%; veracity 50%. 2 evidence entries: 1 support, 1 challenge, 0 context. At the Vatican presentation on May 25, 2026, Anthropic co-founder Christopher Olah stated there is a 'real possibility' AI could displace human labor on a 'very large scale' and that supporting displaced workers would be a 'moral imperative of historic proportions.' He also argued AI development should not be left solely to tech companies. This comes as Anthropic simultaneously pursues a $900B valuation. Source: Christopher Olah's Vatican remarks on AI and labor (https://anthropic.com/)",
+      "date_published": "2026-05-26T07:00:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Debatable — statements are factual but sincerity questioned"
+      ],
+      "external_url": "https://anthropic.com/",
+      "authors": [
+        {
+          "name": "Christopher Olah (Anthropic co-founder)"
+        }
+      ]
+    }
+  ]
+}
