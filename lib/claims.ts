@@ -3577,6 +3577,287 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "pope-leo-xiv-ai-encyclical-2026",
+    title:
+      "Pope Leo XIV issues first papal encyclical on AI, calling for 'disarming' of artificial intelligence",
+    body:
+      "The encyclical 'Magnifica Humanitas' warns against the 'culture of power' driving the AI race, calls for independent external regulation, and demands a ban on delegating lethal decisions to AI systems.",
+    domain: "ai",
+    claimantName: "Pope Leo XIV / The Vatican",
+    subjectKind: "institution",
+    sourceUrl:
+      "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
+    sourceTitle: "Encyclical Letter Magnifica Humanitas",
+    sourcePublisher: "Vatican",
+    sourceQuality: "primary",
+    attributionScore: 92,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The encyclical is a formal Vatican document, publicly signed and released. Multiple major outlets covered the Vatican presentation where Anthropic co-founder Christopher Olah participated.",
+    veracityScore: 78,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The document's existence and content are verified through multiple independent sources and the Vatican's own channels. The policy recommendations are opinions rather than factual claims, so veracity measures whether the characterization of the document is accurate.",
+    createdAt: "2026-05-26T10:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "pope-encyclical-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "The Vatican published the full encyclical text and identifies it as Pope Leo XIV's first encyclical on safeguarding the human person in the time of artificial intelligence.",
+        sourceUrl:
+          "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
+        sourceTitle: "Encyclical Letter Magnifica Humanitas",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "pope-encyclical-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "AP coverage frames the document as a manifesto calling for robust AI regulation, which supports the attribution while showing the regulatory interpretation comes from coverage of a normative document.",
+        sourceUrl: "https://apnews.com/article/d92d0108730d146baa46da041b8523da",
+        sourceTitle:
+          "Pope calls for robust regulation of AI in manifesto that ponders the future of humanity",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "openai-confidential-ipo-filing-2026",
+    title:
+      "OpenAI is reportedly preparing a confidential IPO filing, targeting a late-2026 public debut",
+    body:
+      "Axios reported that OpenAI is working on a confidential IPO prospectus with major Wall Street banks, while OpenAI said it regularly evaluates strategic options and remains focused on execution.",
+    domain: "ai",
+    claimantName: "Axios / person familiar with the situation",
+    subjectKind: "company",
+    sourceUrl: "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk",
+    sourceTitle: "OpenAI Prepares Confidential IPO Filing",
+    sourcePublisher: "Axios",
+    sourceQuality: "reputable secondary",
+    attributionScore: 85,
+    attributionLabel: "Well-attributed",
+    attributionExplanation:
+      "Axios reports the filing preparation based on a person familiar with the situation, while OpenAI's quoted response stops short of confirming a filing.",
+    veracityScore: 65,
+    veracityLabel: "Moderately supported",
+    veracityExplanation:
+      "The IPO preparation is credibly reported but relies on unnamed sourcing. The timing and valuation remain uncertain until a public S-1 or company confirmation appears.",
+    createdAt: "2026-05-26T10:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "openai-ipo-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Axios reports OpenAI is working on a confidential IPO prospectus and that banks including Goldman Sachs, Morgan Stanley, and JPMorgan Chase are involved.",
+        sourceUrl: "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk",
+        sourceTitle: "OpenAI Prepares Confidential IPO Filing",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "openai-ipo-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Forbes reports Elon Musk vowed to appeal after losing his OpenAI lawsuit, a reminder that legal and governance questions may still affect IPO timing.",
+        sourceUrl:
+          "https://www.forbes.com/sites/the-prompt/2026/05/19/musk-vows-appeal-after-losing-150-billion-openai-lawsuit/",
+        sourceTitle: "Musk Vows Appeal After Losing $150 Billion OpenAI Lawsuit",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "anthropic-first-quarterly-profit-2026",
+    title:
+      "Anthropic projects first-ever quarterly operating profit of $559M on $10.9B revenue in Q2 2026",
+    body:
+      "Internal projections shared with investors show Anthropic expects a massive revenue jump from $4.8B in Q1 to $10.9B in Q2 2026, driven by enterprise adoption including a 30,000-person PwC deployment.",
+    domain: "ai",
+    claimantName: "Anthropic",
+    subjectKind: "company",
+    sourceUrl:
+      "https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486",
+    sourceTitle: "Anthropic revenue set to more than double to $10.9 billion in Q2",
+    sourcePublisher: "Investing.com",
+    sourceQuality: "reputable secondary",
+    attributionScore: 72,
+    attributionLabel: "Moderately attributed",
+    attributionExplanation:
+      "The projections were reportedly shared with investors during fundraising. No official public announcement from Anthropic. Attribution relies on investor communications reported by secondary tech outlets.",
+    veracityScore: 52,
+    veracityLabel: "Uncertain",
+    veracityExplanation:
+      "These are unaudited internal projections shared during fundraising — historically, companies present optimistic figures in such contexts. The revenue doubling in one quarter is extraordinary and unverified.",
+    createdAt: "2026-05-26T10:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "anthropic-profit-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Investing.com, citing Wall Street Journal reporting, says Anthropic projects $10.9B in Q2 revenue and $559M in operating profit during its June quarter.",
+        sourceUrl:
+          "https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486",
+        sourceTitle: "Anthropic revenue set to more than double to $10.9 billion in Q2",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "anthropic-profit-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "A critical analysis notes the figures are projections for a quarter that has not closed and may depend on temporary compute cost assumptions, so the profit claim should not be treated as audited results.",
+        sourceUrl:
+          "https://chatforest.com/reviews/anthropic-first-operating-profit-q2-2026-milestone-or-accounting/",
+        sourceTitle: "Anthropic's First Operating Profit: Milestone or Accounting Trick?",
+        sourceQuality: "indirect secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "stability-ai-audio-3-launch-2026",
+    title:
+      "Stability AI releases Stable Audio 3.0 with professional-grade AI music generation over 6 minutes long",
+    body:
+      "Stability AI launched a family of four AI audio models, with the Medium model generating tracks up to 6 minutes 20 seconds. Three models are released as open-weights on Hugging Face with free commercial use under $1M revenue.",
+    domain: "technology",
+    claimantName: "Stability AI",
+    subjectKind: "company",
+    sourceUrl:
+      "https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models",
+    sourceTitle:
+      "Meet Stable Audio 3.0, the model family built for artistic experimentation with open-weight models",
+    sourcePublisher: "Stability AI",
+    sourceQuality: "primary",
+    attributionScore: 96,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The source is Stability AI's official announcement and product page. The models are publicly available on Hugging Face for independent verification.",
+    veracityScore: 82,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The models are publicly available for testing. Track duration and feature claims can be verified independently. The open-weights release is confirmed on Hugging Face.",
+    createdAt: "2026-05-26T10:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "stability-audio-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Stability AI says Stable Audio 3.0 Medium supports track lengths up to 6:20 and that Small SFX, Small, and Medium are available as open weights on Hugging Face.",
+        sourceUrl:
+          "https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models",
+        sourceTitle:
+          "Meet Stable Audio 3.0, the model family built for artistic experimentation with open-weight models",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "stability-audio-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "TechCrunch independently covered the release and described the six-minute generation capability, but the broader 'professional-grade' quality claim still needs user-side assessment.",
+        sourceUrl:
+          "https://techcrunch.com/2026/05/20/stability-ai-release-a-new-audio-model-that-can-create-six-minute-songs/",
+        sourceTitle:
+          "Stability AI releases a new audio model that can create six-minute songs",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "pwc-anthropic-30k-professionals-2026",
+    title:
+      "PwC commits to training 30,000 professionals on Claude, reporting up to 70% faster software delivery",
+    body:
+      "PwC and Anthropic announce a major expansion deploying Claude across M&A advisory, finance, and software delivery. Client-reported metrics show up to 70% faster delivery with AI-native workflows.",
+    domain: "ai",
+    claimantName: "PwC",
+    subjectKind: "company",
+    sourceUrl: "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top",
+    sourceTitle:
+      "PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients",
+    sourcePublisher: "Anthropic",
+    sourceQuality: "primary",
+    attributionScore: 94,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "PwC's official announcement confirms the partnership expansion, training commitment, and deployment areas. Anthropic is named as the AI partner.",
+    veracityScore: 62,
+    veracityLabel: "Moderately supported",
+    veracityExplanation:
+      "The partnership and training scale are confirmed by PwC. However, the 70% faster delivery claim is client-reported and not independently verified. Impact on actual business outcomes vs. cost reduction is debated.",
+    createdAt: "2026-05-26T10:20:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "pwc-anthropic-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Anthropic's announcement says PwC will train and certify 30,000 professionals on Claude and establish a joint Center of Excellence.",
+        sourceUrl: "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top",
+        sourceTitle:
+          "PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "pwc-anthropic-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "The same announcement attributes the up-to-70% delivery improvement to client reports, so the outcome metric should be treated as reported deployment performance rather than independently audited proof.",
+        sourceUrl: "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top",
+        sourceTitle:
+          "PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T10:20:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 

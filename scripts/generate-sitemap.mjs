@@ -26,13 +26,36 @@ const BUILD_TIME = new Date().toISOString();
 // --- Extract claim IDs from lib/claims.ts ---
 const claimsSource = readFileSync(resolve(ROOT, "lib/claims.ts"), "utf-8");
 
-const transpiledClaims = ts.transpileModule(claimsSource, {
+const claimsFile = resolve(ROOT, "lib/claims.ts");
+
+const transpileResult = ts.transpileModule(claimsSource, {
+  fileName: claimsFile,
+  reportDiagnostics: true,
   compilerOptions: {
     esModuleInterop: true,
     module: ts.ModuleKind.CommonJS,
     target: ts.ScriptTarget.ES2022
   }
-}).outputText;
+});
+
+const transpileErrors = (transpileResult.diagnostics ?? []).filter(
+  (diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error
+);
+
+if (transpileErrors.length > 0) {
+  throw new Error(
+    `Seed claim source failed TypeScript validation:\n${ts.formatDiagnosticsWithColorAndContext(
+      transpileErrors,
+      {
+        getCanonicalFileName: (fileName) => fileName,
+        getCurrentDirectory: () => ROOT,
+        getNewLine: () => "\n"
+      }
+    )}`
+  );
+}
+
+const transpiledClaims = transpileResult.outputText;
 
 const claimsModule = { exports: {} };
 new Function(
@@ -57,6 +80,62 @@ if (!Array.isArray(seedClaims) || typeof evidenceCounts !== "function") {
 }
 
 const claimIds = seedClaims.map((claim) => claim.id);
+
+function duplicated(values) {
+  const seen = new Set();
+  const duplicates = new Set();
+
+  for (const value of values) {
+    if (seen.has(value)) {
+      duplicates.add(value);
+    }
+
+    seen.add(value);
+  }
+
+  return [...duplicates].sort();
+}
+
+function assertUnique(values, label) {
+  const duplicates = duplicated(values);
+
+  if (duplicates.length > 0) {
+    throw new Error(`Duplicate ${label}: ${duplicates.join(", ")}`);
+  }
+}
+
+function assertPublicUrl(value, label) {
+  let parsed;
+
+  try {
+    parsed = new URL(value);
+  } catch {
+    throw new Error(`${label} is not a valid URL: ${value}`);
+  }
+
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+    throw new Error(`${label} must use http or https: ${value}`);
+  }
+}
+
+function validateSeedClaims() {
+  assertUnique(claimIds, "claim IDs");
+
+  const evidenceIds = [];
+
+  for (const claim of seedClaims) {
+    assertPublicUrl(claim.sourceUrl, `Claim ${claim.id} sourceUrl`);
+
+    for (const evidence of claim.evidence) {
+      evidenceIds.push(evidence.id);
+      assertPublicUrl(evidence.sourceUrl, `Evidence ${evidence.id} sourceUrl`);
+    }
+  }
+
+  assertUnique(evidenceIds, "evidence IDs");
+}
+
+validateSeedClaims();
 
 function escapeHtml(value) {
   return String(value)

@@ -7,6 +7,96 @@
   "language": "en-US",
   "items": [
     {
+      "id": "pope-leo-xiv-ai-encyclical-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pope-leo-xiv-ai-encyclical-2026&claim_id=pope-leo-xiv-ai-encyclical-2026&ref=json_feed",
+      "title": "Pope Leo XIV issues first papal encyclical on AI, calling for 'disarming' of artificial intelligence",
+      "content_text": "Evidence suggests supported. Attribution 92%; veracity 78%. 2 evidence entries: 1 support, 1 challenge, 0 context. The encyclical 'Magnifica Humanitas' warns against the 'culture of power' driving the AI race, calls for independent external regulation, and demands a ban on delegating lethal decisions to AI systems. Source: Encyclical Letter Magnifica Humanitas (https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
+      "authors": [
+        {
+          "name": "Pope Leo XIV / The Vatican"
+        }
+      ]
+    },
+    {
+      "id": "openai-confidential-ipo-filing-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-confidential-ipo-filing-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=openai-confidential-ipo-filing-2026&claim_id=openai-confidential-ipo-filing-2026&ref=json_feed",
+      "title": "OpenAI is reportedly preparing a confidential IPO filing, targeting a late-2026 public debut",
+      "content_text": "Moderately supported. Attribution 85%; veracity 65%. 2 evidence entries: 1 support, 1 challenge, 0 context. Axios reported that OpenAI is working on a confidential IPO prospectus with major Wall Street banks, while OpenAI said it regularly evaluates strategic options and remains focused on execution. Source: OpenAI Prepares Confidential IPO Filing (https://www.axios.com/2026/05/20/openai-ipo-spacex-musk)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Moderately supported"
+      ],
+      "external_url": "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk",
+      "authors": [
+        {
+          "name": "Axios / person familiar with the situation"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-first-quarterly-profit-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/anthropic-first-quarterly-profit-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-first-quarterly-profit-2026&claim_id=anthropic-first-quarterly-profit-2026&ref=json_feed",
+      "title": "Anthropic projects first-ever quarterly operating profit of $559M on $10.9B revenue in Q2 2026",
+      "content_text": "Uncertain. Attribution 72%; veracity 52%. 2 evidence entries: 1 support, 1 challenge, 0 context. Internal projections shared with investors show Anthropic expects a massive revenue jump from $4.8B in Q1 to $10.9B in Q2 2026, driven by enterprise adoption including a 30,000-person PwC deployment. Source: Anthropic revenue set to more than double to $10.9 billion in Q2 (https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Uncertain"
+      ],
+      "external_url": "https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486",
+      "authors": [
+        {
+          "name": "Anthropic"
+        }
+      ]
+    },
+    {
+      "id": "stability-ai-audio-3-launch-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/stability-ai-audio-3-launch-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=stability-ai-audio-3-launch-2026&claim_id=stability-ai-audio-3-launch-2026&ref=json_feed",
+      "title": "Stability AI releases Stable Audio 3.0 with professional-grade AI music generation over 6 minutes long",
+      "content_text": "Evidence suggests supported. Attribution 96%; veracity 82%. 2 evidence entries: 1 support, 1 challenge, 0 context. Stability AI launched a family of four AI audio models, with the Medium model generating tracks up to 6 minutes 20 seconds. Three models are released as open-weights on Hugging Face with free commercial use under $1M revenue. Source: Meet Stable Audio 3.0, the model family built for artistic experimentation with open-weight models (https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models",
+      "authors": [
+        {
+          "name": "Stability AI"
+        }
+      ]
+    },
+    {
+      "id": "pwc-anthropic-30k-professionals-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/pwc-anthropic-30k-professionals-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pwc-anthropic-30k-professionals-2026&claim_id=pwc-anthropic-30k-professionals-2026&ref=json_feed",
+      "title": "PwC commits to training 30,000 professionals on Claude, reporting up to 70% faster software delivery",
+      "content_text": "Moderately supported. Attribution 94%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. PwC and Anthropic announce a major expansion deploying Claude across M&A advisory, finance, and software delivery. Client-reported metrics show up to 70% faster delivery with AI-native workflows. Source: PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients (https://www.anthropic.com/news/pwc-expanded-partnership?stream=top)",
+      "date_published": "2026-05-26T10:20:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Moderately supported"
+      ],
+      "external_url": "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top",
+      "authors": [
+        {
+          "name": "PwC"
+        }
+      ]
+    },
+    {
       "id": "chinese-academy-aeye-1-ai-microscope",
       "url": "https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=chinese-academy-aeye-1-ai-microscope&claim_id=chinese-academy-aeye-1-ai-microscope&ref=json_feed",
       "title": "Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope",
@@ -363,96 +453,6 @@
       "authors": [
         {
           "name": "Industry journalists"
-        }
-      ]
-    },
-    {
-      "id": "ai-worker-displacement-structural-force",
-      "url": "https://claimer-org.github.io/claimer/claims/ai-worker-displacement-structural-force/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-worker-displacement-structural-force&claim_id=ai-worker-displacement-structural-force&ref=json_feed",
-      "title": "Central banks are treating AI as a structural economic force comparable to the industrial revolution that will displace millions of workers",
-      "content_text": "Evidence suggests disputed. Attribution 85%; veracity 55%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple central banks and economic bodies have begun modeling AI as a once-in-a-century structural shift, comparable to electrification, that requires fundamental changes to monetary policy and workforce planning. Source: Central banks model AI as structural economic force (https://www.pbs.org/newshour/economy/central-banks-ai-structural-force)",
-      "date_published": "2026-05-26T05:12:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Evidence suggests disputed"
-      ],
-      "external_url": "https://www.pbs.org/newshour/economy/central-banks-ai-structural-force",
-      "authors": [
-        {
-          "name": "Central banking community"
-        }
-      ]
-    },
-    {
-      "id": "ai-academic-integrity-crisis-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/ai-academic-integrity-crisis-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-academic-integrity-crisis-2026&claim_id=ai-academic-integrity-crisis-2026&ref=json_feed",
-      "title": "Roughly 9% of university students submit AI-generated work as their own, but the real number may be much higher",
-      "content_text": "Evidence suggests disputed. Attribution 82%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. A May 2026 study estimates that 9% of students knowingly submit prohibited AI-generated work, with the rate significantly higher among daily AI users. Universities are struggling to detect and enforce policies. Source: AI academic integrity: 9% of students submit AI work (https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/)",
-      "date_published": "2026-05-26T05:09:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Evidence suggests disputed"
-      ],
-      "external_url": "https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/",
-      "authors": [
-        {
-          "name": "Research community"
-        }
-      ]
-    },
-    {
-      "id": "us-federal-preemption-state-ai-laws",
-      "url": "https://claimer-org.github.io/claimer/claims/us-federal-preemption-state-ai-laws/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=us-federal-preemption-state-ai-laws&claim_id=us-federal-preemption-state-ai-laws&ref=json_feed",
-      "title": "The US federal government should preempt state-level AI regulation to prevent a patchwork of conflicting laws",
-      "content_text": "Evidence suggests disputed. Attribution 78%; veracity 50%. 2 evidence entries: 1 support, 1 challenge, 0 context. Tech companies argue that differing state AI laws in California, Colorado, and Illinois create compliance chaos that hampers innovation. Critics say federal preemption would eliminate the strongest consumer protections. Source: Federal preemption debate over state AI laws heats up (https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/)",
-      "date_published": "2026-05-26T05:06:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Evidence suggests disputed"
-      ],
-      "external_url": "https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/",
-      "authors": [
-        {
-          "name": "Tech industry coalition"
-        }
-      ]
-    },
-    {
-      "id": "ai-models-getting-worse-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/ai-models-getting-worse-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-models-getting-worse-may-2026&claim_id=ai-models-getting-worse-may-2026&ref=json_feed",
-      "title": "Major AI models from OpenAI, Anthropic, and Google are becoming less capable while prices increase",
-      "content_text": "Evidence inconclusive. Attribution 68%; veracity 45%. 2 evidence entries: 1 support, 1 challenge, 0 context. Users report that ChatGPT, Claude, and Gemini have become more restrictive, less creative, and more expensive compared to earlier versions, suggesting a pattern of silent capability degradation. Source: AI getting worse: wave of user complaints in May 2026 (https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/)",
-      "date_published": "2026-05-26T05:03:00+04:00",
-      "tags": [
-        "ai",
-        "reputable secondary",
-        "Evidence inconclusive"
-      ],
-      "external_url": "https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/",
-      "authors": [
-        {
-          "name": "User community"
-        }
-      ]
-    },
-    {
-      "id": "pope-leo-xiv-ai-encyclical-disarm",
-      "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-disarm/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pope-leo-xiv-ai-encyclical-disarm&claim_id=pope-leo-xiv-ai-encyclical-disarm&ref=json_feed",
-      "title": "Pope Leo XIV called to 'disarm' artificial intelligence in a formal encyclical",
-      "content_text": "Evidence suggests disputed. Attribution 92%; veracity 58%. 2 evidence entries: 1 support, 1 challenge, 0 context. The papal encyclical 'Magnifica Humanitas' explicitly calls for AI to be freed from logics of economic and military dominance, and warns against transhumanist visions. Source: Pope Leo XIV releases AI encyclical 'Magnifica Humanitas' (https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas)",
-      "date_published": "2026-05-26T05:00:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Evidence suggests disputed"
-      ],
-      "external_url": "https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas",
-      "authors": [
-        {
-          "name": "Pope Leo XIV"
         }
       ]
     }
