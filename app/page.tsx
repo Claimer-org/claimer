@@ -10,6 +10,12 @@ const principles = [
 
 const launchSprintLinks = [
   {
+    label: "Daily",
+    title: "Start today's review pack",
+    body: "Open the three highest-value evidence missions with measured links for Milestone 4 attribution.",
+    href: "/daily?ref=home_sprint"
+  },
+  {
     label: "Review",
     title: "Add one source-backed assessment",
     body: "Open priority missions that need support or challenge evidence from a verifiable URL.",
@@ -80,6 +86,9 @@ export default function HomePage() {
         <div className="actions">
           <Link className="button primary" href="/claims">
             Browse claims
+          </Link>
+          <Link className="button" href="/daily">
+            Daily pack
           </Link>
           <Link className="button" href="/review">
             Review evidence
