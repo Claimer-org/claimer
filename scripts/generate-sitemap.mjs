@@ -410,6 +410,7 @@ function exportFeeds() {
     <language>en-us</language>
     <lastBuildDate>${latestDate.toUTCString()}</lastBuildDate>
     <atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub" />
 ${rssItems}
   </channel>
 </rss>
@@ -420,6 +421,7 @@ ${rssItems}
     title: "Claimer Latest Claims",
     home_page_url: `${SITE}/`,
     feed_url: `${SITE}/feed.json`,
+    hubs: [{ type: "WebSub", url: "https://pubsubhubbub.appspot.com/" }],
     description:
       "Latest source-backed AI and technology claims with attribution and veracity assessment scores.",
     language: "en-US",

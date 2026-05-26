@@ -2573,6 +2573,11 @@ textarea {
   background: rgba(245, 158, 11, 0.1);
 }
 
+.debate-badge.breaking {
+  color: #22d3ee;
+  background: rgba(34, 211, 238, 0.12);
+}
+
 @keyframes pulse-glow {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }

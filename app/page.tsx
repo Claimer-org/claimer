@@ -123,6 +123,63 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="panel breaking-today" aria-labelledby="breaking-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Breaking today</p>
+            <h2 id="breaking-title">Latest claims added</h2>
+          </div>
+          <Link href="/claims">View all</Link>
+        </div>
+        <div className="grid">
+          {seedClaims
+            .slice()
+            .sort(
+              (a, b) =>
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+            )
+            .slice(0, 3)
+            .map((claim) => {
+              const counts = evidenceCounts(claim);
+              const ageMs =
+                Date.now() - new Date(claim.createdAt).getTime();
+              const ageHours = Math.floor(ageMs / 3_600_000);
+              const ageLabel =
+                ageHours < 1
+                  ? "Just now"
+                  : ageHours < 24
+                    ? `${ageHours}h ago`
+                    : `${Math.floor(ageHours / 24)}d ago`;
+              return (
+                <article
+                  className="card claim-card breaking-card"
+                  key={`breaking-${claim.id}`}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "8px",
+                      alignItems: "center"
+                    }}
+                  >
+                    <span className="claim-domain">{claim.domain}</span>
+                    <span className="debate-badge breaking">
+                      {ageLabel}
+                    </span>
+                  </div>
+                  <h3>{claim.title}</h3>
+                  <p>{claim.veracityLabel}</p>
+                  <Link href={`/claims/${claim.id}`}>
+                    {counts.support + counts.challenge + counts.context}{" "}
+                    source links · {claim.attributionScore}% attribution
+                  </Link>
+                </article>
+              );
+            })}
+        </div>
+      </section>
+
       <section className="panel" aria-labelledby="topics-title">
         <div className="section-heading">
           <div>

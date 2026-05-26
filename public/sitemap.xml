@@ -643,6 +643,36 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://claimer-org.github.io/claimer/claims/gartner-ai-agent-governance-2027/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-magnifica-humanitas-ai/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/telus-digital-genai-safety-benchmark-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/aic-agentic-ai-infrastructure-computex-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://claimer-org.github.io/claimer/sources/ai-weekly/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -746,6 +776,12 @@
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/forbes/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/gartner-newsroom/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -866,6 +902,12 @@
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/pbs/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/pr-newswire/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

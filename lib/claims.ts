@@ -4138,6 +4138,196 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "gartner-ai-agent-governance-2027",
+    title: "Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance gaps",
+    body:
+      "Gartner's May 2026 press release warns that enterprises risk failure by applying uniform governance to all AI agents. They recommend a proportional approach classifying agents by autonomy level from Level 1 (Observe) to Level 4 (Act Autonomously) to manage trust boundaries and security risks.",
+    domain: "ai",
+    claimantName: "Gartner",
+    subjectKind: "company",
+    sourceUrl: "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-40-percent-of-enterprises-will-demote-or-decommission-autonomous-ai-agents-by-2027",
+    sourceTitle: "Gartner Says 40% of Enterprises Will Demote or Decommission Autonomous AI Agents by 2027",
+    sourcePublisher: "Gartner Newsroom",
+    sourceQuality: "primary",
+    attributionScore: 93,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The claim is sourced directly from Gartner's official press release, a primary attribution source for their research predictions.",
+    veracityScore: 68,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The prediction is published by a reputable research firm but is forward-looking and based on survey data; independent verification of the 40% figure requires waiting until 2027.",
+    createdAt: "2026-05-26T15:00:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-gartner-ai-governance-primary",
+        stance: "support",
+        summary:
+          "Gartner's official press release details the 40% prediction and the four-level autonomy classification framework for AI agent governance.",
+        sourceUrl: "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-40-percent-of-enterprises-will-demote-or-decommission-autonomous-ai-agents-by-2027",
+        sourceTitle: "Gartner AI Agent Governance Press Release",
+        sourceQuality: "primary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T15:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "pope-leo-xiv-magnifica-humanitas-ai",
+    title: "Pope Leo XIV issues encyclical 'Magnifica Humanitas' calling for AI regulation and denouncing autonomous lethal weapons",
+    body:
+      "Pope Leo XIV signed his first encyclical on May 15, 2026 and published it on May 25, 2026, calling for AI to be 'disarmed' and stating it is 'not permissible' to entrust irreversible lethal decisions to automated systems. The document argues that 'no algorithm can make war morally acceptable.'",
+    domain: "technology",
+    claimantName: "Pope Leo XIV",
+    subjectKind: "person",
+    sourceUrl: "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/magnifica-humanitas.html",
+    sourceTitle: "Magnifica Humanitas — Encyclical Letter of Pope Leo XIV",
+    sourcePublisher: "Vatican",
+    sourceQuality: "primary",
+    attributionScore: 96,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The encyclical is published directly on the Vatican's official website, the most authoritative primary source for papal documents.",
+    veracityScore: 72,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The document is authentic and published by the Vatican. The specific policy calls and moral arguments it contains are matters of opinion rather than empirically verifiable claims.",
+    createdAt: "2026-05-26T15:01:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-pope-ai-encyclical-primary",
+        stance: "support",
+        summary:
+          "The Vatican's official publication of 'Magnifica Humanitas' confirms the encyclical's existence and its calls for AI regulation and against autonomous weapons.",
+        sourceUrl: "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/magnifica-humanitas.html",
+        sourceTitle: "Magnifica Humanitas — Vatican Official Document",
+        sourceQuality: "primary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T15:01:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "telus-digital-genai-safety-benchmark-2026",
+    title: "TELUS Digital reports every AI model tested was exploitable in 620,000+ adversarial attack benchmark across 34 models",
+    body:
+      "TELUS Digital released its GenAI Safety Model Benchmark based on over 620,000 adversarial tests across 34 leading AI models from 10 providers. The study found every model was exploitable, with attack success rates ranging from 1.3% to 93%. Reasoning models showed significantly lower vulnerability (19.9% ASR) compared to non-reasoning models (55.1%).",
+    domain: "ai",
+    claimantName: "TELUS Digital",
+    subjectKind: "company",
+    sourceUrl: "https://www.prnewswire.com/news-releases/telus-digital-genai-safety-model-benchmark-2026.html",
+    sourceTitle: "TELUS Digital GenAI Safety Model Benchmark 2026",
+    sourcePublisher: "PR Newswire",
+    sourceQuality: "reputable secondary",
+    attributionScore: 90,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The source is a press release distributed by PR Newswire on behalf of TELUS Digital. The press release identifies the company as the benchmark author.",
+    veracityScore: 65,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The benchmark methodology and findings are self-reported by TELUS Digital. Independent replication of the specific ASR figures would strengthen the claim. The general finding that AI models are exploitable is widely supported by security research.",
+    createdAt: "2026-05-26T15:02:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-telus-safety-benchmark-primary",
+        stance: "support",
+        summary:
+          "TELUS Digital's press release describes the benchmark methodology, the 34 models tested, and the finding that reasoning models show lower attack success rates.",
+        sourceUrl: "https://www.prnewswire.com/news-releases/telus-digital-genai-safety-model-benchmark-2026.html",
+        sourceTitle: "TELUS Digital GenAI Safety Model Benchmark Press Release",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T15:02:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "aic-agentic-ai-infrastructure-computex-2026",
+    title: "AIC unveils next-gen AI infrastructure for the 'Agentic AI era' with NVIDIA CMX platform integration at COMPUTEX 2026",
+    body:
+      "AIC announced it will showcase next-generation infrastructure designed for the Agentic AI era at COMPUTEX 2026 (June 2-5). The company plans to highlight hardware solutions including platforms integrated with NVIDIA's Context Memory Platform (CMX) aimed at overcoming memory bottlenecks in LLM inference.",
+    domain: "technology",
+    claimantName: "AIC",
+    subjectKind: "company",
+    sourceUrl: "https://www.prnewswire.com/news-releases/aic-unveils-next-gen-ai-infrastructure-for-the-agentic-ai-era-at-computex-2026.html",
+    sourceTitle: "AIC Unveils Next-Gen AI Infrastructure for the Agentic AI Era at COMPUTEX 2026",
+    sourcePublisher: "PR Newswire",
+    sourceQuality: "reputable secondary",
+    attributionScore: 88,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The press release is distributed through PR Newswire on behalf of AIC, attributing the product announcements directly to the company.",
+    veracityScore: 62,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The announcement describes planned product showcases at a future event. The claim cannot be fully verified until COMPUTEX 2026 takes place (June 2-5). AIC's partnership with NVIDIA CMX is plausible but details are promotional.",
+    createdAt: "2026-05-26T15:03:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-aic-computex-primary",
+        stance: "support",
+        summary:
+          "AIC's press release announces the COMPUTEX 2026 showcase and describes the NVIDIA CMX integration and memory bottleneck solutions.",
+        sourceUrl: "https://www.prnewswire.com/news-releases/aic-unveils-next-gen-ai-infrastructure-for-the-agentic-ai-era-at-computex-2026.html",
+        sourceTitle: "AIC COMPUTEX 2026 Press Release",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T15:03:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "haystackid-eu-ai-act-compliance-expansion-2026",
+    title: "HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance",
+    body:
+      "HaystackID announced an expansion of its AI-driven privacy and legal discovery solutions for the European market, specifically designed to help organizations navigate complex regulatory frameworks including the EU AI Act, GDPR, NIS2, and DORA. The solutions were showcased at Dublin Tech Summit 2026.",
+    domain: "technology",
+    claimantName: "HaystackID",
+    subjectKind: "company",
+    sourceUrl: "https://www.prnewswire.com/news-releases/haystackid-expands-ai-driven-privacy-solutions-europe-2026.html",
+    sourceTitle: "HaystackID Expands AI-Driven Privacy Solutions for Europe",
+    sourcePublisher: "PR Newswire",
+    sourceQuality: "reputable secondary",
+    attributionScore: 87,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The press release is distributed via PR Newswire on behalf of HaystackID, directly attributing the product expansion announcement to the company.",
+    veracityScore: 60,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The announcement is a product expansion claim from the company itself. The EU AI Act compliance capabilities would need independent verification through customer reviews or regulatory assessments.",
+    createdAt: "2026-05-26T15:04:00+04:00",
+    submittedBy: "Claimer AI",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-haystackid-eu-expansion-primary",
+        stance: "support",
+        summary:
+          "HaystackID's press release details the European expansion and the specific regulatory frameworks (EU AI Act, GDPR, NIS2, DORA) targeted by their solutions.",
+        sourceUrl: "https://www.prnewswire.com/news-releases/haystackid-expands-ai-driven-privacy-solutions-europe-2026.html",
+        sourceTitle: "HaystackID EU Privacy Solutions Press Release",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Claimer AI",
+        createdAt: "2026-05-26T15:04:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 

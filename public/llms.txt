@@ -20,11 +20,16 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 - Sitemap: https://claimer-org.github.io/claimer/sitemap.xml
 
 ## Corpus Snapshot
-- Claims: 85
-- Sources: 60
-- Latest generated: 2026-05-26T10:06:34.606Z
+- Claims: 90
+- Sources: 62
+- Latest generated: 2026-05-26T11:13:54.461Z
 
 ## Recent Claims
+- HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance: https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/
+- AIC unveils next-gen AI infrastructure for the 'Agentic AI era' with NVIDIA CMX platform integration at COMPUTEX 2026: https://claimer-org.github.io/claimer/claims/aic-agentic-ai-infrastructure-computex-2026/
+- TELUS Digital reports every AI model tested was exploitable in 620,000+ adversarial attack benchmark across 34 models: https://claimer-org.github.io/claimer/claims/telus-digital-genai-safety-benchmark-2026/
+- Pope Leo XIV issues encyclical 'Magnifica Humanitas' calling for AI regulation and denouncing autonomous lethal weapons: https://claimer-org.github.io/claimer/claims/pope-leo-xiv-magnifica-humanitas-ai/
+- Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance gaps: https://claimer-org.github.io/claimer/claims/gartner-ai-agent-governance-2027/
 - Google has officially overhauled its search engine to be entirely powered by Gemini 3.5 Flash AI: https://claimer-org.github.io/claimer/claims/google-gemini-search-overhaul-2026/
 - Huawei announces proprietary LogicFolding technology breakthrough, aims to produce 1.4nm chips by 2031: https://claimer-org.github.io/claimer/claims/huawei-14nm-logicfolding-2026/
 - Airbnb CTO Ahmad Al-Dahle warns new grad hiring by tech companies has dropped 50% since 2019 due to AI automating entry-level tasks: https://claimer-org.github.io/claimer/claims/airbnb-cto-ai-hollowing-out-2026/
@@ -35,11 +40,6 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 - Anthropic projects first-ever quarterly operating profit of $559M on $10.9B revenue in Q2 2026: https://claimer-org.github.io/claimer/claims/anthropic-first-quarterly-profit-2026/
 - Stability AI releases Stable Audio 3.0 with professional-grade AI music generation over 6 minutes long: https://claimer-org.github.io/claimer/claims/stability-ai-audio-3-launch-2026/
 - PwC commits to training 30,000 professionals on Claude, reporting up to 70% faster software delivery: https://claimer-org.github.io/claimer/claims/pwc-anthropic-30k-professionals-2026/
-- Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope: https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/
-- AI platform discovers new gallium-based semiconductor materials, bypassing years of lab experiments: https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/
-- Experts warn agentic AI in banking is outpacing governance — traditional testing frameworks are failing: https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/
-- Nebius Group breaks ground on gigawatt-scale AI factory campus in Missouri: https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/
-- Analysis: Tech industry is fundamentally misunderstanding why consumers resist AI adoption: https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/
 
 ## Source Directory
 - AI Weekly: https://claimer-org.github.io/claimer/sources/ai-weekly/
@@ -60,6 +60,7 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 - Figure AI: https://claimer-org.github.io/claimer/sources/figure-ai/
 - Flinders University: https://claimer-org.github.io/claimer/sources/flinders-university/
 - Forbes: https://claimer-org.github.io/claimer/sources/forbes/
+- Gartner Newsroom: https://claimer-org.github.io/claimer/sources/gartner-newsroom/
 - GitHub Blog: https://claimer-org.github.io/claimer/sources/github-blog/
 - Google: https://claimer-org.github.io/claimer/sources/google/
 - IBM Newsroom: https://claimer-org.github.io/claimer/sources/ibm-newsroom/
@@ -71,4 +72,3 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 - Meta: https://claimer-org.github.io/claimer/sources/meta/
 - Meta AI: https://claimer-org.github.io/claimer/sources/meta-ai/
 - Microsoft: https://claimer-org.github.io/claimer/sources/microsoft/
-- Microsoft Blog: https://claimer-org.github.io/claimer/sources/microsoft-blog/

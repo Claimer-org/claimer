@@ -59,3 +59,23 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify WebSub hub of updated feeds
+        if: success()
+        run: |
+          curl -s -o /dev/null -w "RSS WebSub: %{http_code}\n" \
+            -X POST -d "hub.mode=publish" \
+            -d "hub.url=https://claimer-org.github.io/claimer/feed.xml" \
+            "https://pubsubhubbub.appspot.com/"
+          curl -s -o /dev/null -w "JSON WebSub: %{http_code}\n" \
+            -X POST -d "hub.mode=publish" \
+            -d "hub.url=https://claimer-org.github.io/claimer/feed.json" \
+            "https://pubsubhubbub.appspot.com/"
+
+      - name: Ping IndexNow with latest URLs
+        if: success()
+        run: |
+          curl -s -o /dev/null -w "IndexNow Bing: %{http_code}\n" \
+            "https://www.bing.com/indexnow?url=https://claimer-org.github.io/claimer/&key=claimer-indexnow-key"
+          curl -s -o /dev/null -w "IndexNow Yandex: %{http_code}\n" \
+            "https://yandex.com/indexnow?url=https://claimer-org.github.io/claimer/&key=claimer-indexnow-key"
