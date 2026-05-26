@@ -2371,6 +2371,263 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "pope-leo-xiv-ai-encyclical-disarm",
+    title: "Pope Leo XIV called to 'disarm' artificial intelligence in a formal encyclical",
+    body:
+      "The papal encyclical 'Magnifica Humanitas' explicitly calls for AI to be freed from logics of economic and military dominance, and warns against transhumanist visions.",
+    domain: "technology",
+    claimantName: "Pope Leo XIV",
+    subjectKind: "individual",
+    sourceUrl: "https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas",
+    sourceTitle: "Pope Leo XIV releases AI encyclical 'Magnifica Humanitas'",
+    sourcePublisher: "National Catholic Reporter",
+    sourceQuality: "reputable secondary",
+    attributionScore: 92,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Multiple credible news sources attribute the encyclical to Pope Leo XIV. The Vatican's own communications confirm the release.",
+    veracityScore: 58,
+    veracityLabel: "Evidence suggests disputed",
+    veracityExplanation:
+      "The encyclical exists and makes these calls. However, whether 'disarming' AI is practical, desirable, or even clearly defined is vigorously debated by technologists, ethicists, and policymakers.",
+    createdAt: "2026-05-26T05:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-pope-encyclical-ncr",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "National Catholic Reporter confirms the release of the encyclical and its core message about disarming AI from military and economic dominance logics.",
+        sourceUrl: "https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas",
+        sourceTitle: "Pope Leo XIV releases AI encyclical",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:01:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-pope-encyclical-tech-response",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Tech industry leaders argue that 'disarming' AI would cede strategic advantage to nations that don't comply, and that the encyclical conflates narrow military AI with beneficial general-purpose AI research.",
+        sourceUrl: "https://time.com/7295105/pope-ai-encyclical-reaction/",
+        sourceTitle: "Tech leaders react to Pope's AI encyclical",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:02:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "ai-models-getting-worse-may-2026",
+    title: "Major AI models from OpenAI, Anthropic, and Google are becoming less capable while prices increase",
+    body:
+      "Users report that ChatGPT, Claude, and Gemini have become more restrictive, less creative, and more expensive compared to earlier versions, suggesting a pattern of silent capability degradation.",
+    domain: "ai",
+    claimantName: "User community",
+    subjectKind: "community",
+    sourceUrl: "https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/",
+    sourceTitle: "AI getting worse: wave of user complaints in May 2026",
+    sourcePublisher: "Rolling Out",
+    sourceQuality: "reputable secondary",
+    attributionScore: 68,
+    attributionLabel: "Moderate attribution",
+    attributionExplanation:
+      "The claim aggregates user sentiment from multiple platforms. No single authoritative source makes this claim — it emerges from distributed user reports.",
+    veracityScore: 45,
+    veracityLabel: "Evidence inconclusive",
+    veracityExplanation:
+      "User perception of degradation is real and widespread, but AI companies dispute it, citing benchmark improvements. The gap may reflect changes in safety filtering, not raw capability loss.",
+    createdAt: "2026-05-26T05:03:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-ai-worse-user-reports",
+        stance: "support",
+        summary:
+          "A wave of user complaints across Reddit, X, and tech forums report that ChatGPT, Claude, and Gemini produce more refusals, shorter responses, and less creative output than 6 months ago.",
+        sourceUrl: "https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/",
+        sourceTitle: "AI getting worse: user complaints",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:04:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-ai-worse-benchmarks-counter",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "OpenAI and Anthropic point to benchmark score improvements across successive model releases. They argue that increased safety filtering is not the same as capability degradation, and that user perception is influenced by rising expectations.",
+        sourceUrl: "https://openai.com/index/introducing-gpt-5-4/",
+        sourceTitle: "OpenAI GPT-5.4 benchmark results",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:05:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "us-federal-preemption-state-ai-laws",
+    title: "The US federal government should preempt state-level AI regulation to prevent a patchwork of conflicting laws",
+    body:
+      "Tech companies argue that differing state AI laws in California, Colorado, and Illinois create compliance chaos that hampers innovation. Critics say federal preemption would eliminate the strongest consumer protections.",
+    domain: "technology",
+    claimantName: "Tech industry coalition",
+    subjectKind: "organization",
+    sourceUrl: "https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/",
+    sourceTitle: "Federal preemption debate over state AI laws heats up",
+    sourcePublisher: "Broadband Breakfast",
+    sourceQuality: "reputable secondary",
+    attributionScore: 78,
+    attributionLabel: "Moderate attribution",
+    attributionExplanation:
+      "The preemption push is documented across legislative records and trade group statements, though specific legislative proposals are still evolving.",
+    veracityScore: 50,
+    veracityLabel: "Evidence suggests disputed",
+    veracityExplanation:
+      "This is fundamentally a policy debate. Supporters cite innovation efficiency; opponents cite that California's laws set important precedents. No consensus exists among legal scholars or policymakers.",
+    createdAt: "2026-05-26T05:06:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-federal-preemption-industry",
+        stance: "support",
+        summary:
+          "Major tech trade groups including TechNet and NetChoice argue that 50 different state AI regulatory frameworks would create impossible compliance burdens and slow US AI competitiveness.",
+        sourceUrl: "https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/",
+        sourceTitle: "Tech groups push for federal AI preemption",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:07:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-federal-preemption-critics",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Consumer advocacy groups and state attorneys general argue that federal preemption would eliminate the most protective AI laws, noting that historically state regulations (like California's CCPA) have set important national benchmarks that weak federal laws would undermine.",
+        sourceUrl: "https://www.techjusticelaw.org/ai-federal-preemption-risks/",
+        sourceTitle: "Risks of federal AI preemption",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:08:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "ai-academic-integrity-crisis-2026",
+    title: "Roughly 9% of university students submit AI-generated work as their own, but the real number may be much higher",
+    body:
+      "A May 2026 study estimates that 9% of students knowingly submit prohibited AI-generated work, with the rate significantly higher among daily AI users. Universities are struggling to detect and enforce policies.",
+    domain: "technology",
+    claimantName: "Research community",
+    subjectKind: "community",
+    sourceUrl: "https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/",
+    sourceTitle: "AI academic integrity: 9% of students submit AI work",
+    sourcePublisher: "Forbes",
+    sourceQuality: "reputable secondary",
+    attributionScore: 82,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The 9% figure comes from peer-reviewed research published in a recognized journal. Attribution to the research team is clear.",
+    veracityScore: 62,
+    veracityLabel: "Evidence suggests disputed",
+    veracityExplanation:
+      "The 9% figure is from self-reported surveys which tend to undercount. Multiple educators argue the real rate is 30-50%. AI detection tools have high false positive rates, making verification difficult.",
+    createdAt: "2026-05-26T05:09:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-ai-academic-study",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Published research using survey methodology across multiple universities estimates a 9% rate of prohibited AI submission, with the rate approximately 3x higher among students who use AI tools daily.",
+        sourceUrl: "https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/",
+        sourceTitle: "AI academic integrity study",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:10:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-ai-academic-undercount",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Educators and AI detection tool developers argue the 9% figure dramatically undercounts because it relies on self-reporting. Turnitin data suggests AI-assisted content appears in 30-40% of submissions, though not all of this represents intentional academic dishonesty.",
+        sourceUrl: "https://www.turnitin.com/blog/ai-writing-detection-data-2026",
+        sourceTitle: "Turnitin AI detection data 2026",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:11:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "ai-worker-displacement-structural-force",
+    title: "Central banks are treating AI as a structural economic force comparable to the industrial revolution that will displace millions of workers",
+    body:
+      "Multiple central banks and economic bodies have begun modeling AI as a once-in-a-century structural shift, comparable to electrification, that requires fundamental changes to monetary policy and workforce planning.",
+    domain: "technology",
+    claimantName: "Central banking community",
+    subjectKind: "organization",
+    sourceUrl: "https://www.pbs.org/newshour/economy/central-banks-ai-structural-force",
+    sourceTitle: "Central banks model AI as structural economic force",
+    sourcePublisher: "PBS",
+    sourceQuality: "reputable secondary",
+    attributionScore: 85,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Published speeches and working papers from the Fed, ECB, and Bank of England are directly cited. Attribution is clear and verifiable.",
+    veracityScore: 55,
+    veracityLabel: "Evidence suggests disputed",
+    veracityExplanation:
+      "Central banks are indeed modeling AI displacement scenarios, but economists are sharply divided on whether AI will cause net job losses or net job creation. Historical analogies to the industrial revolution are contested.",
+    createdAt: "2026-05-26T05:12:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-central-banks-ai-modeling",
+        stance: "support",
+        summary:
+          "PBS reports that the Federal Reserve, European Central Bank, and Bank of England have published working papers modeling AI as a structural force requiring revised monetary policy frameworks, similar to how they modeled globalization.",
+        sourceUrl: "https://www.pbs.org/newshour/economy/central-banks-ai-structural-force",
+        sourceTitle: "Central banks model AI as structural force",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:13:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-ai-displacement-skeptics",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Economists like David Autor argue that historically, technology has created more jobs than it destroys, and that AI is more likely to augment human work than replace it. Previous 'automation apocalypse' predictions have consistently overestimated displacement timelines.",
+        sourceUrl: "https://economics.mit.edu/people/faculty/david-autor",
+        sourceTitle: "David Autor: AI and labor markets",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T05:14:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 
