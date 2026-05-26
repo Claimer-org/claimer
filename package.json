@@ -6,6 +6,7 @@
     "prebuild": "node scripts/generate-sitemap.mjs",
     "dev": "next dev",
     "build": "next build",
+    "submit:indexnow": "node scripts/submit-indexnow.mjs",
     "start": "next start",
     "lint": "next lint"
   },
