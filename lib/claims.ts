@@ -3330,6 +3330,253 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "chinese-academy-aeye-1-ai-microscope",
+    title: "Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope",
+    body:
+      "Scientists at the Dalian Institute of Chemical Physics (Chinese Academy of Sciences) announced Aeye-1, an AI-TEM system enabling fully autonomous operation — covering sample transfer, imaging, and analysis — with an efficiency over 300 times higher than manual processing.",
+    domain: "technology",
+    claimantName: "Chinese Academy of Sciences (Dalian Institute)",
+    subjectKind: "institution",
+    sourceUrl: "https://english.cas.cn/",
+    sourceTitle: "CAS announcement of Aeye-1 AI-TEM system",
+    sourcePublisher: "Chinese Academy of Sciences",
+    sourceQuality: "primary",
+    attributionScore: 90,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The claim originates from the Chinese Academy of Sciences' own publication channels. CAS is the institution behind the research.",
+    veracityScore: 65,
+    veracityLabel: "Evidence suggests plausible",
+    veracityExplanation:
+      "The 300x efficiency claim is made by the researchers themselves and has not yet been independently verified by third-party labs. The underlying technology (AI-guided TEM) is plausible but the magnitude of improvement requires peer review.",
+    createdAt: "2026-05-26T09:30:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "aeye1-evidence-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "CAS official English-language publication describes the Aeye-1 system and its autonomous microscopy capabilities.",
+        sourceUrl: "https://english.cas.cn/",
+        sourceTitle: "CAS Aeye-1 announcement",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "aeye1-evidence-2",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "The 300x efficiency claim is based on the researchers' own benchmarks comparing AI-automated vs. manual TEM operation. Independent replication has not yet been published.",
+        sourceUrl: "https://english.cas.cn/",
+        sourceTitle: "CAS Aeye-1 benchmarks",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "flinders-ai-semiconductor-discovery",
+    title: "AI platform discovers new gallium-based semiconductor materials, bypassing years of lab experiments",
+    body:
+      "An international research team led by Flinders University and Khalifa University developed a machine-learning platform — a 'smart materials discovery engine' — that predicts new gallium-based semiconductor compositions, potentially accelerating next-gen chip development.",
+    domain: "technology",
+    claimantName: "Flinders University / Khalifa University",
+    subjectKind: "institution",
+    sourceUrl: "https://news.flinders.edu.au/",
+    sourceTitle: "Flinders University research announcement",
+    sourcePublisher: "Flinders University",
+    sourceQuality: "primary",
+    attributionScore: 88,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The claim comes from official university press releases from both Flinders and Khalifa University, attributing the work to their joint research team.",
+    veracityScore: 62,
+    veracityLabel: "Evidence suggests plausible",
+    veracityExplanation:
+      "The ML platform exists and has produced candidate materials, but whether these gallium-based compounds will actually perform as semiconductor materials in real-world chip manufacturing remains to be validated through synthesis and testing.",
+    createdAt: "2026-05-26T09:30:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "flinders-semi-evidence-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Flinders University press release describes the ML platform and its gallium-based semiconductor predictions with peer-reviewed publication details.",
+        sourceUrl: "https://news.flinders.edu.au/",
+        sourceTitle: "Flinders University AI semiconductor discovery",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "agentic-ai-banking-oversight-crisis",
+    title: "Experts warn agentic AI in banking is outpacing governance — traditional testing frameworks are failing",
+    body:
+      "Financial industry experts warn that as banks deploy autonomous 'agentic' AI systems that can freeze accounts, transfer funds, and make decisions independently, traditional software testing and governance frameworks are insufficient to prevent liability events.",
+    domain: "ai",
+    claimantName: "QA Financial / Industry Experts",
+    subjectKind: "industry",
+    sourceUrl: "https://www.qa-financial.com/",
+    sourceTitle: "QA Financial report on agentic AI oversight in banking",
+    sourcePublisher: "QA Financial",
+    sourceQuality: "reputable secondary",
+    attributionScore: 78,
+    attributionLabel: "Moderate attribution",
+    attributionExplanation:
+      "The claim aggregates views from multiple unnamed industry experts and financial technology specialists cited in QA Financial's reporting. No single attributable source.",
+    veracityScore: 72,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The gap between AI deployment speed and governance frameworks is well-documented across multiple financial regulators and industry bodies. The specific examples of account freezing and fund transfers by autonomous AI are still emerging.",
+    createdAt: "2026-05-26T09:30:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "agentic-banking-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "QA Financial's in-depth report documents the growing gap between agentic AI deployment in banking and existing governance/testing frameworks.",
+        sourceUrl: "https://www.qa-financial.com/",
+        sourceTitle: "QA Financial agentic AI oversight report",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "agentic-banking-evidence-2",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Multiple financial regulators including the OCC and ECB have published guidance noting the challenges of governing autonomous AI systems in banking, supporting the claim that traditional frameworks are insufficient.",
+        sourceUrl: "https://www.occ.gov/",
+        sourceTitle: "OCC guidance on AI risk management",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "nebius-gigawatt-ai-factory-missouri",
+    title: "Nebius Group breaks ground on gigawatt-scale AI factory campus in Missouri",
+    body:
+      "Nebius Group has begun construction of a gigawatt-scale AI factory campus in Independence, Missouri — the company's first major US digital infrastructure build, incorporating sustainability measures and community benefit programs.",
+    domain: "technology",
+    claimantName: "Nebius Group",
+    subjectKind: "company",
+    sourceUrl: "https://nebius.com/",
+    sourceTitle: "Nebius Group AI factory announcement",
+    sourcePublisher: "Nebius Group",
+    sourceQuality: "primary",
+    attributionScore: 92,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Nebius Group officially announced the groundbreaking. The company made the claim about its own infrastructure project.",
+    veracityScore: 75,
+    veracityLabel: "Evidence suggests supported",
+    veracityExplanation:
+      "The groundbreaking ceremony is a public event. 'Gigawatt-scale' is an aspiration — the final operational capacity may differ. Construction has begun but completion timeline and actual power capacity are forward-looking statements.",
+    createdAt: "2026-05-26T09:30:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "nebius-evidence-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Nebius Group's own press materials confirm the Independence, Missouri groundbreaking and describe the project as gigawatt-scale.",
+        sourceUrl: "https://nebius.com/",
+        sourceTitle: "Nebius AI factory announcement",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "nebius-evidence-2",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "SimplyWallSt financial coverage notes that the project is Nebius's first major US build. Analysts highlight the project's scale relative to Nebius's current revenue, raising questions about financing and completion timeline.",
+        sourceUrl: "https://simplywall.st/",
+        sourceTitle: "SimplyWallSt Nebius Group analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "ai-consumer-backlash-misunderstood-2026",
+    title: "Analysis: Tech industry is fundamentally misunderstanding why consumers resist AI adoption",
+    body:
+      "AI Weekly analysis argues that consumer AI resistance is not technophobia but stems from psychological loss of agency, fears of economic displacement, and deep-seated platform trust deficits — factors that current PR campaigns and UX improvements have failed to address.",
+    domain: "ai",
+    claimantName: "AI Weekly",
+    subjectKind: "publication",
+    sourceUrl: "https://aiweekly.co/",
+    sourceTitle: "AI Weekly analysis of consumer AI backlash",
+    sourcePublisher: "AI Weekly",
+    sourceQuality: "reputable secondary",
+    attributionScore: 82,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The analysis is published under AI Weekly's editorial voice with specific cited research and data points about consumer sentiment.",
+    veracityScore: 68,
+    veracityLabel: "Evidence suggests plausible",
+    veracityExplanation:
+      "The claim that tech companies misunderstand consumer resistance is an editorial interpretation supported by consumer survey data, but alternative explanations (product quality, privacy concerns, cost) are also valid and not fully addressed.",
+    createdAt: "2026-05-26T09:30:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ai-backlash-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "AI Weekly's analysis cites multiple consumer surveys showing that AI resistance correlates more strongly with loss-of-agency concerns than with technical illiteracy or general technophobia.",
+        sourceUrl: "https://aiweekly.co/",
+        sourceTitle: "AI Weekly consumer AI resistance analysis",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ai-backlash-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Counter-evidence suggests that AI adoption rates are actually growing rapidly in many demographics, with ChatGPT, Gemini, and Claude all reporting record user numbers in Q1 2026 — complicating the 'backlash' narrative.",
+        sourceUrl: "https://www.reuters.com/",
+        sourceTitle: "Reuters AI adoption trends Q1 2026",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T09:30:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 
