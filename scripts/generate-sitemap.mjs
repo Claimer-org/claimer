@@ -81,6 +81,24 @@ if (!Array.isArray(seedClaims) || typeof evidenceCounts !== "function") {
 
 const claimIds = seedClaims.map((claim) => claim.id);
 
+function slugifySourceName(name) {
+  return name
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+const sourceSlugs = [
+  ...new Set(
+    seedClaims.map((claim) =>
+      slugifySourceName(
+        claim.sourcePublisher?.trim() || claim.claimantName?.trim() || "unknown-source"
+      )
+    )
+  )
+].sort();
+
 function duplicated(values) {
   const seen = new Set();
   const duplicates = new Set();
@@ -437,6 +455,7 @@ const staticRoutes = [
   "/claims/",
   "/trending/",
   "/about/",
+  "/sources/",
   "/review/",
   "/daily/",
   "/embed/",
@@ -458,6 +477,7 @@ const staticRoutes = [
 
 // --- Claim detail routes ---
 const claimRoutes = claimIds.map((id) => `/claims/${id}/`);
+const sourceRoutes = sourceSlugs.map((slug) => `/sources/${slug}/`);
 
 // --- Build XML ---
 function urlEntry(path, priority, changefreq = "weekly") {
@@ -478,6 +498,7 @@ const urls = [
       return urlEntry(r, isTopic ? "0.7" : "0.8", "weekly");
     }),
   ...claimRoutes.map((r) => urlEntry(r, "0.6", "weekly")),
+  ...sourceRoutes.map((r) => urlEntry(r, "0.5", "weekly")),
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -499,5 +520,5 @@ Sitemap: ${SITE}/sitemap.xml
 );
 
 console.log(
-  `Static export generated ${urls.length} sitemap URLs, ${seedClaims.length} claims, ${seedClaims.length} embed widgets, and ${latestClaims().length} feed items.`
+  `Static export generated ${urls.length} sitemap URLs, ${seedClaims.length} claims, ${sourceSlugs.length} sources, ${seedClaims.length} embed widgets, and ${latestClaims().length} feed items.`
 );

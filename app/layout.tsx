@@ -58,6 +58,7 @@ export default function RootLayout({
             <Link href="/claims">Claims</Link>
             <Link href="/trending">Trending</Link>
             <Link href="/topics">Topics</Link>
+            <Link href="/sources">Sources</Link>
             <Link href="/daily">Daily</Link>
             <Link href="/review">Review</Link>
             <Link href="/submit">Submit</Link>
@@ -76,6 +77,7 @@ export default function RootLayout({
             <Link href="/daily">Daily</Link>
             <Link href="/trending">Trending</Link>
             <Link href="/topics">Topics</Link>
+            <Link href="/sources">Sources</Link>
             <Link href="/embed">Embed</Link>
             <Link href="/feed.xml">Feed</Link>
             <Link href="/review">Review</Link>
