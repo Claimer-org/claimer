@@ -3,4 +3,5 @@ node_modules/
 out/
 npm-debug.log*
 public/api/claims.json
+public/api/claimreview.json
 public/widgets/

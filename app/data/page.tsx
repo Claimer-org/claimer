@@ -42,6 +42,13 @@ const dataProducts = [
     href: `${siteUrl}/api/claims.json`
   },
   {
+    label: "ClaimReview",
+    title: "Community assessment ClaimReview pack",
+    body:
+      "ClaimReview compatible-style community assessment data for crawlers and researchers, not an official fact-check verdict.",
+    href: `${siteUrl}/api/claimreview.json`
+  },
+  {
     label: "RSS",
     title: "Latest claims feed",
     body:

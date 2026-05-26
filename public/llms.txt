@@ -15,6 +15,7 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 
 ## Machine-Readable Data
 - Claim pack JSON: https://claimer-org.github.io/claimer/api/claims.json
+- ClaimReview JSON: https://claimer-org.github.io/claimer/api/claimreview.json
 - RSS feed: https://claimer-org.github.io/claimer/feed.xml
 - JSON Feed: https://claimer-org.github.io/claimer/feed.json
 - Sitemap: https://claimer-org.github.io/claimer/sitemap.xml
@@ -22,7 +23,7 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 ## Corpus Snapshot
 - Claims: 90
 - Sources: 62
-- Latest generated: 2026-05-26T11:13:54.461Z
+- Latest generated: 2026-05-26T11:47:25.701Z
 
 ## Recent Claims
 - HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance: https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/

@@ -287,6 +287,20 @@ function widgetHtml(claim) {
 </html>`;
 }
 
+function evidenceUrlsByStance(claim) {
+  return claim.evidence.reduce((groups, entry) => {
+    if (!groups[entry.stance]) {
+      groups[entry.stance] = [];
+    }
+
+    if (!groups[entry.stance].includes(entry.sourceUrl)) {
+      groups[entry.stance].push(entry.sourceUrl);
+    }
+
+    return groups;
+  }, {});
+}
+
 function exportClaimData() {
   const apiDir = resolve(ROOT, "public/api");
   const widgetsDir = resolve(ROOT, "public/widgets/claims");
@@ -334,6 +348,34 @@ function exportClaimData() {
     };
   });
 
+  const claimReviews = seedClaims.map((claim) => ({
+    "@context": "https://schema.org",
+    "@type": "ClaimReview",
+    url: `${SITE}/claims/${claim.id}/`,
+    claimReviewed: claim.title,
+    itemReviewed: {
+      "@type": "CreativeWork",
+      url: claim.sourceUrl,
+      appearance: {
+        "@type": "CreativeWork",
+        url: claim.sourceUrl
+      }
+    },
+    author: {
+      "@type": "Organization",
+      name: claim.claimantName || claim.sourcePublisher
+    },
+    datePublished: claim.createdAt,
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: claim.veracityScore,
+      bestRating: 100,
+      worstRating: 0,
+      alternateName: claim.veracityLabel
+    },
+    evidenceUrls: evidenceUrlsByStance(claim)
+  }));
+
   writeFileSync(
     resolve(apiDir, "claims.json"),
     `${JSON.stringify(
@@ -343,6 +385,22 @@ function exportClaimData() {
         site: SITE,
         count: claims.length,
         claims
+      },
+      null,
+      2
+    )}\n`,
+    "utf-8"
+  );
+
+  writeFileSync(
+    resolve(apiDir, "claimreview.json"),
+    `${JSON.stringify(
+      {
+        type: "claimer.claimreview-pack",
+        generatedAt: BUILD_TIME,
+        site: SITE,
+        count: claimReviews.length,
+        claimReviews
       },
       null,
       2
@@ -471,6 +529,7 @@ function exportLlmsText() {
     "",
     "## Machine-Readable Data",
     `- Claim pack JSON: ${SITE}/api/claims.json`,
+    `- ClaimReview JSON: ${SITE}/api/claimreview.json`,
     `- RSS feed: ${SITE}/feed.xml`,
     `- JSON Feed: ${SITE}/feed.json`,
     `- Sitemap: ${SITE}/sitemap.xml`,
