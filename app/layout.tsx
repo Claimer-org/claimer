@@ -64,6 +64,7 @@ export default function RootLayout({
           </div>
           <nav className="footer-links" aria-label="Footer navigation">
             <Link href="/daily">Daily</Link>
+            <Link href="/topics">Topics</Link>
             <Link href="/review">Review</Link>
             <Link href="/topics">Topics</Link>
             <Link href="/launch">Launch</Link>

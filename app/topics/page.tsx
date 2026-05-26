@@ -1,103 +1,164 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  getTopicClaims,
-  getTopicStats,
-  topicConfigs
-} from "../../lib/topic-helpers";
+import { seedClaims, evidenceCounts } from "../../lib/claims";
 
 const siteUrl = "https://smithmatric-boop.github.io/claimer";
 const pageUrl = `${siteUrl}/topics/`;
 
 export const metadata: Metadata = {
-  title: "Claim Topics",
+  title: "Claim Topics — Browse AI & Tech Claims by Category",
   description:
-    "Browse Claimer topics for AI claims, LLM benchmarks, AI safety, AI regulation, and technology verification.",
+    "Explore fact-checked AI and technology claims organized by topic. Browse AI model claims, safety debates, regulation policy, LLM benchmarks, and tech verification — all with source-backed evidence.",
   openGraph: {
-    title: "Claim Topics - Claimer",
+    title: "Claim Topics — Browse AI & Tech Claims by Category",
     description:
-      "Browse source-backed claim topics with transparent attribution and veracity evidence.",
+      "Explore fact-checked AI and technology claims organized by topic with source-backed community evidence.",
     type: "website",
     url: pageUrl,
     siteName: "Claimer",
-    locale: "en_US"
+    locale: "en_US",
   },
   twitter: {
     card: "summary",
-    title: "Claim Topics - Claimer",
+    title: "Claim Topics — Claimer",
     description:
-      "Source-backed claim topics with transparent attribution and veracity evidence."
+      "Browse AI and tech claims by category with transparent evidence and scoring.",
   },
   alternates: {
-    canonical: pageUrl
-  }
+    canonical: pageUrl,
+  },
 };
 
-export default function TopicsIndexPage() {
+const topics = [
+  {
+    slug: "ai-claims",
+    title: "AI Claims",
+    emoji: "🤖",
+    description:
+      "Claims about AI models, capabilities, and company announcements from OpenAI, Anthropic, Google, Meta, and more.",
+  },
+  {
+    slug: "ai-safety",
+    title: "AI Safety",
+    emoji: "🛡️",
+    description:
+      "Claims about AI alignment, existential risk, safety measures, and responsible AI development practices.",
+  },
+  {
+    slug: "ai-regulation",
+    title: "AI Regulation & Policy",
+    emoji: "⚖️",
+    description:
+      "Claims about government AI regulation, legislation, policy debates, and governance frameworks worldwide.",
+  },
+  {
+    slug: "llm-benchmarks",
+    title: "LLM Benchmarks",
+    emoji: "📊",
+    description:
+      "Claims about model performance, benchmark scores, capability evaluations, and cross-model comparisons.",
+  },
+  {
+    slug: "tech-verification",
+    title: "Tech Verification",
+    emoji: "🔍",
+    description:
+      "Claims about technology products, launches, user metrics, partnerships, and industry developments.",
+  },
+];
+
+export default function TopicsPage() {
+  const totalClaims = seedClaims.length;
+  const totalEvidence = seedClaims.reduce((sum, c) => {
+    const counts = evidenceCounts(c);
+    return sum + counts.support + counts.challenge + counts.context;
+  }, 0);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Claim Topics",
     description:
-      "A topic index for source-backed claim assessment on Claimer.",
+      "Browse AI and technology claims by category with source-backed evidence.",
     url: pageUrl,
     isPartOf: {
       "@type": "WebSite",
       name: "Claimer",
-      url: siteUrl
+      url: siteUrl,
     },
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: topicConfigs.length,
-      itemListElement: topicConfigs.map((topic, index) => ({
+      numberOfItems: topics.length,
+      itemListElement: topics.map((topic, i) => ({
         "@type": "ListItem",
-        position: index + 1,
+        position: i + 1,
         url: `${siteUrl}/topics/${topic.slug}/`,
-        name: topic.title
-      }))
-    }
+        name: topic.title,
+      })),
+    },
   };
 
   return (
-    <article className="detail standalone topic-page">
+    <section className="standalone">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       <div className="detail-heading">
         <div>
-          <p className="eyebrow">Topics</p>
+          <p className="eyebrow">Browse</p>
           <h1>Claim Topics</h1>
         </div>
       </div>
 
       <div className="topic-intro">
         <p>
-          Explore Claimer by the claim areas most likely to attract repeat
-          reviewers: AI products, LLM capability claims, safety risks,
-          regulation, and broader technology verification.
+          Explore {totalClaims} source-backed AI and technology claims organized
+          by topic. Each category features community-assessed claims with{" "}
+          {totalEvidence} total evidence entries, transparent scoring on
+          attribution accuracy and veracity, and traceable source links.
         </p>
       </div>
 
-      <div className="grid topic-grid">
-        {topicConfigs.map((topic) => {
-          const claims = getTopicClaims(topic);
-          const stats = getTopicStats(claims);
-
-          return (
-            <article className="card claim-card topic-card" key={topic.slug}>
-              <span className="claim-domain">Topic</span>
-              <h2>{topic.title}</h2>
-              <p>{topic.summary}</p>
-              <div className="topic-card-stats">
-                <span>{stats.claimCount} claims</span>
-                <span>{stats.evidenceCount} evidence entries</span>
-              </div>
-              <Link href={`/topics/${topic.slug}`}>Open topic</Link>
-            </article>
-          );
-        })}
+      <div className="grid">
+        {topics.map((topic) => (
+          <Link
+            href={`/topics/${topic.slug}`}
+            key={topic.slug}
+            className="card topic-card"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div style={{ fontSize: "2rem", marginBottom: "8px" }}>
+              {topic.emoji}
+            </div>
+            <h3>{topic.title}</h3>
+            <p>{topic.description}</p>
+            <span
+              className="button"
+              style={{ marginTop: "auto", alignSelf: "flex-start" }}
+            >
+              Browse claims →
+            </span>
+          </Link>
+        ))}
       </div>
-    </article>
+
+      <section className="cta-banner">
+        <h2>Don&apos;t see your topic?</h2>
+        <p>
+          Submit a claim in any category and we&apos;ll grow the coverage based
+          on community interest.
+        </p>
+        <div className="actions">
+          <Link className="button primary" href="/submit">
+            Submit a claim
+          </Link>
+          <Link className="button" href="/claims">
+            Browse all claims
+          </Link>
+        </div>
+      </section>
+    </section>
   );
 }
