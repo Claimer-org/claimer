@@ -39,10 +39,10 @@ const launchSprintLinks = [
     href: "/launch?ref=home_sprint"
   },
   {
-    label: "Metrics",
-    title: "Check the growth loop",
-    body: "Track review intent, feedback, claim activity, and launch source attribution.",
-    href: "/metrics?ref=home_sprint"
+    label: "Trending",
+    title: "Inspect claims heating up",
+    body: "Open a ranked list of claims with controversy, fresh evidence, and review momentum.",
+    href: "/trending?ref=home_sprint"
   }
 ];
 

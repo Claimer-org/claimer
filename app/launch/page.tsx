@@ -134,6 +134,9 @@ export default function LaunchPage() {
           <Link className="button" href="/metrics">
             Open metrics
           </Link>
+          <Link className="button" href="/embed">
+            Open embed kit
+          </Link>
           <Link className="button" href="/feedback?use_case=other&ref=launch_kit">
             Open feedback
           </Link>

@@ -47,6 +47,7 @@ export default function RootLayout({
           </Link>
           <nav aria-label="Primary navigation">
             <Link href="/claims">Claims</Link>
+            <Link href="/trending">Trending</Link>
             <Link href="/topics">Topics</Link>
             <Link href="/daily">Daily</Link>
             <Link href="/review">Review</Link>
@@ -64,9 +65,10 @@ export default function RootLayout({
           </div>
           <nav className="footer-links" aria-label="Footer navigation">
             <Link href="/daily">Daily</Link>
+            <Link href="/trending">Trending</Link>
             <Link href="/topics">Topics</Link>
+            <Link href="/embed">Embed</Link>
             <Link href="/review">Review</Link>
-            <Link href="/topics">Topics</Link>
             <Link href="/launch">Launch</Link>
             <Link href="/metrics">Metrics</Link>
             <Link href="/feedback">Feedback</Link>
