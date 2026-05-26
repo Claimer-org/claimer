@@ -1,5 +1,10 @@
 import Link from "next/link";
 import { evidenceCounts, reviewMission, seedClaims } from "../lib/claims";
+import {
+  getTopicClaims,
+  getTopicStats,
+  topicConfigs
+} from "../lib/topic-helpers";
 
 const principles = [
   "Every claim requires at least one verifiable source URL.",
@@ -115,6 +120,35 @@ export default function HomePage() {
         <div className="stat-item">
           <strong>2</strong>
           <span>Score dimensions</span>
+        </div>
+      </section>
+
+      <section className="panel" aria-labelledby="topics-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Topics</p>
+            <h2 id="topics-title">Browse repeat-review claim areas</h2>
+          </div>
+          <Link href="/topics">View all topics</Link>
+        </div>
+        <div className="grid topic-grid">
+          {topicConfigs.slice(0, 3).map((topic) => {
+            const claims = getTopicClaims(topic);
+            const stats = getTopicStats(claims);
+
+            return (
+              <article className="card claim-card topic-card" key={topic.slug}>
+                <span className="claim-domain">Topic</span>
+                <h3>{topic.title}</h3>
+                <p>{topic.summary}</p>
+                <div className="topic-card-stats">
+                  <span>{stats.claimCount} claims</span>
+                  <span>{stats.evidenceCount} evidence entries</span>
+                </div>
+                <Link href={`/topics/${topic.slug}`}>Open topic</Link>
+              </article>
+            );
+          })}
         </div>
       </section>
 

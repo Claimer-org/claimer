@@ -2079,6 +2079,56 @@ textarea {
   justify-content: center;
 }
 
+.topic-page .detail-heading {
+  margin-top: 24px;
+}
+
+.topic-intro {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 28px;
+  max-width: 920px;
+}
+
+.topic-intro p {
+  color: var(--foreground-dim);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.topic-grid .claim-card h2,
+.topic-grid .claim-card h3 {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.topic-card-stats,
+.claim-card-meta,
+.claim-score-row,
+.topic-keywords {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topic-card-stats span,
+.claim-score-row span,
+.topic-keywords span {
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 10px;
+}
+
+.topic-keywords {
+  margin: -8px 0 24px;
+}
+
 @media (max-width: 680px) {
   .share-buttons {
     gap: 6px;
