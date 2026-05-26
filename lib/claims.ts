@@ -3070,6 +3070,266 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "anthropic-900b-valuation-may-2026",
+    title: "Anthropic's valuation could surpass $900 billion, making it the world's most valuable private startup",
+    body:
+      "Multiple reports indicate Anthropic is closing a funding round exceeding $30 billion at a pre-money valuation above $900 billion, which would surpass OpenAI's $852 billion valuation. The round is co-led by Sequoia Capital, Dragoneer, Altimeter Capital, and Greenoaks. This follows a February 2026 Series G that also raised $30B at a $380B valuation — meaning the valuation has more than doubled in approximately three months.",
+    domain: "ai",
+    claimantName: "Multiple financial reports",
+    subjectKind: "company",
+    sourceUrl: "https://seekingalpha.com/",
+    sourceTitle: "Anthropic Valuation Analysis",
+    sourcePublisher: "Seeking Alpha",
+    sourceQuality: "reputable secondary",
+    attributionScore: 78,
+    attributionLabel: "Well-attributed from multiple outlets",
+    attributionExplanation:
+      "The valuation figure is reported by multiple financial outlets including Seeking Alpha, TechTimes, and Forbes, though Anthropic has not officially confirmed the exact number.",
+    veracityScore: 55,
+    veracityLabel: "Partially supported — round reportedly still being finalized",
+    veracityExplanation:
+      "The revenue figures are self-reported during fundraising discussions, creating an inherent incentive for optimistic projections. A valuation of $900B for ~$50B ARR implies an ~18x revenue multiple, which some analysts consider stretched.",
+    createdAt: "2026-05-26T07:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "anthropic-900b-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Anthropic's annualized revenue run rate is reportedly on track to surpass $50 billion by end of June 2026, up from ~$9B at end of 2025. The company projects its first-ever operating profit of $559M in Q2 2026.",
+        sourceUrl: "https://www.forbes.com/",
+        sourceTitle: "Forbes reporting on Anthropic financials",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "anthropic-900b-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "These revenue and valuation figures are unaudited and self-reported during fundraising discussions, creating an inherent incentive to present optimistic projections. A valuation of $900B implies a ~18x revenue multiple, which some analysts consider stretched even for AI.",
+        sourceUrl: "https://seekingalpha.com/",
+        sourceTitle: "Seeking Alpha analyst commentary",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "trump-ai-safety-eo-cancelled-may-2026",
+    title: "Trump cancelled an AI safety executive order after last-minute lobbying by Musk, Zuckerberg, and Sacks",
+    body:
+      "Hours before a scheduled White House signing ceremony on May 21, 2026, President Trump cancelled a planned executive order that would have established a voluntary 90-day pre-launch review of frontier AI models for national security risks. The decision reportedly followed last-minute phone calls from Elon Musk, Mark Zuckerberg, and former AI advisor David Sacks, who argued it would slow U.S. competitiveness against China.",
+    domain: "technology",
+    claimantName: "Washington Post / LA Times",
+    subjectKind: "government",
+    sourceUrl: "https://www.washingtonpost.com/",
+    sourceTitle: "Trump cancels AI safety executive order",
+    sourcePublisher: "Washington Post",
+    sourceQuality: "reputable secondary",
+    attributionScore: 82,
+    attributionLabel: "Well-attributed by multiple major outlets",
+    attributionExplanation:
+      "The cancellation is confirmed by Washington Post, LA Times, NPR, and The Guardian. Trump himself stated he 'didn't like certain aspects' of the order.",
+    veracityScore: 62,
+    veracityLabel: "Disputed — cancellation confirmed but influence extent debated",
+    veracityExplanation:
+      "The cancellation is confirmed, but the extent of tech billionaire influence is debated. Musk claims he spoke with Trump only after the president had already decided to cancel.",
+    createdAt: "2026-05-26T07:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "trump-ai-eo-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "Multiple outlets (Washington Post, The Guardian, LA Times, NPR) confirmed the lobbying calls and Trump's statement that he 'didn't like certain aspects' of the order. AI safety advocates labeled it a win for the 'accelerationist' camp.",
+        sourceUrl: "https://www.npr.org/",
+        sourceTitle: "NPR reporting on AI executive order cancellation",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "trump-ai-eo-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Elon Musk posted on X claiming he spoke with Trump only after the president had already decided to cancel, disputing that he influenced the decision. The order was described as 'postponed' not 'canceled,' leaving open the possibility of a revised version.",
+        sourceUrl: "https://www.theguardian.com/",
+        sourceTitle: "Guardian reporting on Musk response",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "openai-gpt55-hallucination-reduction-may-2026",
+    title: "OpenAI claims GPT-5.5 Instant reduces hallucinations by 52.5% on high-stakes prompts",
+    body:
+      "OpenAI released GPT-5.5 Instant as the new default ChatGPT model, claiming internal benchmarks show it produces 52.5% fewer hallucinated claims than its predecessor GPT-5.3 Instant on high-stakes prompts in medicine, law, and finance. It also claims a 37.3% reduction in inaccurate claims on user-flagged factual error conversations.",
+    domain: "ai",
+    claimantName: "OpenAI",
+    subjectKind: "company",
+    sourceUrl: "https://openai.com/",
+    sourceTitle: "GPT-5.5 Instant announcement",
+    sourcePublisher: "OpenAI",
+    sourceQuality: "primary",
+    attributionScore: 92,
+    attributionLabel: "Strong attribution — official company claim",
+    attributionExplanation:
+      "The claim comes directly from OpenAI's official blog post and is well-attributed as a company assertion.",
+    veracityScore: 45,
+    veracityLabel: "Unverified — based on internal benchmarks only",
+    veracityExplanation:
+      "The 52.5% hallucination reduction figure is based on OpenAI's own internal evaluation set, not independent third-party testing. Previous hallucination reduction claims by AI companies have often not held up under broader real-world testing.",
+    createdAt: "2026-05-26T07:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "gpt55-hallucination-evidence-1",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "OpenAI published detailed evaluation methodology on their blog. The model also showed improvements on mathematical benchmarks (AIME 2025 scores). Duke University researchers noted the improvements in a review.",
+        sourceUrl: "https://openai.com/",
+        sourceTitle: "OpenAI GPT-5.5 evaluation methodology",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "gpt55-hallucination-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Hallucination reduction benchmarks are notoriously sensitive to prompt selection and evaluation methodology. The 52.5% figure is based on OpenAI's own internal evaluation set, not independent third-party testing. Previous hallucination claims by AI companies have often not held up under broader real-world testing.",
+        sourceUrl: "https://mashable.com/",
+        sourceTitle: "Mashable analysis of AI hallucination claims",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "pope-leo-xiv-ai-encyclical-may-2026",
+    title: "Pope Leo XIV issued a major encyclical warning against AI dehumanization, with Anthropic's co-founder present",
+    body:
+      "Pope Leo XIV presented his first encyclical 'Magnifica Humanitas' at the Vatican on May 25, 2026, calling for robust AI regulation and warning against autonomous weapons, AI mimicking human relationships, and the concentration of power among tech companies. Anthropic co-founder Christopher Olah was invited to co-present.",
+    domain: "technology",
+    claimantName: "Pope Leo XIV / Vatican",
+    subjectKind: "institution",
+    sourceUrl: "https://time.com/",
+    sourceTitle: "Time Magazine coverage of papal AI encyclical",
+    sourcePublisher: "Time Magazine",
+    sourceQuality: "reputable secondary",
+    attributionScore: 94,
+    attributionLabel: "Strong attribution — official Vatican event",
+    attributionExplanation:
+      "The encyclical was signed May 15, 2026 and presented May 25. Extensively covered by Vatican, PBS, Washington Post, Time, Forbes, and Wikipedia.",
+    veracityScore: 85,
+    veracityLabel: "Evidence suggests supported — well-documented public event",
+    veracityExplanation:
+      "The event and encyclical are thoroughly documented through official Vatican channels and major media. The factual occurrence is well-established; debate centers on impact and sincerity.",
+    createdAt: "2026-05-26T07:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "pope-ai-evidence-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "The encyclical was signed May 15, 2026, timed to the 135th anniversary of Leo XIII's 'Rerum Novarum.' Olah's full remarks were published directly on anthropic.com.",
+        sourceUrl: "https://anthropic.com/",
+        sourceTitle: "Christopher Olah's Vatican remarks",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "pope-ai-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Critics note the Vatican's moral authority on technology is aspirational rather than enforceable. Tech industry reaction has been muted, with some viewing Olah's participation as a PR move rather than a genuine commitment to external oversight.",
+        sourceUrl: "https://www.forbes.com/",
+        sourceTitle: "Forbes analysis of Vatican AI event",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "anthropic-olah-labor-displacement-warning-may-2026",
+    title: "Anthropic co-founder warns AI could displace human labor on a 'very large scale' — while pursuing $900B valuation",
+    body:
+      "At the Vatican presentation on May 25, 2026, Anthropic co-founder Christopher Olah stated there is a 'real possibility' AI could displace human labor on a 'very large scale' and that supporting displaced workers would be a 'moral imperative of historic proportions.' He also argued AI development should not be left solely to tech companies. This comes as Anthropic simultaneously pursues a $900B valuation.",
+    domain: "ai",
+    claimantName: "Christopher Olah (Anthropic co-founder)",
+    subjectKind: "person",
+    sourceUrl: "https://anthropic.com/",
+    sourceTitle: "Christopher Olah's Vatican remarks on AI and labor",
+    sourcePublisher: "Anthropic",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Strong attribution — direct from source",
+    attributionExplanation:
+      "Olah's full remarks were published on anthropic.com and covered by Forbes, Washington Post, and NCR Online. The statements are well-documented.",
+    veracityScore: 50,
+    veracityLabel: "Debatable — statements are factual but sincerity questioned",
+    veracityExplanation:
+      "The statements were made as reported, but the juxtaposition with Anthropic's simultaneous pursuit of a $900B valuation and aggressive scaling raises questions about sincerity. Critics view it as PR positioning.",
+    createdAt: "2026-05-26T07:00:00+04:00",
+    submittedBy: "Smith",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "olah-labor-evidence-1",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Olah's full remarks were published on anthropic.com and covered by Forbes, Washington Post, and NCR Online. His call for external oversight was noted as unusually candid for a tech executive.",
+        sourceUrl: "https://anthropic.com/",
+        sourceTitle: "Anthropic official publication of Olah's Vatican remarks",
+        sourceQuality: "primary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "olah-labor-evidence-2",
+        stance: "challenge",
+        assessmentTarget: "veracity",
+        summary:
+          "Critics point out the tension between warning about AI's dangers while aggressively scaling the company building that AI. Anthropic is simultaneously raising at a $900B valuation and projecting $50B+ ARR, suggesting the company is racing to be dominant in the very market Olah warns about.",
+        sourceUrl: "https://www.forbes.com/",
+        sourceTitle: "Forbes analysis of Anthropic's dual messaging",
+        sourceQuality: "reputable secondary",
+        submittedBy: "Smith",
+        createdAt: "2026-05-26T07:00:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 

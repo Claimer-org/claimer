@@ -498,4 +498,34 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://smithmatric-boop.github.io/claimer/claims/anthropic-900b-valuation-may-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://smithmatric-boop.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://smithmatric-boop.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://smithmatric-boop.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://smithmatric-boop.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
