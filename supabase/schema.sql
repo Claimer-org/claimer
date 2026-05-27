@@ -378,6 +378,18 @@ as $$
       and analytics_events.created_at >= bounds.since_7d
       and analytics_events.created_at <= bounds.window_end
   ),
+  campaign_events_7d as (
+    select events_7d.*
+    from events_7d
+    where events_7d.properties ?| array[
+      'utm_source',
+      'utm_medium',
+      'utm_campaign',
+      'utm_content',
+      'utm_term',
+      'ref'
+    ]
+  ),
   events_today as (
     select analytics_events.*
     from public.analytics_events, bounds
@@ -390,6 +402,16 @@ as $$
     from public.feedback_entries, bounds
     where feedback_entries.created_at >= bounds.since_7d
       and feedback_entries.created_at <= bounds.window_end
+  ),
+  feedback_source_events_7d as (
+    select feedback_7d.*
+    from feedback_7d
+    where feedback_7d.metadata ?| array[
+      'source_event',
+      'utm_source',
+      'utm_content',
+      'ref'
+    ]
   ),
   channel_rows as (
     select
@@ -424,6 +446,43 @@ as $$
       limit 8
     ) ranked_channels
   ),
+  campaign_rows as (
+    select
+      coalesce(nullif(campaign_events_7d.properties ->> 'utm_source', ''), 'none') as utm_source,
+      coalesce(nullif(campaign_events_7d.properties ->> 'utm_content', ''), 'none') as utm_content,
+      coalesce(nullif(campaign_events_7d.properties ->> 'ref', ''), 'none') as ref,
+      coalesce(
+        nullif(campaign_events_7d.properties ->> 'landing_path', ''),
+        campaign_events_7d.path,
+        '/'
+      ) as landing_path,
+      count(distinct campaign_events_7d.visitor_id) as visitors,
+      count(*) as page_views
+    from campaign_events_7d
+    group by 1, 2, 3, 4
+  ),
+  campaign_detail as (
+    select coalesce(
+      jsonb_agg(
+        jsonb_build_object(
+          'utm_source', utm_source,
+          'utm_content', utm_content,
+          'ref', ref,
+          'landing_path', landing_path,
+          'visitors', visitors,
+          'page_views', page_views
+        )
+        order by visitors desc, page_views desc, utm_source asc, utm_content asc, ref asc, landing_path asc
+      ),
+      '[]'::jsonb
+    ) as items
+    from (
+      select *
+      from campaign_rows
+      order by visitors desc, page_views desc, utm_source asc, utm_content asc, ref asc, landing_path asc
+      limit 12
+    ) ranked_campaigns
+  ),
   feedback_detail as (
     select coalesce(
       jsonb_agg(
@@ -444,6 +503,41 @@ as $$
       from feedback_7d
       group by feedback_7d.use_case
     ) feedback_by_case
+  ),
+  feedback_source_rows as (
+    select
+      coalesce(nullif(feedback_source_events_7d.metadata ->> 'source_event', ''), 'none') as source_event,
+      coalesce(nullif(feedback_source_events_7d.metadata ->> 'utm_source', ''), 'none') as utm_source,
+      coalesce(nullif(feedback_source_events_7d.metadata ->> 'utm_content', ''), 'none') as utm_content,
+      coalesce(nullif(feedback_source_events_7d.metadata ->> 'ref', ''), 'none') as ref,
+      feedback_source_events_7d.page_path,
+      count(*) as entry_count,
+      round(avg(feedback_source_events_7d.rating)::numeric, 1) as average_rating
+    from feedback_source_events_7d
+    group by 1, 2, 3, 4, 5
+  ),
+  feedback_source_detail as (
+    select coalesce(
+      jsonb_agg(
+        jsonb_build_object(
+          'source_event', source_event,
+          'utm_source', utm_source,
+          'utm_content', utm_content,
+          'ref', ref,
+          'page_path', page_path,
+          'count', entry_count,
+          'average_rating', average_rating
+        )
+        order by entry_count desc, source_event asc, utm_source asc, utm_content asc, ref asc, page_path asc
+      ),
+      '[]'::jsonb
+    ) as items
+    from (
+      select *
+      from feedback_source_rows
+      order by entry_count desc, source_event asc, utm_source asc, utm_content asc, ref asc, page_path asc
+      limit 12
+    ) ranked_feedback_sources
   ),
   top_paths as (
     select coalesce(
@@ -511,6 +605,19 @@ as $$
   union all
 
   select
+    'campaign_visitors_7d',
+    'Campaign visitors',
+    count(distinct campaign_events_7d.visitor_id)::numeric,
+    'last 7 days',
+    jsonb_build_object(
+      'campaigns', (select items from campaign_detail)
+    ),
+    35
+  from campaign_events_7d
+
+  union all
+
+  select
     'feedback_entries_7d',
     'Feedback entries',
     count(*)::numeric,
@@ -521,6 +628,19 @@ as $$
     ),
     40
   from feedback_7d
+
+  union all
+
+  select
+    'feedback_source_events_7d',
+    'Feedback source events',
+    count(*)::numeric,
+    'last 7 days',
+    jsonb_build_object(
+      'source_events', (select items from feedback_source_detail)
+    ),
+    45
+  from feedback_source_events_7d
 
   union all
 

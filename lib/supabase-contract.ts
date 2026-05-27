@@ -325,12 +325,57 @@ export type FeedbackEntryInsert = {
 
 export type FeedbackEntryUpdate = Partial<FeedbackEntryInsert>;
 
+export type GrowthChannelDetail = {
+  source: string;
+  visitors: number;
+  page_views: number;
+};
+
+export type GrowthCampaignDetail = {
+  utm_source: string;
+  utm_content: string;
+  ref: string;
+  landing_path: string;
+  visitors: number;
+  page_views: number;
+};
+
+export type GrowthFeedbackUseCaseDetail = {
+  use_case: FeedbackUseCase;
+  count: number;
+  average_rating: number;
+};
+
+export type GrowthFeedbackSourceEventDetail = {
+  source_event: string;
+  utm_source: string;
+  utm_content: string;
+  ref: string;
+  page_path: string;
+  count: number;
+  average_rating: number;
+};
+
+export type GrowthPathDetail = {
+  path: string;
+  page_views: number;
+  visitors: number;
+};
+
+export type GrowthSnapshotDetail = Record<string, unknown> & {
+  channels?: GrowthChannelDetail[];
+  campaigns?: GrowthCampaignDetail[];
+  use_cases?: GrowthFeedbackUseCaseDetail[];
+  source_events?: GrowthFeedbackSourceEventDetail[];
+  top_paths?: GrowthPathDetail[];
+};
+
 export type GrowthSnapshotRow = {
   metric: string;
   label: string;
   value: number;
   window_label: string;
-  detail: Record<string, unknown>;
+  detail: GrowthSnapshotDetail;
   sort_order: number;
 };
 

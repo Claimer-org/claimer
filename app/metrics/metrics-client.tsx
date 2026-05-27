@@ -33,16 +33,49 @@ function numberValue(item: DetailItem, key: string) {
   return typeof value === "number" ? value : Number(value ?? 0);
 }
 
+function compactText(value: string, fallback = "none") {
+  return value && value !== "none" ? value : fallback;
+}
+
+function shortenedValue(value: string) {
+  const trimmed = value.trim();
+  return trimmed.length > 24 ? `${trimmed.slice(0, 10)}...${trimmed.slice(-10)}` : trimmed;
+}
+
+function campaignLabel(item: DetailItem) {
+  const source = compactText(textValue(item, "utm_source"), "source:none");
+  const content = compactText(textValue(item, "utm_content"), "content:none");
+  const ref = compactText(textValue(item, "ref"), "ref:none");
+  const path = compactText(textValue(item, "landing_path"), "/");
+
+  return `${source} / ${content} / ${ref} / ${path}`;
+}
+
+function feedbackSourceLabel(item: DetailItem) {
+  const sourceEvent = textValue(item, "source_event");
+  const eventLabel =
+    sourceEvent && sourceEvent !== "none"
+      ? `event:${shortenedValue(sourceEvent)}`
+      : "event:none";
+  const source = compactText(textValue(item, "utm_source"), "source:none");
+  const content = compactText(textValue(item, "utm_content"), "content:none");
+  const ref = compactText(textValue(item, "ref"), "ref:none");
+
+  return `${eventLabel} / ${source} / ${content} / ${ref}`;
+}
+
 function DetailList({
   emptyLabel,
   items,
   primaryKey,
+  primaryLabel,
   secondaryKey,
   tertiaryKey
 }: {
   emptyLabel: string;
   items: DetailItem[];
-  primaryKey: string;
+  primaryKey?: string;
+  primaryLabel?: (item: DetailItem) => string;
   secondaryKey: string;
   tertiaryKey?: string;
 }) {
@@ -53,8 +86,10 @@ function DetailList({
   return (
     <div className="metrics-detail-list">
       {items.map((item, index) => (
-        <div className="metrics-detail-row" key={`${primaryKey}-${index}`}>
-          <strong>{textValue(item, primaryKey) || "unknown"}</strong>
+        <div className="metrics-detail-row" key={`${primaryKey ?? secondaryKey}-${index}`}>
+          <strong>
+            {primaryLabel?.(item) || (primaryKey ? textValue(item, primaryKey) : "") || "unknown"}
+          </strong>
           <span>{formatValue(numberValue(item, secondaryKey))}</span>
           {tertiaryKey ? <em>{formatValue(numberValue(item, tertiaryKey))}</em> : null}
         </div>
@@ -104,7 +139,9 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
   const activeVisitors = metricById(metrics, "active_visitors_24h");
   const dau = metricById(metrics, "daily_active_users_utc");
   const launchVisitors = metricById(metrics, "launch_visitors_7d");
+  const campaignVisitors = metricById(metrics, "campaign_visitors_7d");
   const feedback = metricById(metrics, "feedback_entries_7d");
+  const feedbackSources = metricById(metrics, "feedback_source_events_7d");
   const evidence = metricById(metrics, "evidence_submissions_24h");
   const claimsTotal = metricById(metrics, "claims_total");
   const claimSurfaceTotal = seedClaimCount + (claimsTotal?.value ?? 0);
@@ -113,7 +150,15 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
     () => asItems(launchVisitors?.detail.channels),
     [launchVisitors]
   );
+  const campaigns = useMemo(
+    () => asItems(campaignVisitors?.detail.campaigns),
+    [campaignVisitors]
+  );
   const useCases = useMemo(() => asItems(feedback?.detail.use_cases), [feedback]);
+  const sourceEvents = useMemo(
+    () => asItems(feedbackSources?.detail.source_events),
+    [feedbackSources]
+  );
   const topPaths = useMemo(
     () => asItems(activeVisitors?.detail.top_paths),
     [activeVisitors]
@@ -171,6 +216,20 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
 
         <article className="panel metrics-panel">
           <div className="section-heading">
+            <h2>Campaign detail</h2>
+            <span>visitors / views</span>
+          </div>
+          <DetailList
+            emptyLabel="No campaign-attributed visitors yet."
+            items={campaigns}
+            primaryLabel={campaignLabel}
+            secondaryKey="visitors"
+            tertiaryKey="page_views"
+          />
+        </article>
+
+        <article className="panel metrics-panel">
+          <div className="section-heading">
             <h2>Feedback mix</h2>
             <span>entries / rating</span>
           </div>
@@ -178,6 +237,20 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
             emptyLabel="No feedback entries in the last 7 days."
             items={useCases}
             primaryKey="use_case"
+            secondaryKey="count"
+            tertiaryKey="average_rating"
+          />
+        </article>
+
+        <article className="panel metrics-panel">
+          <div className="section-heading">
+            <h2>Feedback sources</h2>
+            <span>entries / rating</span>
+          </div>
+          <DetailList
+            emptyLabel="No source-attributed feedback entries yet."
+            items={sourceEvents}
+            primaryLabel={feedbackSourceLabel}
             secondaryKey="count"
             tertiaryKey="average_rating"
           />
