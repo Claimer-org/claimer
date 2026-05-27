@@ -5,7 +5,8 @@ import {
   type ClaimDomain,
   type EvidenceEntry,
   type EvidenceStance,
-  type SourceQuality
+  type SourceQuality,
+  seedClaims
 } from "./claims";
 import { getSupabaseClient, hasSupabaseConfig } from "./supabase";
 import {
@@ -18,10 +19,15 @@ import {
 
 type DbClaim = SupabaseDatabase["public"]["Tables"]["claims"]["Row"];
 type DbEvidenceEntry = SupabaseDatabase["public"]["Tables"]["evidence_entries"]["Row"];
+type DbSeedEvidenceEntry =
+  SupabaseDatabase["public"]["Tables"]["seed_evidence_entries"]["Row"];
 type DbSource = SupabaseDatabase["public"]["Tables"]["sources"]["Row"];
 
 type SourceRelation = DbSource | DbSource[] | null | undefined;
 type EvidenceWithSource = DbEvidenceEntry & {
+  sources?: SourceRelation;
+};
+type SeedEvidenceWithSource = DbSeedEvidenceEntry & {
   sources?: SourceRelation;
 };
 type ClaimWithRelations = DbClaim & {
@@ -52,6 +58,7 @@ type EvidenceFormInput = {
 
 const uuidPattern =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const seedClaimIds = new Set(seedClaims.map((claim) => claim.id));
 
 const uiToDbSourceQuality = {
   primary: "primary",
@@ -93,8 +100,28 @@ const dbToUiSubjectKind = {
   other_public: "other public"
 } satisfies Record<PublicSubjectKind, string>;
 
-export function canPersistEvidenceToSupabase(claimId: string) {
+export function isLiveSupabaseClaimId(claimId: string) {
   return uuidPattern.test(claimId);
+}
+
+export function isSeedClaimId(claimId: string) {
+  return seedClaimIds.has(claimId);
+}
+
+export function evidencePersistenceTarget(claimId: string) {
+  if (isLiveSupabaseClaimId(claimId)) {
+    return "live" as const;
+  }
+
+  if (isSeedClaimId(claimId)) {
+    return "seed" as const;
+  }
+
+  return "local" as const;
+}
+
+export function canPersistEvidenceToSupabase(claimId: string) {
+  return evidencePersistenceTarget(claimId) !== "local";
 }
 
 export function canUseSupabase() {
@@ -186,6 +213,23 @@ async function ensureAuthenticatedProfile() {
 }
 
 function mapEvidence(row: EvidenceWithSource): EvidenceEntry {
+  const source = firstRelation(row.sources);
+  const sourceUrl = row.source_url;
+  return {
+    id: row.id,
+    stance: row.stance,
+    assessmentTarget: row.assessment_target,
+    summary: row.summary,
+    sourceUrl,
+    sourceTitle: source?.title || sourceTitleFromUrl(sourceUrl),
+    sourceQuality: dbToUiSourceQuality[source?.quality ?? "unverifiable"],
+    submittedBy: "Community member",
+    createdAt: row.created_at,
+    aiAssisted: row.is_ai_generated
+  };
+}
+
+function mapSeedEvidence(row: SeedEvidenceWithSource): EvidenceEntry {
   const source = firstRelation(row.sources);
   const sourceUrl = row.source_url;
   return {
@@ -332,6 +376,57 @@ export async function loadSupabaseClaims() {
   return ((data ?? []) as ClaimWithRelations[]).map(mapClaim);
 }
 
+export async function loadSupabaseSeedEvidence() {
+  const supabase = getSupabaseClient();
+  if (!supabase) {
+    return {};
+  }
+
+  const { data, error } = await supabase
+    .from("seed_evidence_entries")
+    .select(
+      `
+        id,
+        seed_claim_id,
+        stance,
+        assessment_target,
+        summary,
+        source_id,
+        source_url,
+        submitted_by,
+        is_ai_generated,
+        ai_disclosure,
+        created_at,
+        updated_at,
+        sources (
+          id,
+          url,
+          title,
+          publisher,
+          published_at,
+          quality,
+          created_by,
+          created_at
+        )
+      `
+    )
+    .in("seed_claim_id", Array.from(seedClaimIds))
+    .order("created_at", { ascending: false })
+    .limit(200);
+
+  if (error) {
+    throw new Error(`Supabase seed evidence load failed: ${error.message}`);
+  }
+
+  return ((data ?? []) as SeedEvidenceWithSource[]).reduce<
+    Record<string, EvidenceEntry[]>
+  >((entriesByClaim, row) => {
+    const entries = entriesByClaim[row.seed_claim_id] ?? [];
+    entriesByClaim[row.seed_claim_id] = [...entries, mapSeedEvidence(row)];
+    return entriesByClaim;
+  }, {});
+}
+
 export async function publishClaimToSupabase(input: ClaimFormInput) {
   const supabase = getSupabaseClient();
   if (!supabase) {
@@ -405,8 +500,11 @@ export async function publishEvidenceToSupabase(
     throw new Error("Supabase is not configured for this build.");
   }
 
-  if (!canPersistEvidenceToSupabase(claimId)) {
-    throw new Error("Only live Supabase claims can receive database-backed evidence.");
+  const target = evidencePersistenceTarget(claimId);
+  if (target === "local") {
+    throw new Error(
+      "Only live Supabase claims and known seed claims can receive durable evidence."
+    );
   }
 
   await ensureAuthenticatedProfile();
@@ -417,6 +515,31 @@ export async function publishEvidenceToSupabase(
     sourceTitle: input.sourceTitle,
     sourceQuality: input.sourceQuality
   });
+
+  if (target === "seed") {
+    const { data, error } = await supabase
+      .from("seed_evidence_entries")
+      .insert({
+        seed_claim_id: claimId,
+        stance: input.stance,
+        assessment_target: input.assessmentTarget,
+        summary: input.summary.trim(),
+        source_id: source.id,
+        source_url: sourceUrl,
+        is_ai_generated: input.aiAssisted,
+        ai_disclosure: input.aiAssisted ? "Submitted as an AI-assisted summary." : null
+      })
+      .select(
+        "id, seed_claim_id, stance, assessment_target, summary, source_id, source_url, submitted_by, is_ai_generated, ai_disclosure, created_at, updated_at"
+      )
+      .single();
+
+    if (error) {
+      throw new Error(`Seed evidence insert failed: ${error.message}`);
+    }
+
+    return mapSeedEvidence({ ...data, sources: source });
+  }
 
   const { data, error } = await supabase
     .from("evidence_entries")

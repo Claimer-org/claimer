@@ -15,9 +15,10 @@ import {
   seedClaims
 } from "../../lib/claims";
 import {
-  canPersistEvidenceToSupabase,
   canUseSupabase,
+  evidencePersistenceTarget,
   loadSupabaseClaims,
+  loadSupabaseSeedEvidence,
   publishClaimToSupabase,
   publishEvidenceToSupabase
 } from "../../lib/supabase-claims";
@@ -26,6 +27,7 @@ import {
   attributionFromSearch,
   type AttributionParams
 } from "../../lib/attribution";
+import { isPublicSourceUrl } from "../../lib/supabase-contract";
 
 type StoredClaims = Record<string, Claim>;
 type ClaimsClientProps = {
@@ -107,12 +109,7 @@ function evidenceFormForMission(claimId: string): EvidenceFormState {
 }
 
 function isPublicUrl(value: string) {
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:" || url.protocol === "http:";
-  } catch {
-    return false;
-  }
+  return isPublicSourceUrl(value.trim());
 }
 
 function makeId(prefix: string) {
@@ -275,6 +272,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
   const initialSelectedId = initialClaimId || seedClaims[0]?.id || "";
   const [storedClaims, setStoredClaims] = useState<StoredClaims>({});
   const [remoteClaims, setRemoteClaims] = useState<Claim[]>([]);
+  const [remoteSeedEvidence, setRemoteSeedEvidence] = useState<
+    Record<string, EvidenceEntry[]>
+  >({});
   const [liveClaimsState, setLiveClaimsState] = useState<
     "idle" | "loading" | "ready" | "error"
   >("idle");
@@ -364,15 +364,37 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
 
       try {
         const liveClaims = await loadSupabaseClaims();
+        let seedEvidence: Record<string, EvidenceEntry[]> = {};
+        let seedEvidenceStatus = "";
+
+        try {
+          seedEvidence = await loadSupabaseSeedEvidence();
+          const seedEvidenceCount = Object.values(seedEvidence).reduce(
+            (total, entries) => total + entries.length,
+            0
+          );
+          seedEvidenceStatus =
+            seedEvidenceCount > 0
+              ? ` ${seedEvidenceCount} durable seed evidence entr${seedEvidenceCount === 1 ? "y" : "ies"} loaded.`
+              : "";
+        } catch (seedError) {
+          seedEvidenceStatus =
+            seedError instanceof Error
+              ? ` Seed evidence table unavailable until migration is applied: ${seedError.message}`
+              : " Seed evidence table unavailable until migration is applied.";
+        }
+
         if (!isMounted) {
           return;
         }
         setRemoteClaims(liveClaims);
+        setRemoteSeedEvidence(seedEvidence);
         setLiveClaimsState("ready");
         setSupabaseMessage(
-          liveClaims.length > 0
+          (liveClaims.length > 0
             ? `${liveClaims.length} live claim${liveClaims.length === 1 ? "" : "s"} loaded from Supabase.`
-            : "Live database connected. New submissions will publish to Supabase."
+            : "Live database connected. New submissions will publish to Supabase.") +
+            seedEvidenceStatus
         );
       } catch (error) {
         if (!isMounted) {
@@ -393,12 +415,33 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
   }, []);
 
   const claims = useMemo(() => {
-    const localClaims = Object.values(storedClaims).sort((a, b) =>
+    const withDurableSeedEvidence = (claim: Claim): Claim => {
+      const durableEvidence = remoteSeedEvidence[claim.id] ?? [];
+
+      if (durableEvidence.length === 0) {
+        return claim;
+      }
+
+      const durableEvidenceIds = new Set(durableEvidence.map((entry) => entry.id));
+      return {
+        ...claim,
+        evidence: [
+          ...durableEvidence,
+          ...claim.evidence.filter((entry) => !durableEvidenceIds.has(entry.id))
+        ],
+        veracityLabel: "Community assessment updated",
+        veracityExplanation:
+          "Durable community evidence has been added. Review the support and challenge source mix before relying on the assessment."
+      };
+    };
+
+    const localClaims = Object.values(storedClaims).map(withDurableSeedEvidence).sort((a, b) =>
       b.createdAt.localeCompare(a.createdAt)
     );
+    const seedClaimsWithEvidence = seedClaims.map(withDurableSeedEvidence);
     const seenClaimIds = new Set<string>();
 
-    return [...remoteClaims, ...localClaims, ...seedClaims].filter((claim) => {
+    return [...remoteClaims, ...localClaims, ...seedClaimsWithEvidence].filter((claim) => {
       if (seenClaimIds.has(claim.id)) {
         return false;
       }
@@ -406,7 +449,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       seenClaimIds.add(claim.id);
       return true;
     });
-  }, [remoteClaims, storedClaims]);
+  }, [remoteClaims, remoteSeedEvidence, storedClaims]);
 
   const filteredClaims = useMemo(() => {
     let result = activeDomain === "all"
@@ -643,38 +686,76 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
     setEvidenceSubmitting(true);
 
     try {
-      if (canUseSupabase() && canPersistEvidenceToSupabase(selectedClaim.id)) {
+      const persistenceTarget = evidencePersistenceTarget(selectedClaim.id);
+      let seedDurableFallback = false;
+
+      if (canUseSupabase() && persistenceTarget !== "local") {
         try {
-          const liveEvidence = await publishEvidenceToSupabase(selectedClaim.id, evidenceForm);
-          setRemoteClaims((currentClaims) =>
-            currentClaims.map((claim) =>
-              claim.id === selectedClaim.id
-                ? {
-                    ...claim,
-                    evidence: [liveEvidence, ...claim.evidence],
-                    veracityLabel: "Community assessment updated",
-                    veracityExplanation:
-                      "New live evidence has been added. Review the support and challenge source mix before relying on the score."
-                  }
-                : claim
-            )
+          const durableEvidence = await publishEvidenceToSupabase(
+            selectedClaim.id,
+            evidenceForm
           );
+
+          if (persistenceTarget === "live") {
+            setRemoteClaims((currentClaims) =>
+              currentClaims.map((claim) =>
+                claim.id === selectedClaim.id
+                  ? {
+                      ...claim,
+                      evidence: [durableEvidence, ...claim.evidence],
+                      veracityLabel: "Community assessment updated",
+                      veracityExplanation:
+                        "New live evidence has been added. Review the support and challenge source mix before relying on the score."
+                    }
+                  : claim
+              )
+            );
+          } else {
+            setRemoteSeedEvidence((currentEvidence) => ({
+              ...currentEvidence,
+              [selectedClaim.id]: [
+                durableEvidence,
+                ...(currentEvidence[selectedClaim.id] ?? [])
+              ]
+            }));
+          }
+
           setEvidenceForm(defaultEvidenceForm);
-          setEvidenceMessage("Evidence published to the live Supabase database.");
-          setSupabaseMessage("Live evidence write succeeded.");
+          setEvidenceMessage(
+            persistenceTarget === "live"
+              ? "Evidence published to the live Supabase database."
+              : "Evidence saved durably for this seed claim."
+          );
+          setSupabaseMessage(
+            persistenceTarget === "live"
+              ? "Live evidence write succeeded."
+              : "Seed evidence write succeeded."
+          );
           setContributionPrompt({
             useCase: "add_evidence",
             claimId: selectedClaim.id,
-            title: "Evidence captured",
+            title:
+              persistenceTarget === "live"
+                ? "Evidence captured"
+                : "Seed evidence captured",
             message:
               "Leave one note on what slowed you down, or pick the next source gap from the mission queue."
           });
           return;
         } catch (error) {
-          setEvidenceMessage(
-            error instanceof Error ? error.message : "Supabase evidence write failed."
+          if (persistenceTarget === "live") {
+            setEvidenceMessage(
+              error instanceof Error ? error.message : "Supabase evidence write failed."
+            );
+            return;
+          }
+
+          seedDurableFallback = true;
+          setSupabaseMessage(
+            error instanceof Error
+              ? `${error.message} Saved this seed-claim evidence locally instead.`
+              : "Seed evidence write failed. Saved this seed-claim evidence locally instead."
           );
-          return;
         }
       }
 
@@ -705,7 +786,11 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       saveClaims(nextClaims);
       setSelectedId(nextClaim.id);
       setEvidenceForm(defaultEvidenceForm);
-      setEvidenceMessage("Evidence added locally with source link.");
+      setEvidenceMessage(
+        seedDurableFallback
+          ? "Seed evidence saved locally because the durable database write failed."
+          : "Evidence added locally with source link."
+      );
       setContributionPrompt({
         useCase: "add_evidence",
         claimId: nextClaim.id,

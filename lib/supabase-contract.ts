@@ -225,6 +225,43 @@ export type EvidenceEntryUpdate = Partial<
   Omit<EvidenceEntryInsert, "claim_id" | "submitted_by">
 >;
 
+export type SeedEvidenceEntryRow = {
+  id: UUID;
+  seed_claim_id: string;
+  stance: ClaimStance;
+  assessment_target: AssessmentTarget;
+  summary: string;
+  source_id: UUID | null;
+  source_url: string;
+  submitted_by: UUID;
+  is_ai_generated: boolean;
+  ai_disclosure: string | null;
+  created_at: Timestamp;
+  updated_at: Timestamp;
+};
+
+export type SeedEvidenceEntryInsert = {
+  id?: UUID;
+  seed_claim_id: string;
+  stance: ClaimStance;
+  assessment_target?: AssessmentTarget;
+  summary: string;
+  source_id?: UUID | null;
+  source_url: PublicSourceUrl;
+  submitted_by?: UUID;
+  created_at?: Timestamp;
+  updated_at?: Timestamp;
+} & AiDisclosureInput;
+
+export type SeedEvidenceSubmissionInput = Omit<
+  SeedEvidenceEntryInsert,
+  "id" | "created_at" | "updated_at"
+>;
+
+export type SeedEvidenceEntryUpdate = Partial<
+  Omit<SeedEvidenceEntryInsert, "seed_claim_id" | "submitted_by">
+>;
+
 export type AttributionScoreRow = {
   id: UUID;
   claim_id: UUID;
@@ -468,6 +505,27 @@ export type SupabaseDatabase = {
           },
           {
             foreignKeyName: "evidence_entries_submitted_by_fkey";
+            columns: ["submitted_by"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          }
+        ]
+      >;
+      seed_evidence_entries: TableContract<
+        SeedEvidenceEntryRow,
+        SeedEvidenceEntryInsert,
+        SeedEvidenceEntryUpdate,
+        [
+          {
+            foreignKeyName: "seed_evidence_entries_source_id_fkey";
+            columns: ["source_id"];
+            isOneToOne: false;
+            referencedRelation: "sources";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "seed_evidence_entries_submitted_by_fkey";
             columns: ["submitted_by"];
             isOneToOne: false;
             referencedRelation: "profiles";
