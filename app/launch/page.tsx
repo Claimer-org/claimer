@@ -112,6 +112,26 @@ function missionScore(claim: (typeof seedClaims)[number]) {
   return score + Math.max(0, 4 - health.total) * 8;
 }
 
+function byNewestClaim(
+  a: (typeof seedClaims)[number],
+  b: (typeof seedClaims)[number]
+) {
+  return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+}
+
+function uniqueClaims(claims: typeof seedClaims) {
+  const seen = new Set<string>();
+
+  return claims.filter((claim) => {
+    if (seen.has(claim.id)) {
+      return false;
+    }
+
+    seen.add(claim.id);
+    return true;
+  });
+}
+
 const launchShareDrafts: LaunchShareDraft[] = [
   {
     id: "hackernews",
@@ -140,10 +160,12 @@ const launchShareDrafts: LaunchShareDraft[] = [
 ];
 
 export default function LaunchPage() {
-  const missionClaims = seedClaims
+  const newestClaims = seedClaims.slice().sort(byNewestClaim).slice(0, 5);
+  const priorityClaims = seedClaims
     .slice()
     .sort((a, b) => missionScore(b) - missionScore(a))
     .slice(0, 6);
+  const missionClaims = uniqueClaims([...newestClaims, ...priorityClaims]).slice(0, 6);
 
   return (
     <section className="stack">

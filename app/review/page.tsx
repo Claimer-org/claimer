@@ -53,11 +53,30 @@ function priorityLabel(claim: Claim) {
   return "Context needed";
 }
 
+function byNewestClaim(a: Claim, b: Claim) {
+  return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+}
+
+function uniqueClaims(claims: Claim[]) {
+  const seen = new Set<string>();
+
+  return claims.filter((claim) => {
+    if (seen.has(claim.id)) {
+      return false;
+    }
+
+    seen.add(claim.id);
+    return true;
+  });
+}
+
 export default function ReviewPage() {
-  const missionClaims = seedClaims
+  const newestClaims = seedClaims.slice().sort(byNewestClaim).slice(0, 5);
+  const priorityClaims = seedClaims
     .slice()
     .sort((a, b) => missionScore(b) - missionScore(a))
     .slice(0, 12);
+  const missionClaims = uniqueClaims([...newestClaims, ...priorityClaims]).slice(0, 12);
   const needsChallenge = seedClaims.filter(
     (claim) => evidenceHealth(claim).needsChallenge
   ).length;

@@ -70,6 +70,7 @@ export default async function ClaimDetailPage({
     "@type": "ClaimReview",
     url: `${siteUrl}/claims/${claim.id}/`,
     claimReviewed: claim.title,
+    reviewBody: claim.body,
     itemReviewed: {
       "@type": "Claim",
       name: claim.title,

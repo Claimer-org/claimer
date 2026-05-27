@@ -353,17 +353,25 @@ function exportClaimData() {
     "@type": "ClaimReview",
     url: `${SITE}/claims/${claim.id}/`,
     claimReviewed: claim.title,
+    reviewBody: claim.body,
     itemReviewed: {
-      "@type": "CreativeWork",
-      url: claim.sourceUrl,
+      "@type": "Claim",
+      name: claim.title,
+      author: {
+        "@type": claim.subjectKind === "company" ? "Organization" : "Person",
+        name: claim.claimantName
+      },
+      datePublished: claim.createdAt,
       appearance: {
         "@type": "CreativeWork",
-        url: claim.sourceUrl
+        url: claim.sourceUrl,
+        name: claim.sourceTitle
       }
     },
     author: {
       "@type": "Organization",
-      name: claim.claimantName || claim.sourcePublisher
+      name: "Claimer Community",
+      url: SITE
     },
     datePublished: claim.createdAt,
     reviewRating: {

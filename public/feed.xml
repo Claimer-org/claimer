@@ -5,9 +5,54 @@
     <link>https://claimer-org.github.io/claimer/</link>
     <description>Latest source-backed AI and technology claims with community assessment scores.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 May 2026 14:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2026 04:20:00 GMT</lastBuildDate>
     <atom:link href="https://claimer-org.github.io/claimer/feed.xml" rel="self" type="application/rss+xml" />
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub" />
+    <item>
+      <title>Perplexity released Bumblebee as an open-source read-only developer endpoint scanner</title>
+      <link>https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=perplexity-bumblebee-open-source-scanner-2026&amp;claim_id=perplexity-bumblebee-open-source-scanner-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/</guid>
+      <pubDate>Wed, 27 May 2026 04:20:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests announced. Attribution 94%; veracity 72%. 2 evidence entries: 1 support, 0 challenge, 1 context. Perplexity released Bumblebee as an Apache-2.0 open-source, read-only scanner for macOS and Linux developer endpoints that inventories package, extension, and developer-tool metadata for software supply-chain exposure checks. Community assessment should not treat this as proof that Bumblebee prevents compromise or fully secures developer machines. Source: Perplexity Is Open-Sourcing Bumblebee (https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee)</description>
+      <source url="https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee">Perplexity Is Open-Sourcing Bumblebee</source>
+    </item>
+    <item>
+      <title>Mistral AI announced a definitive agreement to acquire Emmi AI</title>
+      <link>https://claimer-org.github.io/claimer/claims/mistral-emmi-ai-acquisition-agreement-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=mistral-emmi-ai-acquisition-agreement-2026&amp;claim_id=mistral-emmi-ai-acquisition-agreement-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/mistral-emmi-ai-acquisition-agreement-2026/</guid>
+      <pubDate>Wed, 27 May 2026 04:17:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence suggests announced. Attribution 96%; veracity 69%. 2 evidence entries: 1 support, 0 challenge, 1 context. Mistral AI announced that it entered into a definitive agreement to acquire Emmi AI to strengthen industrial AI, physics-modeling, engineering, and manufacturing capabilities. Evidence suggests the agreement is directly attributed, while deal closing, product integration, and real-time simulation outcomes require later independent evidence. Source: Doubling Down on Science to Win Industrial AI (https://mistral.ai/news/science-to-win-industrial-ai)</description>
+      <source url="https://mistral.ai/news/science-to-win-industrial-ai">Doubling Down on Science to Win Industrial AI</source>
+    </item>
+    <item>
+      <title>Meta announced Muse Spark and said it powers Meta AI experiences</title>
+      <link>https://claimer-org.github.io/claimer/claims/meta-muse-spark-rollout-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=meta-muse-spark-rollout-2026&amp;claim_id=meta-muse-spark-rollout-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/meta-muse-spark-rollout-2026/</guid>
+      <pubDate>Wed, 27 May 2026 04:14:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence suggests announced. Attribution 95%; veracity 64%. 2 evidence entries: 1 support, 0 challenge, 1 context. Meta announced Muse Spark as the first model in its Muse series and said it powers the Meta AI app and website, with staged rollout across Meta apps, AI glasses, and private API preview for select partners. Community assessment should separate Meta's announcement from independent evidence of user availability, health-adjacent behavior, shopping recommendations, API access, and capability quality. Source: Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People (https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/)</description>
+      <source url="https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/">Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People</source>
+    </item>
+    <item>
+      <title>Anthropic announced ten Claude agent templates for financial-services work</title>
+      <link>https://claimer-org.github.io/claimer/claims/anthropic-finance-agent-templates-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=anthropic-finance-agent-templates-2026&amp;claim_id=anthropic-finance-agent-templates-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/anthropic-finance-agent-templates-2026/</guid>
+      <pubDate>Wed, 27 May 2026 04:11:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence suggests announced. Attribution 95%; veracity 68%. 2 evidence entries: 1 support, 0 challenge, 1 context. Anthropic announced ten ready-to-run Claude agent templates for financial-services workflows, with plugin and cookbook distribution paths plus Microsoft 365 add-ins and data connectors. Evidence suggests the announcement is well attributed, while compliance, benchmark, productivity, and customer-impact claims should remain claimant-provided until independently reviewed. Source: Agents for financial services (https://www.anthropic.com/news/finance-agents)</description>
+      <source url="https://www.anthropic.com/news/finance-agents">Agents for financial services</source>
+    </item>
+    <item>
+      <title>OpenAI announced a Codex preview inside the ChatGPT mobile app</title>
+      <link>https://claimer-org.github.io/claimer/claims/openai-codex-mobile-preview-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=openai-codex-mobile-preview-2026&amp;claim_id=openai-codex-mobile-preview-2026&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/openai-codex-mobile-preview-2026/</guid>
+      <pubDate>Wed, 27 May 2026 04:08:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence suggests announced. Attribution 96%; veracity 70%. 2 evidence entries: 1 support, 0 challenge, 1 context. OpenAI announced that Codex is now in preview in the ChatGPT mobile app so users can monitor, steer, review, and approve Codex work connected to laptops, devboxes, or remote environments. Community assessment should treat rollout, security, and enterprise availability details as separate claims needing continued review. Source: Work with Codex from anywhere (https://openai.com/index/work-with-codex-from-anywhere/)</description>
+      <source url="https://openai.com/index/work-with-codex-from-anywhere/">Work with Codex from anywhere</source>
+    </item>
     <item>
       <title>Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao</title>
       <link>https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=china-ai-platforms-exam-restrictions-2026&amp;claim_id=china-ai-platforms-exam-restrictions-2026&amp;ref=rss</link>
@@ -187,51 +232,6 @@
       <category>ai</category>
       <description>Moderately supported. Attribution 94%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. PwC and Anthropic announce a major expansion deploying Claude across M&amp;A advisory, finance, and software delivery. Client-reported metrics show up to 70% faster delivery with AI-native workflows. Source: PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients (https://www.anthropic.com/news/pwc-expanded-partnership?stream=top)</description>
       <source url="https://www.anthropic.com/news/pwc-expanded-partnership?stream=top">PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients</source>
-    </item>
-    <item>
-      <title>Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope</title>
-      <link>https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=chinese-academy-aeye-1-ai-microscope&amp;claim_id=chinese-academy-aeye-1-ai-microscope&amp;ref=rss</link>
-      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/</guid>
-      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
-      <category>technology</category>
-      <description>Evidence suggests plausible. Attribution 90%; veracity 65%. 2 evidence entries: 1 support, 0 challenge, 1 context. Scientists at the Dalian Institute of Chemical Physics (Chinese Academy of Sciences) announced Aeye-1, an AI-TEM system enabling fully autonomous operation — covering sample transfer, imaging, and analysis — with an efficiency over 300 times higher than manual processing. Source: CAS announcement of Aeye-1 AI-TEM system (https://english.cas.cn/)</description>
-      <source url="https://english.cas.cn/">CAS announcement of Aeye-1 AI-TEM system</source>
-    </item>
-    <item>
-      <title>AI platform discovers new gallium-based semiconductor materials, bypassing years of lab experiments</title>
-      <link>https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=flinders-ai-semiconductor-discovery&amp;claim_id=flinders-ai-semiconductor-discovery&amp;ref=rss</link>
-      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/</guid>
-      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
-      <category>technology</category>
-      <description>Evidence suggests plausible. Attribution 88%; veracity 62%. 1 evidence entry: 1 support, 0 challenge, 0 context. An international research team led by Flinders University and Khalifa University developed a machine-learning platform — a 'smart materials discovery engine' — that predicts new gallium-based semiconductor compositions, potentially accelerating next-gen chip development. Source: Flinders University research announcement (https://news.flinders.edu.au/)</description>
-      <source url="https://news.flinders.edu.au/">Flinders University research announcement</source>
-    </item>
-    <item>
-      <title>Experts warn agentic AI in banking is outpacing governance — traditional testing frameworks are failing</title>
-      <link>https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=agentic-ai-banking-oversight-crisis&amp;claim_id=agentic-ai-banking-oversight-crisis&amp;ref=rss</link>
-      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/</guid>
-      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
-      <category>ai</category>
-      <description>Evidence suggests supported. Attribution 78%; veracity 72%. 2 evidence entries: 2 support, 0 challenge, 0 context. Financial industry experts warn that as banks deploy autonomous 'agentic' AI systems that can freeze accounts, transfer funds, and make decisions independently, traditional software testing and governance frameworks are insufficient to prevent liability events. Source: QA Financial report on agentic AI oversight in banking (https://www.qa-financial.com/)</description>
-      <source url="https://www.qa-financial.com/">QA Financial report on agentic AI oversight in banking</source>
-    </item>
-    <item>
-      <title>Nebius Group breaks ground on gigawatt-scale AI factory campus in Missouri</title>
-      <link>https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=nebius-gigawatt-ai-factory-missouri&amp;claim_id=nebius-gigawatt-ai-factory-missouri&amp;ref=rss</link>
-      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/</guid>
-      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
-      <category>technology</category>
-      <description>Evidence suggests supported. Attribution 92%; veracity 75%. 2 evidence entries: 1 support, 0 challenge, 1 context. Nebius Group has begun construction of a gigawatt-scale AI factory campus in Independence, Missouri — the company's first major US digital infrastructure build, incorporating sustainability measures and community benefit programs. Source: Nebius Group AI factory announcement (https://nebius.com/)</description>
-      <source url="https://nebius.com/">Nebius Group AI factory announcement</source>
-    </item>
-    <item>
-      <title>Analysis: Tech industry is fundamentally misunderstanding why consumers resist AI adoption</title>
-      <link>https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=ai-consumer-backlash-misunderstood-2026&amp;claim_id=ai-consumer-backlash-misunderstood-2026&amp;ref=rss</link>
-      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/</guid>
-      <pubDate>Tue, 26 May 2026 05:30:00 GMT</pubDate>
-      <category>ai</category>
-      <description>Evidence suggests plausible. Attribution 82%; veracity 68%. 2 evidence entries: 1 support, 1 challenge, 0 context. AI Weekly analysis argues that consumer AI resistance is not technophobia but stems from psychological loss of agency, fears of economic displacement, and deep-seated platform trust deficits — factors that current PR campaigns and UX improvements have failed to address. Source: AI Weekly analysis of consumer AI backlash (https://aiweekly.co/)</description>
-      <source url="https://aiweekly.co/">AI Weekly analysis of consumer AI backlash</source>
     </item>
   </channel>
 </rss>

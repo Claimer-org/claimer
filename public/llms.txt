@@ -21,11 +21,16 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 - Sitemap: https://claimer-org.github.io/claimer/sitemap.xml
 
 ## Corpus Snapshot
-- Claims: 95
-- Sources: 67
-- Latest generated: 2026-05-26T19:27:43.993Z
+- Claims: 100
+- Sources: 68
+- Latest generated: 2026-05-27T04:17:47.029Z
 
 ## Recent Claims
+- Perplexity released Bumblebee as an open-source read-only developer endpoint scanner: https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/
+- Mistral AI announced a definitive agreement to acquire Emmi AI: https://claimer-org.github.io/claimer/claims/mistral-emmi-ai-acquisition-agreement-2026/
+- Meta announced Muse Spark and said it powers Meta AI experiences: https://claimer-org.github.io/claimer/claims/meta-muse-spark-rollout-2026/
+- Anthropic announced ten Claude agent templates for financial-services work: https://claimer-org.github.io/claimer/claims/anthropic-finance-agent-templates-2026/
+- OpenAI announced a Codex preview inside the ChatGPT mobile app: https://claimer-org.github.io/claimer/claims/openai-codex-mobile-preview-2026/
 - Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao: https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/
 - Pentagon remains skeptical of orbital AI data centers despite growing industry interest in space-based compute: https://claimer-org.github.io/claimer/claims/space-based-ai-data-centers-pentagon-skepticism-2026/
 - Only 8% of Americans trust AI for mental health care as therapists increasingly use AI to record and transcribe sessions: https://claimer-org.github.io/claimer/claims/ai-therapy-session-recording-privacy-2026/
@@ -36,11 +41,6 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 - TELUS Digital reports every AI model tested was exploitable in 620,000+ adversarial attack benchmark across 34 models: https://claimer-org.github.io/claimer/claims/telus-digital-genai-safety-benchmark-2026/
 - Pope Leo XIV issues encyclical 'Magnifica Humanitas' calling for AI regulation and denouncing autonomous lethal weapons: https://claimer-org.github.io/claimer/claims/pope-leo-xiv-magnifica-humanitas-ai/
 - Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance gaps: https://claimer-org.github.io/claimer/claims/gartner-ai-agent-governance-2027/
-- Google has officially overhauled its search engine to be entirely powered by Gemini 3.5 Flash AI: https://claimer-org.github.io/claimer/claims/google-gemini-search-overhaul-2026/
-- Huawei announces proprietary LogicFolding technology breakthrough, aims to produce 1.4nm chips by 2031: https://claimer-org.github.io/claimer/claims/huawei-14nm-logicfolding-2026/
-- Airbnb CTO Ahmad Al-Dahle warns new grad hiring by tech companies has dropped 50% since 2019 due to AI automating entry-level tasks: https://claimer-org.github.io/claimer/claims/airbnb-cto-ai-hollowing-out-2026/
-- ClickUp announces 22% layoffs while restructuring around AI, offering salary bands up to $1M for high-impact AI workers: https://claimer-org.github.io/claimer/claims/clickup-ai-restructuring-2026/
-- Market analysts warn major cloud providers' AI revenue comes substantially from startups they themselves fund, creating circular financing comparable to dot-com era patterns: https://claimer-org.github.io/claimer/claims/ai-circular-financing-2026/
 
 ## Source Directory
 - 24/7 Wall St: https://claimer-org.github.io/claimer/sources/24-7-wall-st/

@@ -258,6 +258,7 @@ function ContributionPromptView({ prompt }: { prompt: ContributionPrompt }) {
 }
 
 export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps) {
+  const targetedReviewMode = Boolean(initialClaimId);
   const initialSelectedId = initialClaimId || seedClaims[0]?.id || "";
   const [storedClaims, setStoredClaims] = useState<StoredClaims>({});
   const [remoteClaims, setRemoteClaims] = useState<Claim[]>([]);
@@ -278,6 +279,8 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
   const [searchQuery, setSearchQuery] = useState("");
   const [supabaseMessage, setSupabaseMessage] = useState("");
   const [requestedClaimId, setRequestedClaimId] = useState(initialClaimId);
+  const [narrowLayout, setNarrowLayout] = useState(false);
+  const [claimPickerOpen, setClaimPickerOpen] = useState(!targetedReviewMode);
   const [contributionPrompt, setContributionPrompt] =
     useState<ContributionPrompt | null>(null);
   const [claimSubmitting, setClaimSubmitting] = useState(false);
@@ -310,6 +313,27 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       setRequestedClaimId(initialClaimId);
     }
   }, [initialClaimId]);
+
+  useEffect(() => {
+    if (!targetedReviewMode) {
+      setNarrowLayout(false);
+      setClaimPickerOpen(true);
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 1060px)");
+    const syncReviewLayout = () => {
+      setNarrowLayout(mediaQuery.matches);
+      setClaimPickerOpen(!mediaQuery.matches);
+    };
+
+    syncReviewLayout();
+    mediaQuery.addEventListener("change", syncReviewLayout);
+
+    return () => {
+      mediaQuery.removeEventListener("change", syncReviewLayout);
+    };
+  }, [targetedReviewMode]);
 
   useEffect(() => {
     let isMounted = true;
@@ -439,6 +463,14 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
   function saveClaims(nextClaims: StoredClaims) {
     setStoredClaims(nextClaims);
     writeStoredClaims(nextClaims);
+  }
+
+  function selectClaim(claimId: string) {
+    setSelectedId(claimId);
+
+    if (targetedReviewMode && narrowLayout) {
+      setClaimPickerOpen(false);
+    }
   }
 
   async function submitClaim(event: React.FormEvent<HTMLFormElement>) {
@@ -767,108 +799,139 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
     }
   }
 
+  const workspaceClassName = targetedReviewMode
+    ? "workspace targeted-review-workspace"
+    : "workspace";
+  const claimPickerBodyId = targetedReviewMode ? "targeted-claim-picker-body" : undefined;
+  const showClaimPickerBody = !targetedReviewMode || claimPickerOpen;
+
   return (
-    <section className="workspace">
-      <aside className="claim-rail" aria-label="Claim list">
+    <section className={workspaceClassName}>
+      <aside
+        className={targetedReviewMode ? "claim-rail targeted-claim-picker" : "claim-rail"}
+        aria-label={targetedReviewMode ? "Change claim" : "Claim list"}
+      >
         <div className="rail-header">
           <div>
-            <p className="eyebrow">Live MVP</p>
-            <h1>Claims</h1>
+            <p className="eyebrow">{targetedReviewMode ? "Optional" : "Live MVP"}</p>
+            <h1>{targetedReviewMode ? "Change claim" : "Claims"}</h1>
           </div>
-          <Link className="button compact" href="/submit">
-            Submit
-          </Link>
-        </div>
-
-        <div className="search-box" aria-label="Search claims">
-          <input
-            type="search"
-            placeholder="Search claims…"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-input"
-            id="claim-search"
-          />
-        </div>
-
-        <div className="filters" aria-label="Claim domain filters">
-          {(["all", "ai", "technology", "news"] as const).map((domain) => (
+          {targetedReviewMode ? (
             <button
-              className={activeDomain === domain ? "chip active" : "chip"}
-              key={domain}
-              onClick={() => setActiveDomain(domain)}
+              aria-controls={claimPickerBodyId}
+              aria-expanded={claimPickerOpen}
+              className="button compact"
+              onClick={() => setClaimPickerOpen((isOpen) => !isOpen)}
               type="button"
             >
-              {domain}
+              {claimPickerOpen ? "Hide list" : "Show claims"}
             </button>
-          ))}
+          ) : (
+            <Link className="button compact" href="/submit">
+              Submit
+            </Link>
+          )}
         </div>
 
-        <div className="filters triage-filters" aria-label="Evidence triage filters">
-          {[
-            ["all", "All"],
-            ["needs-challenge", "Needs challenge"],
-            ["needs-support", "Needs support"],
-            ["primary-direct", "Primary/direct"]
-          ].map(([key, label]) => (
-            <button
-              className={activeTriage === key ? "chip active" : "chip"}
-              key={key}
-              onClick={() =>
-                setActiveTriage(
-                  key as "all" | "needs-challenge" | "needs-support" | "primary-direct"
-                )
-              }
-              type="button"
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        {supabaseMessage ? <p className="form-message">{supabaseMessage}</p> : null}
+        {targetedReviewMode && !claimPickerOpen && selectedClaim ? (
+          <p className="claim-picker-current">Current review: {selectedClaim.title}</p>
+        ) : null}
 
         <div
-          className="claim-list"
-          aria-busy={liveClaimsState === "loading"}
-          aria-live="polite"
+          className="claim-picker-body"
+          hidden={!showClaimPickerBody}
+          id={claimPickerBodyId}
         >
-          {liveClaimsState === "loading" ? (
-            <div className="skeleton-list" aria-label="Loading live claims">
-              <span className="skeleton-row" />
-              <span className="skeleton-row" />
-            </div>
-          ) : null}
+          <div className="search-box" aria-label="Search claims">
+            <input
+              type="search"
+              placeholder="Search claims…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
+              id="claim-search"
+            />
+          </div>
 
-          {filteredClaims.length > 0 ? (
-            filteredClaims.map((claim) => {
-              const counts = evidenceCounts(claim);
-              const health = evidenceHealth(claim);
-              return (
-                <button
-                  className={selectedClaim?.id === claim.id ? "claim-row active" : "claim-row"}
-                  key={claim.id}
-                  onClick={() => setSelectedId(claim.id)}
-                  type="button"
-                >
-                  <span className="claim-domain">{claim.domain}</span>
-                  <strong>{claim.title}</strong>
-                  <span>
-                    {counts.support} support / {counts.challenge} challenge /{" "}
-                    {counts.context} context
-                  </span>
-                  <span className={health.needsChallenge ? "triage need" : "triage"}>
-                    {health.balanceLabel} · {health.highQualityCount} strong source
-                    {health.highQualityCount === 1 ? "" : "s"}
-                  </span>
-                </button>
-              );
-            })
-          ) : liveClaimsState !== "loading" ? (
-            <div className="empty-state compact">
-              <strong>No claims match these filters.</strong>
-              <span>Clear a filter or submit a sourced public claim.</span>
-            </div>
-          ) : null}
+          <div className="filters" aria-label="Claim domain filters">
+            {(["all", "ai", "technology", "news"] as const).map((domain) => (
+              <button
+                className={activeDomain === domain ? "chip active" : "chip"}
+                key={domain}
+                onClick={() => setActiveDomain(domain)}
+                type="button"
+              >
+                {domain}
+              </button>
+            ))}
+          </div>
+
+          <div className="filters triage-filters" aria-label="Evidence triage filters">
+            {[
+              ["all", "All"],
+              ["needs-challenge", "Needs challenge"],
+              ["needs-support", "Needs support"],
+              ["primary-direct", "Primary/direct"]
+            ].map(([key, label]) => (
+              <button
+                className={activeTriage === key ? "chip active" : "chip"}
+                key={key}
+                onClick={() =>
+                  setActiveTriage(
+                    key as "all" | "needs-challenge" | "needs-support" | "primary-direct"
+                  )
+                }
+                type="button"
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          {supabaseMessage ? <p className="form-message">{supabaseMessage}</p> : null}
+
+          <div
+            className="claim-list"
+            aria-busy={liveClaimsState === "loading"}
+            aria-live="polite"
+          >
+            {liveClaimsState === "loading" ? (
+              <div className="skeleton-list" aria-label="Loading live claims">
+                <span className="skeleton-row" />
+                <span className="skeleton-row" />
+              </div>
+            ) : null}
+
+            {filteredClaims.length > 0 ? (
+              filteredClaims.map((claim) => {
+                const counts = evidenceCounts(claim);
+                const health = evidenceHealth(claim);
+                return (
+                  <button
+                    className={selectedClaim?.id === claim.id ? "claim-row active" : "claim-row"}
+                    key={claim.id}
+                    onClick={() => selectClaim(claim.id)}
+                    type="button"
+                  >
+                    <span className="claim-domain">{claim.domain}</span>
+                    <strong>{claim.title}</strong>
+                    <span>
+                      {counts.support} support / {counts.challenge} challenge /{" "}
+                      {counts.context} context
+                    </span>
+                    <span className={health.needsChallenge ? "triage need" : "triage"}>
+                      {health.balanceLabel} · {health.highQualityCount} strong source
+                      {health.highQualityCount === 1 ? "" : "s"}
+                    </span>
+                  </button>
+                );
+              })
+            ) : liveClaimsState !== "loading" ? (
+              <div className="empty-state compact">
+                <strong>No claims match these filters.</strong>
+                <span>Clear a filter or submit a sourced public claim.</span>
+              </div>
+            ) : null}
+          </div>
         </div>
       </aside>
 

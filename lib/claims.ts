@@ -4530,6 +4530,276 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "openai-codex-mobile-preview-2026",
+    title: "OpenAI announced a Codex preview inside the ChatGPT mobile app",
+    body:
+      "OpenAI announced that Codex is now in preview in the ChatGPT mobile app so users can monitor, steer, review, and approve Codex work connected to laptops, devboxes, or remote environments. Community assessment should treat rollout, security, and enterprise availability details as separate claims needing continued review.",
+    domain: "ai",
+    claimantName: "OpenAI",
+    subjectKind: "company",
+    sourceUrl: "https://openai.com/index/work-with-codex-from-anywhere/",
+    sourceTitle: "Work with Codex from anywhere",
+    sourcePublisher: "OpenAI",
+    sourceQuality: "primary",
+    attributionScore: 96,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The source is OpenAI's own announcement, so attribution that OpenAI made the Codex mobile preview claim is high confidence.",
+    veracityScore: 70,
+    veracityLabel: "Evidence suggests announced",
+    veracityExplanation:
+      "The primary source supports the announcement and described preview, but feature availability, cross-device behavior, security relay claims, and enterprise eligibility still need independent or user-submitted evidence.",
+    createdAt: "2026-05-27T08:08:00+04:00",
+    submittedBy: "Rune",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-openai-codex-mobile-primary-2026",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "OpenAI's announcement says Codex is in preview in the ChatGPT mobile app and describes monitoring, review, approvals, and connected-machine workflows.",
+        sourceUrl: "https://openai.com/index/work-with-codex-from-anywhere/",
+        sourceTitle: "Work with Codex from anywhere",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:09:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-openai-codex-mobile-rollout-context-2026",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "OpenAI's availability notes describe a preview rollout and plan or platform limits, so Claimer should not treat every device, region, workspace, or enterprise use case as independently verified.",
+        sourceUrl: "https://openai.com/index/work-with-codex-from-anywhere/",
+        sourceTitle: "Work with Codex from anywhere",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:10:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "anthropic-finance-agent-templates-2026",
+    title:
+      "Anthropic announced ten Claude agent templates for financial-services work",
+    body:
+      "Anthropic announced ten ready-to-run Claude agent templates for financial-services workflows, with plugin and cookbook distribution paths plus Microsoft 365 add-ins and data connectors. Evidence suggests the announcement is well attributed, while compliance, benchmark, productivity, and customer-impact claims should remain claimant-provided until independently reviewed.",
+    domain: "ai",
+    claimantName: "Anthropic",
+    subjectKind: "company",
+    sourceUrl: "https://www.anthropic.com/news/finance-agents",
+    sourceTitle: "Agents for financial services",
+    sourcePublisher: "Anthropic",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Anthropic's official announcement directly states the finance-agent template release and related add-in and connector claims.",
+    veracityScore: 68,
+    veracityLabel: "Evidence suggests announced",
+    veracityExplanation:
+      "The primary source supports the release claim, but availability, benchmark leadership, auditability, governed data access, and finance-work suitability require independent verification and should not be read as financial, compliance, audit, or investment advice.",
+    createdAt: "2026-05-27T08:11:00+04:00",
+    submittedBy: "Rune",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-anthropic-finance-agents-primary-2026",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Anthropic's announcement lists ten finance agent templates and says they ship as Claude Cowork and Claude Code plugins and Claude Managed Agents cookbooks.",
+        sourceUrl: "https://www.anthropic.com/news/finance-agents",
+        sourceTitle: "Agents for financial services",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:12:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-anthropic-finance-agents-review-context-2026",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "The same source presents benchmark, customer, and governed-access statements from Anthropic or partner-controlled material, so Claimer should invite independent evidence before raising veracity confidence.",
+        sourceUrl: "https://www.anthropic.com/news/finance-agents",
+        sourceTitle: "Agents for financial services",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:13:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "meta-muse-spark-rollout-2026",
+    title: "Meta announced Muse Spark and said it powers Meta AI experiences",
+    body:
+      "Meta announced Muse Spark as the first model in its Muse series and said it powers the Meta AI app and website, with staged rollout across Meta apps, AI glasses, and private API preview for select partners. Community assessment should separate Meta's announcement from independent evidence of user availability, health-adjacent behavior, shopping recommendations, API access, and capability quality.",
+    domain: "ai",
+    claimantName: "Meta",
+    subjectKind: "company",
+    sourceUrl:
+      "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+    sourceTitle:
+      "Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People",
+    sourcePublisher: "Meta Newsroom",
+    sourceQuality: "primary",
+    attributionScore: 95,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Meta's newsroom page directly attributes the Muse Spark announcement, rollout statements, and API preview statement to Meta.",
+    veracityScore: 64,
+    veracityLabel: "Evidence suggests announced",
+    veracityExplanation:
+      "The primary source supports the announcement, but rollout, region availability, API partner access, health-adjacent responses, recommendation behavior, and model-capability claims remain staged or claimant-controlled.",
+    createdAt: "2026-05-27T08:14:00+04:00",
+    submittedBy: "Rune",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-meta-muse-spark-primary-2026",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Meta's newsroom post announces Muse Spark, describes it as the first Muse-series model, and says it powers the Meta AI app and website.",
+        sourceUrl:
+          "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+        sourceTitle:
+          "Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:15:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-meta-muse-spark-rollout-context-2026",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "Meta describes staged rollout across apps and glasses plus private API preview for select partners, so broad availability and capability claims need independent reviewer evidence.",
+        sourceUrl:
+          "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+        sourceTitle:
+          "Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:16:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "mistral-emmi-ai-acquisition-agreement-2026",
+    title: "Mistral AI announced a definitive agreement to acquire Emmi AI",
+    body:
+      "Mistral AI announced that it entered into a definitive agreement to acquire Emmi AI to strengthen industrial AI, physics-modeling, engineering, and manufacturing capabilities. Evidence suggests the agreement is directly attributed, while deal closing, product integration, and real-time simulation outcomes require later independent evidence.",
+    domain: "ai",
+    claimantName: "Mistral AI",
+    subjectKind: "company",
+    sourceUrl: "https://mistral.ai/news/science-to-win-industrial-ai",
+    sourceTitle: "Doubling Down on Science to Win Industrial AI",
+    sourcePublisher: "Mistral AI",
+    sourceQuality: "primary",
+    attributionScore: 96,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Mistral AI's own announcement directly states that it entered into a definitive agreement to acquire Emmi AI.",
+    veracityScore: 69,
+    veracityLabel: "Evidence suggests announced",
+    veracityExplanation:
+      "The primary source supports the agreement claim, but deal completion, Emmi AI integration, industrial customer impact, and production simulation performance should be assessed with later independent sources.",
+    createdAt: "2026-05-27T08:17:00+04:00",
+    submittedBy: "Rune",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-mistral-emmi-agreement-primary-2026",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Mistral AI's announcement says the company entered into a definitive agreement to acquire Emmi AI for industrial AI and physics-modeling work.",
+        sourceUrl: "https://mistral.ai/news/science-to-win-industrial-ai",
+        sourceTitle: "Doubling Down on Science to Win Industrial AI",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:18:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-mistral-emmi-outcome-context-2026",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "Mistral's source includes forward-looking statements about engineering agents, real-time simulations, and digital twins, which should remain separate from the narrower acquisition-agreement claim until independently supported.",
+        sourceUrl: "https://mistral.ai/news/science-to-win-industrial-ai",
+        sourceTitle: "Doubling Down on Science to Win Industrial AI",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:19:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "perplexity-bumblebee-open-source-scanner-2026",
+    title:
+      "Perplexity released Bumblebee as an open-source read-only developer endpoint scanner",
+    body:
+      "Perplexity released Bumblebee as an Apache-2.0 open-source, read-only scanner for macOS and Linux developer endpoints that inventories package, extension, and developer-tool metadata for software supply-chain exposure checks. Community assessment should not treat this as proof that Bumblebee prevents compromise or fully secures developer machines.",
+    domain: "technology",
+    claimantName: "Perplexity",
+    subjectKind: "company",
+    sourceUrl:
+      "https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee",
+    sourceTitle: "Perplexity Is Open-Sourcing Bumblebee",
+    sourcePublisher: "Perplexity",
+    sourceQuality: "primary",
+    attributionScore: 94,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "Perplexity's announcement and public GitHub repository directly attribute the Bumblebee release to Perplexity.",
+    veracityScore: 72,
+    veracityLabel: "Evidence suggests announced",
+    veracityExplanation:
+      "The announcement and repository support the open-source scanner claim, but practical security value depends on exposure catalogs, supported ecosystems, deployment quality, and local review.",
+    createdAt: "2026-05-27T08:20:00+04:00",
+    submittedBy: "Rune",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-perplexity-bumblebee-blog-primary-2026",
+        stance: "support",
+        assessmentTarget: "attribution",
+        summary:
+          "Perplexity's announcement says it is open-sourcing Bumblebee and describes it as a read-only scanner for developer-machine supply-chain exposure checks.",
+        sourceUrl:
+          "https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee",
+        sourceTitle: "Perplexity Is Open-Sourcing Bumblebee",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:21:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-perplexity-bumblebee-github-context-2026",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "The GitHub repository is inspectable and lists the Apache-2.0 license, read-only scope, supported package and extension sources, and scanner limits that reviewers can verify.",
+        sourceUrl: "https://github.com/perplexityai/bumblebee",
+        sourceTitle: "perplexityai/bumblebee",
+        sourceQuality: "primary",
+        submittedBy: "Rune",
+        createdAt: "2026-05-27T08:22:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 

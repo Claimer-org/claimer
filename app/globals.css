@@ -470,6 +470,14 @@ main {
   padding-right: 4px;
 }
 
+.claim-picker-current {
+  margin: 12px 0 0;
+  color: var(--foreground-dim);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
 .claim-list::-webkit-scrollbar {
   width: 6px;
 }
@@ -1354,6 +1362,30 @@ textarea {
 
   .claim-list {
     max-height: none;
+  }
+
+  .targeted-review-workspace .claim-main {
+    order: 1;
+  }
+
+  .targeted-review-workspace .claim-main .form-panel {
+    order: 1;
+  }
+
+  .targeted-review-workspace .claim-main .detail {
+    order: 2;
+  }
+
+  .targeted-review-workspace .claim-rail {
+    order: 2;
+  }
+
+  .targeted-review-workspace .submit-panel {
+    order: 3;
+  }
+
+  .targeted-review-workspace .claim-list {
+    max-height: 52vh;
   }
 }
 
