@@ -72,13 +72,12 @@ jobs:
             -d "hub.url=https://claimer-org.github.io/claimer/feed.json" \
             "https://pubsubhubbub.appspot.com/"
 
+      - name: Checkout repository for release scripts
+        if: success()
+        uses: actions/checkout@v4
+
       - name: Ping IndexNow with latest URLs
         if: success()
         env:
           INDEXNOW_KEY: 86c6a461-1494-40f5-9f4f-475741a130ad
-        run: |
-          set -euo pipefail
-          curl --fail-with-body -sS -w "\nIndexNow Bing: %{http_code}\n" \
-            "https://www.bing.com/indexnow?url=https://claimer-org.github.io/claimer/&key=${INDEXNOW_KEY}"
-          curl --fail-with-body -sS -w "\nIndexNow Yandex: %{http_code}\n" \
-            "https://yandex.com/indexnow?url=https://claimer-org.github.io/claimer/&key=${INDEXNOW_KEY}"
+        run: npm run submit:indexnow
