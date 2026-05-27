@@ -325,17 +325,21 @@ export type FeedbackEntryInsert = {
 
 export type FeedbackEntryUpdate = Partial<FeedbackEntryInsert>;
 
+// Public growth labels are sanitized in SQL to safe tokens or redaction buckets.
+export type PublicGrowthLabel = string;
+export type PublicGrowthPath = string;
+
 export type GrowthChannelDetail = {
-  source: string;
+  source: PublicGrowthLabel;
   visitors: number;
   page_views: number;
 };
 
 export type GrowthCampaignDetail = {
-  utm_source: string;
-  utm_content: string;
-  ref: string;
-  landing_path: string;
+  utm_source: PublicGrowthLabel;
+  utm_content: PublicGrowthLabel;
+  ref: PublicGrowthLabel;
+  landing_path: PublicGrowthPath;
   visitors: number;
   page_views: number;
 };
@@ -347,17 +351,17 @@ export type GrowthFeedbackUseCaseDetail = {
 };
 
 export type GrowthFeedbackSourceEventDetail = {
-  source_event: string;
-  utm_source: string;
-  utm_content: string;
-  ref: string;
-  page_path: string;
+  source_event: PublicGrowthLabel;
+  utm_source: PublicGrowthLabel;
+  utm_content: PublicGrowthLabel;
+  ref: PublicGrowthLabel;
+  page_path: PublicGrowthPath;
   count: number;
   average_rating: number;
 };
 
 export type GrowthPathDetail = {
-  path: string;
+  path: PublicGrowthPath;
   page_views: number;
   visitors: number;
 };

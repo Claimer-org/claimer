@@ -9,6 +9,7 @@ import {
   seedClaims
 } from "../../../lib/claims";
 import { siteUrl } from "../../../lib/site";
+import AttributedReviewLink from "../../review/attributed-review-link";
 import ClaimShareSection from "./claim-share";
 
 export function generateStaticParams() {
@@ -173,9 +174,9 @@ export default async function ClaimDetailPage({
           <h2 id="review-mission-title">{mission.title}</h2>
           <p>{mission.description}</p>
         </div>
-        <Link className="button compact" href={`/submit/${claim.id}`}>
+        <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
           Add evidence
-        </Link>
+        </AttributedReviewLink>
       </section>
 
       <section className="assessment-checklist" aria-label="Assessment readiness">
@@ -224,9 +225,9 @@ export default async function ClaimDetailPage({
             If evidence suggests support, challenge, or context, add it with a
             source.
           </p>
-          <Link className="button compact" href={`/submit/${claim.id}`}>
+          <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
             Add evidence
-          </Link>
+          </AttributedReviewLink>
         </div>
         <div className="evidence-list">
           {claim.evidence.map((item) => (

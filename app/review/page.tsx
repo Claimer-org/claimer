@@ -6,6 +6,7 @@ import {
   reviewMission,
   seedClaims
 } from "../../lib/claims";
+import AttributedReviewLink from "./attributed-review-link";
 
 export const metadata: Metadata = {
   title: "Review Missions",
@@ -19,8 +20,14 @@ const nostrAskPost = {
     "https://njump.me/ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d"
 };
 
-const nostrFeedbackHref =
-  `/feedback/?use_case=add_evidence&utm_source=nostr&utm_medium=social&utm_campaign=milestone4-launch&utm_content=reviewer_feedback_cta&ref=launch_kit&source_event=${nostrAskPost.eventId}`;
+const nostrFeedbackAttribution = {
+  utm_source: "nostr",
+  utm_medium: "social",
+  utm_campaign: "milestone4-launch",
+  utm_content: "reviewer_feedback_cta",
+  ref: "launch_kit",
+  source_event: nostrAskPost.eventId
+};
 
 function missionScore(claim: Claim) {
   const health = evidenceHealth(claim);
@@ -106,9 +113,9 @@ export default function ReviewPage() {
           improve the community assessment.
         </p>
         <div className="actions">
-          <Link className="button primary" href="/submit">
+          <AttributedReviewLink className="button primary" href="/submit/">
             Add evidence
-          </Link>
+          </AttributedReviewLink>
           <Link className="button" href="/claims">
             Browse claims
           </Link>
@@ -139,9 +146,14 @@ export default function ReviewPage() {
             </h2>
           </div>
           <div className="mission-actions">
-            <Link className="button primary" href={nostrFeedbackHref}>
+            <AttributedReviewLink
+              className="button primary"
+              fallback={nostrFeedbackAttribution}
+              href="/feedback/"
+              overrides={{ use_case: "add_evidence" }}
+            >
               Leave workflow note
-            </Link>
+            </AttributedReviewLink>
             <a
               className="button"
               href={nostrAskPost.viewerUrl}
@@ -182,15 +194,18 @@ export default function ReviewPage() {
               </div>
               <p className="mission-instruction">{mission.description}</p>
               <div className="mission-actions">
-                <Link
+                <AttributedReviewLink
                   className="button primary compact"
-                  href={`/submit/${claim.id}`}
+                  href={`/submit/${claim.id}/`}
                 >
                   Add source
-                </Link>
-                <Link className="button compact" href={`/claims/${claim.id}`}>
+                </AttributedReviewLink>
+                <AttributedReviewLink
+                  className="button compact"
+                  href={`/claims/${claim.id}/`}
+                >
                   Inspect
-                </Link>
+                </AttributedReviewLink>
               </div>
             </article>
           );

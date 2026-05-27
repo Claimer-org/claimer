@@ -343,6 +343,46 @@ create schema if not exists private;
 revoke all on schema private from public;
 grant usage on schema private to service_role;
 
+create or replace function private.public_growth_label(
+  value text,
+  fallback text default 'none'
+)
+returns text
+language sql
+immutable
+set search_path = ''
+as $$
+  select case
+    when nullif(btrim(value), '') is null then fallback
+    when btrim(value) ~ '^[A-Za-z0-9][A-Za-z0-9_-]{0,95}$' then btrim(value)
+    else 'redacted'
+  end;
+$$;
+
+revoke all on function private.public_growth_label(text, text) from public;
+grant execute on function private.public_growth_label(text, text)
+  to service_role;
+
+create or replace function private.public_growth_path(
+  value text,
+  fallback text default '/'
+)
+returns text
+language sql
+immutable
+set search_path = ''
+as $$
+  select case
+    when nullif(btrim(value), '') is null then fallback
+    when btrim(value) ~ '^/[A-Za-z0-9/_-]{0,255}$' then btrim(value)
+    else '/redacted'
+  end;
+$$;
+
+revoke all on function private.public_growth_path(text, text) from public;
+grant execute on function private.public_growth_path(text, text)
+  to service_role;
+
 create or replace function private.get_growth_snapshot_impl()
 returns table (
   metric text,
@@ -415,11 +455,11 @@ as $$
   ),
   channel_rows as (
     select
-      coalesce(
+      private.public_growth_label(coalesce(
         nullif(events_7d.properties ->> 'utm_source', ''),
         nullif(events_7d.properties ->> 'ref', ''),
         'direct'
-      ) as source,
+      ), 'direct') as source,
       count(distinct events_7d.visitor_id) as visitors,
       count(*) as page_views
     from events_7d
@@ -448,14 +488,14 @@ as $$
   ),
   campaign_rows as (
     select
-      coalesce(nullif(campaign_events_7d.properties ->> 'utm_source', ''), 'none') as utm_source,
-      coalesce(nullif(campaign_events_7d.properties ->> 'utm_content', ''), 'none') as utm_content,
-      coalesce(nullif(campaign_events_7d.properties ->> 'ref', ''), 'none') as ref,
-      coalesce(
+      private.public_growth_label(campaign_events_7d.properties ->> 'utm_source') as utm_source,
+      private.public_growth_label(campaign_events_7d.properties ->> 'utm_content') as utm_content,
+      private.public_growth_label(campaign_events_7d.properties ->> 'ref') as ref,
+      private.public_growth_path(coalesce(
         nullif(campaign_events_7d.properties ->> 'landing_path', ''),
         campaign_events_7d.path,
         '/'
-      ) as landing_path,
+      )) as landing_path,
       count(distinct campaign_events_7d.visitor_id) as visitors,
       count(*) as page_views
     from campaign_events_7d
@@ -506,11 +546,11 @@ as $$
   ),
   feedback_source_rows as (
     select
-      coalesce(nullif(feedback_source_events_7d.metadata ->> 'source_event', ''), 'none') as source_event,
-      coalesce(nullif(feedback_source_events_7d.metadata ->> 'utm_source', ''), 'none') as utm_source,
-      coalesce(nullif(feedback_source_events_7d.metadata ->> 'utm_content', ''), 'none') as utm_content,
-      coalesce(nullif(feedback_source_events_7d.metadata ->> 'ref', ''), 'none') as ref,
-      feedback_source_events_7d.page_path,
+      private.public_growth_label(feedback_source_events_7d.metadata ->> 'source_event') as source_event,
+      private.public_growth_label(feedback_source_events_7d.metadata ->> 'utm_source') as utm_source,
+      private.public_growth_label(feedback_source_events_7d.metadata ->> 'utm_content') as utm_content,
+      private.public_growth_label(feedback_source_events_7d.metadata ->> 'ref') as ref,
+      private.public_growth_path(feedback_source_events_7d.page_path) as page_path,
       count(*) as entry_count,
       round(avg(feedback_source_events_7d.rating)::numeric, 1) as average_rating
     from feedback_source_events_7d
@@ -553,11 +593,11 @@ as $$
     ) as items
     from (
       select
-        events_24h.path,
+        private.public_growth_path(events_24h.path) as path,
         count(*) as page_views,
         count(distinct events_24h.visitor_id) as visitors
       from events_24h
-      group by events_24h.path
+      group by 1
       order by page_views desc, visitors desc, path asc
       limit 8
     ) ranked_paths

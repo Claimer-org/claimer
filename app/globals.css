@@ -2478,6 +2478,21 @@ textarea {
   overflow-wrap: anywhere;
 }
 
+.feedback-source-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.feedback-source-actions span {
+  min-width: 160px;
+  color: var(--foreground-dim);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .feedback-form {
   display: grid;
   gap: 16px;

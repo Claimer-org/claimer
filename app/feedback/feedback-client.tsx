@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -40,6 +41,24 @@ function shortenedEventId(value: string) {
   return trimmed.length > 20 ? `${trimmed.slice(0, 8)}...${trimmed.slice(-8)}` : trimmed;
 }
 
+function reviewQueueHref(metadata: Record<string, string>) {
+  const params = new URLSearchParams();
+
+  metadataParams.forEach((key) => {
+    const value = metadata[key];
+    if (value) {
+      params.set(key, value);
+    }
+  });
+
+  if (!params.has("ref")) {
+    params.set("ref", "feedback_source_event_review_cta");
+  }
+
+  const query = params.toString();
+  return query ? `/review/?${query}` : "/review/";
+}
+
 function sourceEventContext(value: string | undefined) {
   const eventId = value?.trim();
   if (!eventId) {
@@ -53,8 +72,8 @@ function sourceEventContext(value: string | undefined) {
       ? "AskNostr workflow review context"
       : "Public Nostr review context",
     body: isAskNostrWorkflow
-      ? "This feedback will be attributed to the public AskNostr review ask, not treated as a truth verdict."
-      : "This feedback will be attributed to a public review ask, not treated as a truth verdict.",
+      ? "Inspect one source-backed claim before sending a note. Your feedback stays attributed to the public AskNostr review ask and supports community assessment, not an official truth verdict."
+      : "Inspect one source-backed claim before sending a note. Your feedback stays attributed to the public review ask and supports community assessment, not an official truth verdict.",
     eventId: shortenedEventId(eventId)
   };
 }
@@ -126,6 +145,16 @@ export default function FeedbackClient() {
           <p>
             {context.body} Event <code>{context.eventId}</code>.
           </p>
+          <p>
+            Automated assistance is labeled on claim pages. The form below is
+            still available if you need to leave feedback now.
+          </p>
+          <div className="feedback-source-actions">
+            <Link className="button primary compact" href={reviewQueueHref(metadata)}>
+              Open review queue first
+            </Link>
+            <span>Then return here for a 2-minute workflow note.</span>
+          </div>
         </aside>
       ) : null}
 

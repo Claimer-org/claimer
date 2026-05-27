@@ -21,6 +21,11 @@ import {
   publishClaimToSupabase,
   publishEvidenceToSupabase
 } from "../../lib/supabase-claims";
+import {
+  attributedPath,
+  attributionFromSearch,
+  type AttributionParams
+} from "../../lib/attribution";
 
 type StoredClaims = Record<string, Claim>;
 type ClaimsClientProps = {
@@ -116,29 +121,31 @@ function makeId(prefix: string) {
     .slice(2, 8)}`;
 }
 
-function claimSubmitPath(claimId: string) {
-  return `/submit/${encodeURIComponent(claimId)}`;
-}
+function claimSubmitUrl(claimId: string, attribution: AttributionParams = {}) {
+  const path = attributedPath(
+    `/submit/${encodeURIComponent(claimId)}/`,
+    attribution
+  );
 
-function claimSubmitUrl(claimId: string) {
   if (typeof window === "undefined") {
-    return claimSubmitPath(claimId);
+    return path;
   }
 
-  return new URL(
-    `${appBasePath}/submit/${encodeURIComponent(claimId)}/`,
-    window.location.origin
-  ).toString();
+  return new URL(`${appBasePath}${path}`, window.location.origin).toString();
 }
 
-function feedbackPath(useCase: ContributionPrompt["useCase"], claimId: string) {
-  const params = new URLSearchParams({
-    use_case: useCase,
-    ref: "post_contribution",
-    claim_id: claimId
+function feedbackPath(
+  useCase: ContributionPrompt["useCase"],
+  claimId: string,
+  attribution: AttributionParams
+) {
+  return attributedPath("/feedback", attribution, {
+    defaults: { ref: "post_contribution" },
+    overrides: {
+      use_case: useCase,
+      claim_id: claimId
+    }
   });
-
-  return `/feedback?${params.toString()}`;
 }
 
 function readStoredClaims(): StoredClaims {
@@ -234,7 +241,13 @@ function claimsFromPack(value: unknown): Claim[] {
   return Object.values(value).filter(isClaim);
 }
 
-function ContributionPromptView({ prompt }: { prompt: ContributionPrompt }) {
+function ContributionPromptView({
+  prompt,
+  attribution
+}: {
+  prompt: ContributionPrompt;
+  attribution: AttributionParams;
+}) {
   return (
     <div className="post-contribution" aria-live="polite">
       <div>
@@ -245,11 +258,11 @@ function ContributionPromptView({ prompt }: { prompt: ContributionPrompt }) {
       <div className="mission-actions">
         <Link
           className="button primary compact"
-          href={feedbackPath(prompt.useCase, prompt.claimId)}
+          href={feedbackPath(prompt.useCase, prompt.claimId, attribution)}
         >
           Send feedback
         </Link>
-        <Link className="button compact" href="/review">
+        <Link className="button compact" href={attributedPath("/review/", attribution)}>
           Next mission
         </Link>
       </div>
@@ -285,6 +298,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
     useState<ContributionPrompt | null>(null);
   const [claimSubmitting, setClaimSubmitting] = useState(false);
   const [evidenceSubmitting, setEvidenceSubmitting] = useState(false);
+  const [attribution, setAttribution] = useState<AttributionParams>({});
 
   const [claimForm, setClaimForm] = useState({
     title: "",
@@ -302,6 +316,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
   );
 
   useEffect(() => {
+    setAttribution(attributionFromSearch(window.location.search));
     setStoredClaims(readStoredClaims());
 
     const queryClaim = new URLSearchParams(window.location.search).get("claim");
@@ -788,7 +803,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       `Assessment target: ${mission.stance === "context" ? "attribution/context" : "claim veracity"}`,
       `Task: ${mission.prompt}`,
       "Rules: use a public http/https source URL, avoid private-person claims, and disclose AI-assisted summaries.",
-      `Submit at: ${claimSubmitUrl(selectedClaim.id)}`
+      `Submit at: ${claimSubmitUrl(selectedClaim.id, attribution)}`
     ].join("\n");
 
     try {
@@ -1186,7 +1201,10 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
               </form>
               {evidenceMessage ? <p className="form-message">{evidenceMessage}</p> : null}
               {contributionPrompt?.useCase === "add_evidence" ? (
-                <ContributionPromptView prompt={contributionPrompt} />
+                <ContributionPromptView
+                  attribution={attribution}
+                  prompt={contributionPrompt}
+                />
               ) : null}
             </section>
           </>
@@ -1310,7 +1328,10 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
         </form>
         {claimMessage ? <p className="form-message">{claimMessage}</p> : null}
         {contributionPrompt?.useCase === "submit_claim" ? (
-          <ContributionPromptView prompt={contributionPrompt} />
+          <ContributionPromptView
+            attribution={attribution}
+            prompt={contributionPrompt}
+          />
         ) : null}
 
         <section className="handoff-panel" aria-labelledby="handoff-title">
