@@ -9,6 +9,12 @@ import {
   publishFeedback
 } from "../../lib/feedback";
 import type { FeedbackUseCase } from "../../lib/supabase-contract";
+import {
+  askNostrWorkflowSourceEvent,
+  attributionFromSearch,
+  attributionParamKeys,
+  type AttributionParams
+} from "../../lib/attribution";
 
 const ratingOptions = [
   { value: 5, label: "5" },
@@ -17,19 +23,6 @@ const ratingOptions = [
   { value: 2, label: "2" },
   { value: 1, label: "1" }
 ];
-
-const metadataParams = [
-  "ref",
-  "claim_id",
-  "utm_source",
-  "utm_medium",
-  "utm_campaign",
-  "utm_content",
-  "source_event"
-];
-
-const askNostrWorkflowSourceEvent =
-  "ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d";
 
 function validUseCase(value: string | null): FeedbackUseCase | null {
   const option = feedbackUseCases.find((item) => item.value === value);
@@ -41,10 +34,10 @@ function shortenedEventId(value: string) {
   return trimmed.length > 20 ? `${trimmed.slice(0, 8)}...${trimmed.slice(-8)}` : trimmed;
 }
 
-function reviewQueueHref(metadata: Record<string, string>) {
+function reviewQueueHref(metadata: AttributionParams) {
   const params = new URLSearchParams();
 
-  metadataParams.forEach((key) => {
+  attributionParamKeys.forEach((key) => {
     const value = metadata[key];
     if (value) {
       params.set(key, value);
@@ -83,21 +76,14 @@ export default function FeedbackClient() {
   const [useCase, setUseCase] = useState<FeedbackUseCase>("browse_claims");
   const [rating, setRating] = useState(5);
   const [summary, setSummary] = useState("");
-  const [metadata, setMetadata] = useState<Record<string, string>>({});
+  const [metadata, setMetadata] = useState<AttributionParams>({});
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const requestedUseCase = validUseCase(params.get("use_case"));
-    const nextMetadata: Record<string, string> = {};
-
-    metadataParams.forEach((key) => {
-      const value = params.get(key);
-      if (value) {
-        nextMetadata[key] = value;
-      }
-    });
+    const nextMetadata = attributionFromSearch(window.location.search);
 
     if (requestedUseCase) {
       setUseCase(requestedUseCase);

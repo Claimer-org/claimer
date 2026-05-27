@@ -15,7 +15,10 @@ export const attributionParamKeys = [
 ] as const;
 
 const askNostrLaunchCampaign = "milestone4-launch";
-const askNostrLaunchContents = new Set(["asknostr_workflow_review"]);
+const askNostrLaunchContents = new Set([
+  "asknostr_workflow_review",
+  "reviewer_feedback_cta"
+]);
 
 type QueryParamsInput = Record<string, string | number | boolean | null | undefined>;
 
