@@ -341,7 +341,7 @@ create policy "public insert launch feedback"
 create schema if not exists private;
 
 revoke all on schema private from public;
-grant usage on schema private to anon, authenticated, service_role;
+grant usage on schema private to service_role;
 
 create or replace function private.get_growth_snapshot_impl()
 returns table (
@@ -568,7 +568,7 @@ $$;
 
 revoke all on function private.get_growth_snapshot_impl() from public;
 grant execute on function private.get_growth_snapshot_impl()
-  to anon, authenticated, service_role;
+  to service_role;
 
 create or replace function public.get_growth_snapshot()
 returns table (
@@ -581,7 +581,7 @@ returns table (
 )
 language sql
 stable
-security invoker
+security definer
 set search_path = ''
 as $$
   select *

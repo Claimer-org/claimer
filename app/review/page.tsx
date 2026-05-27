@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "Pick a source-backed Claimer mission and add support, challenge, or context evidence."
 };
 
+const nostrFeedbackHref =
+  "/feedback/?utm_source=nostr&utm_medium=social&utm_campaign=milestone4-launch&utm_content=reviewer_feedback_cta&ref=launch_kit";
+
 function missionScore(claim: Claim) {
   const health = evidenceHealth(claim);
   let score = 0;
@@ -119,6 +122,26 @@ export default function ReviewPage() {
           <strong>{twoSided}</strong>
           <span>already two-sided</span>
         </div>
+      </section>
+
+      <section className="panel" aria-labelledby="review-feedback-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Nostr reviewer feedback</p>
+            <h2 id="review-feedback-title">
+              Inspect one claim, then leave a 2-minute workflow note
+            </h2>
+          </div>
+          <Link className="button primary" href={nostrFeedbackHref}>
+            Leave workflow note
+          </Link>
+        </div>
+        <p>
+          Pick any source-backed claim below, check whether the cited URLs make
+          the community assessment understandable, and tell us where the
+          workflow slowed you down. Evidence suggests stronger reviewer notes
+          will help prioritize the next claim workflow fixes.
+        </p>
       </section>
 
       <section className="mission-board" aria-label="Open review missions">
