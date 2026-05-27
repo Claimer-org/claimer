@@ -38,7 +38,21 @@ export default function AuthClient() {
       const supabase = getSupabaseClient();
 
       try {
+        const url = new URL(window.location.href);
+        const authCode = url.searchParams.get("code");
+        const queryError =
+          url.searchParams.get("error_description") ||
+          url.searchParams.get("error") ||
+          "";
         const hash = window.location.hash;
+        if (queryError) {
+          if (isMounted) {
+            setMessage(queryError);
+          }
+          window.history.replaceState(null, "", window.location.pathname);
+          return;
+        }
+
         if (hash && hash.includes("error")) {
           const params = new URLSearchParams(hash.slice(1));
           const errorDescription =
@@ -50,8 +64,52 @@ export default function AuthClient() {
           return;
         }
 
+        if (authCode && supabase) {
+          const { data, error } = await supabase.auth.exchangeCodeForSession(authCode);
+          if (error) {
+            if (isMounted) {
+              setMessage(`Auth link failed: ${error.message}`);
+            }
+            window.history.replaceState(null, "", window.location.pathname);
+            return;
+          }
+
+          const sessionUser = data.session?.user ?? null;
+          if (sessionUser && isMounted) {
+            setUser(sessionUser);
+            await ensureProfile(sessionUser);
+            setMessage(`Welcome, ${displayName(sessionUser)}!`);
+          }
+          window.history.replaceState(null, "", window.location.pathname);
+          return;
+        }
+
         if (hash && hash.includes("access_token") && supabase) {
-          const { data } = await supabase.auth.getSession();
+          const params = new URLSearchParams(hash.slice(1));
+          const accessToken = params.get("access_token");
+          const refreshToken = params.get("refresh_token");
+
+          if (!accessToken || !refreshToken) {
+            if (isMounted) {
+              setMessage("Auth link failed: missing session tokens.");
+            }
+            window.history.replaceState(null, "", window.location.pathname);
+            return;
+          }
+
+          const { data, error } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken
+          });
+
+          if (error) {
+            if (isMounted) {
+              setMessage(`Auth link failed: ${error.message}`);
+            }
+            window.history.replaceState(null, "", window.location.pathname);
+            return;
+          }
+
           const sessionUser = data.session?.user ?? null;
           if (sessionUser && isMounted) {
             setUser(sessionUser);

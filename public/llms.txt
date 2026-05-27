@@ -23,7 +23,7 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 ## Corpus Snapshot
 - Claims: 100
 - Sources: 68
-- Latest generated: 2026-05-27T13:12:28.400Z
+- Latest generated: 2026-05-27T15:48:53.351Z
 
 ## Recent Claims
 - Perplexity released Bumblebee as an open-source read-only developer endpoint scanner: https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/
