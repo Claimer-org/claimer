@@ -13,8 +13,14 @@ export const metadata: Metadata = {
     "Pick a source-backed Claimer mission and add support, challenge, or context evidence."
 };
 
+const nostrAskPost = {
+  eventId: "ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d",
+  viewerUrl:
+    "https://njump.me/ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d"
+};
+
 const nostrFeedbackHref =
-  "/feedback/?utm_source=nostr&utm_medium=social&utm_campaign=milestone4-launch&utm_content=reviewer_feedback_cta&ref=launch_kit";
+  `/feedback/?use_case=add_evidence&utm_source=nostr&utm_medium=social&utm_campaign=milestone4-launch&utm_content=reviewer_feedback_cta&ref=launch_kit&source_event=${nostrAskPost.eventId}`;
 
 function missionScore(claim: Claim) {
   const health = evidenceHealth(claim);
@@ -132,15 +138,27 @@ export default function ReviewPage() {
               Inspect one claim, then leave a 2-minute workflow note
             </h2>
           </div>
-          <Link className="button primary" href={nostrFeedbackHref}>
-            Leave workflow note
-          </Link>
+          <div className="mission-actions">
+            <Link className="button primary" href={nostrFeedbackHref}>
+              Leave workflow note
+            </Link>
+            <a
+              className="button"
+              href={nostrAskPost.viewerUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              Open public ask
+            </a>
+          </div>
         </div>
         <p>
           Pick any source-backed claim below, check whether the cited URLs make
           the community assessment understandable, and tell us where the
-          workflow slowed you down. Evidence suggests stronger reviewer notes
-          will help prioritize the next claim workflow fixes.
+          workflow slowed you down. If you arrived from the AskNostr request,
+          the feedback form keeps that event attached to the note. Evidence
+          suggests stronger reviewer notes will help prioritize the next claim
+          workflow fixes.
         </p>
       </section>
 

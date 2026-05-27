@@ -23,7 +23,8 @@ const metadataParams = [
   "utm_source",
   "utm_medium",
   "utm_campaign",
-  "utm_content"
+  "utm_content",
+  "source_event"
 ];
 
 function validUseCase(value: string | null): FeedbackUseCase | null {

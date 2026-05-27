@@ -50,6 +50,18 @@ const nostrFallbackPost = {
   measuredReviewUrl: campaignUrl("/review/", "nostr", "social", "fallback_note")
 };
 
+const nostrAskPost = {
+  eventId: "ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d",
+  viewerUrl:
+    "https://njump.me/ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d",
+  measuredReviewUrl: campaignUrl(
+    "/review/",
+    "nostr",
+    "social",
+    "asknostr_workflow_review"
+  )
+};
+
 function campaignParams(source: string, medium: string, content: string) {
   const params = new URLSearchParams({
     utm_source: source,
@@ -338,29 +350,32 @@ export default function LaunchPage() {
       <section className="panel" aria-labelledby="nostr-fallback-title">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Live fallback post</p>
-            <h2 id="nostr-fallback-title">Nostr fallback reference</h2>
+            <p className="eyebrow">Live Nostr posts</p>
+            <h2 id="nostr-fallback-title">Nostr distribution references</h2>
           </div>
           <a href={nostrFallbackPost.viewerUrl} rel="noreferrer" target="_blank">
-            Open njump viewer
+            Open fallback viewer
           </a>
         </div>
         <div className="grid">
           <article className="card">
-            <h3>Event ID</h3>
+            <h3>Fallback event ID</h3>
             <p className="copy-line">{nostrFallbackPost.eventId}</p>
           </article>
           <article className="card">
-            <h3>Public viewer</h3>
-            <p className="copy-line">{nostrFallbackPost.viewerUrl}</p>
+            <h3>AskNostr event ID</h3>
+            <p className="copy-line">{nostrAskPost.eventId}</p>
+            <a href={nostrAskPost.viewerUrl} rel="noreferrer" target="_blank">
+              Open public ask
+            </a>
           </article>
           <article className="card">
             <h3>Measured review link</h3>
             <p>
-              The live fallback note routes reviewers to the source-backed
+              The public AskNostr note routes reviewers to the source-backed
               review queue with Nostr campaign attribution.
             </p>
-            <p className="copy-line">{nostrFallbackPost.measuredReviewUrl}</p>
+            <p className="copy-line">{nostrAskPost.measuredReviewUrl}</p>
           </article>
         </div>
       </section>
