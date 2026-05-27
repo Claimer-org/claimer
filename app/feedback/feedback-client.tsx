@@ -27,9 +27,36 @@ const metadataParams = [
   "source_event"
 ];
 
+const askNostrWorkflowSourceEvent =
+  "ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d";
+
 function validUseCase(value: string | null): FeedbackUseCase | null {
   const option = feedbackUseCases.find((item) => item.value === value);
   return option?.value ?? null;
+}
+
+function shortenedEventId(value: string) {
+  const trimmed = value.trim();
+  return trimmed.length > 20 ? `${trimmed.slice(0, 8)}...${trimmed.slice(-8)}` : trimmed;
+}
+
+function sourceEventContext(value: string | undefined) {
+  const eventId = value?.trim();
+  if (!eventId) {
+    return null;
+  }
+
+  const isAskNostrWorkflow = eventId.toLowerCase() === askNostrWorkflowSourceEvent;
+
+  return {
+    title: isAskNostrWorkflow
+      ? "AskNostr workflow review context"
+      : "Public Nostr review context",
+    body: isAskNostrWorkflow
+      ? "This feedback will be attributed to the public AskNostr review ask, not treated as a truth verdict."
+      : "This feedback will be attributed to a public review ask, not treated as a truth verdict.",
+    eventId: shortenedEventId(eventId)
+  };
 }
 
 export default function FeedbackClient() {
@@ -89,60 +116,73 @@ export default function FeedbackClient() {
     }
   }
 
+  const context = sourceEventContext(metadata.source_event);
+
   return (
-    <form className="feedback-form form-panel" onSubmit={submitFeedback}>
-      <label>
-        What were you doing?
-        <select
-          value={useCase}
-          onChange={(event) => setUseCase(event.target.value as FeedbackUseCase)}
-        >
-          {feedbackUseCases.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </label>
+    <div className="feedback-form-shell">
+      {context ? (
+        <aside className="feedback-source-context" aria-label="Feedback source context">
+          <strong>{context.title}</strong>
+          <p>
+            {context.body} Event <code>{context.eventId}</code>.
+          </p>
+        </aside>
+      ) : null}
 
-      <fieldset className="rating-field">
-        <legend>How useful was Claimer?</legend>
-        <div>
-          {ratingOptions.map((option) => (
-            <label
-              className={rating === option.value ? "rating-option active" : "rating-option"}
-              key={option.value}
-            >
-              <input
-                type="radio"
-                name="rating"
-                value={option.value}
-                checked={rating === option.value}
-                onChange={() => setRating(option.value)}
-              />
-              <span>{option.label}</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
+      <form className="feedback-form form-panel" onSubmit={submitFeedback}>
+        <label>
+          What were you doing?
+          <select
+            value={useCase}
+            onChange={(event) => setUseCase(event.target.value as FeedbackUseCase)}
+          >
+            {feedbackUseCases.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </label>
 
-      <label>
-        What should change before you would use it again?
-        <textarea
-          maxLength={1200}
-          minLength={8}
-          required
-          value={summary}
-          onChange={(event) => setSummary(event.target.value)}
-          placeholder="One specific issue, missing claim, or confusing part."
-        />
-      </label>
+        <fieldset className="rating-field">
+          <legend>How useful was Claimer?</legend>
+          <div>
+            {ratingOptions.map((option) => (
+              <label
+                className={rating === option.value ? "rating-option active" : "rating-option"}
+                key={option.value}
+              >
+                <input
+                  type="radio"
+                  name="rating"
+                  value={option.value}
+                  checked={rating === option.value}
+                  onChange={() => setRating(option.value)}
+                />
+                <span>{option.label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
 
-      <button className="button primary" disabled={submitting} type="submit">
-        {submitting ? "Sending..." : "Send feedback"}
-      </button>
+        <label>
+          What should change before you would use it again?
+          <textarea
+            maxLength={1200}
+            minLength={8}
+            required
+            value={summary}
+            onChange={(event) => setSummary(event.target.value)}
+            placeholder="One specific issue, missing claim, or confusing part."
+          />
+        </label>
 
-      {message ? <p className="form-message">{message}</p> : null}
-    </form>
+        <button className="button primary" disabled={submitting} type="submit">
+          {submitting ? "Sending..." : "Send feedback"}
+        </button>
+
+        {message ? <p className="form-message">{message}</p> : null}
+      </form>
+    </div>
   );
 }
