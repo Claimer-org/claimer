@@ -46,6 +46,16 @@ const launchSprintLinks = [
   }
 ];
 
+const addedDateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC"
+});
+
+function formatAddedLabel(createdAt: string) {
+  return `Added ${addedDateFormatter.format(new Date(createdAt))}`;
+}
+
 export default function HomePage() {
   const evidenceTotal = seedClaims.reduce(
     (total, claim) => total + claim.evidence.length,
@@ -155,15 +165,7 @@ export default function HomePage() {
             .slice(0, 3)
             .map((claim) => {
               const counts = evidenceCounts(claim);
-              const ageMs =
-                Date.now() - new Date(claim.createdAt).getTime();
-              const ageHours = Math.floor(ageMs / 3_600_000);
-              const ageLabel =
-                ageHours < 1
-                  ? "Just now"
-                  : ageHours < 24
-                    ? `${ageHours}h ago`
-                    : `${Math.floor(ageHours / 24)}d ago`;
+              const addedLabel = formatAddedLabel(claim.createdAt);
               return (
                 <article
                   className="card claim-card breaking-card"
@@ -178,7 +180,7 @@ export default function HomePage() {
                   >
                     <span className="claim-domain">{claim.domain}</span>
                     <span className="debate-badge breaking">
-                      {ageLabel}
+                      {addedLabel}
                     </span>
                   </div>
                   <h3>{claim.title}</h3>

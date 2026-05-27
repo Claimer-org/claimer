@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.527.2";
+export const SITE_VERSION = "26.527.3";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-27",
+    title: "Stable freshness labels",
+    bullets: [
+      "Homepage current-claim cards now show stable added-date labels instead of frozen relative times.",
+      "Breaking Today keeps the freshness signal accurate between static deploys.",
+      "The release keeps current claim visibility aligned with the freshness-first content direction."
+    ]
+  },
+  {
+    version: "26.527.2",
     date: "2026-05-27",
     title: "Auth handoff fix",
     bullets: [
