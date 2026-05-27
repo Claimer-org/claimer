@@ -33,8 +33,22 @@ const channels = [
     medium: "social",
     path: "/review/",
     title: "Claimer needs source-backed evidence on disputed AI and tech claims"
+  },
+  {
+    label: "Nostr",
+    source: "nostr",
+    medium: "social",
+    path: "/review/",
+    title: "Claimer: source-backed AI and tech claim review queue"
   }
 ];
+
+const nostrFallbackPost = {
+  eventId: "1320678c6a5bf61b18c35329ae66117931eaac749f4a6be25119116234a094b9",
+  viewerUrl:
+    "https://njump.me/1320678c6a5bf61b18c35329ae66117931eaac749f4a6be25119116234a094b9",
+  measuredReviewUrl: campaignUrl("/review/", "nostr", "social", "fallback_note")
+};
 
 function campaignParams(source: string, medium: string, content: string) {
   const params = new URLSearchParams({
@@ -88,9 +102,17 @@ function socialSubmitUrl(channel: (typeof channels)[number]) {
     )}&title=${encodeURIComponent(channel.title)}`;
   }
 
+  if (channel.source === "nostr") {
+    return nostrFallbackPost.viewerUrl;
+  }
+
   return `https://x.com/intent/tweet?text=${encodeURIComponent(
     channel.title
   )}&url=${encodeURIComponent(url)}`;
+}
+
+function socialActionLabel(channel: (typeof channels)[number]) {
+  return channel.source === "nostr" ? "Open live post" : "Open submit page";
 }
 
 function missionScore(claim: (typeof seedClaims)[number]) {
@@ -156,6 +178,14 @@ const launchShareDrafts: LaunchShareDraft[] = [
     body:
       "I am looking for quick reviewer feedback on Claimer, a source-backed community assessment tool for AI and tech claims. Each claim has cited URLs, support/challenge evidence, and explainable scores.\n\nThe goal is not a definitive verdict; it is to show what the evidence suggests and where better sources are needed.",
     url: campaignUrl("/review/", "direct", "outreach", "copy_draft_direct")
+  },
+  {
+    id: "nostr",
+    label: "Nostr",
+    title: "Source-backed AI and tech claim review queue",
+    body:
+      "Claimer has a source-backed AI/tech review queue with 100 live claims. Add support or challenge evidence, inspect what the evidence suggests, and improve the community assessment.\n\nAutomated assistance is disclosed; scores are not official fact-check verdicts.",
+    url: campaignUrl("/review/", "nostr", "social", "copy_draft_nostr")
   }
 ];
 
@@ -297,12 +327,42 @@ export default function LaunchPage() {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  Open submit page
+                  {socialActionLabel(channel)}
                 </a>
               </div>
             </article>
           );
         })}
+      </section>
+
+      <section className="panel" aria-labelledby="nostr-fallback-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Live fallback post</p>
+            <h2 id="nostr-fallback-title">Nostr fallback reference</h2>
+          </div>
+          <a href={nostrFallbackPost.viewerUrl} rel="noreferrer" target="_blank">
+            Open njump viewer
+          </a>
+        </div>
+        <div className="grid">
+          <article className="card">
+            <h3>Event ID</h3>
+            <p className="copy-line">{nostrFallbackPost.eventId}</p>
+          </article>
+          <article className="card">
+            <h3>Public viewer</h3>
+            <p className="copy-line">{nostrFallbackPost.viewerUrl}</p>
+          </article>
+          <article className="card">
+            <h3>Measured review link</h3>
+            <p>
+              The live fallback note routes reviewers to the source-backed
+              review queue with Nostr campaign attribution.
+            </p>
+            <p className="copy-line">{nostrFallbackPost.measuredReviewUrl}</p>
+          </article>
+        </div>
       </section>
 
       <section className="panel" aria-labelledby="mission-links-title">
