@@ -83,10 +83,19 @@ export default function HomePage() {
           support and challenge evidence, and separate attribution accuracy from
           claim veracity.
         </p>
-        <div className="hero-subtitle">
-          <span className="hero-tag">🔍 Source-verified</span>
-          <span className="hero-tag">⚖️ Two-sided evidence</span>
-          <span className="hero-tag">📊 Explainable scores</span>
+        <div className="hero-subtitle" aria-label="Claim review principles">
+          <span className="hero-tag">
+            <strong>Source trace</strong>
+            <span>Every assessment keeps the original URL visible.</span>
+          </span>
+          <span className="hero-tag">
+            <strong>Open challenge</strong>
+            <span>Support and dispute evidence sit side by side.</span>
+          </span>
+          <span className="hero-tag">
+            <strong>Score rationale</strong>
+            <span>Veracity and attribution stay separate.</span>
+          </span>
         </div>
         <div className="actions">
           <Link className="button primary" href="/claims">
@@ -108,9 +117,10 @@ export default function HomePage() {
       </div>
 
       <section className="stat-highlight" aria-label="Platform statistics">
-        <div className="stat-item">
+        <div className="stat-item stat-item-primary">
           <strong>{seedClaims.length}</strong>
           <span>Active claims</span>
+          <p>Open for source-backed public review.</p>
         </div>
         <div className="stat-item">
           <strong>{evidenceTotal}</strong>
@@ -242,7 +252,10 @@ export default function HomePage() {
       {debateClaims.length > 0 && (
         <section className="panel hot-debates" aria-labelledby="debates-title">
           <div className="section-heading">
-            <h2 id="debates-title">🔥 Hot debates</h2>
+            <div>
+              <p className="eyebrow">Active disputes</p>
+              <h2 id="debates-title">Claims under debate</h2>
+            </div>
             <Link href="/claims">View all claims</Link>
           </div>
           <div className="grid">

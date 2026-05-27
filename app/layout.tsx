@@ -3,6 +3,7 @@ import Link from "next/link";
 import AnalyticsTracker from "./analytics";
 import AuthWidget from "./auth-widget";
 import { siteUrl } from "../lib/site";
+import { SITE_VERSION } from "../lib/version";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -88,6 +89,7 @@ export default function RootLayout({
             <Link href="/about">About</Link>
             <Link href="/terms">Terms</Link>
             <Link href="/disclaimer">Disclaimer</Link>
+            <Link href="/changelog">v{SITE_VERSION}</Link>
             <span className="footer-disclosure">Automated analysis is labeled wherever it appears.</span>
           </nav>
         </footer>

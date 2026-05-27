@@ -2656,7 +2656,6 @@ textarea {
   text-transform: uppercase;
   padding: 3px 8px;
   border-radius: 6px;
-  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .debate-badge.disputed {
@@ -2717,23 +2716,49 @@ textarea {
 
 /* Hero subtitle enhancement */
 .hero-subtitle {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 8px;
+  display: grid;
+  grid-template-columns: minmax(220px, 1.25fr) repeat(2, minmax(160px, 0.85fr));
+  gap: 10px;
+  max-width: 880px;
+  margin-top: 22px;
 }
 
 .hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.82rem;
-  color: var(--foreground-dim);
-  padding: 4px 10px;
-  border-radius: 999px;
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  min-width: 0;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--line);
-  background: var(--bg-glass);
+  background: rgba(17, 24, 39, 0.48);
   backdrop-filter: blur(8px);
+}
+
+.hero-tag:first-child {
+  border-color: rgba(16, 185, 129, 0.38);
+  background: var(--support-bg);
+  box-shadow: inset 3px 0 0 var(--support);
+}
+
+.hero-tag strong {
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.hero-tag span {
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 680px) {
+  .hero-subtitle {
+    grid-template-columns: 1fr;
+    margin-top: 18px;
+  }
 }
 
 /* ─── Trending Page ─── */
