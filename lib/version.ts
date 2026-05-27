@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.527.3";
+export const SITE_VERSION = "26.527.4";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-27",
+    title: "Clearer auth handoff",
+    bullets: [
+      "Email sign-in now warns when a callback completes without returning a signed-in session.",
+      "Magic-link errors and missing token cases show a direct retry message instead of failing silently.",
+      "The homepage keeps the current-claims launch surface from the previous release."
+    ]
+  },
+  {
+    version: "26.527.3",
     date: "2026-05-27",
     title: "Stable freshness labels",
     bullets: [

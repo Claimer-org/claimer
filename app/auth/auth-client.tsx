@@ -74,11 +74,15 @@ export default function AuthClient() {
             return;
           }
 
-          const sessionUser = data.session?.user ?? null;
-          if (sessionUser && isMounted) {
+          const sessionUser = data.session?.user ?? (await getCurrentUser());
+          if (sessionUser && !sessionUser.is_anonymous && isMounted) {
             setUser(sessionUser);
             await ensureProfile(sessionUser);
             setMessage(`Welcome, ${displayName(sessionUser)}!`);
+          } else if (isMounted) {
+            setMessage(
+              "Auth link completed, but no signed-in session was returned. Request a new magic link and try again."
+            );
           }
           window.history.replaceState(null, "", window.location.pathname);
           return;
@@ -110,11 +114,15 @@ export default function AuthClient() {
             return;
           }
 
-          const sessionUser = data.session?.user ?? null;
-          if (sessionUser && isMounted) {
+          const sessionUser = data.session?.user ?? (await getCurrentUser());
+          if (sessionUser && !sessionUser.is_anonymous && isMounted) {
             setUser(sessionUser);
             await ensureProfile(sessionUser);
             setMessage(`Welcome, ${displayName(sessionUser)}!`);
+          } else if (isMounted) {
+            setMessage(
+              "Auth link completed, but no signed-in session was returned. Request a new magic link and try again."
+            );
           }
           window.history.replaceState(null, "", window.location.pathname);
           return;
