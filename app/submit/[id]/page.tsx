@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ClaimsClient from "../../claims/claims-client";
+import AttributedReviewLink from "../../review/attributed-review-link";
 import { findSeedClaim, reviewMission, seedClaims } from "../../../lib/claims";
 
 export function generateStaticParams() {
@@ -72,6 +73,17 @@ export default async function SubmitForClaimPage({
           <a className="button primary compact" href="#evidence-form-title">
             Jump to form
           </a>
+          <AttributedReviewLink
+            className="button compact"
+            defaults={{ ref: "claim_workflow_note_cta" }}
+            href="/feedback/"
+            overrides={{
+              use_case: "add_evidence",
+              claim_id: claim.id
+            }}
+          >
+            Leave workflow note
+          </AttributedReviewLink>
         </div>
       </section>
 

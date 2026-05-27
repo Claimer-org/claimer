@@ -1,5 +1,8 @@
 export type AttributionParams = Record<string, string>;
 
+export const askNostrWorkflowSourceEvent =
+  "ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d";
+
 export const attributionParamKeys = [
   "ref",
   "claim_id",
@@ -10,6 +13,9 @@ export const attributionParamKeys = [
   "utm_term",
   "source_event"
 ] as const;
+
+const askNostrLaunchCampaign = "milestone4-launch";
+const askNostrLaunchContents = new Set(["asknostr_workflow_review"]);
 
 type QueryParamsInput = Record<string, string | number | boolean | null | undefined>;
 
@@ -40,6 +46,29 @@ function setParams(params: URLSearchParams, values: QueryParamsInput | undefined
   });
 }
 
+function normalizedAttributionValue(value: string | undefined) {
+  return value?.trim().toLowerCase() ?? "";
+}
+
+export function isAskNostrLaunchAttribution(attribution: AttributionParams) {
+  return (
+    normalizedAttributionValue(attribution.utm_source) === "nostr" &&
+    normalizedAttributionValue(attribution.utm_campaign) === askNostrLaunchCampaign &&
+    askNostrLaunchContents.has(normalizedAttributionValue(attribution.utm_content))
+  );
+}
+
+export function withBoundedAskNostrSourceEvent(attribution: AttributionParams) {
+  if (attribution.source_event || !isAskNostrLaunchAttribution(attribution)) {
+    return attribution;
+  }
+
+  return {
+    ...attribution,
+    source_event: askNostrWorkflowSourceEvent
+  };
+}
+
 export function attributionFromSearch(search: string) {
   const params = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
   const attribution: AttributionParams = {};
@@ -56,7 +85,7 @@ export function attributionFromSearch(search: string) {
     }
   });
 
-  return attribution;
+  return withBoundedAskNostrSourceEvent(attribution);
 }
 
 export function hasAttributionParams(attribution: AttributionParams) {

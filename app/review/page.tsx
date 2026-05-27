@@ -6,6 +6,7 @@ import {
   reviewMission,
   seedClaims
 } from "../../lib/claims";
+import { askNostrWorkflowSourceEvent } from "../../lib/attribution";
 import AttributedReviewLink from "./attributed-review-link";
 
 export const metadata: Metadata = {
@@ -15,18 +16,9 @@ export const metadata: Metadata = {
 };
 
 const nostrAskPost = {
-  eventId: "ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d",
+  eventId: askNostrWorkflowSourceEvent,
   viewerUrl:
     "https://njump.me/ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d"
-};
-
-const nostrFeedbackAttribution = {
-  utm_source: "nostr",
-  utm_medium: "social",
-  utm_campaign: "milestone4-launch",
-  utm_content: "reviewer_feedback_cta",
-  ref: "launch_kit",
-  source_event: nostrAskPost.eventId
 };
 
 function missionScore(claim: Claim) {
@@ -148,7 +140,7 @@ export default function ReviewPage() {
           <div className="mission-actions">
             <AttributedReviewLink
               className="button primary"
-              fallback={nostrFeedbackAttribution}
+              defaults={{ ref: "review_workflow_note_cta" }}
               href="/feedback/"
               overrides={{ use_case: "add_evidence" }}
             >
@@ -205,6 +197,17 @@ export default function ReviewPage() {
                   href={`/claims/${claim.id}/`}
                 >
                   Inspect
+                </AttributedReviewLink>
+                <AttributedReviewLink
+                  className="button compact"
+                  defaults={{ ref: "review_card_workflow_note" }}
+                  href="/feedback/"
+                  overrides={{
+                    use_case: "add_evidence",
+                    claim_id: claim.id
+                  }}
+                >
+                  Workflow note
                 </AttributedReviewLink>
               </div>
             </article>
