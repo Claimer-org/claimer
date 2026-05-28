@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.527.4";
+export const SITE_VERSION = "26.528.1";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-28",
+    title: "Repeat reviewer path",
+    bullets: [
+      "The reviewer launch kit now includes daily, trending, and changelog return paths for repeat reviewers.",
+      "Each return path carries launch-kit campaign attribution so repeat-use interest can be measured.",
+      "Copy stays framed as source-backed community assessment rather than an official truth verdict."
+    ]
+  },
+  {
+    version: "26.527.4",
     date: "2026-05-27",
     title: "Clearer auth handoff",
     bullets: [

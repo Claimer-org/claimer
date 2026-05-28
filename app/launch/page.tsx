@@ -62,6 +62,48 @@ const nostrAskPost = {
   )
 };
 
+const repeatReviewerLinks = [
+  {
+    label: "Daily",
+    title: "Return to the daily review pack",
+    body:
+      "A focused three-claim queue for reviewers who want one fresh source-backed task instead of browsing the full claim list.",
+    href: internalCampaignPath(
+      "/daily/",
+      "launch_kit",
+      "internal",
+      "repeat_daily"
+    ),
+    action: "Open daily pack"
+  },
+  {
+    label: "Trending",
+    title: "Scan current evidence gaps",
+    body:
+      "Use the ranked claim surface to find disputed or newly active AI and technology claims where evidence suggests more source review is useful.",
+    href: internalCampaignPath(
+      "/trending/",
+      "launch_kit",
+      "internal",
+      "repeat_trending"
+    ),
+    action: "Open trending"
+  },
+  {
+    label: "Changelog",
+    title: "Check what changed",
+    body:
+      "Review recent workflow fixes, freshness labels, and conversion changes before sending another reviewer through the product.",
+    href: internalCampaignPath(
+      "/changelog/",
+      "launch_kit",
+      "internal",
+      "repeat_changelog"
+    ),
+    action: "Open changelog"
+  }
+];
+
 function campaignParams(source: string, medium: string, content: string) {
   const params = new URLSearchParams({
     utm_source: source,
@@ -248,6 +290,29 @@ export default function LaunchPage() {
         <div>
           <strong>{seedClaims.length}</strong>
           <span>claims measured</span>
+        </div>
+      </section>
+
+      <section className="panel" aria-labelledby="repeat-reviewer-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Repeat reviewer path</p>
+            <h2 id="repeat-reviewer-title">Give reviewers a reason to come back</h2>
+          </div>
+          <Link href="/daily?ref=launch_repeat_reviewer">Daily pack</Link>
+        </div>
+        <div className="grid">
+          {repeatReviewerLinks.map((link) => (
+            <article className="card claim-card" key={link.label}>
+              <span className="claim-domain">{link.label}</span>
+              <h3>{link.title}</h3>
+              <p>{link.body}</p>
+              <p className="copy-line">{`${siteUrl}${link.href}`}</p>
+              <Link className="button compact" href={link.href}>
+                {link.action}
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 

@@ -27,6 +27,9 @@ export default function MetricsPage() {
           <Link className="button primary" href="/launch">
             Open launch kit
           </Link>
+          <Link className="button" href="/metrics/feedback">
+            Review feedback
+          </Link>
           <Link className="button" href="/review">
             Open review queue
           </Link>

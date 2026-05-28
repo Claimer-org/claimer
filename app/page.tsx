@@ -134,6 +134,16 @@ export default function HomePage() {
       Number(counts.context === 0)
     );
   }, 0);
+  const openChallengeGaps = seedClaims.reduce((total, claim) => {
+    const counts = evidenceCounts(claim);
+
+    return total + Number(counts.challenge === 0);
+  }, 0);
+  const claimsWithBothSides = seedClaims.reduce((total, claim) => {
+    const counts = evidenceCounts(claim);
+
+    return total + Number(counts.support > 0 && counts.challenge > 0);
+  }, 0);
 
   // Hot debates: claims that are disputed or inconclusive
   const hotDebates = seedClaims
@@ -167,6 +177,9 @@ export default function HomePage() {
   const latestEvidenceTotal = latestCounts
     ? latestCounts.support + latestCounts.challenge + latestCounts.context
     : 0;
+  const latestAddedLabel = latestClaim
+    ? formatAddedLabel(latestClaim.createdAt)
+    : null;
   const latestGapLabel = latestCounts ? reviewGapLabel(latestCounts) : null;
   const latestGapSummary = latestCounts ? reviewGapSummary(latestCounts) : null;
 
@@ -176,16 +189,18 @@ export default function HomePage() {
         <p className="eyebrow">Source-backed community assessment</p>
         <h1>Claimer</h1>
         <p>
-          Submit public AI and technology claims with source links, inspect
-          support and challenge evidence, and separate attribution accuracy from
-          claim veracity.
+          Start from the freshest sourced AI and technology claims, close the
+          missing support or challenge evidence, and keep attribution accuracy
+          separate from claim veracity.
         </p>
         {latestClaim && latestCounts && latestMission && (
           <div className="review-mission" aria-label="Current claim desk">
             <div>
               <div className="mission-meta">
-                <span>Current claim desk</span>
-                <span>{latestMission.stance} needed</span>
+                <span>Freshest review target</span>
+                {latestAddedLabel && <span>{latestAddedLabel}</span>}
+                <span>{latestMission.stance} evidence needed</span>
+                <span>Source: {latestClaim.sourcePublisher}</span>
                 {latestGapSummary && <span>{latestGapSummary}</span>}
               </div>
               <h3>{latestClaim.title}</h3>
@@ -211,22 +226,22 @@ export default function HomePage() {
                 className="button primary compact"
                 href={`/submit/${latestClaim.id}?ref=home_current_claim`}
               >
-                Review now
+                Add {latestMission.stance} source
               </Link>
               <Link className="button compact" href={`/claims/${latestClaim.id}`}>
-                Inspect claim
+                Inspect evidence
               </Link>
             </div>
           </div>
         )}
         <div className="hero-subtitle" aria-label="Claim review principles">
           <span className="hero-tag">
-            <strong>Source trace</strong>
-            <span>Every assessment keeps the original URL visible.</span>
+            <strong>{openChallengeGaps} challenge gaps open</strong>
+            <span>Prioritize missing dispute sources before adding more support.</span>
           </span>
           <span className="hero-tag">
-            <strong>Open challenge</strong>
-            <span>Support and dispute evidence sit side by side.</span>
+            <strong>{claimsWithBothSides} two-sided claims</strong>
+            <span>Support and challenge evidence sit side by side.</span>
           </span>
           <span className="hero-tag">
             <strong>Score rationale</strong>

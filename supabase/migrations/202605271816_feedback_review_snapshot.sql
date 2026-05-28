@@ -16,26 +16,73 @@ stable
 security definer
 set search_path = ''
 as $$
+  with newest_feedback as (
+    select
+      feedback_entries.id,
+      feedback_entries.created_at,
+      feedback_entries.rating,
+      feedback_entries.use_case,
+      feedback_entries.summary,
+      feedback_entries.page_path,
+      feedback_entries.metadata
+    from public.feedback_entries
+    order by feedback_entries.created_at desc
+    limit 20
+  ),
+  metadata_values as (
+    select
+      newest_feedback.id,
+      metadata_field.key,
+      case
+        when nullif(btrim(metadata_field.value), '') is null then null
+        when metadata_field.kind = 'path'
+          and btrim(metadata_field.value) ~ '^/[A-Za-z0-9/_-]{0,255}$'
+          then btrim(metadata_field.value)
+        when metadata_field.kind = 'label'
+          and btrim(metadata_field.value) ~ '^[A-Za-z0-9][A-Za-z0-9_-]{0,95}$'
+          then btrim(metadata_field.value)
+        when metadata_field.kind = 'path' then '/redacted'
+        else 'redacted'
+      end as value
+    from newest_feedback
+    cross join lateral (
+      values
+        ('ref', newest_feedback.metadata ->> 'ref', 'label'),
+        ('claim_id', newest_feedback.metadata ->> 'claim_id', 'label'),
+        ('utm_source', newest_feedback.metadata ->> 'utm_source', 'label'),
+        ('utm_medium', newest_feedback.metadata ->> 'utm_medium', 'label'),
+        ('utm_campaign', newest_feedback.metadata ->> 'utm_campaign', 'label'),
+        ('utm_content', newest_feedback.metadata ->> 'utm_content', 'label'),
+        ('utm_term', newest_feedback.metadata ->> 'utm_term', 'label'),
+        ('source_event', newest_feedback.metadata ->> 'source_event', 'label'),
+        ('landing_path', newest_feedback.metadata ->> 'landing_path', 'path')
+    ) as metadata_field(key, value, kind)
+  ),
+  metadata_json as (
+    select
+      metadata_values.id,
+      coalesce(
+        jsonb_object_agg(metadata_values.key, metadata_values.value order by metadata_values.key)
+          filter (where metadata_values.value is not null),
+        '{}'::jsonb
+      ) as metadata
+    from metadata_values
+    group by metadata_values.id
+  )
   select
-    feedback_entries.created_at,
-    feedback_entries.rating,
-    feedback_entries.use_case,
-    feedback_entries.summary,
-    private.public_growth_path(feedback_entries.page_path) as page_path,
-    jsonb_strip_nulls(jsonb_build_object(
-      'ref', private.public_growth_label(feedback_entries.metadata ->> 'ref', null),
-      'claim_id', private.public_growth_label(feedback_entries.metadata ->> 'claim_id', null),
-      'utm_source', private.public_growth_label(feedback_entries.metadata ->> 'utm_source', null),
-      'utm_medium', private.public_growth_label(feedback_entries.metadata ->> 'utm_medium', null),
-      'utm_campaign', private.public_growth_label(feedback_entries.metadata ->> 'utm_campaign', null),
-      'utm_content', private.public_growth_label(feedback_entries.metadata ->> 'utm_content', null),
-      'utm_term', private.public_growth_label(feedback_entries.metadata ->> 'utm_term', null),
-      'source_event', private.public_growth_label(feedback_entries.metadata ->> 'source_event', null),
-      'landing_path', private.public_growth_path(feedback_entries.metadata ->> 'landing_path', null)
-    )) as metadata
-  from public.feedback_entries
-  order by feedback_entries.created_at desc
-  limit 20;
+    newest_feedback.created_at,
+    newest_feedback.rating,
+    newest_feedback.use_case::text as use_case,
+    newest_feedback.summary,
+    case
+      when btrim(newest_feedback.page_path) ~ '^/[A-Za-z0-9/_-]{0,255}$'
+        then btrim(newest_feedback.page_path)
+      else '/redacted'
+    end as page_path,
+    coalesce(metadata_json.metadata, '{}'::jsonb) as metadata
+  from newest_feedback
+  left join metadata_json on metadata_json.id = newest_feedback.id
+  order by newest_feedback.created_at desc;
 $$;
 
 revoke all on function public.get_feedback_review_snapshot() from public;
