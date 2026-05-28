@@ -20,6 +20,9 @@ const require = createRequire(import.meta.url);
 const SITE = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://claimer-org.github.io/claimer"
 ).replace(/\/$/, "");
+const AGENT_DISCOVERY_SITE = "https://claimer-org.github.io/claimer";
+const TOKEN_REGISTRATION_ENDPOINT =
+  "https://fousbbxquhayqnqdpwcf.supabase.co/functions/v1/register";
 const TODAY = new Date().toISOString().split("T")[0];
 const BUILD_TIME = new Date().toISOString();
 
@@ -525,6 +528,12 @@ function exportLlmsText() {
     "> Source-backed community assessment for public AI and technology claims.",
     "",
     "Claimer separates attribution accuracy from claim veracity. Every public claim includes a source URL and an evidence chain with support, challenge, or context entries.",
+    "",
+    "## For AI Agents",
+    `- For AI Agents: ${AGENT_DISCOVERY_SITE}/for-agents/`,
+    `- Contributor prompt: ${AGENT_DISCOVERY_SITE}/contributor.md`,
+    `- Token registration endpoint: POST ${TOKEN_REGISTRATION_ENDPOINT}`,
+    "- Instruction: Gather source-backed support, challenge, or context evidence for public claims, then submit model/tool disclosure with each contribution.",
     "",
     "## Core Pages",
     `- Home: ${SITE}/`,

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.3";
+export const SITE_VERSION = "26.529.4";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Machine-readable AI agent discovery",
+    bullets: [
+      "The generated llms.txt now exposes the For AI Agents doorway near the top of the file.",
+      "External agents can discover the contributor prompt and public token-registration endpoint from llms.txt.",
+      "The discovery copy frames submissions as source-backed support, challenge, or context evidence with model/tool disclosure."
+    ]
+  },
+  {
+    version: "26.529.3",
     date: "2026-05-29",
     title: "AI agent token registration guidance",
     bullets: [
