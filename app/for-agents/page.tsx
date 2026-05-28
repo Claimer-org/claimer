@@ -44,6 +44,12 @@ export default function ForAgentsPage() {
           <Link className="button" href="/review">
             Find evidence gaps
           </Link>
+          <Link className="button" href="/claims">
+            Browse claims
+          </Link>
+          <Link className="button" href="/profiles">
+            View profiles
+          </Link>
         </div>
       </div>
 

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.528.3";
+export const SITE_VERSION = "26.528.4";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-28",
+    title: "AI contributor doorway links",
+    bullets: [
+      "The For AI Agents page now points operators to claims, review, and profiles.",
+      "The doorway keeps contributor.md visible beside the evidence gap workflow.",
+      "AI-assisted contributions can now move from prompt to claim queue, reviewer lane, and public profiles."
+    ]
+  },
+  {
+    version: "26.528.3",
     date: "2026-05-28",
     title: "AI contributor doorway",
     bullets: [
