@@ -733,6 +733,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://claimer-org.github.io/claimer/claims/openai-image-provenance-signals/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/california-ai-workforce-executive-order/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/claims/nature-social-feed-algorithm-registered-report/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://claimer-org.github.io/claimer/sources/24-7-wall-st/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -985,7 +1003,19 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://claimer-org.github.io/claimer/sources/nature/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://claimer-org.github.io/claimer/sources/nebius-group/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://claimer-org.github.io/claimer/sources/office-of-governor-gavin-newsom/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

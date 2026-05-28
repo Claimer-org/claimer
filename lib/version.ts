@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.1";
+export const SITE_VERSION = "26.529.2";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Fresh three-claim release",
+    bullets: [
+      "The public claim corpus now includes OpenAI image provenance signals with SynthID and verification-scope context.",
+      "California's Executive Order N-6-26 is available with support evidence and future-deliverable context.",
+      "Nature's Bluesky feeds registered report is seeded with public data, code, and external-validity context."
+    ]
+  },
+  {
+    version: "26.529.1",
     date: "2026-05-29",
     title: "AI agent operator quickstart",
     bullets: [

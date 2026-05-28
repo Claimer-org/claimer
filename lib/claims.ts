@@ -4800,6 +4800,182 @@ export const seedClaims: Claim[] = [
         aiAssisted: true
       }
     ]
+  },
+  {
+    id: "openai-image-provenance-signals",
+    title:
+      "OpenAI said it added SynthID image provenance signals and previewed a public verification tool",
+    body:
+      "OpenAI said on May 19, 2026 that it was adding Google DeepMind SynthID watermarking to images generated through ChatGPT, Codex, or the OpenAI API, alongside C2PA metadata and a public tool for checking supported OpenAI image provenance signals.",
+    domain: "ai",
+    claimantName: "OpenAI",
+    subjectKind: "company",
+    sourceUrl: "https://openai.com/index/advancing-content-provenance/",
+    sourceTitle: "Advancing content provenance",
+    sourcePublisher: "OpenAI",
+    sourceQuality: "primary",
+    attributionScore: 96,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "OpenAI's own safety post is a primary source for the provenance-signal announcement and identifies the affected OpenAI surfaces.",
+    veracityScore: 78,
+    veracityLabel: "Evidence suggests source-backed",
+    veracityExplanation:
+      "The announcement and verification page support the narrower claim about OpenAI-associated image provenance signals; absence of a signal and non-OpenAI image generation remain outside that evidence.",
+    createdAt: "2026-05-29T02:04:00+04:00",
+    submittedBy: "Mira",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-openai-image-provenance-verify-support-2026",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "OpenAI's verification page says the tool checks uploaded images for supported OpenAI provenance signals.",
+        sourceUrl: "https://openai.com/research/verify/",
+        sourceTitle: "OpenAI Verify",
+        sourceQuality: "primary",
+        submittedBy: "Mira",
+        createdAt: "2026-05-29T02:05:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-openai-image-provenance-scope-context-2026",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "The verification page limits the tool to OpenAI-associated signals and says absence of a signal does not rule out AI generation.",
+        sourceUrl: "https://openai.com/research/verify/",
+        sourceTitle: "OpenAI Verify",
+        sourceQuality: "primary",
+        submittedBy: "Mira",
+        createdAt: "2026-05-29T02:06:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "california-ai-workforce-executive-order",
+    title:
+      "California issued Executive Order N-6-26 on AI workforce impacts",
+    body:
+      "California Governor Gavin Newsom issued Executive Order N-6-26 on May 21, 2026, directing state agencies to assess AI workforce impacts, review possible WARN Act updates, launch an AI employment-impact dashboard within 90 days, and prepare an AI playbook for dislocated-worker strategies.",
+    domain: "technology",
+    claimantName: "Governor Gavin Newsom",
+    subjectKind: "government",
+    sourceUrl:
+      "https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf",
+    sourceTitle: "Executive Order N-6-26",
+    sourcePublisher: "Office of Governor Gavin Newsom",
+    sourceQuality: "primary",
+    attributionScore: 96,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The signed executive order is a primary government source for the order number, date, agency assignments, deadlines, and requested outputs.",
+    veracityScore: 80,
+    veracityLabel: "Evidence suggests source-backed",
+    veracityExplanation:
+      "The signed directive and governor's release support the existence and contents of the order; later dashboard, report, and playbook delivery should be assessed separately when published.",
+    createdAt: "2026-05-29T02:07:00+04:00",
+    submittedBy: "Mira",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-california-ai-workforce-press-support-2026",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "The Governor's press release summarizes Executive Order N-6-26 and lists the intended AI workforce policy work.",
+        sourceUrl:
+          "https://www.gov.ca.gov/2026/05/21/governor-newsom-signs-first-of-its-kind-executive-order-to-prepare-workers-and-businesses-for-potential-ai-disruption/",
+        sourceTitle:
+          "Governor Newsom signs first-of-its-kind executive order to prepare workers and businesses for potential AI disruption",
+        sourceQuality: "primary",
+        submittedBy: "Mira",
+        createdAt: "2026-05-29T02:08:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-california-ai-workforce-deadline-context-2026",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "Several outputs in the order are future-dated, including 90-day and 180-day deliverables from state agencies, so the directive should be separated from later implementation evidence.",
+        sourceUrl:
+          "https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf",
+        sourceTitle: "Executive Order N-6-26",
+        sourceQuality: "primary",
+        submittedBy: "Mira",
+        createdAt: "2026-05-29T02:09:00+04:00",
+        aiAssisted: true
+      }
+    ]
+  },
+  {
+    id: "nature-social-feed-algorithm-registered-report",
+    title:
+      "Nature published a registered report on Bluesky feeds and social feed algorithms",
+    body:
+      "Nature published a registered report on May 27, 2026 in which researchers randomly assigned 2,000 participants to use custom Bluesky feeds for eight weeks and reported that engagement-based feeds amplified intergroup, moralized, emotional, and toxic content relative to reverse-chronological feeds, while a diversified extremity algorithm reduced exposure and maintained comparable platform enjoyment.",
+    domain: "technology",
+    claimantName: "Nature research authors",
+    subjectKind: "research",
+    sourceUrl: "https://www.nature.com/articles/s41586-026-10536-1",
+    sourceTitle: "Nature social feed algorithm registered report",
+    sourcePublisher: "Nature",
+    sourceQuality: "primary",
+    attributionScore: 94,
+    attributionLabel: "Strong attribution",
+    attributionExplanation:
+      "The Nature article is the publication record for the registered report and identifies the sample, platform, intervention, and reported outcomes.",
+    veracityScore: 82,
+    veracityLabel: "Evidence suggests source-backed",
+    veracityExplanation:
+      "The article, public materials, and code links support the reported study design and findings; generalizing beyond Bluesky, the 2024 U.S. election context, or the tested feeds requires additional evidence.",
+    createdAt: "2026-05-29T02:10:00+04:00",
+    submittedBy: "Mira",
+    aiAssisted: true,
+    evidence: [
+      {
+        id: "ev-social-feed-algorithm-osf-support-2026",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "The OSF project listed for the registered report provides public data and materials for review of the Bluesky feeds experiment.",
+        sourceUrl: "https://osf.io/k2crm/",
+        sourceTitle: "OSF data and materials for the social feed algorithm report",
+        sourceQuality: "primary",
+        submittedBy: "Mira",
+        createdAt: "2026-05-29T02:11:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-social-feed-algorithm-github-support-2026",
+        stance: "support",
+        assessmentTarget: "veracity",
+        summary:
+          "The MET Research Group GitHub repository provides code linked from the report for deeper review of the Bluesky feed experiment.",
+        sourceUrl: "https://github.com/METResearchGroup/bluesky-research",
+        sourceTitle: "METResearchGroup/bluesky-research",
+        sourceQuality: "primary",
+        submittedBy: "Mira",
+        createdAt: "2026-05-29T02:12:00+04:00",
+        aiAssisted: true
+      },
+      {
+        id: "ev-social-feed-algorithm-scope-context-2026",
+        stance: "context",
+        assessmentTarget: "veracity",
+        summary:
+          "The report's scope is a Bluesky field experiment around the 2024 U.S. presidential election, so reviewers should assess external validity before applying the findings to every platform or political context.",
+        sourceUrl: "https://www.nature.com/articles/s41586-026-10536-1",
+        sourceTitle: "Nature social feed algorithm registered report",
+        sourceQuality: "primary",
+        submittedBy: "Mira",
+        createdAt: "2026-05-29T02:13:00+04:00",
+        aiAssisted: true
+      }
+    ]
   }
 ];
 

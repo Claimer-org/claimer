@@ -5,9 +5,36 @@
     <link>https://claimer-org.github.io/claimer/</link>
     <description>Latest source-backed AI and technology claims with community assessment scores.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 May 2026 04:20:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2026 22:10:00 GMT</lastBuildDate>
     <atom:link href="https://claimer-org.github.io/claimer/feed.xml" rel="self" type="application/rss+xml" />
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub" />
+    <item>
+      <title>Nature published a registered report on Bluesky feeds and social feed algorithms</title>
+      <link>https://claimer-org.github.io/claimer/claims/nature-social-feed-algorithm-registered-report/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=nature-social-feed-algorithm-registered-report&amp;claim_id=nature-social-feed-algorithm-registered-report&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/nature-social-feed-algorithm-registered-report/</guid>
+      <pubDate>Thu, 28 May 2026 22:10:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests source-backed. Attribution 94%; veracity 82%. 3 evidence entries: 2 support, 0 challenge, 1 context. Nature published a registered report on May 27, 2026 in which researchers randomly assigned 2,000 participants to use custom Bluesky feeds for eight weeks and reported that engagement-based feeds amplified intergroup, moralized, emotional, and toxic content relative to reverse-chronological feeds, while a diversified extremity algorithm reduced exposure and maintained comparable platform enjoyment. Source: Nature social feed algorithm registered report (https://www.nature.com/articles/s41586-026-10536-1)</description>
+      <source url="https://www.nature.com/articles/s41586-026-10536-1">Nature social feed algorithm registered report</source>
+    </item>
+    <item>
+      <title>California issued Executive Order N-6-26 on AI workforce impacts</title>
+      <link>https://claimer-org.github.io/claimer/claims/california-ai-workforce-executive-order/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=california-ai-workforce-executive-order&amp;claim_id=california-ai-workforce-executive-order&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/california-ai-workforce-executive-order/</guid>
+      <pubDate>Thu, 28 May 2026 22:07:00 GMT</pubDate>
+      <category>technology</category>
+      <description>Evidence suggests source-backed. Attribution 96%; veracity 80%. 2 evidence entries: 1 support, 0 challenge, 1 context. California Governor Gavin Newsom issued Executive Order N-6-26 on May 21, 2026, directing state agencies to assess AI workforce impacts, review possible WARN Act updates, launch an AI employment-impact dashboard within 90 days, and prepare an AI playbook for dislocated-worker strategies. Source: Executive Order N-6-26 (https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf)</description>
+      <source url="https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf">Executive Order N-6-26</source>
+    </item>
+    <item>
+      <title>OpenAI said it added SynthID image provenance signals and previewed a public verification tool</title>
+      <link>https://claimer-org.github.io/claimer/claims/openai-image-provenance-signals/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=openai-image-provenance-signals&amp;claim_id=openai-image-provenance-signals&amp;ref=rss</link>
+      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/openai-image-provenance-signals/</guid>
+      <pubDate>Thu, 28 May 2026 22:04:00 GMT</pubDate>
+      <category>ai</category>
+      <description>Evidence suggests source-backed. Attribution 96%; veracity 78%. 2 evidence entries: 1 support, 0 challenge, 1 context. OpenAI said on May 19, 2026 that it was adding Google DeepMind SynthID watermarking to images generated through ChatGPT, Codex, or the OpenAI API, alongside C2PA metadata and a public tool for checking supported OpenAI image provenance signals. Source: Advancing content provenance (https://openai.com/index/advancing-content-provenance/)</description>
+      <source url="https://openai.com/index/advancing-content-provenance/">Advancing content provenance</source>
+    </item>
     <item>
       <title>Perplexity released Bumblebee as an open-source read-only developer endpoint scanner</title>
       <link>https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=perplexity-bumblebee-open-source-scanner-2026&amp;claim_id=perplexity-bumblebee-open-source-scanner-2026&amp;ref=rss</link>
@@ -205,33 +232,6 @@
       <category>ai</category>
       <description>Moderately supported. Attribution 85%; veracity 65%. 2 evidence entries: 1 support, 1 challenge, 0 context. Axios reported that OpenAI is working on a confidential IPO prospectus with major Wall Street banks, while OpenAI said it regularly evaluates strategic options and remains focused on execution. Source: OpenAI Prepares Confidential IPO Filing (https://www.axios.com/2026/05/20/openai-ipo-spacex-musk)</description>
       <source url="https://www.axios.com/2026/05/20/openai-ipo-spacex-musk">OpenAI Prepares Confidential IPO Filing</source>
-    </item>
-    <item>
-      <title>Anthropic projects first-ever quarterly operating profit of $559M on $10.9B revenue in Q2 2026</title>
-      <link>https://claimer-org.github.io/claimer/claims/anthropic-first-quarterly-profit-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=anthropic-first-quarterly-profit-2026&amp;claim_id=anthropic-first-quarterly-profit-2026&amp;ref=rss</link>
-      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/anthropic-first-quarterly-profit-2026/</guid>
-      <pubDate>Tue, 26 May 2026 06:20:00 GMT</pubDate>
-      <category>ai</category>
-      <description>Uncertain. Attribution 72%; veracity 52%. 2 evidence entries: 1 support, 1 challenge, 0 context. Internal projections shared with investors show Anthropic expects a massive revenue jump from $4.8B in Q1 to $10.9B in Q2 2026, driven by enterprise adoption including a 30,000-person PwC deployment. Source: Anthropic revenue set to more than double to $10.9 billion in Q2 (https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486)</description>
-      <source url="https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486">Anthropic revenue set to more than double to $10.9 billion in Q2</source>
-    </item>
-    <item>
-      <title>Stability AI releases Stable Audio 3.0 with professional-grade AI music generation over 6 minutes long</title>
-      <link>https://claimer-org.github.io/claimer/claims/stability-ai-audio-3-launch-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=stability-ai-audio-3-launch-2026&amp;claim_id=stability-ai-audio-3-launch-2026&amp;ref=rss</link>
-      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/stability-ai-audio-3-launch-2026/</guid>
-      <pubDate>Tue, 26 May 2026 06:20:00 GMT</pubDate>
-      <category>technology</category>
-      <description>Evidence suggests supported. Attribution 96%; veracity 82%. 2 evidence entries: 1 support, 1 challenge, 0 context. Stability AI launched a family of four AI audio models, with the Medium model generating tracks up to 6 minutes 20 seconds. Three models are released as open-weights on Hugging Face with free commercial use under $1M revenue. Source: Meet Stable Audio 3.0, the model family built for artistic experimentation with open-weight models (https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models)</description>
-      <source url="https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models">Meet Stable Audio 3.0, the model family built for artistic experimentation with open-weight models</source>
-    </item>
-    <item>
-      <title>PwC commits to training 30,000 professionals on Claude, reporting up to 70% faster software delivery</title>
-      <link>https://claimer-org.github.io/claimer/claims/pwc-anthropic-30k-professionals-2026/?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=organic_discovery&amp;utm_content=pwc-anthropic-30k-professionals-2026&amp;claim_id=pwc-anthropic-30k-professionals-2026&amp;ref=rss</link>
-      <guid isPermaLink="true">https://claimer-org.github.io/claimer/claims/pwc-anthropic-30k-professionals-2026/</guid>
-      <pubDate>Tue, 26 May 2026 06:20:00 GMT</pubDate>
-      <category>ai</category>
-      <description>Moderately supported. Attribution 94%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. PwC and Anthropic announce a major expansion deploying Claude across M&amp;A advisory, finance, and software delivery. Client-reported metrics show up to 70% faster delivery with AI-native workflows. Source: PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients (https://www.anthropic.com/news/pwc-expanded-partnership?stream=top)</description>
-      <source url="https://www.anthropic.com/news/pwc-expanded-partnership?stream=top">PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients</source>
     </item>
   </channel>
 </rss>
