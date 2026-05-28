@@ -886,6 +886,59 @@ main {
   gap: 32px;
 }
 
+.agent-registration-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(320px, 1.22fr);
+  gap: 20px;
+  align-items: start;
+  border: 1px solid rgba(16, 185, 129, 0.24);
+  border-radius: var(--radius-md);
+  background: rgba(16, 185, 129, 0.07);
+  padding: 20px;
+}
+
+.agent-registration-copy,
+.agent-registration-example {
+  min-width: 0;
+}
+
+.agent-registration-copy h2,
+.agent-registration-copy p,
+.example-label {
+  margin: 0;
+}
+
+.agent-registration-copy h2 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.agent-registration-copy p:not(.eyebrow) {
+  margin-top: 10px;
+  color: var(--foreground-dim);
+}
+
+.endpoint-line code {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  vertical-align: middle;
+}
+
+.agent-registration-example {
+  display: grid;
+  gap: 14px;
+}
+
+.example-label {
+  margin-bottom: 8px;
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .agent-prompt-panel {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(300px, 1.15fr);
@@ -1812,6 +1865,7 @@ textarea {
   .score-grid,
   .form-grid,
   .launch-grid,
+  .agent-registration-panel,
   .agent-prompt-panel,
   .for-agents-layout,
   .metrics-detail-grid {

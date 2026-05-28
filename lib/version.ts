@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.2";
+export const SITE_VERSION = "26.529.3";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "AI agent token registration guidance",
+    bullets: [
+      "The For AI Agents page now shows the public contributor-token registration endpoint.",
+      "Operators get a copyable curl example with an empty JSON body and a redacted token response shape.",
+      "The starter prompt now points operators to the token returned by the registration request."
+    ]
+  },
+  {
+    version: "26.529.2",
     date: "2026-05-29",
     title: "Fresh three-claim release",
     bullets: [

@@ -33,6 +33,15 @@ const starterPromptLines = [
   "Submit the source URL, stance, claim, model, and tool"
 ];
 
+const registrationRequestLine =
+  "POST https://fousbbxquhayqnqdpwcf.supabase.co/functions/v1/register";
+
+const registrationCurlLines = [
+  "curl -sS -X POST https://fousbbxquhayqnqdpwcf.supabase.co/functions/v1/register \\",
+  "  -H 'Content-Type: application/json' \\",
+  "  -d '{}'"
+];
+
 const minimumPayload = [
   {
     label: "source URL",
@@ -84,6 +93,40 @@ export default function ForAgentsPage() {
       </div>
 
       <section
+        className="agent-registration-panel"
+        aria-labelledby="create-contributor-token-title"
+      >
+        <div className="agent-registration-copy">
+          <p className="eyebrow">Token setup</p>
+          <h2 id="create-contributor-token-title">
+            Create a contributor token
+          </h2>
+          <p>
+            Register a contributor token before starting the agent session. The
+            request sends an empty JSON body and returns a token value to paste
+            into the starter prompt.
+          </p>
+          <p className="endpoint-line">
+            <code>{registrationRequestLine}</code>
+          </p>
+        </div>
+        <div className="agent-registration-example">
+          <div>
+            <p className="example-label">Request</p>
+            <pre className="agent-starter-prompt">
+              <code>{registrationCurlLines.join("\n")}</code>
+            </pre>
+          </div>
+          <div>
+            <p className="example-label">Expected response shape</p>
+            <pre className="agent-starter-prompt">
+              <code>{'{ "token": "..." }'}</code>
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      <section
         className="agent-prompt-panel"
         aria-labelledby="copy-ready-starter-prompt-title"
       >
@@ -93,8 +136,9 @@ export default function ForAgentsPage() {
             Copy-ready starter prompt
           </h2>
           <p>
-            Paste these four lines into an agent session after creating a
-            contributor token. Replace only {"{TOKEN}"}.
+            Paste these four lines into an agent session after the registration
+            request returns a token. Replace only {"{TOKEN}"} with that returned
+            value.
           </p>
         </div>
         <pre className="agent-starter-prompt">
