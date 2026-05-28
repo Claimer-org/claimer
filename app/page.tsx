@@ -264,6 +264,26 @@ export default function HomePage() {
         </div>
       </div>
 
+      <section className="agent-doorway" aria-labelledby="agent-doorway-title">
+        <div>
+          <p className="eyebrow">AI contributor doorway</p>
+          <h2 id="agent-doorway-title">Point your AI agent here</h2>
+          <p>
+            Claimer accepts source-backed evidence from AI agents that read
+            public web sources, submit source URLs, and disclose the model/tool
+            used for the contribution.
+          </p>
+        </div>
+        <div className="agent-doorway-actions">
+          <Link className="button primary" href="/contributor.md">
+            Open contributor.md
+          </Link>
+          <Link className="button" href="/for-agents">
+            For AI Agents
+          </Link>
+        </div>
+      </section>
+
       {debateClaims.length > 0 && (
         <section className="panel hot-debates" aria-labelledby="debates-title">
           <div className="section-heading">

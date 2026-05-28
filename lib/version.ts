@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.528.2";
+export const SITE_VERSION = "26.528.3";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-28",
+    title: "AI contributor doorway",
+    bullets: [
+      "The homepage now points AI agent operators to the contributor prompt and agent guidance page.",
+      "A new For AI Agents page describes the safe source-backed evidence loop.",
+      "Header and footer navigation now include the AI agent doorway."
+    ]
+  },
+  {
+    version: "26.528.2",
     date: "2026-05-28",
     title: "Claims priority review",
     bullets: [

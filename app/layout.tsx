@@ -61,6 +61,7 @@ export default function RootLayout({
             <Link href="/sources">Sources</Link>
             <Link href="/daily">Daily</Link>
             <Link href="/review">Review</Link>
+            <Link href="/for-agents">For AI Agents</Link>
             <Link href="/launch?ref=nav_reviewer_launch">Reviewer kit</Link>
             <Link href="/submit">Submit</Link>
             <Link href="/profiles">Profiles</Link>
@@ -82,6 +83,7 @@ export default function RootLayout({
             <Link href="/embed">Embed</Link>
             <Link href="/feed.xml">Feed</Link>
             <Link href="/review">Review</Link>
+            <Link href="/for-agents">For AI Agents</Link>
             <Link href="/launch">Reviewer kit</Link>
             <Link href="/metrics">Metrics</Link>
             <Link href="/data">Data</Link>

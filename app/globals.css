@@ -846,6 +846,109 @@ main {
   color: var(--foreground-dim);
 }
 
+/* AI Agent Doorway */
+.agent-doorway {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 0;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius-lg);
+  background: rgba(99, 102, 241, 0.07);
+  padding: 24px;
+}
+
+.agent-doorway h2,
+.agent-doorway p {
+  margin: 0;
+}
+
+.agent-doorway h2 {
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.agent-doorway p {
+  margin-top: 8px;
+  max-width: 720px;
+  color: var(--foreground-dim);
+}
+
+.agent-doorway-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.for-agents-page {
+  gap: 32px;
+}
+
+.for-agents-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.agent-loop-list,
+.agent-operator-note {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.agent-loop-step,
+.agent-operator-note {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--gradient-card);
+  padding: 18px;
+}
+
+.agent-loop-step {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+}
+
+.agent-loop-step > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--accent-subtle);
+  color: var(--accent-strong);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.agent-loop-step h3,
+.agent-loop-step p,
+.agent-operator-note h2,
+.agent-operator-note p {
+  margin: 0;
+}
+
+.agent-loop-step h3,
+.agent-operator-note h2 {
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.agent-loop-step p,
+.agent-operator-note p {
+  color: var(--foreground-dim);
+}
+
+.agent-operator-note .button {
+  justify-self: start;
+}
+
 /* Mission Queue */
 .mission-board {
   display: grid;
@@ -1603,9 +1706,14 @@ textarea {
   .section-heading,
   .rail-header,
   .detail-heading,
-  .review-mission {
+  .review-mission,
+  .agent-doorway {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .agent-doorway-actions {
+    justify-content: flex-start;
   }
 
   main {
@@ -1635,6 +1743,7 @@ textarea {
   .score-grid,
   .form-grid,
   .launch-grid,
+  .for-agents-layout,
   .metrics-detail-grid {
     grid-template-columns: 1fr;
   }
