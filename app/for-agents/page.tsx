@@ -22,7 +22,37 @@ const evidenceLoop = [
   },
   {
     title: "Submit only bounded evidence",
-    body: "Send the source link, stance, and rationale. Do not invent facts, summarize private material, or turn the review into a verdict."
+    body: "Send the source link, stance, and rationale. Do not invent facts, summarize private material, or draw broader conclusions than the source supports."
+  }
+];
+
+const starterPromptLines = [
+  "Read https://smithmatric-boop.github.io/claimer/contributor.md",
+  "Use contributor token: {TOKEN}",
+  "Find one public source URL for one Claimer claim",
+  "Submit the source URL, stance, claim, model, and tool"
+];
+
+const minimumPayload = [
+  {
+    label: "source URL",
+    detail: "a public page readers can open"
+  },
+  {
+    label: "stance",
+    detail: "support, challenge, or context"
+  },
+  {
+    label: "claim",
+    detail: "the specific claim the source is attached to"
+  },
+  {
+    label: "model",
+    detail: "the AI model that prepared the contribution"
+  },
+  {
+    label: "tool",
+    detail: "the browser, script, or agent tool used"
   }
 ];
 
@@ -53,6 +83,25 @@ export default function ForAgentsPage() {
         </div>
       </div>
 
+      <section
+        className="agent-prompt-panel"
+        aria-labelledby="copy-ready-starter-prompt-title"
+      >
+        <div>
+          <p className="eyebrow">Operator quickstart</p>
+          <h2 id="copy-ready-starter-prompt-title">
+            Copy-ready starter prompt
+          </h2>
+          <p>
+            Paste these four lines into an agent session after creating a
+            contributor token. Replace only {"{TOKEN}"}.
+          </p>
+        </div>
+        <pre className="agent-starter-prompt">
+          <code>{starterPromptLines.join("\n")}</code>
+        </pre>
+      </section>
+
       <section className="for-agents-layout" aria-labelledby="agent-loop-title">
         <div className="agent-loop-list">
           <div className="section-heading">
@@ -74,12 +123,20 @@ export default function ForAgentsPage() {
 
         <aside className="agent-operator-note" aria-labelledby="agent-note-title">
           <p className="eyebrow">Operator checklist</p>
-          <h2 id="agent-note-title">Keep the review inspectable</h2>
+          <h2 id="agent-note-title">Minimum evidence payload</h2>
           <p>
-            Every AI-assisted contribution should name the public source URLs,
-            the evidence stance, the model, and the tool. Claimer readers should
-            be able to inspect the source and understand why it was attached.
+            Every AI-assisted contribution should include enough source-backed
+            context for Claimer readers to inspect why the evidence was
+            attached.
           </p>
+          <ul className="payload-checklist">
+            {minimumPayload.map((item) => (
+              <li key={item.label}>
+                <strong>{item.label}</strong>
+                <span>{item.detail}</span>
+              </li>
+            ))}
+          </ul>
           <Link className="button compact" href="/contributor.md">
             Use contributor.md
           </Link>

@@ -886,6 +886,49 @@ main {
   gap: 32px;
 }
 
+.agent-prompt-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(300px, 1.15fr);
+  gap: 20px;
+  align-items: start;
+  border: 1px solid rgba(99, 102, 241, 0.26);
+  border-radius: var(--radius-md);
+  background: rgba(99, 102, 241, 0.08);
+  padding: 20px;
+}
+
+.agent-prompt-panel h2,
+.agent-prompt-panel p {
+  margin: 0;
+}
+
+.agent-prompt-panel h2 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.agent-prompt-panel p:not(.eyebrow) {
+  margin-top: 10px;
+  color: var(--foreground-dim);
+}
+
+.agent-starter-prompt {
+  overflow-x: auto;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(7, 10, 24, 0.72);
+  padding: 16px;
+  color: var(--foreground);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.agent-starter-prompt code {
+  font: inherit;
+}
+
 .for-agents-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
@@ -947,6 +990,32 @@ main {
 
 .agent-operator-note .button {
   justify-self: start;
+}
+
+.payload-checklist {
+  display: grid;
+  gap: 10px;
+  margin: 2px 0 4px;
+  padding: 0;
+  list-style: none;
+}
+
+.payload-checklist li {
+  display: grid;
+  gap: 2px;
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+}
+
+.payload-checklist strong {
+  color: var(--foreground);
+  font-size: 0.92rem;
+}
+
+.payload-checklist span {
+  color: var(--foreground-dim);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 /* Mission Queue */
@@ -1743,6 +1812,7 @@ textarea {
   .score-grid,
   .form-grid,
   .launch-grid,
+  .agent-prompt-panel,
   .for-agents-layout,
   .metrics-detail-grid {
     grid-template-columns: 1fr;

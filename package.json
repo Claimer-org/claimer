@@ -1,6 +1,6 @@
 {
   "name": "claimer",
-  "version": "26.528.4",
+  "version": "26.529.1",
   "private": true,
   "scripts": {
     "prebuild": "node scripts/generate-sitemap.mjs",

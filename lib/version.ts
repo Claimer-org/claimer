@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.528.4";
+export const SITE_VERSION = "26.529.1";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "AI agent operator quickstart",
+    bullets: [
+      "The For AI Agents page now includes a copy-ready starter prompt with the live contributor prompt URL.",
+      "Operators get minimum evidence payload guidance for source URL, stance, claim, model, and tool fields.",
+      "The quickstart keeps AI-assisted contributions framed as source-backed evidence for reviewer inspection."
+    ]
+  },
+  {
+    version: "26.528.4",
     date: "2026-05-28",
     title: "AI contributor doorway links",
     bullets: [
