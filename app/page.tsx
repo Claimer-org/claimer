@@ -13,6 +13,25 @@ const principles = [
   "Any AI-generated analysis is disclosed as automated assistance."
 ];
 
+const reviewSessionSteps = [
+  {
+    title: "Pick an evidence gap",
+    body: "Start from a disputed or inconclusive claim that needs a support, challenge, or context source."
+  },
+  {
+    title: "Attach the source URL",
+    body: "Add the strongest primary or reputable secondary link so readers can inspect the chain."
+  },
+  {
+    title: "Score two dimensions",
+    body: "Assess attribution accuracy separately from claim veracity, with the rationale visible."
+  },
+  {
+    title: "Keep both sides visible",
+    body: "Support, challenge, and context evidence remain side by side for community assessment."
+  }
+];
+
 const launchSprintLinks = [
   {
     label: "Reviewer",
@@ -56,11 +75,65 @@ function formatAddedLabel(createdAt: string) {
   return `Added ${addedDateFormatter.format(new Date(createdAt))}`;
 }
 
+function reviewGapLabel(counts: ReturnType<typeof evidenceCounts>) {
+  if (counts.challenge === 0) {
+    return "No challenge source yet";
+  }
+
+  if (counts.support === 0) {
+    return "No support source yet";
+  }
+
+  if (counts.context === 0) {
+    return "Add context source";
+  }
+
+  return "Ready for second assessment";
+}
+
+function reviewGapSummary(counts: ReturnType<typeof evidenceCounts>) {
+  const missing: string[] = [];
+
+  if (counts.support === 0) {
+    missing.push("support");
+  }
+
+  if (counts.challenge === 0) {
+    missing.push("challenge");
+  }
+
+  if (counts.context === 0) {
+    missing.push("context");
+  }
+
+  if (missing.length === 0) {
+    return "Ready for second assessment";
+  }
+
+  if (missing.length === 1) {
+    return `Needs ${missing[0]} source`;
+  }
+
+  return `Needs ${missing.slice(0, -1).join(", ")} and ${
+    missing[missing.length - 1]
+  } sources`;
+}
+
 export default function HomePage() {
   const evidenceTotal = seedClaims.reduce(
     (total, claim) => total + claim.evidence.length,
     0
   );
+  const openEvidenceGaps = seedClaims.reduce((total, claim) => {
+    const counts = evidenceCounts(claim);
+
+    return (
+      total +
+      Number(counts.support === 0) +
+      Number(counts.challenge === 0) +
+      Number(counts.context === 0)
+    );
+  }, 0);
 
   // Hot debates: claims that are disputed or inconclusive
   const hotDebates = seedClaims
@@ -82,6 +155,20 @@ export default function HomePage() {
 
   const topClaims = seedClaims.slice(0, 3);
   const domainsSet = new Set(seedClaims.map((c) => c.domain));
+  const latestClaims = seedClaims
+    .slice()
+    .sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+  const latestClaim = latestClaims[0];
+  const latestCounts = latestClaim ? evidenceCounts(latestClaim) : null;
+  const latestMission = latestClaim ? reviewMission(latestClaim) : null;
+  const latestEvidenceTotal = latestCounts
+    ? latestCounts.support + latestCounts.challenge + latestCounts.context
+    : 0;
+  const latestGapLabel = latestCounts ? reviewGapLabel(latestCounts) : null;
+  const latestGapSummary = latestCounts ? reviewGapSummary(latestCounts) : null;
 
   return (
     <section className="stack">
@@ -93,6 +180,42 @@ export default function HomePage() {
           support and challenge evidence, and separate attribution accuracy from
           claim veracity.
         </p>
+        {latestClaim && latestCounts && latestMission && (
+          <div className="review-mission" aria-label="Current claim desk">
+            <div>
+              <div className="mission-meta">
+                <span>Current claim desk</span>
+                <span>{latestMission.stance} needed</span>
+                {latestGapSummary && <span>{latestGapSummary}</span>}
+              </div>
+              <h3>{latestClaim.title}</h3>
+              <p>{latestMission.description}</p>
+              <div className="mission-stats" aria-label="Newest claim status">
+                <span>{formatAddedLabel(latestClaim.createdAt)}</span>
+                <span>{latestEvidenceTotal} source links</span>
+                <span>{latestClaim.attributionScore}% attribution</span>
+                <span>{latestClaim.veracityScore}% veracity</span>
+              </div>
+              <div className="source-line">
+                <span>{latestClaim.sourceQuality}</span>
+                <a href={latestClaim.sourceUrl} rel="noreferrer" target="_blank">
+                  Original source: {latestClaim.sourcePublisher}
+                </a>
+              </div>
+            </div>
+            <div className="mission-actions">
+              <Link
+                className="button primary compact"
+                href={`/submit/${latestClaim.id}?ref=home_current_claim`}
+              >
+                Review now
+              </Link>
+              <Link className="button compact" href={`/claims/${latestClaim.id}`}>
+                Inspect claim
+              </Link>
+            </div>
+          </div>
+        )}
         <div className="hero-subtitle" aria-label="Claim review principles">
           <span className="hero-tag">
             <strong>Source trace</strong>
@@ -108,23 +231,86 @@ export default function HomePage() {
           </span>
         </div>
         <div className="actions">
-          <Link className="button primary" href="/claims">
+          <Link className="button primary" href="/review">
+            Review priority claims
+          </Link>
+          <Link className="button" href="/claims">
             Browse claims
           </Link>
           <Link className="button" href="/daily">
             Daily pack
-          </Link>
-          <Link className="button" href="/review">
-            Review evidence
-          </Link>
-          <Link className="button" href="/launch?ref=home_hero_reviewer">
-            Reviewer launch kit
           </Link>
           <Link className="button" href="/submit">
             Submit a claim
           </Link>
         </div>
       </div>
+
+      {debateClaims.length > 0 && (
+        <section className="panel hot-debates" aria-labelledby="debates-title">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Review first</p>
+              <h2 id="debates-title">Claims needing evidence now</h2>
+            </div>
+            <Link href="/review">Open evidence queue</Link>
+          </div>
+          <div className="grid">
+            {debateClaims.map((claim) => {
+              const counts = evidenceCounts(claim);
+              const mission = reviewMission(claim);
+              const totalSources =
+                counts.support + counts.challenge + counts.context;
+              const isDisputed =
+                claim.veracityLabel === "Evidence suggests disputed";
+              const isInconclusive =
+                claim.veracityLabel === "Evidence inconclusive";
+              const badgeClass = isDisputed
+                ? "disputed"
+                : isInconclusive
+                  ? "inconclusive"
+                  : "";
+              const cardClass = `card claim-card ${badgeClass}`;
+              return (
+                <article className={cardClass} key={`debate-${claim.id}`}>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "8px",
+                      alignItems: "center"
+                    }}
+                  >
+                    <span className="claim-domain">{claim.domain}</span>
+                    {badgeClass && (
+                      <span className={`debate-badge ${badgeClass}`}>
+                        {isDisputed ? "Disputed" : "Inconclusive"}
+                      </span>
+                    )}
+                  </div>
+                  <h3>{claim.title}</h3>
+                  <p>{mission.description}</p>
+                  <div
+                    className="mission-stats"
+                    aria-label={`Evidence coverage for ${claim.title}`}
+                  >
+                    <span>{reviewGapLabel(counts)}</span>
+                    <span>{counts.support} support</span>
+                    <span>{counts.challenge} challenge</span>
+                    <span>{counts.context} context</span>
+                  </div>
+                  <Link href={`/submit/${claim.id}?ref=home_evidence_gap`}>
+                    Add {mission.stance} source
+                  </Link>
+                  <Link href={`/claims/${claim.id}`}>
+                    {totalSources} source links · {claim.veracityScore}%
+                    veracity
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <section className="stat-highlight" aria-label="Platform statistics">
         <div className="stat-item stat-item-primary">
@@ -141,31 +327,31 @@ export default function HomePage() {
           <span>Domains covered</span>
         </div>
         <div className="stat-item">
-          <strong>2</strong>
-          <span>Score dimensions</span>
+          <strong>{openEvidenceGaps}</strong>
+          <span>Evidence gaps</span>
+          <p>Missing support, challenge, or context sources.</p>
         </div>
       </section>
 
       <section className="panel breaking-today" aria-labelledby="breaking-title">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Breaking today</p>
+            <p className="eyebrow">Fresh queue</p>
             <h2 id="breaking-title">Latest claims added</h2>
+            <p>
+              New submissions show the original attribution source and the
+              exact evidence gap reviewers can close next.
+            </p>
           </div>
           <Link href="/claims">View all</Link>
         </div>
         <div className="grid">
-          {seedClaims
-            .slice()
-            .sort(
-              (a, b) =>
-                new Date(b.createdAt).getTime() -
-                new Date(a.createdAt).getTime()
-            )
+          {latestClaims
             .slice(0, 3)
             .map((claim) => {
               const counts = evidenceCounts(claim);
               const addedLabel = formatAddedLabel(claim.createdAt);
+              const mission = reviewMission(claim);
               return (
                 <article
                   className="card claim-card breaking-card"
@@ -184,7 +370,26 @@ export default function HomePage() {
                     </span>
                   </div>
                   <h3>{claim.title}</h3>
-                  <p>{claim.veracityLabel}</p>
+                  <p>{mission.description}</p>
+                  <div className="mission-stats">
+                    <span>{mission.stance} evidence needed</span>
+                    <span>{reviewGapSummary(counts)}</span>
+                    <span>Attribution: {claim.sourcePublisher}</span>
+                    <span>{claim.veracityLabel}</span>
+                  </div>
+                  <div className="source-line">
+                    <span>{claim.sourceQuality}</span>
+                    <a
+                      href={claim.sourceUrl}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      Original source: {claim.sourcePublisher}
+                    </a>
+                  </div>
+                  <Link href={`/submit/${claim.id}?ref=home_breaking_claim`}>
+                    Add source-backed review
+                  </Link>
                   <Link href={`/claims/${claim.id}`}>
                     {counts.support + counts.challenge + counts.context}{" "}
                     source links · {claim.attributionScore}% attribution
@@ -251,57 +456,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {debateClaims.length > 0 && (
-        <section className="panel hot-debates" aria-labelledby="debates-title">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">Active disputes</p>
-              <h2 id="debates-title">Claims under debate</h2>
-            </div>
-            <Link href="/claims">View all claims</Link>
-          </div>
-          <div className="grid">
-            {debateClaims.map((claim) => {
-              const counts = evidenceCounts(claim);
-              const isDisputed =
-                claim.veracityLabel === "Evidence suggests disputed";
-              const isInconclusive =
-                claim.veracityLabel === "Evidence inconclusive";
-              const badgeClass = isDisputed
-                ? "disputed"
-                : isInconclusive
-                  ? "inconclusive"
-                  : "";
-              const cardClass = `card claim-card ${badgeClass}`;
-              return (
-                <article className={cardClass} key={`debate-${claim.id}`}>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "8px",
-                      alignItems: "center"
-                    }}
-                  >
-                    <span className="claim-domain">{claim.domain}</span>
-                    {badgeClass && (
-                      <span className={`debate-badge ${badgeClass}`}>
-                        {isDisputed ? "Disputed" : "Inconclusive"}
-                      </span>
-                    )}
-                  </div>
-                  <h3>{claim.title}</h3>
-                  <p>{claim.veracityLabel}</p>
-                  <Link href={`/claims/${claim.id}`}>
-                    {counts.support + counts.challenge + counts.context} source
-                    links · {claim.veracityScore}% veracity
-                  </Link>
-                </article>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
       <section className="panel" aria-labelledby="featured-title">
         <div className="section-heading">
           <h2 id="featured-title">Featured claims</h2>
@@ -356,29 +510,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="panel" aria-labelledby="how-it-works-title">
-        <h2 id="how-it-works-title">How it works</h2>
+      <section className="panel" aria-labelledby="review-session-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Reviewer loop</p>
+            <h2 id="review-session-title">One source-backed review session</h2>
+          </div>
+          <Link href="/review">Open queue</Link>
+        </div>
         <div className="how-it-works">
-          <div className="step-card">
-            <div className="step-number">1</div>
-            <h3>Submit a claim</h3>
-            <p>Post any public claim about AI, technology, or science with at least one verifiable source URL.</p>
-          </div>
-          <div className="step-card">
-            <div className="step-number">2</div>
-            <h3>Add evidence</h3>
-            <p>Support or challenge claims with source-backed evidence. Every link is visible and traceable.</p>
-          </div>
-          <div className="step-card">
-            <div className="step-number">3</div>
-            <h3>Build reputation</h3>
-            <p>Your accuracy is tracked over time. The most reliable contributors rise to the top.</p>
-          </div>
-          <div className="step-card">
-            <div className="step-number">4</div>
-            <h3>Community assessment</h3>
-            <p>Claims get scored by the community. No black-box verdicts — every score is explainable.</p>
-          </div>
+          {reviewSessionSteps.map((step, index) => (
+            <div className="step-card" key={step.title}>
+              <div className="step-number">{index + 1}</div>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -366,6 +366,29 @@ export type FeedbackEntryUpdate = Partial<FeedbackEntryInsert>;
 export type PublicGrowthLabel = string;
 export type PublicGrowthPath = string;
 
+export type FeedbackReviewSnapshotMetadata = Partial<{
+  ref: PublicGrowthLabel;
+  claim_id: PublicGrowthLabel;
+  utm_source: PublicGrowthLabel;
+  utm_medium: PublicGrowthLabel;
+  utm_campaign: PublicGrowthLabel;
+  utm_content: PublicGrowthLabel;
+  utm_term: PublicGrowthLabel;
+  source_event: PublicGrowthLabel;
+  landing_path: PublicGrowthPath;
+}>;
+
+// Public static pages use this bounded RPC instead of feedback_entries SELECT.
+// SQL strips visitor_id and returns only allow-listed, sanitized metadata keys.
+export type FeedbackReviewSnapshotRow = {
+  created_at: Timestamp;
+  rating: number;
+  use_case: FeedbackUseCase;
+  summary: string;
+  page_path: PublicGrowthPath;
+  metadata: FeedbackReviewSnapshotMetadata;
+};
+
 export type GrowthChannelDetail = {
   source: PublicGrowthLabel;
   visitors: number;
@@ -588,6 +611,10 @@ export type SupabaseDatabase = {
     };
     Views: Record<string, never>;
     Functions: {
+      get_feedback_review_snapshot: FunctionContract<
+        Record<PropertyKey, never>,
+        FeedbackReviewSnapshotRow[]
+      >;
       get_growth_snapshot: FunctionContract<
         Record<PropertyKey, never>,
         GrowthSnapshotRow[]
