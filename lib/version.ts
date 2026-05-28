@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.528.1";
+export const SITE_VERSION = "26.528.2";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-28",
+    title: "Claims priority review",
+    bullets: [
+      "/claims/ now opens with a priority review lane before the full queue.",
+      "The priority lane explains the next evidence action using existing source and evidence data.",
+      "The claim queue remains available below the priority action."
+    ]
+  },
+  {
+    version: "26.528.1",
     date: "2026-05-28",
     title: "Repeat reviewer path",
     bullets: [
