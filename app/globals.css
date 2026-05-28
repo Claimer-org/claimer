@@ -423,6 +423,109 @@ main {
   overflow-wrap: anywhere;
 }
 
+/* Claims Priority Lane */
+.priority-claim {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+  gap: 18px;
+  align-items: stretch;
+  min-width: 0;
+  border: 1px solid var(--line-strong);
+  border-left: 4px solid var(--accent-strong);
+  border-radius: var(--radius-md);
+  background: rgba(17, 24, 39, 0.88);
+  box-shadow: var(--shadow-sm);
+  padding: 18px 20px;
+}
+
+.priority-claim-copy,
+.priority-action {
+  min-width: 0;
+}
+
+.priority-claim-kicker,
+.priority-evidence,
+.priority-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.priority-claim-kicker {
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.priority-claim h2,
+.priority-claim h3,
+.priority-claim p,
+.priority-action strong {
+  margin: 0;
+}
+
+.priority-claim h2 {
+  margin-top: 12px;
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.priority-claim h3 {
+  margin-top: 6px;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+}
+
+.priority-claim p {
+  margin-top: 8px;
+  color: var(--foreground-dim);
+  line-height: 1.55;
+}
+
+.priority-evidence {
+  margin-top: 14px;
+}
+
+.priority-evidence span,
+.priority-action > span,
+.claim-list-heading span {
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  color: var(--foreground-dim);
+  font-size: 0.73rem;
+  font-weight: 800;
+  padding: 4px 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.priority-evidence .support {
+  color: var(--support);
+}
+
+.priority-evidence .challenge {
+  color: var(--challenge);
+}
+
+.priority-action {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  border-left: 1px solid var(--line);
+  padding-left: 18px;
+}
+
+.priority-action strong {
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
 /* Filters */
 .filters {
   display: flex;
@@ -468,6 +571,20 @@ main {
   max-height: 68vh;
   overflow: auto;
   padding-right: 4px;
+}
+
+.claim-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 2px 0 10px;
+}
+
+.claim-list-heading strong {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .claim-picker-current {
@@ -1522,6 +1639,22 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .priority-claim {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .priority-action {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    padding-left: 0;
+  }
+
+  .priority-actions .button {
+    flex: 1 1 150px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -1548,6 +1681,7 @@ textarea {
   .submit-panel,
   .form-panel,
   .detail,
+  .priority-claim,
   .mission-card,
   .card,
   .claim {

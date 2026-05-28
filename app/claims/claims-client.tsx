@@ -72,6 +72,7 @@ const sourceQualities: SourceQuality[] = [
 ];
 
 const assessmentTargets: AssessmentTarget[] = ["attribution", "veracity", "context"];
+const oneDayMs = 1000 * 60 * 60 * 24;
 
 const blockedTerms = [
   "private individual",
@@ -129,6 +130,58 @@ function claimSubmitUrl(claimId: string, attribution: AttributionParams = {}) {
   }
 
   return new URL(`${appBasePath}${path}`, window.location.origin).toString();
+}
+
+function claimFreshnessLabel(createdAt: string) {
+  const createdTime = new Date(createdAt).getTime();
+
+  if (Number.isNaN(createdTime)) {
+    return "Date needs review";
+  }
+
+  const ageDays = Math.max(0, Math.floor((Date.now() - createdTime) / oneDayMs));
+
+  if (ageDays === 0) {
+    return "Added today";
+  }
+
+  if (ageDays === 1) {
+    return "Added yesterday";
+  }
+
+  if (ageDays < 7) {
+    return `Added ${ageDays} days ago`;
+  }
+
+  const ageWeeks = Math.floor(ageDays / 7);
+
+  if (ageWeeks < 5) {
+    return `Added ${ageWeeks} week${ageWeeks === 1 ? "" : "s"} ago`;
+  }
+
+  return `Added ${new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "short"
+  }).format(new Date(createdTime))}`;
+}
+
+function priorityScore(claim: Claim) {
+  const health = evidenceHealth(claim);
+  const createdTime = new Date(claim.createdAt).getTime();
+  const ageDays = Number.isNaN(createdTime)
+    ? 30
+    : Math.max(0, (Date.now() - createdTime) / oneDayMs);
+  const freshnessScore = Math.max(0, 30 - ageDays);
+  const openGapScore = health.needsChallenge || health.needsSupport ? 32 : 12;
+  const sourceScore = health.hasHighQualitySource ? 22 : 0;
+  const evidenceScore = Math.min(health.total, 6) * 3;
+  const oneSidedEvidenceScore =
+    (health.needsChallenge && health.support > 0) ||
+    (health.needsSupport && health.challenge > 0)
+      ? 8
+      : 0;
+
+  return freshnessScore + openGapScore + sourceScore + evidenceScore + oneSidedEvidenceScore;
 }
 
 function feedbackPath(
@@ -486,6 +539,10 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
     });
   }, [activeDomain, activeTriage, claims, searchQuery]);
 
+  const priorityClaim = useMemo(() => {
+    return [...claims].sort((a, b) => priorityScore(b) - priorityScore(a))[0];
+  }, [claims]);
+
   const selectedClaim = useMemo(() => {
     return claims.find((claim) => claim.id === selectedId) ?? filteredClaims[0];
   }, [claims, filteredClaims, selectedId]);
@@ -525,6 +582,16 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
 
   function selectClaim(claimId: string) {
     setSelectedId(claimId);
+    const claim = claims.find((item) => item.id === claimId);
+
+    if (claim) {
+      const mission = reviewMission(claim);
+      setEvidenceForm((currentForm) => ({
+        ...currentForm,
+        stance: mission.stance,
+        assessmentTarget: mission.stance === "context" ? "context" : "veracity"
+      }));
+    }
 
     if (targetedReviewMode && narrowLayout) {
       setClaimPickerOpen(false);
@@ -907,6 +974,64 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
 
   return (
     <section className={workspaceClassName}>
+      {!targetedReviewMode && priorityClaim ? (
+        <section className="priority-claim" aria-labelledby="priority-claim-title">
+          {(() => {
+            const counts = evidenceCounts(priorityClaim);
+            const health = evidenceHealth(priorityClaim);
+            const mission = reviewMission(priorityClaim);
+            const actionLabel =
+              mission.stance === "context"
+                ? "Add context"
+                : `Add ${mission.stance} evidence`;
+
+            return (
+              <>
+                <div className="priority-claim-copy">
+                  <div className="priority-claim-kicker">
+                    <span className="claim-domain">{priorityClaim.domain}</span>
+                    <span>{claimFreshnessLabel(priorityClaim.createdAt)}</span>
+                    <span>{priorityClaim.sourceQuality} source</span>
+                  </div>
+                  <h2 id="priority-claim-title">Priority review</h2>
+                  <h3>{priorityClaim.title}</h3>
+                  <p>
+                    Ranked first by freshness, source strength, and an open evidence
+                    gap. Current source: {priorityClaim.sourcePublisher}.
+                  </p>
+                  <div className="priority-evidence" aria-label="Priority evidence counts">
+                    <span className="support">{counts.support} support</span>
+                    <span className="challenge">{counts.challenge} challenge</span>
+                    <span>{counts.context} context</span>
+                    <span>{health.highQualityCount} primary/direct</span>
+                  </div>
+                </div>
+                <div className="priority-action">
+                  <span>Next evidence action</span>
+                  <strong>{mission.title}</strong>
+                  <p>{mission.description}</p>
+                  <div className="priority-actions">
+                    <Link
+                      className="button primary compact"
+                      href={attributedPath(`/submit/${priorityClaim.id}/`, attribution)}
+                    >
+                      {actionLabel}
+                    </Link>
+                    <button
+                      className="button compact"
+                      onClick={() => selectClaim(priorityClaim.id)}
+                      type="button"
+                    >
+                      Focus details
+                    </button>
+                  </div>
+                </div>
+              </>
+            );
+          })()}
+        </section>
+      ) : null}
+
       <aside
         className={targetedReviewMode ? "claim-rail targeted-claim-picker" : "claim-rail"}
         aria-label={targetedReviewMode ? "Change claim" : "Claim list"}
@@ -988,6 +1113,11 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
             ))}
           </div>
           {supabaseMessage ? <p className="form-message">{supabaseMessage}</p> : null}
+
+          <div className="claim-list-heading">
+            <strong>Full claim list</strong>
+            <span>{filteredClaims.length} showing</span>
+          </div>
 
           <div
             className="claim-list"
