@@ -1,0 +1,16 @@
+project_id = "fousbbxquhayqnqdpwcf"
+
+[functions.register]
+verify_jwt = false
+
+[functions.tasks]
+verify_jwt = false
+
+[functions.claims]
+verify_jwt = false
+
+[functions.evidence]
+verify_jwt = false
+
+[functions.feedback]
+verify_jwt = false
