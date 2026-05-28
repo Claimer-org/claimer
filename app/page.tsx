@@ -193,6 +193,9 @@ export default function HomePage() {
               <div className="mission-stats" aria-label="Newest claim status">
                 <span>{formatAddedLabel(latestClaim.createdAt)}</span>
                 <span>{latestEvidenceTotal} source links</span>
+                <span>{latestCounts.support} support</span>
+                <span>{latestCounts.challenge} challenge</span>
+                <span>{latestCounts.context} context</span>
                 <span>{latestClaim.attributionScore}% attribution</span>
                 <span>{latestClaim.veracityScore}% veracity</span>
               </div>
