@@ -173,36 +173,44 @@ export default function HomePage() {
         )}
       </div>
 
-      <section className="stat-highlight" aria-label="Evidence coverage">
+      <section
+        className="stat-highlight"
+        aria-label="Static public claim corpus evidence coverage"
+      >
         <div className="stat-item stat-item-primary">
           <strong>{sourceLinksPerClaim}</strong>
-          <span>Evidence per claim</span>
+          <span>Static corpus evidence/claim</span>
           <p>
-            {evidenceTotal} source links across {seedClaims.length} active
-            claims.
+            {evidenceTotal} source links across {seedClaims.length} static
+            public claims.
           </p>
         </div>
         <div className="stat-item">
           <strong>
             {claimsAtSourceTarget}/{seedClaims.length}
           </strong>
-          <span>10+ source target</span>
-          <p>Claims with at least {NORTH_STAR_SOURCE_TARGET} source links.</p>
+          <span>Static corpus 10+ target</span>
+          <p>
+            Static public claim corpus rows with at least{" "}
+            {NORTH_STAR_SOURCE_TARGET} source links.
+          </p>
         </div>
         <div className="stat-item">
           <strong>{evidenceTargetGap}</strong>
-          <span>Sources still needed</span>
+          <span>Static corpus source gap</span>
           <p>
-            Additional source links needed for every claim to reach{" "}
-            {NORTH_STAR_SOURCE_TARGET}.
+            Additional source links needed for every static public claim to
+            reach {NORTH_STAR_SOURCE_TARGET}.
           </p>
         </div>
         <div className="stat-item">
           <strong>
             {claimsWithBothSides}/{seedClaims.length}
           </strong>
-          <span>Two-sided claims</span>
-          <p>Claims with both support and challenge source links.</p>
+          <span>Static two-sided claims</span>
+          <p>
+            Static public claims with both support and challenge source links.
+          </p>
         </div>
       </section>
 

@@ -15,24 +15,29 @@ const coverageMetricIds = [
 
 const metricDescriptors: Record<string, { label: string; description: string }> = {
   evidence_per_live_claim: {
-    label: "Evidence/live claim",
-    description: "Average source-backed evidence coverage across live claims."
+    label: "Live contributor evidence/claim",
+    description:
+      "Average source-backed evidence across live contributor database claims."
   },
   unique_contributors_total: {
-    label: "Unique contributors",
-    description: "Distinct contributors represented in live evidence."
+    label: "Live contributor identities",
+    description:
+      "Distinct contributors represented in the live contributor database."
   },
   contributor_evidence_submissions_24h: {
-    label: "24h submissions",
-    description: "Contributor evidence submitted in the last 24 hours."
+    label: "Live 24h submissions",
+    description:
+      "Evidence submitted to the live contributor database in the last 24 hours."
   },
   live_claims_with_10_evidence: {
-    label: "Live claims at 10+",
-    description: "Live claims that have reached the 10+ evidence target."
+    label: "Live contributor 10+ claims",
+    description:
+      "Live contributor database claims that have reached the 10+ evidence target."
   },
   live_claims_with_5_unique_contributors: {
-    label: "5+ contributor claims",
-    description: "Live claims with evidence from at least 5 unique contributors."
+    label: "Live contributor 5+ claims",
+    description:
+      "Live contributor database claims with evidence from at least 5 unique contributors."
   }
 };
 
@@ -99,31 +104,34 @@ export default function HomeContributorStats() {
 
   return (
     <section
-      aria-label="Live contributor north-star"
+      aria-label="Live contributor database north-star"
       aria-live="polite"
       className="stat-highlight"
     >
       {state === "loading" ? (
         <div className="stat-item">
           <strong>Live</strong>
-          <span>Contributor north star</span>
-          <p>Loading aggregate contributor metrics.</p>
+          <span>Contributor database</span>
+          <p>Loading live contributor database metrics.</p>
         </div>
       ) : null}
 
       {state === "error" ? (
         <div className="stat-item">
           <strong>Static</strong>
-          <span>Contributor north star</span>
-          <p>Live contributor metrics are unavailable. Static coverage remains visible.</p>
+          <span>Contributor database</span>
+          <p>
+            Live contributor database metrics are unavailable. Static public
+            claim corpus coverage remains visible.
+          </p>
         </div>
       ) : null}
 
       {state === "ready" && visibleMetrics.length === 0 ? (
         <div className="stat-item">
           <strong>0</strong>
-          <span>Contributor north star</span>
-          <p>No live contributor metrics are available yet.</p>
+          <span>Contributor database</span>
+          <p>No live contributor database metrics are available yet.</p>
         </div>
       ) : null}
 

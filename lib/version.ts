@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.530.1";
+export const SITE_VERSION = "26.530.2";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-30",
+    title: "Homepage metric clarity",
+    bullets: [
+      "Homepage coverage labels now identify the static public claim corpus denominator.",
+      "Live contributor north-star labels now identify the live contributor database denominator.",
+      "The 10+ evidence target counts distinguish static corpus progress from live contributor database progress."
+    ]
+  },
+  {
+    version: "26.530.1",
     date: "2026-05-30",
     title: "Live contributor north-star homepage",
     bullets: [
