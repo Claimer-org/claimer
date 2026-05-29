@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.9";
+export const SITE_VERSION = "26.529.10";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Live profile claim routing",
+    bullets: [
+      "Profile submitted-claim links now keep live UUID claims on the client-rendered claims queue route.",
+      "Evidence activity claim links use the same UUID-aware routing helper as submitted-claim activity.",
+      "Static seed claim links keep their existing detail-page route while live profile activity avoids unknown GitHub Pages paths."
+    ]
+  },
+  {
+    version: "26.529.9",
     date: "2026-05-29",
     title: "Homepage live claim surface",
     bullets: [

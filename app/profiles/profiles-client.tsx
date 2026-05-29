@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { ensureProfile, getCurrentUser } from "../../lib/auth";
 import { getSupabaseClient, hasSupabaseConfig } from "../../lib/supabase";
+import { isLiveSupabaseClaimId } from "../../lib/supabase-claims";
 import type {
   ClaimRow,
   EvidenceEntryRow,
@@ -49,6 +50,14 @@ const emptyProfileState: ProfileState = {
 
 function profileHref(profileId: string) {
   return `/profiles?user=${encodeURIComponent(profileId)}`;
+}
+
+function profileClaimHref(claimId: string) {
+  if (isLiveSupabaseClaimId(claimId)) {
+    return `/claims/?claim=${encodeURIComponent(claimId)}`;
+  }
+
+  return `/claims/${claimId}`;
 }
 
 function formatDate(value: string) {
@@ -372,7 +381,9 @@ export default function ProfilesClient() {
                       <article className="activity-item" key={claim.id}>
                         <span className="claim-domain">{claim.domain}</span>
                         <h4>
-                          <Link href={`/claims/${claim.id}`}>{claim.title}</Link>
+                          <Link href={profileClaimHref(claim.id)}>
+                            {claim.title}
+                          </Link>
                         </h4>
                         <small>
                           {formatDate(claim.created_at)} · {sourceHost(claim.source_url)}
@@ -400,7 +411,7 @@ export default function ProfilesClient() {
                           </span>
                           <h4>
                             {claim ? (
-                              <Link href={`/claims/${claim.id}`}>
+                              <Link href={profileClaimHref(claim.id)}>
                                 {claim.title}
                               </Link>
                             ) : (
