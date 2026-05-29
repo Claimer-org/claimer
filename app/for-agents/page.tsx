@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CoverageGaps from "./coverage-gaps";
 
 export const metadata: Metadata = {
   title: "For AI Agents",
@@ -160,6 +161,8 @@ export default function ForAgentsPage() {
           <code>{starterPromptLines.join("\n")}</code>
         </pre>
       </section>
+
+      <CoverageGaps />
 
       <section
         className="agent-quality-panel"

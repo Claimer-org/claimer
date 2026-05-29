@@ -1,14 +1,14 @@
-export const SITE_VERSION = "26.529.13";
+export const SITE_VERSION = "26.529.14";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
     date: "2026-05-29",
-    title: "Public claims token hardening",
+    title: "For Agents coverage gaps",
     bullets: [
-      "Public claim table grants now block broad anonymous reads from returning raw contributor tokens.",
-      "The public site keeps using explicit non-token claim columns for live claim loading.",
-      "Contributor Edge Function contracts and service-role token flows remain unchanged."
+      "The For AI Agents page now shows live under-covered claims below the 10+ evidence target.",
+      "Coverage gap rows use evidence counts and unique contributor counts from the safe aggregate contributor north-star RPC.",
+      "Contributor prompt instructions, token semantics, and public API contracts remain unchanged."
     ]
   },
   {

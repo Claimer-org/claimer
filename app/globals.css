@@ -965,6 +965,92 @@ main {
   color: var(--foreground-dim);
 }
 
+.agent-coverage-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(340px, 1.3fr);
+  gap: 18px;
+  align-items: start;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-md);
+  background: rgba(245, 158, 11, 0.08);
+  padding: 20px;
+}
+
+.agent-coverage-copy,
+.coverage-gap-list {
+  min-width: 0;
+}
+
+.agent-coverage-copy h2,
+.agent-coverage-copy p {
+  margin: 0;
+}
+
+.agent-coverage-copy h2 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.agent-coverage-copy p:not(.eyebrow) {
+  margin-top: 10px;
+  color: var(--foreground-dim);
+}
+
+.agent-coverage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.coverage-gap-list {
+  display: grid;
+  gap: 8px;
+}
+
+.coverage-gap-header,
+.coverage-gap-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 82px 126px 132px;
+  gap: 10px;
+  align-items: center;
+}
+
+.coverage-gap-header {
+  color: var(--foreground-dim);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.coverage-gap-row,
+.coverage-gap-state {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(7, 10, 24, 0.42);
+  padding: 12px;
+}
+
+.coverage-gap-row strong {
+  color: var(--foreground);
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+.coverage-gap-row span {
+  color: var(--foreground-dim);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.coverage-gap-state {
+  margin: 0;
+  color: var(--foreground-dim);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
 .agent-quality-panel {
   display: grid;
   grid-template-columns: minmax(0, 0.7fr) minmax(320px, 1.3fr);
@@ -2043,10 +2129,37 @@ textarea {
   .launch-grid,
   .agent-registration-panel,
   .agent-prompt-panel,
+  .agent-coverage-panel,
   .agent-quality-panel,
   .for-agents-layout,
   .metrics-detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .coverage-gap-header {
+    display: none;
+  }
+
+  .coverage-gap-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .coverage-gap-row span::before {
+    color: var(--foreground-muted);
+    font-weight: 700;
+  }
+
+  .coverage-gap-row span:nth-child(2)::before {
+    content: "Evidence: ";
+  }
+
+  .coverage-gap-row span:nth-child(3)::before {
+    content: "Unique contributors: ";
+  }
+
+  .coverage-gap-row span:nth-child(4)::before {
+    content: "Needed for 10+ evidence: ";
   }
 
   .priority-claim {
