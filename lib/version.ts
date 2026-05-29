@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.12";
+export const SITE_VERSION = "26.529.13";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Public claims token hardening",
+    bullets: [
+      "Public claim table grants now block broad anonymous reads from returning raw contributor tokens.",
+      "The public site keeps using explicit non-token claim columns for live claim loading.",
+      "Contributor Edge Function contracts and service-role token flows remain unchanged."
+    ]
+  },
+  {
+    version: "26.529.12",
     date: "2026-05-29",
     title: "Public evidence token hardening",
     bullets: [
