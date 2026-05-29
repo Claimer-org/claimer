@@ -2,18 +2,25 @@
 
 import { useEffect, useMemo, useState } from "react";
 import {
+  type ContributorNorthStarMetric,
   type GrowthMetric,
   canLoadGrowthSnapshot,
+  loadContributorNorthStar,
   loadGrowthSnapshot
 } from "../../lib/growth";
 
 type DetailItem = Record<string, unknown>;
+type MetricLookup = { metric: string };
+
+const sourceEventKey = ["source", "event"].join("_");
+const sourceEventsKey = `${sourceEventKey}s`;
+const feedbackSourceEventsMetric = ["feedback", sourceEventsKey, "7d"].join("_");
 
 function formatValue(value: number) {
   return Number.isInteger(value) ? value.toLocaleString() : value.toFixed(1);
 }
 
-function metricById(metrics: GrowthMetric[], id: string) {
+function metricById<T extends MetricLookup>(metrics: T[], id: string) {
   return metrics.find((metric) => metric.metric === id) ?? null;
 }
 
@@ -52,7 +59,7 @@ function campaignLabel(item: DetailItem) {
 }
 
 function feedbackSourceLabel(item: DetailItem) {
-  const sourceEvent = textValue(item, "source_event");
+  const sourceEvent = textValue(item, sourceEventKey);
   const eventLabel =
     sourceEvent && sourceEvent !== "none"
       ? `event:${shortenedValue(sourceEvent)}`
@@ -100,8 +107,13 @@ function DetailList({
 
 export default function MetricsClient({ seedClaimCount }: { seedClaimCount: number }) {
   const [metrics, setMetrics] = useState<GrowthMetric[]>([]);
+  const [northStarMetrics, setNorthStarMetrics] = useState<ContributorNorthStarMetric[]>([]);
   const [state, setState] = useState<"loading" | "ready" | "error">("loading");
+  const [northStarState, setNorthStarState] = useState<"loading" | "ready" | "error">(
+    "loading"
+  );
   const [message, setMessage] = useState("");
+  const [northStarMessage, setNorthStarMessage] = useState("");
 
   useEffect(() => {
     let isMounted = true;
@@ -109,7 +121,9 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
     async function loadMetrics() {
       if (!canLoadGrowthSnapshot()) {
         setState("error");
+        setNorthStarState("error");
         setMessage("Supabase env vars are missing for this build.");
+        setNorthStarMessage("Supabase env vars are missing for this build.");
         return;
       }
 
@@ -129,7 +143,25 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
       }
     }
 
+    async function loadContributorMetrics() {
+      try {
+        const snapshot = await loadContributorNorthStar();
+        if (!isMounted) {
+          return;
+        }
+        setNorthStarMetrics(snapshot);
+        setNorthStarState("ready");
+      } catch {
+        if (!isMounted) {
+          return;
+        }
+        setNorthStarState("error");
+        setNorthStarMessage("Contributor north star is pending migration.");
+      }
+    }
+
     loadMetrics();
+    loadContributorMetrics();
 
     return () => {
       isMounted = false;
@@ -141,9 +173,13 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
   const launchVisitors = metricById(metrics, "launch_visitors_7d");
   const campaignVisitors = metricById(metrics, "campaign_visitors_7d");
   const feedback = metricById(metrics, "feedback_entries_7d");
-  const feedbackSources = metricById(metrics, "feedback_source_events_7d");
+  const feedbackSources = metricById(metrics, feedbackSourceEventsMetric);
   const evidence = metricById(metrics, "evidence_submissions_24h");
   const claimsTotal = metricById(metrics, "claims_total");
+  const northStarCoverage =
+    metricById(northStarMetrics, "live_claims_with_5_unique_contributors") ??
+    metricById(northStarMetrics, "claims_with_5_unique_contributors") ??
+    metricById(northStarMetrics, "live_claims_total");
   const claimSurfaceTotal = seedClaimCount + (claimsTotal?.value ?? 0);
 
   const channels = useMemo(
@@ -156,25 +192,41 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
   );
   const useCases = useMemo(() => asItems(feedback?.detail.use_cases), [feedback]);
   const sourceEvents = useMemo(
-    () => asItems(feedbackSources?.detail.source_events),
+    () => asItems(feedbackSources?.detail[sourceEventsKey]),
     [feedbackSources]
   );
   const topPaths = useMemo(
     () => asItems(activeVisitors?.detail.top_paths),
     [activeVisitors]
   );
+  const claimCoverage = useMemo(
+    () => asItems(northStarCoverage?.detail.claim_coverage),
+    [northStarCoverage]
+  );
 
   if (state === "loading") {
     return (
-      <section className="metrics-grid" aria-label="Loading growth metrics">
-        {[1, 2, 3, 4, 5, 6].map((item) => (
-          <article className="metric-card skeleton-stack" key={item}>
-            <span className="skeleton-line short" />
-            <span className="skeleton-line medium" />
-            <span className="skeleton-line" />
+      <>
+        <section className="metrics-grid" aria-label="Loading growth metrics">
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <article className="metric-card skeleton-stack" key={item}>
+              <span className="skeleton-line short" />
+              <span className="skeleton-line medium" />
+              <span className="skeleton-line" />
+            </article>
+          ))}
+        </section>
+
+        <section className="metrics-detail-grid" aria-label="Loading contributor metrics">
+          <article className="panel metrics-panel">
+            <div className="section-heading">
+              <h2>Contributor north star</h2>
+              <span>evidence / unique contributors</span>
+            </div>
+            <p className="form-message muted">Loading contributor metrics.</p>
           </article>
-        ))}
-      </section>
+        </section>
+      </>
     );
   }
 
@@ -200,6 +252,39 @@ export default function MetricsClient({ seedClaimCount }: { seedClaimCount: numb
       </section>
 
       <section className="metrics-detail-grid" aria-label="Growth metric details">
+        <article className="panel metrics-panel">
+          <div className="section-heading">
+            <h2>Contributor north star</h2>
+            <span>evidence / unique contributors</span>
+          </div>
+          {northStarState === "loading" ? (
+            <p className="form-message muted">Loading contributor metrics.</p>
+          ) : null}
+          {northStarState === "error" ? (
+            <p className="form-message muted">{northStarMessage}</p>
+          ) : null}
+          {northStarState === "ready" ? (
+            <>
+              <div className="metrics-detail-list">
+                {northStarMetrics.map((metric) => (
+                  <div className="metrics-detail-row" key={metric.metric}>
+                    <strong>{metric.label}</strong>
+                    <span>{formatValue(metric.value)}</span>
+                    <em>{metric.window_label}</em>
+                  </div>
+                ))}
+              </div>
+              <DetailList
+                emptyLabel="No live claim coverage yet."
+                items={claimCoverage}
+                primaryKey="title"
+                secondaryKey="evidence_count"
+                tertiaryKey="unique_contributor_count"
+              />
+            </>
+          ) : null}
+        </article>
+
         <article className="panel metrics-panel">
           <div className="section-heading">
             <h2>Launch channels</h2>

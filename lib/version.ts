@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.10";
+export const SITE_VERSION = "26.529.11";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Safe contributor north-star metrics",
+    bullets: [
+      "A new public RPC exposes contributor north-star counts as aggregate rows only.",
+      "The metrics page now shows live evidence coverage, contributor diversity, and stance totals without raw contributor identifiers.",
+      "The contributor panel degrades independently when the RPC is not deployed yet, so the existing growth snapshot still loads."
+    ]
+  },
+  {
+    version: "26.529.10",
     date: "2026-05-29",
     title: "Live profile claim routing",
     bullets: [

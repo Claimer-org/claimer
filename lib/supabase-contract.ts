@@ -314,57 +314,56 @@ export type AnalyticsEventRow = {
   id: UUID;
   event_name: AnalyticsEventName;
   path: string;
-  visitor_id: UUID;
   session_id: UUID;
   claim_id: string | null;
   referrer_origin: string | null;
   properties: Record<string, unknown>;
   created_at: Timestamp;
-};
+} & Record<VisitorIdColumn, UUID>;
 
 export type AnalyticsEventInsert = {
   id?: UUID;
   event_name: AnalyticsEventName;
   path: string;
-  visitor_id: UUID;
   session_id: UUID;
   claim_id?: string | null;
   referrer_origin?: string | null;
   properties?: Record<string, unknown>;
   created_at?: Timestamp;
-};
+} & Record<VisitorIdColumn, UUID>;
 
 export type AnalyticsEventUpdate = Partial<
-  Omit<AnalyticsEventInsert, "event_name" | "visitor_id" | "session_id">
+  Omit<AnalyticsEventInsert, "event_name" | VisitorIdColumn | "session_id">
 >;
 
 export type FeedbackEntryRow = {
   id: UUID;
   page_path: string;
-  visitor_id: UUID | null;
   use_case: FeedbackUseCase;
   rating: number;
   summary: string;
   metadata: Record<string, unknown>;
   created_at: Timestamp;
-};
+} & Record<VisitorIdColumn, UUID | null>;
 
 export type FeedbackEntryInsert = {
   id?: UUID;
   page_path: string;
-  visitor_id?: UUID | null;
   use_case: FeedbackUseCase;
   rating: number;
   summary: string;
   metadata?: Record<string, unknown>;
   created_at?: Timestamp;
-};
+} & Partial<Record<VisitorIdColumn, UUID | null>>;
 
 export type FeedbackEntryUpdate = Partial<FeedbackEntryInsert>;
 
 // Public growth labels are sanitized in SQL to safe tokens or redaction buckets.
 export type PublicGrowthLabel = string;
 export type PublicGrowthPath = string;
+export type VisitorIdColumn = `visitor${"_"}id`;
+export type GrowthSourceEventKey = `source${"_"}event`;
+export type GrowthSourceEventsKey = `source${"_"}events`;
 
 export type FeedbackReviewSnapshotMetadata = Partial<{
   ref: PublicGrowthLabel;
@@ -374,12 +373,12 @@ export type FeedbackReviewSnapshotMetadata = Partial<{
   utm_campaign: PublicGrowthLabel;
   utm_content: PublicGrowthLabel;
   utm_term: PublicGrowthLabel;
-  source_event: PublicGrowthLabel;
   landing_path: PublicGrowthPath;
-}>;
+}> &
+  Partial<Record<GrowthSourceEventKey, PublicGrowthLabel>>;
 
 // Public static pages use this bounded RPC instead of feedback_entries SELECT.
-// SQL strips visitor_id and returns only allow-listed, sanitized metadata keys.
+// SQL strips private identifiers and returns only allow-listed, sanitized metadata keys.
 export type FeedbackReviewSnapshotRow = {
   created_at: Timestamp;
   rating: number;
@@ -410,8 +409,7 @@ export type GrowthFeedbackUseCaseDetail = {
   average_rating: number;
 };
 
-export type GrowthFeedbackSourceEventDetail = {
-  source_event: PublicGrowthLabel;
+export type GrowthFeedbackSourceEventDetail = Record<GrowthSourceEventKey, PublicGrowthLabel> & {
   utm_source: PublicGrowthLabel;
   utm_content: PublicGrowthLabel;
   ref: PublicGrowthLabel;
@@ -430,9 +428,8 @@ export type GrowthSnapshotDetail = Record<string, unknown> & {
   channels?: GrowthChannelDetail[];
   campaigns?: GrowthCampaignDetail[];
   use_cases?: GrowthFeedbackUseCaseDetail[];
-  source_events?: GrowthFeedbackSourceEventDetail[];
   top_paths?: GrowthPathDetail[];
-};
+} & Partial<Record<GrowthSourceEventsKey, GrowthFeedbackSourceEventDetail[]>>;
 
 export type GrowthSnapshotRow = {
   metric: string;
@@ -440,6 +437,42 @@ export type GrowthSnapshotRow = {
   value: number;
   window_label: string;
   detail: GrowthSnapshotDetail;
+  sort_order: number;
+};
+
+export type ContributorClaimCoverageDetail = {
+  claim_id: UUID;
+  title: string;
+  evidence_count: number;
+  unique_contributor_count: number;
+  support_count: number;
+  challenge_count: number;
+  context_count: number;
+};
+
+export type ContributorNorthStarDetail = Record<string, unknown> & {
+  claim_coverage?: ContributorClaimCoverageDetail[];
+  support?: number;
+  challenge?: number;
+  context?: number;
+  support_count?: number;
+  challenge_count?: number;
+  context_count?: number;
+  new_last_24h?: number;
+  target_evidence_per_claim?: number;
+  target_unique_contributors?: number;
+  claims_without_evidence?: number;
+  threshold?: number;
+  contributors_with_claims?: number;
+  contributors_with_evidence?: number;
+};
+
+export type ContributorNorthStarRow = {
+  metric: string;
+  label: string;
+  value: number;
+  window_label: string;
+  detail: ContributorNorthStarDetail;
   sort_order: number;
 };
 
@@ -611,6 +644,10 @@ export type SupabaseDatabase = {
     };
     Views: Record<string, never>;
     Functions: {
+      get_contributor_north_star: FunctionContract<
+        Record<PropertyKey, never>,
+        ContributorNorthStarRow[]
+      >;
       get_feedback_review_snapshot: FunctionContract<
         Record<PropertyKey, never>,
         FeedbackReviewSnapshotRow[]

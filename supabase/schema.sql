@@ -54,6 +54,41 @@ create table public.sources (
   constraint sources_url_http_check check (url ~* '^https?://')
 );
 
+create table public.contributor_profiles (
+  token uuid primary key default gen_random_uuid(),
+  status text not null default 'active',
+  reputation_score numeric(5,4) not null default 0.5000,
+  total_submissions integer not null default 0,
+  accepted_submissions integer not null default 0,
+  models_used text[] not null default '{}'::text[],
+  tools_used text[] not null default '{}'::text[],
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  last_seen_at timestamptz not null default now(),
+  constraint contributor_profiles_status_check check (
+    status in ('active', 'suspended', 'revoked')
+  ),
+  constraint contributor_profiles_reputation_score_check check (
+    reputation_score >= 0
+    and reputation_score <= 1
+  ),
+  constraint contributor_profiles_submission_counts_check check (
+    total_submissions >= 0
+    and accepted_submissions >= 0
+    and accepted_submissions <= total_submissions
+  ),
+  constraint contributor_profiles_models_used_check check (
+    cardinality(models_used) <= 40
+  ),
+  constraint contributor_profiles_tools_used_check check (
+    cardinality(tools_used) <= 40
+  ),
+  constraint contributor_profiles_metadata_check check (
+    jsonb_typeof(metadata) = 'object'
+    and octet_length(metadata::text) <= 2048
+  )
+);
+
 create table public.claims (
   id uuid primary key default gen_random_uuid(),
   domain public.claim_domain not null,
@@ -63,7 +98,10 @@ create table public.claims (
   subject_kind public.public_subject_kind not null,
   source_id uuid references public.sources (id) on delete restrict,
   source_url text not null,
-  submitted_by uuid not null default auth.uid() references public.profiles (id) on delete restrict,
+  submitted_by uuid default auth.uid() references public.profiles (id) on delete restrict,
+  contributor_token uuid references public.contributor_profiles (token) on delete restrict,
+  model_used text,
+  tool_used text,
   is_ai_generated boolean not null default false,
   ai_disclosure text,
   created_at timestamptz not null default now(),
@@ -73,6 +111,24 @@ create table public.claims (
   constraint claims_ai_disclosure_check check (
     is_ai_generated = false
     or nullif(trim(ai_disclosure), '') is not null
+  ),
+  constraint claims_submitter_identity_check check (
+    submitted_by is not null
+    or contributor_token is not null
+  ),
+  constraint claims_contributor_model_check check (
+    contributor_token is null
+    or (
+      nullif(trim(model_used), '') is not null
+      and char_length(model_used) <= 120
+    )
+  ),
+  constraint claims_contributor_tool_check check (
+    contributor_token is null
+    or (
+      nullif(trim(tool_used), '') is not null
+      and char_length(tool_used) <= 120
+    )
   )
 );
 
@@ -84,7 +140,10 @@ create table public.evidence_entries (
   summary text not null,
   source_id uuid references public.sources (id) on delete restrict,
   source_url text not null,
-  submitted_by uuid not null default auth.uid() references public.profiles (id) on delete restrict,
+  submitted_by uuid default auth.uid() references public.profiles (id) on delete restrict,
+  contributor_token uuid references public.contributor_profiles (token) on delete restrict,
+  model_used text,
+  tool_used text,
   is_ai_generated boolean not null default false,
   ai_disclosure text,
   created_at timestamptz not null default now(),
@@ -94,6 +153,24 @@ create table public.evidence_entries (
   constraint evidence_entries_ai_disclosure_check check (
     is_ai_generated = false
     or nullif(trim(ai_disclosure), '') is not null
+  ),
+  constraint evidence_entries_submitter_identity_check check (
+    submitted_by is not null
+    or contributor_token is not null
+  ),
+  constraint evidence_entries_contributor_model_check check (
+    contributor_token is null
+    or (
+      nullif(trim(model_used), '') is not null
+      and char_length(model_used) <= 120
+    )
+  ),
+  constraint evidence_entries_contributor_tool_check check (
+    contributor_token is null
+    or (
+      nullif(trim(tool_used), '') is not null
+      and char_length(tool_used) <= 120
+    )
   )
 );
 
@@ -205,7 +282,15 @@ create table public.feedback_entries (
 );
 
 create index claims_domain_created_at_idx on public.claims (domain, created_at desc);
+create index contributor_profiles_status_last_seen_idx
+  on public.contributor_profiles (status, last_seen_at desc);
+create index claims_contributor_token_created_at_idx
+  on public.claims (contributor_token, created_at desc)
+  where contributor_token is not null;
 create index evidence_entries_claim_id_created_at_idx on public.evidence_entries (claim_id, created_at desc);
+create index evidence_entries_contributor_token_created_at_idx
+  on public.evidence_entries (contributor_token, created_at desc)
+  where contributor_token is not null;
 create index seed_evidence_entries_claim_id_created_at_idx
   on public.seed_evidence_entries (seed_claim_id, created_at desc);
 create index attribution_scores_claim_id_created_at_idx on public.attribution_scores (claim_id, created_at desc);
@@ -220,6 +305,7 @@ create index feedback_entries_use_case_created_at_idx
 
 alter table public.profiles enable row level security;
 alter table public.sources enable row level security;
+alter table public.contributor_profiles enable row level security;
 alter table public.claims enable row level security;
 alter table public.evidence_entries enable row level security;
 alter table public.seed_evidence_entries enable row level security;
@@ -229,6 +315,14 @@ alter table public.analytics_events enable row level security;
 alter table public.feedback_entries enable row level security;
 
 grant usage on schema public to anon, authenticated, service_role;
+
+revoke all
+  on table public.contributor_profiles
+  from anon, authenticated;
+
+grant select, insert, update
+  on table public.contributor_profiles
+  to service_role;
 
 grant select
   on table public.profiles,
@@ -302,7 +396,12 @@ create policy "public read claims"
 create policy "authenticated insert claims"
   on public.claims for insert
   to authenticated
-  with check (submitted_by = auth.uid());
+  with check (
+    submitted_by = auth.uid()
+    and contributor_token is null
+    and model_used is null
+    and tool_used is null
+  );
 
 create policy "public read evidence entries"
   on public.evidence_entries for select
@@ -312,7 +411,12 @@ create policy "public read evidence entries"
 create policy "authenticated insert evidence entries"
   on public.evidence_entries for insert
   to authenticated
-  with check (submitted_by = auth.uid());
+  with check (
+    submitted_by = auth.uid()
+    and contributor_token is null
+    and model_used is null
+    and tool_used is null
+  );
 
 create policy "public read seed evidence entries"
   on public.seed_evidence_entries for select
@@ -898,4 +1002,271 @@ $$;
 
 revoke all on function public.get_feedback_review_snapshot() from public;
 grant execute on function public.get_feedback_review_snapshot()
+  to anon, authenticated, service_role;
+
+create or replace function private.get_contributor_north_star_impl()
+returns table (
+  metric text,
+  label text,
+  value numeric,
+  window_label text,
+  detail jsonb,
+  sort_order integer
+)
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  with bounds as (
+    select
+      now() as window_end,
+      now() - interval '24 hours' as since_24h
+  ),
+  live_claims as (
+    select
+      claims.id,
+      claims.title,
+      claims.created_at
+    from public.claims
+  ),
+  live_evidence as (
+    select
+      evidence_entries.claim_id,
+      evidence_entries.stance,
+      evidence_entries.contributor_token,
+      evidence_entries.created_at
+    from public.evidence_entries
+  ),
+  claim_coverage as (
+    select
+      live_claims.id::text as claim_id,
+      left(live_claims.title, 160) as title,
+      count(live_evidence.claim_id)::integer as evidence_count,
+      count(distinct live_evidence.contributor_token)
+        filter (where live_evidence.contributor_token is not null)::integer as unique_contributors,
+      count(*) filter (where live_evidence.stance = 'support')::integer as support_count,
+      count(*) filter (where live_evidence.stance = 'challenge')::integer as challenge_count,
+      count(*) filter (where live_evidence.stance = 'context')::integer as context_count
+    from live_claims
+    left join live_evidence on live_evidence.claim_id = live_claims.id
+    group by live_claims.id, live_claims.title
+  ),
+  claim_coverage_detail as (
+    select coalesce(
+      jsonb_agg(
+        jsonb_build_object(
+          'claim_id', claim_id,
+          'title', title,
+          'evidence_count', evidence_count,
+          'unique_contributor_count', unique_contributors,
+          'support_count', support_count,
+          'challenge_count', challenge_count,
+          'context_count', context_count
+        )
+        order by evidence_count desc, unique_contributors desc, title asc
+      ),
+      '[]'::jsonb
+    ) as items
+    from (
+      select *
+      from claim_coverage
+      order by evidence_count desc, unique_contributors desc, title asc
+      limit 12
+    ) ranked_coverage
+  ),
+  contributor_tokens as (
+    select distinct live_evidence.contributor_token
+    from live_evidence
+    where live_evidence.contributor_token is not null
+  ),
+  evidence_totals as (
+    select
+      count(*)::numeric as total,
+      count(*) filter (where live_evidence.stance = 'support')::numeric as support,
+      count(*) filter (where live_evidence.stance = 'challenge')::numeric as challenge,
+      count(*) filter (where live_evidence.stance = 'context')::numeric as context
+    from live_evidence
+  )
+  select
+    'live_claims_total'::text as metric,
+    'Total live claims'::text as label,
+    count(*)::numeric as value,
+    'all time'::text as window_label,
+    jsonb_build_object(
+      'new_last_24h', count(*) filter (
+        where live_claims.created_at >= (select since_24h from bounds)
+      )
+    ) as detail,
+    10 as sort_order
+  from live_claims
+
+  union all
+
+  select
+    'live_evidence_entries_total',
+    'Total live evidence entries',
+    evidence_totals.total,
+    'all time',
+    jsonb_build_object(
+      'support_count', evidence_totals.support,
+      'challenge_count', evidence_totals.challenge,
+      'context_count', evidence_totals.context,
+      'claim_coverage', (select items from claim_coverage_detail)
+    ),
+    20
+  from evidence_totals
+
+  union all
+
+  select
+    'evidence_per_live_claim',
+    'Evidence per live claim',
+    case
+      when (select count(*) from live_claims) = 0 then 0::numeric
+      else round(
+        (select count(*)::numeric from live_evidence)
+        / nullif((select count(*)::numeric from live_claims), 0),
+        1
+      )
+    end,
+    'all time',
+    jsonb_build_object(
+      'healthy_claim_target', 10,
+      'claims_without_evidence', count(*) filter (where claim_coverage.evidence_count = 0),
+      'claim_coverage', (select items from claim_coverage_detail)
+    ),
+    30
+  from claim_coverage
+
+  union all
+
+  select
+    'live_claims_with_3_evidence',
+    'Live claims with 3+ evidence entries',
+    count(*) filter (where claim_coverage.evidence_count >= 3)::numeric,
+    'all time',
+    jsonb_build_object(
+      'claim_coverage', (select items from claim_coverage_detail)
+    ),
+    40
+  from claim_coverage
+
+  union all
+
+  select
+    'live_claims_with_10_evidence',
+    'Live claims with 10+ evidence entries',
+    count(*) filter (where claim_coverage.evidence_count >= 10)::numeric,
+    'all time',
+    jsonb_build_object(
+      'healthy_claim_target', 10,
+      'claim_coverage', (select items from claim_coverage_detail)
+    ),
+    50
+  from claim_coverage
+
+  union all
+
+  select
+    'unique_contributors_total',
+    'Total unique contributors',
+    count(*)::numeric,
+    'all time',
+    jsonb_build_object(
+      'basis', 'live evidence submissions'
+    ),
+    60
+  from contributor_tokens
+
+  union all
+
+  select
+    'live_claims_with_5_unique_contributors',
+    'Live claims with 5+ unique contributors',
+    count(*) filter (where claim_coverage.unique_contributors >= 5)::numeric,
+    'all time',
+    jsonb_build_object(
+      'healthy_claim_target', 5,
+      'claim_coverage', (select items from claim_coverage_detail)
+    ),
+    70
+  from claim_coverage
+
+  union all
+
+  select
+    'contributor_evidence_submissions_24h',
+    'Evidence submissions',
+    count(*)::numeric,
+    'last 24 hours',
+    jsonb_build_object(
+      'support_count', count(*) filter (where live_evidence.stance = 'support'),
+      'challenge_count', count(*) filter (where live_evidence.stance = 'challenge'),
+      'context_count', count(*) filter (where live_evidence.stance = 'context')
+    ),
+    80
+  from live_evidence, bounds
+  where live_evidence.created_at >= bounds.since_24h
+    and live_evidence.created_at <= bounds.window_end
+
+  union all
+
+  select
+    'support_evidence_entries_total',
+    'Support evidence',
+    evidence_totals.support,
+    'all time',
+    jsonb_build_object(),
+    90
+  from evidence_totals
+
+  union all
+
+  select
+    'challenge_evidence_entries_total',
+    'Challenge evidence',
+    evidence_totals.challenge,
+    'all time',
+    jsonb_build_object(),
+    100
+  from evidence_totals
+
+  union all
+
+  select
+    'context_evidence_entries_total',
+    'Context evidence',
+    evidence_totals.context,
+    'all time',
+    jsonb_build_object(),
+    110
+  from evidence_totals;
+$$;
+
+revoke all on function private.get_contributor_north_star_impl() from public;
+grant execute on function private.get_contributor_north_star_impl()
+  to service_role;
+
+create or replace function public.get_contributor_north_star()
+returns table (
+  metric text,
+  label text,
+  value numeric,
+  window_label text,
+  detail jsonb,
+  sort_order integer
+)
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select *
+  from private.get_contributor_north_star_impl()
+  order by sort_order;
+$$;
+
+revoke all on function public.get_contributor_north_star() from public;
+grant execute on function public.get_contributor_north_star()
   to anon, authenticated, service_role;
