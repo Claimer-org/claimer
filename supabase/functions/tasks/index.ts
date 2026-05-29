@@ -17,6 +17,7 @@ type ClaimCandidate = {
   evidence_entries?: Array<{
     id: string;
     stance: string;
+    source_url: string | null;
     contributor_token: string | null;
   }> | null;
 };
@@ -43,6 +44,7 @@ Deno.serve(async (request) => {
           evidence_entries (
             id,
             stance,
+            source_url,
             contributor_token
           )
         `
@@ -60,7 +62,14 @@ Deno.serve(async (request) => {
         const hasContributorEvidence = entries.some(
           (entry) => entry.contributor_token === contributor.token
         );
-        return !hasContributorEvidence && entries.length < 10;
+        const hasAssignedSourceEvidence = entries.some(
+          (entry) => entry.source_url === claim.source_url
+        );
+        return (
+          !hasContributorEvidence &&
+          !hasAssignedSourceEvidence &&
+          entries.length < 10
+        );
       })
       .sort((left, right) => {
         const leftCount = left.evidence_entries?.length ?? 0;

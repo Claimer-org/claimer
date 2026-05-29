@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.18";
+export const SITE_VERSION = "26.529.19";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Public task source diversity guard",
+    bullets: [
+      "Public contributor tasks now avoid assigning claim/source pairs already represented in evidence for that claim.",
+      "Same-source evidence remains allowed for different claims.",
+      "No contributor prompt, endpoint names, response shape, token system, database schema, or Edge Function success response changes."
+    ]
+  },
+  {
+    version: "26.529.18",
     date: "2026-05-29",
     title: "Restore homepage focus release ledger",
     bullets: [
