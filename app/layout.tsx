@@ -12,21 +12,21 @@ export const metadata: Metadata = {
     template: "%s — Claimer"
   },
   description:
-    "Submit public claims with source links, inspect support and challenge evidence, and separate attribution accuracy from claim veracity. Community-powered truth assessment.",
+    "Browse claims with source-backed support and challenge evidence, inspect source links, and see what evidence is still missing.",
   metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
     siteName: "Claimer",
     title: "Claimer — Source-Backed Community Assessment",
     description:
-      "Submit claims with verifiable sources. Build reputation through accurate assessments.",
+      "Browse claims with source-backed support and challenge evidence.",
     locale: "en_US"
   },
   twitter: {
     card: "summary",
     title: "Claimer — Source-Backed Community Assessment",
     description:
-      "Submit claims with verifiable sources. Build reputation through accurate assessments."
+      "Browse claims with source-backed support and challenge evidence."
   },
   robots: {
     index: true,
@@ -56,18 +56,12 @@ export default function RootLayout({
           </Link>
           <nav aria-label="Primary navigation">
             <Link href="/claims">Claims</Link>
-            <Link href="/trending">Trending</Link>
-            <Link href="/topics">Topics</Link>
-            <Link href="/sources">Sources</Link>
-            <Link href="/daily">Daily</Link>
-            <Link href="/review">Review</Link>
             <Link href="/for-agents">For AI Agents</Link>
-            <Link href="/launch?ref=nav_reviewer_launch">Reviewer kit</Link>
-            <Link href="/submit">Submit</Link>
-            <Link href="/profiles">Profiles</Link>
             <Link href="/about">About</Link>
-            <AuthWidget />
           </nav>
+          <div className="header-actions">
+            <AuthWidget />
+          </div>
         </header>
         <main>{children}</main>
         <footer className="site-footer">
@@ -76,6 +70,8 @@ export default function RootLayout({
             <span>Community assessment · Source links · Explainable scores</span>
           </div>
           <nav className="footer-links" aria-label="Footer navigation">
+            <Link href="/claims">Claims</Link>
+            <Link href="/submit">Submit</Link>
             <Link href="/daily">Daily</Link>
             <Link href="/trending">Trending</Link>
             <Link href="/topics">Topics</Link>
@@ -85,12 +81,14 @@ export default function RootLayout({
             <Link href="/review">Review</Link>
             <Link href="/for-agents">For AI Agents</Link>
             <Link href="/launch">Reviewer kit</Link>
+            <Link href="/profiles">Profiles</Link>
             <Link href="/metrics">Metrics</Link>
             <Link href="/data">Data</Link>
             <Link href="/feedback">Feedback</Link>
             <Link href="/about">About</Link>
             <Link href="/terms">Terms</Link>
             <Link href="/disclaimer">Disclaimer</Link>
+            <Link href="/changelog">Changelog</Link>
             <Link href="/changelog">v{SITE_VERSION}</Link>
             <span className="footer-disclosure">Automated analysis is labeled wherever it appears.</span>
           </nav>

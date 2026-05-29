@@ -142,6 +142,12 @@ nav a:hover,
   color: var(--accent-strong);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
 main {
   margin: 0 auto;
   max-width: 1320px;
@@ -198,6 +204,33 @@ main {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 32px;
+}
+
+.focused-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr);
+  gap: 32px;
+  align-items: center;
+  max-width: none;
+  padding: 28px 0 10px;
+}
+
+.hero-copy {
+  max-width: 760px;
+  min-width: 0;
+}
+
+.focused-hero h1 {
+  font-size: 4rem;
+  letter-spacing: 0;
+}
+
+.focused-hero .hero-copy > p {
+  max-width: 680px;
+}
+
+.single-action {
+  margin-top: 28px;
 }
 
 /* Buttons */
@@ -843,6 +876,34 @@ main {
 
 .review-mission p {
   margin-top: 4px;
+  color: var(--foreground-dim);
+}
+
+.featured-claim-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--gradient-card);
+  box-shadow: var(--shadow-md);
+  padding: 22px;
+}
+
+.featured-claim-card h2,
+.featured-claim-card p {
+  margin: 0;
+}
+
+.featured-claim-card h2 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.featured-claim-card p {
   color: var(--foreground-dim);
 }
 
@@ -2045,6 +2106,10 @@ textarea {
 
 /* Responsive */
 @media (max-width: 1060px) {
+  .focused-hero {
+    grid-template-columns: 1fr;
+  }
+
   .workspace {
     grid-template-columns: 1fr;
   }
@@ -2110,6 +2175,10 @@ textarea {
   .legal h1 {
     font-size: 2.8rem;
     line-height: 1;
+  }
+
+  .focused-hero h1 {
+    font-size: 2.55rem;
   }
 
   .detail h1,

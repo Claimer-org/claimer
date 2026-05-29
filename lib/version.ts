@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.15";
+export const SITE_VERSION = "26.529.16";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Homepage focus pass",
+    bullets: [
+      "The homepage first screen now leads with one source-backed claims promise.",
+      "Primary navigation is simplified around reader-critical routes.",
+      "No contributor prompt, API contract, token, database, or Edge Function changes."
+    ]
+  },
+  {
+    version: "26.529.15",
     date: "2026-05-29",
     title: "Release ledger restoration",
     bullets: [
