@@ -1155,6 +1155,121 @@ main {
   padding-top: 12px;
 }
 
+.review-checkpoint {
+  display: grid;
+  gap: 18px;
+}
+
+.review-checkpoint-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.75fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.checkpoint-steps {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checkpoint-steps li,
+.completed-review-example {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--gradient-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.checkpoint-steps li {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+}
+
+.checkpoint-steps strong {
+  color: var(--foreground);
+}
+
+.checkpoint-steps span {
+  color: var(--foreground-dim);
+  font-size: 0.92rem;
+}
+
+.completed-review-example {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  border-left: 4px solid var(--support);
+  padding: 16px;
+}
+
+.completed-review-example h3,
+.completed-review-example p {
+  margin: 0;
+}
+
+.completed-review-example h3 {
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.completed-review-example p {
+  color: var(--foreground-dim);
+}
+
+.completed-review-summary strong {
+  color: var(--support);
+  text-transform: capitalize;
+}
+
+.completed-review-stance {
+  border-radius: 999px;
+  background: var(--context-bg);
+  color: var(--context);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 4px 10px;
+  text-transform: uppercase;
+}
+
+.completed-review-stance.support {
+  background: var(--support-bg);
+  color: var(--support);
+}
+
+.completed-review-stance.challenge {
+  background: var(--challenge-bg);
+  color: var(--challenge);
+}
+
+.completed-source-line {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.completed-source-line span {
+  color: var(--foreground-dim);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.completed-source-line a {
+  color: var(--accent-strong);
+  font-size: 0.86rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
 /* Launch Kit */
 .launch-grid {
   display: grid;
@@ -1864,6 +1979,7 @@ textarea {
   .assessment-checklist,
   .score-grid,
   .form-grid,
+  .review-checkpoint-grid,
   .launch-grid,
   .agent-registration-panel,
   .agent-prompt-panel,

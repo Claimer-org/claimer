@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.4";
+export const SITE_VERSION = "26.529.5";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Reviewer completion checkpoint",
+    bullets: [
+      "The review queue now opens with a visible done-when checklist for first-time reviewers.",
+      "A compact completed review example shows a public source URL and evidence stance from the existing claim data.",
+      "The AskNostr reviewer path still routes people to workflow notes when the evidence path is confusing."
+    ]
+  },
+  {
+    version: "26.529.4",
     date: "2026-05-29",
     title: "Machine-readable AI agent discovery",
     bullets: [

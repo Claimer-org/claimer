@@ -21,6 +21,15 @@ const nostrAskPost = {
     "https://njump.me/ed74e5b3b76d355005e48ecb9424ae22abc2d8febc6618d39836165432fdae9d"
 };
 
+const exampleReviewClaim =
+  seedClaims.find((claim) => claim.id === "openai-gpt-4o-launch") ?? seedClaims[0];
+
+const exampleReviewEvidence =
+  exampleReviewClaim?.evidence.find(
+    (entry) =>
+      entry.sourceUrl === exampleReviewClaim.sourceUrl && entry.stance === "support"
+  ) ?? exampleReviewClaim?.evidence[0];
+
 function missionScore(claim: Claim) {
   const health = evidenceHealth(claim);
   let score = 0;
@@ -113,6 +122,60 @@ export default function ReviewPage() {
           </Link>
         </div>
       </header>
+
+      <section className="panel review-checkpoint" aria-labelledby="completion-checkpoint-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Completion checkpoint</p>
+            <h2 id="completion-checkpoint-title">Review is done when one source is ready</h2>
+          </div>
+          <AttributedReviewLink className="button primary" href="/submit/">
+            Add one source
+          </AttributedReviewLink>
+        </div>
+
+        <div className="review-checkpoint-grid">
+          <ol className="checkpoint-steps">
+            <li>
+              <strong>Inspect a claim</strong>
+              <span>Open the claim and read the current public source links.</span>
+            </li>
+            <li>
+              <strong>Add one evidence entry</strong>
+              <span>Submit a support, challenge, or context source URL with a short evidence note.</span>
+            </li>
+            <li>
+              <strong>Note workflow friction</strong>
+              <span>
+                If the evidence path was confusing, leave a workflow note for the product team.
+              </span>
+            </li>
+          </ol>
+
+          {exampleReviewClaim && exampleReviewEvidence ? (
+            <article className="completed-review-example" aria-labelledby="completed-review-title">
+              <div className="mission-meta">
+                <span className="claim-domain">{exampleReviewClaim.domain}</span>
+                <span className={`completed-review-stance ${exampleReviewEvidence.stance}`}>
+                  {exampleReviewEvidence.stance} evidence
+                </span>
+              </div>
+              <h3 id="completed-review-title">Example completed review</h3>
+              <p>{exampleReviewClaim.title}</p>
+              <p className="completed-review-summary">
+                <strong>{exampleReviewEvidence.stance}</strong>
+                {`: ${exampleReviewEvidence.summary}`}
+              </p>
+              <div className="completed-source-line">
+                <span>source URL</span>
+                <a href={exampleReviewEvidence.sourceUrl} rel="noreferrer" target="_blank">
+                  {exampleReviewEvidence.sourceUrl}
+                </a>
+              </div>
+            </article>
+          ) : null}
+        </div>
+      </section>
 
       <section className="metric-strip" aria-label="Review queue status">
         <div>
