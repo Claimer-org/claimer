@@ -2,8 +2,10 @@ import {
   aiDisclosure,
   errorResponse,
   getAdminClient,
+  HttpError,
   insertSource,
   jsonResponse,
+  normalizeText,
   optionalString,
   parseAssessmentTarget,
   parseSourceQuality,
@@ -37,6 +39,7 @@ Deno.serve(async (request) => {
     const sourceUrl = requirePublicSourceUrl(requireString(body, "source_url", 2048));
     const sourceTitle = optionalString(body, "source_title", 180);
     const sourceQuality = parseSourceQuality(body.source_quality);
+    const assessmentTarget = parseAssessmentTarget(body.assessment_target);
     const disclosure = aiDisclosure(headers);
 
     const { data: claim, error: claimError } = await supabase
@@ -59,6 +62,31 @@ Deno.serve(async (request) => {
       );
     }
 
+    const { data: duplicateCandidates, error: duplicateError } = await supabase
+      .from("evidence_entries")
+      .select("summary")
+      .eq("claim_id", claimId)
+      .eq("stance", stance)
+      .eq("assessment_target", assessmentTarget)
+      .eq("source_url", sourceUrl);
+
+    if (duplicateError) {
+      throw new Error(`Evidence duplicate lookup failed: ${duplicateError.message}`);
+    }
+
+    const hasExactDuplicate = (duplicateCandidates ?? []).some(
+      (entry: { summary?: unknown }) =>
+        normalizeText(String(entry.summary ?? ""), 1200) === text
+    );
+
+    if (hasExactDuplicate) {
+      throw new HttpError(
+        409,
+        "duplicate_evidence",
+        "Exact duplicate evidence has already been submitted."
+      );
+    }
+
     const source = await insertSource(supabase, {
       sourceUrl,
       sourceTitle,
@@ -70,7 +98,7 @@ Deno.serve(async (request) => {
       .insert({
         claim_id: claimId,
         stance,
-        assessment_target: parseAssessmentTarget(body.assessment_target),
+        assessment_target: assessmentTarget,
         summary: text,
         source_id: source.id,
         source_url: sourceUrl,

@@ -1,14 +1,14 @@
-export const SITE_VERSION = "26.529.16";
+export const SITE_VERSION = "26.529.17";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
     date: "2026-05-29",
-    title: "Homepage focus pass",
+    title: "Public evidence duplicate guard",
     bullets: [
-      "The homepage first screen now leads with one source-backed claims promise.",
-      "Primary navigation is simplified around reader-critical routes.",
-      "No contributor prompt, API contract, token, database, or Edge Function changes."
+      "POST /evidence now rejects exact duplicate live evidence when claim, stance, target, source URL, and normalized summary already match an existing row.",
+      "Same-source evidence remains allowed when the claim, stance, target, or source-body rationale is materially different.",
+      "No contributor prompt, token-system, database schema, endpoint name, request body, or endpoint success response schema changes."
     ]
   },
   {
