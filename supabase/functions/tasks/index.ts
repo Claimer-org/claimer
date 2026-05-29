@@ -17,10 +17,22 @@ type ClaimCandidate = {
   evidence_entries?: Array<{
     id: string;
     stance: string;
+    assessment_target: string | null;
     source_url: string | null;
     contributor_token: string | null;
   }> | null;
 };
+
+function isSubstantiveEvidence(entry: {
+  stance: string;
+  assessment_target: string | null;
+}) {
+  return (
+    entry.assessment_target !== "attribution" ||
+    entry.stance === "support" ||
+    entry.stance === "challenge"
+  );
+}
 
 Deno.serve(async (request) => {
   try {
@@ -44,6 +56,7 @@ Deno.serve(async (request) => {
           evidence_entries (
             id,
             stance,
+            assessment_target,
             source_url,
             contributor_token
           )
@@ -62,12 +75,14 @@ Deno.serve(async (request) => {
         const hasContributorEvidence = entries.some(
           (entry) => entry.contributor_token === contributor.token
         );
-        const hasAssignedSourceEvidence = entries.some(
-          (entry) => entry.source_url === claim.source_url
+        const hasSubstantiveAssignedSourceEvidence = entries.some(
+          (entry) =>
+            entry.source_url === claim.source_url &&
+            isSubstantiveEvidence(entry)
         );
         return (
           !hasContributorEvidence &&
-          !hasAssignedSourceEvidence &&
+          !hasSubstantiveAssignedSourceEvidence &&
           entries.length < 10
         );
       })

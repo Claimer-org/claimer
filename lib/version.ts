@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.19";
+export const SITE_VERSION = "26.529.20";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Attribution-aware task capacity",
+    bullets: [
+      "Public tasks can assign claim source URLs when only attribution evidence exists for that source.",
+      "Substantive same-claim/same-source evidence still blocks duplicate assignment.",
+      "No contributor prompt, endpoint names, response shape, token system, or database schema changes."
+    ]
+  },
+  {
+    version: "26.529.19",
     date: "2026-05-29",
     title: "Public task source diversity guard",
     bullets: [
