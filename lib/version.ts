@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.5";
+export const SITE_VERSION = "26.529.6";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Homepage north-star metrics",
+    bullets: [
+      "The homepage statistics strip now shows average source links per claim from the static claim corpus.",
+      "Visitors can see how many claims have reached the 10+ source target and how many source-link gaps remain.",
+      "Two-sided claim coverage is visible without adding contributor counts that the static corpus does not track."
+    ]
+  },
+  {
+    version: "26.529.5",
     date: "2026-05-29",
     title: "Reviewer completion checkpoint",
     bullets: [

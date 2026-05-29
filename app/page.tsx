@@ -71,6 +71,8 @@ const addedDateFormatter = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC"
 });
 
+const NORTH_STAR_SOURCE_TARGET = 10;
+
 function formatAddedLabel(createdAt: string) {
   return `Added ${addedDateFormatter.format(new Date(createdAt))}`;
 }
@@ -120,30 +122,43 @@ function reviewGapSummary(counts: ReturnType<typeof evidenceCounts>) {
 }
 
 export default function HomePage() {
-  const evidenceTotal = seedClaims.reduce(
-    (total, claim) => total + claim.evidence.length,
+  const claimEvidenceCoverage = seedClaims.map((claim) => {
+    const counts = evidenceCounts(claim);
+    const sourceLinks = counts.support + counts.challenge + counts.context;
+
+    return {
+      counts,
+      sourceLinks
+    };
+  });
+
+  const evidenceTotal = claimEvidenceCoverage.reduce(
+    (total, claim) => total + claim.sourceLinks,
     0
   );
-  const openEvidenceGaps = seedClaims.reduce((total, claim) => {
-    const counts = evidenceCounts(claim);
+  const sourceLinksPerClaim = seedClaims.length
+    ? (evidenceTotal / seedClaims.length).toFixed(1)
+    : "0.0";
+  const claimsAtSourceTarget = claimEvidenceCoverage.reduce(
+    (total, claim) =>
+      total + Number(claim.sourceLinks >= NORTH_STAR_SOURCE_TARGET),
+    0
+  );
+  const evidenceTargetGap = claimEvidenceCoverage.reduce(
+    (total, claim) =>
+      total + Math.max(0, NORTH_STAR_SOURCE_TARGET - claim.sourceLinks),
+    0
+  );
+  const openChallengeGaps = claimEvidenceCoverage.reduce(
+    (total, claim) => total + Number(claim.counts.challenge === 0),
+    0
+  );
+  const claimsWithBothSides = claimEvidenceCoverage.reduce(
+    (total, claim) =>
+      total + Number(claim.counts.support > 0 && claim.counts.challenge > 0),
+    0
+  );
 
-    return (
-      total +
-      Number(counts.support === 0) +
-      Number(counts.challenge === 0) +
-      Number(counts.context === 0)
-    );
-  }, 0);
-  const openChallengeGaps = seedClaims.reduce((total, claim) => {
-    const counts = evidenceCounts(claim);
-
-    return total + Number(counts.challenge === 0);
-  }, 0);
-  const claimsWithBothSides = seedClaims.reduce((total, claim) => {
-    const counts = evidenceCounts(claim);
-
-    return total + Number(counts.support > 0 && counts.challenge > 0);
-  }, 0);
 
   // Hot debates: claims that are disputed or inconclusive
   const hotDebates = seedClaims
@@ -164,7 +179,6 @@ export default function HomePage() {
           .slice(0, 4);
 
   const topClaims = seedClaims.slice(0, 3);
-  const domainsSet = new Set(seedClaims.map((c) => c.domain));
   const latestClaims = seedClaims
     .slice()
     .sort(
@@ -352,22 +366,34 @@ export default function HomePage() {
 
       <section className="stat-highlight" aria-label="Platform statistics">
         <div className="stat-item stat-item-primary">
-          <strong>{seedClaims.length}</strong>
-          <span>Active claims</span>
-          <p>Open for source-backed public review.</p>
+          <strong>{sourceLinksPerClaim}</strong>
+          <span>Evidence per claim</span>
+          <p>
+            {evidenceTotal} source links across {seedClaims.length} active
+            claims.
+          </p>
         </div>
         <div className="stat-item">
-          <strong>{evidenceTotal}</strong>
-          <span>Source links</span>
+          <strong>
+            {claimsAtSourceTarget}/{seedClaims.length}
+          </strong>
+          <span>10+ source target</span>
+          <p>Claims with at least {NORTH_STAR_SOURCE_TARGET} source links.</p>
         </div>
         <div className="stat-item">
-          <strong>{domainsSet.size}</strong>
-          <span>Domains covered</span>
-        </div>
-        <div className="stat-item">
-          <strong>{openEvidenceGaps}</strong>
+          <strong>{evidenceTargetGap}</strong>
           <span>Evidence gaps</span>
-          <p>Missing support, challenge, or context sources.</p>
+          <p>
+            Additional source links needed for every claim to reach{" "}
+            {NORTH_STAR_SOURCE_TARGET}.
+          </p>
+        </div>
+        <div className="stat-item">
+          <strong>
+            {claimsWithBothSides}/{seedClaims.length}
+          </strong>
+          <span>Two-sided claims</span>
+          <p>Claims with both support and challenge source links.</p>
         </div>
       </section>
 
