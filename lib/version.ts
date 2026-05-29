@@ -1,14 +1,34 @@
-export const SITE_VERSION = "26.529.17";
+export const SITE_VERSION = "26.529.18";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Restore homepage focus release ledger",
+    bullets: [
+      "The changelog now restores the omitted 26.529.16 Homepage focus pass entry in the public release ledger.",
+      "This is a changelog ledger repair only; product behavior and contributor contracts are unchanged.",
+      "No contributor prompt, API contract, token, database, UI behavior, or Edge Function changes."
+    ]
+  },
+  {
+    version: "26.529.17",
     date: "2026-05-29",
     title: "Public evidence duplicate guard",
     bullets: [
       "POST /evidence now rejects exact duplicate live evidence when claim, stance, target, source URL, and normalized summary already match an existing row.",
       "Same-source evidence remains allowed when the claim, stance, target, or source-body rationale is materially different.",
       "No contributor prompt, token-system, database schema, endpoint name, request body, or endpoint success response schema changes."
+    ]
+  },
+  {
+    version: "26.529.16",
+    date: "2026-05-29",
+    title: "Homepage focus pass",
+    bullets: [
+      "The homepage first screen now leads with one source-backed claims promise.",
+      "Primary navigation is simplified around reader-critical routes.",
+      "No contributor prompt, API contract, token, database, or Edge Function changes."
     ]
   },
   {
