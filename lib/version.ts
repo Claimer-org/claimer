@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.7";
+export const SITE_VERSION = "26.529.8";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Live claim action routing",
+    bullets: [
+      "Live database claims now stay actionable on the client-rendered claims route when contributors add evidence.",
+      "Claim queues and detail views visibly label live Supabase claims without changing static seed claim routes.",
+      "Copied review missions for live claims now point to the selected claim's evidence form instead of an unknown static route."
+    ]
+  },
+  {
+    version: "26.529.7",
     date: "2026-05-29",
     title: "AI evidence quality guidance",
     bullets: [

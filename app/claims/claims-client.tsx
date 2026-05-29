@@ -17,6 +17,7 @@ import {
 import {
   canUseSupabase,
   evidencePersistenceTarget,
+  isLiveSupabaseClaimId,
   loadSupabaseClaims,
   loadSupabaseSeedEvidence,
   publishClaimToSupabase,
@@ -119,11 +120,19 @@ function makeId(prefix: string) {
     .slice(2, 8)}`;
 }
 
-function claimSubmitUrl(claimId: string, attribution: AttributionParams = {}) {
-  const path = attributedPath(
-    `/submit/${encodeURIComponent(claimId)}/`,
-    attribution
-  );
+function claimEvidencePath(claimId: string, attribution: AttributionParams = {}) {
+  if (isLiveSupabaseClaimId(claimId)) {
+    return attributedPath(
+      `/claims/?claim=${encodeURIComponent(claimId)}#evidence-form-title`,
+      attribution
+    );
+  }
+
+  return attributedPath(`/submit/${encodeURIComponent(claimId)}/`, attribution);
+}
+
+function claimEvidenceUrl(claimId: string, attribution: AttributionParams = {}) {
+  const path = claimEvidencePath(claimId, attribution);
 
   if (typeof window === "undefined") {
     return path;
@@ -955,7 +964,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       `Assessment target: ${mission.stance === "context" ? "attribution/context" : "claim veracity"}`,
       `Task: ${mission.prompt}`,
       "Rules: use a public http/https source URL, avoid private-person claims, and disclose AI-assisted summaries.",
-      `Submit at: ${claimSubmitUrl(selectedClaim.id, attribution)}`
+      `Submit at: ${claimEvidenceUrl(selectedClaim.id, attribution)}`
     ].join("\n");
 
     try {
@@ -990,6 +999,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                 <div className="priority-claim-copy">
                   <div className="priority-claim-kicker">
                     <span className="claim-domain">{priorityClaim.domain}</span>
+                    {isLiveSupabaseClaimId(priorityClaim.id) ? (
+                      <span className="claim-domain">Live database</span>
+                    ) : null}
                     <span>{claimFreshnessLabel(priorityClaim.createdAt)}</span>
                     <span>{priorityClaim.sourceQuality} source</span>
                   </div>
@@ -1013,7 +1025,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                   <div className="priority-actions">
                     <Link
                       className="button primary compact"
-                      href={attributedPath(`/submit/${priorityClaim.id}/`, attribution)}
+                      href={claimEvidencePath(priorityClaim.id, attribution)}
                     >
                       {actionLabel}
                     </Link>
@@ -1143,6 +1155,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                     type="button"
                   >
                     <span className="claim-domain">{claim.domain}</span>
+                    {isLiveSupabaseClaimId(claim.id) ? (
+                      <span className="claim-domain">Live database</span>
+                    ) : null}
                     <strong>{claim.title}</strong>
                     <span>
                       {counts.support} support / {counts.challenge} challenge /{" "}
@@ -1172,6 +1187,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
               <div className="detail-heading">
                 <div>
                   <p className="eyebrow">{selectedClaim.claimantName}</p>
+                  {isLiveSupabaseClaimId(selectedClaim.id) ? (
+                    <span className="claim-domain">Live database</span>
+                  ) : null}
                   <h2>{selectedClaim.title}</h2>
                 </div>
                 {seedClaims.some((claim) => claim.id === selectedClaim.id) ? (
@@ -1278,6 +1296,9 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
               </section>
 
               <div className="source-line">
+                {isLiveSupabaseClaimId(selectedClaim.id) ? (
+                  <span>Live database</span>
+                ) : null}
                 <span>{selectedClaim.sourceQuality}</span>
                 <a href={selectedClaim.sourceUrl} rel="noreferrer" target="_blank">
                   {selectedClaim.sourceTitle}
