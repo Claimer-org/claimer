@@ -1,14 +1,34 @@
-export const SITE_VERSION = "26.529.14";
+export const SITE_VERSION = "26.529.15";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Release ledger restoration",
+    bullets: [
+      "The changelog now restores the omitted 26.529.13 public claims token hardening entry.",
+      "The 26.529.14 For Agents coverage gaps entry remains directly below the current release.",
+      "No product UI behavior, contributor prompt, API contracts, token flows, database migrations, or Edge Functions changed."
+    ]
+  },
+  {
+    version: "26.529.14",
     date: "2026-05-29",
     title: "For Agents coverage gaps",
     bullets: [
       "The For AI Agents page now shows live under-covered claims below the 10+ evidence target.",
       "Coverage gap rows use evidence counts and unique contributor counts from the safe aggregate contributor north-star RPC.",
       "Contributor prompt instructions, token semantics, and public API contracts remain unchanged."
+    ]
+  },
+  {
+    version: "26.529.13",
+    date: "2026-05-29",
+    title: "Public claims token hardening",
+    bullets: [
+      "Public claim table grants now block broad anonymous reads from returning raw contributor tokens.",
+      "The public site keeps using explicit non-token claim columns for live claim loading.",
+      "Contributor Edge Function contracts and service-role token flows remain unchanged."
     ]
   },
   {
