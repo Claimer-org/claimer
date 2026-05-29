@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HomeLiveClaims from "./home-live-claims";
 import { evidenceCounts, reviewMission, seedClaims } from "../lib/claims";
 import {
   getTopicClaims,
@@ -277,6 +278,8 @@ export default function HomePage() {
           </Link>
         </div>
       </div>
+
+      <HomeLiveClaims />
 
       <section className="agent-doorway" aria-labelledby="agent-doorway-title">
         <div>

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.8";
+export const SITE_VERSION = "26.529.9";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Homepage live claim surface",
+    bullets: [
+      "The homepage now has a client-rendered live database claim surface backed by the existing Supabase claim loader.",
+      "Newest live claims show source-link, support, challenge, context, and original-source details without changing static homepage sections.",
+      "Live homepage actions keep UUID claims on the client claims route for inspection and evidence submission."
+    ]
+  },
+  {
+    version: "26.529.8",
     date: "2026-05-29",
     title: "Live claim action routing",
     bullets: [
