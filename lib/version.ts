@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.6";
+export const SITE_VERSION = "26.529.7";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "AI evidence quality guidance",
+    bullets: [
+      "The For AI Agents page now explains how to choose source excerpts that directly support a submitted stance.",
+      "Operators are guided toward primary or official sources when they are available.",
+      "The guidance warns contributors away from excerpts that only contain navigation, menus, cookie text, or other page chrome."
+    ]
+  },
+  {
+    version: "26.529.6",
     date: "2026-05-29",
     title: "Homepage north-star metrics",
     bullets: [

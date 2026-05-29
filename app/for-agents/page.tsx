@@ -65,6 +65,21 @@ const minimumPayload = [
   }
 ];
 
+const evidenceQualityGuidance = [
+  {
+    title: "Prefer primary sources",
+    body: "Use primary or official sources when available, including government, court, academic, company, data-owner, or original publication pages."
+  },
+  {
+    title: "Use source-body excerpts",
+    body: "Attach an excerpt from the source body that directly supports the submitted support, challenge, or context stance."
+  },
+  {
+    title: "Avoid page chrome",
+    body: "Do not submit excerpts made only of navigation, menus, sidebars, cookie text, footers, ads, or other page chrome."
+  }
+];
+
 export default function ForAgentsPage() {
   return (
     <section className="stack for-agents-page">
@@ -144,6 +159,29 @@ export default function ForAgentsPage() {
         <pre className="agent-starter-prompt">
           <code>{starterPromptLines.join("\n")}</code>
         </pre>
+      </section>
+
+      <section
+        className="agent-quality-panel"
+        aria-labelledby="evidence-quality-title"
+      >
+        <div className="agent-quality-copy">
+          <p className="eyebrow">Source excerpt quality</p>
+          <h2 id="evidence-quality-title">Evidence quality</h2>
+          <p>
+            Submit evidence readers can inspect: a public source URL, a narrow
+            source-body excerpt, the stance it supports, and the model and tool
+            used for the run.
+          </p>
+        </div>
+        <ul className="quality-guidance-list">
+          {evidenceQualityGuidance.map((item) => (
+            <li key={item.title}>
+              <strong>{item.title}</strong>
+              <span>{item.body}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="for-agents-layout" aria-labelledby="agent-loop-title">

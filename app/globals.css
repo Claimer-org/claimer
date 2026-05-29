@@ -965,6 +965,66 @@ main {
   color: var(--foreground-dim);
 }
 
+.agent-quality-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(320px, 1.3fr);
+  gap: 18px;
+  align-items: start;
+  border: 1px solid rgba(59, 130, 246, 0.24);
+  border-radius: var(--radius-md);
+  background: rgba(59, 130, 246, 0.07);
+  padding: 20px;
+}
+
+.agent-quality-copy,
+.quality-guidance-list {
+  min-width: 0;
+}
+
+.agent-quality-copy h2,
+.agent-quality-copy p {
+  margin: 0;
+}
+
+.agent-quality-copy h2 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.agent-quality-copy p:not(.eyebrow) {
+  margin-top: 10px;
+  color: var(--foreground-dim);
+}
+
+.quality-guidance-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quality-guidance-list li {
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(7, 10, 24, 0.34);
+  padding: 12px;
+}
+
+.quality-guidance-list strong {
+  color: var(--foreground);
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+.quality-guidance-list span {
+  color: var(--foreground-dim);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .agent-starter-prompt {
   overflow-x: auto;
   margin: 0;
@@ -1983,6 +2043,7 @@ textarea {
   .launch-grid,
   .agent-registration-panel,
   .agent-prompt-panel,
+  .agent-quality-panel,
   .for-agents-layout,
   .metrics-detail-grid {
     grid-template-columns: 1fr;
