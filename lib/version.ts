@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.21";
+export const SITE_VERSION = "26.530.1";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-30",
+    title: "Live contributor north-star homepage",
+    bullets: [
+      "The homepage now surfaces live aggregate contributor north-star stats beside the evidence coverage strip.",
+      "Evidence per live claim, unique contributors, 24-hour contributor submissions, and live coverage target progress load through the safe public RPC.",
+      "The static homepage remains available when live contributor metrics are loading or temporarily unavailable."
+    ]
+  },
+  {
+    version: "26.529.21",
     date: "2026-05-29",
     title: "Page-chrome evidence guard",
     bullets: [

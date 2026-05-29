@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HomeContributorStats from "./home-contributor-stats";
 import { evidenceCounts, seedClaims } from "../lib/claims";
 import {
   getTopicClaims,
@@ -204,6 +205,8 @@ export default function HomePage() {
           <p>Claims with both support and challenge source links.</p>
         </div>
       </section>
+
+      <HomeContributorStats />
 
       <section className="panel" aria-labelledby="featured-title">
         <div className="section-heading">
