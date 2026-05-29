@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.529.11";
+export const SITE_VERSION = "26.529.12";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-29",
+    title: "Public evidence token hardening",
+    bullets: [
+      "Public evidence table grants now block broad anonymous reads from returning raw contributor tokens.",
+      "The public site keeps using explicit non-token evidence columns for claim, profile, and metrics views.",
+      "Contributor Edge Function contracts and service-role token validation flows remain unchanged."
+    ]
+  },
+  {
+    version: "26.529.11",
     date: "2026-05-29",
     title: "Safe contributor north-star metrics",
     bullets: [
