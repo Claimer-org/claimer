@@ -1055,7 +1055,7 @@ export default function ClaimsClient({
                     <strong>Inspect source and evidence chain</strong>
                     <p>
                       Review the source line and current support, challenge, and
-                      context entries before choosing a contribution route.
+                      context entries before deciding what is covered.
                     </p>
                     <div className="priority-actions">
                       {seedClaims.some((claim) => claim.id === priorityClaim.id) ? (
@@ -1073,9 +1073,6 @@ export default function ClaimsClient({
                       >
                         Focus claim
                       </button>
-                      <Link className="button compact" href="/review/">
-                        Review missions
-                      </Link>
                     </div>
                   </div>
                 ) : (
@@ -1131,15 +1128,11 @@ export default function ClaimsClient({
             >
               {claimPickerOpen ? "Hide list" : "Show claims"}
             </button>
-          ) : isReaderMode ? (
-            <Link className="button compact" href="/submit/">
-              Contribute
-            </Link>
-          ) : (
+          ) : !isReaderMode ? (
             <Link className="button compact" href="/review/">
               Review
             </Link>
-          )}
+          ) : null}
         </div>
 
         {targetedReviewMode && !claimPickerOpen && selectedClaim ? (
@@ -1282,8 +1275,27 @@ export default function ClaimsClient({
                 <section className="score">
                   <span>Evidence coverage</span>
                   <strong>{selectedClaim.veracityScore}%</strong>
-                  <p>{selectedClaim.veracityLabel}</p>
-                  <small>{selectedClaim.veracityExplanation}</small>
+                  {isReaderMode ? (
+                    (() => {
+                      const health = evidenceHealth(selectedClaim);
+                      return (
+                        <>
+                          <p>
+                            {health.total} source {health.total === 1 ? "entry" : "entries"}
+                          </p>
+                          <small>
+                            {health.support} support / {health.challenge} challenge /{" "}
+                            {health.context} context entries are available for inspection.
+                          </small>
+                        </>
+                      );
+                    })()
+                  ) : (
+                    <>
+                      <p>{selectedClaim.veracityLabel}</p>
+                      <small>{selectedClaim.veracityExplanation}</small>
+                    </>
+                  )}
                 </section>
               </div>
 
@@ -1309,29 +1321,25 @@ export default function ClaimsClient({
                 })()}
               </section>
 
-              <section className="review-mission" aria-labelledby="review-mission-title">
-                {(() => {
-                  const mission = reviewMission(selectedClaim);
-                  return (
-                    <>
-                      <div>
-                        <span>{mission.stance}</span>
-                        <h3 id="review-mission-title">{mission.title}</h3>
-                        <p>{mission.description}</p>
-                      </div>
-                      {isReaderMode ? (
-                        <Link className="button compact" href="/review/">
-                          Review missions
-                        </Link>
-                      ) : (
+              {!isReaderMode ? (
+                <section className="review-mission" aria-labelledby="review-mission-title">
+                  {(() => {
+                    const mission = reviewMission(selectedClaim);
+                    return (
+                      <>
+                        <div>
+                          <span>{mission.stance}</span>
+                          <h3 id="review-mission-title">{mission.title}</h3>
+                          <p>{mission.description}</p>
+                        </div>
                         <button className="button compact" onClick={copyReviewMission} type="button">
                           Copy mission
                         </button>
-                      )}
-                    </>
-                  );
-                })()}
-              </section>
+                      </>
+                    );
+                  })()}
+                </section>
+              ) : null}
               {!isReaderMode && missionMessage ? (
                 <p className="form-message">{missionMessage}</p>
               ) : null}
@@ -1410,11 +1418,10 @@ export default function ClaimsClient({
               <section className="reader-route-panel" aria-labelledby="reader-route-title">
                 <div className="reader-route-copy">
                   <p className="eyebrow">Browse paths</p>
-                  <h2 id="reader-route-title">Inspect sources before contributing</h2>
+                  <h2 id="reader-route-title">Keep reading source context</h2>
                   <p>
                     Use the selected claim detail, current source, and evidence chain
-                    for reading. Submit and review routes keep contribution controls
-                    separate from this page.
+                    for reading. Evidence actions stay on separate routes.
                   </p>
                 </div>
                 <div className="reader-route-grid">
@@ -1426,24 +1433,16 @@ export default function ClaimsClient({
                     <strong>Inspect details</strong>
                     <p>Open the claim detail or return to the evidence chain.</p>
                   </Link>
-                  <Link
-                    className="reader-route-card"
-                    href={claimEvidencePath(selectedClaim.id, attribution)}
-                  >
-                    <span>Contribute</span>
-                    <strong>Contribute a source</strong>
-                    <p>Use the explicit submit route for source-backed evidence.</p>
-                  </Link>
-                  <Link className="reader-route-card" href="/review/">
-                    <span>Review</span>
-                    <strong>Review missions</strong>
-                    <p>Choose an evidence gap from the reviewer queue.</p>
+                  <Link className="reader-route-card" href="/sources/">
+                    <span>Sources</span>
+                    <strong>Compare source directory</strong>
+                    <p>Review publishers and source links used across public claims.</p>
                   </Link>
                 </div>
               </section>
             ) : (
               <section className="form-panel" aria-labelledby="evidence-form-title">
-                <h2 id="evidence-form-title">Add evidence</h2>
+                <h2 id="evidence-form-title">Submit evidence</h2>
                 <form className="form-grid" onSubmit={submitEvidence}>
                 <label>
                   Stance
@@ -1548,7 +1547,7 @@ export default function ClaimsClient({
                   disabled={evidenceSubmitting}
                   type="submit"
                 >
-                  {evidenceSubmitting ? "Adding..." : "Add evidence"}
+                  {evidenceSubmitting ? "Submitting..." : "Submit evidence"}
                 </button>
                 </form>
                 {evidenceMessage ? <p className="form-message">{evidenceMessage}</p> : null}

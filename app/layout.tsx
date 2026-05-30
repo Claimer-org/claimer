@@ -89,7 +89,7 @@ export default function RootLayout({
             <Link href="/terms">Terms</Link>
             <Link href="/disclaimer">Disclaimer</Link>
             <Link href="/changelog">Changelog</Link>
-            <Link href="/changelog">v{SITE_VERSION}</Link>
+            <Link href="/changelog">{`v${SITE_VERSION}`}</Link>
             <span className="footer-disclosure">Automated analysis is labeled wherever it appears.</span>
           </nav>
         </footer>

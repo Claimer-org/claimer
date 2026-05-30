@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.530.5";
+export const SITE_VERSION = "26.530.6";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-30",
+    title: "Mobile reader cleanup",
+    bullets: [
+      "Public reader pages now constrain long claim text, source URLs, code blocks, pills, cards, grids, and CTA groups inside mobile viewports.",
+      "The primary claims browser no longer renders verdict-like support labels or contributor/reviewer action language on the reader surface.",
+      "Contributor routes, contributor prompt, public API contracts, token behavior, database schema, seed claim data, and Supabase functions remain unchanged."
+    ]
+  },
+  {
+    version: "26.530.5",
     date: "2026-05-30",
     title: "Source-first claim detail",
     bullets: [
