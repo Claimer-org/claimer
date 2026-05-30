@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.530.4";
+export const SITE_VERSION = "26.530.5";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-30",
+    title: "Source-first claim detail",
+    bullets: [
+      "Public claim detail pages now show the original source and evidence chain before coverage scores, readiness checks, or contribution prompts.",
+      "Verdict-like claim detail labels have been reframed as evidence coverage and support / challenge balance.",
+      "The claim detail contribution route is reduced to one secondary sourced-evidence action while contributor contracts and data remain unchanged."
+    ]
+  },
+  {
+    version: "26.530.4",
     date: "2026-05-30",
     title: "Claims reader surface",
     bullets: [

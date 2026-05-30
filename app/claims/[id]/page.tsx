@@ -28,7 +28,8 @@ export async function generateMetadata({
     return { title: "Claim not found — Claimer" };
   }
 
-  const description = `${claim.veracityLabel} · Attribution ${claim.attributionScore}% · ${claim.evidence.length} evidence entries. ${claim.body}`.slice(0, 200);
+  const counts = evidenceCounts(claim);
+  const description = `Original source: ${claim.sourceTitle}. Evidence coverage: ${claim.evidence.length} entries (${counts.support} support, ${counts.challenge} challenge, ${counts.context} context). ${claim.body}`.slice(0, 200);
 
   return {
     title: claim.title,
@@ -64,6 +65,22 @@ export default async function ClaimDetailPage({
   const counts = evidenceCounts(claim);
   const health = evidenceHealth(claim);
   const mission = reviewMission(claim);
+  const evidenceCoverageLabel = `${health.total} source ${
+    health.total === 1 ? "entry" : "entries"
+  }`;
+  const supportChallengeBalance = `${counts.support} support / ${counts.challenge} challenge`;
+  const sourceCountSummary = `${counts.support} support, ${counts.challenge} challenge, ${counts.context} context`;
+  const evidenceTargetLabel = (target?: string) => {
+    if (target === "attribution") {
+      return "claim source";
+    }
+
+    if (target === "veracity") {
+      return "evidence coverage";
+    }
+
+    return target ?? "evidence coverage";
+  };
 
   // ClaimReview JSON-LD for Google rich results
   const claimReviewJsonLd = {
@@ -96,7 +113,7 @@ export default async function ClaimDetailPage({
       ratingValue: claim.veracityScore,
       bestRating: 100,
       worstRating: 0,
-      alternateName: claim.veracityLabel
+      alternateName: "Evidence coverage"
     },
     datePublished: claim.createdAt
   };
@@ -118,10 +135,46 @@ export default async function ClaimDetailPage({
       </div>
       <ClaimShareSection
         title={claim.title}
-        text={claim.veracityLabel}
+        text={`Original source: ${claim.sourceTitle}. Evidence coverage: ${sourceCountSummary}.`}
         claimId={claim.id}
       />
       <p>{claim.body}</p>
+
+      <section className="source-inspection" aria-labelledby="claim-source-title">
+        <div>
+          <span>Claim source</span>
+          <h2 id="claim-source-title">Original source</h2>
+          <p>
+            Inspect the source attributed to the claim before reviewing the
+            evidence coverage below.
+          </p>
+        </div>
+        <div className="source-line">
+          <span>{claim.sourceQuality}</span>
+          <a href={claim.sourceUrl} rel="noreferrer" target="_blank">
+            {claim.sourceTitle}
+          </a>
+        </div>
+      </section>
+
+      <section className="evidence-section" aria-labelledby="detail-evidence-title">
+        <h2 id="detail-evidence-title">Evidence chain</h2>
+        <div className="evidence-list">
+          {claim.evidence.map((item) => (
+            <article className={`evidence ${item.stance}`} key={item.id}>
+              <div>
+                <span>{item.stance}</span>
+                <em>{evidenceTargetLabel(item.assessmentTarget)}</em>
+                <em>{item.sourceQuality}</em>
+              </div>
+              <p>{item.summary}</p>
+              <a href={item.sourceUrl} rel="noreferrer" target="_blank">
+                {item.sourceTitle}
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <div className="score-grid">
         <section className="score">
@@ -131,10 +184,13 @@ export default async function ClaimDetailPage({
           <small>{claim.attributionExplanation}</small>
         </section>
         <section className="score">
-          <span>Claim veracity</span>
+          <span>Evidence coverage</span>
           <strong>{claim.veracityScore}%</strong>
-          <p>{claim.veracityLabel}</p>
-          <small>{claim.veracityExplanation}</small>
+          <p>{evidenceCoverageLabel}</p>
+          <small>
+            {sourceCountSummary} evidence entries are listed for reader
+            inspection.
+          </small>
         </section>
       </div>
 
@@ -164,22 +220,11 @@ export default async function ClaimDetailPage({
         </div>
         <div>
           <strong>{health.balanceLabel}</strong>
-          <span>balance check</span>
+          <span>Support / challenge balance</span>
         </div>
       </section>
 
-      <section className="review-mission" aria-labelledby="review-mission-title">
-        <div>
-          <span>{mission.stance}</span>
-          <h2 id="review-mission-title">{mission.title}</h2>
-          <p>{mission.description}</p>
-        </div>
-        <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
-          Add evidence
-        </AttributedReviewLink>
-      </section>
-
-      <section className="assessment-checklist" aria-label="Assessment readiness">
+      <section className="assessment-checklist" aria-label="Evidence coverage readiness">
         {[
           {
             label: "Attribution source",
@@ -192,12 +237,12 @@ export default async function ClaimDetailPage({
             detail: claim.sourceQuality
           },
           {
-            label: "Veracity support",
+            label: "Support evidence",
             done: counts.support > 0,
             detail: `${counts.support} source${counts.support === 1 ? "" : "s"}`
           },
           {
-            label: "Veracity challenge",
+            label: "Challenge evidence",
             done: counts.challenge > 0,
             detail: `${counts.challenge} source${counts.challenge === 1 ? "" : "s"}`
           }
@@ -210,40 +255,15 @@ export default async function ClaimDetailPage({
         ))}
       </section>
 
-      <div className="source-line">
-        <span>{claim.sourceQuality}</span>
-        <a href={claim.sourceUrl} rel="noreferrer" target="_blank">
-          {claim.sourceTitle}
-        </a>
-      </div>
-
-      <section className="evidence-section" aria-labelledby="detail-evidence-title">
-        <h2 id="detail-evidence-title">Evidence chain</h2>
-        <div className="source-line" aria-label="Add evidence">
-          <span>Community assessment</span>
-          <p>
-            If evidence suggests support, challenge, or context, add it with a
-            source.
-          </p>
-          <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
-            Add evidence
-          </AttributedReviewLink>
+      <section className="review-mission" aria-labelledby="review-mission-title">
+        <div>
+          <span>{mission.stance}</span>
+          <h2 id="review-mission-title">{mission.title}</h2>
+          <p>{mission.description}</p>
         </div>
-        <div className="evidence-list">
-          {claim.evidence.map((item) => (
-            <article className={`evidence ${item.stance}`} key={item.id}>
-              <div>
-                <span>{item.stance}</span>
-                <em>{item.assessmentTarget ?? "veracity"}</em>
-                <em>{item.sourceQuality}</em>
-              </div>
-              <p>{item.summary}</p>
-              <a href={item.sourceUrl} rel="noreferrer" target="_blank">
-                {item.sourceTitle}
-              </a>
-            </article>
-          ))}
-        </div>
+        <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
+          Contribute sourced evidence
+        </AttributedReviewLink>
       </section>
     </article>
   );
