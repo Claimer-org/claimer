@@ -68,19 +68,7 @@ export default async function ClaimDetailPage({
   const evidenceCoverageLabel = `${health.total} source ${
     health.total === 1 ? "entry" : "entries"
   }`;
-  const supportChallengeBalance = `${counts.support} support / ${counts.challenge} challenge`;
   const sourceCountSummary = `${counts.support} support, ${counts.challenge} challenge, ${counts.context} context`;
-  const evidenceTargetLabel = (target?: string) => {
-    if (target === "attribution") {
-      return "claim source";
-    }
-
-    if (target === "veracity") {
-      return "evidence coverage";
-    }
-
-    return target ?? "evidence coverage";
-  };
 
   // ClaimReview JSON-LD for Google rich results
   const claimReviewJsonLd = {
@@ -119,7 +107,7 @@ export default async function ClaimDetailPage({
   };
 
   return (
-    <article className="detail standalone">
+    <article className="detail standalone claim-detail-article reader-editorial">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(claimReviewJsonLd) }}
@@ -142,18 +130,20 @@ export default async function ClaimDetailPage({
 
       <section className="source-inspection" aria-labelledby="claim-source-title">
         <div>
-          <span>Claim source</span>
+          <span>Original source</span>
           <h2 id="claim-source-title">Original source</h2>
           <p>
-            Inspect the source attributed to the claim before reviewing the
-            evidence coverage below.
+            Publisher: {claim.sourcePublisher}. Inspect the source attributed to
+            the claim before reviewing the evidence coverage below.
           </p>
         </div>
-        <div className="source-line">
-          <span>{claim.sourceQuality}</span>
+        <div className="source-reference">
+          <span>{claim.sourceQuality} source</span>
           <a href={claim.sourceUrl} rel="noreferrer" target="_blank">
             {claim.sourceTitle}
           </a>
+          <small>{claim.sourcePublisher}</small>
+          <code className="source-url">{claim.sourceUrl}</code>
         </div>
       </section>
 
@@ -164,35 +154,19 @@ export default async function ClaimDetailPage({
             <article className={`evidence ${item.stance}`} key={item.id}>
               <div>
                 <span>{item.stance}</span>
-                <em>{evidenceTargetLabel(item.assessmentTarget)}</em>
                 <em>{item.sourceQuality}</em>
               </div>
               <p>{item.summary}</p>
-              <a href={item.sourceUrl} rel="noreferrer" target="_blank">
-                {item.sourceTitle}
-              </a>
+              <div className="evidence-source">
+                <a href={item.sourceUrl} rel="noreferrer" target="_blank">
+                  {item.sourceTitle}
+                </a>
+                <small>{item.sourceUrl}</small>
+              </div>
             </article>
           ))}
         </div>
       </section>
-
-      <div className="score-grid">
-        <section className="score">
-          <span>Attribution accuracy</span>
-          <strong>{claim.attributionScore}%</strong>
-          <p>{claim.attributionLabel}</p>
-          <small>{claim.attributionExplanation}</small>
-        </section>
-        <section className="score">
-          <span>Evidence coverage</span>
-          <strong>{claim.veracityScore}%</strong>
-          <p>{evidenceCoverageLabel}</p>
-          <small>
-            {sourceCountSummary} evidence entries are listed for reader
-            inspection.
-          </small>
-        </section>
-      </div>
 
       <section className="metric-strip" aria-label="Evidence counts">
         <div>
@@ -220,9 +194,27 @@ export default async function ClaimDetailPage({
         </div>
         <div>
           <strong>{health.balanceLabel}</strong>
-          <span>Support / challenge balance</span>
+          <span>support / challenge mix</span>
         </div>
       </section>
+
+      <div className="score-grid">
+        <section className="score">
+          <span>Attribution accuracy</span>
+          <strong>{claim.attributionScore}%</strong>
+          <p>{claim.attributionLabel}</p>
+          <small>{claim.attributionExplanation}</small>
+        </section>
+        <section className="score">
+          <span>Evidence coverage</span>
+          <strong>{claim.veracityScore}%</strong>
+          <p>{evidenceCoverageLabel}</p>
+          <small>
+            {sourceCountSummary} evidence entries are listed for reader
+            inspection.
+          </small>
+        </section>
+      </div>
 
       <section className="assessment-checklist" aria-label="Evidence coverage readiness">
         {[
@@ -258,7 +250,7 @@ export default async function ClaimDetailPage({
       <section className="review-mission" aria-labelledby="review-mission-title">
         <div>
           <span>{mission.stance}</span>
-          <h2 id="review-mission-title">{mission.title}</h2>
+          <h2 id="review-mission-title">Evidence gap</h2>
           <p>{mission.description}</p>
         </div>
         <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>

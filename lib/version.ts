@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.530.7";
+export const SITE_VERSION = "26.530.8";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-30",
+    title: "Claims editorial reader surface",
+    bullets: [
+      "The claims archive now uses a light editorial reader surface with original source, source URL, source publisher, evidence count, stance mix, and evidence gaps ahead of assessment chrome.",
+      "Claim detail pages now read as source-first evidence articles with the claim, original source, source URL, evidence chain, and support / challenge / context mix before percentage panels.",
+      "Contributor prompt, public API contracts, token behavior, database schema, Supabase functions, and seed claim data remain unchanged."
+    ]
+  },
+  {
+    version: "26.530.7",
     date: "2026-05-30",
     title: "Homepage editorial evidence surface",
     bullets: [

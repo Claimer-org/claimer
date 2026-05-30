@@ -1027,13 +1027,13 @@ export default function ClaimsClient({
                   <div className="priority-claim-kicker">
                     <span className="claim-domain">{priorityClaim.domain}</span>
                     {isLiveSupabaseClaimId(priorityClaim.id) ? (
-                      <span className="claim-domain">Live database</span>
+                      <span className="claim-domain">Live source</span>
                     ) : null}
                     <span>{claimFreshnessLabel(priorityClaim.createdAt)}</span>
                     <span>{priorityClaim.sourceQuality} source</span>
                   </div>
                   <h2 id="priority-claim-title">
-                    {isReaderMode ? "Browse focus" : "Priority review"}
+                    {isReaderMode ? "Archive focus" : "Priority review"}
                   </h2>
                   <h3>{priorityClaim.title}</h3>
                   <p>
@@ -1051,7 +1051,7 @@ export default function ClaimsClient({
                 </div>
                 {isReaderMode ? (
                   <div className="priority-action">
-                    <span>Reader path</span>
+                    <span>Source path</span>
                     <strong>Inspect source and evidence chain</strong>
                     <p>
                       Review the source line and current support, challenge, and
@@ -1113,7 +1113,7 @@ export default function ClaimsClient({
               {targetedReviewMode
                 ? "Optional"
                 : isReaderMode
-                  ? "Browse claims"
+                  ? "Claims archive"
                   : "Contribution workspace"}
             </p>
             <h1>{targetedReviewMode ? "Change claim" : "Claims"}</h1>
@@ -1221,7 +1221,7 @@ export default function ClaimsClient({
                   >
                     <span className="claim-domain">{claim.domain}</span>
                     {isLiveSupabaseClaimId(claim.id) ? (
-                      <span className="claim-domain">Live database</span>
+                      <span className="claim-domain">Live source</span>
                     ) : null}
                     <strong>{claim.title}</strong>
                     <span>
@@ -1253,7 +1253,7 @@ export default function ClaimsClient({
                 <div>
                   <p className="eyebrow">{selectedClaim.claimantName}</p>
                   {isLiveSupabaseClaimId(selectedClaim.id) ? (
-                    <span className="claim-domain">Live database</span>
+                    <span className="claim-domain">Live source</span>
                   ) : null}
                   <h2>{selectedClaim.title}</h2>
                 </div>
@@ -1264,6 +1264,68 @@ export default function ClaimsClient({
                 ) : null}
               </div>
               <p>{selectedClaim.body}</p>
+
+              <section className="source-inspection" aria-labelledby="selected-source-title">
+                <div>
+                  <span>Original source</span>
+                  <h3 id="selected-source-title">Original source</h3>
+                  <p>Publisher: {selectedClaim.sourcePublisher}</p>
+                </div>
+                <div className="source-reference">
+                  {isLiveSupabaseClaimId(selectedClaim.id) ? <span>Live source</span> : null}
+                  <span>{selectedClaim.sourceQuality} source</span>
+                  <a href={selectedClaim.sourceUrl} rel="noreferrer" target="_blank">
+                    {selectedClaim.sourceTitle}
+                  </a>
+                  <small>{selectedClaim.sourcePublisher}</small>
+                  <code className="source-url">{selectedClaim.sourceUrl}</code>
+                </div>
+              </section>
+
+              <section className="evidence-section" aria-labelledby="evidence-title">
+                <h3 id="evidence-title">Evidence chain</h3>
+                <div className="evidence-list">
+                  {selectedClaim.evidence.map((item) => (
+                    <article className={`evidence ${item.stance}`} key={item.id}>
+                      <div>
+                        <span>{item.stance}</span>
+                        <em>{item.sourceQuality}</em>
+                        {!isReaderMode ? <em>{item.assessmentTarget ?? "veracity"}</em> : null}
+                        {!isReaderMode && item.aiAssisted ? <em>AI-assisted summary</em> : null}
+                      </div>
+                      <p>{item.summary}</p>
+                      <div className="evidence-source">
+                        <a href={item.sourceUrl} rel="noreferrer" target="_blank">
+                          {item.sourceTitle}
+                        </a>
+                        <small>{item.sourceUrl}</small>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              <section className="metric-strip evidence-health" aria-label="Evidence health">
+                {(() => {
+                  const health = evidenceHealth(selectedClaim);
+                  return (
+                    <>
+                      <div>
+                        <strong>{health.total}</strong>
+                        <span>evidence entries</span>
+                      </div>
+                      <div>
+                        <strong>{health.highQualityCount}</strong>
+                        <span>primary/direct</span>
+                      </div>
+                      <div>
+                        <strong>{health.balanceLabel}</strong>
+                        <span>support / challenge mix</span>
+                      </div>
+                    </>
+                  );
+                })()}
+              </section>
 
               <div className="score-grid">
                 <section className="score">
@@ -1299,28 +1361,6 @@ export default function ClaimsClient({
                 </section>
               </div>
 
-              <section className="metric-strip evidence-health" aria-label="Evidence health">
-                {(() => {
-                  const health = evidenceHealth(selectedClaim);
-                  return (
-                    <>
-                      <div>
-                        <strong>{health.total}</strong>
-                        <span>evidence entries</span>
-                      </div>
-                      <div>
-                        <strong>{health.highQualityCount}</strong>
-                        <span>primary/direct</span>
-                      </div>
-                      <div>
-                        <strong>{health.balanceLabel}</strong>
-                        <span>balance check</span>
-                      </div>
-                    </>
-                  );
-                })()}
-              </section>
-
               {!isReaderMode ? (
                 <section className="review-mission" aria-labelledby="review-mission-title">
                   {(() => {
@@ -1344,7 +1384,7 @@ export default function ClaimsClient({
                 <p className="form-message">{missionMessage}</p>
               ) : null}
 
-              <section className="assessment-checklist" aria-label="Assessment readiness">
+              <section className="assessment-checklist" aria-label="Evidence coverage readiness">
                 {(() => {
                   const health = evidenceHealth(selectedClaim);
                   const hasStrongAttributionSource = ["primary", "direct witness"].includes(
@@ -1362,12 +1402,12 @@ export default function ClaimsClient({
                       detail: selectedClaim.sourceQuality
                     },
                     {
-                      label: "Veracity support",
+                      label: "Support evidence",
                       done: health.support > 0,
                       detail: `${health.support} source${health.support === 1 ? "" : "s"}`
                     },
                     {
-                      label: "Veracity challenge",
+                      label: "Challenge evidence",
                       done: health.challenge > 0,
                       detail: `${health.challenge} source${health.challenge === 1 ? "" : "s"}`
                     }
@@ -1381,36 +1421,6 @@ export default function ClaimsClient({
                     </div>
                   ));
                 })()}
-              </section>
-
-              <div className="source-line">
-                {isLiveSupabaseClaimId(selectedClaim.id) ? (
-                  <span>Live database</span>
-                ) : null}
-                <span>{selectedClaim.sourceQuality}</span>
-                <a href={selectedClaim.sourceUrl} rel="noreferrer" target="_blank">
-                  {selectedClaim.sourceTitle}
-                </a>
-              </div>
-
-              <section className="evidence-section" aria-labelledby="evidence-title">
-                <h3 id="evidence-title">Evidence chain</h3>
-                <div className="evidence-list">
-                  {selectedClaim.evidence.map((item) => (
-                    <article className={`evidence ${item.stance}`} key={item.id}>
-                      <div>
-                        <span>{item.stance}</span>
-                        <em>{item.assessmentTarget ?? "veracity"}</em>
-                        <em>{item.sourceQuality}</em>
-                        {item.aiAssisted ? <em>AI-assisted summary</em> : null}
-                      </div>
-                      <p>{item.summary}</p>
-                      <a href={item.sourceUrl} rel="noreferrer" target="_blank">
-                        {item.sourceTitle}
-                      </a>
-                    </article>
-                  ))}
-                </div>
               </section>
             </article>
 
