@@ -31,8 +31,10 @@ import {
 import { isPublicSourceUrl } from "../../lib/supabase-contract";
 
 type StoredClaims = Record<string, Claim>;
+type ClaimsClientMode = "reader" | "submit" | "review";
 type ClaimsClientProps = {
   initialClaimId?: string;
+  mode?: ClaimsClientMode;
 };
 type EvidenceFormState = {
   stance: EvidenceStance;
@@ -121,14 +123,29 @@ function makeId(prefix: string) {
 }
 
 function claimEvidencePath(claimId: string, attribution: AttributionParams = {}) {
-  if (isLiveSupabaseClaimId(claimId)) {
+  const isSeedClaim = seedClaims.some((claim) => claim.id === claimId);
+
+  if (!isSeedClaim) {
     return attributedPath(
-      `/claims/?claim=${encodeURIComponent(claimId)}#evidence-form-title`,
+      `/submit/?claim=${encodeURIComponent(claimId)}#evidence-form-title`,
       attribution
     );
   }
 
   return attributedPath(`/submit/${encodeURIComponent(claimId)}/`, attribution);
+}
+
+function claimReaderPath(claimId: string, attribution: AttributionParams = {}) {
+  const isSeedClaim = seedClaims.some((claim) => claim.id === claimId);
+
+  if (isSeedClaim) {
+    return attributedPath(`/claims/${encodeURIComponent(claimId)}/`, attribution);
+  }
+
+  return attributedPath(
+    `/claims/?claim=${encodeURIComponent(claimId)}#evidence-title`,
+    attribution
+  );
 }
 
 function claimEvidenceUrl(claimId: string, attribution: AttributionParams = {}) {
@@ -329,7 +346,11 @@ function ContributionPromptView({
   );
 }
 
-export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps) {
+export default function ClaimsClient({
+  initialClaimId = "",
+  mode = "reader"
+}: ClaimsClientProps) {
+  const isReaderMode = mode === "reader";
   const targetedReviewMode = Boolean(initialClaimId);
   const initialSelectedId = initialClaimId || seedClaims[0]?.id || "";
   const [storedClaims, setStoredClaims] = useState<StoredClaims>({});
@@ -580,9 +601,11 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       stance: mission.stance,
       assessmentTarget: mission.stance === "context" ? "context" : "veracity"
     }));
-    setEvidenceMessage(`Ready to add ${mission.stance} evidence for this claim.`);
+    if (!isReaderMode) {
+      setEvidenceMessage(`Ready to add ${mission.stance} evidence for this claim.`);
+    }
     setRequestedClaimId("");
-  }, [claims, requestedClaimId]);
+  }, [claims, isReaderMode, requestedClaimId]);
 
   function saveClaims(nextClaims: StoredClaims) {
     setStoredClaims(nextClaims);
@@ -961,7 +984,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       `Claim ID: ${selectedClaim.id}`,
       `Current source: ${selectedClaim.sourceUrl}`,
       `Needed stance: ${mission.stance}`,
-      `Assessment target: ${mission.stance === "context" ? "attribution/context" : "claim veracity"}`,
+      `Assessment target: ${mission.stance === "context" ? "attribution/context" : "claim evidence"}`,
       `Task: ${mission.prompt}`,
       "Rules: use a public http/https source URL, avoid private-person claims, and disclose AI-assisted summaries.",
       `Submit at: ${claimEvidenceUrl(selectedClaim.id, attribution)}`
@@ -975,9 +998,13 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
     }
   }
 
-  const workspaceClassName = targetedReviewMode
-    ? "workspace targeted-review-workspace"
-    : "workspace";
+  const workspaceClassName = [
+    "workspace",
+    isReaderMode ? "reader-workspace" : "",
+    targetedReviewMode ? "targeted-review-workspace" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
   const claimPickerBodyId = targetedReviewMode ? "targeted-claim-picker-body" : undefined;
   const showClaimPickerBody = !targetedReviewMode || claimPickerOpen;
 
@@ -1005,11 +1032,15 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                     <span>{claimFreshnessLabel(priorityClaim.createdAt)}</span>
                     <span>{priorityClaim.sourceQuality} source</span>
                   </div>
-                  <h2 id="priority-claim-title">Priority review</h2>
+                  <h2 id="priority-claim-title">
+                    {isReaderMode ? "Browse focus" : "Priority review"}
+                  </h2>
                   <h3>{priorityClaim.title}</h3>
                   <p>
-                    Ranked first by freshness, source strength, and an open evidence
-                    gap. Current source: {priorityClaim.sourcePublisher}.
+                    {isReaderMode
+                      ? "Start with a claim that has source-backed evidence and an open source gap."
+                      : "Ranked first by freshness, source strength, and an open evidence gap."}{" "}
+                    Current source: {priorityClaim.sourcePublisher}.
                   </p>
                   <div className="priority-evidence" aria-label="Priority evidence counts">
                     <span className="support">{counts.support} support</span>
@@ -1018,26 +1049,57 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                     <span>{health.highQualityCount} primary/direct</span>
                   </div>
                 </div>
-                <div className="priority-action">
-                  <span>Next evidence action</span>
-                  <strong>{mission.title}</strong>
-                  <p>{mission.description}</p>
-                  <div className="priority-actions">
-                    <Link
-                      className="button primary compact"
-                      href={claimEvidencePath(priorityClaim.id, attribution)}
-                    >
-                      {actionLabel}
-                    </Link>
-                    <button
-                      className="button compact"
-                      onClick={() => selectClaim(priorityClaim.id)}
-                      type="button"
-                    >
-                      Focus details
-                    </button>
+                {isReaderMode ? (
+                  <div className="priority-action">
+                    <span>Reader path</span>
+                    <strong>Inspect source and evidence chain</strong>
+                    <p>
+                      Review the source line and current support, challenge, and
+                      context entries before choosing a contribution route.
+                    </p>
+                    <div className="priority-actions">
+                      {seedClaims.some((claim) => claim.id === priorityClaim.id) ? (
+                        <Link
+                          className="button primary compact"
+                          href={`/claims/${priorityClaim.id}`}
+                        >
+                          Inspect details
+                        </Link>
+                      ) : null}
+                      <button
+                        className="button compact"
+                        onClick={() => selectClaim(priorityClaim.id)}
+                        type="button"
+                      >
+                        Focus claim
+                      </button>
+                      <Link className="button compact" href="/review/">
+                        Review missions
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="priority-action">
+                    <span>Next evidence action</span>
+                    <strong>{mission.title}</strong>
+                    <p>{mission.description}</p>
+                    <div className="priority-actions">
+                      <Link
+                        className="button primary compact"
+                        href={claimEvidencePath(priorityClaim.id, attribution)}
+                      >
+                        {actionLabel}
+                      </Link>
+                      <button
+                        className="button compact"
+                        onClick={() => selectClaim(priorityClaim.id)}
+                        type="button"
+                      >
+                        Focus details
+                      </button>
+                    </div>
+                  </div>
+                )}
               </>
             );
           })()}
@@ -1050,7 +1112,13 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
       >
         <div className="rail-header">
           <div>
-            <p className="eyebrow">{targetedReviewMode ? "Optional" : "Live MVP"}</p>
+            <p className="eyebrow">
+              {targetedReviewMode
+                ? "Optional"
+                : isReaderMode
+                  ? "Browse claims"
+                  : "Contribution workspace"}
+            </p>
             <h1>{targetedReviewMode ? "Change claim" : "Claims"}</h1>
           </div>
           {targetedReviewMode ? (
@@ -1063,9 +1131,13 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
             >
               {claimPickerOpen ? "Hide list" : "Show claims"}
             </button>
+          ) : isReaderMode ? (
+            <Link className="button compact" href="/submit/">
+              Contribute
+            </Link>
           ) : (
-            <Link className="button compact" href="/submit">
-              Submit
+            <Link className="button compact" href="/review/">
+              Review
             </Link>
           )}
         </div>
@@ -1208,7 +1280,7 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                   <small>{selectedClaim.attributionExplanation}</small>
                 </section>
                 <section className="score">
-                  <span>Claim veracity</span>
+                  <span>Evidence coverage</span>
                   <strong>{selectedClaim.veracityScore}%</strong>
                   <p>{selectedClaim.veracityLabel}</p>
                   <small>{selectedClaim.veracityExplanation}</small>
@@ -1247,14 +1319,22 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                         <h3 id="review-mission-title">{mission.title}</h3>
                         <p>{mission.description}</p>
                       </div>
-                      <button className="button compact" onClick={copyReviewMission} type="button">
-                        Copy mission
-                      </button>
+                      {isReaderMode ? (
+                        <Link className="button compact" href="/review/">
+                          Review missions
+                        </Link>
+                      ) : (
+                        <button className="button compact" onClick={copyReviewMission} type="button">
+                          Copy mission
+                        </button>
+                      )}
                     </>
                   );
                 })()}
               </section>
-              {missionMessage ? <p className="form-message">{missionMessage}</p> : null}
+              {!isReaderMode && missionMessage ? (
+                <p className="form-message">{missionMessage}</p>
+              ) : null}
 
               <section className="assessment-checklist" aria-label="Assessment readiness">
                 {(() => {
@@ -1326,9 +1406,45 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
               </section>
             </article>
 
-            <section className="form-panel" aria-labelledby="evidence-form-title">
-              <h2 id="evidence-form-title">Add evidence</h2>
-              <form className="form-grid" onSubmit={submitEvidence}>
+            {isReaderMode ? (
+              <section className="reader-route-panel" aria-labelledby="reader-route-title">
+                <div className="reader-route-copy">
+                  <p className="eyebrow">Browse paths</p>
+                  <h2 id="reader-route-title">Inspect sources before contributing</h2>
+                  <p>
+                    Use the selected claim detail, current source, and evidence chain
+                    for reading. Submit and review routes keep contribution controls
+                    separate from this page.
+                  </p>
+                </div>
+                <div className="reader-route-grid">
+                  <Link
+                    className="reader-route-card"
+                    href={claimReaderPath(selectedClaim.id, attribution)}
+                  >
+                    <span>Browse</span>
+                    <strong>Inspect details</strong>
+                    <p>Open the claim detail or return to the evidence chain.</p>
+                  </Link>
+                  <Link
+                    className="reader-route-card"
+                    href={claimEvidencePath(selectedClaim.id, attribution)}
+                  >
+                    <span>Contribute</span>
+                    <strong>Contribute a source</strong>
+                    <p>Use the explicit submit route for source-backed evidence.</p>
+                  </Link>
+                  <Link className="reader-route-card" href="/review/">
+                    <span>Review</span>
+                    <strong>Review missions</strong>
+                    <p>Choose an evidence gap from the reviewer queue.</p>
+                  </Link>
+                </div>
+              </section>
+            ) : (
+              <section className="form-panel" aria-labelledby="evidence-form-title">
+                <h2 id="evidence-form-title">Add evidence</h2>
+                <form className="form-grid" onSubmit={submitEvidence}>
                 <label>
                   Stance
                   <select
@@ -1434,15 +1550,16 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                 >
                   {evidenceSubmitting ? "Adding..." : "Add evidence"}
                 </button>
-              </form>
-              {evidenceMessage ? <p className="form-message">{evidenceMessage}</p> : null}
-              {contributionPrompt?.useCase === "add_evidence" ? (
-                <ContributionPromptView
-                  attribution={attribution}
-                  prompt={contributionPrompt}
-                />
-              ) : null}
-            </section>
+                </form>
+                {evidenceMessage ? <p className="form-message">{evidenceMessage}</p> : null}
+                {contributionPrompt?.useCase === "add_evidence" ? (
+                  <ContributionPromptView
+                    attribution={attribution}
+                    prompt={contributionPrompt}
+                  />
+                ) : null}
+              </section>
+            )}
           </>
         ) : (
           <section className="empty-state">
@@ -1452,9 +1569,10 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
         )}
       </div>
 
-      <aside className="submit-panel" aria-labelledby="claim-form-title">
-        <h2 id="claim-form-title">Submit claim</h2>
-        <form className="form-grid" onSubmit={submitClaim}>
+      {!isReaderMode ? (
+        <aside className="submit-panel" aria-labelledby="claim-form-title">
+          <h2 id="claim-form-title">Submit claim</h2>
+          <form className="form-grid" onSubmit={submitClaim}>
           <label className="wide">
             Claim title
             <input
@@ -1561,41 +1679,42 @@ export default function ClaimsClient({ initialClaimId = "" }: ClaimsClientProps)
                 ? "Publish live"
                 : "Publish locally"}
           </button>
-        </form>
-        {claimMessage ? <p className="form-message">{claimMessage}</p> : null}
-        {contributionPrompt?.useCase === "submit_claim" ? (
-          <ContributionPromptView
-            attribution={attribution}
-            prompt={contributionPrompt}
-          />
-        ) : null}
-
-        <section className="handoff-panel" aria-labelledby="handoff-title">
-          <h3 id="handoff-title">Local claim handoff</h3>
-          <p>
-            Copy browser-local submissions as a JSON claim pack, or paste a pack
-            from another tester.
-          </p>
-          <button className="button" onClick={exportLocalClaims} type="button">
-            Copy claim pack
-          </button>
-          {exportMessage ? <p className="form-message">{exportMessage}</p> : null}
-          <form className="form-grid import-form" onSubmit={importLocalClaims}>
-            <label className="wide">
-              Import claim pack
-              <textarea
-                onChange={(event) => setImportText(event.target.value)}
-                placeholder="{ ... }"
-                value={importText}
-              />
-            </label>
-            <button className="button" type="submit">
-              Import pack
-            </button>
           </form>
-          {importMessage ? <p className="form-message">{importMessage}</p> : null}
-        </section>
-      </aside>
+          {claimMessage ? <p className="form-message">{claimMessage}</p> : null}
+          {contributionPrompt?.useCase === "submit_claim" ? (
+            <ContributionPromptView
+              attribution={attribution}
+              prompt={contributionPrompt}
+            />
+          ) : null}
+
+          <section className="handoff-panel" aria-labelledby="handoff-title">
+            <h3 id="handoff-title">Local claim handoff</h3>
+            <p>
+              Copy browser-local submissions as a JSON claim pack, or paste a pack
+              from another tester.
+            </p>
+            <button className="button" onClick={exportLocalClaims} type="button">
+              Copy claim pack
+            </button>
+            {exportMessage ? <p className="form-message">{exportMessage}</p> : null}
+            <form className="form-grid import-form" onSubmit={importLocalClaims}>
+              <label className="wide">
+                Import claim pack
+                <textarea
+                  onChange={(event) => setImportText(event.target.value)}
+                  placeholder="{ ... }"
+                  value={importText}
+                />
+              </label>
+              <button className="button" type="submit">
+                Import pack
+              </button>
+            </form>
+            {importMessage ? <p className="form-message">{importMessage}</p> : null}
+          </section>
+        </aside>
+      ) : null}
     </section>
   );
 }

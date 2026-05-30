@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.530.3";
+export const SITE_VERSION = "26.530.4";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-30",
+    title: "Claims reader surface",
+    bullets: [
+      "The public claims route now opens as a reader-first browsing surface with search, filters, source lines, evidence health, assessment readiness, and evidence chains.",
+      "Claim and evidence authoring controls now stay on explicit submit and review routes instead of competing with first-pass reading.",
+      "Claim data, contributor prompt, public API contracts, token behavior, database schema, migrations, grants, and Supabase functions remain unchanged."
+    ]
+  },
+  {
+    version: "26.530.3",
     date: "2026-05-30",
     title: "Homepage source task guard",
     bullets: [

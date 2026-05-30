@@ -13,7 +13,7 @@ export default function SubmitPage() {
         </p>
       </header>
 
-      <ClaimsClient />
+      <ClaimsClient mode="submit" />
     </div>
   );
 }

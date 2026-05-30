@@ -42,7 +42,7 @@ export default async function SubmitForClaimPage({
 
   const mission = reviewMission(claim);
   const targetLabel =
-    mission.stance === "context" ? "attribution context" : "claim veracity";
+    mission.stance === "context" ? "attribution context" : "claim evidence";
 
   return (
     <div className="stack">
@@ -87,7 +87,7 @@ export default async function SubmitForClaimPage({
         </div>
       </section>
 
-      <ClaimsClient initialClaimId={claim.id} />
+      <ClaimsClient initialClaimId={claim.id} mode="review" />
     </div>
   );
 }
