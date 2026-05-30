@@ -2,1171 +2,1171 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://claimer-org.github.io/claimer/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/trending/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/about/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/review/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/daily/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/embed/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/feedback/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/launch/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/submit/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/profiles/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/metrics/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/data/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/terms/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/disclaimer/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/topics/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/topics/ai-claims/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/topics/tech-verification/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/topics/ai-safety/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/topics/llm-benchmarks/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/topics/ai-regulation/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-gpt-4o-launch/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/apple-wwdc-2024-apple-intelligence/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/anthropic-claude-3-5-sonnet/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/eu-ai-act-2024/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/nvidia-blackwell-announcement/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/microsoft-copilot-plus-pcs/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-gemini-1-5/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/meta-llama-3-release/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/perplexity-pages-launch/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/mistral-large-2-release/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-gemini-embedding-2-preview/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/microsoft-osmos-acquisition/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/meta-ai-glasses-impact-grants/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/nist-ai-agent-standards-initiative/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/eu-ai-act-august-2026-applicability/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-gpt-5-4-release/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-122b-funding-round/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-gemini-3-pro-preview/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-gemini-3-5-flash-io-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/anthropic-claude-opus-4-7/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/eu-ai-act-enforcement-2025/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-generated-content-50-percent-web/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/nvidia-market-cap-3-trillion-2024/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-training-energy-consumption-growing/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-revenue-projection-2025/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/deepfake-detection-falling-behind/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-coding-assistants-40-percent-code/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-job-displacement-imf-estimate/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/apple-on-device-ai-privacy-approach/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/china-ai-chip-restrictions-impact/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-agents-supply-chain-500b/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/fortune-500-chatgpt-ban-60pct/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-music-30pct-streaming-2028/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/open-source-ai-5pct-gap/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/autonomous-ai-research-agents-papers/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ibm-quantum-eagle-1121-qubits/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/tesla-optimus-gen-2-walking/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/crowdstrike-outage-july-2024/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-willow-quantum-chip-2024/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/figure-ai-bmw-factory-deployment/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/tsmc-2nm-mass-production-2025/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/spacex-starship-fourth-flight-reentry/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/deepseek-v3-cost-5-5-million/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/moderna-mrna-cancer-vaccine-2025/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/salt-typhoon-telecom-breach-2024/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-nonprofit-restructure-2025/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/neuralink-first-human-implant-2024/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/us-chips-act-tsmc-arizona-delay/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/sam-altman-worldcoin-iris-scanning/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/anthropic-responsible-scaling-policy/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-disarm/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-models-getting-worse-may-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/us-federal-preemption-state-ai-laws/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-academic-integrity-crisis-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-worker-displacement-structural-force/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-erdos-conjecture-disproof/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/meta-tribe-v2-brain-model/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-gemini-3-5-flash-launch/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-ai-mode-1b-users/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-gemini-spark-agent/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/microsoft-agentic-ai-timeline/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/anthropic-spacex-compute-deal/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-chatgpt-ads-platform/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/penn-photonic-chip-breakthrough/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/meta-employee-tracking-ai-training/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/anthropic-900b-valuation-may-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-confidential-ipo-filing-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/anthropic-first-quarterly-profit-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/stability-ai-audio-3-launch-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/pwc-anthropic-30k-professionals-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/google-gemini-search-overhaul-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/huawei-14nm-logicfolding-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/airbnb-cto-ai-hollowing-out-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/clickup-ai-restructuring-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-circular-financing-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/gartner-ai-agent-governance-2027/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/pope-leo-xiv-magnifica-humanitas-ai/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/telus-digital-genai-safety-benchmark-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/aic-agentic-ai-infrastructure-computex-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/space-based-ai-data-centers-pentagon-skepticism-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/ai-therapy-session-recording-privacy-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/micron-stock-ai-memory-boom-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/aic-nvidia-cmx-computex-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-codex-mobile-preview-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/anthropic-finance-agent-templates-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/meta-muse-spark-rollout-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/mistral-emmi-ai-acquisition-agreement-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/openai-image-provenance-signals/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/california-ai-workforce-executive-order/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/claims/nature-social-feed-algorithm-registered-report/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/24-7-wall-st/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/36kr/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/ai-weekly/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/anthropic/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/apple-newsroom/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/apple-security-research/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/artificially-intimidating/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/axios/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/breaking-defense/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/broadband-breakfast/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/bureau-of-industry-and-security/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/cisa/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/chinese-academy-of-sciences/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/council-of-the-eu/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/dataconomy/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/eqs-news/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/eu/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/european-commission/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/europol/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/figure-ai/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/flinders-university/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/forbes/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/gartner-newsroom/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/github-blog/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/google/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/ibm-newsroom/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/imf-blog/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/indiatimes/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/investing-com/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/iowa-public-radio/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/mcgill-university/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/mckinsey-and-company/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/meta/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/meta-ai/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/meta-newsroom/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/microsoft/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/microsoft-blog/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/mistral-ai/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/moderna/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/nist/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/nvidia-newsroom/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/national-catholic-reporter/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/nature/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/nebius-group/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/office-of-governor-gavin-newsom/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/openai/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/pbs/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/pr-newswire/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/perplexity/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/qa-financial/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/reuters/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/rolling-out/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/seeking-alpha/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/spacex/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/stability-ai/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/stanford-hai/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/tsmc/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/tesla-x-twitter/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/the-economic-times/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/the-information/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/the-verge/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/time-magazine/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/tools-for-humanity/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/university-of-pennsylvania/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/variety/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/vatican/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/washington-post/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/x-twitter/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/arxiv/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://claimer-org.github.io/claimer/sources/arxiv-deepseek/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

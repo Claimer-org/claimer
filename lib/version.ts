@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.530.6";
+export const SITE_VERSION = "26.530.7";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-30",
+    title: "Homepage editorial evidence surface",
+    bullets: [
+      "The homepage first viewport now leads with an inspectable claim, original source, source URL, source publisher, evidence counts, and evidence links before coverage metrics.",
+      "Homepage styling now uses a light editorial reading surface while keeping the contributor pathway visible as a secondary route.",
+      "Contributor prompt, public API contracts, token behavior, database schema, Supabase functions, and seed claim data remain unchanged."
+    ]
+  },
+  {
+    version: "26.530.6",
     date: "2026-05-30",
     title: "Mobile reader cleanup",
     bullets: [

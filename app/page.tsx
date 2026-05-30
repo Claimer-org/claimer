@@ -1,6 +1,12 @@
 import Link from "next/link";
 import HomeContributorStats from "./home-contributor-stats";
-import { evidenceCounts, seedClaims } from "../lib/claims";
+import {
+  evidenceCounts,
+  seedClaims,
+  type Claim,
+  type EvidenceEntry,
+  type EvidenceStance
+} from "../lib/claims";
 import {
   getTopicClaims,
   getTopicStats,
@@ -10,7 +16,7 @@ import {
 const principles = [
   "Every claim requires at least one verifiable source URL.",
   "Support and challenge evidence stay visible together.",
-  "Scores are community assessments, not official truth verdicts.",
+  "Scores are community assessments; sources stay inspectable.",
   "AI-generated analysis is labeled when it appears."
 ];
 
@@ -42,6 +48,7 @@ const addedDateFormatter = new Intl.DateTimeFormat("en-US", {
 });
 
 const NORTH_STAR_SOURCE_TARGET = 10;
+const evidenceStances = ["support", "challenge", "context"] as const;
 
 function formatAddedLabel(createdAt: string) {
   return `Added ${addedDateFormatter.format(new Date(createdAt))}`;
@@ -63,16 +70,42 @@ function reviewGapSummary(counts: ReturnType<typeof evidenceCounts>) {
   }
 
   if (missing.length === 0) {
-    return "Support, challenge, and context sources are present.";
+    return "Evidence mix includes support, challenge, and context sources.";
   }
 
   if (missing.length === 1) {
-    return `Needs ${missing[0]} source.`;
+    return `Evidence gap: ${missing[0]} source.`;
   }
 
-  return `Needs ${missing.slice(0, -1).join(", ")} and ${
+  return `Evidence gaps: ${missing.slice(0, -1).join(", ")} and ${
     missing[missing.length - 1]
   } sources.`;
+}
+
+function hasFullEvidenceMix(claim: Claim) {
+  const counts = evidenceCounts(claim);
+  return counts.support > 0 && counts.challenge > 0 && counts.context > 0;
+}
+
+function hasTwoSidedEvidence(claim: Claim) {
+  const counts = evidenceCounts(claim);
+  return counts.support > 0 && counts.challenge > 0;
+}
+
+function evidenceLabel(stance: EvidenceStance) {
+  if (stance === "support") {
+    return "Support source";
+  }
+
+  if (stance === "challenge") {
+    return "Challenge source";
+  }
+
+  return "Context source";
+}
+
+function sourceCountLabel(total: number) {
+  return `${total} source link${total === 1 ? "" : "s"}`;
 }
 
 export default function HomePage() {
@@ -116,105 +149,179 @@ export default function HomePage() {
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
   const latestClaim = latestClaims[0];
-  const latestCounts = latestClaim ? evidenceCounts(latestClaim) : null;
-  const latestEvidenceTotal = latestCounts
-    ? latestCounts.support + latestCounts.challenge + latestCounts.context
+  const inspectionClaim =
+    latestClaims.find(hasFullEvidenceMix) ??
+    latestClaims.find(hasTwoSidedEvidence) ??
+    latestClaim;
+  const inspectionCounts = inspectionClaim ? evidenceCounts(inspectionClaim) : null;
+  const inspectionEvidenceTotal = inspectionCounts
+    ? inspectionCounts.support +
+      inspectionCounts.challenge +
+      inspectionCounts.context
     : 0;
+  const inspectionEvidence = inspectionClaim
+    ? evidenceStances
+        .map((stance) =>
+          inspectionClaim.evidence.find((entry) => entry.stance === stance)
+        )
+        .filter((entry): entry is EvidenceEntry => Boolean(entry))
+    : [];
   const topClaims = seedClaims.slice(0, 3);
 
   return (
-    <section className="stack">
+    <section className="stack home-editorial">
       <div className="hero focused-hero">
         <div className="hero-copy">
-          <p className="eyebrow">Public evidence browser</p>
-          <h1>Browse claims with source-backed support and challenge evidence.</h1>
+          <p className="eyebrow">Public evidence reader</p>
+          <h1>Start with the source trail, then inspect the claim.</h1>
           <p>
-            Claimer shows factual claims with their source trail, the evidence
-            submitted for each side, and what is still missing for readers to
-            inspect.
+            Claimer is a light reading surface for source-backed claims. The
+            original source, evidence links, and open evidence gaps appear
+            before platform coverage metrics.
           </p>
           <div className="actions single-action">
             <Link className="button primary" href="/claims">
               Browse claims
             </Link>
+            <Link className="button subtle" href="/for-agents">
+              Contributor instructions
+            </Link>
           </div>
         </div>
 
-        {latestClaim && latestCounts && (
+        {inspectionClaim && inspectionCounts && (
           <article
-            aria-label="Featured claim evidence summary"
-            className="featured-claim-card"
+            aria-label="Claim and evidence source inspection"
+            className="home-inspection-card"
           >
-            <div className="mission-meta">
-              <span className="claim-domain">Featured claim</span>
+            <div className="home-inspection-kicker">
+              <span className="claim-domain">Claim under inspection</span>
               <span className="claim-domain">
-                {formatAddedLabel(latestClaim.createdAt)}
+                {formatAddedLabel(inspectionClaim.createdAt)}
               </span>
             </div>
-            <h2>{latestClaim.title}</h2>
-            <p>
-              Current evidence includes {latestCounts.support} support,{" "}
-              {latestCounts.challenge} challenge, and {latestCounts.context}{" "}
-              context sources. {reviewGapSummary(latestCounts)}
-            </p>
-            <div className="mission-stats" aria-label="Featured claim evidence">
-              <span>{latestEvidenceTotal} source links</span>
-              <span>{latestCounts.support} support</span>
-              <span>{latestCounts.challenge} challenge</span>
-              <span>{latestCounts.context} context</span>
+
+            <div className="home-inspection-body">
+              <div>
+                <h2>{inspectionClaim.title}</h2>
+                <p>{inspectionClaim.body}</p>
+              </div>
+
+              <div className="home-source-panel">
+                <span>Original source</span>
+                <strong>{inspectionClaim.sourcePublisher}</strong>
+                <a
+                  className="home-source-url"
+                  href={inspectionClaim.sourceUrl}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {inspectionClaim.sourceUrl}
+                </a>
+                <small>
+                  {inspectionClaim.sourceQuality} source -{" "}
+                  {inspectionClaim.sourceTitle}
+                </small>
+              </div>
             </div>
-            <div className="source-line">
-              <span>{latestClaim.sourceQuality}</span>
-              <a href={latestClaim.sourceUrl} rel="noreferrer" target="_blank">
-                Original source: {latestClaim.sourcePublisher}
-              </a>
+
+            <div
+              aria-label="Evidence source counts"
+              className="home-evidence-counts"
+            >
+              <div className="home-evidence-count">
+                <strong>{sourceCountLabel(inspectionEvidenceTotal)}</strong>
+                <span>Connected to this claim</span>
+              </div>
+              <div className="home-evidence-count">
+                <strong>{inspectionCounts.support}</strong>
+                <span>Support</span>
+              </div>
+              <div className="home-evidence-count">
+                <strong>{inspectionCounts.challenge}</strong>
+                <span>Challenge</span>
+              </div>
+              <div className="home-evidence-count">
+                <strong>{inspectionCounts.context}</strong>
+                <span>Context</span>
+              </div>
+            </div>
+
+            <p className="home-gap-note">{reviewGapSummary(inspectionCounts)}</p>
+
+            <div className="home-evidence-list" aria-label="Evidence source links">
+              {inspectionEvidence.map((entry) => (
+                <div
+                  className={`home-evidence-row ${entry.stance}`}
+                  key={entry.id}
+                >
+                  <span>{evidenceLabel(entry.stance)}</span>
+                  <strong>{entry.sourceTitle}</strong>
+                  <p>{entry.summary}</p>
+                  <a href={entry.sourceUrl} rel="noreferrer" target="_blank">
+                    {entry.sourceUrl}
+                  </a>
+                </div>
+              ))}
             </div>
           </article>
         )}
       </div>
 
       <section
-        className="stat-highlight"
-        aria-label="Static public claim corpus evidence coverage"
+        className="home-metrics-panel"
+        aria-labelledby="home-metrics-title"
       >
-        <div className="stat-item stat-item-primary">
-          <strong>{sourceLinksPerClaim}</strong>
-          <span>Static corpus evidence/claim</span>
-          <p>
-            {evidenceTotal} source links across {seedClaims.length} static
-            public claims.
-          </p>
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Coverage metrics</p>
+            <h2 id="home-metrics-title">Corpus and contributor signals</h2>
+          </div>
         </div>
-        <div className="stat-item">
-          <strong>
-            {claimsAtSourceTarget}/{seedClaims.length}
-          </strong>
-          <span>Static corpus 10+ target</span>
-          <p>
-            Static public claim corpus rows with at least{" "}
-            {NORTH_STAR_SOURCE_TARGET} source links.
-          </p>
-        </div>
-        <div className="stat-item">
-          <strong>{evidenceTargetGap}</strong>
-          <span>Static corpus source gap</span>
-          <p>
-            Additional source links needed for every static public claim to
-            reach {NORTH_STAR_SOURCE_TARGET}.
-          </p>
-        </div>
-        <div className="stat-item">
-          <strong>
-            {claimsWithBothSides}/{seedClaims.length}
-          </strong>
-          <span>Static two-sided claims</span>
-          <p>
-            Static public claims with both support and challenge source links.
-          </p>
-        </div>
-      </section>
 
-      <HomeContributorStats />
+        <section
+          className="stat-highlight"
+          aria-label="Static public claim corpus evidence coverage"
+        >
+          <div className="stat-item stat-item-primary">
+            <strong>{sourceLinksPerClaim}</strong>
+            <span>Static corpus evidence per claim</span>
+            <p>
+              {evidenceTotal} source links across {seedClaims.length} static
+              public claims.
+            </p>
+          </div>
+          <div className="stat-item">
+            <strong>
+              {claimsAtSourceTarget}/{seedClaims.length}
+            </strong>
+            <span>Static corpus 10+ target</span>
+            <p>
+              Static public claim corpus rows with at least{" "}
+              {NORTH_STAR_SOURCE_TARGET} source links.
+            </p>
+          </div>
+          <div className="stat-item">
+            <strong>{evidenceTargetGap}</strong>
+            <span>Static corpus source gap</span>
+            <p>
+              Additional source links needed for every static public claim to
+              reach {NORTH_STAR_SOURCE_TARGET}.
+            </p>
+          </div>
+          <div className="stat-item">
+            <strong>
+              {claimsWithBothSides}/{seedClaims.length}
+            </strong>
+            <span>Static two-sided claims</span>
+            <p>
+              Static public claims with both support and challenge source links.
+            </p>
+          </div>
+        </section>
+
+        <HomeContributorStats />
+      </section>
 
       <section className="panel" aria-labelledby="featured-title">
         <div className="section-heading">
