@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.530.2";
+export const SITE_VERSION = "26.530.3";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-30",
+    title: "Homepage source task guard",
+    bullets: [
+      "Public contributor tasks now suppress root-homepage claim sources after substantive same-host evidence exists for that claim.",
+      "Same-host evidence is used only as a suppression guard and does not create alternate assigned source URLs.",
+      "Contributor prompt, public task response shape, token system, database schema, migrations, and grants remain unchanged."
+    ]
+  },
+  {
+    version: "26.530.2",
     date: "2026-05-30",
     title: "Homepage metric clarity",
     bullets: [

@@ -34,6 +34,42 @@ function isSubstantiveEvidence(entry: {
   );
 }
 
+function parseHttpUrl(sourceUrl: string | null) {
+  if (!sourceUrl) {
+    return null;
+  }
+
+  try {
+    const url = new URL(sourceUrl);
+    if (url.protocol !== "http:" && url.protocol !== "https:") {
+      return null;
+    }
+    return url;
+  } catch {
+    return null;
+  }
+}
+
+function isRootHomepageUrl(sourceUrl: string) {
+  const url = parseHttpUrl(sourceUrl);
+  if (!url) {
+    return false;
+  }
+
+  return (
+    url.pathname.replace(/\/+$/, "") === "" &&
+    url.search === "" &&
+    url.hash === ""
+  );
+}
+
+function hasSameHost(left: URL, rightSourceUrl: string | null) {
+  const right = parseHttpUrl(rightSourceUrl);
+  return Boolean(
+    right && right.hostname.toLowerCase() === left.hostname.toLowerCase()
+  );
+}
+
 Deno.serve(async (request) => {
   try {
     const methodResponse = requireMethod(request, "GET");
@@ -72,6 +108,8 @@ Deno.serve(async (request) => {
     const candidates = ((data ?? []) as ClaimCandidate[])
       .filter((claim) => {
         const entries = claim.evidence_entries ?? [];
+        const claimSourceUrl = parseHttpUrl(claim.source_url);
+        const isRootHomepageSource = isRootHomepageUrl(claim.source_url);
         const hasContributorEvidence = entries.some(
           (entry) => entry.contributor_token === contributor.token
         );
@@ -80,9 +118,18 @@ Deno.serve(async (request) => {
             entry.source_url === claim.source_url &&
             isSubstantiveEvidence(entry)
         );
+        const hasSubstantiveSameHostEvidenceForRootSource =
+          claimSourceUrl !== null &&
+          isRootHomepageSource &&
+          entries.some(
+            (entry) =>
+              isSubstantiveEvidence(entry) &&
+              hasSameHost(claimSourceUrl, entry.source_url)
+          );
         return (
           !hasContributorEvidence &&
           !hasSubstantiveAssignedSourceEvidence &&
+          !hasSubstantiveSameHostEvidenceForRootSource &&
           entries.length < 10
         );
       })
