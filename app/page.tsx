@@ -108,6 +108,14 @@ function sourceCountLabel(total: number) {
   return `${total} source link${total === 1 ? "" : "s"}`;
 }
 
+function sourceHost(sourceUrl: string) {
+  try {
+    return new URL(sourceUrl).hostname.replace(/^www\./, "");
+  } catch {
+    return sourceUrl;
+  }
+}
+
 export default function HomePage() {
   const claimEvidenceCoverage = seedClaims.map((claim) => {
     const counts = evidenceCounts(claim);
@@ -159,6 +167,9 @@ export default function HomePage() {
       inspectionCounts.challenge +
       inspectionCounts.context
     : 0;
+  const inspectionSourceHost = inspectionClaim
+    ? sourceHost(inspectionClaim.sourceUrl)
+    : "";
   const inspectionEvidence = inspectionClaim
     ? evidenceStances
         .map((stance) =>
@@ -204,6 +215,23 @@ export default function HomePage() {
             <div className="home-inspection-body">
               <div>
                 <h2>{inspectionClaim.title}</h2>
+                <dl
+                  aria-label="Mobile source and evidence summary"
+                  className="home-mobile-source-summary"
+                >
+                  <div>
+                    <dt>Source publisher</dt>
+                    <dd>{inspectionClaim.sourcePublisher}</dd>
+                  </div>
+                  <div>
+                    <dt>Source host</dt>
+                    <dd>{inspectionSourceHost}</dd>
+                  </div>
+                  <div>
+                    <dt>Evidence links</dt>
+                    <dd>{sourceCountLabel(inspectionEvidenceTotal)}</dd>
+                  </div>
+                </dl>
                 <p>{inspectionClaim.body}</p>
               </div>
 

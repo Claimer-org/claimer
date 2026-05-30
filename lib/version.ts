@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.530.8";
+export const SITE_VERSION = "26.531.1";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-31",
+    title: "Mobile homepage source density",
+    bullets: [
+      "The homepage inspected-claim unit now includes a compact mobile source and evidence summary before the longer source URL and evidence rows.",
+      "At narrow widths, the first viewport brings the selected claim title closer to source publisher, source host, and source-link count facts while preserving the light editorial desktop surface.",
+      "Contributor prompt, public API contracts, token behavior, database schema, Supabase functions, and seed claim data remain unchanged."
+    ]
+  },
+  {
+    version: "26.530.8",
     date: "2026-05-30",
     title: "Claims editorial reader surface",
     bullets: [
