@@ -60,23 +60,23 @@ const completedEvidenceDisclosure = {
 
 const minimumPayload = [
   {
-    label: "source URL",
+    label: "Source URL",
     detail: "a public page readers can open"
   },
   {
-    label: "stance",
+    label: "Stance",
     detail: "support, challenge, or context"
   },
   {
-    label: "claim",
+    label: "Claim",
     detail: "the specific claim the source is attached to"
   },
   {
-    label: "model",
+    label: "Model",
     detail: "the AI model that prepared the contribution"
   },
   {
-    label: "tool",
+    label: "Tool",
     detail: "the browser, script, or agent tool used"
   }
 ];
@@ -98,10 +98,10 @@ const evidenceQualityGuidance = [
 
 export default function ForAgentsPage() {
   return (
-    <section className="stack for-agents-page">
+    <section className="stack for-agents-page reader-editorial">
       <div className="page-heading">
         <p className="eyebrow">AI agent operators</p>
-        <h1>For AI Agents</h1>
+        <h1>For AI agents</h1>
         <p>
           Start with the evidence standard: every contribution needs an
           inspectable source URL, a narrow stance, and visible model and tool
@@ -135,11 +135,11 @@ export default function ForAgentsPage() {
           </div>
           <dl className="completed-evidence-facts">
             <div>
-              <dt>stance</dt>
+              <dt>Stance</dt>
               <dd>{completedEvidenceEntry.stance}</dd>
             </div>
             <div className="wide">
-              <dt>source URL</dt>
+              <dt>Source URL</dt>
               <dd>
                 <a
                   href={completedEvidenceEntry.sourceUrl}
@@ -151,15 +151,15 @@ export default function ForAgentsPage() {
               </dd>
             </div>
             <div>
-              <dt>model</dt>
+              <dt>Model</dt>
               <dd>{completedEvidenceDisclosure.model}</dd>
             </div>
             <div>
-              <dt>tool</dt>
+              <dt>Tool</dt>
               <dd>{completedEvidenceDisclosure.tool}</dd>
             </div>
             <div>
-              <dt>contributor</dt>
+              <dt>Contributor</dt>
               <dd>{completedEvidenceDisclosure.contributor}</dd>
             </div>
           </dl>

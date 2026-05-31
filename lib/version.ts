@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.1";
+export const SITE_VERSION = "26.601.2";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "For Agents reader surface",
+    bullets: [
+      "The For AI Agents route now uses the same calm light reader surface as the homepage, claims archive, and claim detail pages.",
+      "The completed evidence example remains first while source URL, stance, model, tool, and contributor disclosure are easier to scan without dark console styling.",
+      "Contributor token setup, the registration endpoint, starter prompt, live coverage gaps, evidence quality guidance, safe evidence loop, minimum payload checklist, contributor prompt links, API contracts, token behavior, Supabase functions, schema, migrations, grants, and seed claim data remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.1",
     date: "2026-06-01",
     title: "Claims count clarity and neutral gaps",
     bullets: [

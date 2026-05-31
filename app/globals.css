@@ -1804,6 +1804,118 @@ main {
   gap: 32px;
 }
 
+.for-agents-page.reader-editorial {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.for-agents-page.reader-editorial .page-heading {
+  max-width: 860px;
+}
+
+.for-agents-page.reader-editorial .page-heading p {
+  max-width: 760px;
+}
+
+.for-agents-page.reader-editorial .completed-evidence-panel,
+.for-agents-page.reader-editorial .agent-registration-panel,
+.for-agents-page.reader-editorial .agent-prompt-panel,
+.for-agents-page.reader-editorial .agent-coverage-panel,
+.for-agents-page.reader-editorial .agent-quality-panel {
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 26px 0 0;
+}
+
+.for-agents-page.reader-editorial .completed-evidence-card,
+.for-agents-page.reader-editorial .coverage-gap-row,
+.for-agents-page.reader-editorial .coverage-gap-state,
+.for-agents-page.reader-editorial .quality-guidance-list li,
+.for-agents-page.reader-editorial .agent-loop-step,
+.for-agents-page.reader-editorial .agent-operator-note {
+  border-color: var(--line);
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.for-agents-page.reader-editorial .completed-evidence-card {
+  border-top: 3px solid var(--accent-strong);
+}
+
+.for-agents-page.reader-editorial .completed-evidence-claim,
+.for-agents-page.reader-editorial .completed-evidence-summary {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fbfdfb;
+  padding: 12px;
+}
+
+.for-agents-page.reader-editorial .completed-evidence-facts div {
+  background: #f6faf7;
+}
+
+.for-agents-page.reader-editorial .completed-evidence-claim span,
+.for-agents-page.reader-editorial .completed-evidence-summary span,
+.for-agents-page.reader-editorial .completed-evidence-facts dt,
+.for-agents-page.reader-editorial .coverage-gap-header,
+.for-agents-page.reader-editorial .example-label {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.for-agents-page.reader-editorial .completed-evidence-claim span,
+.for-agents-page.reader-editorial .completed-evidence-summary span,
+.for-agents-page.reader-editorial .completed-evidence-facts dt,
+.for-agents-page.reader-editorial .coverage-gap-header {
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+}
+
+.for-agents-page.reader-editorial .completed-evidence-facts dd {
+  color: var(--foreground);
+}
+
+.for-agents-page.reader-editorial .completed-evidence-facts a,
+.for-agents-page.reader-editorial .endpoint-line a {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.for-agents-page.reader-editorial .endpoint-line code,
+.for-agents-page.reader-editorial .agent-starter-prompt {
+  border-color: var(--line);
+  background: #f8faf7;
+  color: var(--foreground);
+  box-shadow: none;
+}
+
+.for-agents-page.reader-editorial .agent-starter-prompt code {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.for-agents-page.reader-editorial .button {
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.for-agents-page.reader-editorial .button:hover {
+  background: #f9fbf8;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.for-agents-page.reader-editorial .button.primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
 .completed-evidence-panel {
   display: grid;
   grid-template-columns: minmax(0, 0.7fr) minmax(340px, 1.3fr);
