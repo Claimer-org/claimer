@@ -68,12 +68,22 @@ export default async function ClaimDetailPage({
   const sourceCountSummary = `${counts.support} support, ${counts.challenge} challenge, ${counts.context} context`;
   const supportChallengeContextSummary = `${counts.support} support / ${counts.challenge} challenge / ${counts.context} context`;
   const evidenceGapSignal = health.needsChallenge
-    ? "Needs challenge"
+    ? "Challenge source gap"
     : health.needsSupport
-      ? "Needs support"
+      ? "Support source gap"
       : health.hasHighQualitySource
         ? "Context open"
-        : "Needs primary source";
+        : "Primary-source gap";
+  const evidenceMixSignal =
+    counts.support > 0 && counts.challenge > 0
+      ? "Support and challenge sources"
+      : counts.support > 0
+        ? "Support sources only"
+        : counts.challenge > 0
+          ? "Challenge sources only"
+          : counts.context > 0
+            ? "Context sources only"
+            : "No evidence entries";
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -182,7 +192,7 @@ export default async function ClaimDetailPage({
           <span>primary/direct</span>
         </div>
         <div>
-          <strong>{health.balanceLabel}</strong>
+          <strong>{evidenceMixSignal}</strong>
           <span>support / challenge mix</span>
         </div>
       </section>

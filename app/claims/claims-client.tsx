@@ -77,6 +77,7 @@ const sourceQualities: SourceQuality[] = [
 
 const assessmentTargets: AssessmentTarget[] = ["attribution", "veracity", "context"];
 const oneDayMs = 1000 * 60 * 60 * 24;
+const publicLibraryClaimIds = new Set(seedClaims.map((claim) => claim.id));
 
 const blockedTerms = [
   "private individual",
@@ -215,15 +216,15 @@ function readerCoverageSignal(claim: Claim) {
   const health = evidenceHealth(claim);
 
   if (!health.hasHighQualitySource) {
-    return "Missing primary-source coverage";
+    return "Primary-source gap";
   }
 
   if (health.needsChallenge) {
-    return "Missing challenge coverage";
+    return "Challenge source gap";
   }
 
   if (health.needsSupport) {
-    return "Missing support coverage";
+    return "Support source gap";
   }
 
   return "Context coverage open";
@@ -268,6 +269,82 @@ function readerMixLabel(claim: Claim) {
   }
 
   return "No evidence entries";
+}
+
+function formatRecordCount(count: number, label: string) {
+  return `${count} ${label}${count === 1 ? "" : "s"}`;
+}
+
+function recordOriginCounts(items: Claim[]) {
+  return items.reduce(
+    (counts, claim) => {
+      if (isLiveSupabaseClaimId(claim.id)) {
+        counts.liveContributor += 1;
+      } else if (publicLibraryClaimIds.has(claim.id)) {
+        counts.publicLibrary += 1;
+      } else {
+        counts.savedReader += 1;
+      }
+
+      counts.total += 1;
+      return counts;
+    },
+    {
+      liveContributor: 0,
+      publicLibrary: 0,
+      savedReader: 0,
+      total: 0
+    }
+  );
+}
+
+function readerRecordSourceParts(counts: ReturnType<typeof recordOriginCounts>) {
+  const parts = [
+    formatRecordCount(counts.liveContributor, "live contributor record"),
+    formatRecordCount(counts.publicLibrary, "public library record")
+  ];
+
+  if (counts.savedReader > 0) {
+    parts.push(formatRecordCount(counts.savedReader, "saved reader record"));
+  }
+
+  return parts.join(" / ");
+}
+
+function readerRecordShowingLabel(
+  filteredCounts: ReturnType<typeof recordOriginCounts>,
+  totalCounts: ReturnType<typeof recordOriginCounts>
+) {
+  const showing = formatRecordCount(filteredCounts.total, "record");
+
+  if (filteredCounts.total === totalCounts.total) {
+    return `${showing} showing`;
+  }
+
+  return `${showing} showing of ${formatRecordCount(totalCounts.total, "record")}`;
+}
+
+function readerRecordBreakdown(
+  filteredCounts: ReturnType<typeof recordOriginCounts>,
+  totalCounts: ReturnType<typeof recordOriginCounts>,
+  liveClaimsState: "idle" | "loading" | "ready" | "error"
+) {
+  const sourceText =
+    filteredCounts.total === totalCounts.total
+      ? `Includes ${readerRecordSourceParts(totalCounts)}.`
+      : `Filtered view includes ${readerRecordSourceParts(
+          filteredCounts
+        )}; full library has ${readerRecordSourceParts(totalCounts)}.`;
+
+  if (liveClaimsState === "loading") {
+    return `${sourceText} Live contributor records are still loading.`;
+  }
+
+  if (liveClaimsState === "error") {
+    return `${sourceText} Live contributor records are temporarily unavailable; public library records remain visible.`;
+  }
+
+  return sourceText;
 }
 
 function feedbackPath(
@@ -629,6 +706,20 @@ export default function ClaimsClient({
       return health.hasHighQualitySource;
     });
   }, [activeDomain, activeTriage, claims, isReaderMode, searchQuery]);
+  const totalRecordCounts = useMemo(() => recordOriginCounts(claims), [claims]);
+  const filteredRecordCounts = useMemo(
+    () => recordOriginCounts(filteredClaims),
+    [filteredClaims]
+  );
+  const readerRecordShowing = readerRecordShowingLabel(
+    filteredRecordCounts,
+    totalRecordCounts
+  );
+  const readerRecordModel = readerRecordBreakdown(
+    filteredRecordCounts,
+    totalRecordCounts,
+    liveClaimsState
+  );
 
   const priorityClaim = useMemo(() => {
     return [...claims].sort((a, b) => priorityScore(b) - priorityScore(a))[0];
@@ -1275,12 +1366,15 @@ export default function ClaimsClient({
               </div>
             </>
           )}
-          {supabaseMessage ? <p className="form-message">{supabaseMessage}</p> : null}
+          {!isReaderMode && supabaseMessage ? (
+            <p className="form-message">{supabaseMessage}</p>
+          ) : null}
 
           <div className="claim-list-heading">
             <strong>{isReaderMode ? "Public records" : "Full claim list"}</strong>
-            <span>{filteredClaims.length} showing</span>
+            <span>{isReaderMode ? readerRecordShowing : `${filteredClaims.length} showing`}</span>
           </div>
+          {isReaderMode ? <p className="claim-count-note">{readerRecordModel}</p> : null}
 
           <div
             className="claim-list"

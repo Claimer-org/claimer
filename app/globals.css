@@ -915,6 +915,7 @@ main {
 .claim-list-heading {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
   margin: 2px 0 10px;
@@ -924,6 +925,14 @@ main {
   font-size: 0.82rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.claim-count-note {
+  margin: -2px 0 12px;
+  color: var(--foreground-dim);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .claim-picker-current {

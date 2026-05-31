@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.531.9";
+export const SITE_VERSION = "26.601.1";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Claims count clarity and neutral gaps",
+    bullets: [
+      "The public claims archive now uses one reader-facing record count with live contributor records and public library records labeled together.",
+      "Reader mode no longer shows a separate Supabase load count beside the visible record count.",
+      "Claim detail evidence gaps now use neutral source coverage language while preserving original source, source URL, evidence chain, support / challenge / context mix, live loading, and contributor routes."
+    ]
+  },
+  {
+    version: "26.531.9",
     date: "2026-05-31",
     title: "Claims archive public evidence library",
     bullets: [
