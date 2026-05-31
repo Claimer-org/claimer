@@ -67,6 +67,7 @@ body::before {
 }
 
 body > * {
+  max-width: 100%;
   position: relative;
   z-index: 1;
 }
@@ -140,6 +141,70 @@ footer,
 nav,
 div,
 form {
+  max-width: 100%;
+  min-width: 0;
+}
+
+main,
+.site-header,
+.site-footer {
+  width: 100%;
+}
+
+img,
+svg,
+canvas,
+video,
+iframe,
+table {
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+:is(
+  .stack,
+  .grid,
+  .workspace,
+  .focused-hero,
+  .home-inspection-body,
+  .home-mobile-source-summary,
+  .home-evidence-counts,
+  .publication-list,
+  .evidence-record-row,
+  .gap-record-row,
+  .gap-counts,
+  .stat-highlight,
+  .metric-strip,
+  .score-grid,
+  .assessment-checklist,
+  .coverage-metadata dl,
+  .form-grid,
+  .reader-route-grid,
+  .completed-evidence-panel,
+  .completed-evidence-facts,
+  .agent-registration-panel,
+  .agent-prompt-panel,
+  .agent-coverage-panel,
+  .coverage-gap-row,
+  .agent-quality-panel,
+  .for-agents-layout,
+  .mission-board,
+  .launch-grid,
+  .metrics-grid,
+  .metrics-detail-grid,
+  .profiles-layout,
+  .profile-score-grid,
+  .profile-activity-grid,
+  .feedback-layout,
+  .rating-field > div,
+  .hero-subtitle,
+  .source-grid,
+  .source-facts
+) > * {
+  max-width: 100%;
   min-width: 0;
 }
 
@@ -3426,6 +3491,17 @@ textarea {
 }
 
 @media (max-width: 680px) {
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  pre {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
   .site-header,
   .site-footer,
   .section-heading,
@@ -3498,7 +3574,7 @@ textarea {
 
   .home-mobile-source-summary {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 108px), 1fr));
     gap: 6px;
     margin-top: 10px;
   }
@@ -3699,6 +3775,7 @@ textarea {
   }
 
   .home-mobile-source-summary {
+    grid-template-columns: 1fr;
     gap: 5px;
     margin-top: 8px;
   }
@@ -3771,6 +3848,16 @@ textarea {
   .score strong,
   .metric-strip strong {
     font-size: 1.65rem;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 500px) {
+  .site-header,
+  .site-footer,
+  main {
+    max-width: 390px;
+    margin-right: auto;
+    margin-left: 0;
   }
 }
 

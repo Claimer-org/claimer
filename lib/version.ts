@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.531.7";
+export const SITE_VERSION = "26.531.8";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-31",
+    title: "Mobile horizontal overflow fix",
+    bullets: [
+      "Mobile reader and agent pages now constrain long claims, source URLs, evidence rows, chips, buttons, cards, grids, tables, and code blocks inside narrow viewports.",
+      "The homepage, claims archive, representative claim detail, and For AI Agents route preserve source trails, evidence counts, stance mix, selected-claim inspection, and neutral evidence framing while wrapping content at 390px.",
+      "Contributor prompt, API contracts, token behavior, Supabase functions, database schema, migrations, grants, seed claim data, DEC files, investor documents, and Chameleon artifacts remain unchanged."
+    ]
+  },
+  {
+    version: "26.531.7",
     date: "2026-05-31",
     title: "Claims archive reader simplification",
     bullets: [
