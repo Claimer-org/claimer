@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.531.6";
+export const SITE_VERSION = "26.531.7";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-31",
+    title: "Claims archive reader simplification",
+    bullets: [
+      "The public claims archive now presents reader-mode rows as evidence records with claim title, original source publisher, and support / challenge / context mix.",
+      "Reader-mode triage chips, repeated row-level evidence-gap labels, and row-level strong-source counters are removed from the archive list while selected-claim inspection remains available.",
+      "Submit and review mode behavior, contributor prompt, public API contracts, token behavior, Supabase functions, database schema, migrations, grants, seed claim data, and claim detail route behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.531.6",
     date: "2026-05-31",
     title: "Homepage publication rhythm",
     bullets: [

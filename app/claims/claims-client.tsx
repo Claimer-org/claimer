@@ -65,6 +65,7 @@ const subjectKinds = [
   "event",
   "publication"
 ];
+const domainFilters = ["all", "ai", "technology", "news"] as const;
 
 const sourceQualities: SourceQuality[] = [
   "primary",
@@ -535,6 +536,7 @@ export default function ClaimsClient({
   }, [remoteClaims, remoteSeedEvidence, storedClaims]);
 
   const filteredClaims = useMemo(() => {
+    const effectiveTriage = isReaderMode ? "all" : activeTriage;
     let result = activeDomain === "all"
       ? claims
       : claims.filter((claim) => claim.domain === activeDomain);
@@ -550,24 +552,24 @@ export default function ClaimsClient({
       );
     }
 
-    if (activeTriage === "all") {
+    if (effectiveTriage === "all") {
       return result;
     }
 
     return result.filter((claim) => {
       const health = evidenceHealth(claim);
 
-      if (activeTriage === "needs-challenge") {
+      if (effectiveTriage === "needs-challenge") {
         return health.needsChallenge;
       }
 
-      if (activeTriage === "needs-support") {
+      if (effectiveTriage === "needs-support") {
         return health.needsSupport;
       }
 
       return health.hasHighQualitySource;
     });
-  }, [activeDomain, activeTriage, claims, searchQuery]);
+  }, [activeDomain, activeTriage, claims, isReaderMode, searchQuery]);
 
   const priorityClaim = useMemo(() => {
     return [...claims].sort((a, b) => priorityScore(b) - priorityScore(a))[0];
@@ -1046,7 +1048,9 @@ export default function ClaimsClient({
                     <span className="support">{counts.support} support</span>
                     <span className="challenge">{counts.challenge} challenge</span>
                     <span>{counts.context} context</span>
-                    <span>{health.highQualityCount} primary/direct</span>
+                    {!isReaderMode ? (
+                      <span>{health.highQualityCount} primary/direct</span>
+                    ) : null}
                   </div>
                 </div>
                 {isReaderMode ? (
@@ -1155,44 +1159,65 @@ export default function ClaimsClient({
             />
           </div>
 
-          <div className="filters" aria-label="Claim domain filters">
-            {(["all", "ai", "technology", "news"] as const).map((domain) => (
-              <button
-                className={activeDomain === domain ? "chip active" : "chip"}
-                key={domain}
-                onClick={() => setActiveDomain(domain)}
-                type="button"
-              >
-                {domain}
-              </button>
-            ))}
-          </div>
-
-          <div className="filters triage-filters" aria-label="Evidence triage filters">
-            {[
-              ["all", "All"],
-              ["needs-challenge", "Needs challenge"],
-              ["needs-support", "Needs support"],
-              ["primary-direct", "Primary/direct"]
-            ].map(([key, label]) => (
-              <button
-                className={activeTriage === key ? "chip active" : "chip"}
-                key={key}
-                onClick={() =>
-                  setActiveTriage(
-                    key as "all" | "needs-challenge" | "needs-support" | "primary-direct"
-                  )
+          {isReaderMode ? (
+            <label className="reader-filter-row" htmlFor="reader-domain-filter">
+              <span>Topic</span>
+              <select
+                id="reader-domain-filter"
+                onChange={(event) =>
+                  setActiveDomain(event.target.value as ClaimDomain | "all")
                 }
-                type="button"
+                value={activeDomain}
               >
-                {label}
-              </button>
-            ))}
-          </div>
+                {domainFilters.map((domain) => (
+                  <option key={domain} value={domain}>
+                    {domain === "all" ? "All topics" : domain}
+                  </option>
+                ))}
+              </select>
+            </label>
+          ) : (
+            <>
+              <div className="filters" aria-label="Claim domain filters">
+                {domainFilters.map((domain) => (
+                  <button
+                    className={activeDomain === domain ? "chip active" : "chip"}
+                    key={domain}
+                    onClick={() => setActiveDomain(domain)}
+                    type="button"
+                  >
+                    {domain}
+                  </button>
+                ))}
+              </div>
+
+              <div className="filters triage-filters" aria-label="Evidence triage filters">
+                {[
+                  ["all", "All"],
+                  ["needs-challenge", "Needs challenge"],
+                  ["needs-support", "Needs support"],
+                  ["primary-direct", "Primary/direct"]
+                ].map(([key, label]) => (
+                  <button
+                    className={activeTriage === key ? "chip active" : "chip"}
+                    key={key}
+                    onClick={() =>
+                      setActiveTriage(
+                        key as "all" | "needs-challenge" | "needs-support" | "primary-direct"
+                      )
+                    }
+                    type="button"
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
           {supabaseMessage ? <p className="form-message">{supabaseMessage}</p> : null}
 
           <div className="claim-list-heading">
-            <strong>Full claim list</strong>
+            <strong>{isReaderMode ? "Evidence records" : "Full claim list"}</strong>
             <span>{filteredClaims.length} showing</span>
           </div>
 
@@ -1212,6 +1237,7 @@ export default function ClaimsClient({
               filteredClaims.map((claim) => {
                 const counts = evidenceCounts(claim);
                 const health = evidenceHealth(claim);
+                const originalSource = claim.sourcePublisher || claim.sourceTitle;
                 return (
                   <button
                     className={selectedClaim?.id === claim.id ? "claim-row active" : "claim-row"}
@@ -1219,19 +1245,22 @@ export default function ClaimsClient({
                     onClick={() => selectClaim(claim.id)}
                     type="button"
                   >
-                    <span className="claim-domain">{claim.domain}</span>
-                    {isLiveSupabaseClaimId(claim.id) ? (
+                    {!isReaderMode ? <span className="claim-domain">{claim.domain}</span> : null}
+                    {!isReaderMode && isLiveSupabaseClaimId(claim.id) ? (
                       <span className="claim-domain">Live source</span>
                     ) : null}
                     <strong>{claim.title}</strong>
-                    <span>
+                    <span className="claim-row-source">Original source: {originalSource}</span>
+                    <span className="claim-row-mix">
                       {counts.support} support / {counts.challenge} challenge /{" "}
                       {counts.context} context
                     </span>
-                    <span className={health.needsChallenge ? "triage need" : "triage"}>
-                      {health.balanceLabel} · {health.highQualityCount} strong source
-                      {health.highQualityCount === 1 ? "" : "s"}
-                    </span>
+                    {!isReaderMode ? (
+                      <span className={health.needsChallenge ? "triage need" : "triage"}>
+                        {health.balanceLabel} · {health.highQualityCount} strong source
+                        {health.highQualityCount === 1 ? "" : "s"}
+                      </span>
+                    ) : null}
                   </button>
                 );
               })

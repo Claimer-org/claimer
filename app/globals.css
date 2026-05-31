@@ -784,6 +784,34 @@ main {
   margin-top: -10px;
 }
 
+.reader-filter-row {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0;
+}
+
+.reader-filter-row span {
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.reader-filter-row select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 9px 12px;
+}
+
+.reader-filter-row select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+
 .chip {
   min-height: 34px;
   border: 1px solid var(--line-strong);
@@ -890,6 +918,19 @@ main {
   color: var(--foreground-dim);
   font-size: 0.84rem;
   overflow-wrap: anywhere;
+}
+
+.claim-row-source,
+.claim-row-mix {
+  color: var(--foreground-dim);
+  font-size: 0.84rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.claim-row-mix {
+  color: var(--foreground);
+  font-weight: 600;
 }
 
 .claim-row .triage {
@@ -2878,11 +2919,20 @@ body:has(.reader-editorial) .page-heading h1 {
 
 .reader-editorial .claim-row {
   background: #ffffff;
+  gap: 7px;
 }
 
 .reader-editorial .claim-row:hover,
 .reader-editorial .claim-row.active {
   background: #f4f8f6;
+}
+
+.reader-editorial .claim-row-source {
+  color: var(--foreground-dim);
+}
+
+.reader-editorial .claim-row-mix {
+  color: var(--foreground);
 }
 
 .reader-editorial .source-inspection {
@@ -4686,6 +4736,27 @@ textarea {
   width: 16px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E") center / contain no-repeat;
   cursor: pointer;
+}
+
+.reader-editorial .search-box {
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.reader-editorial .search-input {
+  border-color: var(--line);
+  background: #fbfdfb;
+  color: var(--foreground);
+}
+
+.reader-editorial .search-input::placeholder {
+  color: var(--foreground-dim);
+}
+
+.reader-editorial .search-input:focus {
+  border-color: var(--accent);
+  background: #ffffff;
+  box-shadow: var(--shadow-glow);
 }
 
 /* Feedback */
