@@ -1362,6 +1362,205 @@ main {
   line-height: 1.5;
 }
 
+.publication-section {
+  display: grid;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+
+.publication-section h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.48rem;
+  line-height: 1.22;
+}
+
+.publication-list {
+  display: grid;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.evidence-record-row,
+.gap-record-row {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding: 16px;
+}
+
+.evidence-record-row:first-child,
+.gap-record-row:first-child {
+  border-top: 0;
+}
+
+.evidence-record-row {
+  grid-template-columns: minmax(0, 1.26fr) minmax(108px, 0.32fr) minmax(220px, 0.64fr) minmax(96px, auto);
+}
+
+.gap-record-row {
+  grid-template-columns: minmax(0, 1.2fr) minmax(230px, 0.58fr) minmax(180px, 0.42fr);
+}
+
+.evidence-record-context,
+.evidence-record-source,
+.gap-record-copy,
+.gap-record-action {
+  min-width: 0;
+}
+
+.evidence-record-context h3,
+.gap-record-copy h3 {
+  margin: 6px 0 0;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.28;
+}
+
+.evidence-record-context p,
+.gap-record-copy p,
+.gap-record-action span {
+  margin: 6px 0 0;
+  color: var(--foreground-dim);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.stance-chip {
+  justify-self: start;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--foreground);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 7px 10px;
+}
+
+.stance-chip.support {
+  border-color: rgba(19, 121, 91, 0.22);
+  background: var(--support-bg);
+}
+
+.stance-chip.challenge {
+  border-color: rgba(180, 35, 24, 0.22);
+  background: var(--challenge-bg);
+}
+
+.stance-chip.context {
+  border-color: rgba(49, 95, 159, 0.22);
+  background: var(--context-bg);
+}
+
+.evidence-record-source {
+  display: grid;
+  gap: 4px;
+}
+
+.evidence-record-source span {
+  color: var(--foreground);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.evidence-record-source a,
+.text-link {
+  color: var(--accent-strong);
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.evidence-record-source a {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.text-link {
+  justify-self: start;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.gap-record-copy ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gap-record-copy li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f5f8f5;
+  color: var(--foreground);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 6px 9px;
+}
+
+.gap-counts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  min-width: 0;
+}
+
+.gap-counts div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #f8faf7;
+  padding: 10px;
+}
+
+.gap-counts dt,
+.gap-counts dd {
+  margin: 0;
+}
+
+.gap-counts dt {
+  color: var(--foreground-dim);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.gap-counts dd {
+  color: var(--foreground);
+  font-size: 1.15rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.gap-record-action {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.gap-record-action span {
+  margin: 0;
+  color: var(--foreground);
+  font-weight: 800;
+}
+
 .home-metrics-panel {
   display: grid;
   gap: 14px;
@@ -3280,6 +3479,22 @@ textarea {
     overflow-wrap: anywhere;
   }
 
+  .evidence-record-row,
+  .gap-record-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .publication-section h2 {
+    font-size: 1.26rem;
+  }
+
+  .stance-chip {
+    justify-self: start;
+    width: fit-content;
+  }
+
   .detail h1,
   .detail h2 {
     font-size: 1.7rem;
@@ -3449,6 +3664,24 @@ textarea {
 
   .home-mobile-source-summary dd {
     font-size: 0.76rem;
+  }
+
+  .publication-section {
+    gap: 12px;
+    padding-top: 20px;
+  }
+
+  .evidence-record-row,
+  .gap-record-row {
+    padding: 12px;
+  }
+
+  .gap-counts {
+    gap: 6px;
+  }
+
+  .gap-counts div {
+    padding: 8px;
   }
 
   .claim-rail,

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.531.5";
+export const SITE_VERSION = "26.531.6";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-31",
+    title: "Homepage publication rhythm",
+    bullets: [
+      "The homepage now continues from the protected source trail into latest evidence records drawn from existing Claimer seed evidence.",
+      "Claims needing evidence now show explicit support, challenge, and context gaps before quieter corpus and contributor metrics.",
+      "The claims archive remains the primary reader route while the For AI Agents page and contributor prompt stay available as secondary contributor paths, with public API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, DEC files, and contributor prompt unchanged."
+    ]
+  },
+  {
+    version: "26.531.5",
     date: "2026-05-31",
     title: "For Agents evidence quality first",
     bullets: [
