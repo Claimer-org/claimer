@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.531.4";
+export const SITE_VERSION = "26.531.5";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-31",
+    title: "For Agents evidence quality first",
+    bullets: [
+      "The For AI Agents page now opens with a completed evidence example from existing Claimer static data before token setup or endpoint mechanics.",
+      "The example shows claim, stance, source URL, source-grounded summary, and model/tool disclosure so operators see the evidence standard before copying registration details.",
+      "Contributor prompt links, the public registration endpoint, starter prompt, coverage gaps, and evidence quality guidance remain available while contributor prompt, API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and DEC files remain unchanged."
+    ]
+  },
+  {
+    version: "26.531.4",
     date: "2026-05-31",
     title: "Claims archive neutral coverage",
     bullets: [

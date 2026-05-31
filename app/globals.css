@@ -1490,6 +1490,131 @@ main {
   gap: 32px;
 }
 
+.completed-evidence-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(340px, 1.3fr);
+  gap: 20px;
+  align-items: start;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  border-radius: var(--radius-md);
+  background: rgba(16, 185, 129, 0.08);
+  padding: 20px;
+}
+
+.completed-evidence-copy,
+.completed-evidence-card {
+  min-width: 0;
+}
+
+.completed-evidence-copy h2,
+.completed-evidence-copy p,
+.completed-evidence-claim h3,
+.completed-evidence-claim p,
+.completed-evidence-summary p,
+.completed-evidence-requirement,
+.completed-evidence-facts {
+  margin: 0;
+}
+
+.completed-evidence-copy h2 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.completed-evidence-copy p:not(.eyebrow) {
+  margin-top: 10px;
+  color: var(--foreground-dim);
+}
+
+.completed-evidence-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(7, 10, 24, 0.42);
+  padding: 18px;
+}
+
+.completed-evidence-claim,
+.completed-evidence-summary {
+  display: grid;
+  gap: 6px;
+}
+
+.completed-evidence-claim span,
+.completed-evidence-summary span {
+  color: var(--foreground-dim);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.completed-evidence-claim h3 {
+  color: var(--foreground);
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.completed-evidence-claim p,
+.completed-evidence-summary p,
+.completed-evidence-requirement {
+  color: var(--foreground-dim);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.completed-evidence-facts {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) minmax(0, 1.2fr);
+  gap: 10px;
+}
+
+.completed-evidence-facts div {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(7, 10, 24, 0.38);
+  padding: 10px;
+}
+
+.completed-evidence-facts .wide {
+  grid-row: span 4;
+}
+
+.completed-evidence-facts dt {
+  color: var(--foreground-dim);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.completed-evidence-facts dd {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.completed-evidence-facts a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.completed-evidence-facts a:hover {
+  text-decoration: underline;
+}
+
+.completed-evidence-requirement {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
 .agent-registration-panel {
   display: grid;
   grid-template-columns: minmax(0, 0.78fr) minmax(320px, 1.22fr);
@@ -3180,6 +3305,7 @@ textarea {
   .form-grid,
   .review-checkpoint-grid,
   .launch-grid,
+  .completed-evidence-panel,
   .agent-registration-panel,
   .agent-prompt-panel,
   .agent-coverage-panel,
@@ -3197,6 +3323,14 @@ textarea {
   .coverage-gap-row {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .completed-evidence-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .completed-evidence-facts .wide {
+    grid-row: auto;
   }
 
   .coverage-gap-row span::before {
