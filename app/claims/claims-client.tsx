@@ -1327,39 +1327,46 @@ export default function ClaimsClient({
                 })()}
               </section>
 
-              <div className="score-grid">
-                <section className="score">
-                  <span>Attribution accuracy</span>
-                  <strong>{selectedClaim.attributionScore}%</strong>
-                  <p>{selectedClaim.attributionLabel}</p>
-                  <small>{selectedClaim.attributionExplanation}</small>
+              {!isReaderMode ? (
+                <div className="score-grid">
+                  <section className="score">
+                    <span>Source trace</span>
+                    <strong>{selectedClaim.attributionScore}%</strong>
+                    <p>{selectedClaim.attributionLabel}</p>
+                    <small>{selectedClaim.attributionExplanation}</small>
+                  </section>
+                  <section className="score">
+                    <span>Evidence record</span>
+                    <strong>{selectedClaim.veracityScore}%</strong>
+                    <p>{selectedClaim.veracityLabel}</p>
+                    <small>{selectedClaim.veracityExplanation}</small>
+                  </section>
+                </div>
+              ) : null}
+
+              {isReaderMode ? (
+                <section className="review-mission" aria-labelledby="archive-evidence-gap-title">
+                  {(() => {
+                    const health = evidenceHealth(selectedClaim);
+                    const mission = reviewMission(selectedClaim);
+                    const evidenceGapSignal = health.needsChallenge
+                      ? "Needs challenge"
+                      : health.needsSupport
+                        ? "Needs support"
+                        : health.hasHighQualitySource
+                          ? "Context open"
+                          : "Needs primary source";
+
+                    return (
+                      <div>
+                        <span>{evidenceGapSignal}</span>
+                        <h3 id="archive-evidence-gap-title">Evidence gap</h3>
+                        <p>{mission.description}</p>
+                      </div>
+                    );
+                  })()}
                 </section>
-                <section className="score">
-                  <span>Evidence coverage</span>
-                  <strong>{selectedClaim.veracityScore}%</strong>
-                  {isReaderMode ? (
-                    (() => {
-                      const health = evidenceHealth(selectedClaim);
-                      return (
-                        <>
-                          <p>
-                            {health.total} source {health.total === 1 ? "entry" : "entries"}
-                          </p>
-                          <small>
-                            {health.support} support / {health.challenge} challenge /{" "}
-                            {health.context} context entries are available for inspection.
-                          </small>
-                        </>
-                      );
-                    })()
-                  ) : (
-                    <>
-                      <p>{selectedClaim.veracityLabel}</p>
-                      <small>{selectedClaim.veracityExplanation}</small>
-                    </>
-                  )}
-                </section>
-              </div>
+              ) : null}
 
               {!isReaderMode ? (
                 <section className="review-mission" aria-labelledby="review-mission-title">
@@ -1422,6 +1429,47 @@ export default function ClaimsClient({
                   ));
                 })()}
               </section>
+
+              {isReaderMode ? (
+                <section
+                  className="coverage-metadata"
+                  aria-labelledby="archive-coverage-metadata-title"
+                >
+                  <h2 id="archive-coverage-metadata-title">Coverage metadata</h2>
+                  {(() => {
+                    const health = evidenceHealth(selectedClaim);
+                    const supportChallengeContextSummary = `${health.support} support / ${health.challenge} challenge / ${health.context} context`;
+
+                    return (
+                      <dl>
+                        <div>
+                          <dt>Source trail</dt>
+                          <dd>
+                            {selectedClaim.sourceQuality} source from{" "}
+                            {selectedClaim.sourcePublisher}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt>Evidence count</dt>
+                          <dd>
+                            {health.total} source{" "}
+                            {health.total === 1 ? "entry" : "entries"} for reader
+                            inspection
+                          </dd>
+                        </div>
+                        <div>
+                          <dt>support / challenge / context</dt>
+                          <dd>{supportChallengeContextSummary}</dd>
+                        </div>
+                        <div>
+                          <dt>Attribution note</dt>
+                          <dd>{selectedClaim.attributionExplanation}</dd>
+                        </div>
+                      </dl>
+                    );
+                  })()}
+                </section>
+              ) : null}
             </article>
 
             {isReaderMode ? (

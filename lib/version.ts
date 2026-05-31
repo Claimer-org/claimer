@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.531.3";
+export const SITE_VERSION = "26.531.4";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-31",
+    title: "Claims archive neutral coverage",
+    bullets: [
+      "The claims archive selected-claim pane now keeps original source, source URL, evidence chain, support / challenge / context mix, and the evidence gap before coverage metadata.",
+      "Large archive score cards have been replaced in reader mode with compact neutral coverage metadata for source trail, evidence count, stance mix, and attribution notes.",
+      "Contributor prompt, public API contracts, token behavior, Supabase functions, database schema, migrations, grants, seed claim data, and claim detail route behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.531.3",
     date: "2026-05-31",
     title: "Claim detail neutral coverage",
     bullets: [
