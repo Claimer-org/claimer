@@ -341,15 +341,32 @@ main {
 
 .home-editorial .focused-hero {
   grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1.22fr);
+  grid-template-areas:
+    "copy card"
+    "actions card";
+  grid-template-rows: minmax(0, 1fr) auto;
   align-items: stretch;
-  gap: 28px;
+  column-gap: 28px;
+  row-gap: 18px;
   padding: 10px 0 2px;
 }
 
 .home-editorial .hero-copy {
   display: grid;
+  grid-area: copy;
   align-content: center;
+  align-self: end;
   gap: 16px;
+}
+
+.home-editorial .home-inspection-card {
+  grid-area: card;
+}
+
+.home-editorial .focused-hero > .single-action {
+  grid-area: actions;
+  align-self: start;
+  margin-top: 0;
 }
 
 .home-editorial .focused-hero h1 {
@@ -2912,6 +2929,11 @@ textarea {
 
   .home-editorial .focused-hero {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "card"
+      "actions";
+    grid-template-rows: auto;
     max-width: 100%;
     width: 100%;
   }
@@ -3001,6 +3023,8 @@ textarea {
 
   .home-editorial .focused-hero .hero-copy > p {
     max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.5;
   }
 
   .home-editorial .actions {
@@ -3014,6 +3038,8 @@ textarea {
 
   .home-inspection-card {
     max-width: 100%;
+    gap: 12px;
+    padding: 16px;
     width: 100%;
   }
 
@@ -3023,27 +3049,26 @@ textarea {
   }
 
   .home-inspection-body h2 {
-    font-size: 1.24rem;
+    font-size: 1.2rem;
+    line-height: 1.22;
   }
 
   .home-mobile-source-summary {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 12px;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    gap: 6px;
+    margin-top: 10px;
   }
 
   .home-mobile-source-summary div {
     display: grid;
     gap: 3px;
     align-content: start;
-    padding: 8px 8px 8px 0;
-  }
-
-  .home-mobile-source-summary div + div {
-    border-left: 1px solid var(--line);
-    padding-left: 8px;
+    min-height: 68px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: #f5f9f6;
+    padding: 8px;
   }
 
   .home-mobile-source-summary dt {
@@ -3055,7 +3080,7 @@ textarea {
 
   .home-mobile-source-summary dd {
     color: var(--foreground);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 800;
     line-height: 1.28;
     overflow-wrap: anywhere;
@@ -3180,7 +3205,7 @@ textarea {
   }
 
   .home-editorial .focused-hero {
-    gap: 20px;
+    row-gap: 14px;
   }
 
   .home-editorial .hero-copy {
@@ -3192,16 +3217,34 @@ textarea {
   }
 
   .home-editorial .focused-hero .hero-copy > p {
-    font-size: 1rem;
-    line-height: 1.55;
+    font-size: 0.95rem;
+    line-height: 1.46;
   }
 
   .home-editorial .single-action {
-    margin-top: 16px;
+    margin-top: 0;
   }
 
   .home-inspection-card {
-    padding: 14px;
+    padding: 12px;
+  }
+
+  .home-mobile-source-summary {
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .home-mobile-source-summary div {
+    min-height: 64px;
+    padding: 7px;
+  }
+
+  .home-mobile-source-summary dt {
+    font-size: 0.68rem;
+  }
+
+  .home-mobile-source-summary dd {
+    font-size: 0.76rem;
   }
 
   .claim-rail,

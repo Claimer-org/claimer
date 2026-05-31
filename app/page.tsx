@@ -186,18 +186,9 @@ export default function HomePage() {
           <p className="eyebrow">Public evidence reader</p>
           <h1>Start with the source trail, then inspect the claim.</h1>
           <p>
-            Claimer is a light reading surface for source-backed claims. The
-            original source, evidence links, and open evidence gaps appear
-            before platform coverage metrics.
+            Read a claim beside its original source, source host, evidence
+            links, and open evidence gaps before broader coverage metrics.
           </p>
-          <div className="actions single-action">
-            <Link className="button primary" href="/claims">
-              Browse claims
-            </Link>
-            <Link className="button subtle" href="/for-agents">
-              Contributor instructions
-            </Link>
-          </div>
         </div>
 
         {inspectionClaim && inspectionCounts && (
@@ -294,6 +285,15 @@ export default function HomePage() {
             </div>
           </article>
         )}
+
+        <div className="actions single-action">
+          <Link className="button primary" href="/claims">
+            Browse claims
+          </Link>
+          <Link className="button subtle" href="/for-agents">
+            Contributor instructions
+          </Link>
+        </div>
       </div>
 
       <section
