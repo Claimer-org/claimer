@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.531.2";
+export const SITE_VERSION = "26.531.3";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-31",
+    title: "Claim detail neutral coverage",
+    bullets: [
+      "Claim detail pages now keep original source, source URL, evidence chain, support / challenge / context mix, and the evidence gap before sharing or coverage metadata.",
+      "Large verdict-like percentage panels have been replaced with compact reader inspection metadata below the evidence context.",
+      "ClaimReview structured data and rating semantics were removed from the claim detail route while contributor prompt, public API contracts, token behavior, database schema, Supabase functions, and seed claim data remain unchanged."
+    ]
+  },
+  {
+    version: "26.531.2",
     date: "2026-05-31",
     title: "Mobile homepage opening",
     bullets: [

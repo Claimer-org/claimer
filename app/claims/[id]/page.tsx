@@ -29,7 +29,7 @@ export async function generateMetadata({
   }
 
   const counts = evidenceCounts(claim);
-  const description = `Original source: ${claim.sourceTitle}. Evidence coverage: ${claim.evidence.length} entries (${counts.support} support, ${counts.challenge} challenge, ${counts.context} context). ${claim.body}`.slice(0, 200);
+  const description = `Original source: ${claim.sourceTitle}. Evidence chain: ${claim.evidence.length} entries (${counts.support} support / ${counts.challenge} challenge / ${counts.context} context). ${claim.body}`.slice(0, 200);
 
   return {
     title: claim.title,
@@ -65,52 +65,46 @@ export default async function ClaimDetailPage({
   const counts = evidenceCounts(claim);
   const health = evidenceHealth(claim);
   const mission = reviewMission(claim);
-  const evidenceCoverageLabel = `${health.total} source ${
-    health.total === 1 ? "entry" : "entries"
-  }`;
   const sourceCountSummary = `${counts.support} support, ${counts.challenge} challenge, ${counts.context} context`;
+  const supportChallengeContextSummary = `${counts.support} support / ${counts.challenge} challenge / ${counts.context} context`;
+  const evidenceGapSignal = health.needsChallenge
+    ? "Needs challenge"
+    : health.needsSupport
+      ? "Needs support"
+      : health.hasHighQualitySource
+        ? "Context open"
+        : "Needs primary source";
 
-  // ClaimReview JSON-LD for Google rich results
-  const claimReviewJsonLd = {
+  const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ClaimReview",
+    "@type": "Article",
+    headline: claim.title,
+    description: claim.body,
     url: `${siteUrl}/claims/${claim.id}/`,
-    claimReviewed: claim.title,
-    reviewBody: claim.body,
-    itemReviewed: {
-      "@type": "Claim",
-      name: claim.title,
-      author: {
-        "@type": claim.subjectKind === "company" ? "Organization" : "Person",
-        name: claim.claimantName
-      },
-      datePublished: claim.createdAt,
-      appearance: {
-        "@type": "CreativeWork",
-        url: claim.sourceUrl,
-        name: claim.sourceTitle
-      }
-    },
+    mainEntityOfPage: `${siteUrl}/claims/${claim.id}/`,
+    datePublished: claim.createdAt,
     author: {
       "@type": "Organization",
-      name: "Claimer Community",
+      name: "Claimer",
       url: siteUrl
     },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: claim.veracityScore,
-      bestRating: 100,
-      worstRating: 0,
-      alternateName: "Evidence coverage"
+    publisher: {
+      "@type": "Organization",
+      name: "Claimer",
+      url: siteUrl
     },
-    datePublished: claim.createdAt
+    citation: claim.sourceUrl,
+    about: {
+      "@type": "Thing",
+      name: claim.title
+    }
   };
 
   return (
     <article className="detail standalone claim-detail-article reader-editorial">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(claimReviewJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <Link className="button compact" href="/claims">
         Back to claims
@@ -121,11 +115,6 @@ export default async function ClaimDetailPage({
           <h1>{claim.title}</h1>
         </div>
       </div>
-      <ClaimShareSection
-        title={claim.title}
-        text={`Original source: ${claim.sourceTitle}. Evidence coverage: ${sourceCountSummary}.`}
-        claimId={claim.id}
-      />
       <p>{claim.body}</p>
 
       <section className="source-inspection" aria-labelledby="claim-source-title">
@@ -134,7 +123,7 @@ export default async function ClaimDetailPage({
           <h2 id="claim-source-title">Original source</h2>
           <p>
             Publisher: {claim.sourcePublisher}. Inspect the source attributed to
-            the claim before reviewing the evidence coverage below.
+            the claim before reviewing the evidence chain below.
           </p>
         </div>
         <div className="source-reference">
@@ -198,33 +187,61 @@ export default async function ClaimDetailPage({
         </div>
       </section>
 
-      <div className="score-grid">
-        <section className="score">
-          <span>Attribution accuracy</span>
-          <strong>{claim.attributionScore}%</strong>
-          <p>{claim.attributionLabel}</p>
-          <small>{claim.attributionExplanation}</small>
-        </section>
-        <section className="score">
-          <span>Evidence coverage</span>
-          <strong>{claim.veracityScore}%</strong>
-          <p>{evidenceCoverageLabel}</p>
-          <small>
-            {sourceCountSummary} evidence entries are listed for reader
-            inspection.
-          </small>
-        </section>
-      </div>
+      <section className="review-mission" aria-labelledby="review-mission-title">
+        <div>
+          <span>{evidenceGapSignal}</span>
+          <h2 id="review-mission-title">Evidence gap</h2>
+          <p>{mission.description}</p>
+        </div>
+        <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
+          Contribute sourced evidence
+        </AttributedReviewLink>
+      </section>
 
-      <section className="assessment-checklist" aria-label="Evidence coverage readiness">
+      <section className="claim-detail-share" aria-label="Share after reader inspection">
+        <ClaimShareSection
+          title={claim.title}
+          text={`Original source: ${claim.sourceTitle}. Evidence chain: ${sourceCountSummary}.`}
+          claimId={claim.id}
+        />
+      </section>
+
+      <section className="coverage-metadata" aria-labelledby="coverage-metadata-title">
+        <h2 id="coverage-metadata-title">Coverage metadata</h2>
+        <dl>
+          <div>
+            <dt>Source trail</dt>
+            <dd>
+              {claim.sourceQuality} source from {claim.sourcePublisher}
+            </dd>
+          </div>
+          <div>
+            <dt>Evidence count</dt>
+            <dd>
+              {health.total} source {health.total === 1 ? "entry" : "entries"} for
+              reader inspection
+            </dd>
+          </div>
+          <div>
+            <dt>support / challenge / context</dt>
+            <dd>{supportChallengeContextSummary}</dd>
+          </div>
+          <div>
+            <dt>Attribution note</dt>
+            <dd>{claim.attributionExplanation}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section className="assessment-checklist" aria-label="Evidence context checklist">
         {[
           {
-            label: "Attribution source",
+            label: "Source link",
             done: Boolean(claim.sourceUrl),
             detail: claim.sourceTitle
           },
           {
-            label: "Strong attribution quality",
+            label: "Primary/direct source",
             done: ["primary", "direct witness"].includes(claim.sourceQuality),
             detail: claim.sourceQuality
           },
@@ -240,22 +257,11 @@ export default async function ClaimDetailPage({
           }
         ].map((check) => (
           <div className={check.done ? "check-item done" : "check-item"} key={check.label}>
-            <span>{check.done ? "Ready" : "Gap"}</span>
+            <span>{check.done ? "Present" : "Open"}</span>
             <strong>{check.label}</strong>
             <small>{check.detail}</small>
           </div>
         ))}
-      </section>
-
-      <section className="review-mission" aria-labelledby="review-mission-title">
-        <div>
-          <span>{mission.stance}</span>
-          <h2 id="review-mission-title">Evidence gap</h2>
-          <p>{mission.description}</p>
-        </div>
-        <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
-          Contribute sourced evidence
-        </AttributedReviewLink>
       </section>
     </article>
   );

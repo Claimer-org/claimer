@@ -2686,6 +2686,75 @@ body:has(.reader-editorial) .page-heading h1 {
   padding-bottom: 20px;
 }
 
+.claim-detail-share {
+  border-top: 1px solid var(--line);
+  padding-top: 4px;
+}
+
+.claim-detail-share .share-buttons {
+  margin: 0;
+  opacity: 0.72;
+}
+
+.claim-detail-share .share-buttons:focus-within,
+.claim-detail-share .share-buttons:hover {
+  opacity: 1;
+}
+
+.coverage-metadata {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #fbfdfb;
+  padding: 14px;
+}
+
+.coverage-metadata h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.coverage-metadata dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.coverage-metadata div {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  min-width: 0;
+  border: 1px solid rgba(23, 33, 38, 0.08);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  padding: 10px;
+}
+
+.coverage-metadata dt,
+.coverage-metadata dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.coverage-metadata dt {
+  color: var(--foreground-dim);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.coverage-metadata dd {
+  color: var(--foreground);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
 /* Forms */
 .form-grid {
   display: grid;
@@ -3107,6 +3176,7 @@ textarea {
   .metric-strip,
   .assessment-checklist,
   .score-grid,
+  .coverage-metadata dl,
   .form-grid,
   .review-checkpoint-grid,
   .launch-grid,
