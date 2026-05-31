@@ -211,6 +211,65 @@ function priorityScore(claim: Claim) {
   return freshnessScore + openGapScore + sourceScore + evidenceScore + oneSidedEvidenceScore;
 }
 
+function readerCoverageSignal(claim: Claim) {
+  const health = evidenceHealth(claim);
+
+  if (!health.hasHighQualitySource) {
+    return "Missing primary-source coverage";
+  }
+
+  if (health.needsChallenge) {
+    return "Missing challenge coverage";
+  }
+
+  if (health.needsSupport) {
+    return "Missing support coverage";
+  }
+
+  return "Context coverage open";
+}
+
+function readerCoverageDescription(claim: Claim) {
+  const health = evidenceHealth(claim);
+  const sourceName = claim.sourcePublisher || claim.sourceTitle;
+
+  if (!health.hasHighQualitySource) {
+    return `This public record cites ${sourceName}, but the library still lacks primary or direct source coverage. That is a source coverage gap, not a truth judgment.`;
+  }
+
+  if (health.needsChallenge) {
+    return "The library has support sources for this claim, but no challenge source coverage yet. That is a source coverage gap, not a truth judgment.";
+  }
+
+  if (health.needsSupport) {
+    return "The library has challenge sources for this claim, but no support source coverage yet. That is a source coverage gap, not a truth judgment.";
+  }
+
+  return "The library has source coverage across the current evidence mix. Additional context sources can still clarify how the claim is reported.";
+}
+
+function readerMixLabel(claim: Claim) {
+  const health = evidenceHealth(claim);
+
+  if (health.support > 0 && health.challenge > 0) {
+    return "Support and challenge sources";
+  }
+
+  if (health.support > 0) {
+    return "Support sources only";
+  }
+
+  if (health.challenge > 0) {
+    return "Challenge sources only";
+  }
+
+  if (health.context > 0) {
+    return "Context sources only";
+  }
+
+  return "No evidence entries";
+}
+
 function feedbackPath(
   useCase: ContributionPrompt["useCase"],
   claimId: string,
@@ -1029,20 +1088,22 @@ export default function ClaimsClient({
                   <div className="priority-claim-kicker">
                     <span className="claim-domain">{priorityClaim.domain}</span>
                     {isLiveSupabaseClaimId(priorityClaim.id) ? (
-                      <span className="claim-domain">Live source</span>
+                      <span className="claim-domain">
+                        {isReaderMode ? "Public record" : "Live source"}
+                      </span>
                     ) : null}
                     <span>{claimFreshnessLabel(priorityClaim.createdAt)}</span>
                     <span>{priorityClaim.sourceQuality} source</span>
                   </div>
                   <h2 id="priority-claim-title">
-                    {isReaderMode ? "Archive focus" : "Priority review"}
+                    {isReaderMode ? "Library record" : "Priority review"}
                   </h2>
                   <h3>{priorityClaim.title}</h3>
                   <p>
                     {isReaderMode
-                      ? "Start with a claim that has source-backed evidence and an open source gap."
+                      ? "Start with a public record that has an original source and visible source coverage."
                       : "Ranked first by freshness, source strength, and an open evidence gap."}{" "}
-                    Current source: {priorityClaim.sourcePublisher}.
+                    Original source: {priorityClaim.sourcePublisher}.
                   </p>
                   <div className="priority-evidence" aria-label="Priority evidence counts">
                     <span className="support">{counts.support} support</span>
@@ -1055,11 +1116,11 @@ export default function ClaimsClient({
                 </div>
                 {isReaderMode ? (
                   <div className="priority-action">
-                    <span>Source path</span>
-                    <strong>Inspect source and evidence chain</strong>
+                    <span>Evidence view</span>
+                    <strong>Read the source and evidence chain</strong>
                     <p>
-                      Review the source line and current support, challenge, and
-                      context entries before deciding what is covered.
+                      Review the source line and current support / challenge / context
+                      entries as public source coverage, not a platform verdict.
                     </p>
                     <div className="priority-actions">
                       {seedClaims.some((claim) => claim.id === priorityClaim.id) ? (
@@ -1075,7 +1136,7 @@ export default function ClaimsClient({
                         onClick={() => selectClaim(priorityClaim.id)}
                         type="button"
                       >
-                        Focus claim
+                        Read record
                       </button>
                     </div>
                   </div>
@@ -1117,10 +1178,10 @@ export default function ClaimsClient({
               {targetedReviewMode
                 ? "Optional"
                 : isReaderMode
-                  ? "Claims archive"
+                  ? "Public evidence library"
                   : "Contribution workspace"}
             </p>
-            <h1>{targetedReviewMode ? "Change claim" : "Claims"}</h1>
+            <h1>{targetedReviewMode ? "Change claim" : isReaderMode ? "Records" : "Claims"}</h1>
           </div>
           {targetedReviewMode ? (
             <button
@@ -1217,7 +1278,7 @@ export default function ClaimsClient({
           {supabaseMessage ? <p className="form-message">{supabaseMessage}</p> : null}
 
           <div className="claim-list-heading">
-            <strong>{isReaderMode ? "Evidence records" : "Full claim list"}</strong>
+            <strong>{isReaderMode ? "Public records" : "Full claim list"}</strong>
             <span>{filteredClaims.length} showing</span>
           </div>
 
@@ -1282,7 +1343,9 @@ export default function ClaimsClient({
                 <div>
                   <p className="eyebrow">{selectedClaim.claimantName}</p>
                   {isLiveSupabaseClaimId(selectedClaim.id) ? (
-                    <span className="claim-domain">Live source</span>
+                    <span className="claim-domain">
+                      {isReaderMode ? "Public record" : "Live source"}
+                    </span>
                   ) : null}
                   <h2>{selectedClaim.title}</h2>
                 </div>
@@ -1301,7 +1364,9 @@ export default function ClaimsClient({
                   <p>Publisher: {selectedClaim.sourcePublisher}</p>
                 </div>
                 <div className="source-reference">
-                  {isLiveSupabaseClaimId(selectedClaim.id) ? <span>Live source</span> : null}
+                  {isLiveSupabaseClaimId(selectedClaim.id) ? (
+                    <span>{isReaderMode ? "Public record" : "Live source"}</span>
+                  ) : null}
                   <span>{selectedClaim.sourceQuality} source</span>
                   <a href={selectedClaim.sourceUrl} rel="noreferrer" target="_blank">
                     {selectedClaim.sourceTitle}
@@ -1348,8 +1413,10 @@ export default function ClaimsClient({
                         <span>primary/direct</span>
                       </div>
                       <div>
-                        <strong>{health.balanceLabel}</strong>
-                        <span>support / challenge mix</span>
+                        <strong>
+                          {isReaderMode ? readerMixLabel(selectedClaim) : health.balanceLabel}
+                        </strong>
+                        <span>support / challenge / context mix</span>
                       </div>
                     </>
                   );
@@ -1374,23 +1441,13 @@ export default function ClaimsClient({
               ) : null}
 
               {isReaderMode ? (
-                <section className="review-mission" aria-labelledby="archive-evidence-gap-title">
+                <section className="review-mission" aria-labelledby="library-coverage-gap-title">
                   {(() => {
-                    const health = evidenceHealth(selectedClaim);
-                    const mission = reviewMission(selectedClaim);
-                    const evidenceGapSignal = health.needsChallenge
-                      ? "Needs challenge"
-                      : health.needsSupport
-                        ? "Needs support"
-                        : health.hasHighQualitySource
-                          ? "Context open"
-                          : "Needs primary source";
-
                     return (
                       <div>
-                        <span>{evidenceGapSignal}</span>
-                        <h3 id="archive-evidence-gap-title">Evidence gap</h3>
-                        <p>{mission.description}</p>
+                        <span>{readerCoverageSignal(selectedClaim)}</span>
+                        <h3 id="library-coverage-gap-title">Source coverage gap</h3>
+                        <p>{readerCoverageDescription(selectedClaim)}</p>
                       </div>
                     );
                   })()}
@@ -1451,7 +1508,15 @@ export default function ClaimsClient({
 
                   return checks.map((check) => (
                     <div className={check.done ? "check-item done" : "check-item"} key={check.label}>
-                      <span>{check.done ? "Ready" : "Gap"}</span>
+                      <span>
+                        {isReaderMode
+                          ? check.done
+                            ? "Present"
+                            : "Coverage gap"
+                          : check.done
+                            ? "Ready"
+                            : "Gap"}
+                      </span>
                       <strong>{check.label}</strong>
                       <small>{check.detail}</small>
                     </div>
@@ -1462,9 +1527,9 @@ export default function ClaimsClient({
               {isReaderMode ? (
                 <section
                   className="coverage-metadata"
-                  aria-labelledby="archive-coverage-metadata-title"
+                  aria-labelledby="library-source-summary-title"
                 >
-                  <h2 id="archive-coverage-metadata-title">Coverage metadata</h2>
+                  <h2 id="library-source-summary-title">Source coverage summary</h2>
                   {(() => {
                     const health = evidenceHealth(selectedClaim);
                     const supportChallengeContextSummary = `${health.support} support / ${health.challenge} challenge / ${health.context} context`;
@@ -1472,7 +1537,7 @@ export default function ClaimsClient({
                     return (
                       <dl>
                         <div>
-                          <dt>Source trail</dt>
+                          <dt>Original source</dt>
                           <dd>
                             {selectedClaim.sourceQuality} source from{" "}
                             {selectedClaim.sourcePublisher}
@@ -1491,7 +1556,7 @@ export default function ClaimsClient({
                           <dd>{supportChallengeContextSummary}</dd>
                         </div>
                         <div>
-                          <dt>Attribution note</dt>
+                          <dt>Source note</dt>
                           <dd>{selectedClaim.attributionExplanation}</dd>
                         </div>
                       </dl>

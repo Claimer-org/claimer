@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.531.8";
+export const SITE_VERSION = "26.531.9";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-05-31",
+    title: "Claims archive public evidence library",
+    bullets: [
+      "The public claims archive now opens as a public evidence library with calmer reader copy around source-backed claim records.",
+      "Reader-mode rows and selected-claim inspection keep original source, publisher, source URL, evidence chain, and support / challenge / context mix while replacing workflow labels with library language.",
+      "Evidence gaps are framed as missing source coverage rather than truth judgments, with submit/review routes, contributor prompt, public API contracts, token behavior, Supabase functions, schema, migrations, grants, and seed claim data unchanged."
+    ]
+  },
+  {
+    version: "26.531.8",
     date: "2026-05-31",
     title: "Mobile horizontal overflow fix",
     bullets: [
