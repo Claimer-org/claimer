@@ -863,12 +863,39 @@ export default function ClaimsClient({
       ...filteredClaims.filter((claim) => claim.id !== selectedClaim.id)
     ];
   }, [filteredClaims, isReaderMode, selectedClaim]);
+  const mobileBrowseRows = useMemo(() => {
+    if (!isReaderMode || !selectedClaim) {
+      return [];
+    }
+
+    return visibleClaimRows
+      .filter((claim) => claim.id !== selectedClaim.id)
+      .slice(0, 2);
+  }, [isReaderMode, selectedClaim, visibleClaimRows]);
 
   useEffect(() => {
     if (selectedClaim && selectedClaim.id !== selectedId) {
       setSelectedId(selectedClaim.id);
     }
   }, [selectedClaim, selectedId]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    if (window.location.hash !== "#selected-source-evidence") {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      document
+        .getElementById("selected-source-evidence")
+        ?.scrollIntoView({ block: "start" });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [selectedClaim?.id]);
 
   useEffect(() => {
     if (!requestedClaimId) {
@@ -1363,6 +1390,41 @@ export default function ClaimsClient({
                         </dd>
                       </div>
                     </dl>
+                  ) : null}
+                  {isReaderMode && mobileBrowseRows.length > 0 ? (
+                    <div
+                      className="reader-mobile-browse"
+                      aria-label="Browse public archive entries"
+                    >
+                      <div className="reader-mobile-browse-heading">
+                        <span>Browse</span>
+                        <strong>Public archive entries</strong>
+                      </div>
+                      <div className="reader-mobile-browse-list">
+                        {mobileBrowseRows.map((claim) => {
+                          const browseCounts = evidenceCounts(claim);
+                          const browseSource =
+                            claim.sourcePublisher || sourceHost(claim.sourceUrl);
+
+                          return (
+                            <button
+                              className="reader-mobile-browse-row"
+                              key={claim.id}
+                              onClick={() => selectClaim(claim.id)}
+                              type="button"
+                            >
+                              <strong>{claim.title}</strong>
+                              <span>Original source: {browseSource}</span>
+                              <span>
+                                {browseCounts.support} support /{" "}
+                                {browseCounts.challenge} challenge /{" "}
+                                {browseCounts.context} context
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
                   ) : null}
                   {isReaderMode ? <PinnedCurrentRecord claim={featuredClaim} /> : null}
                   <p>

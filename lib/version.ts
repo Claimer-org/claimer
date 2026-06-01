@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.15";
+export const SITE_VERSION = "26.601.16";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Claims mobile evidence proximity",
+    bullets: [
+      "The claims archive mobile reader now keeps the compact original-source summary first, then exposes a short public archive browse strip before the selected source/evidence panel.",
+      "Reader-mobile priority copy is tightened so the selected source/evidence panel and evidence chain arrive materially closer to the opening source summary while desktop keeps the existing archive layout.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, migrations, functions, seed data, evidence scoring, and source-backed reader language remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.15",
     date: "2026-06-01",
     title: "Live claim reader token language guard",
     bullets: [
