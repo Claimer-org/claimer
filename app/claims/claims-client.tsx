@@ -272,6 +272,14 @@ function readerMixLabel(claim: Claim) {
   return "No evidence entries";
 }
 
+function sourceHost(sourceUrl: string) {
+  try {
+    return new URL(sourceUrl).hostname.replace(/^www\./, "");
+  } catch {
+    return sourceUrl;
+  }
+}
+
 function formatRecordCount(count: number, label: string) {
   return `${count} ${label}${count === 1 ? "" : "s"}`;
 }
@@ -1296,6 +1304,7 @@ export default function ClaimsClient({
             const counts = evidenceCounts(featuredClaim);
             const health = evidenceHealth(featuredClaim);
             const mission = reviewMission(featuredClaim);
+            const featuredSourceHost = sourceHost(featuredClaim.sourceUrl);
             const actionLabel =
               mission.stance === "context"
                 ? "Add context"
@@ -1318,6 +1327,39 @@ export default function ClaimsClient({
                     {isReaderMode ? "Library record" : "Priority review"}
                   </h2>
                   <h3>{featuredClaim.title}</h3>
+                  {isReaderMode ? (
+                    <dl
+                      className="priority-source-summary"
+                      aria-label="Original source summary"
+                    >
+                      <div>
+                        <dt>Original source</dt>
+                        <dd>{featuredClaim.sourcePublisher || featuredSourceHost}</dd>
+                      </div>
+                      <div>
+                        <dt>Source host</dt>
+                        <dd>{featuredSourceHost}</dd>
+                      </div>
+                      <div>
+                        <dt>Evidence mix</dt>
+                        <dd>
+                          {counts.support} support / {counts.challenge} challenge /{" "}
+                          {counts.context} context
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>Next panel</dt>
+                        <dd>
+                          <a
+                            href="#selected-source-evidence"
+                            onClick={() => selectClaim(featuredClaim.id)}
+                          >
+                            source and evidence
+                          </a>
+                        </dd>
+                      </div>
+                    </dl>
+                  ) : null}
                   {isReaderMode ? <PinnedCurrentRecord claim={featuredClaim} /> : null}
                   <p>
                     {isReaderMode

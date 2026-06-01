@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.12";
+export const SITE_VERSION = "26.601.13";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Claims mobile source summary",
+    bullets: [
+      "The claims archive opening record now includes a compact original-source summary with publisher, source host, and support / challenge / context mix in the first mobile viewport.",
+      "The summary points readers to the existing selected source and evidence panel while preserving the `#selected-source-evidence` anchor path and mobile evidence-before-rail order.",
+      "Claim data, evidence data, public API contracts, contributor prompt, token behavior, backend, source provenance language, and reader token privacy remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.12",
     date: "2026-06-01",
     title: "Reader-native evidence provenance labels",
     bullets: [
