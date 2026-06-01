@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.17";
+export const SITE_VERSION = "26.601.18";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Claims mobile browse affordance",
+    bullets: [
+      "The claims archive mobile browse strip now shows a compact more-entries cue and right-edge fade so readers can see that additional public archive entries continue sideways.",
+      "The early browse path still renders four public archive entries before the selected source/evidence panel while preserving the compact original-source summary.",
+      "Desktop keeps the existing archive layout, and contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.17",
     date: "2026-06-02",
     title: "Claims mobile evidence chain proximity",
     bullets: [
