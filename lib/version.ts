@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.13";
+export const SITE_VERSION = "26.601.14";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Reader publication labels",
+    bullets: [
+      "The claims archive now describes the opening reader surface as a public archive entry with reader-facing publication language.",
+      "Claims archive counts and live-load fallback copy now refer to public archive entries.",
+      "The For AI Agents completed evidence example now uses archived-public-entry language while preserving contributor prompt, API contracts, token behavior, backend, claim data, evidence data, record order, and evidence scoring."
+    ]
+  },
+  {
+    version: "26.601.13",
     date: "2026-06-01",
     title: "Claims mobile source summary",
     bullets: [

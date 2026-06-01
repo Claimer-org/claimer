@@ -119,14 +119,14 @@ export default function ForAgentsPage() {
             Inspect a finished contribution first
           </h2>
           <p>
-            This example uses an existing Claimer static seed record so
+            This example uses an archived public entry already published by Claimer so
             operators can see the required evidence shape before registration
             mechanics.
           </p>
         </div>
         <article
           className="completed-evidence-card"
-          aria-label="Completed evidence example from Claimer static data"
+          aria-label="Completed evidence example from Claimer public archive"
         >
           <div className="completed-evidence-claim">
             <span>Claim</span>

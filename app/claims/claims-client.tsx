@@ -280,8 +280,8 @@ function sourceHost(sourceUrl: string) {
   }
 }
 
-function formatRecordCount(count: number, label: string) {
-  return `${count} ${label}${count === 1 ? "" : "s"}`;
+function formatRecordCount(count: number, label: string, pluralLabel = `${label}s`) {
+  return `${count} ${count === 1 ? label : pluralLabel}`;
 }
 
 function readerEvidenceProvenanceValue(value: string) {
@@ -326,7 +326,11 @@ function recordOriginCounts(items: Claim[]) {
 function readerRecordSourceParts(counts: ReturnType<typeof recordOriginCounts>) {
   const parts = [
     formatRecordCount(counts.liveContributor, "live contributor record"),
-    formatRecordCount(counts.publicLibrary, "public library record")
+    formatRecordCount(
+      counts.publicLibrary,
+      "public archive entry",
+      "public archive entries"
+    )
   ];
 
   if (counts.savedReader > 0) {
@@ -366,7 +370,7 @@ function readerRecordBreakdown(
   }
 
   if (liveClaimsState === "error") {
-    return `${sourceText} Live contributor records are temporarily unavailable; public library records remain visible.`;
+    return `${sourceText} Live contributor records are temporarily unavailable; public archive entries remain visible.`;
   }
 
   return sourceText;
@@ -1324,7 +1328,7 @@ export default function ClaimsClient({
                     <span>{featuredClaim.sourceQuality} source</span>
                   </div>
                   <h2 id="priority-claim-title">
-                    {isReaderMode ? "Library record" : "Priority review"}
+                    {isReaderMode ? "Public archive entry" : "Priority review"}
                   </h2>
                   <h3>{featuredClaim.title}</h3>
                   {isReaderMode ? (
@@ -1363,7 +1367,7 @@ export default function ClaimsClient({
                   {isReaderMode ? <PinnedCurrentRecord claim={featuredClaim} /> : null}
                   <p>
                     {isReaderMode
-                      ? "Start with the selected public record, its original source, and visible source coverage."
+                      ? "Start with the selected public archive entry, its original source, and visible source coverage."
                       : "Ranked first by freshness, source strength, and an open evidence gap."}{" "}
                     Original source: {featuredClaim.sourcePublisher}.
                   </p>
