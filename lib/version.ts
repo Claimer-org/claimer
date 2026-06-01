@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.5";
+export const SITE_VERSION = "26.601.6";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Claims selected record label",
+    bullets: [
+      "The claims archive now labels the pinned OpenAI GPT-4o affordance as the selected public record before the record rail, matching the priority reader card, active row, and detail panel after live records hydrate.",
+      "The selected public record copy names the original source and source/evidence panel relationship without changing record order, claim data, evidence data, or reader routes.",
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and evidence records remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.5",
     date: "2026-06-01",
     title: "Claims pinned current record",
     bullets: [

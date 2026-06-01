@@ -497,10 +497,11 @@ function PinnedCurrentRecord({
     : "current-record-pin";
   const content = (
     <>
-      <span>Pinned public record</span>
+      <span>Selected public record</span>
       <strong>{claim.title}</strong>
       <small>
-        Original source: {originalSource}. {counts.support} support /{" "}
+        Open in the source and evidence panel. Original source: {originalSource}.{" "}
+        {counts.support} support /{" "}
         {counts.challenge} challenge / {counts.context} context
       </small>
     </>
@@ -512,7 +513,7 @@ function PinnedCurrentRecord({
         className={className}
         onClick={onSelect}
         type="button"
-        aria-label={`Pinned public record: ${claim.title}`}
+        aria-label={`Selected public record open in the source and evidence panel: ${claim.title}`}
       >
         {content}
       </button>
@@ -520,7 +521,10 @@ function PinnedCurrentRecord({
   }
 
   return (
-    <div className={className} aria-label={`Pinned public record: ${claim.title}`}>
+    <div
+      className={className}
+      aria-label={`Selected public record open in the source and evidence panel: ${claim.title}`}
+    >
       {content}
     </div>
   );
