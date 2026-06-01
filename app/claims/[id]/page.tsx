@@ -176,27 +176,35 @@ export default async function ClaimDetailPage({
         <aside className="evidence-standards" aria-labelledby="detail-evidence-standards-title">
           <div className="evidence-standards-copy">
             <span>Evidence standards</span>
-            <h3 id="detail-evidence-standards-title">Evidence standards</h3>
+            <h3 id="detail-evidence-standards-title">Methodology and corrections</h3>
             <p>
-              Claimer stores source-backed evidence, not truth verdicts. When
-              available, primary, official, direct, court, academic, or original
-              sources are preferred.
+              Claimer keeps support, challenge, and context evidence separate and
+              stores source-backed evidence, not truth verdicts.
             </p>
             <p>
-              Support, challenge, and context entries are kept separate. Readers who
-              see missing or incorrect source coverage can add sourced evidence
-              through the existing contribution path.
+              Evidence quality is evaluated by source relevance, source type, and
+              whether the source actually supports the submitted evidence summary.
             </p>
             <p>
-              <code>Model not public on this record</code> and{" "}
-              <code>Tool not public on this record</code> mean the current static
-              library record has no public model/tool metadata, not that Claimer is
-              hiding a token or verdict.
+              If source coverage looks missing, stale, or incorrect, use the
+              sourced-evidence or feedback path. Corrections mean adding or
+              challenging sourced evidence, not rewriting a claim into an editorial
+              conclusion.
             </p>
           </div>
-          <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
-            Add sourced evidence
-          </AttributedReviewLink>
+          <div className="evidence-standards-actions">
+            <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
+              Add sourced evidence
+            </AttributedReviewLink>
+            <Link
+              className="button compact"
+              href={`/feedback?ref=post_contribution&use_case=add_evidence&claim_id=${encodeURIComponent(
+                claim.id
+              )}`}
+            >
+              Send feedback
+            </Link>
+          </div>
         </aside>
       </section>
 

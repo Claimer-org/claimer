@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.9";
+export const SITE_VERSION = "26.601.10";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Evidence methodology and corrections path",
+    bullets: [
+      "Public claims evidence surfaces now pair Evidence standards with compact methodology and corrections context beside the evidence chain.",
+      "The copy keeps support, challenge, and context evidence separate; explains quality review by source relevance, source type, and source-summary fit; and confirms Claimer stores evidence, not truth verdicts.",
+      "Reader corrections use the existing sourced-evidence and feedback paths for missing, stale, or incorrect coverage, meaning readers add or challenge sourced evidence rather than rewriting claims into editorial conclusions."
+    ]
+  },
+  {
+    version: "26.601.9",
     date: "2026-06-01",
     title: "Evidence standards reader context",
     bullets: [

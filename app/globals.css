@@ -3114,6 +3114,14 @@ a.current-record-pin {
   font-size: 0.82em;
 }
 
+.evidence-standards-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
 .evidence-standards .button {
   flex: 0 0 auto;
 }
