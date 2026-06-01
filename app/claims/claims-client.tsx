@@ -276,6 +276,22 @@ function formatRecordCount(count: number, label: string) {
   return `${count} ${label}${count === 1 ? "" : "s"}`;
 }
 
+function readerEvidenceProvenanceValue(value: string) {
+  if (value === "Static library record") {
+    return "Public archive entry";
+  }
+
+  if (value === "Model not public on this record") {
+    return "Model not recorded for this public entry";
+  }
+
+  if (value === "Tool not public on this record") {
+    return "Tool not recorded for this public entry";
+  }
+
+  return value;
+}
+
 function recordOriginCounts(items: Claim[]) {
   return items.reduce(
     (counts, claim) => {
@@ -1605,7 +1621,8 @@ export default function ClaimsClient({
                       <p className="evidence-provenance">
                         {evidenceProvenanceParts(item).map((part) => (
                           <span key={part.label}>
-                            <strong>{part.label}:</strong> {part.value}
+                            <strong>{part.label}:</strong>{" "}
+                            {readerEvidenceProvenanceValue(part.value)}
                           </span>
                         ))}
                       </p>

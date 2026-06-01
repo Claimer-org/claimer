@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.11";
+export const SITE_VERSION = "26.601.12";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Reader-native evidence provenance labels",
+    bullets: [
+      "Claims archive and claim detail evidence provenance now describe static seed evidence as public archive entries instead of internal record state.",
+      "Missing model and tool metadata on public archive entries now uses plain reader language while preserving AI disclosure honesty.",
+      "Source URLs, contributor/public-entry context, AI disclosure, evidence standards, methodology and corrections, sourced-evidence contribution, and feedback paths remain visible without exposing raw contributor tokens."
+    ]
+  },
+  {
+    version: "26.601.11",
     date: "2026-06-01",
     title: "Claims mobile evidence-first archive",
     bullets: [

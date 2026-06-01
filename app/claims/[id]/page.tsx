@@ -13,6 +13,22 @@ import { siteUrl } from "../../../lib/site";
 import AttributedReviewLink from "../../review/attributed-review-link";
 import ClaimShareSection from "./claim-share";
 
+function readerEvidenceProvenanceValue(value: string) {
+  if (value === "Static library record") {
+    return "Public archive entry";
+  }
+
+  if (value === "Model not public on this record") {
+    return "Model not recorded for this public entry";
+  }
+
+  if (value === "Tool not public on this record") {
+    return "Tool not recorded for this public entry";
+  }
+
+  return value;
+}
+
 export function generateStaticParams() {
   return seedClaims.map((claim) => ({ id: claim.id }));
 }
@@ -160,7 +176,8 @@ export default async function ClaimDetailPage({
               <p className="evidence-provenance">
                 {evidenceProvenanceParts(item).map((part) => (
                   <span key={part.label}>
-                    <strong>{part.label}:</strong> {part.value}
+                    <strong>{part.label}:</strong>{" "}
+                    {readerEvidenceProvenanceValue(part.value)}
                   </span>
                 ))}
               </p>
