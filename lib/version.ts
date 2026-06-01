@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.10";
+export const SITE_VERSION = "26.601.11";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Claims mobile evidence-first archive",
+    bullets: [
+      "Mobile claims archive readers now reach the selected source and evidence panel before the long public record rail in the default scroll order.",
+      "The full public record rail remains available below the evidence surface on mobile and keeps the existing desktop reader flow.",
+      "The selected evidence panel still includes source inspection, evidence provenance, Evidence standards, methodology and corrections context, sourced-evidence contribution, and feedback paths without exposing raw contributor tokens."
+    ]
+  },
+  {
+    version: "26.601.10",
     date: "2026-06-01",
     title: "Evidence methodology and corrections path",
     bullets: [

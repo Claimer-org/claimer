@@ -3762,6 +3762,14 @@ textarea {
     max-height: none;
   }
 
+  .reader-workspace:not(.targeted-review-workspace) .claim-main {
+    order: 1;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .claim-rail {
+    order: 2;
+  }
+
   .targeted-review-workspace .claim-main {
     order: 1;
   }
