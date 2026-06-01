@@ -495,38 +495,23 @@ function PinnedCurrentRecord({
   const className = onSelect
     ? "current-record-pin current-record-rail-pin"
     : "current-record-pin";
-  const content = (
-    <>
+  const detailHref = "#selected-source-evidence";
+
+  return (
+    <a
+      className={className}
+      href={detailHref}
+      onClick={onSelect ? () => onSelect() : undefined}
+      aria-label={`Selected public record. Go to source and evidence for ${claim.title}`}
+    >
       <span>Selected public record</span>
       <strong>{claim.title}</strong>
       <small>
-        Open in the source and evidence panel. Original source: {originalSource}.{" "}
-        {counts.support} support /{" "}
-        {counts.challenge} challenge / {counts.context} context
+        Go to the source and evidence panel. Original source: {originalSource}.{" "}
+        {counts.support} support / {counts.challenge} challenge / {counts.context} context
       </small>
-    </>
-  );
-
-  if (onSelect) {
-    return (
-      <button
-        className={className}
-        onClick={onSelect}
-        type="button"
-        aria-label={`Selected public record open in the source and evidence panel: ${claim.title}`}
-      >
-        {content}
-      </button>
-    );
-  }
-
-  return (
-    <div
-      className={className}
-      aria-label={`Selected public record open in the source and evidence panel: ${claim.title}`}
-    >
-      {content}
-    </div>
+      <span className="current-record-pin-action">Go to source and evidence</span>
+    </a>
   );
 }
 
@@ -1287,13 +1272,13 @@ export default function ClaimsClient({
                           Inspect details
                         </Link>
                       ) : null}
-                      <button
+                      <a
                         className="button compact"
+                        href="#selected-source-evidence"
                         onClick={() => selectClaim(featuredClaim.id)}
-                        type="button"
                       >
-                        Read record
-                      </button>
+                        Read source and evidence
+                      </a>
                     </div>
                   </div>
                 ) : (
@@ -1504,7 +1489,7 @@ export default function ClaimsClient({
       <div className="claim-main">
         {selectedClaim ? (
           <>
-            <article className="detail">
+            <article className="detail" id="selected-source-evidence">
               <div className="detail-heading">
                 <div>
                   <p className="eyebrow">{selectedClaim.claimantName}</p>

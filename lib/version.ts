@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.6";
+export const SITE_VERSION = "26.601.7";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Claims mobile selected detail path",
+    bullets: [
+      "The claims archive selected public record now links directly to the selected source and evidence panel, giving mobile readers a first-screen path past the full record rail.",
+      "The priority card, selected public record affordance, active row, and source/evidence panel continue to describe the OpenAI GPT-4o record without changing claim data, evidence data, or record order.",
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and evidence records remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.6",
     date: "2026-06-01",
     title: "Claims selected record label",
     bullets: [

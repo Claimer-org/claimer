@@ -855,10 +855,9 @@ main {
   margin-top: 12px;
 }
 
-button.current-record-pin {
-  appearance: none;
+a.current-record-pin {
   cursor: pointer;
-  font: inherit;
+  text-decoration: none;
 }
 
 .current-record-rail-pin {
@@ -869,12 +868,15 @@ button.current-record-pin {
 }
 
 .current-record-rail-pin:hover,
-.current-record-rail-pin:focus-visible {
+.current-record-rail-pin:focus-visible,
+.current-record-pin:hover,
+.current-record-pin:focus-visible {
   border-color: var(--accent);
   box-shadow: inset 0 0 0 1px rgba(30, 107, 85, 0.16), var(--shadow-glow);
 }
 
-.current-record-rail-pin:focus-visible {
+.current-record-rail-pin:focus-visible,
+.current-record-pin:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -897,6 +899,14 @@ button.current-record-pin {
   font-size: 0.82rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.current-record-pin-action {
+  width: fit-content;
+  border: 1px solid rgba(30, 107, 85, 0.2);
+  border-radius: 6px;
+  background: rgba(15, 118, 110, 0.08);
+  padding: 5px 8px;
 }
 
 /* Filters */
@@ -1101,6 +1111,7 @@ button.current-record-pin {
 .detail {
   display: grid;
   gap: 20px;
+  scroll-margin-top: 92px;
 }
 
 .detail.standalone {
