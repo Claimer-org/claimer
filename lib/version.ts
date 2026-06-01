@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.16";
+export const SITE_VERSION = "26.601.17";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Claims mobile evidence chain proximity",
+    bullets: [
+      "The claims archive mobile reader now keeps a four-entry public archive browse path close to the compact original-source summary without moving the selected source/evidence anchor.",
+      "The selected source/evidence panel and evidence chain arrive sooner on mobile while the desktop archive keeps its existing reader layout.",
+      "Claims archive and claim detail evidence chains now explain that older public archive entries may lack public model/tool metadata while newer AI submissions require disclosure."
+    ]
+  },
+  {
+    version: "26.601.16",
     date: "2026-06-02",
     title: "Claims mobile evidence proximity",
     bullets: [

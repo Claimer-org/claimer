@@ -76,6 +76,9 @@ const sourceQualities: SourceQuality[] = [
   "unverifiable"
 ];
 
+const readerEvidenceMetadataNote =
+  "Older public archive entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
+
 const assessmentTargets: AssessmentTarget[] = ["attribution", "veracity", "context"];
 const oneDayMs = 1000 * 60 * 60 * 24;
 const publicLibraryClaimIds = new Set(seedClaims.map((claim) => claim.id));
@@ -870,7 +873,7 @@ export default function ClaimsClient({
 
     return visibleClaimRows
       .filter((claim) => claim.id !== selectedClaim.id)
-      .slice(0, 2);
+      .slice(0, 4);
   }, [isReaderMode, selectedClaim, visibleClaimRows]);
 
   useEffect(() => {
@@ -1398,7 +1401,7 @@ export default function ClaimsClient({
                     >
                       <div className="reader-mobile-browse-heading">
                         <span>Browse</span>
-                        <strong>Public archive entries</strong>
+                        <strong>{mobileBrowseRows.length} public archive entries</strong>
                       </div>
                       <div className="reader-mobile-browse-list">
                         {mobileBrowseRows.map((claim) => {
@@ -1716,6 +1719,11 @@ export default function ClaimsClient({
 
               <section className="evidence-section" aria-labelledby="evidence-title">
                 <h3 id="evidence-title">Evidence chain</h3>
+                {isReaderMode ? (
+                  <p className="evidence-metadata-note">
+                    <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
+                  </p>
+                ) : null}
                 <div className="evidence-list">
                   {selectedClaim.evidence.map((item) => (
                     <article className={`evidence ${item.stance}`} key={item.id}>

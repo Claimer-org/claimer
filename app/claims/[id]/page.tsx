@@ -13,6 +13,9 @@ import { siteUrl } from "../../../lib/site";
 import AttributedReviewLink from "../../review/attributed-review-link";
 import ClaimShareSection from "./claim-share";
 
+const readerEvidenceMetadataNote =
+  "Older public archive entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
+
 function readerEvidenceProvenanceValue(value: string) {
   if (value === "Static library record") {
     return "Public archive entry";
@@ -165,6 +168,9 @@ export default async function ClaimDetailPage({
 
       <section className="evidence-section" aria-labelledby="detail-evidence-title">
         <h2 id="detail-evidence-title">Evidence chain</h2>
+        <p className="evidence-metadata-note">
+          <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
+        </p>
         <div className="evidence-list">
           {claim.evidence.map((item) => (
             <article className={`evidence ${item.stance}`} key={item.id}>
