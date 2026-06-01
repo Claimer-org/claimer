@@ -483,6 +483,49 @@ function ContributionPromptView({
   );
 }
 
+function PinnedCurrentRecord({
+  claim,
+  onSelect
+}: {
+  claim: Claim;
+  onSelect?: () => void;
+}) {
+  const counts = evidenceCounts(claim);
+  const originalSource = claim.sourcePublisher || claim.sourceTitle;
+  const className = onSelect
+    ? "current-record-pin current-record-rail-pin"
+    : "current-record-pin";
+  const content = (
+    <>
+      <span>Pinned public record</span>
+      <strong>{claim.title}</strong>
+      <small>
+        Original source: {originalSource}. {counts.support} support /{" "}
+        {counts.challenge} challenge / {counts.context} context
+      </small>
+    </>
+  );
+
+  if (onSelect) {
+    return (
+      <button
+        className={className}
+        onClick={onSelect}
+        type="button"
+        aria-label={`Pinned public record: ${claim.title}`}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <div className={className} aria-label={`Pinned public record: ${claim.title}`}>
+      {content}
+    </div>
+  );
+}
+
 export default function ClaimsClient({
   initialClaimId = "",
   mode = "reader"
@@ -1207,19 +1250,7 @@ export default function ClaimsClient({
                     {isReaderMode ? "Library record" : "Priority review"}
                   </h2>
                   <h3>{featuredClaim.title}</h3>
-                  {isReaderMode ? (
-                    <div
-                      className="current-record-pin"
-                      aria-label={`Current record: ${featuredClaim.title}`}
-                    >
-                      <span>Current record</span>
-                      <strong>{featuredClaim.title}</strong>
-                      <small>
-                        Original source: {featuredClaim.sourcePublisher}. {counts.support}{" "}
-                        support / {counts.challenge} challenge / {counts.context} context
-                      </small>
-                    </div>
-                  ) : null}
+                  {isReaderMode ? <PinnedCurrentRecord claim={featuredClaim} /> : null}
                   <p>
                     {isReaderMode
                       ? "Start with the selected public record, its original source, and visible source coverage."
@@ -1323,6 +1354,13 @@ export default function ClaimsClient({
 
         {targetedReviewMode && !claimPickerOpen && selectedClaim ? (
           <p className="claim-picker-current">Current review: {selectedClaim.title}</p>
+        ) : null}
+
+        {isReaderMode && !targetedReviewMode && selectedClaim ? (
+          <PinnedCurrentRecord
+            claim={selectedClaim}
+            onSelect={() => selectClaim(selectedClaim.id)}
+          />
         ) : null}
 
         <div

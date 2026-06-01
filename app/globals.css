@@ -840,16 +840,43 @@ main {
 .current-record-pin {
   display: grid;
   gap: 5px;
+  width: 100%;
   min-width: 0;
   border: 1px solid var(--line);
   border-left: 3px solid var(--accent-strong);
   border-radius: var(--radius-sm);
   background: var(--bg-surface);
+  color: var(--foreground);
   padding: 10px 12px;
+  text-align: left;
 }
 
 .priority-claim-copy .current-record-pin {
   margin-top: 12px;
+}
+
+button.current-record-pin {
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.current-record-rail-pin {
+  margin: 14px 0 12px;
+  border-color: rgba(30, 107, 85, 0.28);
+  background: var(--bg-elevated);
+  box-shadow: inset 0 0 0 1px rgba(30, 107, 85, 0.08);
+}
+
+.current-record-rail-pin:hover,
+.current-record-rail-pin:focus-visible {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(30, 107, 85, 0.16), var(--shadow-glow);
+}
+
+.current-record-rail-pin:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .current-record-pin span {

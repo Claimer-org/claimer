@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.4";
+export const SITE_VERSION = "26.601.5";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Claims pinned current record",
+    bullets: [
+      "The claims archive now duplicates the active OpenAI GPT-4o record as a pinned public-record row before the scrollable record rail begins, keeping the priority reader card, pinned row, and detail panel connected after live records hydrate.",
+      "The full hydrated record rail remains below the pinned row with the selected record still first in the list order and live contributor records counted with public library records.",
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and evidence records remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.4",
     date: "2026-06-01",
     title: "Claims selected row visibility",
     bullets: [
