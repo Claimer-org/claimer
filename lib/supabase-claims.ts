@@ -58,6 +58,10 @@ type EvidenceFormInput = {
 
 const uuidPattern =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const visibleUuidPattern =
+  /\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/i;
+const liveReaderProtocolTermPattern =
+  /(?:X-Contributor-Token|contributor_token|submitted_by)/i;
 const seedClaimIds = new Set(seedClaims.map((claim) => claim.id));
 
 const uiToDbSourceQuality = {
@@ -166,6 +170,45 @@ function displayNameForUser(user: User) {
   return metadataName || emailName || "Anonymous reviewer";
 }
 
+function hasUnsafeLiveReaderText(values: Array<string | null | undefined>) {
+  return values.some((value) => {
+    if (!value) {
+      return false;
+    }
+    return (
+      liveReaderProtocolTermPattern.test(value) || visibleUuidPattern.test(value)
+    );
+  });
+}
+
+function hasUnsafeLiveEvidenceText(row: EvidenceWithSource) {
+  const source = firstRelation(row.sources);
+  return hasUnsafeLiveReaderText([
+    row.summary,
+    row.source_url,
+    row.ai_disclosure,
+    row.model_used,
+    row.tool_used,
+    source?.title,
+    source?.publisher,
+    source?.url
+  ]);
+}
+
+function hasUnsafeLiveClaimText(row: ClaimWithRelations) {
+  const source = firstRelation(row.sources);
+  return hasUnsafeLiveReaderText([
+    row.title,
+    row.body,
+    row.claimant_name,
+    row.source_url,
+    row.ai_disclosure,
+    source?.title,
+    source?.publisher,
+    source?.url
+  ]);
+}
+
 async function ensureAuthenticatedProfile() {
   const supabase = getSupabaseClient();
   if (!supabase) {
@@ -258,6 +301,7 @@ function mapClaim(row: ClaimWithRelations): Claim {
   const source = firstRelation(row.sources);
   const sourceUrl = row.source_url;
   const evidence = (row.evidence_entries ?? [])
+    .filter((evidenceRow) => !hasUnsafeLiveEvidenceText(evidenceRow))
     .map(mapEvidence)
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
@@ -383,7 +427,9 @@ export async function loadSupabaseClaims() {
     throw new Error(`Supabase claim load failed: ${error.message}`);
   }
 
-  return ((data ?? []) as ClaimWithRelations[]).map(mapClaim);
+  return ((data ?? []) as ClaimWithRelations[])
+    .filter((claimRow) => !hasUnsafeLiveClaimText(claimRow))
+    .map(mapClaim);
 }
 
 export async function loadSupabaseSeedEvidence() {

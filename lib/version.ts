@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.14";
+export const SITE_VERSION = "26.601.15";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Live claim reader token language guard",
+    bullets: [
+      "The public claims archive now excludes live Supabase claim rows when reader-visible claim text contains contributor-token protocol terms or UUID-shaped token strings.",
+      "Live Supabase evidence rows with unsafe reader-visible evidence text are filtered before rendering while safe public live claims and safe evidence remain available.",
+      "For AI Agents, the contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, migrations, functions, RLS policies, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.14",
     date: "2026-06-01",
     title: "Reader publication labels",
     bullets: [
