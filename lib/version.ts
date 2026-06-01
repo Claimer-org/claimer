@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.2";
+export const SITE_VERSION = "26.601.3";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Claims initial state coherence",
+    bullets: [
+      "The claims archive opening reader card now follows the selected claim, so the top record, active row, detail panel, and visible detail link describe the same claim on first load.",
+      "Live Supabase contributor records can still load into the archive without taking over the reader card until a reader selects one.",
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, and seed claim data remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.2",
     date: "2026-06-01",
     title: "For Agents reader surface",
     bullets: [

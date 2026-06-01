@@ -728,6 +728,7 @@ export default function ClaimsClient({
   const selectedClaim = useMemo(() => {
     return claims.find((claim) => claim.id === selectedId) ?? filteredClaims[0];
   }, [claims, filteredClaims, selectedId]);
+  const featuredClaim = isReaderMode ? selectedClaim : priorityClaim;
 
   useEffect(() => {
     if (selectedClaim && selectedClaim.id !== selectedId) {
@@ -1162,12 +1163,12 @@ export default function ClaimsClient({
 
   return (
     <section className={workspaceClassName}>
-      {!targetedReviewMode && priorityClaim ? (
+      {!targetedReviewMode && featuredClaim ? (
         <section className="priority-claim" aria-labelledby="priority-claim-title">
           {(() => {
-            const counts = evidenceCounts(priorityClaim);
-            const health = evidenceHealth(priorityClaim);
-            const mission = reviewMission(priorityClaim);
+            const counts = evidenceCounts(featuredClaim);
+            const health = evidenceHealth(featuredClaim);
+            const mission = reviewMission(featuredClaim);
             const actionLabel =
               mission.stance === "context"
                 ? "Add context"
@@ -1177,24 +1178,24 @@ export default function ClaimsClient({
               <>
                 <div className="priority-claim-copy">
                   <div className="priority-claim-kicker">
-                    <span className="claim-domain">{priorityClaim.domain}</span>
-                    {isLiveSupabaseClaimId(priorityClaim.id) ? (
+                    <span className="claim-domain">{featuredClaim.domain}</span>
+                    {isLiveSupabaseClaimId(featuredClaim.id) ? (
                       <span className="claim-domain">
                         {isReaderMode ? "Public record" : "Live source"}
                       </span>
                     ) : null}
-                    <span>{claimFreshnessLabel(priorityClaim.createdAt)}</span>
-                    <span>{priorityClaim.sourceQuality} source</span>
+                    <span>{claimFreshnessLabel(featuredClaim.createdAt)}</span>
+                    <span>{featuredClaim.sourceQuality} source</span>
                   </div>
                   <h2 id="priority-claim-title">
                     {isReaderMode ? "Library record" : "Priority review"}
                   </h2>
-                  <h3>{priorityClaim.title}</h3>
+                  <h3>{featuredClaim.title}</h3>
                   <p>
                     {isReaderMode
-                      ? "Start with a public record that has an original source and visible source coverage."
+                      ? "Start with the selected public record, its original source, and visible source coverage."
                       : "Ranked first by freshness, source strength, and an open evidence gap."}{" "}
-                    Original source: {priorityClaim.sourcePublisher}.
+                    Original source: {featuredClaim.sourcePublisher}.
                   </p>
                   <div className="priority-evidence" aria-label="Priority evidence counts">
                     <span className="support">{counts.support} support</span>
@@ -1214,17 +1215,17 @@ export default function ClaimsClient({
                       entries as public source coverage, not a platform verdict.
                     </p>
                     <div className="priority-actions">
-                      {seedClaims.some((claim) => claim.id === priorityClaim.id) ? (
+                      {seedClaims.some((claim) => claim.id === featuredClaim.id) ? (
                         <Link
                           className="button primary compact"
-                          href={`/claims/${priorityClaim.id}`}
+                          href={`/claims/${featuredClaim.id}`}
                         >
                           Inspect details
                         </Link>
                       ) : null}
                       <button
                         className="button compact"
-                        onClick={() => selectClaim(priorityClaim.id)}
+                        onClick={() => selectClaim(featuredClaim.id)}
                         type="button"
                       >
                         Read record
@@ -1239,13 +1240,13 @@ export default function ClaimsClient({
                     <div className="priority-actions">
                       <Link
                         className="button primary compact"
-                        href={claimEvidencePath(priorityClaim.id, attribution)}
+                        href={claimEvidencePath(featuredClaim.id, attribution)}
                       >
                         {actionLabel}
                       </Link>
                       <button
                         className="button compact"
-                        onClick={() => selectClaim(priorityClaim.id)}
+                        onClick={() => selectClaim(featuredClaim.id)}
                         type="button"
                       >
                         Focus details
