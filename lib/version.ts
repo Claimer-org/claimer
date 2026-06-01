@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.8";
+export const SITE_VERSION = "26.601.9";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Evidence standards reader context",
+    bullets: [
+      "Reader evidence chains now include compact source standards context explaining that Claimer stores source-backed evidence, not truth verdicts.",
+      "The standards block prefers primary, official, direct, court, academic, or original sources when available and keeps support, challenge, and context entries separate.",
+      "Static record model/tool fallback labels are explained as public metadata availability, with existing contribution paths preserved and no contributor prompt, API contract, token behavior, backend, seed data, investor, DEC, or agent artifact changes."
+    ]
+  },
+  {
+    version: "26.601.8",
     date: "2026-06-01",
     title: "Evidence provenance reader labels",
     bullets: [

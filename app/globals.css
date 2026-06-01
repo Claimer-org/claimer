@@ -3058,6 +3058,66 @@ a.current-record-pin {
   font-weight: 700;
 }
 
+.evidence-standards {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  padding: 14px;
+}
+
+.evidence-standards-copy {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.evidence-standards-copy > span {
+  width: max-content;
+  max-width: 100%;
+  border: 1px solid rgba(23, 33, 38, 0.08);
+  border-radius: 6px;
+  background: #f3f7f4;
+  color: var(--foreground-dim);
+  font-size: 0.73rem;
+  font-weight: 700;
+  padding: 3px 9px;
+}
+
+.evidence-standards h3,
+.evidence-standards h4,
+.evidence-standards p {
+  margin: 0;
+}
+
+.evidence-standards h3,
+.evidence-standards h4 {
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.evidence-standards p {
+  color: var(--foreground-dim);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.evidence-standards code {
+  background: rgba(23, 33, 38, 0.04);
+  color: var(--foreground);
+  font-size: 0.82em;
+}
+
+.evidence-standards .button {
+  flex: 0 0 auto;
+}
+
 .evidence a {
   color: var(--accent-strong);
   font-weight: 600;
@@ -3297,6 +3357,10 @@ body:has(.reader-editorial) .page-heading h1 {
   border: 1px solid rgba(23, 33, 38, 0.08);
   border-radius: 6px;
   background: #f3f7f4;
+}
+
+.reader-editorial .evidence-standards {
+  background: #fbfdfb;
 }
 
 .evidence-source {
@@ -3733,6 +3797,7 @@ textarea {
   .rail-header,
   .detail-heading,
   .review-mission,
+  .evidence-standards,
   .agent-doorway {
     align-items: flex-start;
     flex-direction: column;

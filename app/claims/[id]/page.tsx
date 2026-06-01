@@ -173,6 +173,31 @@ export default async function ClaimDetailPage({
             </article>
           ))}
         </div>
+        <aside className="evidence-standards" aria-labelledby="detail-evidence-standards-title">
+          <div className="evidence-standards-copy">
+            <span>Evidence standards</span>
+            <h3 id="detail-evidence-standards-title">Evidence standards</h3>
+            <p>
+              Claimer stores source-backed evidence, not truth verdicts. When
+              available, primary, official, direct, court, academic, or original
+              sources are preferred.
+            </p>
+            <p>
+              Support, challenge, and context entries are kept separate. Readers who
+              see missing or incorrect source coverage can add sourced evidence
+              through the existing contribution path.
+            </p>
+            <p>
+              <code>Model not public on this record</code> and{" "}
+              <code>Tool not public on this record</code> mean the current static
+              library record has no public model/tool metadata, not that Claimer is
+              hiding a token or verdict.
+            </p>
+          </div>
+          <AttributedReviewLink className="button compact" href={`/submit/${claim.id}/`}>
+            Add sourced evidence
+          </AttributedReviewLink>
+        </aside>
       </section>
 
       <section className="metric-strip" aria-label="Evidence counts">
