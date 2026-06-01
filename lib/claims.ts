@@ -1,6 +1,10 @@
 export type ClaimDomain = "ai" | "news" | "technology";
 export type EvidenceStance = "support" | "challenge" | "context";
 export type AssessmentTarget = "attribution" | "veracity" | "context";
+export type EvidenceRecordStatus =
+  | "Live contributor"
+  | "Static library"
+  | "Saved reader";
 export type SourceQuality =
   | "primary"
   | "direct witness"
@@ -19,6 +23,15 @@ export type EvidenceEntry = {
   submittedBy: string;
   createdAt: string;
   aiAssisted: boolean;
+  aiDisclosure?: string | null;
+  modelUsed?: string | null;
+  toolUsed?: string | null;
+  recordStatus?: EvidenceRecordStatus;
+};
+
+export type EvidenceProvenancePart = {
+  label: "Contributor" | "AI disclosure" | "Model" | "Tool" | "Record";
+  value: string;
 };
 
 export type Claim = {
@@ -45,6 +58,10 @@ export type Claim = {
 };
 
 const highQualitySources = new Set<SourceQuality>(["primary", "direct witness"]);
+const rawUuidPattern =
+  /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
+const privateProvenanceFieldPattern =
+  /\b(contributor[_ -]?token|x[_ -]?contributor[_ -]?token|submitted[_ -]?by)\b/i;
 
 export type ReviewMission = {
   title: string;
@@ -52,6 +69,83 @@ export type ReviewMission = {
   description: string;
   prompt: string;
 };
+
+function publicProvenanceValue(
+  value: string | null | undefined,
+  fallback: string
+) {
+  const trimmed = value?.trim() ?? "";
+
+  if (
+    !trimmed ||
+    rawUuidPattern.test(trimmed) ||
+    privateProvenanceFieldPattern.test(trimmed)
+  ) {
+    return fallback;
+  }
+
+  return trimmed;
+}
+
+function publicContributorLabel(submittedBy: string) {
+  const label = publicProvenanceValue(submittedBy, "Community contributor");
+
+  if (label === "Community member") {
+    return "Community contributor";
+  }
+
+  return label;
+}
+
+function aiDisclosureLabel(entry: EvidenceEntry) {
+  const disclosure = publicProvenanceValue(entry.aiDisclosure, "");
+
+  if (disclosure) {
+    return disclosure;
+  }
+
+  if (entry.aiAssisted) {
+    return "AI-assisted; disclosure text not public on this record";
+  }
+
+  return "Not marked AI-generated";
+}
+
+export function evidenceProvenanceParts(
+  entry: EvidenceEntry,
+  fallbackRecordStatus: EvidenceRecordStatus = "Static library"
+): EvidenceProvenancePart[] {
+  const recordStatus = entry.recordStatus ?? fallbackRecordStatus;
+
+  return [
+    {
+      label: "Contributor",
+      value: publicContributorLabel(entry.submittedBy)
+    },
+    {
+      label: "AI disclosure",
+      value: aiDisclosureLabel(entry)
+    },
+    {
+      label: "Model",
+      value: publicProvenanceValue(
+        entry.modelUsed,
+        "Model not public on this record"
+      )
+    },
+    {
+      label: "Tool",
+      value: publicProvenanceValue(
+        entry.toolUsed,
+        "Tool not public on this record"
+      )
+    },
+    {
+      label: "Record",
+      value: `${recordStatus} record`
+    }
+  ];
+}
 
 export const seedClaims: Claim[] = [
   {

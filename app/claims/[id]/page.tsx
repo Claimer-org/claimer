@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import {
   evidenceCounts,
   evidenceHealth,
+  evidenceProvenanceParts,
   findSeedClaim,
   reviewMission,
   seedClaims
@@ -156,6 +157,13 @@ export default async function ClaimDetailPage({
                 <em>{item.sourceQuality}</em>
               </div>
               <p>{item.summary}</p>
+              <p className="evidence-provenance">
+                {evidenceProvenanceParts(item).map((part) => (
+                  <span key={part.label}>
+                    <strong>{part.label}:</strong> {part.value}
+                  </span>
+                ))}
+              </p>
               <div className="evidence-source">
                 <a href={item.sourceUrl} rel="noreferrer" target="_blank">
                   {item.sourceTitle}

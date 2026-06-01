@@ -3031,6 +3031,33 @@ a.current-record-pin {
   line-height: 1.5;
 }
 
+.evidence .evidence-provenance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin: 0;
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.evidence .evidence-provenance span {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  letter-spacing: 0;
+  padding: 0;
+  text-transform: none;
+}
+
+.evidence .evidence-provenance strong {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
 .evidence a {
   color: var(--accent-strong);
   font-weight: 600;

@@ -11,6 +11,7 @@ import {
   type SourceQuality,
   evidenceCounts,
   evidenceHealth,
+  evidenceProvenanceParts,
   reviewMission,
   seedClaims
 } from "../../lib/claims";
@@ -393,6 +394,20 @@ function isEvidenceEntry(value: unknown): value is EvidenceEntry {
 
   const hasAssessmentTarget =
     value.assessmentTarget === undefined || typeof value.assessmentTarget === "string";
+  const hasAiDisclosure =
+    value.aiDisclosure === undefined ||
+    typeof value.aiDisclosure === "string" ||
+    value.aiDisclosure === null;
+  const hasModelUsed =
+    value.modelUsed === undefined ||
+    typeof value.modelUsed === "string" ||
+    value.modelUsed === null;
+  const hasToolUsed =
+    value.toolUsed === undefined ||
+    typeof value.toolUsed === "string" ||
+    value.toolUsed === null;
+  const hasRecordStatus =
+    value.recordStatus === undefined || typeof value.recordStatus === "string";
 
   return (
     typeof value.id === "string" &&
@@ -404,7 +419,11 @@ function isEvidenceEntry(value: unknown): value is EvidenceEntry {
     typeof value.sourceQuality === "string" &&
     typeof value.submittedBy === "string" &&
     typeof value.createdAt === "string" &&
-    typeof value.aiAssisted === "boolean"
+    typeof value.aiAssisted === "boolean" &&
+    hasAiDisclosure &&
+    hasModelUsed &&
+    hasToolUsed &&
+    hasRecordStatus
   );
 }
 
@@ -932,7 +951,8 @@ export default function ClaimsClient({
             sourceQuality: claimForm.sourceQuality,
             submittedBy: "Local user",
             createdAt: now,
-            aiAssisted: false
+            aiAssisted: false,
+            recordStatus: "Saved reader"
           }
         ]
       };
@@ -1070,7 +1090,11 @@ export default function ClaimsClient({
         sourceQuality: evidenceForm.sourceQuality,
         submittedBy: "Local user",
         createdAt: new Date().toISOString(),
-        aiAssisted: evidenceForm.aiAssisted
+        aiAssisted: evidenceForm.aiAssisted,
+        aiDisclosure: evidenceForm.aiAssisted
+          ? "Submitted as an AI-assisted summary."
+          : null,
+        recordStatus: "Saved reader"
       };
 
       const baseClaim = storedClaims[selectedClaim.id] ?? selectedClaim;
@@ -1539,6 +1563,13 @@ export default function ClaimsClient({
                         {!isReaderMode && item.aiAssisted ? <em>AI-assisted summary</em> : null}
                       </div>
                       <p>{item.summary}</p>
+                      <p className="evidence-provenance">
+                        {evidenceProvenanceParts(item).map((part) => (
+                          <span key={part.label}>
+                            <strong>{part.label}:</strong> {part.value}
+                          </span>
+                        ))}
+                      </p>
                       <div className="evidence-source">
                         <a href={item.sourceUrl} rel="noreferrer" target="_blank">
                           {item.sourceTitle}

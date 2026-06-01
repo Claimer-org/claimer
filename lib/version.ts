@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.7";
+export const SITE_VERSION = "26.601.8";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Evidence provenance reader labels",
+    bullets: [
+      "Reader-facing evidence items now show a compact provenance line with contributor label, AI disclosure status, model, tool, and live/static record status using existing public fields.",
+      "Static library evidence uses truthful model and tool fallbacks when no values are public, while live contributor evidence maps existing disclosure fields without exposing raw contributor tokens or UUIDs.",
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and evidence records remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.7",
     date: "2026-06-01",
     title: "Claims mobile selected detail path",
     bullets: [

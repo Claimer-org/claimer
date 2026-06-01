@@ -223,9 +223,13 @@ function mapEvidence(row: EvidenceWithSource): EvidenceEntry {
     sourceUrl,
     sourceTitle: source?.title || sourceTitleFromUrl(sourceUrl),
     sourceQuality: dbToUiSourceQuality[source?.quality ?? "unverifiable"],
-    submittedBy: "Community member",
+    submittedBy: "Community contributor",
     createdAt: row.created_at,
-    aiAssisted: row.is_ai_generated
+    aiAssisted: row.is_ai_generated,
+    aiDisclosure: row.ai_disclosure,
+    modelUsed: row.model_used,
+    toolUsed: row.tool_used,
+    recordStatus: "Live contributor"
   };
 }
 
@@ -240,9 +244,13 @@ function mapSeedEvidence(row: SeedEvidenceWithSource): EvidenceEntry {
     sourceUrl,
     sourceTitle: source?.title || sourceTitleFromUrl(sourceUrl),
     sourceQuality: dbToUiSourceQuality[source?.quality ?? "unverifiable"],
-    submittedBy: "Community member",
+    submittedBy: "Community contributor",
     createdAt: row.created_at,
-    aiAssisted: row.is_ai_generated
+    aiAssisted: row.is_ai_generated,
+    aiDisclosure: row.ai_disclosure,
+    modelUsed: row.model_used,
+    toolUsed: row.tool_used,
+    recordStatus: "Live contributor"
   };
 }
 
@@ -273,7 +281,7 @@ function mapClaim(row: ClaimWithRelations): Claim {
     veracityExplanation:
       "Live evidence has been collected. Review the support and challenge source mix before relying on the assessment.",
     createdAt: row.created_at,
-    submittedBy: "Community member",
+    submittedBy: "Community contributor",
     aiAssisted: row.is_ai_generated,
     evidence
   };
@@ -351,6 +359,8 @@ export async function loadSupabaseClaims() {
           submitted_by,
           is_ai_generated,
           ai_disclosure,
+          model_used,
+          tool_used,
           created_at,
           updated_at,
           sources (
@@ -396,6 +406,8 @@ export async function loadSupabaseSeedEvidence() {
         submitted_by,
         is_ai_generated,
         ai_disclosure,
+        model_used,
+        tool_used,
         created_at,
         updated_at,
         sources (
@@ -476,7 +488,7 @@ export async function publishClaimToSupabase(input: ClaimFormInput) {
       is_ai_generated: false
     })
     .select(
-      "id, claim_id, stance, assessment_target, summary, source_id, source_url, submitted_by, is_ai_generated, ai_disclosure, created_at, updated_at"
+      "id, claim_id, stance, assessment_target, summary, source_id, source_url, submitted_by, is_ai_generated, ai_disclosure, model_used, tool_used, created_at, updated_at"
     )
     .single();
 
@@ -530,7 +542,7 @@ export async function publishEvidenceToSupabase(
         ai_disclosure: input.aiAssisted ? "Submitted as an AI-assisted summary." : null
       })
       .select(
-        "id, seed_claim_id, stance, assessment_target, summary, source_id, source_url, submitted_by, is_ai_generated, ai_disclosure, created_at, updated_at"
+        "id, seed_claim_id, stance, assessment_target, summary, source_id, source_url, submitted_by, is_ai_generated, ai_disclosure, model_used, tool_used, created_at, updated_at"
       )
       .single();
 
@@ -554,7 +566,7 @@ export async function publishEvidenceToSupabase(
       ai_disclosure: input.aiAssisted ? "Submitted as an AI-assisted summary." : null
     })
     .select(
-      "id, claim_id, stance, assessment_target, summary, source_id, source_url, submitted_by, is_ai_generated, ai_disclosure, created_at, updated_at"
+      "id, claim_id, stance, assessment_target, summary, source_id, source_url, submitted_by, is_ai_generated, ai_disclosure, model_used, tool_used, created_at, updated_at"
     )
     .single();
 

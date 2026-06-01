@@ -199,6 +199,8 @@ export type EvidenceEntryRow = {
   submitted_by: UUID;
   is_ai_generated: boolean;
   ai_disclosure: string | null;
+  model_used: string | null;
+  tool_used: string | null;
   created_at: Timestamp;
   updated_at: Timestamp;
 };
@@ -212,6 +214,8 @@ export type EvidenceEntryInsert = {
   source_id?: UUID | null;
   source_url: PublicSourceUrl;
   submitted_by?: UUID;
+  model_used?: string | null;
+  tool_used?: string | null;
   created_at?: Timestamp;
   updated_at?: Timestamp;
 } & AiDisclosureInput;
@@ -236,6 +240,8 @@ export type SeedEvidenceEntryRow = {
   submitted_by: UUID;
   is_ai_generated: boolean;
   ai_disclosure: string | null;
+  model_used: string | null;
+  tool_used: string | null;
   created_at: Timestamp;
   updated_at: Timestamp;
 };
@@ -249,6 +255,8 @@ export type SeedEvidenceEntryInsert = {
   source_id?: UUID | null;
   source_url: PublicSourceUrl;
   submitted_by?: UUID;
+  model_used?: string | null;
+  tool_used?: string | null;
   created_at?: Timestamp;
   updated_at?: Timestamp;
 } & AiDisclosureInput;
