@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.3";
+export const SITE_VERSION = "26.601.4";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-01",
+    title: "Claims selected row visibility",
+    bullets: [
+      "The claims archive now keeps the active selected record at the top of the reader rail after live contributor records hydrate, so the reader card, active row, and detail panel describe the same OpenAI GPT-4o record.",
+      "The full hydrated public record list remains available below the selected row with live contributor records and public library records counted together.",
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, and seed claim data remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.3",
     date: "2026-06-01",
     title: "Claims initial state coherence",
     bullets: [

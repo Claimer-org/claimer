@@ -729,6 +729,22 @@ export default function ClaimsClient({
     return claims.find((claim) => claim.id === selectedId) ?? filteredClaims[0];
   }, [claims, filteredClaims, selectedId]);
   const featuredClaim = isReaderMode ? selectedClaim : priorityClaim;
+  const visibleClaimRows = useMemo(() => {
+    if (!isReaderMode || !selectedClaim) {
+      return filteredClaims;
+    }
+
+    const selectedRow = filteredClaims.find((claim) => claim.id === selectedClaim.id);
+
+    if (!selectedRow) {
+      return filteredClaims;
+    }
+
+    return [
+      selectedRow,
+      ...filteredClaims.filter((claim) => claim.id !== selectedClaim.id)
+    ];
+  }, [filteredClaims, isReaderMode, selectedClaim]);
 
   useEffect(() => {
     if (selectedClaim && selectedClaim.id !== selectedId) {
@@ -1191,6 +1207,19 @@ export default function ClaimsClient({
                     {isReaderMode ? "Library record" : "Priority review"}
                   </h2>
                   <h3>{featuredClaim.title}</h3>
+                  {isReaderMode ? (
+                    <div
+                      className="current-record-pin"
+                      aria-label={`Current record: ${featuredClaim.title}`}
+                    >
+                      <span>Current record</span>
+                      <strong>{featuredClaim.title}</strong>
+                      <small>
+                        Original source: {featuredClaim.sourcePublisher}. {counts.support}{" "}
+                        support / {counts.challenge} challenge / {counts.context} context
+                      </small>
+                    </div>
+                  ) : null}
                   <p>
                     {isReaderMode
                       ? "Start with the selected public record, its original source, and visible source coverage."
@@ -1389,8 +1418,8 @@ export default function ClaimsClient({
               </div>
             ) : null}
 
-            {filteredClaims.length > 0 ? (
-              filteredClaims.map((claim) => {
+            {visibleClaimRows.length > 0 ? (
+              visibleClaimRows.map((claim) => {
                 const counts = evidenceCounts(claim);
                 const health = evidenceHealth(claim);
                 const originalSource = claim.sourcePublisher || claim.sourceTitle;
