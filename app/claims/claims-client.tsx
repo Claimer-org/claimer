@@ -1702,7 +1702,9 @@ export default function ClaimsClient({
               <section className="source-inspection" aria-labelledby="selected-source-title">
                 <div>
                   <span>Original source</span>
-                  <h3 id="selected-source-title">Original source</h3>
+                  <h3 id="selected-source-title">
+                    {isReaderMode ? "Original source, then evidence" : "Original source"}
+                  </h3>
                   <p>Publisher: {selectedClaim.sourcePublisher}</p>
                 </div>
                 <div className="source-reference">

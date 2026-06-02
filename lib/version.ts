@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.18";
+export const SITE_VERSION = "26.601.19";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Claims mobile evidence handoff",
+    bullets: [
+      "The claims archive mobile selected source panel now hands readers directly from the original source into the evidence chain with tighter reader-facing spacing.",
+      "The compact original-source summary, four-entry mobile browse strip, `More entries` cue, right-edge fade, clipped third card, and direct `#selected-source-evidence` anchor path remain intact.",
+      "Desktop keeps the existing archive reader layout, and contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.18",
     date: "2026-06-02",
     title: "Claims mobile browse affordance",
     bullets: [
