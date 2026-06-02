@@ -4535,38 +4535,24 @@ textarea {
   }
 
   .reader-mobile-browse-list {
-    display: flex;
-    gap: 8px;
-    position: relative;
-    overflow-x: auto;
-    padding: 0 28px 2px 0;
-    scroll-padding-right: 28px;
-    scroll-snap-type: x proximity;
-  }
-
-  .reader-mobile-browse-list::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 2px;
-    width: 34px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 82%);
-    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    overflow: visible;
+    padding: 0;
   }
 
   .reader-mobile-browse-row {
     display: grid;
-    gap: 3px;
-    flex: 0 0 min(44%, 152px);
-    width: auto;
+    gap: 2px;
+    width: 100%;
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     background: #fbfdfb;
     color: var(--foreground);
     cursor: pointer;
-    padding: 7px 8px;
-    scroll-snap-align: start;
+    min-height: 58px;
+    padding: 6px 7px;
     text-align: left;
   }
 
@@ -4578,8 +4564,8 @@ textarea {
   .reader-mobile-browse-row strong {
     color: var(--foreground);
     display: -webkit-box;
-    font-size: 0.78rem;
-    line-height: 1.25;
+    font-size: 0.74rem;
+    line-height: 1.18;
     overflow: hidden;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -4588,8 +4574,8 @@ textarea {
   .reader-mobile-browse-row span {
     color: var(--foreground-dim);
     display: -webkit-box;
-    font-size: 0.72rem;
-    line-height: 1.25;
+    font-size: 0.66rem;
+    line-height: 1.18;
     overflow: hidden;
     overflow-wrap: anywhere;
     -webkit-line-clamp: 1;

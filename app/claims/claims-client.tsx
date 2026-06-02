@@ -1410,7 +1410,9 @@ export default function ClaimsClient({
                       <div className="reader-mobile-browse-heading">
                         <span>Browse</span>
                         <strong>{mobileBrowseRows.length} source-backed entries</strong>
-                        <span className="reader-mobile-browse-cue">More entries</span>
+                        <span className="reader-mobile-browse-cue">
+                          {mobileBrowseRows.length} shown
+                        </span>
                       </div>
                       <div className="reader-mobile-browse-list">
                         {mobileBrowseRows.map((claim) => {

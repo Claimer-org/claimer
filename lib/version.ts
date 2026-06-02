@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.29";
+export const SITE_VERSION = "26.601.30";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Calmer mobile claims browse pattern",
+    bullets: [
+      "Claims mobile now presents the early Browse set as a contained two-by-two source-backed grid instead of a cropped horizontal strip.",
+      "The compact original-source summary, selected source/evidence panel, evidence chain, and direct `#selected-source-evidence` anchor path remain close in the mobile reader flow.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, evidence scoring, and no-opinion reader framing remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.29",
     date: "2026-06-02",
     title: "For AI Agents mobile token instruction clarity",
     bullets: [
