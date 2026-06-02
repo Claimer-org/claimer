@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.20";
+export const SITE_VERSION = "26.601.21";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Mobile reader chrome density",
+    bullets: [
+      "Mobile reader pages now use a tighter public header and smaller auth affordance so source-backed claim reading starts sooner.",
+      "Claims archive and claim detail mobile spacing is compressed around the headline, selected source panel, and evidence chain while preserving the source-first reader path, `More entries` cue, right-edge fade, clipped third card, and four mobile browse rows.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.20",
     date: "2026-06-02",
     title: "Claims live mobile evidence handoff parity",
     bullets: [

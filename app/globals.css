@@ -3896,6 +3896,89 @@ textarea {
     padding-top: 20px;
   }
 
+  body:has(.home-editorial) .site-header,
+  body:has(.claims-library-page) .site-header,
+  body:has(.claim-detail-article) .site-header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  body:has(.home-editorial) .site-header nav,
+  body:has(.claims-library-page) .site-header nav,
+  body:has(.claim-detail-article) .site-header nav {
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    color: var(--foreground-dim);
+    font-size: 0.78rem;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  body:has(.home-editorial) .site-header nav::-webkit-scrollbar,
+  body:has(.claims-library-page) .site-header nav::-webkit-scrollbar,
+  body:has(.claim-detail-article) .site-header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  body:has(.home-editorial) .site-header .brand,
+  body:has(.claims-library-page) .site-header .brand,
+  body:has(.claim-detail-article) .site-header .brand {
+    font-size: 1.02rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  body:has(.home-editorial) .site-header .header-actions,
+  body:has(.claims-library-page) .site-header .header-actions,
+  body:has(.claim-detail-article) .site-header .header-actions {
+    justify-self: end;
+  }
+
+  body:has(.home-editorial) .site-header .auth-widget,
+  body:has(.claims-library-page) .site-header .auth-widget,
+  body:has(.claim-detail-article) .site-header .auth-widget {
+    gap: 5px;
+  }
+
+  body:has(.home-editorial) .site-header .auth-widget-link,
+  body:has(.claims-library-page) .site-header .auth-widget-link,
+  body:has(.claim-detail-article) .site-header .auth-widget-link,
+  body:has(.home-editorial) .site-header .auth-widget-signout,
+  body:has(.claims-library-page) .site-header .auth-widget-signout,
+  body:has(.claim-detail-article) .site-header .auth-widget-signout {
+    color: var(--foreground-dim);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.72;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  body:has(.home-editorial) .site-header .auth-widget-name,
+  body:has(.claims-library-page) .site-header .auth-widget-name,
+  body:has(.claim-detail-article) .site-header .auth-widget-name {
+    display: none;
+  }
+
+  body:has(.home-editorial) .site-header .auth-widget-avatar,
+  body:has(.claims-library-page) .site-header .auth-widget-avatar,
+  body:has(.claim-detail-article) .site-header .auth-widget-avatar {
+    width: 22px;
+    height: 22px;
+  }
+
+  body:has(.home-editorial) main,
+  body:has(.claims-library-page) main,
+  body:has(.claim-detail-article) main {
+    padding-top: 10px;
+  }
+
   .hero h1,
   .page-heading h1,
   .legal h1 {
@@ -3917,6 +4000,32 @@ textarea {
     max-width: 100%;
     font-size: 0.98rem;
     line-height: 1.5;
+  }
+
+  .stack.claims-library-page {
+    gap: 12px;
+  }
+
+  .claims-library-page .page-heading {
+    display: grid;
+    gap: 6px;
+    max-width: 100%;
+  }
+
+  .claims-library-page .page-heading .eyebrow,
+  .claims-library-page .page-heading h1,
+  .claims-library-page .page-heading p {
+    margin: 0;
+  }
+
+  .claims-library-page .page-heading h1 {
+    font-size: 1.72rem;
+    line-height: 1.08;
+  }
+
+  .claims-library-page .page-heading p {
+    font-size: 0.9rem;
+    line-height: 1.38;
   }
 
   .home-editorial .actions {
@@ -4158,6 +4267,14 @@ textarea {
     scroll-margin-top: 12px;
   }
 
+  .reader-workspace:not(.targeted-review-workspace) {
+    gap: 10px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .claim-main {
+    gap: 10px;
+  }
+
   .reader-workspace:not(.targeted-review-workspace) .claim-main .detail-heading {
     gap: 6px;
   }
@@ -4227,6 +4344,75 @@ textarea {
   .evidence-metadata-note {
     font-size: 0.78rem;
     line-height: 1.35;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace)
+    .claim-main
+    .evidence-section
+    .evidence-list,
+  .claim-detail-article .evidence-section .evidence-list {
+    order: 1;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace)
+    .claim-main
+    .evidence-section
+    .evidence-metadata-note,
+  .claim-detail-article .evidence-section .evidence-metadata-note {
+    order: 2;
+    margin-top: 0;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace)
+    .claim-main
+    .evidence-section
+    .evidence-standards,
+  .claim-detail-article .evidence-section .evidence-standards {
+    order: 3;
+  }
+
+  .claim-detail-article {
+    gap: 10px;
+    padding-top: 0;
+  }
+
+  .claim-detail-article > .button.compact {
+    justify-self: start;
+    min-height: 30px;
+    padding: 4px 8px;
+    font-size: 0.78rem;
+  }
+
+  .claim-detail-article .detail-heading {
+    gap: 6px;
+    padding-bottom: 8px;
+  }
+
+  .claim-detail-article .detail-heading .eyebrow {
+    margin-bottom: 4px;
+  }
+
+  .claim-detail-article .detail-heading h1 {
+    font-size: 1.55rem;
+    line-height: 1.08;
+  }
+
+  .claim-detail-article > p {
+    display: -webkit-box;
+    font-size: 0.9rem;
+    line-height: 1.38;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .claim-detail-article .source-inspection {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .claim-detail-article .source-inspection h2 {
+    font-size: 1rem;
   }
 
   .reader-editorial .source-inspection,
@@ -4356,6 +4542,14 @@ textarea {
     padding-bottom: 12px;
   }
 
+  body:has(.home-editorial) .site-header,
+  body:has(.claims-library-page) .site-header,
+  body:has(.claim-detail-article) .site-header {
+    gap: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
   body:has(.home-editorial) nav {
     gap: 10px 16px;
     font-size: 0.86rem;
@@ -4365,8 +4559,18 @@ textarea {
     padding-top: 14px;
   }
 
+  body:has(.home-editorial) main,
+  body:has(.claims-library-page) main,
+  body:has(.claim-detail-article) main {
+    padding-top: 8px;
+  }
+
   .stack {
     gap: 28px;
+  }
+
+  .stack.claims-library-page {
+    gap: 10px;
   }
 
   .hero h1,
