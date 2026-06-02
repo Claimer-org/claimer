@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.19";
+export const SITE_VERSION = "26.601.20";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Claims live mobile evidence handoff parity",
+    bullets: [
+      "The claims archive mobile selected source box is compressed so readers reach the evidence chain within the live source-to-evidence handoff target.",
+      "The `#selected-source-evidence` anchor now lands the selected panel at the top of narrow mobile viewports while preserving the compact original-source summary, four-entry browse strip, `More entries` cue, fade, and clipped third card.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.19",
     date: "2026-06-02",
     title: "Claims mobile evidence handoff",
     bullets: [

@@ -4155,6 +4155,7 @@ textarea {
   .reader-editorial .detail {
     gap: 8px;
     padding: 12px;
+    scroll-margin-top: 12px;
   }
 
   .reader-workspace:not(.targeted-review-workspace) .claim-main .detail-heading {
@@ -4177,7 +4178,10 @@ textarea {
   }
 
   .reader-workspace:not(.targeted-review-workspace) .claim-main .source-inspection {
+    grid-template-columns: minmax(0, 0.48fr) minmax(0, 1fr);
+    align-items: start;
     gap: 6px;
+    padding: 8px;
   }
 
   .reader-workspace:not(.targeted-review-workspace)
@@ -4203,11 +4207,21 @@ textarea {
   }
 
   .reader-workspace:not(.targeted-review-workspace) .claim-main .source-inspection h3 {
-    font-size: 0.94rem;
+    font-size: 0.86rem;
   }
 
   .reader-workspace:not(.targeted-review-workspace) .claim-main .source-reference {
-    gap: 4px;
+    gap: 3px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .claim-main .source-reference span {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .claim-main .source-reference a {
+    font-size: 0.82rem;
+    line-height: 1.25;
   }
 
   .evidence-metadata-note {
