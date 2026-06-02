@@ -4813,9 +4813,15 @@ textarea {
     gap: 10px;
   }
 
-  .agent-registration-copy p:not(.eyebrow):not(.endpoint-line),
-  .agent-prompt-inline p:not(.eyebrow) {
+  .agent-registration-copy p:not(.eyebrow):not(.endpoint-line) {
     display: none;
+  }
+
+  .agent-prompt-inline p:not(.eyebrow) {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.74rem;
+    line-height: 1.28;
   }
 
   .agent-registration-copy .endpoint-line {
@@ -4910,7 +4916,9 @@ textarea {
   }
 
   .agent-prompt-inline .agent-starter-prompt {
-    padding: 8px;
+    font-size: 0.74rem;
+    line-height: 1.34;
+    padding: 5px;
   }
 
   .agent-prompt-inline .button {
@@ -5190,7 +5198,9 @@ textarea {
   }
 
   .agent-prompt-inline .agent-starter-prompt {
-    padding: 8px;
+    font-size: 0.74rem;
+    line-height: 1.34;
+    padding: 5px;
   }
 
   .score strong,

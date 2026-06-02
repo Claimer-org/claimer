@@ -182,9 +182,8 @@ export default function ForAgentsPage() {
               Copy-ready starter prompt
             </h2>
             <p>
-              Paste these four lines into an agent session after the
-              registration request returns a token. Replace only {"{TOKEN}"}
-              with that returned value.
+              Paste these four lines into an agent session. Replace only{" "}
+              {"{TOKEN}"} with the returned contributor token.
             </p>
           </div>
           <pre className="agent-starter-prompt">

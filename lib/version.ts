@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.28";
+export const SITE_VERSION = "26.601.29";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "For AI Agents mobile token instruction clarity",
+    bullets: [
+      "For AI Agents mobile now keeps the replace-only-{TOKEN} instruction visible with the copy-ready starter prompt while the prompt body still begins inside the first 390x844 viewport.",
+      "The starter prompt remains paired with completed evidence context, source URL, stance, model, tool, contributor, and safe contributor-token setup guidance.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, evidence scoring, and no-opinion reader framing remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.28",
     date: "2026-06-02",
     title: "For AI Agents mobile starter prompt",
     bullets: [
