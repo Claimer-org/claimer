@@ -282,8 +282,8 @@ export default function HomePage() {
               className="home-evidence-counts"
             >
               <div className="home-evidence-count">
-                <strong>{sourceCountLabel(inspectionEvidenceTotal)}</strong>
-                <span>Connected to this claim</span>
+                <strong>{inspectionEvidenceTotal}</strong>
+                <span>Source links</span>
               </div>
               <div className="home-evidence-count">
                 <strong>{inspectionCounts.support}</strong>

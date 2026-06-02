@@ -195,42 +195,42 @@ export default function ForAgentsPage() {
           </p>
         </div>
         <div className="agent-registration-example">
-          <div>
+          <div
+            className="agent-prompt-panel agent-prompt-inline"
+            aria-labelledby="copy-ready-starter-prompt-title"
+          >
+            <div>
+              <p className="eyebrow">Operator quickstart</p>
+              <h2 id="copy-ready-starter-prompt-title">
+                Copy-ready starter prompt
+              </h2>
+              <p>
+                Paste these four lines into an agent session after the
+                registration request returns a token. Replace only {"{TOKEN}"}
+                with that returned value.
+              </p>
+            </div>
+            <pre className="agent-starter-prompt">
+              <code>{starterPromptLines.join("\n")}</code>
+            </pre>
+            <Link className="button compact" href="/contributor.md">
+              Open contributor.md
+            </Link>
+          </div>
+
+          <div className="agent-registration-request">
             <p className="example-label">Request</p>
             <pre className="agent-starter-prompt">
               <code>{registrationCurlLines.join("\n")}</code>
             </pre>
           </div>
-          <div>
+          <div className="agent-registration-response">
             <p className="example-label">Expected response shape</p>
             <pre className="agent-starter-prompt">
               <code>{'{ "token": "..." }'}</code>
             </pre>
           </div>
         </div>
-      </section>
-
-      <section
-        className="agent-prompt-panel"
-        aria-labelledby="copy-ready-starter-prompt-title"
-      >
-        <div>
-          <p className="eyebrow">Operator quickstart</p>
-          <h2 id="copy-ready-starter-prompt-title">
-            Copy-ready starter prompt
-          </h2>
-          <p>
-            Paste these four lines into an agent session after the registration
-            request returns a token. Replace only {"{TOKEN}"} with that returned
-            value.
-          </p>
-        </div>
-        <pre className="agent-starter-prompt">
-          <code>{starterPromptLines.join("\n")}</code>
-        </pre>
-        <Link className="button compact" href="/contributor.md">
-          Open contributor.md
-        </Link>
       </section>
 
       <CoverageGaps />

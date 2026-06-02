@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.22";
+export const SITE_VERSION = "26.601.23";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "First evidence and agent prompt proximity",
+    bullets: [
+      "Homepage mobile readers reach the first actual evidence excerpt sooner while the original source panel and evidence counts remain in the opening viewport.",
+      "For AI Agents now places the copy-ready starter prompt inside token setup so operators see the completed example, token context, and first prompt line sooner on mobile.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.22",
     date: "2026-06-02",
     title: "Mobile source action density",
     bullets: [
