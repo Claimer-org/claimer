@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.24";
+export const SITE_VERSION = "26.601.25";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Desktop claims source/evidence proximity",
+    bullets: [
+      "Desktop claims readers now reach the actual original source and evidence chain headings in the opening viewport by tightening the reader header, priority claim, and selected source/evidence panel.",
+      "The priority public archive entry and source/evidence inspection action remain readable before the selected panel, with the source/evidence anchor still landing on the selected panel.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.24",
     date: "2026-06-02",
     title: "Desktop claims evidence proximity",
     bullets: [

@@ -3487,6 +3487,233 @@ body:has(.reader-editorial) .page-heading h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+@media (min-width: 1061px) {
+  body:has(.claims-library-page) main {
+    padding-top: 24px;
+  }
+
+  .stack.claims-library-page {
+    gap: 22px;
+  }
+
+  .claims-library-page .page-heading {
+    display: grid;
+    gap: 8px;
+    max-width: 760px;
+  }
+
+  .claims-library-page .page-heading .eyebrow,
+  .claims-library-page .page-heading h1,
+  .claims-library-page .page-heading p {
+    margin: 0;
+  }
+
+  .claims-library-page .page-heading h1 {
+    font-size: 3.5rem;
+    line-height: 1;
+  }
+
+  .claims-library-page .page-heading p {
+    max-width: 700px;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace),
+  .reader-workspace:not(.targeted-review-workspace) .claim-main {
+    gap: 12px;
+  }
+
+  .reader-editorial .priority-claim {
+    grid-template-columns: minmax(0, 1.45fr) minmax(220px, 0.55fr);
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .reader-editorial .priority-claim-kicker {
+    gap: 6px;
+    font-size: 0.74rem;
+  }
+
+  .reader-editorial .priority-claim h2 {
+    margin-top: 7px;
+    font-size: 0.78rem;
+  }
+
+  .reader-editorial .priority-claim h3 {
+    margin-top: 4px;
+    font-size: 1.18rem;
+    line-height: 1.16;
+  }
+
+  .reader-editorial .priority-source-summary {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 8px;
+  }
+
+  .reader-editorial .priority-source-summary div {
+    gap: 2px;
+    padding: 6px 8px;
+  }
+
+  .reader-editorial .priority-source-summary dt {
+    font-size: 0.68rem;
+  }
+
+  .reader-editorial .priority-source-summary dd {
+    font-size: 0.78rem;
+    line-height: 1.22;
+  }
+
+  .reader-editorial .priority-claim p {
+    display: -webkit-box;
+    margin-top: 6px;
+    font-size: 0.86rem;
+    line-height: 1.35;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .reader-editorial .priority-evidence {
+    margin-top: 8px;
+  }
+
+  .reader-editorial .priority-action {
+    gap: 7px;
+    padding-left: 12px;
+  }
+
+  .reader-editorial .priority-action p {
+    display: -webkit-box;
+    font-size: 0.84rem;
+    line-height: 1.35;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .reader-editorial .priority-actions {
+    gap: 6px;
+  }
+
+  .reader-editorial .priority-actions .button {
+    min-height: 32px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .detail {
+    gap: 8px;
+    padding: 12px;
+    scroll-margin-top: 72px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .detail-heading,
+  .reader-workspace:not(.targeted-review-workspace) .detail > p {
+    display: none;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .source-inspection {
+    order: -2;
+    grid-template-columns: minmax(0, 0.34fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace)
+    .source-inspection
+    > div:first-child {
+    gap: 2px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace)
+    .source-inspection
+    > div:first-child
+    > span,
+  .reader-workspace:not(.targeted-review-workspace)
+    .source-inspection
+    > div:first-child
+    p,
+  .reader-workspace:not(.targeted-review-workspace) .source-reference small,
+  .reader-workspace:not(.targeted-review-workspace) .source-url {
+    display: none;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .source-inspection h3 {
+    font-size: 0.94rem;
+    line-height: 1.18;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .source-reference {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    align-items: center;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .source-reference span {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .source-reference a {
+    display: -webkit-box;
+    flex: 1 1 220px;
+    font-size: 0.86rem;
+    line-height: 1.2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-section {
+    order: -1;
+    gap: 8px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-section h3 {
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-list {
+    order: 2;
+    gap: 8px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-metadata-note {
+    order: 3;
+    margin-top: 0;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence {
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence p {
+    font-size: 0.88rem;
+    line-height: 1.38;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence .evidence-provenance {
+    font-size: 0.74rem;
+    line-height: 1.3;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-source small {
+    display: none;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-standards {
+    order: 4;
+  }
+}
+
 .claim-detail-article {
   max-width: 960px;
   border: 0;
