@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.23";
+export const SITE_VERSION = "26.601.24";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Desktop claims evidence proximity",
+    bullets: [
+      "Desktop claims readers reach the selected source and evidence panel sooner by removing duplicate selected-record chrome from the priority card.",
+      "The priority public archive entry, original source summary, and source/evidence inspection actions remain visible before the selected panel.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.23",
     date: "2026-06-02",
     title: "First evidence and agent prompt proximity",
     bullets: [

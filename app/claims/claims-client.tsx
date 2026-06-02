@@ -1430,7 +1430,6 @@ export default function ClaimsClient({
                       </div>
                     </div>
                   ) : null}
-                  {isReaderMode ? <PinnedCurrentRecord claim={featuredClaim} /> : null}
                   <p>
                     {isReaderMode
                       ? "Start with the selected public archive entry, its original source, and visible source coverage."
