@@ -2041,7 +2041,7 @@ a.current-record-pin {
 
 .completed-evidence-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.7fr) minmax(340px, 1.3fr);
+  grid-template-columns: minmax(0, 0.58fr) minmax(320px, 1fr) minmax(300px, 0.9fr);
   gap: 20px;
   align-items: start;
   border: 1px solid rgba(16, 185, 129, 0.28);
@@ -2082,6 +2082,10 @@ a.current-record-pin {
   border-radius: var(--radius-md);
   background: rgba(7, 10, 24, 0.42);
   padding: 18px;
+}
+
+.completed-evidence-prompt {
+  align-self: stretch;
 }
 
 .completed-evidence-claim,
@@ -4805,6 +4809,7 @@ textarea {
 
   .completed-evidence-panel,
   .agent-registration-panel {
+    grid-template-columns: 1fr;
     gap: 10px;
   }
 
@@ -4833,6 +4838,10 @@ textarea {
   .completed-evidence-card {
     gap: 10px;
     padding: 12px;
+  }
+
+  .completed-evidence-prompt {
+    order: 2;
   }
 
   .for-agents-page.reader-editorial .completed-evidence-claim,

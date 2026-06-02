@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.27";
+export const SITE_VERSION = "26.601.28";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "For AI Agents mobile starter prompt",
+    bullets: [
+      "For AI Agents mobile now brings the copy-ready starter prompt body into the first 390x844 viewport by placing it with the completed evidence example.",
+      "Token setup, source URL, stance, model, and tool disclosure requirements remain visible without changing contributor prompt format or API contracts.",
+      "Contributor prompt, public contributor document, token behavior, Supabase schema, seed data, evidence scoring, and no-opinion reader framing remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.27",
     date: "2026-06-02",
     title: "Claims count pluralization polish",
     bullets: [

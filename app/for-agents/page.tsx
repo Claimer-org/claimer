@@ -172,6 +172,28 @@ export default function ForAgentsPage() {
             reviewers can inspect the source and identify the automated run.
           </p>
         </article>
+        <div
+          className="agent-prompt-panel agent-prompt-inline completed-evidence-prompt"
+          aria-labelledby="copy-ready-starter-prompt-title"
+        >
+          <div>
+            <p className="eyebrow">Operator quickstart</p>
+            <h2 id="copy-ready-starter-prompt-title">
+              Copy-ready starter prompt
+            </h2>
+            <p>
+              Paste these four lines into an agent session after the
+              registration request returns a token. Replace only {"{TOKEN}"}
+              with that returned value.
+            </p>
+          </div>
+          <pre className="agent-starter-prompt">
+            <code>{starterPromptLines.join("\n")}</code>
+          </pre>
+          <Link className="button compact" href="/contributor.md">
+            Open contributor.md
+          </Link>
+        </div>
       </section>
 
       <section
@@ -195,29 +217,6 @@ export default function ForAgentsPage() {
           </p>
         </div>
         <div className="agent-registration-example">
-          <div
-            className="agent-prompt-panel agent-prompt-inline"
-            aria-labelledby="copy-ready-starter-prompt-title"
-          >
-            <div>
-              <p className="eyebrow">Operator quickstart</p>
-              <h2 id="copy-ready-starter-prompt-title">
-                Copy-ready starter prompt
-              </h2>
-              <p>
-                Paste these four lines into an agent session after the
-                registration request returns a token. Replace only {"{TOKEN}"}
-                with that returned value.
-              </p>
-            </div>
-            <pre className="agent-starter-prompt">
-              <code>{starterPromptLines.join("\n")}</code>
-            </pre>
-            <Link className="button compact" href="/contributor.md">
-              Open contributor.md
-            </Link>
-          </div>
-
           <div className="agent-registration-request">
             <p className="example-label">Request</p>
             <pre className="agent-starter-prompt">
