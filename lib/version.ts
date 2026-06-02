@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.21";
+export const SITE_VERSION = "26.601.22";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Mobile source action density",
+    bullets: [
+      "Homepage mobile readers reach the actual original source panel and evidence mix sooner by removing redundant small-screen source summary chrome and tightening the source URL display.",
+      "For AI Agents mobile now uses the compact reader header treatment and a denser completed evidence example so token setup appears materially closer while the completed example remains first.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.21",
     date: "2026-06-02",
     title: "Mobile reader chrome density",
     bullets: [

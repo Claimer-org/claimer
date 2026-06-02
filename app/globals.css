@@ -3897,6 +3897,7 @@ textarea {
   }
 
   body:has(.home-editorial) .site-header,
+  body:has(.for-agents-page) .site-header,
   body:has(.claims-library-page) .site-header,
   body:has(.claim-detail-article) .site-header {
     display: grid;
@@ -3908,6 +3909,7 @@ textarea {
   }
 
   body:has(.home-editorial) .site-header nav,
+  body:has(.for-agents-page) .site-header nav,
   body:has(.claims-library-page) .site-header nav,
   body:has(.claim-detail-article) .site-header nav {
     flex-wrap: nowrap;
@@ -3920,12 +3922,14 @@ textarea {
   }
 
   body:has(.home-editorial) .site-header nav::-webkit-scrollbar,
+  body:has(.for-agents-page) .site-header nav::-webkit-scrollbar,
   body:has(.claims-library-page) .site-header nav::-webkit-scrollbar,
   body:has(.claim-detail-article) .site-header nav::-webkit-scrollbar {
     display: none;
   }
 
   body:has(.home-editorial) .site-header .brand,
+  body:has(.for-agents-page) .site-header .brand,
   body:has(.claims-library-page) .site-header .brand,
   body:has(.claim-detail-article) .site-header .brand {
     font-size: 1.02rem;
@@ -3934,21 +3938,25 @@ textarea {
   }
 
   body:has(.home-editorial) .site-header .header-actions,
+  body:has(.for-agents-page) .site-header .header-actions,
   body:has(.claims-library-page) .site-header .header-actions,
   body:has(.claim-detail-article) .site-header .header-actions {
     justify-self: end;
   }
 
   body:has(.home-editorial) .site-header .auth-widget,
+  body:has(.for-agents-page) .site-header .auth-widget,
   body:has(.claims-library-page) .site-header .auth-widget,
   body:has(.claim-detail-article) .site-header .auth-widget {
     gap: 5px;
   }
 
   body:has(.home-editorial) .site-header .auth-widget-link,
+  body:has(.for-agents-page) .site-header .auth-widget-link,
   body:has(.claims-library-page) .site-header .auth-widget-link,
   body:has(.claim-detail-article) .site-header .auth-widget-link,
   body:has(.home-editorial) .site-header .auth-widget-signout,
+  body:has(.for-agents-page) .site-header .auth-widget-signout,
   body:has(.claims-library-page) .site-header .auth-widget-signout,
   body:has(.claim-detail-article) .site-header .auth-widget-signout {
     color: var(--foreground-dim);
@@ -3961,12 +3969,14 @@ textarea {
   }
 
   body:has(.home-editorial) .site-header .auth-widget-name,
+  body:has(.for-agents-page) .site-header .auth-widget-name,
   body:has(.claims-library-page) .site-header .auth-widget-name,
   body:has(.claim-detail-article) .site-header .auth-widget-name {
     display: none;
   }
 
   body:has(.home-editorial) .site-header .auth-widget-avatar,
+  body:has(.for-agents-page) .site-header .auth-widget-avatar,
   body:has(.claims-library-page) .site-header .auth-widget-avatar,
   body:has(.claim-detail-article) .site-header .auth-widget-avatar {
     width: 22px;
@@ -3974,6 +3984,7 @@ textarea {
   }
 
   body:has(.home-editorial) main,
+  body:has(.for-agents-page) main,
   body:has(.claims-library-page) main,
   body:has(.claim-detail-article) main {
     padding-top: 10px;
@@ -4055,10 +4066,7 @@ textarea {
   }
 
   .home-mobile-source-summary {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 108px), 1fr));
-    gap: 6px;
-    margin-top: 10px;
+    display: none;
   }
 
   .home-mobile-source-summary div {
@@ -4085,6 +4093,22 @@ textarea {
     font-weight: 800;
     line-height: 1.28;
     overflow-wrap: anywhere;
+  }
+
+  .home-source-panel {
+    gap: 4px;
+    padding: 10px;
+  }
+
+  .home-source-url {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .home-source-panel small {
+    display: none;
   }
 
   .priority-source-summary {
@@ -4433,6 +4457,120 @@ textarea {
     font-size: 1.26rem;
   }
 
+  .for-agents-page {
+    gap: 16px;
+  }
+
+  .for-agents-page.reader-editorial .page-heading {
+    display: grid;
+    gap: 6px;
+    max-width: 100%;
+  }
+
+  .for-agents-page.reader-editorial .page-heading .eyebrow,
+  .for-agents-page.reader-editorial .page-heading h1,
+  .for-agents-page.reader-editorial .page-heading p {
+    margin: 0;
+  }
+
+  .for-agents-page.reader-editorial .page-heading h1 {
+    font-size: 1.92rem;
+    line-height: 1.05;
+  }
+
+  .for-agents-page.reader-editorial .page-heading p {
+    display: -webkit-box;
+    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.34;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .for-agents-page.reader-editorial .completed-evidence-panel,
+  .for-agents-page.reader-editorial .agent-registration-panel,
+  .for-agents-page.reader-editorial .agent-prompt-panel,
+  .for-agents-page.reader-editorial .agent-coverage-panel,
+  .for-agents-page.reader-editorial .agent-quality-panel {
+    padding-top: 14px;
+  }
+
+  .completed-evidence-panel,
+  .agent-registration-panel {
+    gap: 10px;
+  }
+
+  .completed-evidence-copy p:not(.eyebrow) {
+    display: none;
+  }
+
+  .completed-evidence-copy h2,
+  .agent-registration-copy h2 {
+    font-size: 1.12rem;
+  }
+
+  .completed-evidence-card {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .for-agents-page.reader-editorial .completed-evidence-claim,
+  .for-agents-page.reader-editorial .completed-evidence-summary {
+    padding: 9px;
+  }
+
+  .completed-evidence-claim h3,
+  .completed-evidence-claim p,
+  .completed-evidence-summary p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+  }
+
+  .completed-evidence-claim h3 {
+    font-size: 0.98rem;
+    line-height: 1.2;
+    -webkit-line-clamp: 2;
+  }
+
+  .completed-evidence-claim p,
+  .completed-evidence-summary p {
+    font-size: 0.84rem;
+    line-height: 1.38;
+    -webkit-line-clamp: 2;
+  }
+
+  .for-agents-page .completed-evidence-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .for-agents-page .completed-evidence-facts .wide {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .completed-evidence-facts div {
+    gap: 3px;
+    padding: 7px;
+  }
+
+  .completed-evidence-facts dt,
+  .for-agents-page.reader-editorial .completed-evidence-claim span,
+  .for-agents-page.reader-editorial .completed-evidence-summary span {
+    font-size: 0.68rem;
+  }
+
+  .completed-evidence-facts dd {
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .completed-evidence-requirement {
+    display: none;
+  }
+
   .stance-chip {
     justify-self: start;
     width: fit-content;
@@ -4543,6 +4681,7 @@ textarea {
   }
 
   body:has(.home-editorial) .site-header,
+  body:has(.for-agents-page) .site-header,
   body:has(.claims-library-page) .site-header,
   body:has(.claim-detail-article) .site-header {
     gap: 8px;
@@ -4560,6 +4699,7 @@ textarea {
   }
 
   body:has(.home-editorial) main,
+  body:has(.for-agents-page) main,
   body:has(.claims-library-page) main,
   body:has(.claim-detail-article) main {
     padding-top: 8px;
@@ -4610,14 +4750,16 @@ textarea {
   }
 
   .home-mobile-source-summary {
-    grid-template-columns: 1fr;
-    gap: 5px;
-    margin-top: 8px;
+    display: none;
   }
 
   .home-mobile-source-summary div {
     min-height: 64px;
     padding: 7px;
+  }
+
+  .home-source-panel {
+    padding: 9px;
   }
 
   .home-mobile-source-summary dt {
@@ -4631,6 +4773,26 @@ textarea {
   .publication-section {
     gap: 12px;
     padding-top: 20px;
+  }
+
+  .for-agents-page.reader-editorial .page-heading h1 {
+    font-size: 1.68rem;
+  }
+
+  .for-agents-page.reader-editorial .page-heading p {
+    -webkit-line-clamp: 1;
+  }
+
+  .for-agents-page.reader-editorial .completed-evidence-panel,
+  .for-agents-page.reader-editorial .agent-registration-panel,
+  .for-agents-page.reader-editorial .agent-prompt-panel,
+  .for-agents-page.reader-editorial .agent-coverage-panel,
+  .for-agents-page.reader-editorial .agent-quality-panel {
+    padding-top: 12px;
+  }
+
+  .completed-evidence-summary {
+    display: none;
   }
 
   .evidence-record-row,
