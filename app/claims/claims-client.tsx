@@ -347,7 +347,11 @@ function readerRecordShowingLabel(
   filteredCounts: ReturnType<typeof recordOriginCounts>,
   totalCounts: ReturnType<typeof recordOriginCounts>
 ) {
-  const showing = formatRecordCount(filteredCounts.total, "source-backed entry");
+  const showing = formatRecordCount(
+    filteredCounts.total,
+    "source-backed entry",
+    "source-backed entries"
+  );
 
   if (filteredCounts.total === totalCounts.total) {
     return `${showing} showing`;
@@ -355,7 +359,8 @@ function readerRecordShowingLabel(
 
   return `${showing} showing of ${formatRecordCount(
     totalCounts.total,
-    "source-backed entry"
+    "source-backed entry",
+    "source-backed entries"
   )}`;
 }
 

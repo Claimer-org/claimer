@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.26";
+export const SITE_VERSION = "26.601.27";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Claims count pluralization polish",
+    bullets: [
+      "Claims archive counts now pluralize source-backed entry as source-backed entries instead of showing a malformed count label.",
+      "Existing explicit plural labels, including published source entries, keep their current reader-facing wording.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.26",
     date: "2026-06-02",
     title: "Public reader language cleanup",
     bullets: [
