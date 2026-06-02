@@ -77,7 +77,7 @@ const sourceQualities: SourceQuality[] = [
 ];
 
 const readerEvidenceMetadataNote =
-  "Older public archive entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
+  "Older published source entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
 
 const assessmentTargets: AssessmentTarget[] = ["attribution", "veracity", "context"];
 const oneDayMs = 1000 * 60 * 60 * 24;
@@ -239,7 +239,7 @@ function readerCoverageDescription(claim: Claim) {
   const sourceName = claim.sourcePublisher || claim.sourceTitle;
 
   if (!health.hasHighQualitySource) {
-    return `This public record cites ${sourceName}, but the library still lacks primary or direct source coverage. That is a source coverage gap, not a truth judgment.`;
+    return `This source-backed claim cites ${sourceName}, but the library still lacks primary or direct source coverage. That is a source coverage gap, not a truth judgment.`;
   }
 
   if (health.needsChallenge) {
@@ -289,15 +289,15 @@ function formatRecordCount(count: number, label: string, pluralLabel = `${label}
 
 function readerEvidenceProvenanceValue(value: string) {
   if (value === "Static library record") {
-    return "Public archive entry";
+    return "Published source entry";
   }
 
   if (value === "Model not public on this record") {
-    return "Model not recorded for this public entry";
+    return "Model not recorded for this source entry";
   }
 
   if (value === "Tool not public on this record") {
-    return "Tool not recorded for this public entry";
+    return "Tool not recorded for this source entry";
   }
 
   return value;
@@ -328,16 +328,16 @@ function recordOriginCounts(items: Claim[]) {
 
 function readerRecordSourceParts(counts: ReturnType<typeof recordOriginCounts>) {
   const parts = [
-    formatRecordCount(counts.liveContributor, "live contributor record"),
+    formatRecordCount(counts.liveContributor, "live contributor submission"),
     formatRecordCount(
       counts.publicLibrary,
-      "public archive entry",
-      "public archive entries"
+      "published source entry",
+      "published source entries"
     )
   ];
 
   if (counts.savedReader > 0) {
-    parts.push(formatRecordCount(counts.savedReader, "saved reader record"));
+    parts.push(formatRecordCount(counts.savedReader, "saved reader claim"));
   }
 
   return parts.join(" / ");
@@ -347,13 +347,16 @@ function readerRecordShowingLabel(
   filteredCounts: ReturnType<typeof recordOriginCounts>,
   totalCounts: ReturnType<typeof recordOriginCounts>
 ) {
-  const showing = formatRecordCount(filteredCounts.total, "record");
+  const showing = formatRecordCount(filteredCounts.total, "source-backed entry");
 
   if (filteredCounts.total === totalCounts.total) {
     return `${showing} showing`;
   }
 
-  return `${showing} showing of ${formatRecordCount(totalCounts.total, "record")}`;
+  return `${showing} showing of ${formatRecordCount(
+    totalCounts.total,
+    "source-backed entry"
+  )}`;
 }
 
 function readerRecordBreakdown(
@@ -369,11 +372,11 @@ function readerRecordBreakdown(
         )}; full library has ${readerRecordSourceParts(totalCounts)}.`;
 
   if (liveClaimsState === "loading") {
-    return `${sourceText} Live contributor records are still loading.`;
+    return `${sourceText} Live contributor submissions are still loading.`;
   }
 
   if (liveClaimsState === "error") {
-    return `${sourceText} Live contributor records are temporarily unavailable; public archive entries remain visible.`;
+    return `${sourceText} Live contributor submissions are temporarily unavailable; published source entries remain visible.`;
   }
 
   return sourceText;
@@ -591,9 +594,9 @@ function PinnedCurrentRecord({
       className={className}
       href={detailHref}
       onClick={onSelect ? () => onSelect() : undefined}
-      aria-label={`Selected public record. Go to source and evidence for ${claim.title}`}
+      aria-label={`Selected claim. Go to source and evidence for ${claim.title}`}
     >
-      <span>Selected public record</span>
+      <span>Selected claim</span>
       <strong>{claim.title}</strong>
       <small>
         Go to the source and evidence panel. Original source: {originalSource}.{" "}
@@ -1351,14 +1354,14 @@ export default function ClaimsClient({
                     <span className="claim-domain">{featuredClaim.domain}</span>
                     {isLiveSupabaseClaimId(featuredClaim.id) ? (
                       <span className="claim-domain">
-                        {isReaderMode ? "Public record" : "Live source"}
+                        {isReaderMode ? "Live contributor submission" : "Live source"}
                       </span>
                     ) : null}
                     <span>{claimFreshnessLabel(featuredClaim.createdAt)}</span>
                     <span>{featuredClaim.sourceQuality} source</span>
                   </div>
                   <h2 id="priority-claim-title">
-                    {isReaderMode ? "Public archive entry" : "Priority review"}
+                    {isReaderMode ? "Claim under inspection" : "Priority review"}
                   </h2>
                   <h3>{featuredClaim.title}</h3>
                   {isReaderMode ? (
@@ -1397,11 +1400,11 @@ export default function ClaimsClient({
                   {isReaderMode && mobileBrowseRows.length > 0 ? (
                     <div
                       className="reader-mobile-browse"
-                      aria-label="Browse public archive entries"
+                      aria-label="Browse source-backed entries"
                     >
                       <div className="reader-mobile-browse-heading">
                         <span>Browse</span>
-                        <strong>{mobileBrowseRows.length} public archive entries</strong>
+                        <strong>{mobileBrowseRows.length} source-backed entries</strong>
                         <span className="reader-mobile-browse-cue">More entries</span>
                       </div>
                       <div className="reader-mobile-browse-list">
@@ -1432,7 +1435,7 @@ export default function ClaimsClient({
                   ) : null}
                   <p>
                     {isReaderMode
-                      ? "Start with the selected public archive entry, its original source, and visible source coverage."
+                      ? "Start with the selected claim, its original source, and visible source coverage."
                       : "Ranked first by freshness, source strength, and an open evidence gap."}{" "}
                     Original source: {featuredClaim.sourcePublisher}.
                   </p>
@@ -1512,7 +1515,7 @@ export default function ClaimsClient({
                   ? "Public evidence library"
                   : "Contribution workspace"}
             </p>
-            <h1>{targetedReviewMode ? "Change claim" : isReaderMode ? "Records" : "Claims"}</h1>
+            <h1>{targetedReviewMode ? "Change claim" : "Claims"}</h1>
           </div>
           {targetedReviewMode ? (
             <button
@@ -1618,7 +1621,7 @@ export default function ClaimsClient({
           ) : null}
 
           <div className="claim-list-heading">
-            <strong>{isReaderMode ? "Public records" : "Full claim list"}</strong>
+            <strong>{isReaderMode ? "Source-backed claims" : "Full claim list"}</strong>
             <span>{isReaderMode ? readerRecordShowing : `${filteredClaims.length} showing`}</span>
           </div>
           {isReaderMode ? <p className="claim-count-note">{readerRecordModel}</p> : null}
@@ -1685,7 +1688,7 @@ export default function ClaimsClient({
                   <p className="eyebrow">{selectedClaim.claimantName}</p>
                   {isLiveSupabaseClaimId(selectedClaim.id) ? (
                     <span className="claim-domain">
-                      {isReaderMode ? "Public record" : "Live source"}
+                      {isReaderMode ? "Live contributor submission" : "Live source"}
                     </span>
                   ) : null}
                   <h2>{selectedClaim.title}</h2>
@@ -1708,7 +1711,7 @@ export default function ClaimsClient({
                 </div>
                 <div className="source-reference">
                   {isLiveSupabaseClaimId(selectedClaim.id) ? (
-                    <span>{isReaderMode ? "Public record" : "Live source"}</span>
+                    <span>{isReaderMode ? "Live contributor submission" : "Live source"}</span>
                   ) : null}
                   <span>{selectedClaim.sourceQuality} source</span>
                   <a href={selectedClaim.sourceUrl} rel="noreferrer" target="_blank">

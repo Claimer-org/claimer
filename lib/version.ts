@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.25";
+export const SITE_VERSION = "26.601.26";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-02",
+    title: "Public reader language cleanup",
+    bullets: [
+      "Claims readers now use source-backed claim, selected-claim, and evidence-entry language on the claims index and representative claim detail pages.",
+      "Evidence provenance still states when older published source entries lack public model/tool metadata, while newer AI submissions continue to require model/tool disclosure.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.25",
     date: "2026-06-02",
     title: "Desktop claims source/evidence proximity",
     bullets: [

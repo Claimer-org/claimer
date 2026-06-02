@@ -7,7 +7,7 @@ export default function ClaimsPage() {
         <p className="eyebrow">Public evidence library</p>
         <h1 id="claims-title">Browse claims by source and evidence mix</h1>
         <p>
-          Search public claim records, read the original source and publisher,
+          Search source-backed claims, read the original source and publisher,
           then inspect the current support / challenge / context evidence chain.
         </p>
       </header>

@@ -14,19 +14,19 @@ import AttributedReviewLink from "../../review/attributed-review-link";
 import ClaimShareSection from "./claim-share";
 
 const readerEvidenceMetadataNote =
-  "Older public archive entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
+  "Older published source entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
 
 function readerEvidenceProvenanceValue(value: string) {
   if (value === "Static library record") {
-    return "Public archive entry";
+    return "Published source entry";
   }
 
   if (value === "Model not public on this record") {
-    return "Model not recorded for this public entry";
+    return "Model not recorded for this source entry";
   }
 
   if (value === "Tool not public on this record") {
-    return "Tool not recorded for this public entry";
+    return "Tool not recorded for this source entry";
   }
 
   return value;
