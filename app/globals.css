@@ -4544,15 +4544,18 @@ textarea {
 
   .reader-mobile-browse-row {
     display: grid;
-    gap: 2px;
+    grid-template-rows: minmax(2.32em, auto) minmax(1.32em, auto) minmax(1.32em, auto);
+    align-content: start;
+    gap: 3px;
     width: 100%;
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     background: #fbfdfb;
     color: var(--foreground);
     cursor: pointer;
-    min-height: 58px;
-    padding: 6px 7px;
+    height: 92px;
+    min-height: 92px;
+    padding: 7px 8px;
     text-align: left;
   }
 
@@ -4564,18 +4567,18 @@ textarea {
   .reader-mobile-browse-row strong {
     color: var(--foreground);
     display: -webkit-box;
-    font-size: 0.74rem;
-    line-height: 1.18;
+    font-size: 0.76rem;
+    line-height: 1.22;
     overflow: hidden;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 
   .reader-mobile-browse-row span {
     color: var(--foreground-dim);
     display: -webkit-box;
-    font-size: 0.66rem;
-    line-height: 1.18;
+    font-size: 0.68rem;
+    line-height: 1.22;
     overflow: hidden;
     overflow-wrap: anywhere;
     -webkit-line-clamp: 1;

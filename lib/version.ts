@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.30";
+export const SITE_VERSION = "26.601.31";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Claims mobile row and live count polish",
+    bullets: [
+      "Mobile claim browse rows now have more reading room for two-line claim titles and readable source/evidence mix text.",
+      "Live contributor loading language no longer briefly implies zero live submissions before hydration resolves.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.30",
     date: "2026-06-02",
     title: "Calmer mobile claims browse pattern",
     bullets: [

@@ -326,15 +326,23 @@ function recordOriginCounts(items: Claim[]) {
   );
 }
 
-function readerRecordSourceParts(counts: ReturnType<typeof recordOriginCounts>) {
-  const parts = [
-    formatRecordCount(counts.liveContributor, "live contributor submission"),
+function readerRecordSourceParts(
+  counts: ReturnType<typeof recordOriginCounts>,
+  { includeLiveContributor = true }: { includeLiveContributor?: boolean } = {}
+) {
+  const parts: string[] = [];
+
+  if (includeLiveContributor) {
+    parts.push(formatRecordCount(counts.liveContributor, "live contributor submission"));
+  }
+
+  parts.push(
     formatRecordCount(
       counts.publicLibrary,
       "published source entry",
       "published source entries"
     )
-  ];
+  );
 
   if (counts.savedReader > 0) {
     parts.push(formatRecordCount(counts.savedReader, "saved reader claim"));
@@ -369,15 +377,19 @@ function readerRecordBreakdown(
   totalCounts: ReturnType<typeof recordOriginCounts>,
   liveClaimsState: "idle" | "loading" | "ready" | "error"
 ) {
+  const sourceOptions = {
+    includeLiveContributor: liveClaimsState === "ready"
+  };
   const sourceText =
     filteredCounts.total === totalCounts.total
-      ? `Includes ${readerRecordSourceParts(totalCounts)}.`
+      ? `Includes ${readerRecordSourceParts(totalCounts, sourceOptions)}.`
       : `Filtered view includes ${readerRecordSourceParts(
-          filteredCounts
-        )}; full library has ${readerRecordSourceParts(totalCounts)}.`;
+          filteredCounts,
+          sourceOptions
+        )}; full library has ${readerRecordSourceParts(totalCounts, sourceOptions)}.`;
 
   if (liveClaimsState === "loading") {
-    return `${sourceText} Live contributor submissions are still loading.`;
+    return `${sourceText} Checking live contributor submissions; published source entries remain visible.`;
   }
 
   if (liveClaimsState === "error") {
