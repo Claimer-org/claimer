@@ -33,6 +33,7 @@ import { isPublicSourceUrl } from "../../lib/supabase-contract";
 
 type StoredClaims = Record<string, Claim>;
 type ClaimsClientMode = "reader" | "submit" | "review";
+type LiveClaimsState = "idle" | "loading" | "ready" | "error";
 type ClaimsClientProps = {
   initialClaimId?: string;
   mode?: ClaimsClientMode;
@@ -287,6 +288,14 @@ function formatRecordCount(count: number, label: string, pluralLabel = `${label}
   return `${count} ${count === 1 ? label : pluralLabel}`;
 }
 
+function formatPublishedArchiveCount(count: number) {
+  return formatRecordCount(
+    count,
+    "published source entry",
+    "published source entries"
+  );
+}
+
 function readerEvidenceProvenanceValue(value: string) {
   if (value === "Static library record") {
     return "Published source entry";
@@ -353,29 +362,44 @@ function readerRecordSourceParts(
 
 function readerRecordShowingLabel(
   filteredCounts: ReturnType<typeof recordOriginCounts>,
-  totalCounts: ReturnType<typeof recordOriginCounts>
+  totalCounts: ReturnType<typeof recordOriginCounts>,
+  liveClaimsState: LiveClaimsState
 ) {
-  const showing = formatRecordCount(
-    filteredCounts.total,
-    "source-backed entry",
-    "source-backed entries"
-  );
-
-  if (filteredCounts.total === totalCounts.total) {
-    return `${showing} showing`;
+  if (liveClaimsState === "idle" || liveClaimsState === "loading") {
+    return "Checking live contributor submissions";
   }
 
-  return `${showing} showing of ${formatRecordCount(
-    totalCounts.total,
-    "source-backed entry",
-    "source-backed entries"
-  )}`;
+  const showing = formatPublishedArchiveCount(filteredCounts.publicLibrary);
+  const total = formatPublishedArchiveCount(totalCounts.publicLibrary);
+
+  if (filteredCounts.publicLibrary === totalCounts.publicLibrary) {
+    return `${total} in the source-backed archive`;
+  }
+
+  return `${showing} shown from ${total} in the source-backed archive`;
+}
+
+function readerMobileArchiveScopeLabel(
+  totalCounts: ReturnType<typeof recordOriginCounts>,
+  liveClaimsState: LiveClaimsState
+) {
+  if (liveClaimsState === "idle" || liveClaimsState === "loading") {
+    return "Checking live contributor submissions";
+  }
+
+  const archiveCount = formatPublishedArchiveCount(totalCounts.publicLibrary);
+
+  if (liveClaimsState === "error") {
+    return `${archiveCount} in the source-backed archive; live submissions unavailable`;
+  }
+
+  return `${archiveCount} in the source-backed archive`;
 }
 
 function readerRecordBreakdown(
   filteredCounts: ReturnType<typeof recordOriginCounts>,
   totalCounts: ReturnType<typeof recordOriginCounts>,
-  liveClaimsState: "idle" | "loading" | "ready" | "error"
+  liveClaimsState: LiveClaimsState
 ) {
   const sourceOptions = {
     includeLiveContributor: liveClaimsState === "ready"
@@ -636,9 +660,7 @@ export default function ClaimsClient({
   const [remoteSeedEvidence, setRemoteSeedEvidence] = useState<
     Record<string, EvidenceEntry[]>
   >({});
-  const [liveClaimsState, setLiveClaimsState] = useState<
-    "idle" | "loading" | "ready" | "error"
-  >("idle");
+  const [liveClaimsState, setLiveClaimsState] = useState<LiveClaimsState>("idle");
   const [activeDomain, setActiveDomain] = useState<ClaimDomain | "all">("all");
   const [activeTriage, setActiveTriage] = useState<
     "all" | "needs-challenge" | "needs-support" | "primary-direct"
@@ -854,18 +876,18 @@ export default function ClaimsClient({
   );
   const readerRecordShowing = readerRecordShowingLabel(
     filteredRecordCounts,
-    totalRecordCounts
+    totalRecordCounts,
+    liveClaimsState
   );
   const readerRecordModel = readerRecordBreakdown(
     filteredRecordCounts,
     totalRecordCounts,
     liveClaimsState
   );
-  const mobileBrowseArchiveScope = `${formatRecordCount(
-    totalRecordCounts.total,
-    "source-backed entry",
-    "source-backed entries"
-  )} in the source-backed archive`;
+  const mobileBrowseArchiveScope = readerMobileArchiveScopeLabel(
+    totalRecordCounts,
+    liveClaimsState
+  );
 
   const priorityClaim = useMemo(() => {
     return [...claims].sort((a, b) => priorityScore(b) - priorityScore(a))[0];

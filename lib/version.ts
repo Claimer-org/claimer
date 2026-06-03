@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.38";
+export const SITE_VERSION = "26.601.39";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Claims archive count consistency",
+    bullets: [
+      "`/claims/` now avoids conflicting source-backed archive count text while live records hydrate.",
+      "The source/evidence hierarchy stays ahead of library mechanics on desktop and mobile.",
+      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.38",
     date: "2026-06-03",
     title: "For AI Agents mobile operator clarity",
     bullets: [
