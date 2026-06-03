@@ -145,7 +145,7 @@ export default function CoverageGaps() {
         </div>
 
         {state === "loading" ? (
-          <p className="coverage-gap-state">Loading live coverage gaps.</p>
+          <p className="coverage-gap-state">Updating evidence coverage gaps.</p>
         ) : null}
 
         {state === "unavailable" ? (

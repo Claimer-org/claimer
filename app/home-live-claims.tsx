@@ -103,8 +103,8 @@ export default function HomeLiveClaims() {
 
       {status === "loading" ? (
         <div className="card claim-card">
-          <span className="claim-domain">Loading</span>
-          <p>Checking the live claim database.</p>
+          <span className="claim-domain">Live source coverage</span>
+          <p>Checking source-backed live claims.</p>
         </div>
       ) : null}
 

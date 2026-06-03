@@ -891,9 +891,7 @@ export default function ClaimsClient({
       return [];
     }
 
-    return visibleClaimRows
-      .filter((claim) => claim.id !== selectedClaim.id)
-      .slice(0, 4);
+    return visibleClaimRows.slice(0, 4);
   }, [isReaderMode, selectedClaim, visibleClaimRows]);
   const showLiveClaimsSkeleton =
     liveClaimsState === "loading" && (!isReaderMode || visibleClaimRows.length === 0);
@@ -1433,15 +1431,25 @@ export default function ClaimsClient({
                           const browseCounts = evidenceCounts(claim);
                           const browseSource =
                             claim.sourcePublisher || sourceHost(claim.sourceUrl);
+                          const isActiveBrowseRow = claim.id === selectedClaim.id;
 
                           return (
                             <button
-                              className="reader-mobile-browse-row"
+                              className={
+                                isActiveBrowseRow
+                                  ? "reader-mobile-browse-row active"
+                                  : "reader-mobile-browse-row"
+                              }
                               key={claim.id}
                               onClick={() => selectClaim(claim.id)}
                               type="button"
                             >
                               <strong>{claim.title}</strong>
+                              {isActiveBrowseRow ? (
+                                <span className="reader-mobile-browse-body">
+                                  {claim.body}
+                                </span>
+                              ) : null}
                               <span>Original source: {browseSource}</span>
                               <span>
                                 {browseCounts.support} support /{" "}

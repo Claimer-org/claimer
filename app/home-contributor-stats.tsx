@@ -112,7 +112,7 @@ export default function HomeContributorStats() {
         <div className="stat-item">
           <strong>Live</strong>
           <span>Contributor database</span>
-          <p>Loading live contributor database metrics.</p>
+          <p>Checking live source and evidence coverage.</p>
         </div>
       ) : null}
 

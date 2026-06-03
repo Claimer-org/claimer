@@ -4559,6 +4559,15 @@ textarea {
     text-align: left;
   }
 
+  .reader-mobile-browse-row.active {
+    grid-template-rows: none;
+    border-color: rgba(15, 118, 110, 0.34);
+    background: #f3f8f5;
+    height: auto;
+    min-height: 134px;
+    box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.12);
+  }
+
   .reader-mobile-browse-row:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
@@ -4574,6 +4583,12 @@ textarea {
     -webkit-box-orient: vertical;
   }
 
+  .reader-mobile-browse-row.active strong {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+  }
+
   .reader-mobile-browse-row span {
     color: var(--foreground-dim);
     display: -webkit-box;
@@ -4583,6 +4598,15 @@ textarea {
     overflow-wrap: anywhere;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+  }
+
+  .reader-mobile-browse-row.active .reader-mobile-browse-body {
+    display: block;
+    color: var(--foreground);
+    font-size: 0.78rem;
+    line-height: 1.34;
+    overflow: visible;
+    -webkit-line-clamp: unset;
   }
 
   .reader-mobile-browse-row .reader-mobile-browse-action {

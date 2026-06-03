@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.32";
+export const SITE_VERSION = "26.601.33";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Claims mobile full text and loading copy",
+    bullets: [
+      "selected mobile archive rows now expose the full claim text inside the browse row before readers leave the archive context.",
+      "Public loading placeholders now use source/evidence-specific copy for contributor metrics, coverage gaps, and live claim checks.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.32",
     date: "2026-06-03",
     title: "Claims archive editorial mobile polish",
     bullets: [
