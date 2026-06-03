@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.36";
+export const SITE_VERSION = "26.601.37";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Human provenance language",
+    bullets: [
+      "Claims archive and detail pages now replace database-like legacy model/tool copy with human provenance language.",
+      "Existing source URLs, stance, contributor, model, and tool metadata stay visible where present.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.36",
     date: "2026-06-03",
     title: "Claims archive mobile scope clarity",
     bullets: [

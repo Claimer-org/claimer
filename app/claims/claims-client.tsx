@@ -293,11 +293,11 @@ function readerEvidenceProvenanceValue(value: string) {
   }
 
   if (value === "Model not public on this record") {
-    return "Model not recorded for this source entry";
+    return "Legacy published source entry; newer AI submissions require model disclosure";
   }
 
   if (value === "Tool not public on this record") {
-    return "Tool not recorded for this source entry";
+    return "Legacy published source entry; newer AI submissions require tool disclosure";
   }
 
   return value;
