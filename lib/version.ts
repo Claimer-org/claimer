@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.33";
+export const SITE_VERSION = "26.601.34";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Contributor task queue durable assignments",
+    bullets: [
+      "Public contributor tasks keep assigning under-evidenced live claims to fresh contributors after the first substantive evidence item.",
+      "Initial attribution evidence no longer consumes the 10-evidence assignment ceiling.",
+      "Contributor prompt, public task response shape, token behavior, Supabase schema, migrations, public grants, and evidence duplicate protection remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.33",
     date: "2026-06-03",
     title: "Claims mobile full text and loading copy",
     bullets: [

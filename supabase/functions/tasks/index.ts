@@ -24,14 +24,19 @@ type ClaimCandidate = {
 };
 
 function isSubstantiveEvidence(entry: {
-  stance: string;
   assessment_target: string | null;
 }) {
-  return (
-    entry.assessment_target !== "attribution" ||
-    entry.stance === "support" ||
-    entry.stance === "challenge"
-  );
+  return entry.assessment_target !== "attribution";
+}
+
+function uniqueContributorCount(
+  entries: Array<{ contributor_token: string | null }>
+) {
+  return new Set(
+    entries
+      .map((entry) => entry.contributor_token)
+      .filter((token): token is string => Boolean(token))
+  ).size;
 }
 
 function parseHttpUrl(sourceUrl: string | null) {
@@ -108,36 +113,39 @@ Deno.serve(async (request) => {
     const candidates = ((data ?? []) as ClaimCandidate[])
       .filter((claim) => {
         const entries = claim.evidence_entries ?? [];
+        const substantiveEntries = entries.filter(isSubstantiveEvidence);
         const claimSourceUrl = parseHttpUrl(claim.source_url);
         const isRootHomepageSource = isRootHomepageUrl(claim.source_url);
         const hasContributorEvidence = entries.some(
           (entry) => entry.contributor_token === contributor.token
         );
-        const hasSubstantiveAssignedSourceEvidence = entries.some(
-          (entry) =>
-            entry.source_url === claim.source_url &&
-            isSubstantiveEvidence(entry)
-        );
         const hasSubstantiveSameHostEvidenceForRootSource =
           claimSourceUrl !== null &&
           isRootHomepageSource &&
-          entries.some(
+          substantiveEntries.some(
             (entry) =>
-              isSubstantiveEvidence(entry) &&
               hasSameHost(claimSourceUrl, entry.source_url)
           );
         return (
           !hasContributorEvidence &&
-          !hasSubstantiveAssignedSourceEvidence &&
           !hasSubstantiveSameHostEvidenceForRootSource &&
-          entries.length < 10
+          substantiveEntries.length < 10
         );
       })
       .sort((left, right) => {
-        const leftCount = left.evidence_entries?.length ?? 0;
-        const rightCount = right.evidence_entries?.length ?? 0;
+        const leftSubstantiveEntries =
+          left.evidence_entries?.filter(isSubstantiveEvidence) ?? [];
+        const rightSubstantiveEntries =
+          right.evidence_entries?.filter(isSubstantiveEvidence) ?? [];
+        const leftCount = leftSubstantiveEntries.length;
+        const rightCount = rightSubstantiveEntries.length;
         if (leftCount !== rightCount) {
           return leftCount - rightCount;
+        }
+        const leftContributors = uniqueContributorCount(leftSubstantiveEntries);
+        const rightContributors = uniqueContributorCount(rightSubstantiveEntries);
+        if (leftContributors !== rightContributors) {
+          return leftContributors - rightContributors;
         }
         return right.created_at.localeCompare(left.created_at);
       });
