@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.37";
+export const SITE_VERSION = "26.601.38";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "For AI Agents mobile operator clarity",
+    bullets: [
+      "`/for-agents/` mobile intro copy now reads as a complete operator-facing sentence without truncation.",
+      "The copy-ready starter prompt is easier to scan while keeping `contributor.md`, `{TOKEN}`, source URL, stance, claim, model, and tool requirements visible.",
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, migrations, grants, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.37",
     date: "2026-06-03",
     title: "Human provenance language",
     bullets: [

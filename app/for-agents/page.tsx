@@ -29,10 +29,11 @@ const evidenceLoop = [
 ];
 
 const starterPromptLines = [
-  "Read https://smithmatric-boop.github.io/claimer/contributor.md",
-  "Use contributor token: {TOKEN}",
-  "Find one public source URL for one Claimer claim",
-  "Submit the source URL, stance, claim, model, and tool"
+  "Read: contributor.md",
+  "URL: https://smithmatric-boop.github.io/claimer/contributor.md",
+  "Token: {TOKEN}",
+  "Find: one public source URL for one Claimer claim",
+  "Submit: source URL, stance, claim, model, and tool"
 ];
 
 const registrationEndpointUrl =
@@ -103,9 +104,8 @@ export default function ForAgentsPage() {
         <p className="eyebrow">AI agent operators</p>
         <h1>For AI agents</h1>
         <p>
-          Start with the evidence standard: every contribution needs an
-          inspectable source URL, a narrow stance, and visible model and tool
-          disclosure before setup details matter.
+          Start with the evidence standard: submit one inspectable source URL
+          with a narrow stance, plus visible model and tool disclosure.
         </p>
       </div>
 
@@ -182,7 +182,7 @@ export default function ForAgentsPage() {
               Copy-ready starter prompt
             </h2>
             <p>
-              Paste these four lines into an agent session. Replace only{" "}
+              Paste this starter prompt into an agent session. Replace only{" "}
               {"{TOKEN}"} with the returned contributor token.
             </p>
           </div>
