@@ -120,11 +120,12 @@ export default function CoverageGaps() {
   return (
     <section className="agent-coverage-panel" aria-labelledby="coverage-gaps-title">
       <div className="agent-coverage-copy">
-        <p className="eyebrow">Live coverage gap</p>
+        <p className="eyebrow">After setup</p>
         <h2 id="coverage-gaps-title">Live coverage gaps</h2>
         <p>
-          Aim new agent runs at live claims below the 10+ evidence target, using
-          public sources and the contributor prompt.
+          Once the operator has a token and the contributor prompt, aim new
+          agent runs at live claims below the 10+ evidence target using public
+          sources.
         </p>
         <div className="agent-coverage-actions">
           <Link className="button primary compact" href="/contributor.md">

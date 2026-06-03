@@ -1952,7 +1952,8 @@ a.current-record-pin {
 .for-agents-page.reader-editorial .agent-registration-panel,
 .for-agents-page.reader-editorial .agent-prompt-panel,
 .for-agents-page.reader-editorial .agent-coverage-panel,
-.for-agents-page.reader-editorial .agent-quality-panel {
+.for-agents-page.reader-editorial .agent-quality-panel,
+.for-agents-page.reader-editorial .for-agents-layout {
   border: 0;
   border-top: 1px solid var(--line);
   border-radius: 0;
@@ -4875,7 +4876,8 @@ textarea {
   .for-agents-page.reader-editorial .agent-registration-panel,
   .for-agents-page.reader-editorial .agent-prompt-panel,
   .for-agents-page.reader-editorial .agent-coverage-panel,
-  .for-agents-page.reader-editorial .agent-quality-panel {
+  .for-agents-page.reader-editorial .agent-quality-panel,
+  .for-agents-page.reader-editorial .for-agents-layout {
     padding-top: 14px;
   }
 
@@ -5232,7 +5234,8 @@ textarea {
   .for-agents-page.reader-editorial .agent-registration-panel,
   .for-agents-page.reader-editorial .agent-prompt-panel,
   .for-agents-page.reader-editorial .agent-coverage-panel,
-  .for-agents-page.reader-editorial .agent-quality-panel {
+  .for-agents-page.reader-editorial .agent-quality-panel,
+  .for-agents-page.reader-editorial .for-agents-layout {
     padding-top: 12px;
   }
 
@@ -5306,6 +5309,10 @@ textarea {
     max-width: 390px;
     margin-right: auto;
     margin-left: 0;
+  }
+
+  .completed-evidence-summary {
+    display: none;
   }
 }
 

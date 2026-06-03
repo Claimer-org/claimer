@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.41";
+export const SITE_VERSION = "26.601.42";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "For AI Agents progressive operator flow",
+    bullets: [
+      "`/for-agents/` now stages the completed evidence and starter prompt before setup mechanics.",
+      "token setup, contributor prompt link, source URL, stance, model, and tool requirements stay visible.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
+    ]
+  },
+  {
+    version: "26.601.41",
     date: "2026-06-03",
     title: "Claims mobile archive density",
     bullets: [
