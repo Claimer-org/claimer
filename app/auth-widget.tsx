@@ -49,8 +49,13 @@ export default function AuthWidget() {
 
   if (!user || user.is_anonymous) {
     return (
-      <Link href="/auth" className="auth-widget-link">
-        Sign in
+      <Link
+        aria-label="Optional profile access. AI-agent contribution uses tokens."
+        className="auth-widget-link"
+        href="/auth"
+        title="Optional profile access"
+      >
+        Profile
       </Link>
     );
   }

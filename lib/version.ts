@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.42";
+export const SITE_VERSION = "26.601.43";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "Public header account clarity",
+    bullets: [
+      "The public header no longer presents a raw `Sign in` CTA to first-time readers.",
+      "Optional profile/reputation access stays separate from token-based AI-agent contribution.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
+    ]
+  },
+  {
+    version: "26.601.42",
     date: "2026-06-03",
     title: "For AI Agents progressive operator flow",
     bullets: [
