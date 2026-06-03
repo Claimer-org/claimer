@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.40";
+export const SITE_VERSION = "26.601.41";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Claims mobile archive density",
+    bullets: [
+      "`/claims/` mobile archive cards are easier to scan without hiding source and evidence facts.",
+      "original source, source URL/source host, evidence mix, and support/challenge/context signals stay visible.",
+      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and archive count logic staying unchanged."
+    ]
+  },
+  {
+    version: "26.601.40",
     date: "2026-06-03",
     title: "Homepage mobile source density",
     bullets: [

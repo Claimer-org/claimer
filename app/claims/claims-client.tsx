@@ -1458,6 +1458,7 @@ export default function ClaimsClient({
                           const browseCounts = evidenceCounts(claim);
                           const browseSource =
                             claim.sourcePublisher || sourceHost(claim.sourceUrl);
+                          const browseSourceHost = sourceHost(claim.sourceUrl);
                           const isActiveBrowseRow = claim.id === selectedClaim.id;
 
                           return (
@@ -1470,21 +1471,24 @@ export default function ClaimsClient({
                               key={claim.id}
                               onClick={() => selectClaim(claim.id)}
                               type="button"
+                              aria-label={`${
+                                isActiveBrowseRow ? "Selected claim. " : ""
+                              }${claim.title}. Original source: ${browseSource}. Source host: ${browseSourceHost}. Evidence mix: ${browseCounts.support} support, ${browseCounts.challenge} challenge, ${browseCounts.context} context.`}
                             >
-                              <strong>{claim.title}</strong>
                               {isActiveBrowseRow ? (
-                                <span className="reader-mobile-browse-body">
-                                  {claim.body}
+                                <span className="reader-mobile-browse-state">
+                                  Selected claim
                                 </span>
                               ) : null}
-                              <span>Original source: {browseSource}</span>
-                              <span>
-                                {browseCounts.support} support /{" "}
+                              <strong>{claim.title}</strong>
+                              <span className="reader-mobile-browse-source">
+                                Original source: {browseSource}
+                                <small>Source host: {browseSourceHost}</small>
+                              </span>
+                              <span className="reader-mobile-browse-mix">
+                                Evidence mix: {browseCounts.support} support /{" "}
                                 {browseCounts.challenge} challenge /{" "}
                                 {browseCounts.context} context
-                              </span>
-                              <span className="reader-mobile-browse-action">
-                                Source and evidence panel
                               </span>
                             </button>
                           );
