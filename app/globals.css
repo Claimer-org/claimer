@@ -4536,26 +4536,26 @@ textarea {
 
   .reader-mobile-browse-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
     overflow: visible;
     padding: 0;
   }
 
   .reader-mobile-browse-row {
     display: grid;
-    grid-template-rows: minmax(2.32em, auto) minmax(1.32em, auto) minmax(1.32em, auto);
+    grid-template-rows: minmax(3.66em, auto) minmax(1.32em, auto) minmax(1.32em, auto) minmax(1.32em, auto);
     align-content: start;
-    gap: 3px;
+    gap: 4px;
     width: 100%;
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     background: #fbfdfb;
     color: var(--foreground);
     cursor: pointer;
-    height: 92px;
-    min-height: 92px;
-    padding: 7px 8px;
+    height: 134px;
+    min-height: 134px;
+    padding: 9px 10px;
     text-align: left;
   }
 
@@ -4567,22 +4567,27 @@ textarea {
   .reader-mobile-browse-row strong {
     color: var(--foreground);
     display: -webkit-box;
-    font-size: 0.76rem;
+    font-size: 0.84rem;
     line-height: 1.22;
     overflow: hidden;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
 
   .reader-mobile-browse-row span {
     color: var(--foreground-dim);
     display: -webkit-box;
-    font-size: 0.68rem;
-    line-height: 1.22;
+    font-size: 0.74rem;
+    line-height: 1.24;
     overflow: hidden;
     overflow-wrap: anywhere;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+  }
+
+  .reader-mobile-browse-row .reader-mobile-browse-action {
+    color: var(--accent-strong);
+    font-weight: 800;
   }
 
   .reader-editorial .detail {

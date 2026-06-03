@@ -895,6 +895,8 @@ export default function ClaimsClient({
       .filter((claim) => claim.id !== selectedClaim.id)
       .slice(0, 4);
   }, [isReaderMode, selectedClaim, visibleClaimRows]);
+  const showLiveClaimsSkeleton =
+    liveClaimsState === "loading" && (!isReaderMode || visibleClaimRows.length === 0);
 
   useEffect(() => {
     if (selectedClaim && selectedClaim.id !== selectedId) {
@@ -1446,6 +1448,9 @@ export default function ClaimsClient({
                                 {browseCounts.challenge} challenge /{" "}
                                 {browseCounts.context} context
                               </span>
+                              <span className="reader-mobile-browse-action">
+                                Source and evidence panel
+                              </span>
                             </button>
                           );
                         })}
@@ -1647,11 +1652,11 @@ export default function ClaimsClient({
 
           <div
             className="claim-list"
-            aria-busy={liveClaimsState === "loading"}
+            aria-busy={showLiveClaimsSkeleton}
             aria-live="polite"
           >
-            {liveClaimsState === "loading" ? (
-              <div className="skeleton-list" aria-label="Loading live claims">
+            {showLiveClaimsSkeleton ? (
+              <div className="skeleton-list" aria-label="Checking live contributor submissions">
                 <span className="skeleton-row" />
                 <span className="skeleton-row" />
               </div>
