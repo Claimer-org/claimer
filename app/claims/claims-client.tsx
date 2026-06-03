@@ -1706,29 +1706,59 @@ export default function ClaimsClient({
                 const counts = evidenceCounts(claim);
                 const health = evidenceHealth(claim);
                 const originalSource = claim.sourcePublisher || claim.sourceTitle;
+                const originalSourceHost = sourceHost(claim.sourceUrl);
+                const isSelectedClaimRow = selectedClaim?.id === claim.id;
                 return (
                   <button
-                    className={selectedClaim?.id === claim.id ? "claim-row active" : "claim-row"}
+                    className={isSelectedClaimRow ? "claim-row active" : "claim-row"}
                     key={claim.id}
                     onClick={() => selectClaim(claim.id)}
                     type="button"
+                    title={isReaderMode ? claim.title : undefined}
+                    aria-label={
+                      isReaderMode
+                        ? `${
+                            isSelectedClaimRow ? "Selected claim. " : ""
+                          }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Opens the source and evidence panel.`
+                        : undefined
+                    }
                   >
                     {!isReaderMode ? <span className="claim-domain">{claim.domain}</span> : null}
                     {!isReaderMode && isLiveSupabaseClaimId(claim.id) ? (
                       <span className="claim-domain">Live source</span>
                     ) : null}
                     <strong>{claim.title}</strong>
-                    <span className="claim-row-source">Original source: {originalSource}</span>
-                    <span className="claim-row-mix">
-                      {counts.support} support / {counts.challenge} challenge /{" "}
-                      {counts.context} context
-                    </span>
-                    {!isReaderMode ? (
-                      <span className={health.needsChallenge ? "triage need" : "triage"}>
-                        {health.balanceLabel} · {health.highQualityCount} strong source
-                        {health.highQualityCount === 1 ? "" : "s"}
-                      </span>
-                    ) : null}
+                    {isReaderMode ? (
+                      <>
+                        <span className="claim-row-source">Original source: {originalSource}</span>
+                        <span className="claim-row-facts">
+                          <span className="claim-row-host">
+                            Source host: {originalSourceHost}
+                          </span>
+                          <span className="claim-row-mix">
+                            Evidence mix: {counts.support} support / {counts.challenge}{" "}
+                            challenge / {counts.context} context
+                          </span>
+                        </span>
+                        <span className="claim-row-action">
+                          {isSelectedClaimRow
+                            ? "Selected source and evidence"
+                            : "Source and evidence"}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="claim-row-source">Original source: {originalSource}</span>
+                        <span className="claim-row-mix">
+                          {counts.support} support / {counts.challenge} challenge /{" "}
+                          {counts.context} context
+                        </span>
+                        <span className={health.needsChallenge ? "triage need" : "triage"}>
+                          {health.balanceLabel} · {health.highQualityCount} strong source
+                          {health.highQualityCount === 1 ? "" : "s"}
+                        </span>
+                      </>
+                    )}
                   </button>
                 );
               })
