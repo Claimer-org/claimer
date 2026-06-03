@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.35";
+export const SITE_VERSION = "26.601.36";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Claims archive mobile scope clarity",
+    bullets: [
+      "Mobile `/claims/` now clarifies that the four-entry browse module is a featured starting set from the larger source-backed archive.",
+      "The source/evidence archive hierarchy remains ahead of corpus metrics, keeping the selected claim, original source, source host, evidence mix, and inspect-details path visible first.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.35",
     date: "2026-06-03",
     title: "Homepage mobile source summary",
     bullets: [

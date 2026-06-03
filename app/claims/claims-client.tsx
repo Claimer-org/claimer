@@ -861,6 +861,11 @@ export default function ClaimsClient({
     totalRecordCounts,
     liveClaimsState
   );
+  const mobileBrowseArchiveScope = `${formatRecordCount(
+    totalRecordCounts.total,
+    "source-backed entry",
+    "source-backed entries"
+  )} in the source-backed archive`;
 
   const priorityClaim = useMemo(() => {
     return [...claims].sort((a, b) => priorityScore(b) - priorityScore(a))[0];
@@ -1417,13 +1422,13 @@ export default function ClaimsClient({
                   {isReaderMode && mobileBrowseRows.length > 0 ? (
                     <div
                       className="reader-mobile-browse"
-                      aria-label="Browse source-backed entries"
+                      aria-label="Featured source-backed archive starting points"
                     >
                       <div className="reader-mobile-browse-heading">
-                        <span>Browse</span>
-                        <strong>{mobileBrowseRows.length} source-backed entries</strong>
+                        <span>Featured starting points</span>
+                        <strong>{mobileBrowseRows.length} featured entries</strong>
                         <span className="reader-mobile-browse-cue">
-                          {mobileBrowseRows.length} shown
+                          {mobileBrowseArchiveScope}
                         </span>
                       </div>
                       <div className="reader-mobile-browse-list">

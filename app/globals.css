@@ -4505,10 +4505,10 @@ textarea {
   }
 
   .reader-mobile-browse-heading {
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: 6px 8px;
   }
 
   .reader-mobile-browse-heading span {
@@ -4522,7 +4522,6 @@ textarea {
   }
 
   .reader-mobile-browse-heading strong {
-    flex: 1;
     color: var(--foreground);
     font-size: 0.86rem;
     line-height: 1.25;
@@ -4535,8 +4534,10 @@ textarea {
     color: var(--accent-strong);
     font-size: 0.72rem;
     font-weight: 800;
+    grid-column: 1 / -1;
+    justify-self: start;
     padding: 3px 8px;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .reader-mobile-browse-list {
