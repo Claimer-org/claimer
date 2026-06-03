@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.39";
+export const SITE_VERSION = "26.601.40";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Homepage mobile source density",
+    bullets: [
+      "Homepage mobile now groups opening source/evidence facts into a calmer reader hierarchy.",
+      "original source, source host, source URL, evidence mix, support/challenge signals, and source gap remain visible before broader metrics.",
+      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and claims archive count logic remaining unchanged."
+    ]
+  },
+  {
+    version: "26.601.39",
     date: "2026-06-03",
     title: "Claims archive count consistency",
     bullets: [

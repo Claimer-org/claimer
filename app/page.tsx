@@ -39,14 +39,14 @@ function reviewGapSummary(counts: ReturnType<typeof evidenceCounts>) {
   }
 
   if (missing.length === 0) {
-    return "Evidence mix includes support, challenge, and context sources.";
+    return "Source gap: none. Support, challenge, and context sources are present.";
   }
 
   if (missing.length === 1) {
-    return `Evidence gap: ${missing[0]} source.`;
+    return `Source gap: needs ${missing[0]} source.`;
   }
 
-  return `Evidence gaps: ${missing.slice(0, -1).join(", ")} and ${
+  return `Source gaps: need ${missing.slice(0, -1).join(", ")} and ${
     missing[missing.length - 1]
   } sources.`;
 }
@@ -107,6 +107,15 @@ function evidenceLabel(stance: EvidenceStance) {
 
 function sourceCountLabel(total: number) {
   return `${total} source link${total === 1 ? "" : "s"}`;
+}
+
+function evidenceMixLabel(
+  counts: ReturnType<typeof evidenceCounts>,
+  total: number
+) {
+  return `${sourceCountLabel(total)}: ${counts.support} support, ${
+    counts.challenge
+  } challenge, ${counts.context} context.`;
 }
 
 function sourceHost(sourceUrl: string) {
@@ -239,27 +248,47 @@ export default function HomePage() {
             <div className="home-inspection-body">
               <div>
                 <h2>{inspectionClaim.title}</h2>
-                <dl
+                <div
                   aria-label="Mobile source and evidence summary"
                   className="home-mobile-source-summary"
                 >
-                  <div>
-                    <dt>Source publisher</dt>
-                    <dd>{inspectionClaim.sourcePublisher}</dd>
+                  <div className="home-mobile-source-group">
+                    <span className="home-mobile-source-label">
+                      Source trail
+                    </span>
+                    <dl className="home-mobile-source-facts">
+                      <div>
+                        <dt>Original source</dt>
+                        <dd>{inspectionClaim.sourcePublisher}</dd>
+                      </div>
+                      <div>
+                        <dt>Source host</dt>
+                        <dd>{inspectionSourceHost}</dd>
+                      </div>
+                    </dl>
                   </div>
-                  <div>
-                    <dt>Source host</dt>
-                    <dd>{inspectionSourceHost}</dd>
+
+                  <div className="home-mobile-source-group">
+                    <span className="home-mobile-source-label">
+                      Evidence state
+                    </span>
+                    <dl className="home-mobile-source-facts">
+                      <div>
+                        <dt>Evidence mix</dt>
+                        <dd>
+                          {evidenceMixLabel(
+                            inspectionCounts,
+                            inspectionEvidenceTotal
+                          )}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>Source gap</dt>
+                        <dd>{reviewGapSummary(inspectionCounts)}</dd>
+                      </div>
+                    </dl>
                   </div>
-                  <div>
-                    <dt>Evidence links</dt>
-                    <dd>{sourceCountLabel(inspectionEvidenceTotal)}</dd>
-                  </div>
-                  <div>
-                    <dt>Evidence mix</dt>
-                    <dd>{reviewGapSummary(inspectionCounts)}</dd>
-                  </div>
-                </dl>
+                </div>
                 <p>{inspectionClaim.body}</p>
               </div>
 
@@ -275,6 +304,7 @@ export default function HomePage() {
                   {inspectionClaim.sourceUrl}
                 </a>
                 <small>
+                  Host: {inspectionSourceHost} -{" "}
                   {inspectionClaim.sourceQuality} source -{" "}
                   {inspectionClaim.sourceTitle}
                 </small>
