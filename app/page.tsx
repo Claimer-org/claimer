@@ -255,6 +255,10 @@ export default function HomePage() {
                     <dt>Evidence links</dt>
                     <dd>{sourceCountLabel(inspectionEvidenceTotal)}</dd>
                   </div>
+                  <div>
+                    <dt>Evidence mix</dt>
+                    <dd>{reviewGapSummary(inspectionCounts)}</dd>
+                  </div>
                 </dl>
                 <p>{inspectionClaim.body}</p>
               </div>

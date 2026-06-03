@@ -4317,14 +4317,16 @@ textarea {
   }
 
   .home-mobile-source-summary {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .home-mobile-source-summary div {
     display: grid;
     gap: 3px;
     align-content: start;
-    min-height: 68px;
+    min-height: 0;
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     background: #f5f9f6;
@@ -4383,7 +4385,10 @@ textarea {
   }
 
   .home-gap-note {
-    display: none;
+    display: block;
+    font-size: 0.82rem;
+    line-height: 1.32;
+    padding: 8px 9px;
   }
 
   .home-evidence-list {
@@ -5123,11 +5128,12 @@ textarea {
   }
 
   .home-mobile-source-summary {
-    display: none;
+    display: grid;
+    gap: 5px;
   }
 
   .home-mobile-source-summary div {
-    min-height: 64px;
+    min-height: 0;
     padding: 7px;
   }
 
@@ -5141,6 +5147,12 @@ textarea {
 
   .home-mobile-source-summary dd {
     font-size: 0.76rem;
+  }
+
+  .home-gap-note {
+    font-size: 0.76rem;
+    line-height: 1.28;
+    padding: 7px;
   }
 
   .publication-section {

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.34";
+export const SITE_VERSION = "26.601.35";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-03",
+    title: "Homepage mobile source summary",
+    bullets: [
+      "Homepage mobile readers now see the inspected source trail with publisher, host, evidence-link count, and evidence gap summary sooner in the first claim inspection card.",
+      "The source-first homepage hierarchy and source/evidence facts remain ahead of coverage metrics on mobile and desktop.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, and evidence scoring remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.34",
     date: "2026-06-03",
     title: "Contributor task queue durable assignments",
     bullets: [
