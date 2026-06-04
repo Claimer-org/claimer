@@ -1482,12 +1482,11 @@ export default function ClaimsClient({
                               ) : null}
                               <strong>{claim.title}</strong>
                               <span className="reader-mobile-browse-source">
-                                Original source: {browseSource}
-                                <small>Source host: {browseSourceHost}</small>
+                                {browseSource}
+                                <small>{browseSourceHost}</small>
                               </span>
                               <span className="reader-mobile-browse-mix">
-                                Evidence mix: {browseCounts.support} support /{" "}
-                                {browseCounts.challenge} challenge /{" "}
+                                {browseCounts.support} support / {browseCounts.challenge} challenge /{" "}
                                 {browseCounts.context} context
                               </span>
                             </button>
@@ -1733,13 +1732,11 @@ export default function ClaimsClient({
                         <span className="claim-row-source">
                           <span className="claim-row-source-label">Original source</span>
                           <span className="claim-row-source-name">{originalSource}</span>
+                          <span className="claim-row-source-host">{originalSourceHost}</span>
                         </span>
-                        <span className="claim-row-facts">
-                          <span className="claim-row-host">{originalSourceHost}</span>
-                          <span className="claim-row-mix">
-                            {counts.support} support / {counts.challenge} challenge /{" "}
-                            {counts.context} context
-                          </span>
+                        <span className="claim-row-mix">
+                          {counts.support} support / {counts.challenge} challenge /{" "}
+                          {counts.context} context
                         </span>
                         <span className="claim-row-action">Inspect source trail</span>
                       </>

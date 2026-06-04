@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.45";
+export const SITE_VERSION = "26.601.46";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "Claims mobile archive scan rows",
+    bullets: [
+      "`/claims/` mobile archive rows now scan as one-line claim, source plus host line, compact evidence mix badge, and one source-trail action.",
+      "Selected claim, featured starting points, archive counts, source/evidence hierarchy, original source, and evidence mix language stay visible in the reader flow.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading stay unchanged."
+    ]
+  },
+  {
+    version: "26.601.45",
     date: "2026-06-04",
     title: "Claims mobile archive calm rows",
     bullets: [
