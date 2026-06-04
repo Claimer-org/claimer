@@ -1,13 +1,13 @@
-export const SITE_VERSION = "26.601.44";
+export const SITE_VERSION = "26.601.45";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
     date: "2026-06-04",
-    title: "Claims mobile archive row compression",
+    title: "Claims mobile archive calm rows",
     bullets: [
-      "`/claims/` reader-mode archive rows now use shorter mobile titles, tighter source/evidence grouping, and one clear source/evidence row cue.",
-      "Claim text, original source, source host, evidence mix, selected claim, featured starting points, and published source-entry counts stay visible or accessible.",
+      "`/claims/` reader-mode archive rows now use a calmer mobile index pattern with clamped titles, source-host facts, evidence counts, and one source-trail action.",
+      "Selected claim, featured starting points, archive counts, source/evidence hierarchy, original source, and evidence mix language stay visible in the reader flow.",
       "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
     ]
   },

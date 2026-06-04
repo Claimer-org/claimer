@@ -1126,6 +1126,22 @@ a.current-record-pin {
   overflow-wrap: anywhere;
 }
 
+.claim-row-source {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 5px;
+}
+
+.claim-row-source-label {
+  color: var(--foreground-dim);
+  font-weight: 700;
+}
+
+.claim-row-source-label::after {
+  content: ":";
+}
+
 .claim-row-facts {
   display: flex;
   align-items: center;
@@ -1139,7 +1155,7 @@ a.current-record-pin {
   font-weight: 600;
 }
 
-.claim-row-action {
+.claim-row > .claim-row-action {
   width: fit-content;
   max-width: 100%;
   border: 1px solid rgba(15, 118, 110, 0.16);
@@ -4708,9 +4724,10 @@ textarea {
   }
 
   .reader-editorial .claim-row {
-    gap: 4px;
+    gap: 5px;
     border-radius: var(--radius-sm);
-    padding: 8px 10px;
+    min-height: 84px;
+    padding: 9px 10px;
   }
 
   .reader-editorial .claim-row strong {
@@ -4722,21 +4739,41 @@ textarea {
     -webkit-box-orient: vertical;
   }
 
-  .reader-editorial .claim-row-source,
+  .reader-editorial .claim-row-source {
+    display: none;
+  }
+
   .reader-editorial .claim-row-host,
   .reader-editorial .claim-row-mix {
-    display: -webkit-box;
+    display: block;
     font-size: 0.72rem;
-    line-height: 1.22;
+    line-height: 1.2;
     overflow: hidden;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+    overflow-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .reader-editorial .claim-row-facts {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 4px 7px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0;
+    min-width: 0;
+    color: var(--foreground-dim);
+  }
+
+  .reader-editorial .claim-row-host {
+    flex: 0 1 42%;
+    max-width: 42%;
+    border-right: 1px solid rgba(23, 33, 38, 0.14);
+    padding-right: 7px;
+  }
+
+  .reader-editorial .claim-row-mix {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-left: 7px;
   }
 
   .reader-editorial .claim-row-mix {
@@ -4745,6 +4782,7 @@ textarea {
 
   .reader-editorial .claim-row-action {
     font-size: 0.68rem;
+    justify-self: start;
     padding: 2px 6px;
   }
 

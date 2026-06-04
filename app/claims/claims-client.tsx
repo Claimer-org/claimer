@@ -1730,21 +1730,18 @@ export default function ClaimsClient({
                     <strong>{claim.title}</strong>
                     {isReaderMode ? (
                       <>
-                        <span className="claim-row-source">Original source: {originalSource}</span>
+                        <span className="claim-row-source">
+                          <span className="claim-row-source-label">Original source</span>
+                          <span className="claim-row-source-name">{originalSource}</span>
+                        </span>
                         <span className="claim-row-facts">
-                          <span className="claim-row-host">
-                            Source host: {originalSourceHost}
-                          </span>
+                          <span className="claim-row-host">{originalSourceHost}</span>
                           <span className="claim-row-mix">
-                            Evidence mix: {counts.support} support / {counts.challenge}{" "}
-                            challenge / {counts.context} context
+                            {counts.support} support / {counts.challenge} challenge /{" "}
+                            {counts.context} context
                           </span>
                         </span>
-                        <span className="claim-row-action">
-                          {isSelectedClaimRow
-                            ? "Selected source and evidence"
-                            : "Source and evidence"}
-                        </span>
+                        <span className="claim-row-action">Inspect source trail</span>
                       </>
                     ) : (
                       <>
