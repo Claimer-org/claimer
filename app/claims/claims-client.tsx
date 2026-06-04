@@ -379,6 +379,20 @@ function readerMissingSourceGapLine(claim: Claim) {
   return "Missing: an additional context source that clarifies scope or timing for this claim";
 }
 
+function safeReaderClaimText(claimText: string) {
+  return claimText
+    .replace(/\band that Django\b/g, "and Django")
+    .replace(/\band that Djan\b/g, "and Django");
+}
+
+function safeReaderClaim(claim: Claim): Claim {
+  return {
+    ...claim,
+    title: safeReaderClaimText(claim.title),
+    body: safeReaderClaimText(claim.body)
+  };
+}
+
 function readerMixLabel(claim: Claim) {
   const health = evidenceHealth(claim);
 
@@ -880,7 +894,7 @@ export default function ClaimsClient({
         if (!isMounted) {
           return;
         }
-        setRemoteClaims(liveClaims);
+        setRemoteClaims(liveClaims.map(safeReaderClaim));
         setRemoteSeedEvidence(seedEvidence);
         setLiveClaimsState("ready");
         setSupabaseMessage(
