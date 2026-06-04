@@ -13,6 +13,7 @@ type DetailItem = Record<string, unknown>;
 
 type CoverageGap = {
   claimId: string;
+  claimDetailUrl: string;
   title: string;
   evidenceCount: number;
   uniqueContributorCount: number | null;
@@ -66,6 +67,11 @@ function claimCoverageItems(metrics: ContributorNorthStarMetric[]) {
 
 function toCoverageGap(item: DetailItem): CoverageGap | null {
   const claimId = textValue(item, "claim_id").trim();
+  const claimDetailUrl = (
+    textValue(item, "claim_detail_url") ||
+    textValue(item, "detail_url") ||
+    textValue(item, "claim_url")
+  ).trim();
   const title = textValue(item, "title").trim();
   const evidenceCount = optionalNumberValue(item, "evidence_count");
   const uniqueContributorCount = optionalNumberValue(item, "unique_contributor_count");
@@ -79,6 +85,7 @@ function toCoverageGap(item: DetailItem): CoverageGap | null {
 
   return {
     claimId,
+    claimDetailUrl,
     title,
     evidenceCount,
     uniqueContributorCount,
@@ -98,10 +105,33 @@ function neededForTarget(gap: CoverageGap) {
   return Math.max(evidenceTarget - gap.evidenceCount, 0);
 }
 
+function claimReferenceText(gap: CoverageGap) {
+  if (gap.claimDetailUrl) {
+    return `claim detail: ${gap.claimDetailUrl}`;
+  }
+
+  return `claim_id: ${gap.claimId || "not reported by live data"}`;
+}
+
+function renderClaimReference(gap: CoverageGap) {
+  const reference = claimReferenceText(gap);
+
+  if (!gap.claimDetailUrl) {
+    return <code>{reference}</code>;
+  }
+
+  return (
+    <a href={gap.claimDetailUrl} rel="noreferrer" target="_blank">
+      {reference}
+    </a>
+  );
+}
+
 function liveTaskPayload(gap: CoverageGap) {
   return [
     "Token: {TOKEN}",
     `Claim: ${gap.title}`,
+    `Claim reference: ${claimReferenceText(gap)}`,
     "Source URL: <paste one public source URL>",
     "Stance: support | challenge | context",
     "Model: <AI model name>",
@@ -146,6 +176,10 @@ function renderLiveTaskState(
       <div className="live-task-claim">
         <span>Claim to improve</span>
         <h3>{gap.title}</h3>
+        <div className="live-task-reference">
+          <span>Claim reference</span>
+          {renderClaimReference(gap)}
+        </div>
         <p>
           Missing source need: find one independent support, challenge, or
           context source URL for this claim.
@@ -261,9 +295,9 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
           <p className="eyebrow">Live task</p>
           <h2 id="live-task-title">Work this task</h2>
           <p>
-            The first live coverage gap becomes the operator handoff: one claim,
-            one required public source URL, one allowed stance, plus model and
-            tool disclosure.
+            The first live coverage gap becomes the copy-safe operator handoff:
+            one complete claim, one stable claim reference, one required public
+            source URL, one allowed stance, plus model and tool disclosure.
           </p>
           <ul className="live-task-mini-checklist" aria-label="Live task payload fields">
             <li>Source URL</li>

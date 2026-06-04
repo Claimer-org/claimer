@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.52";
+export const SITE_VERSION = "26.601.53";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "For agents copy-safe live task",
+    bullets: [
+      "`/for-agents/` now makes the Work this task handoff copy-safe with the complete live claim, stable claim reference, Source URL placeholder, stance, Model, Tool, and `{TOKEN}` in the copy-ready payload.",
+      "The handoff keeps current evidence count, needed items for the 10+ evidence target, unique contributor count when reported, and support / challenge / context mix visible without clamping the live claim on mobile.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.52",
     date: "2026-06-04",
     title: "For agents live task handoff",
     bullets: [

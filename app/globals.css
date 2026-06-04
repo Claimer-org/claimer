@@ -2079,6 +2079,7 @@ a.current-record-pin {
 }
 
 .for-agents-page.reader-editorial .completed-evidence-facts a,
+.for-agents-page.reader-editorial .live-task-reference a,
 .for-agents-page.reader-editorial .endpoint-line a {
   color: var(--accent-strong);
   text-decoration: underline;
@@ -2334,6 +2335,25 @@ a.current-record-pin {
   color: var(--foreground-dim);
   font-size: 0.94rem;
   line-height: 1.45;
+}
+
+.live-task-reference {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+
+.live-task-reference a,
+.live-task-reference code {
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .live-task-facts {
@@ -5467,6 +5487,24 @@ textarea {
     font-size: 0.84rem;
     line-height: 1.38;
     -webkit-line-clamp: 2;
+  }
+
+  .live-task-claim h3,
+  .live-task-claim p {
+    display: block;
+    overflow: visible;
+    -webkit-box-orient: initial;
+    -webkit-line-clamp: unset;
+  }
+
+  .live-task-reference {
+    padding-top: 7px;
+  }
+
+  .live-task-reference a,
+  .live-task-reference code {
+    font-size: 0.78rem;
+    line-height: 1.32;
   }
 
   .completed-evidence-claim p {

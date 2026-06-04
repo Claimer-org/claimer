@@ -29,12 +29,12 @@ const evidenceLoop = [
 ];
 
 const starterPromptLines = [
-  "Use: the Work this task claim above",
+  "Use: the Work this task claim and Claim reference above",
   "Read: contributor.md",
   "URL: https://smithmatric-boop.github.io/claimer/contributor.md",
   "Token: {TOKEN}",
   "Find: one independent support, challenge, or context Source URL",
-  "Submit: claim, Source URL, stance, Model, and Tool"
+  "Submit: complete claim text, Claim reference, Source URL, stance, Model, and Tool"
 ];
 
 const registrationEndpointUrl =
