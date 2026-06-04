@@ -529,15 +529,15 @@ function readerRecordShowingLabel(
   totalCounts: ReturnType<typeof recordOriginCounts>,
   liveClaimsState: LiveClaimsState
 ) {
-  if (liveClaimsState === "idle" || liveClaimsState === "loading") {
-    return "Loading live source entries";
-  }
-
   const showing = formatPublishedArchiveCount(filteredCounts.publicLibrary);
   const total = formatPublishedArchiveCount(totalCounts.publicLibrary);
+  const archiveState =
+    liveClaimsState === "idle" || liveClaimsState === "loading"
+      ? "available in the source-backed archive"
+      : "in the source-backed archive";
 
   if (filteredCounts.publicLibrary === totalCounts.publicLibrary) {
-    return `${total} in the source-backed archive`;
+    return `${total} ${archiveState}`;
   }
 
   return `${showing} shown from ${total} in the source-backed archive`;
@@ -559,8 +559,8 @@ function readerRecordBreakdown(
           sourceOptions
         )}; full library has ${readerRecordSourceParts(totalCounts, sourceOptions)}.`;
 
-  if (liveClaimsState === "loading") {
-    return `${sourceText} Loading live source entries; published source entries remain visible.`;
+  if (liveClaimsState === "idle" || liveClaimsState === "loading") {
+    return "Live source entries are refreshing; published source entries remain visible.";
   }
 
   if (liveClaimsState === "error") {
@@ -1807,7 +1807,7 @@ export default function ClaimsClient({
             aria-live="polite"
           >
             {showLiveClaimsSkeleton ? (
-              <div className="skeleton-list" aria-label="Loading live source entries">
+              <div className="skeleton-list" aria-label="Refreshing live source entries">
                 <span className="skeleton-row" />
                 <span className="skeleton-row" />
               </div>

@@ -1,8 +1,19 @@
-export const SITE_VERSION = "26.601.59";
+export const SITE_VERSION = "26.601.60";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Mobile microcopy trust polish",
+    bullets: [
+      "Mobile claim detail now shows the full reader intro on small screens, avoiding clipped unfinished endings while preserving Original source and Evidence chain context.",
+      "`/claims/` archive copy now separates the usable published source-entry count from live-entry refresh state while keeping Source archive guidance, selected-first ordering, source-gap cues, and source trail actions intact.",
+      "`/for-agents/` token-helper and payload surfaces now keep `Token: {TOKEN}` visually separated from surrounding copy on mobile while preserving claim_id, stance, Source URL, Model, Tool, and Back to claim/source trail fields.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.59",
     date: "2026-06-05",
     title: "Claims archive guided source groups",
     bullets: [

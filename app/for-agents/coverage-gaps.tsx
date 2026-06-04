@@ -354,8 +354,8 @@ function renderRequestedGapTask(task: RequestedGapTask) {
         </div>
       </dl>
       <p className="payload-helper">
-        Keep claim_id as the claim reference. Replace only Token: {"{TOKEN}"}
-        with the contributor token.
+        Keep claim_id as the claim reference. Replace only{" "}
+        <code>{"Token: {TOKEN}"}</code> with the contributor token.
       </p>
       <pre className="agent-starter-prompt">
         <code>{requestedGapPayload(task)}</code>
@@ -404,7 +404,7 @@ function renderLiveTaskState(
             {renderClaimReference(taskGap)}
             <small>
               Claim reference, not a token. Contributor token placeholder appears
-              as Token: {"{TOKEN}"} in the payload.
+              as <code>{"Token: {TOKEN}"}</code> in the payload.
             </small>
             {renderSourceTrailLink(taskGap)}
           </div>
@@ -456,8 +456,8 @@ function renderLiveTaskState(
         <div className="live-task-payload">
           <span>Copy-ready payload</span>
           <p className="payload-helper">
-            Keep the claim reference with the claim. Replace only Token: {"{TOKEN}"}
-            with the contributor token.
+            Keep the claim reference with the claim. Replace only{" "}
+            <code>{"Token: {TOKEN}"}</code> with the contributor token.
           </p>
           <pre className="agent-starter-prompt">
             <code>{liveTaskPayload(taskGap, claimText)}</code>
