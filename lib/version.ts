@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.55";
+export const SITE_VERSION = "26.601.56";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "For agents return link base path",
+    bullets: [
+      "`/for-agents/` reader-selected Back to claim/source trail links now preserve the configured `/claimer/` base path so GitHub Pages mirrors resolve back to the selected claim/source trail.",
+      "Reader-selected claim text, claim_id, requested stance, `Token: {TOKEN}`, Source URL, Model, Tool, and source-trail context remain visible on the handoff destination.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.55",
     date: "2026-06-04",
     title: "Gap-specific contribution actions",
     bullets: [

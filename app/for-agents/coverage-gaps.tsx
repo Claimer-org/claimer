@@ -32,6 +32,7 @@ type RequestedGapTask = {
 const evidenceTarget = 10;
 const stanceChoices = ["support", "challenge", "context"] as const;
 type StanceChoice = (typeof stanceChoices)[number];
+const basePath = normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH ?? "");
 const unsafeResolvedClaimTextPattern =
   /(?:X-Contributor-Token|contributor[_ -]?token|submitted[_ -]?by|bearer\s+|service[_ -]?role|sb_secret_|sk-[a-z0-9_-]{16,}|\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b)/i;
 
@@ -41,6 +42,42 @@ type CoverageGapsProps = {
 
 function metricById(metrics: ContributorNorthStarMetric[], id: string) {
   return metrics.find((metric) => metric.metric === id) ?? null;
+}
+
+function normalizeBasePath(value: string) {
+  const trimmed = value.trim().replace(/\/+$/, "");
+
+  if (!trimmed || trimmed === "/") {
+    return "";
+  }
+
+  return trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+}
+
+function stripBasePath(pathname: string) {
+  if (!basePath) {
+    return pathname;
+  }
+
+  if (pathname === basePath) {
+    return "/";
+  }
+
+  if (pathname.startsWith(`${basePath}/`)) {
+    return pathname.slice(basePath.length) || "/";
+  }
+
+  return pathname;
+}
+
+function withBasePath(path: string) {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+
+  if (!basePath || normalizedPath === basePath || normalizedPath.startsWith(`${basePath}/`)) {
+    return normalizedPath;
+  }
+
+  return `${basePath}${normalizedPath}`;
 }
 
 function asItems(value: unknown) {
@@ -216,6 +253,23 @@ function requestedGapPayload(task: RequestedGapTask) {
   ].join("\n");
 }
 
+function sourceTrailHref(value: string) {
+  const fallbackPath = "/claims/";
+
+  try {
+    const parsed = new URL(value || fallbackPath, "https://claimer.local");
+    const pathname = stripBasePath(parsed.pathname);
+    const safePath =
+      pathname === "/claims" || pathname.startsWith("/claims/")
+        ? pathname
+        : fallbackPath;
+
+    return `${withBasePath(safePath)}${parsed.search}${parsed.hash}`;
+  } catch {
+    return withBasePath(fallbackPath);
+  }
+}
+
 function parseRequestedGapTask(search: string): RequestedGapTask | null {
   const params = new URLSearchParams(search);
   const claimText = safeLiveTaskClaimText((params.get("claim") ?? "").trim());
@@ -234,7 +288,7 @@ function parseRequestedGapTask(search: string): RequestedGapTask | null {
   return {
     claimId: claimId || "claim reference not provided",
     claimText,
-    sourceTrailPath: sourceTrailPath || "/claims/",
+    sourceTrailPath: sourceTrailHref(sourceTrailPath),
     stance: requestedStance as StanceChoice
   };
 }
