@@ -12,6 +12,16 @@ export const RELEASES = [
     ]
   },
   {
+    version: "26.601.44",
+    date: "2026-06-04",
+    title: "Claims mobile archive row compression",
+    bullets: [
+      "`/claims/` reader-mode archive rows now use shorter mobile titles, tighter source/evidence grouping, and one clear source/evidence row cue.",
+      "Claim text, original source, source host, evidence mix, selected claim, featured starting points, and published source-entry counts stay visible or accessible.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
+    ]
+  },
+  {
     version: "26.601.43",
     date: "2026-06-04",
     title: "Public header account clarity",
