@@ -5469,6 +5469,10 @@ textarea {
     -webkit-line-clamp: 2;
   }
 
+  .completed-evidence-claim p {
+    display: none;
+  }
+
   .for-agents-page .completed-evidence-facts,
   .for-agents-page .live-task-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5504,6 +5508,10 @@ textarea {
   .live-task-facts dd {
     font-size: 0.78rem;
     line-height: 1.25;
+  }
+
+  .completed-evidence-facts div:last-child {
+    display: none;
   }
 
   .stance-choice-list {
