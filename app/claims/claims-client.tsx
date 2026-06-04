@@ -1850,14 +1850,16 @@ export default function ClaimsClient({
                         </a>
                         <small>{item.sourceUrl}</small>
                       </div>
-                      <p className="evidence-provenance">
-                        {evidenceProvenanceParts(item).map((part) => (
-                          <span key={part.label}>
-                            <strong>{part.label}:</strong>{" "}
-                            {readerEvidenceProvenanceValue(part.value)}
-                          </span>
-                        ))}
-                      </p>
+                      {!isReaderMode ? (
+                        <p className="evidence-provenance">
+                          {evidenceProvenanceParts(item).map((part) => (
+                            <span key={part.label}>
+                              <strong>{part.label}:</strong>{" "}
+                              {readerEvidenceProvenanceValue(part.value)}
+                            </span>
+                          ))}
+                        </p>
+                      ) : null}
                     </article>
                   ))}
                 </div>
@@ -1869,6 +1871,24 @@ export default function ClaimsClient({
                     <p className="evidence-metadata-note">
                       <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
                     </p>
+                    <div
+                      className="evidence-provenance-list"
+                      aria-label="Evidence provenance details"
+                    >
+                      {selectedClaim.evidence.map((item) => (
+                        <p className="evidence-provenance" key={`${item.id}-provenance`}>
+                          <span>
+                            <strong>Evidence:</strong> {item.sourceTitle}
+                          </span>
+                          {evidenceProvenanceParts(item).map((part) => (
+                            <span key={part.label}>
+                              <strong>{part.label}:</strong>{" "}
+                              {readerEvidenceProvenanceValue(part.value)}
+                            </span>
+                          ))}
+                        </p>
+                      ))}
+                    </div>
                   </>
                 ) : null}
                 {isReaderMode ? (

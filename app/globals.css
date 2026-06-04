@@ -3185,7 +3185,8 @@ a.current-record-pin {
   line-height: 1.5;
 }
 
-.evidence .evidence-provenance {
+.evidence .evidence-provenance,
+.evidence-provenance-list .evidence-provenance {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 10px;
@@ -3196,7 +3197,8 @@ a.current-record-pin {
   overflow-wrap: anywhere;
 }
 
-.evidence .evidence-provenance span {
+.evidence .evidence-provenance span,
+.evidence-provenance-list .evidence-provenance span {
   border: 0;
   background: transparent;
   color: inherit;
@@ -3207,9 +3209,16 @@ a.current-record-pin {
   text-transform: none;
 }
 
-.evidence .evidence-provenance strong {
+.evidence .evidence-provenance strong,
+.evidence-provenance-list .evidence-provenance strong {
   color: var(--foreground);
   font-weight: 700;
+}
+
+.evidence-provenance-list {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
 }
 
 .evidence-standards {
@@ -3799,13 +3808,20 @@ body:has(.reader-editorial) .page-heading h1 {
     line-height: 1.38;
   }
 
-  .reader-workspace:not(.targeted-review-workspace) .evidence .evidence-provenance {
+  .reader-workspace:not(.targeted-review-workspace) .evidence .evidence-provenance,
+  .reader-workspace:not(.targeted-review-workspace)
+    .evidence-provenance-list
+    .evidence-provenance {
     font-size: 0.74rem;
     line-height: 1.3;
   }
 
-  .reader-workspace:not(.targeted-review-workspace) .evidence-standards {
+  .reader-workspace:not(.targeted-review-workspace) .evidence-provenance-list {
     order: 4;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-standards {
+    order: 5;
   }
 }
 
@@ -4936,7 +4952,12 @@ textarea {
   }
 
   .reader-workspace:not(.targeted-review-workspace) .claim-main .evidence .evidence-provenance,
-  .claim-detail-article .evidence .evidence-provenance {
+  .reader-workspace:not(.targeted-review-workspace)
+    .claim-main
+    .evidence-provenance-list
+    .evidence-provenance,
+  .claim-detail-article .evidence .evidence-provenance,
+  .claim-detail-article .evidence-provenance-list .evidence-provenance {
     color: var(--foreground-dim);
     font-size: 0.74rem;
     line-height: 1.3;
@@ -4981,9 +5002,17 @@ textarea {
   .reader-workspace:not(.targeted-review-workspace)
     .claim-main
     .evidence-section
+    .evidence-provenance-list,
+  .claim-detail-article .evidence-section .evidence-provenance-list {
+    order: 4;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace)
+    .claim-main
+    .evidence-section
     .evidence-standards,
   .claim-detail-article .evidence-section .evidence-standards {
-    order: 4;
+    order: 5;
   }
 
   .claim-detail-article {
