@@ -298,6 +298,10 @@ export default function ForAgentsPage() {
             context for Claimer readers to inspect why the evidence was
             attached.
           </p>
+          <p>
+            After submission, return to the claim/source trail so the Original
+            source and Evidence chain stay connected to the operator handoff.
+          </p>
           <ul className="payload-checklist">
             {minimumPayload.map((item) => (
               <li key={item.label}>
