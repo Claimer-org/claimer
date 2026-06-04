@@ -1,14 +1,33 @@
-export const SITE_VERSION = "26.601.47";
+export const SITE_VERSION = "26.601.48";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "Release history repair",
+    bullets: [
+      "The changelog now preserves the recent reader-polish and mobile archive entries in sequence.",
+      "This is a release-history repair only; product behavior, source/evidence surfaces, and contributor contracts stay unchanged."
+    ]
+  },
+  {
+    version: "26.601.47",
     date: "2026-06-04",
     title: "Reader action and provenance polish",
     bullets: [
       "`/claims/` mobile rows keep compact scan density while exposing explicit source-trail open cues.",
       "Evidence cards put source title and URL before lower-weight provenance metadata on mobile while keeping AI disclosure, model, tool, contributor, and record data visible.",
       "Anonymous public readers no longer see a bare `Profile` header affordance; signed-in profile access and token-based contribution stay unchanged.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading stay unchanged."
+    ]
+  },
+  {
+    version: "26.601.46",
+    date: "2026-06-04",
+    title: "Claims mobile archive scan rows",
+    bullets: [
+      "`/claims/` mobile archive rows now scan as one-line claim, source plus host line, compact evidence mix badge, and one source-trail action.",
+      "Selected claim, featured starting points, archive counts, source/evidence hierarchy, original source, and evidence mix language stay visible in the reader flow.",
       "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading stay unchanged."
     ]
   },
