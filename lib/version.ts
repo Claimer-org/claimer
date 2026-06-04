@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.56";
+export const SITE_VERSION = "26.601.57";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "For agents payload readability",
+    bullets: [
+      "`/for-agents/` now labels claim references and claim_id values as public claim identifiers while keeping copy-ready payload fields visible.",
+      "Contributor token placeholders are called out separately so first-time operators can distinguish `Token: {TOKEN}` from claim references on mobile and desktop.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.56",
     date: "2026-06-04",
     title: "For agents return link base path",
     bullets: [

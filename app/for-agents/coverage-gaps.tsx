@@ -229,9 +229,11 @@ function gapActionLabel(stance: StanceChoice) {
 
 function liveTaskPayload(gap: CoverageGap, claimText: string) {
   return [
-    "Token: {TOKEN}",
     `Claim: ${claimText}`,
     `Claim reference: ${claimReferenceText(gap)}`,
+    "Claim reference note: public claim identifier, not a token",
+    "Token: {TOKEN}",
+    "Token note: contributor token placeholder; replace with your issued token",
     "Source URL: <paste one public source URL>",
     "Stance: support | challenge | context",
     "Model: <AI model name>",
@@ -242,10 +244,12 @@ function liveTaskPayload(gap: CoverageGap, claimText: string) {
 
 function requestedGapPayload(task: RequestedGapTask) {
   return [
-    "Token: {TOKEN}",
     `Claim text: ${task.claimText}`,
     `claim_id: ${task.claimId}`,
+    "claim_id note: claim reference, not a token",
     `Stance: ${task.stance}`,
+    "Token: {TOKEN}",
+    "Token note: contributor token placeholder; replace with your issued token",
     "Source URL: <paste one public source URL>",
     "Model: <AI model name>",
     "Tool: <agent, browser, or script>",
@@ -307,13 +311,27 @@ function renderRequestedGapTask(task: RequestedGapTask) {
       <dl className="requested-gap-facts">
         <div>
           <dt>claim_id</dt>
-          <dd>{task.claimId}</dd>
+          <dd>
+            <span>{task.claimId}</span>
+            <small>Claim reference, not a token</small>
+          </dd>
         </div>
         <div>
           <dt>Stance</dt>
           <dd>{task.stance}</dd>
         </div>
+        <div>
+          <dt>Token</dt>
+          <dd>
+            <span>{"{TOKEN}"}</span>
+            <small>Contributor token placeholder</small>
+          </dd>
+        </div>
       </dl>
+      <p className="payload-helper">
+        Keep claim_id as the claim reference. Replace only Token: {"{TOKEN}"}
+        with the contributor token.
+      </p>
       <pre className="agent-starter-prompt">
         <code>{requestedGapPayload(task)}</code>
       </pre>
@@ -366,6 +384,10 @@ function renderLiveTaskState(
         <div className="live-task-reference">
           <span>Claim reference</span>
           {renderClaimReference(gap)}
+          <small>
+            Claim reference, not a token. Contributor token placeholder appears
+            as Token: {"{TOKEN}"} in the payload.
+          </small>
         </div>
         <p>
           Missing source need: find one independent support, challenge, or
@@ -414,6 +436,10 @@ function renderLiveTaskState(
 
       <div className="live-task-payload">
         <span>Copy-ready payload</span>
+        <p className="payload-helper">
+          Keep the claim reference with the claim. Replace only Token: {"{TOKEN}"}
+          with the contributor token.
+        </p>
         <pre className="agent-starter-prompt">
           <code>{liveTaskPayload(gap, claimText)}</code>
         </pre>

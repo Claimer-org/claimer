@@ -2373,7 +2373,9 @@ a.current-record-pin {
   line-height: 1.25;
 }
 
-.live-task-claim p {
+.live-task-claim p,
+.live-task-reference small,
+.payload-helper {
   color: var(--foreground-dim);
   font-size: 0.94rem;
   line-height: 1.45;
@@ -2396,6 +2398,14 @@ a.current-record-pin {
   line-height: 1.35;
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+.live-task-reference small,
+.payload-helper {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .live-task-facts {
@@ -3499,7 +3509,7 @@ a.current-record-pin {
 
 .requested-gap-facts {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   margin: 0;
   min-width: 0;
@@ -3518,6 +3528,11 @@ a.current-record-pin {
   margin: 0;
 }
 
+.requested-gap-facts dd {
+  display: grid;
+  gap: 3px;
+}
+
 .requested-gap-facts dt {
   color: var(--foreground-dim);
   font-size: 0.7rem;
@@ -3525,11 +3540,20 @@ a.current-record-pin {
   line-height: 1.25;
 }
 
-.requested-gap-facts dd {
+.requested-gap-facts dd,
+.requested-gap-facts dd span {
   color: var(--foreground);
   font-size: 0.82rem;
   font-weight: 800;
   line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.requested-gap-facts small {
+  color: var(--foreground-dim);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.25;
   overflow-wrap: anywhere;
 }
 
@@ -5711,7 +5735,9 @@ textarea {
   }
 
   .live-task-claim h3,
-  .live-task-claim p {
+  .live-task-claim p,
+  .live-task-reference small,
+  .payload-helper {
     display: block;
     overflow: visible;
     -webkit-box-orient: initial;
@@ -5728,17 +5754,28 @@ textarea {
     line-height: 1.32;
   }
 
+  .live-task-reference small,
+  .payload-helper {
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
   .completed-evidence-claim p {
     display: none;
   }
 
   .for-agents-page .completed-evidence-facts,
-  .for-agents-page .live-task-facts {
+  .for-agents-page .live-task-facts,
+  .for-agents-page .requested-gap-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
   }
 
   .for-agents-page .live-task-facts div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .for-agents-page .requested-gap-facts div:first-child {
     grid-column: 1 / -1;
   }
 
@@ -5748,7 +5785,8 @@ textarea {
   }
 
   .completed-evidence-facts div,
-  .live-task-facts div {
+  .live-task-facts div,
+  .requested-gap-facts div {
     gap: 3px;
     padding: 7px;
   }
@@ -5764,9 +5802,15 @@ textarea {
   }
 
   .completed-evidence-facts dd,
-  .live-task-facts dd {
+  .live-task-facts dd,
+  .requested-gap-facts dd,
+  .requested-gap-facts dd span {
     font-size: 0.78rem;
     line-height: 1.25;
+  }
+
+  .requested-gap-facts small {
+    font-size: 0.65rem;
   }
 
   .completed-evidence-facts div:last-child {
