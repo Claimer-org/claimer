@@ -8,6 +8,7 @@ import {
   canLoadGrowthSnapshot,
   loadContributorNorthStar
 } from "../../lib/growth";
+import { getSupabaseClient } from "../../lib/supabase";
 
 type DetailItem = Record<string, unknown>;
 
@@ -24,6 +25,8 @@ type CoverageGap = {
 
 const evidenceTarget = 10;
 const stanceChoices = ["support", "challenge", "context"];
+const unsafeResolvedClaimTextPattern =
+  /(?:X-Contributor-Token|contributor[_ -]?token|submitted[_ -]?by|bearer\s+|service[_ -]?role|sb_secret_|sk-[a-z0-9_-]{16,}|\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b)/i;
 
 type CoverageGapsProps = {
   children?: ReactNode;
@@ -52,6 +55,34 @@ function optionalNumberValue(item: DetailItem, key: string) {
 
   const numeric = typeof value === "number" ? value : Number(value);
   return Number.isFinite(numeric) ? numeric : null;
+}
+
+async function loadFullClaimTitles(gaps: CoverageGap[]) {
+  const supabase = getSupabaseClient();
+  const claimIds = Array.from(
+    new Set(gaps.map((gap) => gap.claimId).filter(Boolean))
+  );
+
+  if (!supabase || claimIds.length === 0) {
+    return {};
+  }
+
+  const { data, error } = await supabase
+    .from("claims")
+    .select("id, title")
+    .in("id", claimIds);
+
+  if (error) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    (data ?? [])
+      .map((claim) => [claim.id, claim.title?.trim() ?? ""] as const)
+      .filter(
+        ([, title]) => title && !unsafeResolvedClaimTextPattern.test(title)
+      )
+  );
 }
 
 function claimCoverageItems(metrics: ContributorNorthStarMetric[]) {
@@ -105,6 +136,13 @@ function neededForTarget(gap: CoverageGap) {
   return Math.max(evidenceTarget - gap.evidenceCount, 0);
 }
 
+function claimTextForGap(
+  gap: CoverageGap,
+  fullClaimTitles: Record<string, string>
+) {
+  return fullClaimTitles[gap.claimId] || gap.title;
+}
+
 function claimReferenceText(gap: CoverageGap) {
   if (gap.claimDetailUrl) {
     return `claim detail: ${gap.claimDetailUrl}`;
@@ -127,10 +165,10 @@ function renderClaimReference(gap: CoverageGap) {
   );
 }
 
-function liveTaskPayload(gap: CoverageGap) {
+function liveTaskPayload(gap: CoverageGap, claimText: string) {
   return [
     "Token: {TOKEN}",
-    `Claim: ${gap.title}`,
+    `Claim: ${claimText}`,
     `Claim reference: ${claimReferenceText(gap)}`,
     "Source URL: <paste one public source URL>",
     "Stance: support | challenge | context",
@@ -143,7 +181,8 @@ function liveTaskPayload(gap: CoverageGap) {
 function renderLiveTaskState(
   state: "loading" | "ready" | "unavailable",
   message: string,
-  gap: CoverageGap | null
+  gap: CoverageGap | null,
+  fullClaimTitles: Record<string, string>
 ) {
   if (state === "loading") {
     return (
@@ -171,11 +210,13 @@ function renderLiveTaskState(
     );
   }
 
+  const claimText = claimTextForGap(gap, fullClaimTitles);
+
   return (
     <article className="live-task-card" aria-label="Live coverage gap task">
       <div className="live-task-claim">
         <span>Claim to improve</span>
-        <h3>{gap.title}</h3>
+        <h3>{claimText}</h3>
         <div className="live-task-reference">
           <span>Claim reference</span>
           {renderClaimReference(gap)}
@@ -228,7 +269,7 @@ function renderLiveTaskState(
       <div className="live-task-payload">
         <span>Copy-ready payload</span>
         <pre className="agent-starter-prompt">
-          <code>{liveTaskPayload(gap)}</code>
+          <code>{liveTaskPayload(gap, claimText)}</code>
         </pre>
       </div>
     </article>
@@ -237,6 +278,7 @@ function renderLiveTaskState(
 
 export default function CoverageGaps({ children }: CoverageGapsProps) {
   const [metrics, setMetrics] = useState<ContributorNorthStarMetric[]>([]);
+  const [fullClaimTitles, setFullClaimTitles] = useState<Record<string, string>>({});
   const [state, setState] = useState<"loading" | "ready" | "unavailable">("loading");
   const [message, setMessage] = useState("");
 
@@ -255,8 +297,15 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
         if (!isMounted) {
           return;
         }
-        setMetrics(snapshot);
-        setState("ready");
+        const gaps = claimCoverageItems(snapshot)
+          .map(toCoverageGap)
+          .filter((gap): gap is CoverageGap => gap !== null);
+        const titles = await loadFullClaimTitles(gaps);
+        if (isMounted) {
+          setMetrics(snapshot);
+          setFullClaimTitles(titles);
+          setState("ready");
+        }
       } catch {
         if (!isMounted) {
           return;
@@ -308,7 +357,7 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
           </ul>
         </div>
         <div className="live-task-slot" aria-live="polite">
-          {renderLiveTaskState(state, message, liveTask)}
+          {renderLiveTaskState(state, message, liveTask, fullClaimTitles)}
         </div>
       </section>
 
