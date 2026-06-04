@@ -265,6 +265,13 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
             one required public source URL, one allowed stance, plus model and
             tool disclosure.
           </p>
+          <ul className="live-task-mini-checklist" aria-label="Live task payload fields">
+            <li>Source URL</li>
+            <li>support / challenge / context</li>
+            <li>Model</li>
+            <li>Tool</li>
+            <li>{"{TOKEN}"}</li>
+          </ul>
         </div>
         <div className="live-task-slot" aria-live="polite">
           {renderLiveTaskState(state, message, liveTask)}
