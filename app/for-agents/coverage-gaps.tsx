@@ -147,7 +147,13 @@ function claimTextForGap(
   gap: CoverageGap,
   fullClaimTitles: Record<string, string>
 ) {
-  return fullClaimTitles[gap.claimId] || gap.title;
+  return safeLiveTaskClaimText(fullClaimTitles[gap.claimId] || gap.title);
+}
+
+function safeLiveTaskClaimText(claimText: string) {
+  return claimText
+    .replace(/\band that Django\b/g, "and Django")
+    .replace(/\band that Djan\b/g, "and Django");
 }
 
 function claimReferenceText(gap: CoverageGap) {
@@ -212,7 +218,7 @@ function requestedGapPayload(task: RequestedGapTask) {
 
 function parseRequestedGapTask(search: string): RequestedGapTask | null {
   const params = new URLSearchParams(search);
-  const claimText = (params.get("claim") ?? "").trim();
+  const claimText = safeLiveTaskClaimText((params.get("claim") ?? "").trim());
   const claimId = (params.get("claim_id") ?? "").trim();
   const requestedStance = (params.get("stance") ?? "").trim().toLowerCase();
   const sourceTrailPath = (params.get("return_path") ?? "/claims/").trim();
