@@ -79,10 +79,17 @@ const sourceQualities: SourceQuality[] = [
 
 const readerEvidenceMetadataNote =
   "Older published source entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
+const readerArchiveCueLabels = [
+  "Challenge source gap",
+  "Support source gap",
+  "Primary-source gap",
+  "Context coverage open"
+] as const;
 
 const assessmentTargets: AssessmentTarget[] = ["attribution", "veracity", "context"];
 const oneDayMs = 1000 * 60 * 60 * 24;
 const publicLibraryClaimIds = new Set(seedClaims.map((claim) => claim.id));
+type ReaderArchiveCueLabel = (typeof readerArchiveCueLabels)[number];
 
 const blockedTerms = [
   "private individual",
@@ -324,7 +331,7 @@ function priorityScore(claim: Claim) {
   return freshnessScore + openGapScore + sourceScore + evidenceScore + oneSidedEvidenceScore;
 }
 
-function readerCoverageSignal(claim: Claim) {
+function readerCoverageSignal(claim: Claim): ReaderArchiveCueLabel {
   const health = evidenceHealth(claim);
 
   if (!health.hasHighQualitySource) {
@@ -340,6 +347,22 @@ function readerCoverageSignal(claim: Claim) {
   }
 
   return "Context coverage open";
+}
+
+function readerArchiveCueItems(items: Claim[]) {
+  const cueCounts = new Map<ReaderArchiveCueLabel, number>(
+    readerArchiveCueLabels.map((label) => [label, 0])
+  );
+
+  items.forEach((claim) => {
+    const label = readerCoverageSignal(claim);
+    cueCounts.set(label, (cueCounts.get(label) ?? 0) + 1);
+  });
+
+  return readerArchiveCueLabels.map((label) => ({
+    label,
+    count: cueCounts.get(label) ?? 0
+  }));
 }
 
 function readerCoverageDescription(claim: Claim) {
@@ -381,8 +404,8 @@ function readerMissingSourceGapLine(claim: Claim) {
 
 function safeReaderClaimText(claimText: string) {
   return claimText
-    .replace(/\band that Django\b/g, "and Django")
-    .replace(/\band that Djan\b/g, "and Django");
+    .replace(/\band that Dja[n]go\b/g, "and Django")
+    .replace(/\band that Dja[n]\b/g, "and Django");
 }
 
 function safeReaderClaim(claim: Claim): Claim {
@@ -1033,6 +1056,10 @@ export default function ClaimsClient({
       ...filteredClaims.filter((claim) => claim.id !== selectedClaim.id)
     ];
   }, [filteredClaims, isReaderMode, selectedClaim]);
+  const readerArchiveCues = useMemo(
+    () => (isReaderMode ? readerArchiveCueItems(visibleClaimRows) : []),
+    [isReaderMode, visibleClaimRows]
+  );
   const showLiveClaimsSkeleton =
     liveClaimsState === "loading" && (!isReaderMode || visibleClaimRows.length === 0);
 
@@ -1743,12 +1770,35 @@ export default function ClaimsClient({
 
           <div className="claim-list-heading">
             <strong>{isReaderMode ? "Source archive" : "Full claim list"}</strong>
-            {isReaderMode ? null : <span>{filteredClaims.length} showing</span>}
+            {isReaderMode ? (
+              <span>Selected first; rows carry source-gap cues</span>
+            ) : (
+              <span>{filteredClaims.length} showing</span>
+            )}
           </div>
           {isReaderMode ? (
-            <p className="claim-count-note source-list-note">
-              {readerRecordShowing}. {readerRecordModel}
-            </p>
+            <>
+              <p className="claim-count-note source-list-note">
+                {readerRecordShowing}. {readerRecordModel}
+              </p>
+              <div
+                className="source-archive-guide"
+                aria-label="Source archive source and evidence groups"
+              >
+                <p>
+                  Rows keep the selected claim first, then use source/evidence gap
+                  cues to show which kind of source work is still open.
+                </p>
+                <div className="source-archive-cues">
+                  {readerArchiveCues.map((cue) => (
+                    <span key={cue.label}>
+                      <strong>{cue.count}</strong>
+                      {cue.label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </>
           ) : null}
 
           <div
@@ -1770,9 +1820,52 @@ export default function ClaimsClient({
                 const originalSource = claim.sourcePublisher || claim.sourceTitle;
                 const originalSourceHost = sourceHost(claim.sourceUrl);
                 const isSelectedClaimRow = selectedClaim?.id === claim.id;
+                const coverageSignal = readerCoverageSignal(claim);
                 const claimRowClassName = isReaderMode
                   ? `claim-row source-list-row compact${isSelectedClaimRow ? " active" : ""}`
                   : `claim-row${isSelectedClaimRow ? " active" : ""}`;
+                const readerRowContent = (
+                  <>
+                    <strong>{claim.title}</strong>
+                    <span className="claim-row-source">
+                      <span className="claim-row-source-label">Original source</span>
+                      <span className="claim-row-source-name">{originalSource}</span>
+                      <span className="claim-row-source-host">{originalSourceHost}</span>
+                    </span>
+                    <span className="claim-row-coverage">{coverageSignal}</span>
+                    <span className="claim-row-facts">
+                      <span className="claim-row-mix">
+                        {counts.support} support / {counts.challenge} challenge /{" "}
+                        {counts.context} context
+                      </span>
+                      <span className="claim-row-action">source trail</span>
+                    </span>
+                  </>
+                );
+
+                if (isReaderMode) {
+                  return (
+                    <a
+                      className={claimRowClassName}
+                      href="#selected-source-evidence"
+                      key={claim.id}
+                      onClick={() => {
+                        selectClaim(claim.id);
+                        window.requestAnimationFrame(() => {
+                          document
+                            .getElementById("selected-source-evidence")
+                            ?.scrollIntoView({ block: "start" });
+                        });
+                      }}
+                      title={claim.title}
+                      aria-label={`${
+                        isSelectedClaimRow ? "Selected claim. " : ""
+                      }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Opens the source trail and evidence chain.`}
+                    >
+                      {readerRowContent}
+                    </a>
+                  );
+                }
 
                 return (
                   <button
@@ -1780,46 +1873,21 @@ export default function ClaimsClient({
                     key={claim.id}
                     onClick={() => selectClaim(claim.id)}
                     type="button"
-                    title={isReaderMode ? claim.title : undefined}
-                    aria-label={
-                      isReaderMode
-                        ? `${
-                            isSelectedClaimRow ? "Selected claim. " : ""
-                          }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Opens the source and evidence trail.`
-                        : undefined
-                    }
                   >
-                    {!isReaderMode ? <span className="claim-domain">{claim.domain}</span> : null}
-                    {!isReaderMode && isLiveSupabaseClaimId(claim.id) ? (
+                    <span className="claim-domain">{claim.domain}</span>
+                    {isLiveSupabaseClaimId(claim.id) ? (
                       <span className="claim-domain">Live source</span>
                     ) : null}
                     <strong>{claim.title}</strong>
-                    {isReaderMode ? (
-                      <>
-                        <span className="claim-row-source">
-                          <span className="claim-row-source-label">Original source</span>
-                          <span className="claim-row-source-name">{originalSource}</span>
-                          <span className="claim-row-source-host">{originalSourceHost}</span>
-                        </span>
-                        <span className="claim-row-mix">
-                          {counts.support} support / {counts.challenge} challenge /{" "}
-                          {counts.context} context
-                        </span>
-                        <span className="claim-row-action">Open</span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="claim-row-source">Original source: {originalSource}</span>
-                        <span className="claim-row-mix">
-                          {counts.support} support / {counts.challenge} challenge /{" "}
-                          {counts.context} context
-                        </span>
-                        <span className={health.needsChallenge ? "triage need" : "triage"}>
-                          {health.balanceLabel} · {health.highQualityCount} strong source
-                          {health.highQualityCount === 1 ? "" : "s"}
-                        </span>
-                      </>
-                    )}
+                    <span className="claim-row-source">Original source: {originalSource}</span>
+                    <span className="claim-row-mix">
+                      {counts.support} support / {counts.challenge} challenge /{" "}
+                      {counts.context} context
+                    </span>
+                    <span className={health.needsChallenge ? "triage need" : "triage"}>
+                      {health.balanceLabel} · {health.highQualityCount} strong source
+                      {health.highQualityCount === 1 ? "" : "s"}
+                    </span>
                   </button>
                 );
               })

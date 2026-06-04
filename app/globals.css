@@ -1058,6 +1058,54 @@ a.current-record-pin {
   overflow-wrap: anywhere;
 }
 
+.source-archive-guide {
+  display: grid;
+  gap: 8px;
+  margin: -4px 0 10px;
+  min-width: 0;
+  border: 1px solid rgba(23, 33, 38, 0.08);
+  border-radius: var(--radius-sm);
+  background: #fbfdfb;
+  padding: 10px;
+}
+
+.source-archive-guide p {
+  margin: 0;
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.source-archive-cues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.source-archive-cues span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  border: 1px solid rgba(23, 33, 38, 0.08);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--foreground-dim);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 4px 7px;
+  overflow-wrap: anywhere;
+}
+
+.source-archive-cues strong {
+  color: var(--foreground);
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
 .claim-picker-current {
   margin: 12px 0 0;
   color: var(--foreground-dim);
@@ -1092,6 +1140,10 @@ a.current-record-pin {
   padding: 14px;
   text-align: left;
   transition: all var(--transition-fast);
+}
+
+a.claim-row {
+  text-decoration: none;
 }
 
 .claim-row:hover {
@@ -1168,6 +1220,20 @@ a.current-record-pin {
 .claim-row-mix {
   color: var(--foreground);
   font-weight: 600;
+}
+
+.claim-row-coverage {
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 6px;
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.18;
+  padding: 3px 7px;
+  overflow-wrap: anywhere;
 }
 
 .claim-row > .claim-row-action {
@@ -3885,6 +3951,7 @@ body:has(.reader-editorial) .page-heading h1 {
 .reader-editorial .priority-evidence span,
 .reader-editorial .priority-action > span,
 .reader-editorial .claim-list-heading span,
+.reader-editorial .source-archive-cues span,
 .reader-editorial .claim-domain {
   border: 1px solid rgba(23, 33, 38, 0.1);
   border-radius: 6px;
@@ -3907,6 +3974,11 @@ body:has(.reader-editorial) .page-heading h1 {
   font-size: 0.78rem;
   line-height: 1.35;
   opacity: 0.78;
+}
+
+.reader-editorial .source-archive-guide {
+  margin-top: -4px;
+  background: #f8fbf8;
 }
 
 .reader-editorial .source-list {
@@ -3942,6 +4014,11 @@ body:has(.reader-editorial) .page-heading h1 {
 
 .reader-editorial .claim-row-facts {
   gap: 4px 8px;
+}
+
+.reader-editorial .claim-row-coverage {
+  color: var(--accent-strong);
+  font-size: 0.7rem;
 }
 
 .reader-editorial .source-list-row .claim-row-mix {
@@ -5329,6 +5406,30 @@ textarea {
     max-width: 42%;
   }
 
+  .source-archive-guide {
+    gap: 7px;
+    padding: 8px;
+  }
+
+  .source-archive-cues {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .source-archive-cues span {
+    align-items: flex-start;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    padding: 5px 6px;
+  }
+
+  .source-archive-cues strong {
+    flex: 0 0 auto;
+    font-size: 0.68rem;
+    line-height: 1.2;
+  }
+
   .reader-editorial .claim-row-mix {
     display: block;
     justify-self: start;
@@ -5359,9 +5460,13 @@ textarea {
   }
 
   .reader-editorial .source-list-row {
-    min-height: 74px;
+    min-height: 92px;
     border-radius: 0;
     padding: 8px 2px;
+  }
+
+  .reader-editorial .source-list-row strong {
+    -webkit-line-clamp: 2;
   }
 
   .reader-editorial .source-list-row.active {

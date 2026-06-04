@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.58";
+export const SITE_VERSION = "26.601.59";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Claims archive guided source groups",
+    bullets: [
+      "`/claims/` now gives the lower Source archive a selected-first ordering note, source/evidence gap guide, and row-level cues for Challenge source gap, Support source gap, Primary-source gap, and Context coverage open.",
+      "Reader archive rows keep claim text, Original source, source host, support / challenge / context evidence mix, source-gap cue, and a source trail action visible while linking back to the selected Original source and Evidence chain panel.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.58",
     date: "2026-06-05",
     title: "For agents live task fallback",
     bullets: [
