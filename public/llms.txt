@@ -29,7 +29,7 @@ Claimer separates attribution accuracy from claim veracity. Every public claim i
 ## Corpus Snapshot
 - Claims: 103
 - Sources: 70
-- Latest generated: 2026-06-04T09:41:15.005Z
+- Latest generated: 2026-06-04T10:50:30.673Z
 
 ## Recent Claims
 - Nature published a registered report on Bluesky feeds and social feed algorithms: https://claimer-org.github.io/claimer/claims/nature-social-feed-algorithm-registered-report/

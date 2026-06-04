@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.50";
+export const SITE_VERSION = "26.601.51";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "Claims browse source ladder",
+    bullets: [
+      "`/claims/` now keeps the selected Original source and Evidence chain ladder ahead of the source archive, with secondary archive rows demoted into compact source-list entries.",
+      "Archive rows stay scannable and tappable while the selected ladder preserves source URLs, support / challenge / context evidence, the Missing: source gap, AI disclosure, model, tool, contributor, and record metadata.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.50",
     date: "2026-06-04",
     title: "Claim source ladder",
     bullets: [

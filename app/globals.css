@@ -3408,6 +3408,12 @@ body:has(.reader-editorial) .page-heading h1 {
   backdrop-filter: none;
 }
 
+.reader-editorial .claim-rail {
+  border-color: rgba(23, 33, 38, 0.06);
+  background: #f8fbf8;
+  box-shadow: none;
+}
+
 .reader-editorial .priority-claim {
   border: 1px solid var(--line);
   border-top: 3px solid var(--accent-strong);
@@ -3422,6 +3428,28 @@ body:has(.reader-editorial) .page-heading h1 {
 
 .reader-editorial .current-record-pin {
   background: #f5f9f6;
+}
+
+.reader-editorial .current-record-rail-pin {
+  margin: 10px 0 12px;
+  border-color: rgba(23, 33, 38, 0.08);
+  border-left: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 8px 0 10px;
+}
+
+.reader-editorial .current-record-rail-pin:hover,
+.reader-editorial .current-record-rail-pin:focus-visible {
+  background: rgba(30, 107, 85, 0.04);
+  box-shadow: none;
+}
+
+.reader-editorial .current-record-rail-pin .current-record-pin-action {
+  border: 0;
+  background: transparent;
+  padding: 0;
 }
 
 .reader-editorial .priority-source-summary {
@@ -3447,9 +3475,39 @@ body:has(.reader-editorial) .page-heading h1 {
   gap: 7px;
 }
 
-.reader-editorial .claim-row:hover,
-.reader-editorial .claim-row.active {
+.reader-editorial .source-list-note {
+  margin-top: -6px;
+  color: var(--foreground-dim);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  opacity: 0.78;
+}
+
+.reader-editorial .source-list {
+  gap: 0;
+  border-top: 1px solid rgba(23, 33, 38, 0.08);
+  padding-right: 0;
+}
+
+.reader-editorial .source-list-row {
+  gap: 5px;
+  border: 0;
+  border-bottom: 1px solid rgba(23, 33, 38, 0.08);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 10px 2px;
+}
+
+.reader-editorial .source-list-row:hover,
+.reader-editorial .source-list-row.active {
   background: #f4f8f6;
+  box-shadow: none;
+}
+
+.reader-editorial .source-list-row.active {
+  box-shadow: inset 3px 0 0 rgba(30, 107, 85, 0.22);
+  padding-left: 10px;
 }
 
 .reader-editorial .claim-row-source {
@@ -3460,12 +3518,16 @@ body:has(.reader-editorial) .page-heading h1 {
   gap: 4px 8px;
 }
 
-.reader-editorial .claim-row-mix {
+.reader-editorial .source-list-row .claim-row-mix {
   color: var(--foreground);
+  font-weight: 600;
 }
 
-.reader-editorial .claim-row-action {
+.reader-editorial .source-list-row .claim-row-action {
+  border: 0;
+  background: transparent;
   color: var(--accent-strong);
+  padding: 0;
 }
 
 .reader-editorial .source-inspection {
@@ -4864,6 +4926,33 @@ textarea {
     font-size: 0.68rem;
     justify-self: start;
     padding: 2px 6px;
+  }
+
+  .reader-editorial .source-list {
+    gap: 0;
+  }
+
+  .reader-editorial .source-list-row {
+    min-height: 74px;
+    border-radius: 0;
+    padding: 8px 2px;
+  }
+
+  .reader-editorial .source-list-row.active {
+    padding-left: 9px;
+  }
+
+  .reader-editorial .source-list-row .claim-row-mix {
+    border: 0;
+    background: transparent;
+    color: var(--foreground-dim);
+    padding: 0;
+  }
+
+  .reader-editorial .source-list-row .claim-row-action {
+    border: 0;
+    background: transparent;
+    padding: 0;
   }
 
   .reader-editorial .detail {

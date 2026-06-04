@@ -240,15 +240,15 @@ function readerCoverageDescription(claim: Claim) {
   const sourceName = claim.sourcePublisher || claim.sourceTitle;
 
   if (!health.hasHighQualitySource) {
-    return `This source-backed claim cites ${sourceName}, but the library still lacks primary or direct source coverage. That is a source coverage gap, not a truth judgment.`;
+    return `This source-backed claim cites ${sourceName}, but the library still lacks primary or direct source coverage. That is a source coverage gap, not a platform conclusion.`;
   }
 
   if (health.needsChallenge) {
-    return "The library has support sources for this claim, but no challenge source coverage yet. That is a source coverage gap, not a truth judgment.";
+    return "The library has support sources for this claim, but no challenge source coverage yet. That is a source coverage gap, not a platform conclusion.";
   }
 
   if (health.needsSupport) {
-    return "The library has challenge sources for this claim, but no support source coverage yet. That is a source coverage gap, not a truth judgment.";
+    return "The library has challenge sources for this claim, but no support source coverage yet. That is a source coverage gap, not a platform conclusion.";
   }
 
   return "The library has source coverage across the current evidence mix. Additional context sources can still clarify how the claim is reported.";
@@ -397,23 +397,6 @@ function readerRecordShowingLabel(
   }
 
   return `${showing} shown from ${total} in the source-backed archive`;
-}
-
-function readerMobileArchiveScopeLabel(
-  totalCounts: ReturnType<typeof recordOriginCounts>,
-  liveClaimsState: LiveClaimsState
-) {
-  if (liveClaimsState === "idle" || liveClaimsState === "loading") {
-    return "Loading live source entries";
-  }
-
-  const archiveCount = formatPublishedArchiveCount(totalCounts.publicLibrary);
-
-  if (liveClaimsState === "error") {
-    return `${archiveCount} in the source-backed archive; live submissions unavailable`;
-  }
-
-  return `${archiveCount} in the source-backed archive`;
 }
 
 function readerRecordBreakdown(
@@ -904,10 +887,6 @@ export default function ClaimsClient({
     totalRecordCounts,
     liveClaimsState
   );
-  const mobileBrowseArchiveScope = readerMobileArchiveScopeLabel(
-    totalRecordCounts,
-    liveClaimsState
-  );
 
   const priorityClaim = useMemo(() => {
     return [...claims].sort((a, b) => priorityScore(b) - priorityScore(a))[0];
@@ -933,13 +912,6 @@ export default function ClaimsClient({
       ...filteredClaims.filter((claim) => claim.id !== selectedClaim.id)
     ];
   }, [filteredClaims, isReaderMode, selectedClaim]);
-  const mobileBrowseRows = useMemo(() => {
-    if (!isReaderMode || !selectedClaim) {
-      return [];
-    }
-
-    return visibleClaimRows.slice(0, 4);
-  }, [isReaderMode, selectedClaim, visibleClaimRows]);
   const showLiveClaimsSkeleton =
     liveClaimsState === "loading" && (!isReaderMode || visibleClaimRows.length === 0);
 
@@ -1461,63 +1433,6 @@ export default function ClaimsClient({
                       </div>
                     </dl>
                   ) : null}
-                  {isReaderMode && mobileBrowseRows.length > 0 ? (
-                    <div
-                      className="reader-mobile-browse"
-                      aria-label="Featured source-backed archive starting points"
-                    >
-                      <div className="reader-mobile-browse-heading">
-                        <span>Featured starting points</span>
-                        <strong>{mobileBrowseRows.length} featured entries</strong>
-                        <span className="reader-mobile-browse-cue">
-                          {mobileBrowseArchiveScope}
-                        </span>
-                      </div>
-                      <div className="reader-mobile-browse-list">
-                        {mobileBrowseRows.map((claim) => {
-                          const browseCounts = evidenceCounts(claim);
-                          const browseSource =
-                            claim.sourcePublisher || sourceHost(claim.sourceUrl);
-                          const browseSourceHost = sourceHost(claim.sourceUrl);
-                          const isActiveBrowseRow = claim.id === selectedClaim.id;
-
-                          return (
-                            <button
-                              className={
-                                isActiveBrowseRow
-                                  ? "reader-mobile-browse-row active"
-                                  : "reader-mobile-browse-row"
-                              }
-                              key={claim.id}
-                              onClick={() => selectClaim(claim.id)}
-                              type="button"
-                              aria-label={`${
-                                isActiveBrowseRow ? "Selected claim. " : ""
-                              }${claim.title}. Original source: ${browseSource}. Source host: ${browseSourceHost}. Evidence mix: ${browseCounts.support} support, ${browseCounts.challenge} challenge, ${browseCounts.context} context. Opens the source and evidence trail.`}
-                            >
-                              {isActiveBrowseRow ? (
-                                <span className="reader-mobile-browse-state">
-                                  Selected claim
-                                </span>
-                              ) : null}
-                              <strong>{claim.title}</strong>
-                              <span className="reader-mobile-browse-source">
-                                {browseSource}
-                                <small>{browseSourceHost}</small>
-                              </span>
-                              <span className="reader-mobile-browse-mix">
-                                {browseCounts.support} support / {browseCounts.challenge} challenge /{" "}
-                                {browseCounts.context} context
-                              </span>
-                              <span className="reader-mobile-browse-action">
-                                Open source trail
-                              </span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : null}
                   <p>
                     {isReaderMode
                       ? "Start with the selected claim, its original source, and visible source coverage."
@@ -1706,13 +1621,17 @@ export default function ClaimsClient({
           ) : null}
 
           <div className="claim-list-heading">
-            <strong>{isReaderMode ? "Source-backed claims" : "Full claim list"}</strong>
-            <span>{isReaderMode ? readerRecordShowing : `${filteredClaims.length} showing`}</span>
+            <strong>{isReaderMode ? "Source archive" : "Full claim list"}</strong>
+            {isReaderMode ? null : <span>{filteredClaims.length} showing</span>}
           </div>
-          {isReaderMode ? <p className="claim-count-note">{readerRecordModel}</p> : null}
+          {isReaderMode ? (
+            <p className="claim-count-note source-list-note">
+              {readerRecordShowing}. {readerRecordModel}
+            </p>
+          ) : null}
 
           <div
-            className="claim-list"
+            className={isReaderMode ? "claim-list source-list compact" : "claim-list"}
             aria-busy={showLiveClaimsSkeleton}
             aria-live="polite"
           >
@@ -1730,9 +1649,13 @@ export default function ClaimsClient({
                 const originalSource = claim.sourcePublisher || claim.sourceTitle;
                 const originalSourceHost = sourceHost(claim.sourceUrl);
                 const isSelectedClaimRow = selectedClaim?.id === claim.id;
+                const claimRowClassName = isReaderMode
+                  ? `claim-row source-list-row compact${isSelectedClaimRow ? " active" : ""}`
+                  : `claim-row${isSelectedClaimRow ? " active" : ""}`;
+
                 return (
                   <button
-                    className={isSelectedClaimRow ? "claim-row active" : "claim-row"}
+                    className={claimRowClassName}
                     key={claim.id}
                     onClick={() => selectClaim(claim.id)}
                     type="button"
@@ -1761,7 +1684,7 @@ export default function ClaimsClient({
                           {counts.support} support / {counts.challenge} challenge /{" "}
                           {counts.context} context
                         </span>
-                        <span className="claim-row-action">Open source trail</span>
+                        <span className="claim-row-action">Open</span>
                       </>
                     ) : (
                       <>
