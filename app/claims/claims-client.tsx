@@ -1473,7 +1473,7 @@ export default function ClaimsClient({
                               type="button"
                               aria-label={`${
                                 isActiveBrowseRow ? "Selected claim. " : ""
-                              }${claim.title}. Original source: ${browseSource}. Source host: ${browseSourceHost}. Evidence mix: ${browseCounts.support} support, ${browseCounts.challenge} challenge, ${browseCounts.context} context.`}
+                              }${claim.title}. Original source: ${browseSource}. Source host: ${browseSourceHost}. Evidence mix: ${browseCounts.support} support, ${browseCounts.challenge} challenge, ${browseCounts.context} context. Opens the source and evidence trail.`}
                             >
                               {isActiveBrowseRow ? (
                                 <span className="reader-mobile-browse-state">
@@ -1488,6 +1488,9 @@ export default function ClaimsClient({
                               <span className="reader-mobile-browse-mix">
                                 {browseCounts.support} support / {browseCounts.challenge} challenge /{" "}
                                 {browseCounts.context} context
+                              </span>
+                              <span className="reader-mobile-browse-action">
+                                Open source trail
                               </span>
                             </button>
                           );
@@ -1718,7 +1721,7 @@ export default function ClaimsClient({
                       isReaderMode
                         ? `${
                             isSelectedClaimRow ? "Selected claim. " : ""
-                          }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Opens the source and evidence panel.`
+                          }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Opens the source and evidence trail.`
                         : undefined
                     }
                   >
@@ -1738,7 +1741,7 @@ export default function ClaimsClient({
                           {counts.support} support / {counts.challenge} challenge /{" "}
                           {counts.context} context
                         </span>
-                        <span className="claim-row-action">Inspect source trail</span>
+                        <span className="claim-row-action">Open source trail</span>
                       </>
                     ) : (
                       <>
@@ -1826,6 +1829,12 @@ export default function ClaimsClient({
                         {!isReaderMode && item.aiAssisted ? <em>AI-assisted summary</em> : null}
                       </div>
                       <p>{item.summary}</p>
+                      <div className="evidence-source">
+                        <a href={item.sourceUrl} rel="noreferrer" target="_blank">
+                          {item.sourceTitle}
+                        </a>
+                        <small>{item.sourceUrl}</small>
+                      </div>
                       <p className="evidence-provenance">
                         {evidenceProvenanceParts(item).map((part) => (
                           <span key={part.label}>
@@ -1834,12 +1843,6 @@ export default function ClaimsClient({
                           </span>
                         ))}
                       </p>
-                      <div className="evidence-source">
-                        <a href={item.sourceUrl} rel="noreferrer" target="_blank">
-                          {item.sourceTitle}
-                        </a>
-                        <small>{item.sourceUrl}</small>
-                      </div>
                     </article>
                   ))}
                 </div>

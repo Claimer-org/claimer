@@ -179,6 +179,12 @@ export default async function ClaimDetailPage({
                 <em>{item.sourceQuality}</em>
               </div>
               <p>{item.summary}</p>
+              <div className="evidence-source">
+                <a href={item.sourceUrl} rel="noreferrer" target="_blank">
+                  {item.sourceTitle}
+                </a>
+                <small>{item.sourceUrl}</small>
+              </div>
               <p className="evidence-provenance">
                 {evidenceProvenanceParts(item).map((part) => (
                   <span key={part.label}>
@@ -187,12 +193,6 @@ export default async function ClaimDetailPage({
                   </span>
                 ))}
               </p>
-              <div className="evidence-source">
-                <a href={item.sourceUrl} rel="noreferrer" target="_blank">
-                  {item.sourceTitle}
-                </a>
-                <small>{item.sourceUrl}</small>
-              </div>
             </article>
           ))}
         </div>
