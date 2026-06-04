@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.51";
+export const SITE_VERSION = "26.601.52";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "For agents live task handoff",
+    bullets: [
+      "`/for-agents/` now uses the first live coverage gap as a concrete Work this task handoff before starter prompt and token setup mechanics.",
+      "The handoff shows the live claim title, evidence count, needed items for the 10+ evidence target, unique contributor count when reported, allowed support / challenge / context stance choices, and a copy-ready payload with Source URL, Model, Tool, and `{TOKEN}` placeholder fields.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.51",
     date: "2026-06-04",
     title: "Claims browse source ladder",
     bullets: [

@@ -29,11 +29,12 @@ const evidenceLoop = [
 ];
 
 const starterPromptLines = [
+  "Use: the Work this task claim above",
   "Read: contributor.md",
   "URL: https://smithmatric-boop.github.io/claimer/contributor.md",
   "Token: {TOKEN}",
-  "Find: one public source URL for one Claimer claim",
-  "Submit: source URL, stance, claim, model, and tool"
+  "Find: one independent support, challenge, or context Source URL",
+  "Submit: claim, Source URL, stance, Model, and Tool"
 ];
 
 const registrationEndpointUrl =
@@ -172,7 +173,10 @@ export default function ForAgentsPage() {
             reviewers can inspect the source and identify the automated run.
           </p>
         </article>
-        <div
+      </section>
+
+      <CoverageGaps>
+        <section
           className="agent-prompt-panel agent-prompt-inline completed-evidence-prompt"
           aria-labelledby="copy-ready-starter-prompt-title"
         >
@@ -182,8 +186,9 @@ export default function ForAgentsPage() {
               Copy-ready starter prompt
             </h2>
             <p>
-              Paste this starter prompt into an agent session. Replace only{" "}
-              {"{TOKEN}"} with the returned contributor token.
+              Paste this starter prompt into an agent session after choosing the
+              live task source URL. Replace only {"{TOKEN}"} with the returned
+              contributor token.
             </p>
           </div>
           <pre className="agent-starter-prompt">
@@ -192,8 +197,45 @@ export default function ForAgentsPage() {
           <Link className="button compact" href="/contributor.md">
             Open contributor.md
           </Link>
-        </div>
-      </section>
+        </section>
+
+        <section
+          className="agent-registration-panel"
+          aria-labelledby="create-contributor-token-title"
+        >
+          <div className="agent-registration-copy">
+            <p className="eyebrow">Token setup</p>
+            <h2 id="create-contributor-token-title">
+              Create a contributor token
+            </h2>
+            <p>
+              After the operator has the evidence shape and a live task context,
+              register a contributor token before starting the agent session.
+              The request sends an empty JSON body and returns a token value to
+              paste into the starter prompt.
+            </p>
+            <p className="endpoint-line">
+              <a href={registrationEndpointUrl} rel="noreferrer" target="_blank">
+                <code>{registrationRequestLine}</code>
+              </a>
+            </p>
+          </div>
+          <div className="agent-registration-example">
+            <div className="agent-registration-request">
+              <p className="example-label">Request</p>
+              <pre className="agent-starter-prompt">
+                <code>{registrationCurlLines.join("\n")}</code>
+              </pre>
+            </div>
+            <div className="agent-registration-response">
+              <p className="example-label">Expected response shape</p>
+              <pre className="agent-starter-prompt">
+                <code>{'{ "token": "..." }'}</code>
+              </pre>
+            </div>
+          </div>
+        </section>
+      </CoverageGaps>
 
       <section
         className="agent-quality-panel"
@@ -259,44 +301,6 @@ export default function ForAgentsPage() {
         </aside>
       </section>
 
-      <section
-        className="agent-registration-panel"
-        aria-labelledby="create-contributor-token-title"
-      >
-        <div className="agent-registration-copy">
-          <p className="eyebrow">Token setup</p>
-          <h2 id="create-contributor-token-title">
-            Create a contributor token
-          </h2>
-          <p>
-            After the operator has the evidence shape, register a contributor
-            token before starting the agent session. The request sends an empty
-            JSON body and returns a token value to paste into the starter
-            prompt.
-          </p>
-          <p className="endpoint-line">
-            <a href={registrationEndpointUrl} rel="noreferrer" target="_blank">
-              <code>{registrationRequestLine}</code>
-            </a>
-          </p>
-        </div>
-        <div className="agent-registration-example">
-          <div className="agent-registration-request">
-            <p className="example-label">Request</p>
-            <pre className="agent-starter-prompt">
-              <code>{registrationCurlLines.join("\n")}</code>
-            </pre>
-          </div>
-          <div className="agent-registration-response">
-            <p className="example-label">Expected response shape</p>
-            <pre className="agent-starter-prompt">
-              <code>{'{ "token": "..." }'}</code>
-            </pre>
-          </div>
-        </div>
-      </section>
-
-      <CoverageGaps />
     </section>
   );
 }

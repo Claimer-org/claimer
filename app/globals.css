@@ -2003,6 +2003,7 @@ a.current-record-pin {
 }
 
 .for-agents-page.reader-editorial .completed-evidence-panel,
+.for-agents-page.reader-editorial .agent-live-task-panel,
 .for-agents-page.reader-editorial .agent-registration-panel,
 .for-agents-page.reader-editorial .agent-prompt-panel,
 .for-agents-page.reader-editorial .agent-coverage-panel,
@@ -2017,6 +2018,7 @@ a.current-record-pin {
 }
 
 .for-agents-page.reader-editorial .completed-evidence-card,
+.for-agents-page.reader-editorial .live-task-card,
 .for-agents-page.reader-editorial .coverage-gap-row,
 .for-agents-page.reader-editorial .coverage-gap-state,
 .for-agents-page.reader-editorial .quality-guidance-list li,
@@ -2032,20 +2034,27 @@ a.current-record-pin {
 }
 
 .for-agents-page.reader-editorial .completed-evidence-claim,
-.for-agents-page.reader-editorial .completed-evidence-summary {
+.for-agents-page.reader-editorial .completed-evidence-summary,
+.for-agents-page.reader-editorial .live-task-claim {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: #fbfdfb;
   padding: 12px;
 }
 
-.for-agents-page.reader-editorial .completed-evidence-facts div {
+.for-agents-page.reader-editorial .completed-evidence-facts div,
+.for-agents-page.reader-editorial .live-task-facts div,
+.for-agents-page.reader-editorial .stance-choice-list li {
   background: #f6faf7;
 }
 
 .for-agents-page.reader-editorial .completed-evidence-claim span,
 .for-agents-page.reader-editorial .completed-evidence-summary span,
+.for-agents-page.reader-editorial .live-task-claim span,
+.for-agents-page.reader-editorial .live-task-stance span,
+.for-agents-page.reader-editorial .live-task-payload span,
 .for-agents-page.reader-editorial .completed-evidence-facts dt,
+.for-agents-page.reader-editorial .live-task-facts dt,
 .for-agents-page.reader-editorial .coverage-gap-header,
 .for-agents-page.reader-editorial .example-label {
   letter-spacing: 0;
@@ -2054,13 +2063,18 @@ a.current-record-pin {
 
 .for-agents-page.reader-editorial .completed-evidence-claim span,
 .for-agents-page.reader-editorial .completed-evidence-summary span,
+.for-agents-page.reader-editorial .live-task-claim span,
+.for-agents-page.reader-editorial .live-task-stance span,
+.for-agents-page.reader-editorial .live-task-payload span,
 .for-agents-page.reader-editorial .completed-evidence-facts dt,
+.for-agents-page.reader-editorial .live-task-facts dt,
 .for-agents-page.reader-editorial .coverage-gap-header {
   color: var(--foreground-dim);
   font-size: 0.78rem;
 }
 
-.for-agents-page.reader-editorial .completed-evidence-facts dd {
+.for-agents-page.reader-editorial .completed-evidence-facts dd,
+.for-agents-page.reader-editorial .live-task-facts dd {
   color: var(--foreground);
 }
 
@@ -2104,7 +2118,7 @@ a.current-record-pin {
 
 .completed-evidence-panel {
   display: grid;
-  grid-template-columns: minmax(0, 0.58fr) minmax(320px, 1fr) minmax(300px, 0.9fr);
+  grid-template-columns: minmax(0, 0.58fr) minmax(320px, 1.42fr);
   gap: 20px;
   align-items: start;
   border: 1px solid rgba(16, 185, 129, 0.28);
@@ -2229,6 +2243,141 @@ a.current-record-pin {
 .completed-evidence-requirement {
   border-top: 1px solid var(--line);
   padding-top: 12px;
+}
+
+.agent-live-task-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.55fr) minmax(340px, 1.45fr);
+  gap: 20px;
+  align-items: start;
+  border: 1px solid rgba(20, 184, 166, 0.28);
+  border-radius: var(--radius-md);
+  background: rgba(20, 184, 166, 0.08);
+  padding: 20px;
+}
+
+.agent-live-task-copy,
+.live-task-slot,
+.live-task-card {
+  min-width: 0;
+}
+
+.agent-live-task-copy h2,
+.agent-live-task-copy p,
+.live-task-claim h3,
+.live-task-claim p {
+  margin: 0;
+}
+
+.agent-live-task-copy h2 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.agent-live-task-copy p:not(.eyebrow) {
+  margin-top: 10px;
+  color: var(--foreground-dim);
+}
+
+.live-task-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent-strong);
+  border-radius: var(--radius-md);
+  background: rgba(7, 10, 24, 0.42);
+  padding: 18px;
+}
+
+.live-task-claim {
+  display: grid;
+  gap: 7px;
+}
+
+.live-task-claim span,
+.live-task-stance span,
+.live-task-payload span {
+  color: var(--foreground-dim);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.live-task-claim h3 {
+  color: var(--foreground);
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+
+.live-task-claim p {
+  color: var(--foreground-dim);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.live-task-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.live-task-facts div {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(7, 10, 24, 0.38);
+  padding: 10px;
+}
+
+.live-task-facts dt {
+  color: var(--foreground-dim);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.live-task-facts dd {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.96rem;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.live-task-stance,
+.live-task-payload {
+  display: grid;
+  gap: 8px;
+}
+
+.stance-choice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stance-choice-list li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(7, 10, 24, 0.38);
+  padding: 6px 10px;
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.live-task-mix {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .agent-registration-panel {
@@ -5195,6 +5344,7 @@ textarea {
   }
 
   .for-agents-page.reader-editorial .completed-evidence-panel,
+  .for-agents-page.reader-editorial .agent-live-task-panel,
   .for-agents-page.reader-editorial .agent-registration-panel,
   .for-agents-page.reader-editorial .agent-prompt-panel,
   .for-agents-page.reader-editorial .agent-coverage-panel,
@@ -5204,9 +5354,14 @@ textarea {
   }
 
   .completed-evidence-panel,
+  .agent-live-task-panel,
   .agent-registration-panel {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .agent-live-task-copy p:not(.eyebrow) {
+    display: none;
   }
 
   .agent-registration-copy p:not(.eyebrow):not(.endpoint-line) {
@@ -5233,11 +5388,13 @@ textarea {
   }
 
   .completed-evidence-copy h2,
+  .agent-live-task-copy h2,
   .agent-registration-copy h2 {
     font-size: 1.12rem;
   }
 
-  .completed-evidence-card {
+  .completed-evidence-card,
+  .live-task-card {
     gap: 10px;
     padding: 12px;
   }
@@ -5247,13 +5404,16 @@ textarea {
   }
 
   .for-agents-page.reader-editorial .completed-evidence-claim,
-  .for-agents-page.reader-editorial .completed-evidence-summary {
+  .for-agents-page.reader-editorial .completed-evidence-summary,
+  .for-agents-page.reader-editorial .live-task-claim {
     padding: 9px;
   }
 
   .completed-evidence-claim h3,
   .completed-evidence-claim p,
-  .completed-evidence-summary p {
+  .completed-evidence-summary p,
+  .live-task-claim h3,
+  .live-task-claim p {
     display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;
@@ -5265,16 +5425,28 @@ textarea {
     -webkit-line-clamp: 2;
   }
 
+  .live-task-claim h3 {
+    font-size: 0.98rem;
+    line-height: 1.2;
+    -webkit-line-clamp: 2;
+  }
+
   .completed-evidence-claim p,
-  .completed-evidence-summary p {
+  .completed-evidence-summary p,
+  .live-task-claim p {
     font-size: 0.84rem;
     line-height: 1.38;
     -webkit-line-clamp: 2;
   }
 
-  .for-agents-page .completed-evidence-facts {
+  .for-agents-page .completed-evidence-facts,
+  .for-agents-page .live-task-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
+  }
+
+  .for-agents-page .live-task-facts div:first-child {
+    grid-column: 1 / -1;
   }
 
   .for-agents-page .completed-evidence-facts .wide {
@@ -5282,20 +5454,35 @@ textarea {
     grid-row: auto;
   }
 
-  .completed-evidence-facts div {
+  .completed-evidence-facts div,
+  .live-task-facts div {
     gap: 3px;
     padding: 7px;
   }
 
   .completed-evidence-facts dt,
+  .live-task-facts dt,
   .for-agents-page.reader-editorial .completed-evidence-claim span,
-  .for-agents-page.reader-editorial .completed-evidence-summary span {
+  .for-agents-page.reader-editorial .completed-evidence-summary span,
+  .for-agents-page.reader-editorial .live-task-claim span,
+  .for-agents-page.reader-editorial .live-task-stance span,
+  .for-agents-page.reader-editorial .live-task-payload span {
     font-size: 0.68rem;
   }
 
-  .completed-evidence-facts dd {
+  .completed-evidence-facts dd,
+  .live-task-facts dd {
     font-size: 0.78rem;
     line-height: 1.25;
+  }
+
+  .stance-choice-list {
+    gap: 6px;
+  }
+
+  .stance-choice-list li {
+    padding: 5px 8px;
+    font-size: 0.76rem;
   }
 
   .completed-evidence-requirement {
@@ -5352,6 +5539,7 @@ textarea {
   .review-checkpoint-grid,
   .launch-grid,
   .completed-evidence-panel,
+  .agent-live-task-panel,
   .agent-registration-panel,
   .agent-prompt-panel,
   .agent-coverage-panel,
@@ -5553,6 +5741,7 @@ textarea {
   }
 
   .for-agents-page.reader-editorial .completed-evidence-panel,
+  .for-agents-page.reader-editorial .agent-live-task-panel,
   .for-agents-page.reader-editorial .agent-registration-panel,
   .for-agents-page.reader-editorial .agent-prompt-panel,
   .for-agents-page.reader-editorial .agent-coverage-panel,
