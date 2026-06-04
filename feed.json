@@ -13,6 +13,240 @@
   "language": "en-US",
   "items": [
     {
+      "id": "nature-social-feed-algorithm-registered-report",
+      "url": "https://claimer-org.github.io/claimer/claims/nature-social-feed-algorithm-registered-report/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=nature-social-feed-algorithm-registered-report&claim_id=nature-social-feed-algorithm-registered-report&ref=json_feed",
+      "title": "Nature published a registered report on Bluesky feeds and social feed algorithms",
+      "content_text": "Evidence suggests source-backed. Attribution 94%; veracity 82%. 3 evidence entries: 2 support, 0 challenge, 1 context. Nature published a registered report on May 27, 2026 in which researchers randomly assigned 2,000 participants to use custom Bluesky feeds for eight weeks and reported that engagement-based feeds amplified intergroup, moralized, emotional, and toxic content relative to reverse-chronological feeds, while a diversified extremity algorithm reduced exposure and maintained comparable platform enjoyment. Source: Nature social feed algorithm registered report (https://www.nature.com/articles/s41586-026-10536-1)",
+      "date_published": "2026-05-29T02:10:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests source-backed"
+      ],
+      "external_url": "https://www.nature.com/articles/s41586-026-10536-1",
+      "authors": [
+        {
+          "name": "Nature research authors"
+        }
+      ]
+    },
+    {
+      "id": "california-ai-workforce-executive-order",
+      "url": "https://claimer-org.github.io/claimer/claims/california-ai-workforce-executive-order/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=california-ai-workforce-executive-order&claim_id=california-ai-workforce-executive-order&ref=json_feed",
+      "title": "California issued Executive Order N-6-26 on AI workforce impacts",
+      "content_text": "Evidence suggests source-backed. Attribution 96%; veracity 80%. 2 evidence entries: 1 support, 0 challenge, 1 context. California Governor Gavin Newsom issued Executive Order N-6-26 on May 21, 2026, directing state agencies to assess AI workforce impacts, review possible WARN Act updates, launch an AI employment-impact dashboard within 90 days, and prepare an AI playbook for dislocated-worker strategies. Source: Executive Order N-6-26 (https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf)",
+      "date_published": "2026-05-29T02:07:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests source-backed"
+      ],
+      "external_url": "https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf",
+      "authors": [
+        {
+          "name": "Governor Gavin Newsom"
+        }
+      ]
+    },
+    {
+      "id": "openai-image-provenance-signals",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-image-provenance-signals/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=openai-image-provenance-signals&claim_id=openai-image-provenance-signals&ref=json_feed",
+      "title": "OpenAI said it added SynthID image provenance signals and previewed a public verification tool",
+      "content_text": "Evidence suggests source-backed. Attribution 96%; veracity 78%. 2 evidence entries: 1 support, 0 challenge, 1 context. OpenAI said on May 19, 2026 that it was adding Google DeepMind SynthID watermarking to images generated through ChatGPT, Codex, or the OpenAI API, alongside C2PA metadata and a public tool for checking supported OpenAI image provenance signals. Source: Advancing content provenance (https://openai.com/index/advancing-content-provenance/)",
+      "date_published": "2026-05-29T02:04:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Evidence suggests source-backed"
+      ],
+      "external_url": "https://openai.com/index/advancing-content-provenance/",
+      "authors": [
+        {
+          "name": "OpenAI"
+        }
+      ]
+    },
+    {
+      "id": "perplexity-bumblebee-open-source-scanner-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=perplexity-bumblebee-open-source-scanner-2026&claim_id=perplexity-bumblebee-open-source-scanner-2026&ref=json_feed",
+      "title": "Perplexity released Bumblebee as an open-source read-only developer endpoint scanner",
+      "content_text": "Evidence suggests announced. Attribution 94%; veracity 72%. 2 evidence entries: 1 support, 0 challenge, 1 context. Perplexity released Bumblebee as an Apache-2.0 open-source, read-only scanner for macOS and Linux developer endpoints that inventories package, extension, and developer-tool metadata for software supply-chain exposure checks. Community assessment should not treat this as proof that Bumblebee prevents compromise or fully secures developer machines. Source: Perplexity Is Open-Sourcing Bumblebee (https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee)",
+      "date_published": "2026-05-27T08:20:00+04:00",
+      "tags": [
+        "technology",
+        "primary",
+        "Evidence suggests announced"
+      ],
+      "external_url": "https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee",
+      "authors": [
+        {
+          "name": "Perplexity"
+        }
+      ]
+    },
+    {
+      "id": "mistral-emmi-ai-acquisition-agreement-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/mistral-emmi-ai-acquisition-agreement-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=mistral-emmi-ai-acquisition-agreement-2026&claim_id=mistral-emmi-ai-acquisition-agreement-2026&ref=json_feed",
+      "title": "Mistral AI announced a definitive agreement to acquire Emmi AI",
+      "content_text": "Evidence suggests announced. Attribution 96%; veracity 69%. 2 evidence entries: 1 support, 0 challenge, 1 context. Mistral AI announced that it entered into a definitive agreement to acquire Emmi AI to strengthen industrial AI, physics-modeling, engineering, and manufacturing capabilities. Evidence suggests the agreement is directly attributed, while deal closing, product integration, and real-time simulation outcomes require later independent evidence. Source: Doubling Down on Science to Win Industrial AI (https://mistral.ai/news/science-to-win-industrial-ai)",
+      "date_published": "2026-05-27T08:17:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Evidence suggests announced"
+      ],
+      "external_url": "https://mistral.ai/news/science-to-win-industrial-ai",
+      "authors": [
+        {
+          "name": "Mistral AI"
+        }
+      ]
+    },
+    {
+      "id": "meta-muse-spark-rollout-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/meta-muse-spark-rollout-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=meta-muse-spark-rollout-2026&claim_id=meta-muse-spark-rollout-2026&ref=json_feed",
+      "title": "Meta announced Muse Spark and said it powers Meta AI experiences",
+      "content_text": "Evidence suggests announced. Attribution 95%; veracity 64%. 2 evidence entries: 1 support, 0 challenge, 1 context. Meta announced Muse Spark as the first model in its Muse series and said it powers the Meta AI app and website, with staged rollout across Meta apps, AI glasses, and private API preview for select partners. Community assessment should separate Meta's announcement from independent evidence of user availability, health-adjacent behavior, shopping recommendations, API access, and capability quality. Source: Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People (https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/)",
+      "date_published": "2026-05-27T08:14:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Evidence suggests announced"
+      ],
+      "external_url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+      "authors": [
+        {
+          "name": "Meta"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-finance-agent-templates-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/anthropic-finance-agent-templates-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-finance-agent-templates-2026&claim_id=anthropic-finance-agent-templates-2026&ref=json_feed",
+      "title": "Anthropic announced ten Claude agent templates for financial-services work",
+      "content_text": "Evidence suggests announced. Attribution 95%; veracity 68%. 2 evidence entries: 1 support, 0 challenge, 1 context. Anthropic announced ten ready-to-run Claude agent templates for financial-services workflows, with plugin and cookbook distribution paths plus Microsoft 365 add-ins and data connectors. Evidence suggests the announcement is well attributed, while compliance, benchmark, productivity, and customer-impact claims should remain claimant-provided until independently reviewed. Source: Agents for financial services (https://www.anthropic.com/news/finance-agents)",
+      "date_published": "2026-05-27T08:11:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Evidence suggests announced"
+      ],
+      "external_url": "https://www.anthropic.com/news/finance-agents",
+      "authors": [
+        {
+          "name": "Anthropic"
+        }
+      ]
+    },
+    {
+      "id": "openai-codex-mobile-preview-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-codex-mobile-preview-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=openai-codex-mobile-preview-2026&claim_id=openai-codex-mobile-preview-2026&ref=json_feed",
+      "title": "OpenAI announced a Codex preview inside the ChatGPT mobile app",
+      "content_text": "Evidence suggests announced. Attribution 96%; veracity 70%. 2 evidence entries: 1 support, 0 challenge, 1 context. OpenAI announced that Codex is now in preview in the ChatGPT mobile app so users can monitor, steer, review, and approve Codex work connected to laptops, devboxes, or remote environments. Community assessment should treat rollout, security, and enterprise availability details as separate claims needing continued review. Source: Work with Codex from anywhere (https://openai.com/index/work-with-codex-from-anywhere/)",
+      "date_published": "2026-05-27T08:08:00+04:00",
+      "tags": [
+        "ai",
+        "primary",
+        "Evidence suggests announced"
+      ],
+      "external_url": "https://openai.com/index/work-with-codex-from-anywhere/",
+      "authors": [
+        {
+          "name": "OpenAI"
+        }
+      ]
+    },
+    {
+      "id": "china-ai-platforms-exam-restrictions-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=china-ai-platforms-exam-restrictions-2026&claim_id=china-ai-platforms-exam-restrictions-2026&ref=json_feed",
+      "title": "Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao",
+      "content_text": "Evidence suggests supported. Attribution 85%; veracity 82%. 1 evidence entry: 1 support, 0 challenge, 0 context. Doubao, Alibaba's Tongyi Qianwen, Tencent's Yuanbao, Kimi, DeepSeek, and Baidu's Wenxin Yiyan have all restricted or suspended 'photo-to-solve' and academic research assistance features to prevent cheating during China's 2026 national college entrance examinations (gaokao). Source: Chinese AI Platforms Restrict Exam Features for Gaokao 2026 (https://36kr.com/p/3268412983904768)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://36kr.com/p/3268412983904768",
+      "authors": [
+        {
+          "name": "Multiple Chinese AI Companies"
+        }
+      ]
+    },
+    {
+      "id": "space-based-ai-data-centers-pentagon-skepticism-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/space-based-ai-data-centers-pentagon-skepticism-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=space-based-ai-data-centers-pentagon-skepticism-2026&claim_id=space-based-ai-data-centers-pentagon-skepticism-2026&ref=json_feed",
+      "title": "Pentagon remains skeptical of orbital AI data centers despite growing industry interest in space-based compute",
+      "content_text": "Evidence suggests supported. Attribution 78%; veracity 65%. 1 evidence entry: 1 support, 0 challenge, 0 context. While industry interest in orbital data centers (ODCs) for AI workloads is growing due to surging compute demand, government and defense officials remain cautious. Industry sources indicate that the Pentagon has not provided significant funding, waiting for commercial entities to prove both technical feasibility and a viable business case, outside of specific NASA lunar infrastructure plans. Source: Pentagon Cautious on Orbital AI Data Centers (https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/",
+      "authors": [
+        {
+          "name": "Breaking Defense"
+        }
+      ]
+    },
+    {
+      "id": "ai-therapy-session-recording-privacy-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/ai-therapy-session-recording-privacy-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-therapy-session-recording-privacy-2026&claim_id=ai-therapy-session-recording-privacy-2026&ref=json_feed",
+      "title": "Only 8% of Americans trust AI for mental health care as therapists increasingly use AI to record and transcribe sessions",
+      "content_text": "Evidence suggests supported. Attribution 80%; veracity 72%. 2 evidence entries: 1 support, 1 challenge, 0 context. Therapists are increasingly using AI tools to record therapy sessions, transcribe them, and draft clinical notes for administrative efficiency. However, only 8% of Americans trust AI for mental health care according to recent polling, raising concerns about patient privacy, informed consent, and the impact on the therapeutic relationship. Source: AI in Therapy: Privacy Concerns as Clinicians Adopt Recording Tools (https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "ai",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy",
+      "authors": [
+        {
+          "name": "Iowa Public Radio / Multiple Sources"
+        }
+      ]
+    },
+    {
+      "id": "micron-stock-ai-memory-boom-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/micron-stock-ai-memory-boom-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=micron-stock-ai-memory-boom-2026&claim_id=micron-stock-ai-memory-boom-2026&ref=json_feed",
+      "title": "Micron Technology stock surges on persistent AI memory shortages as HBM demand outpaces supply",
+      "content_text": "Evidence suggests supported. Attribution 82%; veracity 78%. 1 evidence entry: 1 support, 0 challenge, 0 context. Micron Technology has seen significant stock growth driven by persistent memory shortages and strong demand for AI infrastructure, particularly High Bandwidth Memory (HBM). The memory sector continues to benefit from the AI boom as demand for HBM used in AI accelerators outpaces manufacturing capacity. Source: Micron's AI Memory Boom Drives Stock Gains (https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/",
+      "authors": [
+        {
+          "name": "24/7 Wall St / Market Analysts"
+        }
+      ]
+    },
+    {
+      "id": "aic-nvidia-cmx-computex-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/aic-nvidia-cmx-computex-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=aic-nvidia-cmx-computex-2026&claim_id=aic-nvidia-cmx-computex-2026&ref=json_feed",
+      "title": "AIC showcases AI storage solutions integrated with NVIDIA Context Memory Platform (CMX) at COMPUTEX 2026",
+      "content_text": "Evidence suggests supported. Attribution 88%; veracity 68%. 1 evidence entry: 1 support, 0 challenge, 0 context. AIC announced its participation in COMPUTEX 2026, focusing on next-generation AI infrastructure including storage solutions integrated with NVIDIA's Context Memory Platform (CMX). The solutions are designed to address memory bottlenecks in large language model inference by providing optimized storage tiers. Source: AIC at COMPUTEX 2026: AI Storage with NVIDIA CMX (https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/)",
+      "date_published": "2026-05-26T18:00:00+04:00",
+      "tags": [
+        "technology",
+        "reputable secondary",
+        "Evidence suggests supported"
+      ],
+      "external_url": "https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/",
+      "authors": [
+        {
+          "name": "AIC Inc."
+        }
+      ]
+    },
+    {
       "id": "haystackid-eu-ai-act-compliance-expansion-2026",
       "url": "https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=haystackid-eu-ai-act-compliance-expansion-2026&claim_id=haystackid-eu-ai-act-compliance-expansion-2026&ref=json_feed",
       "title": "HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance",
@@ -225,240 +459,6 @@
       "authors": [
         {
           "name": "Axios / person familiar with the situation"
-        }
-      ]
-    },
-    {
-      "id": "anthropic-first-quarterly-profit-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/anthropic-first-quarterly-profit-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-first-quarterly-profit-2026&claim_id=anthropic-first-quarterly-profit-2026&ref=json_feed",
-      "title": "Anthropic projects first-ever quarterly operating profit of $559M on $10.9B revenue in Q2 2026",
-      "content_text": "Uncertain. Attribution 72%; veracity 52%. 2 evidence entries: 1 support, 1 challenge, 0 context. Internal projections shared with investors show Anthropic expects a massive revenue jump from $4.8B in Q1 to $10.9B in Q2 2026, driven by enterprise adoption including a 30,000-person PwC deployment. Source: Anthropic revenue set to more than double to $10.9 billion in Q2 (https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486)",
-      "date_published": "2026-05-26T10:20:00+04:00",
-      "tags": [
-        "ai",
-        "reputable secondary",
-        "Uncertain"
-      ],
-      "external_url": "https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486",
-      "authors": [
-        {
-          "name": "Anthropic"
-        }
-      ]
-    },
-    {
-      "id": "stability-ai-audio-3-launch-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/stability-ai-audio-3-launch-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=stability-ai-audio-3-launch-2026&claim_id=stability-ai-audio-3-launch-2026&ref=json_feed",
-      "title": "Stability AI releases Stable Audio 3.0 with professional-grade AI music generation over 6 minutes long",
-      "content_text": "Evidence suggests supported. Attribution 96%; veracity 82%. 2 evidence entries: 1 support, 1 challenge, 0 context. Stability AI launched a family of four AI audio models, with the Medium model generating tracks up to 6 minutes 20 seconds. Three models are released as open-weights on Hugging Face with free commercial use under $1M revenue. Source: Meet Stable Audio 3.0, the model family built for artistic experimentation with open-weight models (https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models)",
-      "date_published": "2026-05-26T10:20:00+04:00",
-      "tags": [
-        "technology",
-        "primary",
-        "Evidence suggests supported"
-      ],
-      "external_url": "https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models",
-      "authors": [
-        {
-          "name": "Stability AI"
-        }
-      ]
-    },
-    {
-      "id": "pwc-anthropic-30k-professionals-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/pwc-anthropic-30k-professionals-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pwc-anthropic-30k-professionals-2026&claim_id=pwc-anthropic-30k-professionals-2026&ref=json_feed",
-      "title": "PwC commits to training 30,000 professionals on Claude, reporting up to 70% faster software delivery",
-      "content_text": "Moderately supported. Attribution 94%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. PwC and Anthropic announce a major expansion deploying Claude across M&A advisory, finance, and software delivery. Client-reported metrics show up to 70% faster delivery with AI-native workflows. Source: PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients (https://www.anthropic.com/news/pwc-expanded-partnership?stream=top)",
-      "date_published": "2026-05-26T10:20:00+04:00",
-      "tags": [
-        "ai",
-        "primary",
-        "Moderately supported"
-      ],
-      "external_url": "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top",
-      "authors": [
-        {
-          "name": "PwC"
-        }
-      ]
-    },
-    {
-      "id": "chinese-academy-aeye-1-ai-microscope",
-      "url": "https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=chinese-academy-aeye-1-ai-microscope&claim_id=chinese-academy-aeye-1-ai-microscope&ref=json_feed",
-      "title": "Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope",
-      "content_text": "Evidence suggests plausible. Attribution 90%; veracity 65%. 2 evidence entries: 1 support, 0 challenge, 1 context. Scientists at the Dalian Institute of Chemical Physics (Chinese Academy of Sciences) announced Aeye-1, an AI-TEM system enabling fully autonomous operation — covering sample transfer, imaging, and analysis — with an efficiency over 300 times higher than manual processing. Source: CAS announcement of Aeye-1 AI-TEM system (https://english.cas.cn/)",
-      "date_published": "2026-05-26T09:30:00+04:00",
-      "tags": [
-        "technology",
-        "primary",
-        "Evidence suggests plausible"
-      ],
-      "external_url": "https://english.cas.cn/",
-      "authors": [
-        {
-          "name": "Chinese Academy of Sciences (Dalian Institute)"
-        }
-      ]
-    },
-    {
-      "id": "flinders-ai-semiconductor-discovery",
-      "url": "https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=flinders-ai-semiconductor-discovery&claim_id=flinders-ai-semiconductor-discovery&ref=json_feed",
-      "title": "AI platform discovers new gallium-based semiconductor materials, bypassing years of lab experiments",
-      "content_text": "Evidence suggests plausible. Attribution 88%; veracity 62%. 1 evidence entry: 1 support, 0 challenge, 0 context. An international research team led by Flinders University and Khalifa University developed a machine-learning platform — a 'smart materials discovery engine' — that predicts new gallium-based semiconductor compositions, potentially accelerating next-gen chip development. Source: Flinders University research announcement (https://news.flinders.edu.au/)",
-      "date_published": "2026-05-26T09:30:00+04:00",
-      "tags": [
-        "technology",
-        "primary",
-        "Evidence suggests plausible"
-      ],
-      "external_url": "https://news.flinders.edu.au/",
-      "authors": [
-        {
-          "name": "Flinders University / Khalifa University"
-        }
-      ]
-    },
-    {
-      "id": "agentic-ai-banking-oversight-crisis",
-      "url": "https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=agentic-ai-banking-oversight-crisis&claim_id=agentic-ai-banking-oversight-crisis&ref=json_feed",
-      "title": "Experts warn agentic AI in banking is outpacing governance — traditional testing frameworks are failing",
-      "content_text": "Evidence suggests supported. Attribution 78%; veracity 72%. 2 evidence entries: 2 support, 0 challenge, 0 context. Financial industry experts warn that as banks deploy autonomous 'agentic' AI systems that can freeze accounts, transfer funds, and make decisions independently, traditional software testing and governance frameworks are insufficient to prevent liability events. Source: QA Financial report on agentic AI oversight in banking (https://www.qa-financial.com/)",
-      "date_published": "2026-05-26T09:30:00+04:00",
-      "tags": [
-        "ai",
-        "reputable secondary",
-        "Evidence suggests supported"
-      ],
-      "external_url": "https://www.qa-financial.com/",
-      "authors": [
-        {
-          "name": "QA Financial / Industry Experts"
-        }
-      ]
-    },
-    {
-      "id": "nebius-gigawatt-ai-factory-missouri",
-      "url": "https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=nebius-gigawatt-ai-factory-missouri&claim_id=nebius-gigawatt-ai-factory-missouri&ref=json_feed",
-      "title": "Nebius Group breaks ground on gigawatt-scale AI factory campus in Missouri",
-      "content_text": "Evidence suggests supported. Attribution 92%; veracity 75%. 2 evidence entries: 1 support, 0 challenge, 1 context. Nebius Group has begun construction of a gigawatt-scale AI factory campus in Independence, Missouri — the company's first major US digital infrastructure build, incorporating sustainability measures and community benefit programs. Source: Nebius Group AI factory announcement (https://nebius.com/)",
-      "date_published": "2026-05-26T09:30:00+04:00",
-      "tags": [
-        "technology",
-        "primary",
-        "Evidence suggests supported"
-      ],
-      "external_url": "https://nebius.com/",
-      "authors": [
-        {
-          "name": "Nebius Group"
-        }
-      ]
-    },
-    {
-      "id": "ai-consumer-backlash-misunderstood-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=ai-consumer-backlash-misunderstood-2026&claim_id=ai-consumer-backlash-misunderstood-2026&ref=json_feed",
-      "title": "Analysis: Tech industry is fundamentally misunderstanding why consumers resist AI adoption",
-      "content_text": "Evidence suggests plausible. Attribution 82%; veracity 68%. 2 evidence entries: 1 support, 1 challenge, 0 context. AI Weekly analysis argues that consumer AI resistance is not technophobia but stems from psychological loss of agency, fears of economic displacement, and deep-seated platform trust deficits — factors that current PR campaigns and UX improvements have failed to address. Source: AI Weekly analysis of consumer AI backlash (https://aiweekly.co/)",
-      "date_published": "2026-05-26T09:30:00+04:00",
-      "tags": [
-        "ai",
-        "reputable secondary",
-        "Evidence suggests plausible"
-      ],
-      "external_url": "https://aiweekly.co/",
-      "authors": [
-        {
-          "name": "AI Weekly"
-        }
-      ]
-    },
-    {
-      "id": "anthropic-900b-valuation-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/anthropic-900b-valuation-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-900b-valuation-may-2026&claim_id=anthropic-900b-valuation-may-2026&ref=json_feed",
-      "title": "Anthropic's valuation could surpass $900 billion, making it the world's most valuable private startup",
-      "content_text": "Partially supported — round reportedly still being finalized. Attribution 78%; veracity 55%. 2 evidence entries: 1 support, 1 challenge, 0 context. Multiple reports indicate Anthropic is closing a funding round exceeding $30 billion at a pre-money valuation above $900 billion, which would surpass OpenAI's $852 billion valuation. The round is co-led by Sequoia Capital, Dragoneer, Altimeter Capital, and Greenoaks. This follows a February 2026 Series G that also raised $30B at a $380B valuation — meaning the valuation has more than doubled in approximately three months. Source: Anthropic Valuation Analysis (https://seekingalpha.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "ai",
-        "reputable secondary",
-        "Partially supported — round reportedly still being finalized"
-      ],
-      "external_url": "https://seekingalpha.com/",
-      "authors": [
-        {
-          "name": "Multiple financial reports"
-        }
-      ]
-    },
-    {
-      "id": "trump-ai-safety-eo-cancelled-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=trump-ai-safety-eo-cancelled-may-2026&claim_id=trump-ai-safety-eo-cancelled-may-2026&ref=json_feed",
-      "title": "Trump cancelled an AI safety executive order after last-minute lobbying by Musk, Zuckerberg, and Sacks",
-      "content_text": "Disputed — cancellation confirmed but influence extent debated. Attribution 82%; veracity 62%. 2 evidence entries: 1 support, 1 challenge, 0 context. Hours before a scheduled White House signing ceremony on May 21, 2026, President Trump cancelled a planned executive order that would have established a voluntary 90-day pre-launch review of frontier AI models for national security risks. The decision reportedly followed last-minute phone calls from Elon Musk, Mark Zuckerberg, and former AI advisor David Sacks, who argued it would slow U.S. competitiveness against China. Source: Trump cancels AI safety executive order (https://www.washingtonpost.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Disputed — cancellation confirmed but influence extent debated"
-      ],
-      "external_url": "https://www.washingtonpost.com/",
-      "authors": [
-        {
-          "name": "Washington Post / LA Times"
-        }
-      ]
-    },
-    {
-      "id": "openai-gpt55-hallucination-reduction-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=openai-gpt55-hallucination-reduction-may-2026&claim_id=openai-gpt55-hallucination-reduction-may-2026&ref=json_feed",
-      "title": "OpenAI claims GPT-5.5 Instant reduces hallucinations by 52.5% on high-stakes prompts",
-      "content_text": "Unverified — based on internal benchmarks only. Attribution 92%; veracity 45%. 2 evidence entries: 1 support, 1 challenge, 0 context. OpenAI released GPT-5.5 Instant as the new default ChatGPT model, claiming internal benchmarks show it produces 52.5% fewer hallucinated claims than its predecessor GPT-5.3 Instant on high-stakes prompts in medicine, law, and finance. It also claims a 37.3% reduction in inaccurate claims on user-flagged factual error conversations. Source: GPT-5.5 Instant announcement (https://openai.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "ai",
-        "primary",
-        "Unverified — based on internal benchmarks only"
-      ],
-      "external_url": "https://openai.com/",
-      "authors": [
-        {
-          "name": "OpenAI"
-        }
-      ]
-    },
-    {
-      "id": "pope-leo-xiv-ai-encyclical-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=pope-leo-xiv-ai-encyclical-may-2026&claim_id=pope-leo-xiv-ai-encyclical-may-2026&ref=json_feed",
-      "title": "Pope Leo XIV issued a major encyclical warning against AI dehumanization, with Anthropic's co-founder present",
-      "content_text": "Evidence suggests supported — well-documented public event. Attribution 94%; veracity 85%. 2 evidence entries: 1 support, 1 challenge, 0 context. Pope Leo XIV presented his first encyclical 'Magnifica Humanitas' at the Vatican on May 25, 2026, calling for robust AI regulation and warning against autonomous weapons, AI mimicking human relationships, and the concentration of power among tech companies. Anthropic co-founder Christopher Olah was invited to co-present. Source: Time Magazine coverage of papal AI encyclical (https://time.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "technology",
-        "reputable secondary",
-        "Evidence suggests supported — well-documented public event"
-      ],
-      "external_url": "https://time.com/",
-      "authors": [
-        {
-          "name": "Pope Leo XIV / Vatican"
-        }
-      ]
-    },
-    {
-      "id": "anthropic-olah-labor-displacement-warning-may-2026",
-      "url": "https://claimer-org.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/?utm_source=json_feed&utm_medium=feed&utm_campaign=organic_discovery&utm_content=anthropic-olah-labor-displacement-warning-may-2026&claim_id=anthropic-olah-labor-displacement-warning-may-2026&ref=json_feed",
-      "title": "Anthropic co-founder warns AI could displace human labor on a 'very large scale' — while pursuing $900B valuation",
-      "content_text": "Debatable — statements are factual but sincerity questioned. Attribution 95%; veracity 50%. 2 evidence entries: 1 support, 1 challenge, 0 context. At the Vatican presentation on May 25, 2026, Anthropic co-founder Christopher Olah stated there is a 'real possibility' AI could displace human labor on a 'very large scale' and that supporting displaced workers would be a 'moral imperative of historic proportions.' He also argued AI development should not be left solely to tech companies. This comes as Anthropic simultaneously pursues a $900B valuation. Source: Christopher Olah's Vatican remarks on AI and labor (https://anthropic.com/)",
-      "date_published": "2026-05-26T07:00:00+04:00",
-      "tags": [
-        "ai",
-        "primary",
-        "Debatable — statements are factual but sincerity questioned"
-      ],
-      "external_url": "https://anthropic.com/",
-      "authors": [
-        {
-          "name": "Christopher Olah (Anthropic co-founder)"
         }
       ]
     }

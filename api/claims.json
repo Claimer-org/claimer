@@ -1,8 +1,8 @@
 {
   "type": "claimer.claim-pack",
-  "generatedAt": "2026-05-26T11:57:32.560Z",
+  "generatedAt": "2026-06-04T05:29:44.349Z",
   "site": "https://claimer-org.github.io/claimer",
-  "count": 90,
+  "count": 103,
   "claims": [
     {
       "id": "openai-gpt-4o-launch",
@@ -4163,6 +4163,636 @@
         }
       ],
       "createdAt": "2026-05-26T15:04:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "china-ai-platforms-exam-restrictions-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/china-ai-platforms-exam-restrictions-2026.html",
+      "title": "Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao",
+      "body": "Doubao, Alibaba's Tongyi Qianwen, Tencent's Yuanbao, Kimi, DeepSeek, and Baidu's Wenxin Yiyan have all restricted or suspended 'photo-to-solve' and academic research assistance features to prevent cheating during China's 2026 national college entrance examinations (gaokao).",
+      "domain": "ai",
+      "claimantName": "Multiple Chinese AI Companies",
+      "subjectKind": "industry",
+      "sourceUrl": "https://36kr.com/p/3268412983904768",
+      "sourceTitle": "Chinese AI Platforms Restrict Exam Features for Gaokao 2026",
+      "sourcePublisher": "36Kr",
+      "sourceQuality": "reputable secondary",
+      "attributionScore": 85,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "36Kr, a leading Chinese tech media outlet, reports the coordinated restriction across named platforms. Multiple platform announcements corroborate the collective action.",
+      "veracityScore": 82,
+      "veracityLabel": "Evidence suggests supported",
+      "veracityExplanation": "The restrictions are verifiable through platform interfaces during the exam period. This follows precedent from prior years when similar restrictions were implemented. Independent verification requires checking each platform directly.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 0
+      },
+      "evidence": [
+        {
+          "id": "ev-china-ai-exam-36kr",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "36Kr reports that all major Chinese AI platforms including Doubao, Tongyi Qianwen, Yuanbao, Kimi, DeepSeek, and Wenxin Yiyan have restricted exam-related AI features ahead of the 2026 gaokao.",
+          "sourceUrl": "https://36kr.com/p/3268412983904768",
+          "sourceTitle": "36Kr Report on AI Exam Feature Restrictions",
+          "sourceQuality": "reputable secondary",
+          "createdAt": "2026-05-26T18:00:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-26T18:00:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "space-based-ai-data-centers-pentagon-skepticism-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/space-based-ai-data-centers-pentagon-skepticism-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/space-based-ai-data-centers-pentagon-skepticism-2026.html",
+      "title": "Pentagon remains skeptical of orbital AI data centers despite growing industry interest in space-based compute",
+      "body": "While industry interest in orbital data centers (ODCs) for AI workloads is growing due to surging compute demand, government and defense officials remain cautious. Industry sources indicate that the Pentagon has not provided significant funding, waiting for commercial entities to prove both technical feasibility and a viable business case, outside of specific NASA lunar infrastructure plans.",
+      "domain": "technology",
+      "claimantName": "Breaking Defense",
+      "subjectKind": "media",
+      "sourceUrl": "https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/",
+      "sourceTitle": "Pentagon Cautious on Orbital AI Data Centers",
+      "sourcePublisher": "Breaking Defense",
+      "sourceQuality": "reputable secondary",
+      "attributionScore": 78,
+      "attributionLabel": "Moderate attribution",
+      "attributionExplanation": "Breaking Defense is a credible defense and national security publication. The report cites unnamed industry and government sources, which lowers attribution specificity compared to named officials.",
+      "veracityScore": 65,
+      "veracityLabel": "Evidence suggests supported",
+      "veracityExplanation": "The claim aligns with publicly known facts about Pentagon procurement timelines and the early-stage nature of orbital data center technology. No official Pentagon statement directly confirming or denying active evaluation has been identified.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 0
+      },
+      "evidence": [
+        {
+          "id": "ev-odc-pentagon-breakingdefense",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "Breaking Defense reports that while multiple startups are pursuing orbital data centers for AI, the Pentagon has not allocated significant funding and is waiting for commercial proof of concept.",
+          "sourceUrl": "https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/",
+          "sourceTitle": "Breaking Defense ODC Report",
+          "sourceQuality": "reputable secondary",
+          "createdAt": "2026-05-26T18:00:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-26T18:00:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "ai-therapy-session-recording-privacy-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/ai-therapy-session-recording-privacy-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/ai-therapy-session-recording-privacy-2026.html",
+      "title": "Only 8% of Americans trust AI for mental health care as therapists increasingly use AI to record and transcribe sessions",
+      "body": "Therapists are increasingly using AI tools to record therapy sessions, transcribe them, and draft clinical notes for administrative efficiency. However, only 8% of Americans trust AI for mental health care according to recent polling, raising concerns about patient privacy, informed consent, and the impact on the therapeutic relationship.",
+      "domain": "ai",
+      "claimantName": "Iowa Public Radio / Multiple Sources",
+      "subjectKind": "media",
+      "sourceUrl": "https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy",
+      "sourceTitle": "AI in Therapy: Privacy Concerns as Clinicians Adopt Recording Tools",
+      "sourcePublisher": "Iowa Public Radio",
+      "sourceQuality": "reputable secondary",
+      "attributionScore": 80,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "The report is published by Iowa Public Radio, a member of NPR. The 8% trust statistic is attributed to recent polling, though the specific polling source should be independently verified.",
+      "veracityScore": 72,
+      "veracityLabel": "Evidence suggests supported",
+      "veracityExplanation": "The trend of AI transcription adoption in clinical settings is well-documented. The 8% trust figure needs independent polling verification. The privacy and consent concerns are substantiated by existing HIPAA and professional ethics frameworks.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 1,
+        "context": 0
+      },
+      "evidence": [
+        {
+          "id": "ev-ai-therapy-ipr",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "Iowa Public Radio reports on the growing use of AI transcription tools by therapists and cites polling showing only 8% of Americans trust AI for mental health care.",
+          "sourceUrl": "https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy",
+          "sourceTitle": "IPR Report on AI Therapy Tools",
+          "sourceQuality": "reputable secondary",
+          "createdAt": "2026-05-26T18:00:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-ai-therapy-hipaa-challenge",
+          "stance": "challenge",
+          "assessmentTarget": "veracity",
+          "summary": "The adoption rate claim should be contextualized: many AI therapy recording tools operate under HIPAA-compliant BAAs, and some patient advocates argue the efficiency gains improve care quality by reducing clinician burnout.",
+          "sourceUrl": "https://www.hipaajournal.com/ai-healthcare-tools-compliance/",
+          "sourceTitle": "HIPAA Journal on AI Healthcare Compliance",
+          "sourceQuality": "reputable secondary",
+          "createdAt": "2026-05-26T18:00:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-26T18:00:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "micron-stock-ai-memory-boom-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/micron-stock-ai-memory-boom-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/micron-stock-ai-memory-boom-2026.html",
+      "title": "Micron Technology stock surges on persistent AI memory shortages as HBM demand outpaces supply",
+      "body": "Micron Technology has seen significant stock growth driven by persistent memory shortages and strong demand for AI infrastructure, particularly High Bandwidth Memory (HBM). The memory sector continues to benefit from the AI boom as demand for HBM used in AI accelerators outpaces manufacturing capacity.",
+      "domain": "technology",
+      "claimantName": "24/7 Wall St / Market Analysts",
+      "subjectKind": "media",
+      "sourceUrl": "https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/",
+      "sourceTitle": "Micron's AI Memory Boom Drives Stock Gains",
+      "sourcePublisher": "24/7 Wall St",
+      "sourceQuality": "reputable secondary",
+      "attributionScore": 82,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "24/7 Wall St reports on publicly available stock performance data and market analyst assessments. The stock price movement is independently verifiable through financial data services.",
+      "veracityScore": 78,
+      "veracityLabel": "Evidence suggests supported",
+      "veracityExplanation": "Micron's stock performance is publicly verifiable. The HBM supply shortage has been reported across multiple financial outlets. However, stock performance attribution to specific factors (AI demand vs. general market trends) involves analytical judgment.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 0
+      },
+      "evidence": [
+        {
+          "id": "ev-micron-ai-247wallst",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "24/7 Wall St reports on Micron's stock gains driven by AI-related memory demand, citing persistent HBM shortages and strong AI infrastructure spending.",
+          "sourceUrl": "https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/",
+          "sourceTitle": "24/7 Wall St Micron AI Report",
+          "sourceQuality": "reputable secondary",
+          "createdAt": "2026-05-26T18:00:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-26T18:00:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "aic-nvidia-cmx-computex-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/aic-nvidia-cmx-computex-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/aic-nvidia-cmx-computex-2026.html",
+      "title": "AIC showcases AI storage solutions integrated with NVIDIA Context Memory Platform (CMX) at COMPUTEX 2026",
+      "body": "AIC announced its participation in COMPUTEX 2026, focusing on next-generation AI infrastructure including storage solutions integrated with NVIDIA's Context Memory Platform (CMX). The solutions are designed to address memory bottlenecks in large language model inference by providing optimized storage tiers.",
+      "domain": "technology",
+      "claimantName": "AIC Inc.",
+      "subjectKind": "company",
+      "sourceUrl": "https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/",
+      "sourceTitle": "AIC at COMPUTEX 2026: AI Storage with NVIDIA CMX",
+      "sourcePublisher": "EQS News",
+      "sourceQuality": "reputable secondary",
+      "attributionScore": 88,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "EQS News distributes the company's official press release. The COMPUTEX participation and NVIDIA CMX integration claims are directly attributed to AIC.",
+      "veracityScore": 68,
+      "veracityLabel": "Evidence suggests supported",
+      "veracityExplanation": "The COMPUTEX participation is verifiable through the event's exhibitor directory. The NVIDIA CMX integration capabilities would need independent technical verification beyond the company's own marketing claims.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 0
+      },
+      "evidence": [
+        {
+          "id": "ev-aic-computex-eqsnews",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "AIC's press release via EQS News details the company's COMPUTEX 2026 showcase including AI storage solutions designed for NVIDIA's CMX platform to reduce LLM inference memory bottlenecks.",
+          "sourceUrl": "https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/",
+          "sourceTitle": "AIC COMPUTEX 2026 Press Release",
+          "sourceQuality": "reputable secondary",
+          "createdAt": "2026-05-26T18:00:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-26T18:00:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "openai-codex-mobile-preview-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-codex-mobile-preview-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/openai-codex-mobile-preview-2026.html",
+      "title": "OpenAI announced a Codex preview inside the ChatGPT mobile app",
+      "body": "OpenAI announced that Codex is now in preview in the ChatGPT mobile app so users can monitor, steer, review, and approve Codex work connected to laptops, devboxes, or remote environments. Community assessment should treat rollout, security, and enterprise availability details as separate claims needing continued review.",
+      "domain": "ai",
+      "claimantName": "OpenAI",
+      "subjectKind": "company",
+      "sourceUrl": "https://openai.com/index/work-with-codex-from-anywhere/",
+      "sourceTitle": "Work with Codex from anywhere",
+      "sourcePublisher": "OpenAI",
+      "sourceQuality": "primary",
+      "attributionScore": 96,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "The source is OpenAI's own announcement, so attribution that OpenAI made the Codex mobile preview claim is high confidence.",
+      "veracityScore": 70,
+      "veracityLabel": "Evidence suggests announced",
+      "veracityExplanation": "The primary source supports the announcement and described preview, but feature availability, cross-device behavior, security relay claims, and enterprise eligibility still need independent or user-submitted evidence.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 1
+      },
+      "evidence": [
+        {
+          "id": "ev-openai-codex-mobile-primary-2026",
+          "stance": "support",
+          "assessmentTarget": "attribution",
+          "summary": "OpenAI's announcement says Codex is in preview in the ChatGPT mobile app and describes monitoring, review, approvals, and connected-machine workflows.",
+          "sourceUrl": "https://openai.com/index/work-with-codex-from-anywhere/",
+          "sourceTitle": "Work with Codex from anywhere",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:09:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-openai-codex-mobile-rollout-context-2026",
+          "stance": "context",
+          "assessmentTarget": "veracity",
+          "summary": "OpenAI's availability notes describe a preview rollout and plan or platform limits, so Claimer should not treat every device, region, workspace, or enterprise use case as independently verified.",
+          "sourceUrl": "https://openai.com/index/work-with-codex-from-anywhere/",
+          "sourceTitle": "Work with Codex from anywhere",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:10:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-27T08:08:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "anthropic-finance-agent-templates-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/anthropic-finance-agent-templates-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/anthropic-finance-agent-templates-2026.html",
+      "title": "Anthropic announced ten Claude agent templates for financial-services work",
+      "body": "Anthropic announced ten ready-to-run Claude agent templates for financial-services workflows, with plugin and cookbook distribution paths plus Microsoft 365 add-ins and data connectors. Evidence suggests the announcement is well attributed, while compliance, benchmark, productivity, and customer-impact claims should remain claimant-provided until independently reviewed.",
+      "domain": "ai",
+      "claimantName": "Anthropic",
+      "subjectKind": "company",
+      "sourceUrl": "https://www.anthropic.com/news/finance-agents",
+      "sourceTitle": "Agents for financial services",
+      "sourcePublisher": "Anthropic",
+      "sourceQuality": "primary",
+      "attributionScore": 95,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "Anthropic's official announcement directly states the finance-agent template release and related add-in and connector claims.",
+      "veracityScore": 68,
+      "veracityLabel": "Evidence suggests announced",
+      "veracityExplanation": "The primary source supports the release claim, but availability, benchmark leadership, auditability, governed data access, and finance-work suitability require independent verification and should not be read as financial, compliance, audit, or investment advice.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 1
+      },
+      "evidence": [
+        {
+          "id": "ev-anthropic-finance-agents-primary-2026",
+          "stance": "support",
+          "assessmentTarget": "attribution",
+          "summary": "Anthropic's announcement lists ten finance agent templates and says they ship as Claude Cowork and Claude Code plugins and Claude Managed Agents cookbooks.",
+          "sourceUrl": "https://www.anthropic.com/news/finance-agents",
+          "sourceTitle": "Agents for financial services",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:12:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-anthropic-finance-agents-review-context-2026",
+          "stance": "context",
+          "assessmentTarget": "veracity",
+          "summary": "The same source presents benchmark, customer, and governed-access statements from Anthropic or partner-controlled material, so Claimer should invite independent evidence before raising veracity confidence.",
+          "sourceUrl": "https://www.anthropic.com/news/finance-agents",
+          "sourceTitle": "Agents for financial services",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:13:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-27T08:11:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "meta-muse-spark-rollout-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/meta-muse-spark-rollout-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/meta-muse-spark-rollout-2026.html",
+      "title": "Meta announced Muse Spark and said it powers Meta AI experiences",
+      "body": "Meta announced Muse Spark as the first model in its Muse series and said it powers the Meta AI app and website, with staged rollout across Meta apps, AI glasses, and private API preview for select partners. Community assessment should separate Meta's announcement from independent evidence of user availability, health-adjacent behavior, shopping recommendations, API access, and capability quality.",
+      "domain": "ai",
+      "claimantName": "Meta",
+      "subjectKind": "company",
+      "sourceUrl": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+      "sourceTitle": "Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People",
+      "sourcePublisher": "Meta Newsroom",
+      "sourceQuality": "primary",
+      "attributionScore": 95,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "Meta's newsroom page directly attributes the Muse Spark announcement, rollout statements, and API preview statement to Meta.",
+      "veracityScore": 64,
+      "veracityLabel": "Evidence suggests announced",
+      "veracityExplanation": "The primary source supports the announcement, but rollout, region availability, API partner access, health-adjacent responses, recommendation behavior, and model-capability claims remain staged or claimant-controlled.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 1
+      },
+      "evidence": [
+        {
+          "id": "ev-meta-muse-spark-primary-2026",
+          "stance": "support",
+          "assessmentTarget": "attribution",
+          "summary": "Meta's newsroom post announces Muse Spark, describes it as the first Muse-series model, and says it powers the Meta AI app and website.",
+          "sourceUrl": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+          "sourceTitle": "Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:15:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-meta-muse-spark-rollout-context-2026",
+          "stance": "context",
+          "assessmentTarget": "veracity",
+          "summary": "Meta describes staged rollout across apps and glasses plus private API preview for select partners, so broad availability and capability claims need independent reviewer evidence.",
+          "sourceUrl": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+          "sourceTitle": "Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:16:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-27T08:14:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "mistral-emmi-ai-acquisition-agreement-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/mistral-emmi-ai-acquisition-agreement-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/mistral-emmi-ai-acquisition-agreement-2026.html",
+      "title": "Mistral AI announced a definitive agreement to acquire Emmi AI",
+      "body": "Mistral AI announced that it entered into a definitive agreement to acquire Emmi AI to strengthen industrial AI, physics-modeling, engineering, and manufacturing capabilities. Evidence suggests the agreement is directly attributed, while deal closing, product integration, and real-time simulation outcomes require later independent evidence.",
+      "domain": "ai",
+      "claimantName": "Mistral AI",
+      "subjectKind": "company",
+      "sourceUrl": "https://mistral.ai/news/science-to-win-industrial-ai",
+      "sourceTitle": "Doubling Down on Science to Win Industrial AI",
+      "sourcePublisher": "Mistral AI",
+      "sourceQuality": "primary",
+      "attributionScore": 96,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "Mistral AI's own announcement directly states that it entered into a definitive agreement to acquire Emmi AI.",
+      "veracityScore": 69,
+      "veracityLabel": "Evidence suggests announced",
+      "veracityExplanation": "The primary source supports the agreement claim, but deal completion, Emmi AI integration, industrial customer impact, and production simulation performance should be assessed with later independent sources.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 1
+      },
+      "evidence": [
+        {
+          "id": "ev-mistral-emmi-agreement-primary-2026",
+          "stance": "support",
+          "assessmentTarget": "attribution",
+          "summary": "Mistral AI's announcement says the company entered into a definitive agreement to acquire Emmi AI for industrial AI and physics-modeling work.",
+          "sourceUrl": "https://mistral.ai/news/science-to-win-industrial-ai",
+          "sourceTitle": "Doubling Down on Science to Win Industrial AI",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:18:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-mistral-emmi-outcome-context-2026",
+          "stance": "context",
+          "assessmentTarget": "veracity",
+          "summary": "Mistral's source includes forward-looking statements about engineering agents, real-time simulations, and digital twins, which should remain separate from the narrower acquisition-agreement claim until independently supported.",
+          "sourceUrl": "https://mistral.ai/news/science-to-win-industrial-ai",
+          "sourceTitle": "Doubling Down on Science to Win Industrial AI",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:19:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-27T08:17:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "perplexity-bumblebee-open-source-scanner-2026",
+      "url": "https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/perplexity-bumblebee-open-source-scanner-2026.html",
+      "title": "Perplexity released Bumblebee as an open-source read-only developer endpoint scanner",
+      "body": "Perplexity released Bumblebee as an Apache-2.0 open-source, read-only scanner for macOS and Linux developer endpoints that inventories package, extension, and developer-tool metadata for software supply-chain exposure checks. Community assessment should not treat this as proof that Bumblebee prevents compromise or fully secures developer machines.",
+      "domain": "technology",
+      "claimantName": "Perplexity",
+      "subjectKind": "company",
+      "sourceUrl": "https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee",
+      "sourceTitle": "Perplexity Is Open-Sourcing Bumblebee",
+      "sourcePublisher": "Perplexity",
+      "sourceQuality": "primary",
+      "attributionScore": 94,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "Perplexity's announcement and public GitHub repository directly attribute the Bumblebee release to Perplexity.",
+      "veracityScore": 72,
+      "veracityLabel": "Evidence suggests announced",
+      "veracityExplanation": "The announcement and repository support the open-source scanner claim, but practical security value depends on exposure catalogs, supported ecosystems, deployment quality, and local review.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 1
+      },
+      "evidence": [
+        {
+          "id": "ev-perplexity-bumblebee-blog-primary-2026",
+          "stance": "support",
+          "assessmentTarget": "attribution",
+          "summary": "Perplexity's announcement says it is open-sourcing Bumblebee and describes it as a read-only scanner for developer-machine supply-chain exposure checks.",
+          "sourceUrl": "https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee",
+          "sourceTitle": "Perplexity Is Open-Sourcing Bumblebee",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:21:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-perplexity-bumblebee-github-context-2026",
+          "stance": "context",
+          "assessmentTarget": "veracity",
+          "summary": "The GitHub repository is inspectable and lists the Apache-2.0 license, read-only scope, supported package and extension sources, and scanner limits that reviewers can verify.",
+          "sourceUrl": "https://github.com/perplexityai/bumblebee",
+          "sourceTitle": "perplexityai/bumblebee",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-27T08:22:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-27T08:20:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "openai-image-provenance-signals",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-image-provenance-signals/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/openai-image-provenance-signals.html",
+      "title": "OpenAI said it added SynthID image provenance signals and previewed a public verification tool",
+      "body": "OpenAI said on May 19, 2026 that it was adding Google DeepMind SynthID watermarking to images generated through ChatGPT, Codex, or the OpenAI API, alongside C2PA metadata and a public tool for checking supported OpenAI image provenance signals.",
+      "domain": "ai",
+      "claimantName": "OpenAI",
+      "subjectKind": "company",
+      "sourceUrl": "https://openai.com/index/advancing-content-provenance/",
+      "sourceTitle": "Advancing content provenance",
+      "sourcePublisher": "OpenAI",
+      "sourceQuality": "primary",
+      "attributionScore": 96,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "OpenAI's own safety post is a primary source for the provenance-signal announcement and identifies the affected OpenAI surfaces.",
+      "veracityScore": 78,
+      "veracityLabel": "Evidence suggests source-backed",
+      "veracityExplanation": "The announcement and verification page support the narrower claim about OpenAI-associated image provenance signals; absence of a signal and non-OpenAI image generation remain outside that evidence.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 1
+      },
+      "evidence": [
+        {
+          "id": "ev-openai-image-provenance-verify-support-2026",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "OpenAI's verification page says the tool checks uploaded images for supported OpenAI provenance signals.",
+          "sourceUrl": "https://openai.com/research/verify/",
+          "sourceTitle": "OpenAI Verify",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-29T02:05:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-openai-image-provenance-scope-context-2026",
+          "stance": "context",
+          "assessmentTarget": "veracity",
+          "summary": "The verification page limits the tool to OpenAI-associated signals and says absence of a signal does not rule out AI generation.",
+          "sourceUrl": "https://openai.com/research/verify/",
+          "sourceTitle": "OpenAI Verify",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-29T02:06:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-29T02:04:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "california-ai-workforce-executive-order",
+      "url": "https://claimer-org.github.io/claimer/claims/california-ai-workforce-executive-order/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/california-ai-workforce-executive-order.html",
+      "title": "California issued Executive Order N-6-26 on AI workforce impacts",
+      "body": "California Governor Gavin Newsom issued Executive Order N-6-26 on May 21, 2026, directing state agencies to assess AI workforce impacts, review possible WARN Act updates, launch an AI employment-impact dashboard within 90 days, and prepare an AI playbook for dislocated-worker strategies.",
+      "domain": "technology",
+      "claimantName": "Governor Gavin Newsom",
+      "subjectKind": "government",
+      "sourceUrl": "https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf",
+      "sourceTitle": "Executive Order N-6-26",
+      "sourcePublisher": "Office of Governor Gavin Newsom",
+      "sourceQuality": "primary",
+      "attributionScore": 96,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "The signed executive order is a primary government source for the order number, date, agency assignments, deadlines, and requested outputs.",
+      "veracityScore": 80,
+      "veracityLabel": "Evidence suggests source-backed",
+      "veracityExplanation": "The signed directive and governor's release support the existence and contents of the order; later dashboard, report, and playbook delivery should be assessed separately when published.",
+      "evidenceCounts": {
+        "support": 1,
+        "challenge": 0,
+        "context": 1
+      },
+      "evidence": [
+        {
+          "id": "ev-california-ai-workforce-press-support-2026",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "The Governor's press release summarizes Executive Order N-6-26 and lists the intended AI workforce policy work.",
+          "sourceUrl": "https://www.gov.ca.gov/2026/05/21/governor-newsom-signs-first-of-its-kind-executive-order-to-prepare-workers-and-businesses-for-potential-ai-disruption/",
+          "sourceTitle": "Governor Newsom signs first-of-its-kind executive order to prepare workers and businesses for potential AI disruption",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-29T02:08:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-california-ai-workforce-deadline-context-2026",
+          "stance": "context",
+          "assessmentTarget": "veracity",
+          "summary": "Several outputs in the order are future-dated, including 90-day and 180-day deliverables from state agencies, so the directive should be separated from later implementation evidence.",
+          "sourceUrl": "https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf",
+          "sourceTitle": "Executive Order N-6-26",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-29T02:09:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-29T02:07:00+04:00",
+      "aiAssisted": true
+    },
+    {
+      "id": "nature-social-feed-algorithm-registered-report",
+      "url": "https://claimer-org.github.io/claimer/claims/nature-social-feed-algorithm-registered-report/",
+      "embedUrl": "https://claimer-org.github.io/claimer/widgets/claims/nature-social-feed-algorithm-registered-report.html",
+      "title": "Nature published a registered report on Bluesky feeds and social feed algorithms",
+      "body": "Nature published a registered report on May 27, 2026 in which researchers randomly assigned 2,000 participants to use custom Bluesky feeds for eight weeks and reported that engagement-based feeds amplified intergroup, moralized, emotional, and toxic content relative to reverse-chronological feeds, while a diversified extremity algorithm reduced exposure and maintained comparable platform enjoyment.",
+      "domain": "technology",
+      "claimantName": "Nature research authors",
+      "subjectKind": "research",
+      "sourceUrl": "https://www.nature.com/articles/s41586-026-10536-1",
+      "sourceTitle": "Nature social feed algorithm registered report",
+      "sourcePublisher": "Nature",
+      "sourceQuality": "primary",
+      "attributionScore": 94,
+      "attributionLabel": "Strong attribution",
+      "attributionExplanation": "The Nature article is the publication record for the registered report and identifies the sample, platform, intervention, and reported outcomes.",
+      "veracityScore": 82,
+      "veracityLabel": "Evidence suggests source-backed",
+      "veracityExplanation": "The article, public materials, and code links support the reported study design and findings; generalizing beyond Bluesky, the 2024 U.S. election context, or the tested feeds requires additional evidence.",
+      "evidenceCounts": {
+        "support": 2,
+        "challenge": 0,
+        "context": 1
+      },
+      "evidence": [
+        {
+          "id": "ev-social-feed-algorithm-osf-support-2026",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "The OSF project listed for the registered report provides public data and materials for review of the Bluesky feeds experiment.",
+          "sourceUrl": "https://osf.io/k2crm/",
+          "sourceTitle": "OSF data and materials for the social feed algorithm report",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-29T02:11:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-social-feed-algorithm-github-support-2026",
+          "stance": "support",
+          "assessmentTarget": "veracity",
+          "summary": "The MET Research Group GitHub repository provides code linked from the report for deeper review of the Bluesky feed experiment.",
+          "sourceUrl": "https://github.com/METResearchGroup/bluesky-research",
+          "sourceTitle": "METResearchGroup/bluesky-research",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-29T02:12:00+04:00",
+          "aiAssisted": true
+        },
+        {
+          "id": "ev-social-feed-algorithm-scope-context-2026",
+          "stance": "context",
+          "assessmentTarget": "veracity",
+          "summary": "The report's scope is a Bluesky field experiment around the 2024 U.S. presidential election, so reviewers should assess external validity before applying the findings to every platform or political context.",
+          "sourceUrl": "https://www.nature.com/articles/s41586-026-10536-1",
+          "sourceTitle": "Nature social feed algorithm registered report",
+          "sourceQuality": "primary",
+          "createdAt": "2026-05-29T02:13:00+04:00",
+          "aiAssisted": true
+        }
+      ],
+      "createdAt": "2026-05-29T02:10:00+04:00",
       "aiAssisted": true
     }
   ]

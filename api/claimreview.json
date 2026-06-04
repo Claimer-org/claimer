@@ -1,25 +1,33 @@
 {
   "type": "claimer.claimreview-pack",
-  "generatedAt": "2026-05-26T11:57:32.560Z",
+  "generatedAt": "2026-06-04T05:29:44.349Z",
   "site": "https://claimer-org.github.io/claimer",
-  "count": 90,
+  "count": 103,
   "claimReviews": [
     {
       "@context": "https://schema.org",
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-gpt-4o-launch/",
       "claimReviewed": "OpenAI announced GPT-4o as a multimodal flagship model in May 2024",
+      "reviewBody": "The attribution source directly describes GPT-4o as a flagship model handling text, audio, and image inputs and outputs.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://openai.com/index/hello-gpt-4o/",
+        "@type": "Claim",
+        "name": "OpenAI announced GPT-4o as a multimodal flagship model in May 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI"
+        },
+        "datePublished": "2026-05-25T12:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://openai.com/index/hello-gpt-4o/"
+          "url": "https://openai.com/index/hello-gpt-4o/",
+          "name": "Hello GPT-4o"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "OpenAI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:00:00+04:00",
       "reviewRating": {
@@ -40,17 +48,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/apple-wwdc-2024-apple-intelligence/",
       "claimReviewed": "Apple introduced Apple Intelligence at WWDC 2024",
+      "reviewBody": "The source chain attributes the announcement to Apple and identifies Apple Intelligence as a personal intelligence system.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.apple.com/newsroom/2024/06/introducing-apple-intelligence-for-iphone-ipad-and-mac/",
+        "@type": "Claim",
+        "name": "Apple introduced Apple Intelligence at WWDC 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Apple"
+        },
+        "datePublished": "2026-05-25T12:08:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.apple.com/newsroom/2024/06/introducing-apple-intelligence-for-iphone-ipad-and-mac/"
+          "url": "https://www.apple.com/newsroom/2024/06/introducing-apple-intelligence-for-iphone-ipad-and-mac/",
+          "name": "Introducing Apple Intelligence for iPhone, iPad, and Mac"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Apple"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:08:00+04:00",
       "reviewRating": {
@@ -71,17 +87,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/anthropic-claude-3-5-sonnet/",
       "claimReviewed": "Anthropic announced Claude 3.5 Sonnet in June 2024",
+      "reviewBody": "The attribution source says Anthropic released Claude 3.5 Sonnet and describes it as the first release in the Claude 3.5 model family.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+        "@type": "Claim",
+        "name": "Anthropic announced Claude 3.5 Sonnet in June 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Anthropic"
+        },
+        "datePublished": "2026-05-25T12:12:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.anthropic.com/news/claude-3-5-sonnet"
+          "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+          "name": "Claude 3.5 Sonnet"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Anthropic"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:12:00+04:00",
       "reviewRating": {
@@ -102,17 +126,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/eu-ai-act-2024/",
       "claimReviewed": "The European Union adopted the AI Act in 2024",
+      "reviewBody": "EU institutional sources describe final adoption of the Artificial Intelligence Act in 2024.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.consilium.europa.eu/en/press/press-releases/2024/05/21/artificial-intelligence-ai-act-council-gives-final-green-light-to-the-first-worldwide-rules-on-ai/",
+        "@type": "Claim",
+        "name": "The European Union adopted the AI Act in 2024",
+        "author": {
+          "@type": "Person",
+          "name": "European Union"
+        },
+        "datePublished": "2026-05-25T12:16:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.consilium.europa.eu/en/press/press-releases/2024/05/21/artificial-intelligence-ai-act-council-gives-final-green-light-to-the-first-worldwide-rules-on-ai/"
+          "url": "https://www.consilium.europa.eu/en/press/press-releases/2024/05/21/artificial-intelligence-ai-act-council-gives-final-green-light-to-the-first-worldwide-rules-on-ai/",
+          "name": "Artificial intelligence act: Council gives final green light"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "European Union"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:16:00+04:00",
       "reviewRating": {
@@ -133,17 +165,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/nvidia-blackwell-announcement/",
       "claimReviewed": "NVIDIA announced the Blackwell platform in March 2024",
+      "reviewBody": "NVIDIA's GTC 2024 materials describe the Blackwell architecture and platform announcement.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://nvidianews.nvidia.com/news/nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing",
+        "@type": "Claim",
+        "name": "NVIDIA announced the Blackwell platform in March 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "NVIDIA"
+        },
+        "datePublished": "2026-05-25T12:19:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://nvidianews.nvidia.com/news/nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing"
+          "url": "https://nvidianews.nvidia.com/news/nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing",
+          "name": "NVIDIA Blackwell Platform Arrives"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "NVIDIA"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:19:00+04:00",
       "reviewRating": {
@@ -164,17 +204,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/microsoft-copilot-plus-pcs/",
       "claimReviewed": "Microsoft introduced Copilot+ PCs in May 2024",
+      "reviewBody": "Microsoft's announcement describes Copilot+ PCs as a new category of Windows PCs designed for AI experiences.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/",
+        "@type": "Claim",
+        "name": "Microsoft introduced Copilot+ PCs in May 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Microsoft"
+        },
+        "datePublished": "2026-05-25T12:22:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/"
+          "url": "https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/",
+          "name": "Introducing Copilot+ PCs"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Microsoft"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:22:00+04:00",
       "reviewRating": {
@@ -195,17 +243,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-gemini-1-5/",
       "claimReviewed": "Google announced Gemini 1.5 with a long-context capability in 2024",
+      "reviewBody": "Google's source material describes Gemini 1.5 and highlights long-context understanding as a technical capability.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
+        "@type": "Claim",
+        "name": "Google announced Gemini 1.5 with a long-context capability in 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Google"
+        },
+        "datePublished": "2026-05-25T12:25:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/"
+          "url": "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
+          "name": "Our next-generation model: Gemini 1.5"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:25:00+04:00",
       "reviewRating": {
@@ -226,17 +282,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/meta-llama-3-release/",
       "claimReviewed": "Meta released Llama 3 models in April 2024",
+      "reviewBody": "Meta's announcement says it released the first Llama 3 models and describes 8B and 70B parameter versions.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://ai.meta.com/blog/meta-llama-3/",
+        "@type": "Claim",
+        "name": "Meta released Llama 3 models in April 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Meta"
+        },
+        "datePublished": "2026-05-25T12:29:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://ai.meta.com/blog/meta-llama-3/"
+          "url": "https://ai.meta.com/blog/meta-llama-3/",
+          "name": "Introducing Meta Llama 3"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Meta"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:29:00+04:00",
       "reviewRating": {
@@ -257,17 +321,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/perplexity-pages-launch/",
       "claimReviewed": "Perplexity launched Pages for generating shareable reports in 2024",
+      "reviewBody": "Perplexity's announcement describes Pages as a feature for turning research into shareable pages.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.perplexity.ai/hub/blog/perplexity-pages",
+        "@type": "Claim",
+        "name": "Perplexity launched Pages for generating shareable reports in 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Perplexity"
+        },
+        "datePublished": "2026-05-25T12:33:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.perplexity.ai/hub/blog/perplexity-pages"
+          "url": "https://www.perplexity.ai/hub/blog/perplexity-pages",
+          "name": "Introducing Perplexity Pages"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Perplexity"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:33:00+04:00",
       "reviewRating": {
@@ -288,17 +360,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/mistral-large-2-release/",
       "claimReviewed": "Mistral AI released Mistral Large 2 in July 2024",
+      "reviewBody": "Mistral AI's source material describes Mistral Large 2 as a new flagship model release.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://mistral.ai/news/mistral-large-2407/",
+        "@type": "Claim",
+        "name": "Mistral AI released Mistral Large 2 in July 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Mistral AI"
+        },
+        "datePublished": "2026-05-25T12:36:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://mistral.ai/news/mistral-large-2407/"
+          "url": "https://mistral.ai/news/mistral-large-2407/",
+          "name": "Mistral Large 2"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Mistral AI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T12:36:00+04:00",
       "reviewRating": {
@@ -319,17 +399,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-gemini-embedding-2-preview/",
       "claimReviewed": "Google DeepMind announced Gemini Embedding 2 as a public-preview multimodal embedding model",
+      "reviewBody": "The attribution source describes Gemini Embedding 2 as a public-preview embedding model for multimodal retrieval and understanding workflows.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/",
+        "@type": "Claim",
+        "name": "Google DeepMind announced Gemini Embedding 2 as a public-preview multimodal embedding model",
+        "author": {
+          "@type": "Organization",
+          "name": "Google DeepMind"
+        },
+        "datePublished": "2026-05-25T13:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/"
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/",
+          "name": "Gemini Embedding 2"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google DeepMind"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T13:40:00+04:00",
       "reviewRating": {
@@ -350,17 +438,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/microsoft-osmos-acquisition/",
       "claimReviewed": "Microsoft announced an acquisition of Osmos to accelerate autonomous data engineering in Fabric",
+      "reviewBody": "The attribution source says Microsoft announced the Osmos acquisition and connects it to autonomous data engineering work in Microsoft Fabric.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blogs.microsoft.com/blog/2026/01/05/microsoft-announces-acquisition-of-osmos-to-accelerate-autonomous-data-engineering-in-fabric/",
+        "@type": "Claim",
+        "name": "Microsoft announced an acquisition of Osmos to accelerate autonomous data engineering in Fabric",
+        "author": {
+          "@type": "Organization",
+          "name": "Microsoft"
+        },
+        "datePublished": "2026-05-25T13:44:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blogs.microsoft.com/blog/2026/01/05/microsoft-announces-acquisition-of-osmos-to-accelerate-autonomous-data-engineering-in-fabric/"
+          "url": "https://blogs.microsoft.com/blog/2026/01/05/microsoft-announces-acquisition-of-osmos-to-accelerate-autonomous-data-engineering-in-fabric/",
+          "name": "Microsoft announces acquisition of Osmos to accelerate autonomous data engineering in Fabric"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Microsoft"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T13:44:00+04:00",
       "reviewRating": {
@@ -381,17 +477,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/meta-ai-glasses-impact-grants/",
       "claimReviewed": "Meta launched AI Glasses Impact Grants totaling nearly $2 million",
+      "reviewBody": "The attribution source describes Meta's grant program for wearable technology projects and states that the grants total nearly $2 million.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://about.fb.com/news/2026/01/ai-glasses-impact-grants-wearable-technology-for-good/",
+        "@type": "Claim",
+        "name": "Meta launched AI Glasses Impact Grants totaling nearly $2 million",
+        "author": {
+          "@type": "Organization",
+          "name": "Meta"
+        },
+        "datePublished": "2026-05-25T13:48:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://about.fb.com/news/2026/01/ai-glasses-impact-grants-wearable-technology-for-good/"
+          "url": "https://about.fb.com/news/2026/01/ai-glasses-impact-grants-wearable-technology-for-good/",
+          "name": "AI Glasses Impact Grants"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Meta"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T13:48:00+04:00",
       "reviewRating": {
@@ -412,17 +516,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/nist-ai-agent-standards-initiative/",
       "claimReviewed": "NIST launched an AI Agent Standards Initiative",
+      "reviewBody": "The attribution source identifies a NIST and CAISI standards initiative focused on AI agents.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.nist.gov/node/1906621",
+        "@type": "Claim",
+        "name": "NIST launched an AI Agent Standards Initiative",
+        "author": {
+          "@type": "Person",
+          "name": "NIST / CAISI"
+        },
+        "datePublished": "2026-05-25T13:52:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.nist.gov/node/1906621"
+          "url": "https://www.nist.gov/node/1906621",
+          "name": "AI Agent Standards Initiative"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "NIST / CAISI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T13:52:00+04:00",
       "reviewRating": {
@@ -443,17 +555,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/eu-ai-act-august-2026-applicability/",
       "claimReviewed": "The European Commission says the EU AI Act is scheduled to become fully applicable on August 2, 2026, with exceptions",
+      "reviewBody": "The attribution source is an official European Commission FAQ describing the AI Act implementation timeline and exceptions.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act",
+        "@type": "Claim",
+        "name": "The European Commission says the EU AI Act is scheduled to become fully applicable on August 2, 2026, with exceptions",
+        "author": {
+          "@type": "Person",
+          "name": "European Commission"
+        },
+        "datePublished": "2026-05-25T13:56:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act"
+          "url": "https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act",
+          "name": "Navigating the AI Act"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "European Commission"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T13:56:00+04:00",
       "reviewRating": {
@@ -474,17 +594,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-gpt-5-4-release/",
       "claimReviewed": "OpenAI released GPT-5.4 across ChatGPT, the API, and Codex",
+      "reviewBody": "OpenAI's announcement says GPT-5.4 is available in ChatGPT, the API, and Codex, with GPT-5.4 Pro also released for higher-performance use cases.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://openai.com/index/introducing-gpt-5-4/",
+        "@type": "Claim",
+        "name": "OpenAI released GPT-5.4 across ChatGPT, the API, and Codex",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI"
+        },
+        "datePublished": "2026-05-25T18:03:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://openai.com/index/introducing-gpt-5-4/"
+          "url": "https://openai.com/index/introducing-gpt-5-4/",
+          "name": "Introducing GPT-5.4"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "OpenAI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T18:03:00+04:00",
       "reviewRating": {
@@ -505,17 +633,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-122b-funding-round/",
       "claimReviewed": "OpenAI said it closed a $122 billion funding round at an $852 billion post-money valuation",
+      "reviewBody": "The attribution source says OpenAI closed its latest funding round with committed capital and a stated post-money valuation.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+        "@type": "Claim",
+        "name": "OpenAI said it closed a $122 billion funding round at an $852 billion post-money valuation",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI"
+        },
+        "datePublished": "2026-05-25T18:05:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://openai.com/index/accelerating-the-next-phase-ai/"
+          "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+          "name": "OpenAI raises $122 billion to accelerate the next phase of AI"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "OpenAI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T18:05:00+04:00",
       "reviewRating": {
@@ -536,17 +672,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-gemini-3-pro-preview/",
       "claimReviewed": "Google released Gemini 3 Pro in preview across Google products",
+      "reviewBody": "Google's Gemini 3 announcement says Gemini 3 Pro began in preview and was made available across a suite of Google products.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+        "@type": "Claim",
+        "name": "Google released Gemini 3 Pro in preview across Google products",
+        "author": {
+          "@type": "Organization",
+          "name": "Google"
+        },
+        "datePublished": "2026-05-25T18:07:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/"
+          "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+          "name": "A new era of intelligence with Gemini 3"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T18:07:00+04:00",
       "reviewRating": {
@@ -567,17 +711,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-gemini-3-5-flash-io-2026/",
       "claimReviewed": "Google launched Gemini 3.5 Flash at I/O 2026",
+      "reviewBody": "Google's I/O 2026 announcement roundup says it launched Gemini 3.5 Flash and made it generally available through developer platforms.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
+        "@type": "Claim",
+        "name": "Google launched Gemini 3.5 Flash at I/O 2026",
+        "author": {
+          "@type": "Organization",
+          "name": "Google"
+        },
+        "datePublished": "2026-05-25T18:09:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/"
+          "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
+          "name": "100 things we announced at Google I/O 2026"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T18:09:00+04:00",
       "reviewRating": {
@@ -598,17 +750,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/anthropic-claude-opus-4-7/",
       "claimReviewed": "Anthropic made Claude Opus 4.7 available across Claude products",
+      "reviewBody": "Anthropic's announcement says Opus 4.7 is available across Claude products, its API, Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.anthropic.com/news/claude-opus-4-7",
+        "@type": "Claim",
+        "name": "Anthropic made Claude Opus 4.7 available across Claude products",
+        "author": {
+          "@type": "Organization",
+          "name": "Anthropic"
+        },
+        "datePublished": "2026-05-25T18:11:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.anthropic.com/news/claude-opus-4-7"
+          "url": "https://www.anthropic.com/news/claude-opus-4-7",
+          "name": "Introducing Claude Opus 4.7"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Anthropic"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T18:11:00+04:00",
       "reviewRating": {
@@ -629,17 +789,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/eu-ai-act-enforcement-2025/",
       "claimReviewed": "The EU AI Act began enforcement of its first provisions in February 2025",
+      "reviewBody": "The European Union's Artificial Intelligence Act, adopted in 2024, started enforcing its first prohibitions on unacceptable-risk AI systems in February 2025, with full enforcement planned in stages through 2027.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://artificialintelligenceact.eu/",
+        "@type": "Claim",
+        "name": "The EU AI Act began enforcement of its first provisions in February 2025",
+        "author": {
+          "@type": "Person",
+          "name": "European Commission"
+        },
+        "datePublished": "2026-05-25T19:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://artificialintelligenceact.eu/"
+          "url": "https://artificialintelligenceact.eu/",
+          "name": "EU AI Act"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "European Commission"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T19:00:00+04:00",
       "reviewRating": {
@@ -660,17 +828,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-generated-content-50-percent-web/",
       "claimReviewed": "AI-generated content may constitute over 50% of internet text by 2026",
+      "reviewBody": "Multiple researchers and industry analysts have warned that AI-generated text could make up a majority of online content, raising concerns about 'model collapse' and information quality degradation.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.europol.europa.eu/media-press/newsroom/news/criminal-use-of-chatgpt-assessed-in-new-europol-report",
+        "@type": "Claim",
+        "name": "AI-generated content may constitute over 50% of internet text by 2026",
+        "author": {
+          "@type": "Person",
+          "name": "Various researchers"
+        },
+        "datePublished": "2026-05-25T19:10:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.europol.europa.eu/media-press/newsroom/news/criminal-use-of-chatgpt-assessed-in-new-europol-report"
+          "url": "https://www.europol.europa.eu/media-press/newsroom/news/criminal-use-of-chatgpt-assessed-in-new-europol-report",
+          "name": "Europol assessment of AI-generated content risks"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Various researchers"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T19:10:00+04:00",
       "reviewRating": {
@@ -691,17 +867,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/nvidia-market-cap-3-trillion-2024/",
       "claimReviewed": "NVIDIA briefly surpassed a $3 trillion market capitalization in 2024",
+      "reviewBody": "Driven by demand for AI training chips, NVIDIA's market cap crossed the $3 trillion threshold in mid-2024, briefly making it the world's most valuable public company.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.reuters.com/technology/nvidia-becomes-worlds-most-valuable-company-2024-06-18/",
+        "@type": "Claim",
+        "name": "NVIDIA briefly surpassed a $3 trillion market capitalization in 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Financial press"
+        },
+        "datePublished": "2026-05-25T19:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.reuters.com/technology/nvidia-becomes-worlds-most-valuable-company-2024-06-18/"
+          "url": "https://www.reuters.com/technology/nvidia-becomes-worlds-most-valuable-company-2024-06-18/",
+          "name": "Nvidia becomes world's most valuable company"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Financial press"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T19:20:00+04:00",
       "reviewRating": {
@@ -722,17 +906,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-training-energy-consumption-growing/",
       "claimReviewed": "Training a single large AI model can consume as much energy as 5 cars over their lifetime",
+      "reviewBody": "Research from the University of Massachusetts Amherst estimated that training a single large transformer model can emit over 284 tons of CO2, comparable to the lifetime emissions of five average cars.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://arxiv.org/abs/1906.02243",
+        "@type": "Claim",
+        "name": "Training a single large AI model can consume as much energy as 5 cars over their lifetime",
+        "author": {
+          "@type": "Person",
+          "name": "Strubell et al."
+        },
+        "datePublished": "2026-05-25T19:30:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://arxiv.org/abs/1906.02243"
+          "url": "https://arxiv.org/abs/1906.02243",
+          "name": "Energy and Policy Considerations for Deep Learning in NLP"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Strubell et al."
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T19:30:00+04:00",
       "reviewRating": {
@@ -756,17 +948,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-revenue-projection-2025/",
       "claimReviewed": "OpenAI projected over $11 billion in annualized revenue by late 2025",
+      "reviewBody": "Reports indicate OpenAI's revenue grew rapidly from $1.6B in 2023 to projections exceeding $11B annualized by 2025, primarily driven by ChatGPT subscriptions and API usage.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.theinformation.com/articles/openai-revenue-surged-to-300-million-a-month",
+        "@type": "Claim",
+        "name": "OpenAI projected over $11 billion in annualized revenue by late 2025",
+        "author": {
+          "@type": "Organization",
+          "name": "The Information / OpenAI"
+        },
+        "datePublished": "2026-05-25T19:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.theinformation.com/articles/openai-revenue-surged-to-300-million-a-month"
+          "url": "https://www.theinformation.com/articles/openai-revenue-surged-to-300-million-a-month",
+          "name": "OpenAI Revenue Reporting"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "The Information / OpenAI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T19:40:00+04:00",
       "reviewRating": {
@@ -787,17 +987,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/deepfake-detection-falling-behind/",
       "claimReviewed": "Current deepfake detection tools fail to identify AI-generated content more than 30% of the time",
+      "reviewBody": "Multiple studies show that state-of-the-art deepfake detection systems have significant false negative rates, especially as generation technology improves faster than detection.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://arxiv.org/abs/2401.14556",
+        "@type": "Claim",
+        "name": "Current deepfake detection tools fail to identify AI-generated content more than 30% of the time",
+        "author": {
+          "@type": "Person",
+          "name": "Various academic studies"
+        },
+        "datePublished": "2026-05-25T19:50:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://arxiv.org/abs/2401.14556"
+          "url": "https://arxiv.org/abs/2401.14556",
+          "name": "Deepfake Detection: A Comprehensive Study"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Various academic studies"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T19:50:00+04:00",
       "reviewRating": {
@@ -818,17 +1026,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-coding-assistants-40-percent-code/",
       "claimReviewed": "AI coding assistants now generate approximately 40% of new code at some major tech companies",
+      "reviewBody": "GitHub reported that Copilot generates about 40% of code in supported languages, and Google's internal data shows similar adoption rates for AI-assisted coding.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "@type": "Claim",
+        "name": "AI coding assistants now generate approximately 40% of new code at some major tech companies",
+        "author": {
+          "@type": "Organization",
+          "name": "GitHub / Google"
+        },
+        "datePublished": "2026-05-25T20:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/"
+          "url": "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+          "name": "Research: Quantifying GitHub Copilot's Impact"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "GitHub / Google"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T20:00:00+04:00",
       "reviewRating": {
@@ -849,17 +1065,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-job-displacement-imf-estimate/",
       "claimReviewed": "The IMF estimates AI could affect up to 40% of global jobs",
+      "reviewBody": "The International Monetary Fund published analysis suggesting AI will affect about 40% of jobs globally, with advanced economies more exposed at 60% due to higher cognitive task concentration.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity",
+        "@type": "Claim",
+        "name": "The IMF estimates AI could affect up to 40% of global jobs",
+        "author": {
+          "@type": "Person",
+          "name": "International Monetary Fund"
+        },
+        "datePublished": "2026-05-25T20:05:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity"
+          "url": "https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity",
+          "name": "AI Will Transform the Global Economy"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "International Monetary Fund"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T20:05:00+04:00",
       "reviewRating": {
@@ -880,17 +1104,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/apple-on-device-ai-privacy-approach/",
       "claimReviewed": "Apple's AI strategy prioritizes on-device processing for user privacy",
+      "reviewBody": "Apple has positioned its AI approach around on-device processing and 'Private Cloud Compute' to differentiate from competitors who rely primarily on cloud-based AI inference.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://security.apple.com/blog/private-cloud-compute/",
+        "@type": "Claim",
+        "name": "Apple's AI strategy prioritizes on-device processing for user privacy",
+        "author": {
+          "@type": "Organization",
+          "name": "Apple"
+        },
+        "datePublished": "2026-05-25T20:10:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://security.apple.com/blog/private-cloud-compute/"
+          "url": "https://security.apple.com/blog/private-cloud-compute/",
+          "name": "Private Cloud Compute: A new frontier for AI privacy in the cloud"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Apple"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T20:10:00+04:00",
       "reviewRating": {
@@ -911,17 +1143,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/china-ai-chip-restrictions-impact/",
       "claimReviewed": "US export controls on advanced AI chips significantly impacted China's AI development timeline",
+      "reviewBody": "The US imposed restrictions on exports of advanced semiconductors and chipmaking equipment to China starting in October 2022, with expanding scope in 2023 and 2024, affecting access to NVIDIA A100/H100 GPUs.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.bis.gov/press-release/commerce-strengthens-restrictions-advanced-semiconductors-semiconductor-manufacturing",
+        "@type": "Claim",
+        "name": "US export controls on advanced AI chips significantly impacted China's AI development timeline",
+        "author": {
+          "@type": "Person",
+          "name": "US Bureau of Industry and Security"
+        },
+        "datePublished": "2026-05-25T20:15:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.bis.gov/press-release/commerce-strengthens-restrictions-advanced-semiconductors-semiconductor-manufacturing"
+          "url": "https://www.bis.gov/press-release/commerce-strengthens-restrictions-advanced-semiconductors-semiconductor-manufacturing",
+          "name": "Commerce Strengthens Restrictions on Advanced Semiconductors"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "US Bureau of Industry and Security"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-25T20:15:00+04:00",
       "reviewRating": {
@@ -945,17 +1185,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-agents-supply-chain-500b/",
       "claimReviewed": "AI agents autonomously managing corporate supply chains expected to handle $500B in procurement by 2027",
+      "reviewBody": "McKinsey & Company projects that AI agents operating autonomously within corporate supply chains will manage approximately $500 billion in procurement decisions by 2027, driven by advances in multi-agent orchestration and real-time data integration.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.mckinsey.com/capabilities/operations/our-insights/ai-agents-in-supply-chain-procurement-2026",
+        "@type": "Claim",
+        "name": "AI agents autonomously managing corporate supply chains expected to handle $500B in procurement by 2027",
+        "author": {
+          "@type": "Person",
+          "name": "McKinsey & Company"
+        },
+        "datePublished": "2026-05-26T01:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.mckinsey.com/capabilities/operations/our-insights/ai-agents-in-supply-chain-procurement-2026"
+          "url": "https://www.mckinsey.com/capabilities/operations/our-insights/ai-agents-in-supply-chain-procurement-2026",
+          "name": "AI Agents in Supply Chain: The $500B Procurement Frontier"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "McKinsey & Company"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:00:00+04:00",
       "reviewRating": {
@@ -979,17 +1227,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/fortune-500-chatgpt-ban-60pct/",
       "claimReviewed": "More than 60% of Fortune 500 companies have banned employee use of ChatGPT for sensitive internal data",
+      "reviewBody": "A Reuters survey of corporate AI policies claims that over 60% of Fortune 500 companies have implemented formal restrictions or outright bans on employee use of ChatGPT and similar generative AI tools when handling sensitive internal data, intellectual property, or client information.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.reuters.com/technology/corporate-ai-policy-survey-fortune-500-chatgpt-restrictions-2026-05",
+        "@type": "Claim",
+        "name": "More than 60% of Fortune 500 companies have banned employee use of ChatGPT for sensitive internal data",
+        "author": {
+          "@type": "Organization",
+          "name": "Reuters"
+        },
+        "datePublished": "2026-05-26T01:02:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.reuters.com/technology/corporate-ai-policy-survey-fortune-500-chatgpt-restrictions-2026-05"
+          "url": "https://www.reuters.com/technology/corporate-ai-policy-survey-fortune-500-chatgpt-restrictions-2026-05",
+          "name": "Corporate AI Policy Survey: Fortune 500 ChatGPT Restrictions"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Reuters"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:02:00+04:00",
       "reviewRating": {
@@ -1013,17 +1269,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-music-30pct-streaming-2028/",
       "claimReviewed": "AI-generated music will account for 30% of all streaming content by 2028",
+      "reviewBody": "The CEO of Universal Music Group predicted at the 2026 Global Music Summit that AI-generated music — including fully synthetic compositions and AI-assisted productions — will constitute 30% of all music streaming content by 2028, fundamentally reshaping royalty structures and artist economics.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://variety.com/2026/music/news/universal-music-ceo-ai-generated-music-30-percent-streaming-1236789012/",
+        "@type": "Claim",
+        "name": "AI-generated music will account for 30% of all streaming content by 2028",
+        "author": {
+          "@type": "Person",
+          "name": "Universal Music Group CEO"
+        },
+        "datePublished": "2026-05-26T01:04:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://variety.com/2026/music/news/universal-music-ceo-ai-generated-music-30-percent-streaming-1236789012/"
+          "url": "https://variety.com/2026/music/news/universal-music-ceo-ai-generated-music-30-percent-streaming-1236789012/",
+          "name": "UMG CEO Predicts AI-Generated Music Will Hit 30% of Streaming by 2028"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Universal Music Group CEO"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:04:00+04:00",
       "reviewRating": {
@@ -1047,17 +1311,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/open-source-ai-5pct-gap/",
       "claimReviewed": "Open-source AI models have closed the capability gap with proprietary models to within 5%",
+      "reviewBody": "Meta AI Research claims that open-source large language models, specifically Llama 4, have narrowed the performance gap with leading proprietary models like GPT-4o and Claude to within 5% across major benchmarks, challenging the assumption that closed-source development is necessary for frontier capabilities.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://ai.meta.com/blog/llama-4-open-source-closing-the-gap/",
+        "@type": "Claim",
+        "name": "Open-source AI models have closed the capability gap with proprietary models to within 5%",
+        "author": {
+          "@type": "Person",
+          "name": "Meta AI Research"
+        },
+        "datePublished": "2026-05-26T01:06:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://ai.meta.com/blog/llama-4-open-source-closing-the-gap/"
+          "url": "https://ai.meta.com/blog/llama-4-open-source-closing-the-gap/",
+          "name": "Llama 4: Closing the Gap with Open Source"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Meta AI Research"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:06:00+04:00",
       "reviewRating": {
@@ -1081,17 +1353,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/autonomous-ai-research-agents-papers/",
       "claimReviewed": "Autonomous AI research agents produced 3 peer-reviewed papers without human intervention",
+      "reviewBody": "Stanford's Institute for Human-Centered AI (HAI) reported that autonomous AI research agents independently designed experiments, ran analyses, and drafted 3 papers that passed peer review at recognized venues — all without direct human intervention beyond initial goal specification.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://hai.stanford.edu/news/autonomous-ai-research-agents-quarterly-report-q1-2026",
+        "@type": "Claim",
+        "name": "Autonomous AI research agents produced 3 peer-reviewed papers without human intervention",
+        "author": {
+          "@type": "Person",
+          "name": "Stanford HAI"
+        },
+        "datePublished": "2026-05-26T01:08:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://hai.stanford.edu/news/autonomous-ai-research-agents-quarterly-report-q1-2026"
+          "url": "https://hai.stanford.edu/news/autonomous-ai-research-agents-quarterly-report-q1-2026",
+          "name": "Autonomous AI Research Agents: HAI Quarterly Report Q1 2026"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Stanford HAI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:08:00+04:00",
       "reviewRating": {
@@ -1115,17 +1395,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ibm-quantum-eagle-1121-qubits/",
       "claimReviewed": "IBM unveiled a 1,121-qubit quantum processor named Condor in December 2023",
+      "reviewBody": "IBM announced the Condor quantum processor with 1,121 superconducting qubits at the IBM Quantum Summit 2023, claiming it was the world's largest gate-based quantum processor at the time of announcement.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://newsroom.ibm.com/2023-12-04-IBM-Debuts-Next-Generation-Quantum-Processor-and-IBM-Quantum-System-Two",
+        "@type": "Claim",
+        "name": "IBM unveiled a 1,121-qubit quantum processor named Condor in December 2023",
+        "author": {
+          "@type": "Organization",
+          "name": "IBM"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://newsroom.ibm.com/2023-12-04-IBM-Debuts-Next-Generation-Quantum-Processor-and-IBM-Quantum-System-Two"
+          "url": "https://newsroom.ibm.com/2023-12-04-IBM-Debuts-Next-Generation-Quantum-Processor-and-IBM-Quantum-System-Two",
+          "name": "IBM Debuts Next-Generation Quantum Processor & IBM Quantum System Two"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "IBM"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1149,17 +1437,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/tesla-optimus-gen-2-walking/",
       "claimReviewed": "Tesla demonstrated Optimus Gen 2 humanoid robot walking and performing tasks in December 2023",
+      "reviewBody": "Tesla released a video showing the Optimus Gen 2 humanoid robot walking, performing squats, and handling eggs with improved dexterity compared to the first generation, with Elon Musk claiming it would eventually cost less than $20,000.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://twitter.com/Tesla/status/1734727688667771089",
+        "@type": "Claim",
+        "name": "Tesla demonstrated Optimus Gen 2 humanoid robot walking and performing tasks in December 2023",
+        "author": {
+          "@type": "Organization",
+          "name": "Elon Musk / Tesla"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://twitter.com/Tesla/status/1734727688667771089"
+          "url": "https://twitter.com/Tesla/status/1734727688667771089",
+          "name": "Tesla official post: Optimus Gen 2 demonstration"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Elon Musk / Tesla"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1183,17 +1479,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/crowdstrike-outage-july-2024/",
       "claimReviewed": "CrowdStrike caused the largest IT outage in history on July 19, 2024, affecting 8.5 million Windows devices",
+      "reviewBody": "A faulty content update from CrowdStrike's Falcon sensor caused approximately 8.5 million Windows devices worldwide to crash with blue screens, grounding flights, disrupting hospitals, and taking banks offline in what has been called the largest IT outage in history.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+        "@type": "Claim",
+        "name": "CrowdStrike caused the largest IT outage in history on July 19, 2024, affecting 8.5 million Windows devices",
+        "author": {
+          "@type": "Organization",
+          "name": "CrowdStrike / Microsoft"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/"
+          "url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+          "name": "Microsoft: Helping our customers through the CrowdStrike outage"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "CrowdStrike / Microsoft"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1217,17 +1521,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-willow-quantum-chip-2024/",
       "claimReviewed": "Google claimed its Willow quantum chip solved a computation in under 5 minutes that would take classical supercomputers 10 septillion years",
+      "reviewBody": "Google announced in December 2024 that its Willow quantum chip with 105 qubits achieved a random circuit sampling benchmark result in under 5 minutes that would require classical supercomputers approximately 10 septillion years to complete.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blog.google/technology/research/google-willow-quantum-chip/",
+        "@type": "Claim",
+        "name": "Google claimed its Willow quantum chip solved a computation in under 5 minutes that would take classical supercomputers 10 septillion years",
+        "author": {
+          "@type": "Organization",
+          "name": "Google / Hartmut Neven"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blog.google/technology/research/google-willow-quantum-chip/"
+          "url": "https://blog.google/technology/research/google-willow-quantum-chip/",
+          "name": "Google Blog: Meet Willow, our state-of-the-art quantum chip"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google / Hartmut Neven"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1251,17 +1563,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/figure-ai-bmw-factory-deployment/",
       "claimReviewed": "Figure AI deployed humanoid robots in a BMW manufacturing facility in early 2024",
+      "reviewBody": "Figure AI announced its Figure 01 humanoid robots were deployed at a BMW manufacturing plant in Spartanburg, South Carolina, marking one of the first commercial deployments of general-purpose humanoid robots in automotive manufacturing.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.figure.ai/news/figure-partners-with-bmw",
+        "@type": "Claim",
+        "name": "Figure AI deployed humanoid robots in a BMW manufacturing facility in early 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Figure AI / Brett Adcock"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.figure.ai/news/figure-partners-with-bmw"
+          "url": "https://www.figure.ai/news/figure-partners-with-bmw",
+          "name": "Figure AI partners with BMW Manufacturing"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Figure AI / Brett Adcock"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1285,17 +1605,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/tsmc-2nm-mass-production-2025/",
       "claimReviewed": "TSMC announced mass production of 2nm chips (N2) would begin in the second half of 2025",
+      "reviewBody": "Taiwan Semiconductor Manufacturing Company announced its N2 (2-nanometer) process technology would enter mass production in the second half of 2025, using gate-all-around transistor architecture for the first time.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_2nm",
+        "@type": "Claim",
+        "name": "TSMC announced mass production of 2nm chips (N2) would begin in the second half of 2025",
+        "author": {
+          "@type": "Organization",
+          "name": "TSMC / C.C. Wei"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_2nm"
+          "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_2nm",
+          "name": "TSMC N2 Technology Overview"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "TSMC / C.C. Wei"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1319,17 +1647,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/spacex-starship-fourth-flight-reentry/",
       "claimReviewed": "SpaceX achieved the first successful controlled reentry and splashdown of Starship's upper stage in June 2024",
+      "reviewBody": "On the fourth integrated flight test (IFT-4) on June 6, 2024, SpaceX successfully landed Starship's Super Heavy booster and achieved a controlled reentry and soft splashdown of the Ship (upper stage) in the Indian Ocean for the first time.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.spacex.com/launches/mission/?missionId=starship-flight-4",
+        "@type": "Claim",
+        "name": "SpaceX achieved the first successful controlled reentry and splashdown of Starship's upper stage in June 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "SpaceX"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.spacex.com/launches/mission/?missionId=starship-flight-4"
+          "url": "https://www.spacex.com/launches/mission/?missionId=starship-flight-4",
+          "name": "SpaceX: Starship Flight 4 Mission"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "SpaceX"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1353,17 +1689,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/deepseek-v3-cost-5-5-million/",
       "claimReviewed": "DeepSeek claimed it trained its DeepSeek-V3 model for only $5.5 million in compute costs",
+      "reviewBody": "Chinese AI lab DeepSeek released DeepSeek-V3, a 671-billion parameter mixture-of-experts model, claiming it required only $5.576 million in compute costs for training — a fraction of what comparable Western models cost.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://arxiv.org/abs/2412.19437",
+        "@type": "Claim",
+        "name": "DeepSeek claimed it trained its DeepSeek-V3 model for only $5.5 million in compute costs",
+        "author": {
+          "@type": "Organization",
+          "name": "DeepSeek"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://arxiv.org/abs/2412.19437"
+          "url": "https://arxiv.org/abs/2412.19437",
+          "name": "DeepSeek-V3 Technical Report (arXiv:2412.19437)"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "DeepSeek"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1388,17 +1732,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/moderna-mrna-cancer-vaccine-2025/",
       "claimReviewed": "Moderna's mRNA cancer vaccine showed a 44% reduction in melanoma recurrence in Phase 2b trial",
+      "reviewBody": "Moderna and Merck reported that their personalized mRNA cancer vaccine mRNA-4157/V940 (now called INTerCePT) combined with Keytruda showed a 44% reduction in risk of recurrence or death in patients with high-risk melanoma in an updated Phase 2b clinical trial.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://investors.modernatx.com/news/news-details/2024/moderna-mrna-cancer-vaccine-results",
+        "@type": "Claim",
+        "name": "Moderna's mRNA cancer vaccine showed a 44% reduction in melanoma recurrence in Phase 2b trial",
+        "author": {
+          "@type": "Organization",
+          "name": "Moderna / Merck"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://investors.modernatx.com/news/news-details/2024/moderna-mrna-cancer-vaccine-results"
+          "url": "https://investors.modernatx.com/news/news-details/2024/moderna-mrna-cancer-vaccine-results",
+          "name": "Moderna Investor Relations: mRNA Cancer Vaccine Results"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Moderna / Merck"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1422,17 +1774,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/salt-typhoon-telecom-breach-2024/",
       "claimReviewed": "Chinese hackers known as Salt Typhoon breached at least 9 major US telecom companies in 2024",
+      "reviewBody": "A Chinese state-sponsored hacking group dubbed Salt Typhoon infiltrated the networks of at least 9 major US telecommunications companies, including AT&T, Verizon, and T-Mobile, potentially accessing call records and communications of millions of Americans.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications",
+        "@type": "Claim",
+        "name": "Chinese hackers known as Salt Typhoon breached at least 9 major US telecom companies in 2024",
+        "author": {
+          "@type": "Person",
+          "name": "US Government / FBI / CISA"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications"
+          "url": "https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications",
+          "name": "CISA/FBI Joint Statement on PRC Telecom Targeting"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "US Government / FBI / CISA"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1456,17 +1816,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-nonprofit-restructure-2025/",
       "claimReviewed": "OpenAI announced plans to restructure from a nonprofit to a for-profit public benefit corporation",
+      "reviewBody": "OpenAI announced it would convert its unusual capped-profit structure into a Delaware public benefit corporation (PBC), with the original nonprofit retaining a minority stake. The move was part of a broader restructuring tied to raising additional capital.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://openai.com/index/evolving-our-structure/",
+        "@type": "Claim",
+        "name": "OpenAI announced plans to restructure from a nonprofit to a for-profit public benefit corporation",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI / Sam Altman"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://openai.com/index/evolving-our-structure/"
+          "url": "https://openai.com/index/evolving-our-structure/",
+          "name": "OpenAI: Evolving Our Structure"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "OpenAI / Sam Altman"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1490,17 +1858,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/neuralink-first-human-implant-2024/",
       "claimReviewed": "Neuralink implanted its first brain-computer interface in a human patient in January 2024",
+      "reviewBody": "Neuralink announced that it successfully implanted its N1 brain-computer interface chip in a human patient for the first time on January 28, 2024, as part of its PRIME Study. Elon Musk reported the patient was recovering well and initial results showed neuron spike detection.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://twitter.com/elonmusk/status/1752098683024220632",
+        "@type": "Claim",
+        "name": "Neuralink implanted its first brain-computer interface in a human patient in January 2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Neuralink / Elon Musk"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://twitter.com/elonmusk/status/1752098683024220632"
+          "url": "https://twitter.com/elonmusk/status/1752098683024220632",
+          "name": "Elon Musk announcement of first Neuralink human implant"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Neuralink / Elon Musk"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1524,17 +1900,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/us-chips-act-tsmc-arizona-delay/",
       "claimReviewed": "TSMC's Arizona chip factory faced significant delays and cost overruns despite $6.6B in CHIPS Act funding",
+      "reviewBody": "Despite receiving $6.6 billion in CHIPS Act subsidies, TSMC's Arizona fabrication facility experienced construction delays and cost increases, with the most advanced chip production pushed back from the original 2024 target.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.reuters.com/technology/tsmc-arizona-chip-plant-delays-2024/",
+        "@type": "Claim",
+        "name": "TSMC's Arizona chip factory faced significant delays and cost overruns despite $6.6B in CHIPS Act funding",
+        "author": {
+          "@type": "Organization",
+          "name": "Multiple sources / TSMC"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.reuters.com/technology/tsmc-arizona-chip-plant-delays-2024/"
+          "url": "https://www.reuters.com/technology/tsmc-arizona-chip-plant-delays-2024/",
+          "name": "Reuters: TSMC Arizona chip plant construction update"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Multiple sources / TSMC"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1558,17 +1942,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/sam-altman-worldcoin-iris-scanning/",
       "claimReviewed": "Sam Altman's Worldcoin project scanned over 6 million irises globally by mid-2024",
+      "reviewBody": "Tools for Humanity, the company behind Worldcoin (now rebranded as World), reported that its iris-scanning Orb devices had verified over 6 million unique individuals globally by mid-2024, with operations in dozens of countries.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://world.org/blog",
+        "@type": "Claim",
+        "name": "Sam Altman's Worldcoin project scanned over 6 million irises globally by mid-2024",
+        "author": {
+          "@type": "Organization",
+          "name": "Tools for Humanity / Sam Altman"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://world.org/blog"
+          "url": "https://world.org/blog",
+          "name": "World (Worldcoin) official blog"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Tools for Humanity / Sam Altman"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1592,17 +1984,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/anthropic-responsible-scaling-policy/",
       "claimReviewed": "Anthropic published the first Responsible Scaling Policy committing to capability evaluations before training more powerful AI",
+      "reviewBody": "Anthropic published its Responsible Scaling Policy (RSP) in September 2023, committing to evaluate AI systems for dangerous capabilities (CBRN, cybersecurity, autonomous replication) before training more powerful models, creating a tiered AI Safety Level (ASL) framework.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.anthropic.com/news/anthropics-responsible-scaling-policy",
+        "@type": "Claim",
+        "name": "Anthropic published the first Responsible Scaling Policy committing to capability evaluations before training more powerful AI",
+        "author": {
+          "@type": "Organization",
+          "name": "Anthropic / Dario Amodei"
+        },
+        "datePublished": "2026-05-26T01:40:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.anthropic.com/news/anthropics-responsible-scaling-policy"
+          "url": "https://www.anthropic.com/news/anthropics-responsible-scaling-policy",
+          "name": "Anthropic: Responsible Scaling Policy"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Anthropic / Dario Amodei"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T01:40:00+04:00",
       "reviewRating": {
@@ -1626,17 +2026,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-disarm/",
       "claimReviewed": "Pope Leo XIV called to 'disarm' artificial intelligence in a formal encyclical",
+      "reviewBody": "The papal encyclical 'Magnifica Humanitas' explicitly calls for AI to be freed from logics of economic and military dominance, and warns against transhumanist visions.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas",
+        "@type": "Claim",
+        "name": "Pope Leo XIV called to 'disarm' artificial intelligence in a formal encyclical",
+        "author": {
+          "@type": "Person",
+          "name": "Pope Leo XIV"
+        },
+        "datePublished": "2026-05-26T05:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas"
+          "url": "https://www.ncronline.org/vatican/vatican-news/pope-leo-xiv-releases-ai-encyclical-magnifica-humanitas",
+          "name": "Pope Leo XIV releases AI encyclical 'Magnifica Humanitas'"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Pope Leo XIV"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T05:00:00+04:00",
       "reviewRating": {
@@ -1660,17 +2068,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-models-getting-worse-may-2026/",
       "claimReviewed": "Major AI models from OpenAI, Anthropic, and Google are becoming less capable while prices increase",
+      "reviewBody": "Users report that ChatGPT, Claude, and Gemini have become more restrictive, less creative, and more expensive compared to earlier versions, suggesting a pattern of silent capability degradation.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/",
+        "@type": "Claim",
+        "name": "Major AI models from OpenAI, Anthropic, and Google are becoming less capable while prices increase",
+        "author": {
+          "@type": "Person",
+          "name": "User community"
+        },
+        "datePublished": "2026-05-26T05:03:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/"
+          "url": "https://www.rollingout.com/2026/05/ai-getting-worse-user-complaints/",
+          "name": "AI getting worse: wave of user complaints in May 2026"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "User community"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T05:03:00+04:00",
       "reviewRating": {
@@ -1694,17 +2110,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/us-federal-preemption-state-ai-laws/",
       "claimReviewed": "The US federal government should preempt state-level AI regulation to prevent a patchwork of conflicting laws",
+      "reviewBody": "Tech companies argue that differing state AI laws in California, Colorado, and Illinois create compliance chaos that hampers innovation. Critics say federal preemption would eliminate the strongest consumer protections.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/",
+        "@type": "Claim",
+        "name": "The US federal government should preempt state-level AI regulation to prevent a patchwork of conflicting laws",
+        "author": {
+          "@type": "Person",
+          "name": "Tech industry coalition"
+        },
+        "datePublished": "2026-05-26T05:06:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/"
+          "url": "https://www.broadbandbreakfast.com/ai-regulation-federal-preemption-state-laws-2026/",
+          "name": "Federal preemption debate over state AI laws heats up"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Tech industry coalition"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T05:06:00+04:00",
       "reviewRating": {
@@ -1728,17 +2152,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-academic-integrity-crisis-2026/",
       "claimReviewed": "Roughly 9% of university students submit AI-generated work as their own, but the real number may be much higher",
+      "reviewBody": "A May 2026 study estimates that 9% of students knowingly submit prohibited AI-generated work, with the rate significantly higher among daily AI users. Universities are struggling to detect and enforce policies.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/",
+        "@type": "Claim",
+        "name": "Roughly 9% of university students submit AI-generated work as their own, but the real number may be much higher",
+        "author": {
+          "@type": "Person",
+          "name": "Research community"
+        },
+        "datePublished": "2026-05-26T05:09:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/"
+          "url": "https://www.forbes.com/sites/education/2026/05/ai-academic-integrity-study/",
+          "name": "AI academic integrity: 9% of students submit AI work"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Research community"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T05:09:00+04:00",
       "reviewRating": {
@@ -1762,17 +2194,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-worker-displacement-structural-force/",
       "claimReviewed": "Central banks are treating AI as a structural economic force comparable to the industrial revolution that will displace millions of workers",
+      "reviewBody": "Multiple central banks and economic bodies have begun modeling AI as a once-in-a-century structural shift, comparable to electrification, that requires fundamental changes to monetary policy and workforce planning.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.pbs.org/newshour/economy/central-banks-ai-structural-force",
+        "@type": "Claim",
+        "name": "Central banks are treating AI as a structural economic force comparable to the industrial revolution that will displace millions of workers",
+        "author": {
+          "@type": "Person",
+          "name": "Central banking community"
+        },
+        "datePublished": "2026-05-26T05:12:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.pbs.org/newshour/economy/central-banks-ai-structural-force"
+          "url": "https://www.pbs.org/newshour/economy/central-banks-ai-structural-force",
+          "name": "Central banks model AI as structural economic force"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Central banking community"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T05:12:00+04:00",
       "reviewRating": {
@@ -1796,17 +2236,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-erdos-conjecture-disproof/",
       "claimReviewed": "OpenAI claims its AI model autonomously disproved the 80-year-old Erdős unit distance conjecture",
+      "reviewBody": "OpenAI announced that one of its reasoning models independently produced a proof disproving the Erdős unit distance conjecture, a long-standing open problem in combinatorial geometry. The proof reportedly involves complex algebraic number theory.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://openai.com/",
+        "@type": "Claim",
+        "name": "OpenAI claims its AI model autonomously disproved the 80-year-old Erdős unit distance conjecture",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://openai.com/"
+          "url": "https://openai.com/",
+          "name": "OpenAI – AI reasoning breakthrough announcement"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "OpenAI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -1827,17 +2275,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/meta-tribe-v2-brain-model/",
       "claimReviewed": "Meta AI released TRIBE v2, a predictive foundation model that acts as a 'digital twin' of human neural activity",
+      "reviewBody": "Meta AI's TRIBE v2 model can reportedly predict brain responses to various stimuli with significantly higher resolution than previous models, offering potential applications in neuroscience research and biologically inspired AI design.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://ai.meta.com/",
+        "@type": "Claim",
+        "name": "Meta AI released TRIBE v2, a predictive foundation model that acts as a 'digital twin' of human neural activity",
+        "author": {
+          "@type": "Organization",
+          "name": "Meta AI"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://ai.meta.com/"
+          "url": "https://ai.meta.com/",
+          "name": "Meta AI – TRIBE v2 announcement"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Meta AI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -1858,17 +2314,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-gemini-3-5-flash-launch/",
       "claimReviewed": "Google launched Gemini 3.5 Flash and integrated it across its product ecosystem at I/O 2026",
+      "reviewBody": "Google announced Gemini 3.5 Flash as its latest efficient AI model, integrating it across Search, Workspace, Android, and other products during Google I/O 2026.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blog.google/technology/ai/",
+        "@type": "Claim",
+        "name": "Google launched Gemini 3.5 Flash and integrated it across its product ecosystem at I/O 2026",
+        "author": {
+          "@type": "Organization",
+          "name": "Google"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blog.google/technology/ai/"
+          "url": "https://blog.google/technology/ai/",
+          "name": "Google AI Blog – Gemini 3.5 Flash"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -1889,17 +2353,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-ai-mode-1b-users/",
       "claimReviewed": "Google AI Mode in Search has surpassed 1 billion monthly active users",
+      "reviewBody": "Google disclosed that AI Mode in Search, its conversational AI-powered search experience, now serves over 1 billion monthly active users, representing a fundamental shift in how people interact with search.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blog.google/products/search/",
+        "@type": "Claim",
+        "name": "Google AI Mode in Search has surpassed 1 billion monthly active users",
+        "author": {
+          "@type": "Organization",
+          "name": "Google"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blog.google/products/search/"
+          "url": "https://blog.google/products/search/",
+          "name": "Google Search – AI Mode milestone"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -1923,17 +2395,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-gemini-spark-agent/",
       "claimReviewed": "Google introduced Gemini Spark, a 24/7 personal AI agent with third-party app integrations",
+      "reviewBody": "Google announced Gemini Spark at I/O 2026, positioning it as a persistent personal AI agent that can autonomously manage tasks across third-party services including Canva and OpenTable via MCP (Model Context Protocol) support.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://blog.google/technology/ai/",
+        "@type": "Claim",
+        "name": "Google introduced Gemini Spark, a 24/7 personal AI agent with third-party app integrations",
+        "author": {
+          "@type": "Organization",
+          "name": "Google"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://blog.google/technology/ai/"
+          "url": "https://blog.google/technology/ai/",
+          "name": "Google AI – Gemini Spark announcement"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -1954,17 +2434,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/microsoft-agentic-ai-timeline/",
       "claimReviewed": "Microsoft's AI chief predicted human-level performance on professional computer tasks within 12–18 months",
+      "reviewBody": "A senior Microsoft AI executive stated that agentic AI systems could achieve human-level performance on many professional computer-based tasks within 12 to 18 months, positioning the company's push toward autonomous software-operating agents.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.microsoft.com/en-us/ai",
+        "@type": "Claim",
+        "name": "Microsoft's AI chief predicted human-level performance on professional computer tasks within 12–18 months",
+        "author": {
+          "@type": "Organization",
+          "name": "Microsoft"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.microsoft.com/en-us/ai"
+          "url": "https://www.microsoft.com/en-us/ai",
+          "name": "Microsoft AI leadership statements"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Microsoft"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -1988,17 +2476,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/anthropic-spacex-compute-deal/",
       "claimReviewed": "Anthropic secured access to SpaceX's Colossus 1 data center with over 220,000 Nvidia GPUs",
+      "reviewBody": "A reported compute partnership between Anthropic and SpaceX provides Anthropic access to the Colossus 1 data center infrastructure featuring over 220,000 Nvidia GPUs, representing one of the largest AI compute deals in the industry.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.reuters.com/technology/",
+        "@type": "Claim",
+        "name": "Anthropic secured access to SpaceX's Colossus 1 data center with over 220,000 Nvidia GPUs",
+        "author": {
+          "@type": "Organization",
+          "name": "Industry reports"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.reuters.com/technology/"
+          "url": "https://www.reuters.com/technology/",
+          "name": "Reuters – Anthropic compute partnership"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Industry reports"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -2019,17 +2515,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-chatgpt-ads-platform/",
       "claimReviewed": "OpenAI launched a self-serve advertising platform within ChatGPT",
+      "reviewBody": "OpenAI introduced a self-serve advertising platform allowing businesses to place ads within ChatGPT conversations, marking a significant commercialization milestone and a potential shift in the company's revenue model.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://openai.com/",
+        "@type": "Claim",
+        "name": "OpenAI launched a self-serve advertising platform within ChatGPT",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://openai.com/"
+          "url": "https://openai.com/",
+          "name": "OpenAI – ChatGPT ads announcement"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "OpenAI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -2053,17 +2557,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/penn-photonic-chip-breakthrough/",
       "claimReviewed": "University of Pennsylvania developed hybrid light-matter particles for photonic AI chips",
+      "reviewBody": "Researchers at the University of Pennsylvania announced a breakthrough in hybrid light-matter particle technology that could enable photonic chips processing information using light instead of electricity, potentially offering dramatic energy efficiency improvements for AI workloads.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://penntoday.upenn.edu/",
+        "@type": "Claim",
+        "name": "University of Pennsylvania developed hybrid light-matter particles for photonic AI chips",
+        "author": {
+          "@type": "Person",
+          "name": "University of Pennsylvania"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://penntoday.upenn.edu/"
+          "url": "https://penntoday.upenn.edu/",
+          "name": "Penn Today – Photonic chip research"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "University of Pennsylvania"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -2084,17 +2596,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/meta-employee-tracking-ai-training/",
       "claimReviewed": "Reports indicate Meta tracked internal employee activity through its 'Model Capability Initiative' to train AI models",
+      "reviewBody": "Multiple reports surfaced alleging that Meta's 'Model Capability Initiative' monitored and collected data on internal employee workflows and activities to train AI models, coinciding with significant layoffs across the company.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.theverge.com/",
+        "@type": "Claim",
+        "name": "Reports indicate Meta tracked internal employee activity through its 'Model Capability Initiative' to train AI models",
+        "author": {
+          "@type": "Organization",
+          "name": "Industry journalists"
+        },
+        "datePublished": "2026-05-26T06:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.theverge.com/"
+          "url": "https://www.theverge.com/",
+          "name": "The Verge – Meta employee tracking reports"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Industry journalists"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T06:20:00+04:00",
       "reviewRating": {
@@ -2118,17 +2638,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/anthropic-900b-valuation-may-2026/",
       "claimReviewed": "Anthropic's valuation could surpass $900 billion, making it the world's most valuable private startup",
+      "reviewBody": "Multiple reports indicate Anthropic is closing a funding round exceeding $30 billion at a pre-money valuation above $900 billion, which would surpass OpenAI's $852 billion valuation. The round is co-led by Sequoia Capital, Dragoneer, Altimeter Capital, and Greenoaks. This follows a February 2026 Series G that also raised $30B at a $380B valuation — meaning the valuation has more than doubled in approximately three months.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://seekingalpha.com/",
+        "@type": "Claim",
+        "name": "Anthropic's valuation could surpass $900 billion, making it the world's most valuable private startup",
+        "author": {
+          "@type": "Organization",
+          "name": "Multiple financial reports"
+        },
+        "datePublished": "2026-05-26T07:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://seekingalpha.com/"
+          "url": "https://seekingalpha.com/",
+          "name": "Anthropic Valuation Analysis"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Multiple financial reports"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T07:00:00+04:00",
       "reviewRating": {
@@ -2152,17 +2680,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/trump-ai-safety-eo-cancelled-may-2026/",
       "claimReviewed": "Trump cancelled an AI safety executive order after last-minute lobbying by Musk, Zuckerberg, and Sacks",
+      "reviewBody": "Hours before a scheduled White House signing ceremony on May 21, 2026, President Trump cancelled a planned executive order that would have established a voluntary 90-day pre-launch review of frontier AI models for national security risks. The decision reportedly followed last-minute phone calls from Elon Musk, Mark Zuckerberg, and former AI advisor David Sacks, who argued it would slow U.S. competitiveness against China.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.washingtonpost.com/",
+        "@type": "Claim",
+        "name": "Trump cancelled an AI safety executive order after last-minute lobbying by Musk, Zuckerberg, and Sacks",
+        "author": {
+          "@type": "Person",
+          "name": "Washington Post / LA Times"
+        },
+        "datePublished": "2026-05-26T07:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.washingtonpost.com/"
+          "url": "https://www.washingtonpost.com/",
+          "name": "Trump cancels AI safety executive order"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Washington Post / LA Times"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T07:00:00+04:00",
       "reviewRating": {
@@ -2186,17 +2722,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-gpt55-hallucination-reduction-may-2026/",
       "claimReviewed": "OpenAI claims GPT-5.5 Instant reduces hallucinations by 52.5% on high-stakes prompts",
+      "reviewBody": "OpenAI released GPT-5.5 Instant as the new default ChatGPT model, claiming internal benchmarks show it produces 52.5% fewer hallucinated claims than its predecessor GPT-5.3 Instant on high-stakes prompts in medicine, law, and finance. It also claims a 37.3% reduction in inaccurate claims on user-flagged factual error conversations.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://openai.com/",
+        "@type": "Claim",
+        "name": "OpenAI claims GPT-5.5 Instant reduces hallucinations by 52.5% on high-stakes prompts",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI"
+        },
+        "datePublished": "2026-05-26T07:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://openai.com/"
+          "url": "https://openai.com/",
+          "name": "GPT-5.5 Instant announcement"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "OpenAI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T07:00:00+04:00",
       "reviewRating": {
@@ -2220,17 +2764,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-may-2026/",
       "claimReviewed": "Pope Leo XIV issued a major encyclical warning against AI dehumanization, with Anthropic's co-founder present",
+      "reviewBody": "Pope Leo XIV presented his first encyclical 'Magnifica Humanitas' at the Vatican on May 25, 2026, calling for robust AI regulation and warning against autonomous weapons, AI mimicking human relationships, and the concentration of power among tech companies. Anthropic co-founder Christopher Olah was invited to co-present.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://time.com/",
+        "@type": "Claim",
+        "name": "Pope Leo XIV issued a major encyclical warning against AI dehumanization, with Anthropic's co-founder present",
+        "author": {
+          "@type": "Person",
+          "name": "Pope Leo XIV / Vatican"
+        },
+        "datePublished": "2026-05-26T07:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://time.com/"
+          "url": "https://time.com/",
+          "name": "Time Magazine coverage of papal AI encyclical"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Pope Leo XIV / Vatican"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T07:00:00+04:00",
       "reviewRating": {
@@ -2254,17 +2806,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/anthropic-olah-labor-displacement-warning-may-2026/",
       "claimReviewed": "Anthropic co-founder warns AI could displace human labor on a 'very large scale' — while pursuing $900B valuation",
+      "reviewBody": "At the Vatican presentation on May 25, 2026, Anthropic co-founder Christopher Olah stated there is a 'real possibility' AI could displace human labor on a 'very large scale' and that supporting displaced workers would be a 'moral imperative of historic proportions.' He also argued AI development should not be left solely to tech companies. This comes as Anthropic simultaneously pursues a $900B valuation.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://anthropic.com/",
+        "@type": "Claim",
+        "name": "Anthropic co-founder warns AI could displace human labor on a 'very large scale' — while pursuing $900B valuation",
+        "author": {
+          "@type": "Person",
+          "name": "Christopher Olah (Anthropic co-founder)"
+        },
+        "datePublished": "2026-05-26T07:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://anthropic.com/"
+          "url": "https://anthropic.com/",
+          "name": "Christopher Olah's Vatican remarks on AI and labor"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Christopher Olah (Anthropic co-founder)"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T07:00:00+04:00",
       "reviewRating": {
@@ -2288,17 +2848,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/chinese-academy-aeye-1-ai-microscope/",
       "claimReviewed": "Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope",
+      "reviewBody": "Scientists at the Dalian Institute of Chemical Physics (Chinese Academy of Sciences) announced Aeye-1, an AI-TEM system enabling fully autonomous operation — covering sample transfer, imaging, and analysis — with an efficiency over 300 times higher than manual processing.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://english.cas.cn/",
+        "@type": "Claim",
+        "name": "Chinese Academy of Sciences unveils Aeye-1, the world's first AI-driven transmission electron microscope",
+        "author": {
+          "@type": "Person",
+          "name": "Chinese Academy of Sciences (Dalian Institute)"
+        },
+        "datePublished": "2026-05-26T09:30:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://english.cas.cn/"
+          "url": "https://english.cas.cn/",
+          "name": "CAS announcement of Aeye-1 AI-TEM system"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Chinese Academy of Sciences (Dalian Institute)"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T09:30:00+04:00",
       "reviewRating": {
@@ -2322,17 +2890,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/flinders-ai-semiconductor-discovery/",
       "claimReviewed": "AI platform discovers new gallium-based semiconductor materials, bypassing years of lab experiments",
+      "reviewBody": "An international research team led by Flinders University and Khalifa University developed a machine-learning platform — a 'smart materials discovery engine' — that predicts new gallium-based semiconductor compositions, potentially accelerating next-gen chip development.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://news.flinders.edu.au/",
+        "@type": "Claim",
+        "name": "AI platform discovers new gallium-based semiconductor materials, bypassing years of lab experiments",
+        "author": {
+          "@type": "Person",
+          "name": "Flinders University / Khalifa University"
+        },
+        "datePublished": "2026-05-26T09:30:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://news.flinders.edu.au/"
+          "url": "https://news.flinders.edu.au/",
+          "name": "Flinders University research announcement"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Flinders University / Khalifa University"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T09:30:00+04:00",
       "reviewRating": {
@@ -2353,17 +2929,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/agentic-ai-banking-oversight-crisis/",
       "claimReviewed": "Experts warn agentic AI in banking is outpacing governance — traditional testing frameworks are failing",
+      "reviewBody": "Financial industry experts warn that as banks deploy autonomous 'agentic' AI systems that can freeze accounts, transfer funds, and make decisions independently, traditional software testing and governance frameworks are insufficient to prevent liability events.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.qa-financial.com/",
+        "@type": "Claim",
+        "name": "Experts warn agentic AI in banking is outpacing governance — traditional testing frameworks are failing",
+        "author": {
+          "@type": "Person",
+          "name": "QA Financial / Industry Experts"
+        },
+        "datePublished": "2026-05-26T09:30:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.qa-financial.com/"
+          "url": "https://www.qa-financial.com/",
+          "name": "QA Financial report on agentic AI oversight in banking"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "QA Financial / Industry Experts"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T09:30:00+04:00",
       "reviewRating": {
@@ -2385,17 +2969,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/nebius-gigawatt-ai-factory-missouri/",
       "claimReviewed": "Nebius Group breaks ground on gigawatt-scale AI factory campus in Missouri",
+      "reviewBody": "Nebius Group has begun construction of a gigawatt-scale AI factory campus in Independence, Missouri — the company's first major US digital infrastructure build, incorporating sustainability measures and community benefit programs.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://nebius.com/",
+        "@type": "Claim",
+        "name": "Nebius Group breaks ground on gigawatt-scale AI factory campus in Missouri",
+        "author": {
+          "@type": "Organization",
+          "name": "Nebius Group"
+        },
+        "datePublished": "2026-05-26T09:30:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://nebius.com/"
+          "url": "https://nebius.com/",
+          "name": "Nebius Group AI factory announcement"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Nebius Group"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T09:30:00+04:00",
       "reviewRating": {
@@ -2419,17 +3011,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-consumer-backlash-misunderstood-2026/",
       "claimReviewed": "Analysis: Tech industry is fundamentally misunderstanding why consumers resist AI adoption",
+      "reviewBody": "AI Weekly analysis argues that consumer AI resistance is not technophobia but stems from psychological loss of agency, fears of economic displacement, and deep-seated platform trust deficits — factors that current PR campaigns and UX improvements have failed to address.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://aiweekly.co/",
+        "@type": "Claim",
+        "name": "Analysis: Tech industry is fundamentally misunderstanding why consumers resist AI adoption",
+        "author": {
+          "@type": "Person",
+          "name": "AI Weekly"
+        },
+        "datePublished": "2026-05-26T09:30:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://aiweekly.co/"
+          "url": "https://aiweekly.co/",
+          "name": "AI Weekly analysis of consumer AI backlash"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "AI Weekly"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T09:30:00+04:00",
       "reviewRating": {
@@ -2453,17 +3053,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-ai-encyclical-2026/",
       "claimReviewed": "Pope Leo XIV issues first papal encyclical on AI, calling for 'disarming' of artificial intelligence",
+      "reviewBody": "The encyclical 'Magnifica Humanitas' warns against the 'culture of power' driving the AI race, calls for independent external regulation, and demands a ban on delegating lethal decisions to AI systems.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
+        "@type": "Claim",
+        "name": "Pope Leo XIV issues first papal encyclical on AI, calling for 'disarming' of artificial intelligence",
+        "author": {
+          "@type": "Person",
+          "name": "Pope Leo XIV / The Vatican"
+        },
+        "datePublished": "2026-05-26T10:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html"
+          "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
+          "name": "Encyclical Letter Magnifica Humanitas"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Pope Leo XIV / The Vatican"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T10:20:00+04:00",
       "reviewRating": {
@@ -2487,17 +3095,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/openai-confidential-ipo-filing-2026/",
       "claimReviewed": "OpenAI is reportedly preparing a confidential IPO filing, targeting a late-2026 public debut",
+      "reviewBody": "Axios reported that OpenAI is working on a confidential IPO prospectus with major Wall Street banks, while OpenAI said it regularly evaluates strategic options and remains focused on execution.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk",
+        "@type": "Claim",
+        "name": "OpenAI is reportedly preparing a confidential IPO filing, targeting a late-2026 public debut",
+        "author": {
+          "@type": "Organization",
+          "name": "Axios / person familiar with the situation"
+        },
+        "datePublished": "2026-05-26T10:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk"
+          "url": "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk",
+          "name": "OpenAI Prepares Confidential IPO Filing"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Axios / person familiar with the situation"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T10:20:00+04:00",
       "reviewRating": {
@@ -2521,17 +3137,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/anthropic-first-quarterly-profit-2026/",
       "claimReviewed": "Anthropic projects first-ever quarterly operating profit of $559M on $10.9B revenue in Q2 2026",
+      "reviewBody": "Internal projections shared with investors show Anthropic expects a massive revenue jump from $4.8B in Q1 to $10.9B in Q2 2026, driven by enterprise adoption including a 30,000-person PwC deployment.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486",
+        "@type": "Claim",
+        "name": "Anthropic projects first-ever quarterly operating profit of $559M on $10.9B revenue in Q2 2026",
+        "author": {
+          "@type": "Organization",
+          "name": "Anthropic"
+        },
+        "datePublished": "2026-05-26T10:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486"
+          "url": "https://www.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4702486",
+          "name": "Anthropic revenue set to more than double to $10.9 billion in Q2"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Anthropic"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T10:20:00+04:00",
       "reviewRating": {
@@ -2555,17 +3179,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/stability-ai-audio-3-launch-2026/",
       "claimReviewed": "Stability AI releases Stable Audio 3.0 with professional-grade AI music generation over 6 minutes long",
+      "reviewBody": "Stability AI launched a family of four AI audio models, with the Medium model generating tracks up to 6 minutes 20 seconds. Three models are released as open-weights on Hugging Face with free commercial use under $1M revenue.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models",
+        "@type": "Claim",
+        "name": "Stability AI releases Stable Audio 3.0 with professional-grade AI music generation over 6 minutes long",
+        "author": {
+          "@type": "Organization",
+          "name": "Stability AI"
+        },
+        "datePublished": "2026-05-26T10:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models"
+          "url": "https://stability.ai/news-updates/meet-stable-audio-3-the-model-family-built-for-artistic-experimentation-with-open-weight-models",
+          "name": "Meet Stable Audio 3.0, the model family built for artistic experimentation with open-weight models"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Stability AI"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T10:20:00+04:00",
       "reviewRating": {
@@ -2589,17 +3221,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/pwc-anthropic-30k-professionals-2026/",
       "claimReviewed": "PwC commits to training 30,000 professionals on Claude, reporting up to 70% faster software delivery",
+      "reviewBody": "PwC and Anthropic announce a major expansion deploying Claude across M&A advisory, finance, and software delivery. Client-reported metrics show up to 70% faster delivery with AI-native workflows.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top",
+        "@type": "Claim",
+        "name": "PwC commits to training 30,000 professionals on Claude, reporting up to 70% faster software delivery",
+        "author": {
+          "@type": "Organization",
+          "name": "PwC"
+        },
+        "datePublished": "2026-05-26T10:20:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top"
+          "url": "https://www.anthropic.com/news/pwc-expanded-partnership?stream=top",
+          "name": "PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "PwC"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T10:20:00+04:00",
       "reviewRating": {
@@ -2623,17 +3263,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/google-gemini-search-overhaul-2026/",
       "claimReviewed": "Google has officially overhauled its search engine to be entirely powered by Gemini 3.5 Flash AI",
+      "reviewBody": "Google announced a full transition of its core search product to Gemini 3.5 Flash, replacing the traditional ranking algorithm with AI-generated overviews as the default experience.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.mcgill.ca/newsroom/",
+        "@type": "Claim",
+        "name": "Google has officially overhauled its search engine to be entirely powered by Gemini 3.5 Flash AI",
+        "author": {
+          "@type": "Organization",
+          "name": "Google"
+        },
+        "datePublished": "2026-05-26T11:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.mcgill.ca/newsroom/"
+          "url": "https://www.mcgill.ca/newsroom/",
+          "name": "McGill University analysis of Google's AI-powered search transition"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Google"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T11:00:00+04:00",
       "reviewRating": {
@@ -2657,17 +3305,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/huawei-14nm-logicfolding-2026/",
       "claimReviewed": "Huawei announces proprietary LogicFolding technology breakthrough, aims to produce 1.4nm chips by 2031",
+      "reviewBody": "Huawei claims its new LogicFolding architecture enables significant transistor density improvements, targeting 1.4nm-class chip production by 2031 despite ongoing US export restrictions on advanced semiconductor equipment.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://economictimes.indiatimes.com/tech/",
+        "@type": "Claim",
+        "name": "Huawei announces proprietary LogicFolding technology breakthrough, aims to produce 1.4nm chips by 2031",
+        "author": {
+          "@type": "Organization",
+          "name": "Huawei"
+        },
+        "datePublished": "2026-05-26T11:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://economictimes.indiatimes.com/tech/"
+          "url": "https://economictimes.indiatimes.com/tech/",
+          "name": "Huawei unveils LogicFolding chip technology, targets 1.4nm by 2031"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Huawei"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T11:00:00+04:00",
       "reviewRating": {
@@ -2691,17 +3347,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/airbnb-cto-ai-hollowing-out-2026/",
       "claimReviewed": "Airbnb CTO Ahmad Al-Dahle warns new grad hiring by tech companies has dropped 50% since 2019 due to AI automating entry-level tasks",
+      "reviewBody": "Airbnb CTO Ahmad Al-Dahle states that AI is creating a 'hollowing out' effect in tech hiring, with new graduate recruitment declining approximately 50% since 2019 as AI tools automate tasks traditionally assigned to junior engineers.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://dataconomy.com/",
+        "@type": "Claim",
+        "name": "Airbnb CTO Ahmad Al-Dahle warns new grad hiring by tech companies has dropped 50% since 2019 due to AI automating entry-level tasks",
+        "author": {
+          "@type": "Person",
+          "name": "Ahmad Al-Dahle"
+        },
+        "datePublished": "2026-05-26T11:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://dataconomy.com/"
+          "url": "https://dataconomy.com/",
+          "name": "Airbnb CTO warns of AI hollowing out effect on entry-level tech hiring"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Ahmad Al-Dahle"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T11:00:00+04:00",
       "reviewRating": {
@@ -2725,17 +3389,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/clickup-ai-restructuring-2026/",
       "claimReviewed": "ClickUp announces 22% layoffs while restructuring around AI, offering salary bands up to $1M for high-impact AI workers",
+      "reviewBody": "ClickUp CEO confirms a 22% workforce reduction as the company pivots to an AI-first strategy, simultaneously announcing salary bands up to $1M for key AI engineering and research roles.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.indiatimes.com/technology/",
+        "@type": "Claim",
+        "name": "ClickUp announces 22% layoffs while restructuring around AI, offering salary bands up to $1M for high-impact AI workers",
+        "author": {
+          "@type": "Organization",
+          "name": "ClickUp"
+        },
+        "datePublished": "2026-05-26T11:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.indiatimes.com/technology/"
+          "url": "https://www.indiatimes.com/technology/",
+          "name": "ClickUp cuts 22% of workforce, offers million-dollar AI salaries in restructuring"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "ClickUp"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T11:00:00+04:00",
       "reviewRating": {
@@ -2759,17 +3431,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/ai-circular-financing-2026/",
       "claimReviewed": "Market analysts warn major cloud providers' AI revenue comes substantially from startups they themselves fund, creating circular financing comparable to dot-com era patterns",
+      "reviewBody": "Multiple market analysts have raised concerns that a significant portion of reported AI cloud revenue growth at major providers is driven by consumption from startups funded by the providers' own venture arms, creating a circular financing dynamic reminiscent of 1990s dot-com accounting practices.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://artificiallyintimidating.com/",
+        "@type": "Claim",
+        "name": "Market analysts warn major cloud providers' AI revenue comes substantially from startups they themselves fund, creating circular financing comparable to dot-com era patterns",
+        "author": {
+          "@type": "Person",
+          "name": "Market analysts"
+        },
+        "datePublished": "2026-05-26T11:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://artificiallyintimidating.com/"
+          "url": "https://artificiallyintimidating.com/",
+          "name": "AI circular financing: are cloud giants inflating their own AI revenue?"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Market analysts"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T11:00:00+04:00",
       "reviewRating": {
@@ -2793,17 +3473,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/gartner-ai-agent-governance-2027/",
       "claimReviewed": "Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance gaps",
+      "reviewBody": "Gartner's May 2026 press release warns that enterprises risk failure by applying uniform governance to all AI agents. They recommend a proportional approach classifying agents by autonomy level from Level 1 (Observe) to Level 4 (Act Autonomously) to manage trust boundaries and security risks.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-40-percent-of-enterprises-will-demote-or-decommission-autonomous-ai-agents-by-2027",
+        "@type": "Claim",
+        "name": "Gartner predicts 40% of enterprises will demote or decommission autonomous AI agents by 2027 due to governance gaps",
+        "author": {
+          "@type": "Organization",
+          "name": "Gartner"
+        },
+        "datePublished": "2026-05-26T15:00:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-40-percent-of-enterprises-will-demote-or-decommission-autonomous-ai-agents-by-2027"
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-40-percent-of-enterprises-will-demote-or-decommission-autonomous-ai-agents-by-2027",
+          "name": "Gartner Says 40% of Enterprises Will Demote or Decommission Autonomous AI Agents by 2027"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Gartner"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T15:00:00+04:00",
       "reviewRating": {
@@ -2824,17 +3512,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/pope-leo-xiv-magnifica-humanitas-ai/",
       "claimReviewed": "Pope Leo XIV issues encyclical 'Magnifica Humanitas' calling for AI regulation and denouncing autonomous lethal weapons",
+      "reviewBody": "Pope Leo XIV signed his first encyclical on May 15, 2026 and published it on May 25, 2026, calling for AI to be 'disarmed' and stating it is 'not permissible' to entrust irreversible lethal decisions to automated systems. The document argues that 'no algorithm can make war morally acceptable.'",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/magnifica-humanitas.html",
+        "@type": "Claim",
+        "name": "Pope Leo XIV issues encyclical 'Magnifica Humanitas' calling for AI regulation and denouncing autonomous lethal weapons",
+        "author": {
+          "@type": "Person",
+          "name": "Pope Leo XIV"
+        },
+        "datePublished": "2026-05-26T15:01:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/magnifica-humanitas.html"
+          "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/magnifica-humanitas.html",
+          "name": "Magnifica Humanitas — Encyclical Letter of Pope Leo XIV"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "Pope Leo XIV"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T15:01:00+04:00",
       "reviewRating": {
@@ -2855,17 +3551,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/telus-digital-genai-safety-benchmark-2026/",
       "claimReviewed": "TELUS Digital reports every AI model tested was exploitable in 620,000+ adversarial attack benchmark across 34 models",
+      "reviewBody": "TELUS Digital released its GenAI Safety Model Benchmark based on over 620,000 adversarial tests across 34 leading AI models from 10 providers. The study found every model was exploitable, with attack success rates ranging from 1.3% to 93%. Reasoning models showed significantly lower vulnerability (19.9% ASR) compared to non-reasoning models (55.1%).",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.prnewswire.com/news-releases/telus-digital-genai-safety-model-benchmark-2026.html",
+        "@type": "Claim",
+        "name": "TELUS Digital reports every AI model tested was exploitable in 620,000+ adversarial attack benchmark across 34 models",
+        "author": {
+          "@type": "Organization",
+          "name": "TELUS Digital"
+        },
+        "datePublished": "2026-05-26T15:02:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.prnewswire.com/news-releases/telus-digital-genai-safety-model-benchmark-2026.html"
+          "url": "https://www.prnewswire.com/news-releases/telus-digital-genai-safety-model-benchmark-2026.html",
+          "name": "TELUS Digital GenAI Safety Model Benchmark 2026"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "TELUS Digital"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T15:02:00+04:00",
       "reviewRating": {
@@ -2886,17 +3590,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/aic-agentic-ai-infrastructure-computex-2026/",
       "claimReviewed": "AIC unveils next-gen AI infrastructure for the 'Agentic AI era' with NVIDIA CMX platform integration at COMPUTEX 2026",
+      "reviewBody": "AIC announced it will showcase next-generation infrastructure designed for the Agentic AI era at COMPUTEX 2026 (June 2-5). The company plans to highlight hardware solutions including platforms integrated with NVIDIA's Context Memory Platform (CMX) aimed at overcoming memory bottlenecks in LLM inference.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.prnewswire.com/news-releases/aic-unveils-next-gen-ai-infrastructure-for-the-agentic-ai-era-at-computex-2026.html",
+        "@type": "Claim",
+        "name": "AIC unveils next-gen AI infrastructure for the 'Agentic AI era' with NVIDIA CMX platform integration at COMPUTEX 2026",
+        "author": {
+          "@type": "Organization",
+          "name": "AIC"
+        },
+        "datePublished": "2026-05-26T15:03:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.prnewswire.com/news-releases/aic-unveils-next-gen-ai-infrastructure-for-the-agentic-ai-era-at-computex-2026.html"
+          "url": "https://www.prnewswire.com/news-releases/aic-unveils-next-gen-ai-infrastructure-for-the-agentic-ai-era-at-computex-2026.html",
+          "name": "AIC Unveils Next-Gen AI Infrastructure for the Agentic AI Era at COMPUTEX 2026"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "AIC"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T15:03:00+04:00",
       "reviewRating": {
@@ -2917,17 +3629,25 @@
       "@type": "ClaimReview",
       "url": "https://claimer-org.github.io/claimer/claims/haystackid-eu-ai-act-compliance-expansion-2026/",
       "claimReviewed": "HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance",
+      "reviewBody": "HaystackID announced an expansion of its AI-driven privacy and legal discovery solutions for the European market, specifically designed to help organizations navigate complex regulatory frameworks including the EU AI Act, GDPR, NIS2, and DORA. The solutions were showcased at Dublin Tech Summit 2026.",
       "itemReviewed": {
-        "@type": "CreativeWork",
-        "url": "https://www.prnewswire.com/news-releases/haystackid-expands-ai-driven-privacy-solutions-europe-2026.html",
+        "@type": "Claim",
+        "name": "HaystackID expands AI-driven privacy and legal discovery solutions for Europe targeting EU AI Act, GDPR, and DORA compliance",
+        "author": {
+          "@type": "Organization",
+          "name": "HaystackID"
+        },
+        "datePublished": "2026-05-26T15:04:00+04:00",
         "appearance": {
           "@type": "CreativeWork",
-          "url": "https://www.prnewswire.com/news-releases/haystackid-expands-ai-driven-privacy-solutions-europe-2026.html"
+          "url": "https://www.prnewswire.com/news-releases/haystackid-expands-ai-driven-privacy-solutions-europe-2026.html",
+          "name": "HaystackID Expands AI-Driven Privacy Solutions for Europe"
         }
       },
       "author": {
         "@type": "Organization",
-        "name": "HaystackID"
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
       },
       "datePublished": "2026-05-26T15:04:00+04:00",
       "reviewRating": {
@@ -2940,6 +3660,541 @@
       "evidenceUrls": {
         "support": [
           "https://www.prnewswire.com/news-releases/haystackid-expands-ai-driven-privacy-solutions-europe-2026.html"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/china-ai-platforms-exam-restrictions-2026/",
+      "claimReviewed": "Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao",
+      "reviewBody": "Doubao, Alibaba's Tongyi Qianwen, Tencent's Yuanbao, Kimi, DeepSeek, and Baidu's Wenxin Yiyan have all restricted or suspended 'photo-to-solve' and academic research assistance features to prevent cheating during China's 2026 national college entrance examinations (gaokao).",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Major Chinese AI platforms collectively restrict exam-assistance features ahead of 2026 gaokao",
+        "author": {
+          "@type": "Person",
+          "name": "Multiple Chinese AI Companies"
+        },
+        "datePublished": "2026-05-26T18:00:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://36kr.com/p/3268412983904768",
+          "name": "Chinese AI Platforms Restrict Exam Features for Gaokao 2026"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-26T18:00:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 82,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests supported"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://36kr.com/p/3268412983904768"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/space-based-ai-data-centers-pentagon-skepticism-2026/",
+      "claimReviewed": "Pentagon remains skeptical of orbital AI data centers despite growing industry interest in space-based compute",
+      "reviewBody": "While industry interest in orbital data centers (ODCs) for AI workloads is growing due to surging compute demand, government and defense officials remain cautious. Industry sources indicate that the Pentagon has not provided significant funding, waiting for commercial entities to prove both technical feasibility and a viable business case, outside of specific NASA lunar infrastructure plans.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Pentagon remains skeptical of orbital AI data centers despite growing industry interest in space-based compute",
+        "author": {
+          "@type": "Person",
+          "name": "Breaking Defense"
+        },
+        "datePublished": "2026-05-26T18:00:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/",
+          "name": "Pentagon Cautious on Orbital AI Data Centers"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-26T18:00:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 65,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests supported"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://breakingdefense.com/2026/05/orbital-data-centers-ai-pentagon/"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/ai-therapy-session-recording-privacy-2026/",
+      "claimReviewed": "Only 8% of Americans trust AI for mental health care as therapists increasingly use AI to record and transcribe sessions",
+      "reviewBody": "Therapists are increasingly using AI tools to record therapy sessions, transcribe them, and draft clinical notes for administrative efficiency. However, only 8% of Americans trust AI for mental health care according to recent polling, raising concerns about patient privacy, informed consent, and the impact on the therapeutic relationship.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Only 8% of Americans trust AI for mental health care as therapists increasingly use AI to record and transcribe sessions",
+        "author": {
+          "@type": "Person",
+          "name": "Iowa Public Radio / Multiple Sources"
+        },
+        "datePublished": "2026-05-26T18:00:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy",
+          "name": "AI in Therapy: Privacy Concerns as Clinicians Adopt Recording Tools"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-26T18:00:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 72,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests supported"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://www.iowapublicradio.org/health/2026-05-26/ai-therapy-recording-privacy"
+        ],
+        "challenge": [
+          "https://www.hipaajournal.com/ai-healthcare-tools-compliance/"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/micron-stock-ai-memory-boom-2026/",
+      "claimReviewed": "Micron Technology stock surges on persistent AI memory shortages as HBM demand outpaces supply",
+      "reviewBody": "Micron Technology has seen significant stock growth driven by persistent memory shortages and strong demand for AI infrastructure, particularly High Bandwidth Memory (HBM). The memory sector continues to benefit from the AI boom as demand for HBM used in AI accelerators outpaces manufacturing capacity.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Micron Technology stock surges on persistent AI memory shortages as HBM demand outpaces supply",
+        "author": {
+          "@type": "Person",
+          "name": "24/7 Wall St / Market Analysts"
+        },
+        "datePublished": "2026-05-26T18:00:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/",
+          "name": "Micron's AI Memory Boom Drives Stock Gains"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-26T18:00:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 78,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests supported"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://247wallst.com/technology-3/2026/05/26/micron-ai-memory-boom-stock/"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/aic-nvidia-cmx-computex-2026/",
+      "claimReviewed": "AIC showcases AI storage solutions integrated with NVIDIA Context Memory Platform (CMX) at COMPUTEX 2026",
+      "reviewBody": "AIC announced its participation in COMPUTEX 2026, focusing on next-generation AI infrastructure including storage solutions integrated with NVIDIA's Context Memory Platform (CMX). The solutions are designed to address memory bottlenecks in large language model inference by providing optimized storage tiers.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "AIC showcases AI storage solutions integrated with NVIDIA Context Memory Platform (CMX) at COMPUTEX 2026",
+        "author": {
+          "@type": "Organization",
+          "name": "AIC Inc."
+        },
+        "datePublished": "2026-05-26T18:00:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/",
+          "name": "AIC at COMPUTEX 2026: AI Storage with NVIDIA CMX"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-26T18:00:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 68,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests supported"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://www.eqs-news.com/en/news/aic-computex-2026-nvidia-cmx-ai-storage/"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-codex-mobile-preview-2026/",
+      "claimReviewed": "OpenAI announced a Codex preview inside the ChatGPT mobile app",
+      "reviewBody": "OpenAI announced that Codex is now in preview in the ChatGPT mobile app so users can monitor, steer, review, and approve Codex work connected to laptops, devboxes, or remote environments. Community assessment should treat rollout, security, and enterprise availability details as separate claims needing continued review.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "OpenAI announced a Codex preview inside the ChatGPT mobile app",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI"
+        },
+        "datePublished": "2026-05-27T08:08:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://openai.com/index/work-with-codex-from-anywhere/",
+          "name": "Work with Codex from anywhere"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-27T08:08:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 70,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests announced"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://openai.com/index/work-with-codex-from-anywhere/"
+        ],
+        "context": [
+          "https://openai.com/index/work-with-codex-from-anywhere/"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/anthropic-finance-agent-templates-2026/",
+      "claimReviewed": "Anthropic announced ten Claude agent templates for financial-services work",
+      "reviewBody": "Anthropic announced ten ready-to-run Claude agent templates for financial-services workflows, with plugin and cookbook distribution paths plus Microsoft 365 add-ins and data connectors. Evidence suggests the announcement is well attributed, while compliance, benchmark, productivity, and customer-impact claims should remain claimant-provided until independently reviewed.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Anthropic announced ten Claude agent templates for financial-services work",
+        "author": {
+          "@type": "Organization",
+          "name": "Anthropic"
+        },
+        "datePublished": "2026-05-27T08:11:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://www.anthropic.com/news/finance-agents",
+          "name": "Agents for financial services"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-27T08:11:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 68,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests announced"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://www.anthropic.com/news/finance-agents"
+        ],
+        "context": [
+          "https://www.anthropic.com/news/finance-agents"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/meta-muse-spark-rollout-2026/",
+      "claimReviewed": "Meta announced Muse Spark and said it powers Meta AI experiences",
+      "reviewBody": "Meta announced Muse Spark as the first model in its Muse series and said it powers the Meta AI app and website, with staged rollout across Meta apps, AI glasses, and private API preview for select partners. Community assessment should separate Meta's announcement from independent evidence of user availability, health-adjacent behavior, shopping recommendations, API access, and capability quality.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Meta announced Muse Spark and said it powers Meta AI experiences",
+        "author": {
+          "@type": "Organization",
+          "name": "Meta"
+        },
+        "datePublished": "2026-05-27T08:14:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+          "name": "Introducing Muse Spark: MSL's First Model, Purpose-Built to Prioritize People"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-27T08:14:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 64,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests announced"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"
+        ],
+        "context": [
+          "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/mistral-emmi-ai-acquisition-agreement-2026/",
+      "claimReviewed": "Mistral AI announced a definitive agreement to acquire Emmi AI",
+      "reviewBody": "Mistral AI announced that it entered into a definitive agreement to acquire Emmi AI to strengthen industrial AI, physics-modeling, engineering, and manufacturing capabilities. Evidence suggests the agreement is directly attributed, while deal closing, product integration, and real-time simulation outcomes require later independent evidence.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Mistral AI announced a definitive agreement to acquire Emmi AI",
+        "author": {
+          "@type": "Organization",
+          "name": "Mistral AI"
+        },
+        "datePublished": "2026-05-27T08:17:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://mistral.ai/news/science-to-win-industrial-ai",
+          "name": "Doubling Down on Science to Win Industrial AI"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-27T08:17:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 69,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests announced"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://mistral.ai/news/science-to-win-industrial-ai"
+        ],
+        "context": [
+          "https://mistral.ai/news/science-to-win-industrial-ai"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/perplexity-bumblebee-open-source-scanner-2026/",
+      "claimReviewed": "Perplexity released Bumblebee as an open-source read-only developer endpoint scanner",
+      "reviewBody": "Perplexity released Bumblebee as an Apache-2.0 open-source, read-only scanner for macOS and Linux developer endpoints that inventories package, extension, and developer-tool metadata for software supply-chain exposure checks. Community assessment should not treat this as proof that Bumblebee prevents compromise or fully secures developer machines.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Perplexity released Bumblebee as an open-source read-only developer endpoint scanner",
+        "author": {
+          "@type": "Organization",
+          "name": "Perplexity"
+        },
+        "datePublished": "2026-05-27T08:20:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee",
+          "name": "Perplexity Is Open-Sourcing Bumblebee"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-27T08:20:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 72,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests announced"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://www.perplexity.ai/hub/blog/perplexity-is-open-sourcing-bumblebee"
+        ],
+        "context": [
+          "https://github.com/perplexityai/bumblebee"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/openai-image-provenance-signals/",
+      "claimReviewed": "OpenAI said it added SynthID image provenance signals and previewed a public verification tool",
+      "reviewBody": "OpenAI said on May 19, 2026 that it was adding Google DeepMind SynthID watermarking to images generated through ChatGPT, Codex, or the OpenAI API, alongside C2PA metadata and a public tool for checking supported OpenAI image provenance signals.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "OpenAI said it added SynthID image provenance signals and previewed a public verification tool",
+        "author": {
+          "@type": "Organization",
+          "name": "OpenAI"
+        },
+        "datePublished": "2026-05-29T02:04:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://openai.com/index/advancing-content-provenance/",
+          "name": "Advancing content provenance"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-29T02:04:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 78,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests source-backed"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://openai.com/research/verify/"
+        ],
+        "context": [
+          "https://openai.com/research/verify/"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/california-ai-workforce-executive-order/",
+      "claimReviewed": "California issued Executive Order N-6-26 on AI workforce impacts",
+      "reviewBody": "California Governor Gavin Newsom issued Executive Order N-6-26 on May 21, 2026, directing state agencies to assess AI workforce impacts, review possible WARN Act updates, launch an AI employment-impact dashboard within 90 days, and prepare an AI playbook for dislocated-worker strategies.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "California issued Executive Order N-6-26 on AI workforce impacts",
+        "author": {
+          "@type": "Person",
+          "name": "Governor Gavin Newsom"
+        },
+        "datePublished": "2026-05-29T02:07:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf",
+          "name": "Executive Order N-6-26"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-29T02:07:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 80,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests source-backed"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://www.gov.ca.gov/2026/05/21/governor-newsom-signs-first-of-its-kind-executive-order-to-prepare-workers-and-businesses-for-potential-ai-disruption/"
+        ],
+        "context": [
+          "https://www.gov.ca.gov/wp-content/uploads/2026/05/5.21.26-AI-Workforce-EO-FINAL-SIGNED.pdf"
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "url": "https://claimer-org.github.io/claimer/claims/nature-social-feed-algorithm-registered-report/",
+      "claimReviewed": "Nature published a registered report on Bluesky feeds and social feed algorithms",
+      "reviewBody": "Nature published a registered report on May 27, 2026 in which researchers randomly assigned 2,000 participants to use custom Bluesky feeds for eight weeks and reported that engagement-based feeds amplified intergroup, moralized, emotional, and toxic content relative to reverse-chronological feeds, while a diversified extremity algorithm reduced exposure and maintained comparable platform enjoyment.",
+      "itemReviewed": {
+        "@type": "Claim",
+        "name": "Nature published a registered report on Bluesky feeds and social feed algorithms",
+        "author": {
+          "@type": "Person",
+          "name": "Nature research authors"
+        },
+        "datePublished": "2026-05-29T02:10:00+04:00",
+        "appearance": {
+          "@type": "CreativeWork",
+          "url": "https://www.nature.com/articles/s41586-026-10536-1",
+          "name": "Nature social feed algorithm registered report"
+        }
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Claimer Community",
+        "url": "https://claimer-org.github.io/claimer"
+      },
+      "datePublished": "2026-05-29T02:10:00+04:00",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 82,
+        "bestRating": 100,
+        "worstRating": 0,
+        "alternateName": "Evidence suggests source-backed"
+      },
+      "evidenceUrls": {
+        "support": [
+          "https://osf.io/k2crm/",
+          "https://github.com/METResearchGroup/bluesky-research"
+        ],
+        "context": [
+          "https://www.nature.com/articles/s41586-026-10536-1"
         ]
       }
     }
