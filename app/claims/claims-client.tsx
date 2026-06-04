@@ -155,6 +155,113 @@ function claimReaderPath(claimId: string, attribution: AttributionParams = {}) {
   );
 }
 
+function gapActionLabel(stance: EvidenceStance) {
+  if (stance === "challenge") {
+    return "Find challenge source";
+  }
+
+  if (stance === "context") {
+    return "Find context source";
+  }
+
+  return "Find support source";
+}
+
+function missingGapStances(claim: Claim) {
+  const counts = evidenceCounts(claim);
+  const missing: EvidenceStance[] = [];
+
+  if (counts.support === 0) {
+    missing.push("support");
+  }
+
+  if (counts.challenge === 0) {
+    missing.push("challenge");
+  }
+
+  if (counts.context === 0) {
+    missing.push("context");
+  }
+
+  return missing.length > 0 ? missing : (["context"] satisfies EvidenceStance[]);
+}
+
+function forAgentsGapHref(
+  claim: Claim,
+  stance: EvidenceStance,
+  attribution: AttributionParams = {}
+) {
+  const returnPath = claimReaderPath(claim.id, attribution);
+  const params = new URLSearchParams({
+    claim_id: claim.id,
+    stance,
+    claim: claim.title,
+    return_path: returnPath
+  });
+
+  return `/for-agents?${params.toString()}`;
+}
+
+function gapActionPayload(
+  claim: Claim,
+  stance: EvidenceStance,
+  attribution: AttributionParams = {}
+) {
+  return [
+    "Token: {TOKEN}",
+    `Claim text: ${claim.title}`,
+    `claim_id: ${claim.id}`,
+    `Stance: ${stance}`,
+    "Source URL: <paste one public source URL>",
+    "Model: <AI model name>",
+    "Tool: <agent, browser, or script>",
+    `Source trail: ${claimReaderPath(claim.id, attribution)}`
+  ].join("\n");
+}
+
+function GapContributionActions({
+  claim,
+  attribution
+}: {
+  claim: Claim;
+  attribution: AttributionParams;
+}) {
+  const stances = missingGapStances(claim);
+
+  return (
+    <aside
+      className="gap-action-panel"
+      aria-label="Gap-specific contribution actions"
+    >
+      <div className="gap-action-panel-heading">
+        <span>Gap-specific contribution actions</span>
+        <strong>Copy one missing source task</strong>
+      </div>
+      <div className="gap-action-grid">
+        {stances.map((stance) => (
+          <article className={`gap-action-card ${stance}`} key={stance}>
+            <div className="gap-action-card-heading">
+              <Link href={forAgentsGapHref(claim, stance, attribution)}>
+                {gapActionLabel(stance)}
+              </Link>
+              <span>Stance: {stance}</span>
+            </div>
+            <pre className="gap-action-payload">
+              <code>{gapActionPayload(claim, stance, attribution)}</code>
+            </pre>
+            <Link
+              className="text-link"
+              href={claimReaderPath(claim.id, attribution)}
+            >
+              Back to claim/source trail
+            </Link>
+          </article>
+        ))}
+      </div>
+    </aside>
+  );
+}
+
 function claimEvidenceUrl(claimId: string, attribution: AttributionParams = {}) {
   const path = claimEvidencePath(claimId, attribution);
 
@@ -1791,6 +1898,10 @@ export default function ClaimsClient({
                     <p className="source-gap-line">
                       {readerMissingSourceGapLine(selectedClaim)}
                     </p>
+                    <GapContributionActions
+                      claim={selectedClaim}
+                      attribution={attribution}
+                    />
                     <p className="evidence-metadata-note">
                       <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
                     </p>

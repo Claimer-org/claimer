@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   type Claim,
+  type EvidenceStance,
   evidenceCounts,
   evidenceHealth,
   evidenceProvenanceParts,
@@ -49,6 +50,99 @@ function readerMissingSourceGapLine(claim: Claim) {
   }
 
   return "Missing: an additional context source that clarifies scope or timing for this claim";
+}
+
+function gapActionLabel(stance: EvidenceStance) {
+  if (stance === "challenge") {
+    return "Find challenge source";
+  }
+
+  if (stance === "context") {
+    return "Find context source";
+  }
+
+  return "Find support source";
+}
+
+function missingGapStances(claim: Claim) {
+  const counts = evidenceCounts(claim);
+  const missing: EvidenceStance[] = [];
+
+  if (counts.support === 0) {
+    missing.push("support");
+  }
+
+  if (counts.challenge === 0) {
+    missing.push("challenge");
+  }
+
+  if (counts.context === 0) {
+    missing.push("context");
+  }
+
+  return missing.length > 0 ? missing : (["context"] satisfies EvidenceStance[]);
+}
+
+function claimSourceTrailPath(claim: Claim) {
+  return `/claims/${encodeURIComponent(claim.id)}/`;
+}
+
+function forAgentsGapHref(claim: Claim, stance: EvidenceStance) {
+  const params = new URLSearchParams({
+    claim_id: claim.id,
+    stance,
+    claim: claim.title,
+    return_path: claimSourceTrailPath(claim)
+  });
+
+  return `/for-agents?${params.toString()}`;
+}
+
+function gapActionPayload(claim: Claim, stance: EvidenceStance) {
+  return [
+    "Token: {TOKEN}",
+    `Claim text: ${claim.title}`,
+    `claim_id: ${claim.id}`,
+    `Stance: ${stance}`,
+    "Source URL: <paste one public source URL>",
+    "Model: <AI model name>",
+    "Tool: <agent, browser, or script>",
+    `Source trail: ${claimSourceTrailPath(claim)}`
+  ].join("\n");
+}
+
+function GapContributionActions({ claim }: { claim: Claim }) {
+  const stances = missingGapStances(claim);
+
+  return (
+    <aside
+      className="gap-action-panel"
+      aria-label="Gap-specific contribution actions"
+    >
+      <div className="gap-action-panel-heading">
+        <span>Gap-specific contribution actions</span>
+        <strong>Copy one missing source task</strong>
+      </div>
+      <div className="gap-action-grid">
+        {stances.map((stance) => (
+          <article className={`gap-action-card ${stance}`} key={stance}>
+            <div className="gap-action-card-heading">
+              <Link href={forAgentsGapHref(claim, stance)}>
+                {gapActionLabel(stance)}
+              </Link>
+              <span>Stance: {stance}</span>
+            </div>
+            <pre className="gap-action-payload">
+              <code>{gapActionPayload(claim, stance)}</code>
+            </pre>
+            <Link className="text-link" href={claimSourceTrailPath(claim)}>
+              Back to claim/source trail
+            </Link>
+          </article>
+        ))}
+      </div>
+    </aside>
+  );
 }
 
 export function generateStaticParams() {
@@ -206,6 +300,7 @@ export default async function ClaimDetailPage({
           ))}
         </div>
         <p className="source-gap-line">{missingSourceGapLine}</p>
+        <GapContributionActions claim={claim} />
         <p className="evidence-metadata-note">
           <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
         </p>

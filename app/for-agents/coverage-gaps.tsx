@@ -22,8 +22,16 @@ type CoverageGap = {
   contextCount: number;
 };
 
+type RequestedGapTask = {
+  claimId: string;
+  claimText: string;
+  sourceTrailPath: string;
+  stance: StanceChoice;
+};
+
 const evidenceTarget = 10;
-const stanceChoices = ["support", "challenge", "context"];
+const stanceChoices = ["support", "challenge", "context"] as const;
+type StanceChoice = (typeof stanceChoices)[number];
 const unsafeResolvedClaimTextPattern =
   /(?:X-Contributor-Token|contributor[_ -]?token|submitted[_ -]?by|bearer\s+|service[_ -]?role|sb_secret_|sk-[a-z0-9_-]{16,}|\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b)/i;
 
@@ -164,6 +172,18 @@ function renderClaimReference(gap: CoverageGap) {
   );
 }
 
+function gapActionLabel(stance: StanceChoice) {
+  if (stance === "challenge") {
+    return "Find challenge source";
+  }
+
+  if (stance === "context") {
+    return "Find context source";
+  }
+
+  return "Find support source";
+}
+
 function liveTaskPayload(gap: CoverageGap, claimText: string) {
   return [
     "Token: {TOKEN}",
@@ -175,6 +195,73 @@ function liveTaskPayload(gap: CoverageGap, claimText: string) {
     "Tool: <agent, browser, or script>",
     "Need: find one independent support, challenge, or context source URL for this claim"
   ].join("\n");
+}
+
+function requestedGapPayload(task: RequestedGapTask) {
+  return [
+    "Token: {TOKEN}",
+    `Claim text: ${task.claimText}`,
+    `claim_id: ${task.claimId}`,
+    `Stance: ${task.stance}`,
+    "Source URL: <paste one public source URL>",
+    "Model: <AI model name>",
+    "Tool: <agent, browser, or script>",
+    `Source trail: ${task.sourceTrailPath}`
+  ].join("\n");
+}
+
+function parseRequestedGapTask(search: string): RequestedGapTask | null {
+  const params = new URLSearchParams(search);
+  const claimText = (params.get("claim") ?? "").trim();
+  const claimId = (params.get("claim_id") ?? "").trim();
+  const requestedStance = (params.get("stance") ?? "").trim().toLowerCase();
+  const sourceTrailPath = (params.get("return_path") ?? "/claims/").trim();
+
+  if (!claimText || unsafeResolvedClaimTextPattern.test(claimText)) {
+    return null;
+  }
+
+  if (!stanceChoices.includes(requestedStance as StanceChoice)) {
+    return null;
+  }
+
+  return {
+    claimId: claimId || "claim reference not provided",
+    claimText,
+    sourceTrailPath: sourceTrailPath || "/claims/",
+    stance: requestedStance as StanceChoice
+  };
+}
+
+function renderRequestedGapTask(task: RequestedGapTask) {
+  return (
+    <aside
+      className={`requested-gap-task ${task.stance}`}
+      aria-label="Reader-selected source gap"
+    >
+      <div className="requested-gap-copy">
+        <span>Reader-selected source gap</span>
+        <h3>{gapActionLabel(task.stance)}</h3>
+        <p>{task.claimText}</p>
+      </div>
+      <dl className="requested-gap-facts">
+        <div>
+          <dt>claim_id</dt>
+          <dd>{task.claimId}</dd>
+        </div>
+        <div>
+          <dt>Stance</dt>
+          <dd>{task.stance}</dd>
+        </div>
+      </dl>
+      <pre className="agent-starter-prompt">
+        <code>{requestedGapPayload(task)}</code>
+      </pre>
+      <a className="text-link" href={task.sourceTrailPath}>
+        Back to claim/source trail
+      </a>
+    </aside>
+  );
 }
 
 function renderLiveTaskState(
@@ -280,6 +367,8 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
   const [fullClaimTitles, setFullClaimTitles] = useState<Record<string, string>>({});
   const [state, setState] = useState<"loading" | "ready" | "unavailable">("loading");
   const [message, setMessage] = useState("");
+  const [requestedGapTask, setRequestedGapTask] =
+    useState<RequestedGapTask | null>(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -321,6 +410,10 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
     };
   }, []);
 
+  useEffect(() => {
+    setRequestedGapTask(parseRequestedGapTask(window.location.search));
+  }, []);
+
   const coverageGaps = useMemo(
     () =>
       claimCoverageItems(metrics)
@@ -356,6 +449,7 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
           </ul>
         </div>
         <div className="live-task-slot" aria-live="polite">
+          {requestedGapTask ? renderRequestedGapTask(requestedGapTask) : null}
           {renderLiveTaskState(state, message, liveTask, fullClaimTitles)}
         </div>
       </section>

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.54";
+export const SITE_VERSION = "26.601.55";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "Gap-specific contribution actions",
+    bullets: [
+      "Reader source-gap surfaces now show gap-specific contribution actions such as Find challenge source and Find context source with copy-ready claim text, claim_id, stance, Source URL, Model, Tool, `{TOKEN}`, and a path back to the claim/source trail.",
+      "`/for-agents/` can display a reader-selected missing stance from query context while preserving the completed evidence example before Work this task and Work this task before starter prompt and token setup.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.54",
     date: "2026-06-04",
     title: "For agents secondary gap parity",
     bullets: [
@@ -799,7 +809,7 @@ export const RELEASES = [
     bullets: [
       "Public claim table grants now block broad anonymous reads from returning raw contributor tokens.",
       "The public site keeps using explicit non-token claim columns for live claim loading.",
-      "Contributor Edge Function contracts and service-role token flows remain unchanged."
+      "Contributor Edge Function contracts and privileged token flows remain unchanged."
     ]
   },
   {
@@ -809,7 +819,7 @@ export const RELEASES = [
     bullets: [
       "Public evidence table grants now block broad anonymous reads from returning raw contributor tokens.",
       "The public site keeps using explicit non-token evidence columns for claim, profile, and metrics views.",
-      "Contributor Edge Function contracts and service-role token validation flows remain unchanged."
+      "Contributor Edge Function contracts and privileged token validation flows remain unchanged."
     ]
   },
   {

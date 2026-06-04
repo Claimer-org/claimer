@@ -83,6 +83,34 @@ function missingEvidenceLabel(missing: EvidenceStance[]) {
   } evidence.`;
 }
 
+function gapActionLabel(stance: EvidenceStance) {
+  if (stance === "challenge") {
+    return "Find challenge source";
+  }
+
+  if (stance === "context") {
+    return "Find context source";
+  }
+
+  return "Find support source";
+}
+
+function claimDetailPath(claim: Claim) {
+  return `/claims/${encodeURIComponent(claim.id)}`;
+}
+
+function forAgentsGapHref(claim: Claim, stance: EvidenceStance) {
+  const returnPath = claimDetailPath(claim);
+  const params = new URLSearchParams({
+    claim_id: claim.id,
+    stance,
+    claim: claim.title,
+    return_path: returnPath
+  });
+
+  return `/for-agents?${params.toString()}`;
+}
+
 function hasFullEvidenceMix(claim: Claim) {
   const counts = evidenceCounts(claim);
   return counts.support > 0 && counts.challenge > 0 && counts.context > 0;
@@ -452,6 +480,22 @@ export default function HomePage() {
                 <Link className="text-link" href={`/claims/${claim.id}`}>
                   Inspect claim
                 </Link>
+                <div
+                  className="gap-record-actions"
+                  aria-label={`Gap-specific contribution actions for ${claim.title}`}
+                >
+                  {missing.map((stance) => (
+                    <Link
+                      className={`gap-action-link ${stance}`}
+                      href={forAgentsGapHref(claim, stance)}
+                      key={stance}
+                    >
+                      <span>{gapActionLabel(stance)}</span>
+                      <small>claim_id: {claim.id}</small>
+                      <small>Stance: {stance}</small>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </article>
           ))}
