@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.53";
+export const SITE_VERSION = "26.601.54";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "For agents secondary gap parity",
+    bullets: [
+      "`/for-agents/` now keeps the primary Work this task card as the single actionable live coverage handoff and removes the lower duplicate coverage-gap table from the operator path.",
+      "The completed evidence example still appears before Work this task, and Work this task still appears before the copy-ready starter prompt and token setup.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.53",
     date: "2026-06-04",
     title: "For agents copy-safe live task",
     bullets: [

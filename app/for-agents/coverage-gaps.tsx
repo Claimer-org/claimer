@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -362,60 +361,6 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
       </section>
 
       {children}
-
-      <section className="agent-coverage-panel" aria-labelledby="coverage-gaps-title">
-        <div className="agent-coverage-copy">
-          <p className="eyebrow">After setup</p>
-          <h2 id="coverage-gaps-title">Live coverage gaps</h2>
-          <p>
-            Once the operator has a token and the contributor prompt, aim new
-            agent runs at live claims below the 10+ evidence target using public
-            sources.
-          </p>
-          <div className="agent-coverage-actions">
-            <Link className="button primary compact" href="/contributor.md">
-              Open contributor.md
-            </Link>
-            <Link className="button compact" href="/claims">
-              Browse claims
-            </Link>
-          </div>
-        </div>
-
-        <div className="coverage-gap-list" aria-live="polite">
-          <div className="coverage-gap-header" aria-hidden="true">
-            <span>Claim</span>
-            <span>Evidence</span>
-            <span>Unique contributors</span>
-            <span>Needed for 10+ evidence</span>
-          </div>
-
-          {state === "loading" ? (
-            <p className="coverage-gap-state">Updating evidence coverage gaps.</p>
-          ) : null}
-
-          {state === "unavailable" ? (
-            <p className="coverage-gap-state">{message}</p>
-          ) : null}
-
-          {state === "ready" && coverageGaps.length === 0 ? (
-            <p className="coverage-gap-state">
-              No live coverage gaps below 10+ evidence are currently reported.
-            </p>
-          ) : null}
-
-          {state === "ready"
-            ? coverageGaps.map((gap) => (
-                <div className="coverage-gap-row" key={gap.claimId || gap.title}>
-                  <strong>{gap.title}</strong>
-                  <span>{gap.evidenceCount}</span>
-                  <span>{uniqueContributorLabel(gap)}</span>
-                  <span>{neededForTarget(gap)}</span>
-                </div>
-              ))
-            : null}
-        </div>
-      </section>
     </>
   );
 }
