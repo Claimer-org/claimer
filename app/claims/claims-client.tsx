@@ -254,6 +254,24 @@ function readerCoverageDescription(claim: Claim) {
   return "The library has source coverage across the current evidence mix. Additional context sources can still clarify how the claim is reported.";
 }
 
+function readerMissingSourceGapLine(claim: Claim) {
+  const health = evidenceHealth(claim);
+
+  if (!health.hasHighQualitySource) {
+    return "Missing: a primary or direct source that anchors this claim";
+  }
+
+  if (health.needsChallenge) {
+    return "Missing: an independent source that limits or challenges this claim";
+  }
+
+  if (health.needsSupport) {
+    return "Missing: an independent source that supports this claim";
+  }
+
+  return "Missing: an additional context source that clarifies scope or timing for this claim";
+}
+
 function readerMixLabel(claim: Claim) {
   const health = evidenceHealth(claim);
 
@@ -593,7 +611,7 @@ function EvidenceStandardsBlock({
         <h4 id="evidence-standards-title">Methodology and corrections</h4>
         <p>
           Claimer keeps support, challenge, and context evidence separate and
-          stores source-backed evidence, not truth verdicts.
+          stores source-backed evidence, not editorial conclusions.
         </p>
         <p>
           Evidence quality is evaluated by source relevance, source type, and
@@ -1521,7 +1539,7 @@ export default function ClaimsClient({
                     <strong>Read the source and evidence chain</strong>
                     <p>
                       Review the source line and current support / challenge / context
-                      entries as public source coverage, not a platform verdict.
+                      entries as public source coverage, not a platform conclusion.
                     </p>
                     <div className="priority-actions">
                       {seedClaims.some((claim) => claim.id === featuredClaim.id) ? (
@@ -1816,11 +1834,6 @@ export default function ClaimsClient({
 
               <section className="evidence-section" aria-labelledby="evidence-title">
                 <h3 id="evidence-title">Evidence chain</h3>
-                {isReaderMode ? (
-                  <p className="evidence-metadata-note">
-                    <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
-                  </p>
-                ) : null}
                 <div className="evidence-list">
                   {selectedClaim.evidence.map((item) => (
                     <article className={`evidence ${item.stance}`} key={item.id}>
@@ -1848,6 +1861,16 @@ export default function ClaimsClient({
                     </article>
                   ))}
                 </div>
+                {isReaderMode ? (
+                  <>
+                    <p className="source-gap-line">
+                      {readerMissingSourceGapLine(selectedClaim)}
+                    </p>
+                    <p className="evidence-metadata-note">
+                      <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
+                    </p>
+                  </>
+                ) : null}
                 {isReaderMode ? (
                   <EvidenceStandardsBlock
                     actionHref={claimEvidencePath(selectedClaim.id, attribution)}

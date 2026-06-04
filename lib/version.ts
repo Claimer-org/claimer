@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.49";
+export const SITE_VERSION = "26.601.50";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "Claim source ladder",
+    bullets: [
+      "`/claims/` selected claim panels and static claim detail pages now read as a source ladder: claim, Original source URL, Evidence chain, one Missing: source gap line, then lower-weight provenance details.",
+      "Support, challenge, and context evidence labels stay neutral and source-based while source URLs, AI disclosure, model, tool, contributor, and record metadata remain visible.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.49",
     date: "2026-06-04",
     title: "Reader evidence language",
     bullets: [
@@ -398,7 +408,7 @@ export const RELEASES = [
     title: "Evidence methodology and corrections path",
     bullets: [
       "Public claims evidence surfaces now pair Evidence standards with compact methodology and corrections context beside the evidence chain.",
-      "The copy keeps support, challenge, and context evidence separate; explains quality review by source relevance, source type, and source-summary fit; and confirms Claimer stores evidence, not truth verdicts.",
+      "The copy keeps support, challenge, and context evidence separate; explains quality review by source relevance, source type, and source-summary fit; and confirms Claimer stores evidence, not editorial conclusions.",
       "Reader corrections use the existing sourced-evidence and feedback paths for missing, stale, or incorrect coverage, meaning readers add or challenge sourced evidence rather than rewriting claims into editorial conclusions."
     ]
   },
@@ -407,7 +417,7 @@ export const RELEASES = [
     date: "2026-06-01",
     title: "Evidence standards reader context",
     bullets: [
-      "Reader evidence chains now include compact source standards context explaining that Claimer stores source-backed evidence, not truth verdicts.",
+      "Reader evidence chains now include compact source standards context explaining that Claimer stores source-backed evidence, not editorial conclusions.",
       "The standards block prefers primary, official, direct, court, academic, or original sources when available and keeps support, challenge, and context entries separate.",
       "Static record model/tool fallback labels are explained as public metadata availability, with existing contribution paths preserved and no contributor prompt, API contract, token behavior, backend, seed data, investor, DEC, or agent artifact changes."
     ]
@@ -558,7 +568,7 @@ export const RELEASES = [
     title: "Claim detail neutral coverage",
     bullets: [
       "Claim detail pages now keep original source, source URL, evidence chain, support / challenge / context mix, and the evidence gap before sharing or coverage metadata.",
-      "Large verdict-like percentage panels have been replaced with compact reader inspection metadata below the evidence context.",
+      "Large percentage panels have been replaced with compact reader inspection metadata below the evidence context.",
       "ClaimReview structured data and rating semantics were removed from the claim detail route while contributor prompt, public API contracts, token behavior, database schema, Supabase functions, and seed claim data remain unchanged."
     ]
   },
@@ -608,7 +618,7 @@ export const RELEASES = [
     title: "Mobile reader cleanup",
     bullets: [
       "Public reader pages now constrain long claim text, source URLs, code blocks, pills, cards, grids, and CTA groups inside mobile viewports.",
-      "The primary claims browser no longer renders verdict-like support labels or contributor/reviewer action language on the reader surface.",
+      "The primary claims browser no longer renders outcome-style support labels or contributor/reviewer action language on the reader surface.",
       "Contributor routes, contributor prompt, public API contracts, token behavior, database schema, seed claim data, and Supabase functions remain unchanged."
     ]
   },
@@ -618,7 +628,7 @@ export const RELEASES = [
     title: "Source-first claim detail",
     bullets: [
       "Public claim detail pages now show the original source and evidence chain before coverage scores, readiness checks, or contribution prompts.",
-      "Verdict-like claim detail labels have been reframed as evidence coverage and support / challenge balance.",
+      "Outcome-style claim detail labels have been reframed as evidence coverage and support / challenge balance.",
       "The claim detail contribution route is reduced to one secondary sourced-evidence action while contributor contracts and data remain unchanged."
     ]
   },
@@ -909,7 +919,7 @@ export const RELEASES = [
     bullets: [
       "The reviewer launch kit now includes daily, trending, and changelog return paths for repeat reviewers.",
       "Each return path carries launch-kit campaign attribution so repeat-use interest can be measured.",
-      "Copy stays framed as source-backed evidence records rather than an official truth verdict."
+      "Copy stays framed as source-backed evidence records rather than an official editorial conclusion."
     ]
   },
   {

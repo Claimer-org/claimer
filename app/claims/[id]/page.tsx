@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
+  type Claim,
   evidenceCounts,
   evidenceHealth,
   evidenceProvenanceParts,
@@ -30,6 +31,24 @@ function readerEvidenceProvenanceValue(value: string) {
   }
 
   return value;
+}
+
+function readerMissingSourceGapLine(claim: Claim) {
+  const health = evidenceHealth(claim);
+
+  if (!health.hasHighQualitySource) {
+    return "Missing: a primary or direct source that anchors this claim";
+  }
+
+  if (health.needsChallenge) {
+    return "Missing: an independent source that limits or challenges this claim";
+  }
+
+  if (health.needsSupport) {
+    return "Missing: an independent source that supports this claim";
+  }
+
+  return "Missing: an additional context source that clarifies scope or timing for this claim";
 }
 
 export function generateStaticParams() {
@@ -87,6 +106,7 @@ export default async function ClaimDetailPage({
   const mission = reviewMission(claim);
   const sourceCountSummary = `${counts.support} support, ${counts.challenge} challenge, ${counts.context} context`;
   const supportChallengeContextSummary = `${counts.support} support / ${counts.challenge} challenge / ${counts.context} context`;
+  const missingSourceGapLine = readerMissingSourceGapLine(claim);
   const evidenceGapSignal = health.needsChallenge
     ? "Challenge source gap"
     : health.needsSupport
@@ -168,9 +188,6 @@ export default async function ClaimDetailPage({
 
       <section className="evidence-section" aria-labelledby="detail-evidence-title">
         <h2 id="detail-evidence-title">Evidence chain</h2>
-        <p className="evidence-metadata-note">
-          <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
-        </p>
         <div className="evidence-list">
           {claim.evidence.map((item) => (
             <article className={`evidence ${item.stance}`} key={item.id}>
@@ -196,13 +213,17 @@ export default async function ClaimDetailPage({
             </article>
           ))}
         </div>
+        <p className="source-gap-line">{missingSourceGapLine}</p>
+        <p className="evidence-metadata-note">
+          <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
+        </p>
         <aside className="evidence-standards" aria-labelledby="detail-evidence-standards-title">
           <div className="evidence-standards-copy">
             <span>Evidence standards</span>
             <h3 id="detail-evidence-standards-title">Methodology and corrections</h3>
             <p>
               Claimer keeps support, challenge, and context evidence separate and
-              stores source-backed evidence, not truth verdicts.
+              stores source-backed evidence, not editorial conclusions.
             </p>
             <p>
               Evidence quality is evaluated by source relevance, source type, and

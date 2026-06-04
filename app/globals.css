@@ -3123,6 +3123,14 @@ a.current-record-pin {
   font-weight: 800;
 }
 
+.source-gap-line {
+  margin: 0;
+  color: var(--foreground-dim);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
 .evidence-list {
   display: grid;
   gap: 10px;
@@ -3452,7 +3460,11 @@ body:has(.reader-editorial) .page-heading h1 {
 }
 
 .reader-editorial .source-inspection {
-  background: #fbfdfb;
+  border: 0;
+  border-left: 3px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  padding: 6px 0 6px 14px;
 }
 
 .source-inspection h3 {
@@ -3711,8 +3723,7 @@ body:has(.reader-editorial) .page-heading h1 {
     .source-inspection
     > div:first-child
     p,
-  .reader-workspace:not(.targeted-review-workspace) .source-reference small,
-  .reader-workspace:not(.targeted-review-workspace) .source-url {
+  .reader-workspace:not(.targeted-review-workspace) .source-reference small {
     display: none;
   }
 
@@ -3743,6 +3754,13 @@ body:has(.reader-editorial) .page-heading h1 {
     -webkit-line-clamp: 1;
   }
 
+  .reader-workspace:not(.targeted-review-workspace) .source-url {
+    flex: 1 1 100%;
+    font-size: 0.68rem;
+    line-height: 1.3;
+    padding: 2px 0;
+  }
+
   .reader-workspace:not(.targeted-review-workspace) .evidence-section {
     order: -1;
     gap: 8px;
@@ -3754,8 +3772,14 @@ body:has(.reader-editorial) .page-heading h1 {
   }
 
   .reader-workspace:not(.targeted-review-workspace) .evidence-list {
-    order: 2;
+    order: 1;
     gap: 8px;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .source-gap-line {
+    order: 2;
+    font-size: 0.78rem;
+    line-height: 1.35;
   }
 
   .reader-workspace:not(.targeted-review-workspace) .evidence-metadata-note {
@@ -3778,10 +3802,6 @@ body:has(.reader-editorial) .page-heading h1 {
   .reader-workspace:not(.targeted-review-workspace) .evidence .evidence-provenance {
     font-size: 0.74rem;
     line-height: 1.3;
-  }
-
-  .reader-workspace:not(.targeted-review-workspace) .evidence-source small {
-    display: none;
   }
 
   .reader-workspace:not(.targeted-review-workspace) .evidence-standards {
@@ -4880,8 +4900,7 @@ textarea {
     .source-inspection
     > div:first-child
     p,
-  .reader-workspace:not(.targeted-review-workspace) .claim-main .source-reference small,
-  .reader-workspace:not(.targeted-review-workspace) .claim-main .source-url {
+  .reader-workspace:not(.targeted-review-workspace) .claim-main .source-reference small {
     display: none;
   }
 
@@ -4942,9 +4961,20 @@ textarea {
   .reader-workspace:not(.targeted-review-workspace)
     .claim-main
     .evidence-section
+    .source-gap-line,
+  .claim-detail-article .evidence-section .source-gap-line {
+    order: 2;
+    margin-top: 0;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace)
+    .claim-main
+    .evidence-section
     .evidence-metadata-note,
   .claim-detail-article .evidence-section .evidence-metadata-note {
-    order: 2;
+    order: 3;
     margin-top: 0;
   }
 
@@ -4953,7 +4983,7 @@ textarea {
     .evidence-section
     .evidence-standards,
   .claim-detail-article .evidence-section .evidence-standards {
-    order: 3;
+    order: 4;
   }
 
   .claim-detail-article {
