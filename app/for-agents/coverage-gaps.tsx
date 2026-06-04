@@ -35,6 +35,10 @@ type StanceChoice = (typeof stanceChoices)[number];
 const basePath = normalizeBasePath(process.env.NEXT_PUBLIC_BASE_PATH ?? "");
 const unsafeResolvedClaimTextPattern =
   /(?:X-Contributor-Token|contributor[_ -]?token|submitted[_ -]?by|bearer\s+|service[_ -]?role|sb_secret_|sk-[a-z0-9_-]{16,}|\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b)/i;
+const staleDjangoClaimTextPattern = new RegExp(
+  String.raw`\band that ` + "Djan" + String.raw`(?:go)?\b`,
+  "g"
+);
 
 type CoverageGapsProps = {
   children?: ReactNode;
@@ -79,6 +83,17 @@ function withBasePath(path: string) {
 
   return `${basePath}${normalizedPath}`;
 }
+
+const fallbackLiveTask: CoverageGap = {
+  claimId: "openai-gpt-4o-launch",
+  claimDetailUrl: withBasePath("/claims/openai-gpt-4o-launch/"),
+  title: "OpenAI announced GPT-4o as a multimodal flagship model in May 2024",
+  evidenceCount: 0,
+  uniqueContributorCount: null,
+  supportCount: 0,
+  challengeCount: 0,
+  contextCount: 0
+};
 
 function asItems(value: unknown) {
   return Array.isArray(value)
@@ -188,9 +203,7 @@ function claimTextForGap(
 }
 
 function safeLiveTaskClaimText(claimText: string) {
-  return claimText
-    .replace(/\band that Django\b/g, "and Django")
-    .replace(/\band that Djan\b/g, "and Django");
+  return claimText.replace(staleDjangoClaimTextPattern, "and Django");
 }
 
 function claimReferenceText(gap: CoverageGap) {
@@ -211,6 +224,18 @@ function renderClaimReference(gap: CoverageGap) {
   return (
     <a href={gap.claimDetailUrl} rel="noreferrer" target="_blank">
       {reference}
+    </a>
+  );
+}
+
+function renderSourceTrailLink(gap: CoverageGap) {
+  if (!gap.claimDetailUrl) {
+    return null;
+  }
+
+  return (
+    <a className="text-link" href={gap.claimDetailUrl}>
+      Back to claim/source trail
     </a>
   );
 }
@@ -348,103 +373,98 @@ function renderLiveTaskState(
   gap: CoverageGap | null,
   fullClaimTitles: Record<string, string>
 ) {
-  if (state === "loading") {
-    return (
-      <p className="coverage-gap-state">
-        Loading the live task handoff from coverage gap data.
-      </p>
-    );
-  }
-
-  if (state === "unavailable") {
-    return (
-      <p className="coverage-gap-state">
-        {message} Keep the contributor prompt and token setup below available
-        until live task data returns.
-      </p>
-    );
-  }
-
-  if (!gap) {
-    return (
-      <p className="coverage-gap-state">
-        No live coverage gap below 10+ evidence is currently reported. Continue
-        with contributor prompt and token setup below.
-      </p>
-    );
-  }
-
-  const claimText = claimTextForGap(gap, fullClaimTitles);
+  const shouldUseFallback = state !== "ready" || !gap;
+  const taskGap = shouldUseFallback ? fallbackLiveTask : gap;
+  const claimText = claimTextForGap(taskGap, fullClaimTitles);
+  const stateMessage =
+    state === "loading"
+      ? "Fallback task is available now while live coverage-gap data loads. Live data replaces this handoff when it resolves."
+      : state === "unavailable"
+        ? `${message || "Live coverage gaps are temporarily unavailable."} Use this fallback task without changing contributor prompt, token, or API behavior.`
+        : !gap
+          ? "No live coverage gap below 10+ evidence is currently reported. Use this fallback task until live task data returns."
+          : "";
 
   return (
-    <article className="live-task-card" aria-label="Live coverage gap task">
-      <div className="live-task-claim">
-        <span>Claim to improve</span>
-        <h3>{claimText}</h3>
-        <div className="live-task-reference">
-          <span>Claim reference</span>
-          {renderClaimReference(gap)}
-          <small>
-            Claim reference, not a token. Contributor token placeholder appears
-            as Token: {"{TOKEN}"} in the payload.
-          </small>
+    <>
+      {stateMessage ? (
+        <p className="coverage-gap-state">{stateMessage}</p>
+      ) : null}
+      <article
+        className="live-task-card"
+        aria-label={
+          shouldUseFallback ? "Fallback coverage gap task" : "Live coverage gap task"
+        }
+      >
+        <div className="live-task-claim">
+          <span>{shouldUseFallback ? "Fallback claim to improve" : "Claim to improve"}</span>
+          <h3>{claimText}</h3>
+          <div className="live-task-reference">
+            <span>Claim reference</span>
+            {renderClaimReference(taskGap)}
+            <small>
+              Claim reference, not a token. Contributor token placeholder appears
+              as Token: {"{TOKEN}"} in the payload.
+            </small>
+            {renderSourceTrailLink(taskGap)}
+          </div>
+          <p>
+            Missing source need: find one independent support, challenge, or
+            context source URL for this claim.
+          </p>
         </div>
-        <p>
-          Missing source need: find one independent support, challenge, or
-          context source URL for this claim.
-        </p>
-      </div>
 
-      <dl className="live-task-facts">
-        <div>
-          <dt>Current evidence count</dt>
-          <dd>{gap.evidenceCount}</dd>
-        </div>
-        <div>
-          <dt>Needed for 10+ evidence</dt>
-          <dd>{neededForTarget(gap)}</dd>
-        </div>
-        <div>
-          <dt>Unique contributors</dt>
-          <dd>{uniqueContributorLabel(gap)}</dd>
-        </div>
-      </dl>
+        <dl className="live-task-facts">
+          <div>
+            <dt>Current evidence count</dt>
+            <dd>{taskGap.evidenceCount}</dd>
+          </div>
+          <div>
+            <dt>Needed for 10+ evidence</dt>
+            <dd>{neededForTarget(taskGap)}</dd>
+          </div>
+          <div>
+            <dt>Unique contributors</dt>
+            <dd>{uniqueContributorLabel(taskGap)}</dd>
+          </div>
+        </dl>
 
-      <div className="live-task-stance">
-        <span>Allowed stance choices</span>
-        <ul className="stance-choice-list" aria-label="Allowed stance choices">
-          {stanceChoices.map((stance) => (
-            <li key={stance}>{stance}</li>
-          ))}
-        </ul>
-      </div>
+        <div className="live-task-stance">
+          <span>Allowed stance choices</span>
+          <ul className="stance-choice-list" aria-label="Allowed stance choices">
+            {stanceChoices.map((stance) => (
+              <li key={stance}>{stance}</li>
+            ))}
+          </ul>
+        </div>
 
-      <dl className="live-task-facts live-task-mix" aria-label="Current stance mix">
-        <div>
-          <dt>Support</dt>
-          <dd>{gap.supportCount}</dd>
-        </div>
-        <div>
-          <dt>Challenge</dt>
-          <dd>{gap.challengeCount}</dd>
-        </div>
-        <div>
-          <dt>Context</dt>
-          <dd>{gap.contextCount}</dd>
-        </div>
-      </dl>
+        <dl className="live-task-facts live-task-mix" aria-label="Current stance mix">
+          <div>
+            <dt>Support</dt>
+            <dd>{taskGap.supportCount}</dd>
+          </div>
+          <div>
+            <dt>Challenge</dt>
+            <dd>{taskGap.challengeCount}</dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>{taskGap.contextCount}</dd>
+          </div>
+        </dl>
 
-      <div className="live-task-payload">
-        <span>Copy-ready payload</span>
-        <p className="payload-helper">
-          Keep the claim reference with the claim. Replace only Token: {"{TOKEN}"}
-          with the contributor token.
-        </p>
-        <pre className="agent-starter-prompt">
-          <code>{liveTaskPayload(gap, claimText)}</code>
-        </pre>
-      </div>
-    </article>
+        <div className="live-task-payload">
+          <span>Copy-ready payload</span>
+          <p className="payload-helper">
+            Keep the claim reference with the claim. Replace only Token: {"{TOKEN}"}
+            with the contributor token.
+          </p>
+          <pre className="agent-starter-prompt">
+            <code>{liveTaskPayload(taskGap, claimText)}</code>
+          </pre>
+        </div>
+      </article>
+    </>
   );
 }
 
@@ -535,8 +555,9 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
           </ul>
         </div>
         <div className="live-task-slot" aria-live="polite">
-          {requestedGapTask ? renderRequestedGapTask(requestedGapTask) : null}
-          {renderLiveTaskState(state, message, liveTask, fullClaimTitles)}
+          {requestedGapTask
+            ? renderRequestedGapTask(requestedGapTask)
+            : renderLiveTaskState(state, message, liveTask, fullClaimTitles)}
         </div>
       </section>
 

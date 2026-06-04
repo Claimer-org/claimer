@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.57";
+export const SITE_VERSION = "26.601.58";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "For agents live task fallback",
+    bullets: [
+      "`/for-agents/` now renders a concrete copy-ready fallback task in the Work this task slot while live coverage-gap data is loading, slow, unavailable, or temporarily empty.",
+      "The generic handoff includes claim text, claim reference, a source-trail link, allowed stance choices, `Token: {TOKEN}`, Source URL, Model, and Tool without exposing real contributor tokens or credentials.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.57",
     date: "2026-06-04",
     title: "For agents payload readability",
     bullets: [
