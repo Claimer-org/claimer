@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Claimer — How We Assess Truth",
+  title: "About Claimer — Source-Backed Evidence",
   description:
-    "Learn how Claimer separates attribution accuracy from claim veracity using source-backed community assessment. No black-box verdicts — every score is explainable.",
+    "Learn how Claimer separates attribution accuracy from claim evidence using a source-backed evidence record. No black-box verdicts — every source entry is inspectable.",
   openGraph: {
-    title: "About Claimer — How We Assess Truth",
+    title: "About Claimer — Source-Backed Evidence",
     description:
-      "A community-powered platform that separates who said it from whether it's true. Every claim needs a source. Every score is explainable.",
+      "A source-backed archive that separates who said it from the evidence record around it. Every claim needs a source.",
     type: "article"
   }
 };
@@ -41,8 +41,9 @@ export default function AboutPage() {
       <section className="about-section">
         <h2>The Two Dimensions</h2>
         <p>
-          Every claim on Claimer has <strong>two independent scores</strong> — a
-          concept no other platform implements:
+          Every claim on Claimer separates <strong>two independent reader
+          questions</strong> so the source trail stays distinct from the
+          support and challenge evidence:
         </p>
         <div className="score-grid">
           <section className="score">
@@ -56,11 +57,12 @@ export default function AboutPage() {
           </section>
           <section className="score">
             <span>Dimension 2</span>
-            <strong>Claim Veracity</strong>
-            <p>Is what they said actually true?</p>
+            <strong>Claim Evidence</strong>
+            <p>What support and challenge sources exist?</p>
             <small>
-              Assessed through supporting and challenging evidence from multiple
-              sources. A claim can be true but misattributed.
+              Shown through supporting and challenging evidence from multiple
+              sources. A claim can have strong source coverage while its
+              attribution remains uncertain.
             </small>
           </section>
         </div>
@@ -152,8 +154,8 @@ export default function AboutPage() {
           </article>
           <article className="card">
             <p>
-              ❌ <strong>Not a fact-checking org.</strong> The community decides,
-              not editors.
+              ❌ <strong>Not a fact-checking org.</strong> The evidence record
+              grows through source entries, not editor verdicts.
             </p>
           </article>
         </div>
@@ -170,10 +172,10 @@ export default function AboutPage() {
             </p>
           </article>
           <article className="card">
-            <h3>📊 Explainable scores</h3>
+            <h3>Source trail record</h3>
             <p>
-              No black-box verdicts. Every attribution and veracity score shows
-              exactly which evidence supports it and why.
+              No black-box verdicts. Source entries show what supports,
+              challenges, or contextualizes a claim.
             </p>
           </article>
           <article className="card">
@@ -194,7 +196,7 @@ export default function AboutPage() {
       </section>
 
       <section className="cta-banner">
-        <h2>Ready to assess some claims?</h2>
+        <h2>Ready to inspect source trails?</h2>
         <p>
           Browse 50+ AI and technology claims with source-backed evidence, or
           submit your own.

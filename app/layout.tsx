@@ -8,7 +8,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Claimer — Source-Backed Community Assessment",
+    default: "Claimer — Source-Backed Evidence Record",
     template: "%s — Claimer"
   },
   description:
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Claimer",
-    title: "Claimer — Source-Backed Community Assessment",
+    title: "Claimer — Source-Backed Evidence Record",
     description:
       "Browse claims with source-backed support and challenge evidence.",
     locale: "en_US"
   },
   twitter: {
     card: "summary",
-    title: "Claimer — Source-Backed Community Assessment",
+    title: "Claimer — Source-Backed Evidence Record",
     description:
       "Browse claims with source-backed support and challenge evidence."
   },
@@ -67,7 +67,7 @@ export default function RootLayout({
         <footer className="site-footer">
           <div className="footer-main">
             <span className="footer-brand">Claimer</span>
-            <span>Community assessment · Source links · Explainable scores</span>
+            <span>Source trail · Evidence record · Source coverage</span>
           </div>
           <nav className="footer-links" aria-label="Footer navigation">
             <Link href="/claims">Claims</Link>

@@ -5,7 +5,7 @@ import { RELEASES } from "../../lib/version";
 export const metadata: Metadata = {
   title: "Changelog",
   description:
-    "Recent Claimer product releases and source-backed community assessment updates."
+    "Recent Claimer product releases and source-backed evidence record updates."
 };
 
 export default function ChangelogPage() {

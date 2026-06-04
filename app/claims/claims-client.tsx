@@ -342,7 +342,9 @@ function readerRecordSourceParts(
   const parts: string[] = [];
 
   if (includeLiveContributor) {
-    parts.push(formatRecordCount(counts.liveContributor, "live contributor submission"));
+    parts.push(
+      formatRecordCount(counts.liveContributor, "live source entry", "live source entries")
+    );
   }
 
   parts.push(
@@ -366,7 +368,7 @@ function readerRecordShowingLabel(
   liveClaimsState: LiveClaimsState
 ) {
   if (liveClaimsState === "idle" || liveClaimsState === "loading") {
-    return "Checking live contributor submissions";
+    return "Loading live source entries";
   }
 
   const showing = formatPublishedArchiveCount(filteredCounts.publicLibrary);
@@ -384,7 +386,7 @@ function readerMobileArchiveScopeLabel(
   liveClaimsState: LiveClaimsState
 ) {
   if (liveClaimsState === "idle" || liveClaimsState === "loading") {
-    return "Checking live contributor submissions";
+    return "Loading live source entries";
   }
 
   const archiveCount = formatPublishedArchiveCount(totalCounts.publicLibrary);
@@ -413,11 +415,11 @@ function readerRecordBreakdown(
         )}; full library has ${readerRecordSourceParts(totalCounts, sourceOptions)}.`;
 
   if (liveClaimsState === "loading") {
-    return `${sourceText} Checking live contributor submissions; published source entries remain visible.`;
+    return `${sourceText} Loading live source entries; published source entries remain visible.`;
   }
 
   if (liveClaimsState === "error") {
-    return `${sourceText} Live contributor submissions are temporarily unavailable; published source entries remain visible.`;
+    return `${sourceText} Live source entries are temporarily unavailable; published source entries remain visible.`;
   }
 
   return sourceText;
@@ -812,9 +814,9 @@ export default function ClaimsClient({
           ...durableEvidence,
           ...claim.evidence.filter((entry) => !durableEvidenceIds.has(entry.id))
         ],
-        veracityLabel: "Community assessment updated",
+        veracityLabel: "Evidence record updated",
         veracityExplanation:
-          "Durable community evidence has been added. Review the support and challenge source mix before relying on the assessment."
+          "Durable source-backed evidence has been added. Review the support and challenge source mix before relying on this evidence record."
       };
     };
 
@@ -1074,13 +1076,13 @@ export default function ClaimsClient({
         sourcePublisher: new URL(claimForm.sourceUrl).hostname,
         sourceQuality: claimForm.sourceQuality,
         attributionScore: 50,
-        attributionLabel: "Needs community review",
+        attributionLabel: "Needs source coverage",
         attributionExplanation:
-          "This claim was submitted locally and needs community assessment of the attribution source.",
+          "This claim was submitted locally and needs source coverage for the attribution source.",
         veracityScore: 50,
         veracityLabel: "Evidence still developing",
         veracityExplanation:
-          "One source is present. Add support and challenge evidence before treating the assessment as useful.",
+          "One source is present. Add support and challenge evidence before treating the evidence record as useful.",
         createdAt: now,
         submittedBy: "Local user",
         aiAssisted: false,
@@ -1167,9 +1169,9 @@ export default function ClaimsClient({
                   ? {
                       ...claim,
                       evidence: [durableEvidence, ...claim.evidence],
-                      veracityLabel: "Community assessment updated",
+                      veracityLabel: "Evidence record updated",
                       veracityExplanation:
-                        "New live evidence has been added. Review the support and challenge source mix before relying on the score."
+                        "New live evidence has been added. Review the support and challenge source mix before relying on this evidence record."
                     }
                   : claim
               )
@@ -1245,9 +1247,9 @@ export default function ClaimsClient({
       const nextClaim: Claim = {
         ...baseClaim,
         evidence: [evidence, ...baseClaim.evidence],
-        veracityLabel: "Community assessment updated",
+        veracityLabel: "Evidence record updated",
         veracityExplanation:
-          "New local evidence has been added. Review the support and challenge source mix before relying on the score."
+          "New local evidence has been added. Review the support and challenge source mix before relying on this evidence record."
       };
 
       const nextClaims = { ...storedClaims, [nextClaim.id]: nextClaim };
@@ -1697,7 +1699,7 @@ export default function ClaimsClient({
             aria-live="polite"
           >
             {showLiveClaimsSkeleton ? (
-              <div className="skeleton-list" aria-label="Checking live contributor submissions">
+              <div className="skeleton-list" aria-label="Loading live source entries">
                 <span className="skeleton-row" />
                 <span className="skeleton-row" />
               </div>

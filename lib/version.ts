@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.48";
+export const SITE_VERSION = "26.601.49";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-04",
+    title: "Reader evidence language",
+    bullets: [
+      "Claims, about, changelog, global metadata, and footer copy now use source trail, evidence record, source coverage, and source-backed archive language for readers.",
+      "Loading and update states now describe live source entries and evidence records instead of internal assessment mechanics.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.48",
     date: "2026-06-04",
     title: "Release history repair",
     bullets: [
@@ -899,7 +909,7 @@ export const RELEASES = [
     bullets: [
       "The reviewer launch kit now includes daily, trending, and changelog return paths for repeat reviewers.",
       "Each return path carries launch-kit campaign attribution so repeat-use interest can be measured.",
-      "Copy stays framed as source-backed community assessment rather than an official truth verdict."
+      "Copy stays framed as source-backed evidence records rather than an official truth verdict."
     ]
   },
   {
@@ -939,7 +949,7 @@ export const RELEASES = [
     bullets: [
       "The footer now links the visible site version to the changelog.",
       "The changelog gives readers one place to review recent product updates.",
-      "Release notes keep the focus on source-backed community assessment."
+      "Release notes keep the focus on source-backed evidence records."
     ]
   }
 ] as const;
