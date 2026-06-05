@@ -2400,7 +2400,7 @@ a.claim-row {
 }
 
 .for-agents-page.reader-editorial .completed-evidence-card {
-  border-top: 3px solid var(--accent-strong);
+  border-top: 1px solid var(--line);
 }
 
 .for-agents-page.reader-editorial .completed-evidence-claim,

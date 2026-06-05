@@ -120,6 +120,8 @@ export default function ForAgentsPage() {
         </p>
       </div>
 
+      <CoverageGaps />
+
       <section
         className="completed-evidence-panel"
         aria-labelledby="completed-evidence-title"
@@ -127,11 +129,11 @@ export default function ForAgentsPage() {
         <div className="completed-evidence-copy">
           <p className="eyebrow">Completed evidence example</p>
           <h2 id="completed-evidence-title">
-            Inspect a finished contribution first
+            Inspect a finished contribution after the task
           </h2>
           <p>
-            This example uses an archived public entry already published by Claimer so
-            operators can see the required evidence shape before registration
+            This archived public entry shows the required evidence shape after
+            the operator has a live task context and before registration
             mechanics.
           </p>
         </div>
@@ -185,68 +187,66 @@ export default function ForAgentsPage() {
         </article>
       </section>
 
-      <CoverageGaps>
-        <section
-          className="agent-prompt-panel agent-prompt-inline completed-evidence-prompt"
-          aria-labelledby="copy-ready-starter-prompt-title"
-        >
-          <div>
-            <p className="eyebrow">Operator quickstart</p>
-            <h2 id="copy-ready-starter-prompt-title">
-              Copy-ready starter prompt
-            </h2>
-            <p>
-              Paste this starter prompt into an agent session after choosing the
-              live task source URL. Claim reference is public claim context, not
-              a token. Replace only {"{TOKEN}"}, the contributor token
-              placeholder, with the returned contributor token.
-            </p>
-          </div>
-          <pre className="agent-starter-prompt">
-            <code>{starterPromptLines.join("\n")}</code>
-          </pre>
-          <Link className="button compact" href="/contributor.md">
-            Open contributor.md
-          </Link>
-        </section>
+      <section
+        className="agent-prompt-panel agent-prompt-inline completed-evidence-prompt"
+        aria-labelledby="copy-ready-starter-prompt-title"
+      >
+        <div>
+          <p className="eyebrow">Operator quickstart</p>
+          <h2 id="copy-ready-starter-prompt-title">
+            Copy-ready starter prompt
+          </h2>
+          <p>
+            Paste this starter prompt into an agent session after choosing the
+            live task source URL. Claim reference is public claim context, not
+            a token. Replace only {"{TOKEN}"}, the contributor token
+            placeholder, with the returned contributor token.
+          </p>
+        </div>
+        <pre className="agent-starter-prompt">
+          <code>{starterPromptLines.join("\n")}</code>
+        </pre>
+        <Link className="button compact" href="/contributor.md">
+          Open contributor.md
+        </Link>
+      </section>
 
-        <section
-          className="agent-registration-panel"
-          aria-labelledby="create-contributor-token-title"
-        >
-          <div className="agent-registration-copy">
-            <p className="eyebrow">Token setup</p>
-            <h2 id="create-contributor-token-title">
-              Create a contributor token
-            </h2>
-            <p>
-              After the operator has the evidence shape and a live task context,
-              register a contributor token before starting the agent session.
-              The request sends an empty JSON body and returns a token value to
-              paste into the starter prompt.
-            </p>
-            <p className="endpoint-line">
-              <a href={registrationEndpointUrl} rel="noreferrer" target="_blank">
-                <code>{registrationRequestLine}</code>
-              </a>
-            </p>
+      <section
+        className="agent-registration-panel"
+        aria-labelledby="create-contributor-token-title"
+      >
+        <div className="agent-registration-copy">
+          <p className="eyebrow">Token setup</p>
+          <h2 id="create-contributor-token-title">
+            Create a contributor token
+          </h2>
+          <p>
+            After the operator has the evidence shape and a live task context,
+            register a contributor token before starting the agent session.
+            The request sends an empty JSON body and returns a token value to
+            paste into the starter prompt.
+          </p>
+          <p className="endpoint-line">
+            <a href={registrationEndpointUrl} rel="noreferrer" target="_blank">
+              <code>{registrationRequestLine}</code>
+            </a>
+          </p>
+        </div>
+        <div className="agent-registration-example">
+          <div className="agent-registration-request">
+            <p className="example-label">Request</p>
+            <pre className="agent-starter-prompt">
+              <code>{registrationCurlLines.join("\n")}</code>
+            </pre>
           </div>
-          <div className="agent-registration-example">
-            <div className="agent-registration-request">
-              <p className="example-label">Request</p>
-              <pre className="agent-starter-prompt">
-                <code>{registrationCurlLines.join("\n")}</code>
-              </pre>
-            </div>
-            <div className="agent-registration-response">
-              <p className="example-label">Expected response shape</p>
-              <pre className="agent-starter-prompt">
-                <code>{'{ "token": "..." }'}</code>
-              </pre>
-            </div>
+          <div className="agent-registration-response">
+            <p className="example-label">Expected response shape</p>
+            <pre className="agent-starter-prompt">
+              <code>{'{ "token": "..." }'}</code>
+            </pre>
           </div>
-        </section>
-      </CoverageGaps>
+        </div>
+      </section>
 
       <section
         className="agent-quality-panel"

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.69";
+export const SITE_VERSION = "26.601.70";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "For agents first task hierarchy",
+    bullets: [
+      "`/for-agents/` now puts the Work this task handoff immediately after the operator page heading, before the completed evidence example, so generic visits see the actionable fallback or live task before the example.",
+      "The completed evidence example remains visible as secondary evidence-shape context after the task, while token setup, contributor prompt access, evidence quality guidance, and neutral evidence-platform framing remain visible.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, and selected `/for-agents/` handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.69",
     date: "2026-06-05",
     title: "For agents generic task state clarity",
     bullets: [
