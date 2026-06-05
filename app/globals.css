@@ -1214,7 +1214,75 @@ a.current-record-pin {
   overflow-wrap: anywhere;
 }
 
+.source-archive-section-context {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  margin: 0 0 4px;
+  border: 1px solid rgba(23, 33, 38, 0.08);
+  border-radius: 6px;
+  background: #fbfdfb;
+  padding: 7px 9px;
+  text-decoration: none;
+}
+
+.source-archive-section-context span {
+  color: var(--accent-strong);
+  font-size: 0.68rem;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.source-archive-section-context strong {
+  color: var(--foreground);
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
 .source-archive-section-rows {
+  display: grid;
+  min-width: 0;
+}
+
+.source-archive-host-group {
+  display: grid;
+  min-width: 0;
+}
+
+.source-archive-host-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+  border-top: 1px solid rgba(23, 33, 38, 0.08);
+  padding: 7px 2px 5px;
+}
+
+.source-archive-host-group:first-child .source-archive-host-heading {
+  border-top: 0;
+}
+
+.source-archive-host-heading span {
+  color: var(--foreground);
+  font-size: 0.74rem;
+  font-weight: 850;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.source-archive-host-heading small {
+  flex: 0 0 auto;
+  color: var(--foreground-dim);
+  font-size: 0.68rem;
+  font-weight: 750;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.source-archive-host-rows {
   display: grid;
   min-width: 0;
 }
@@ -5609,6 +5677,15 @@ textarea {
     padding: 9px 2px 6px;
   }
 
+  .source-archive-section-context {
+    margin-bottom: 3px;
+    padding: 6px 7px;
+  }
+
+  .source-archive-section-context strong {
+    font-size: 0.74rem;
+  }
+
   .source-archive-section-title {
     align-items: flex-start;
     gap: 3px 7px;
@@ -5616,6 +5693,23 @@ textarea {
 
   .source-archive-section-heading strong {
     justify-self: start;
+    white-space: normal;
+  }
+
+  .source-archive-host-heading {
+    align-items: flex-start;
+    gap: 4px 7px;
+    padding: 6px 2px 4px;
+  }
+
+  .source-archive-host-heading span {
+    font-size: 0.7rem;
+  }
+
+  .source-archive-host-heading small {
+    flex: 0 1 auto;
+    min-width: 0;
+    text-align: right;
     white-space: normal;
   }
 

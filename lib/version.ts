@@ -1,8 +1,19 @@
-export const SITE_VERSION = "26.601.62";
+export const SITE_VERSION = "26.601.63";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Claims archive editorial index",
+    bullets: [
+      "`/claims/` now groups lower Source archive rows by source host and pares each entry down to claim text, source, evidence mix, source-gap cue, and source trail action so the archive reads more like an edited source index.",
+      "Each source-need band repeats a compact Selected source trail recovery link, preserving selected-source context after Challenge source gap, Support source gap, Primary-source gap, and Context coverage open sections.",
+      "The selected claim still opens with Original source and Evidence chain before lower metadata, with capped bands, visible counts, show-more controls, and neutral source coverage language preserved.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.62",
     date: "2026-06-05",
     title: "Claims source archive endurance",
     bullets: [

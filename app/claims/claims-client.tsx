@@ -377,15 +377,15 @@ function readerArchiveCueItems(items: Claim[]) {
 
 function readerArchiveSectionDescription(label: ReaderArchiveCueLabel) {
   if (label === "Challenge source gap") {
-    return "Support sources are present; independent challenge coverage is still open.";
+    return "Support is present; independent challenge coverage remains open.";
   }
 
   if (label === "Support source gap") {
-    return "Challenge sources are present; independent support coverage is still open.";
+    return "Challenge is present; independent support coverage remains open.";
   }
 
   if (label === "Primary-source gap") {
-    return "Claims that still need primary or direct source coverage.";
+    return "Entries still looking for primary or direct source coverage.";
   }
 
   return "Evidence mix is visible; context can clarify scope or timing.";
@@ -525,6 +525,27 @@ function sourceHost(sourceUrl: string) {
   } catch {
     return sourceUrl;
   }
+}
+
+function groupReaderArchiveClaimsByHost(items: Claim[]) {
+  const groups: Array<{ key: string; host: string; claims: Claim[] }> = [];
+  const groupIndexes = new Map<string, number>();
+
+  items.forEach((claim) => {
+    const host = sourceHost(claim.sourceUrl);
+    const key = host.toLowerCase();
+    const currentIndex = groupIndexes.get(key);
+
+    if (currentIndex === undefined) {
+      groupIndexes.set(key, groups.length);
+      groups.push({ key, host, claims: [claim] });
+      return;
+    }
+
+    groups[currentIndex].claims.push(claim);
+  });
+
+  return groups;
 }
 
 function formatRecordCount(count: number, label: string, pluralLabel = `${label}s`) {
@@ -2051,8 +2072,35 @@ export default function ClaimsClient({
                         </strong>
                         <p>{section.description}</p>
                       </div>
+                      {!section.selected && selectedClaim ? (
+                        <a
+                          className="source-archive-section-context"
+                          href="#selected-source-evidence"
+                          onClick={() => selectClaim(selectedClaim.id)}
+                        >
+                          <span>Selected source trail</span>
+                          <strong>{selectedClaim.title}</strong>
+                        </a>
+                      ) : null}
                       <div className="source-archive-section-rows">
-                        {visibleSectionClaims.map((claim) => renderReaderArchiveRow(claim))}
+                        {groupReaderArchiveClaimsByHost(visibleSectionClaims).map(
+                          (group) => (
+                            <div
+                              className="source-archive-host-group"
+                              key={`${section.key}-${group.key}`}
+                            >
+                              {!section.selected ? (
+                                <div className="source-archive-host-heading">
+                                  <span>{group.host}</span>
+                                  <small>{archiveSectionCountLabel(group.claims.length)}</small>
+                                </div>
+                              ) : null}
+                              <div className="source-archive-host-rows">
+                                {group.claims.map((claim) => renderReaderArchiveRow(claim))}
+                              </div>
+                            </div>
+                          )
+                        )}
                       </div>
                       {showSectionToggle ? (
                         <div className="source-archive-section-footer">
