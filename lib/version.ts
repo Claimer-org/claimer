@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.75";
+export const SITE_VERSION = "26.601.76";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "For-agents live reference hierarchy",
+    bullets: [
+      "`/for-agents/` live task and reader-selected source-gap claim references now read as public task/citation context instead of credential-like claim_id facts.",
+      "Copy-ready contributor payloads still include `claim_id`, Source URL, stance, Model, Tool, and `Token: {TOKEN}`, with the token placeholder kept visually and semantically separate from the public claim reference.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.75",
     date: "2026-06-06",
     title: "Claims archive scan simplification",
     bullets: [

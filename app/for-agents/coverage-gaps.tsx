@@ -208,21 +208,30 @@ function safeLiveTaskClaimText(claimText: string) {
 
 function claimReferenceText(gap: CoverageGap) {
   if (gap.claimDetailUrl) {
-    return `claim detail: ${gap.claimDetailUrl}`;
+    return gap.claimDetailUrl;
   }
 
-  return `claim_id: ${gap.claimId || "not reported by live data"}`;
+  return gap.claimId || "not reported by live data";
+}
+
+function payloadClaimId(gap: CoverageGap) {
+  return gap.claimId || "not reported by live data";
 }
 
 function renderClaimReference(gap: CoverageGap) {
   const reference = claimReferenceText(gap);
 
   if (!gap.claimDetailUrl) {
-    return <code>{reference}</code>;
+    return <span className="claim-reference-value">{reference}</span>;
   }
 
   return (
-    <a href={gap.claimDetailUrl} rel="noreferrer" target="_blank">
+    <a
+      className="claim-reference-value"
+      href={gap.claimDetailUrl}
+      rel="noreferrer"
+      target="_blank"
+    >
       {reference}
     </a>
   );
@@ -255,8 +264,9 @@ function gapActionLabel(stance: StanceChoice) {
 function liveTaskPayload(gap: CoverageGap, claimText: string) {
   return [
     `Claim: ${claimText}`,
-    `Claim reference: ${claimReferenceText(gap)}`,
-    "Claim reference note: public claim identifier, not a token",
+    `Public claim reference: ${claimReferenceText(gap)}`,
+    `claim_id: ${payloadClaimId(gap)}`,
+    "claim_id note: public task/citation reference, not a contributor token",
     "Token: {TOKEN}",
     "Token note: contributor token placeholder; replace with your issued token",
     "Source URL: <paste one public source URL>",
@@ -271,7 +281,7 @@ function requestedGapPayload(task: RequestedGapTask) {
   return [
     `Claim text: ${task.claimText}`,
     `claim_id: ${task.claimId}`,
-    "claim_id note: claim reference, not a token",
+    "claim_id note: public task/citation reference, not a contributor token",
     `Stance: ${task.stance}`,
     "Token: {TOKEN}",
     "Token note: contributor token placeholder; replace with your issued token",
@@ -334,18 +344,18 @@ function renderRequestedGapTask(task: RequestedGapTask) {
         <p>{task.claimText}</p>
       </div>
       <dl className="requested-gap-facts">
-        <div>
-          <dt>claim_id</dt>
+        <div className="claim-reference-fact">
+          <dt>Public claim reference</dt>
           <dd>
             <span>{task.claimId}</span>
-            <small>Claim reference, not a token</small>
+            <small>Task/citation context, not a token</small>
           </dd>
         </div>
         <div>
           <dt>Stance</dt>
           <dd>{task.stance}</dd>
         </div>
-        <div>
+        <div className="token-placeholder-fact">
           <dt>Token</dt>
           <dd>
             <span>{"{TOKEN}"}</span>
@@ -354,8 +364,9 @@ function renderRequestedGapTask(task: RequestedGapTask) {
         </div>
       </dl>
       <p className="payload-helper">
-        Keep claim_id as the claim reference. Replace only{" "}
-        <code>{"Token: {TOKEN}"}</code> with the contributor token.
+        Keep the public claim reference with the claim; the payload still uses{" "}
+        <code>claim_id</code>. Replace only <code>{"Token: {TOKEN}"}</code>{" "}
+        with the contributor token.
       </p>
       <pre className="agent-starter-prompt">
         <code>{requestedGapPayload(task)}</code>
@@ -400,11 +411,12 @@ function renderLiveTaskState(
           <span>{shouldUseFallback ? "Fallback claim to improve" : "Claim to improve"}</span>
           <h3>{claimText}</h3>
           <div className="live-task-reference">
-            <span>Claim reference</span>
+            <span>Public claim reference</span>
             {renderClaimReference(taskGap)}
             <small>
-              Claim reference, not a token. Contributor token placeholder appears
-              as <code>{"Token: {TOKEN}"}</code> in the payload.
+              Task/citation context for the public claim. Contributor token
+              placeholder appears separately as <code>{"Token: {TOKEN}"}</code>{" "}
+              in the payload.
             </small>
             {renderSourceTrailLink(taskGap)}
           </div>
@@ -456,7 +468,7 @@ function renderLiveTaskState(
         <div className="live-task-payload">
           <span>Copy-ready payload</span>
           <p className="payload-helper">
-            Keep the claim reference with the claim. Replace only{" "}
+            Keep <code>claim_id</code> as public task context. Replace only{" "}
             <code>{"Token: {TOKEN}"}</code> with the contributor token.
           </p>
           <pre className="agent-starter-prompt">
@@ -543,8 +555,9 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
           <h2 id="live-task-title">Work this task</h2>
           <p>
             The first live coverage gap becomes the copy-safe operator handoff:
-            one complete claim, one stable claim reference, one required public
-            source URL, one allowed stance, plus model and tool disclosure.
+            one complete claim, one stable public claim reference, one
+            required public source URL, one allowed stance, plus model and tool
+            disclosure.
           </p>
           <ul className="live-task-mini-checklist" aria-label="Live task payload fields">
             <li>Source URL</li>
