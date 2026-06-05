@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.68";
+export const SITE_VERSION = "26.601.69";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "For agents generic task state clarity",
+    bullets: [
+      "`/for-agents/` generic no-query visits now open the Work this task slot with a concrete copy-safe fallback while live coverage-gap data loads, so operators do not see reader-selected source preparation language before a task is settled.",
+      "Live coverage-gap tasks still replace the fallback when available, and the unavailable state still gives operators a stable claim reference, `Token: {TOKEN}`, Source URL, stance choices, Model, Tool, and copy-ready payload.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, and selected `/for-agents/` handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.68",
     date: "2026-06-05",
     title: "Claims archive mobile density calm",
     bullets: [

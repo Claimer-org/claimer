@@ -28,7 +28,6 @@ type RequestedGapTask = {
   sourceTrailPath: string;
   stance: StanceChoice;
 };
-type RequestedGapTaskState = RequestedGapTask | null | undefined;
 
 const evidenceTarget = 10;
 const stanceChoices = ["support", "challenge", "context"] as const;
@@ -368,24 +367,6 @@ function renderRequestedGapTask(task: RequestedGapTask) {
   );
 }
 
-function renderRequestedGapPending() {
-  return (
-    <aside
-      className="requested-gap-task pending"
-      aria-label="Reader-selected source gap"
-    >
-      <div className="requested-gap-copy">
-        <span>Reader-selected source gap</span>
-        <h3>Preparing selected source task</h3>
-        <p>
-          Checking the selected source trail before loading the generic coverage-gap
-          fallback.
-        </p>
-      </div>
-    </aside>
-  );
-}
-
 function renderLiveTaskState(
   state: "loading" | "ready" | "unavailable",
   message: string,
@@ -493,7 +474,7 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
   const [state, setState] = useState<"loading" | "ready" | "unavailable">("loading");
   const [message, setMessage] = useState("");
   const [requestedGapTask, setRequestedGapTask] =
-    useState<RequestedGapTaskState>(undefined);
+    useState<RequestedGapTask | null>(null);
 
   useEffect(() => {
     setRequestedGapTask(parseRequestedGapTask(window.location.search));
@@ -574,9 +555,7 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
           </ul>
         </div>
         <div className="live-task-slot" aria-live="polite">
-          {requestedGapTask === undefined
-            ? renderRequestedGapPending()
-            : requestedGapTask
+          {requestedGapTask
             ? renderRequestedGapTask(requestedGapTask)
             : renderLiveTaskState(state, message, liveTask, fullClaimTitles)}
         </div>
