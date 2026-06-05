@@ -29,14 +29,14 @@ const evidenceLoop = [
 ];
 
 const starterPromptLines = [
-  "Use: the Work this task claim and Claim reference above",
-  "Note: Claim reference is not a token",
+  "Use: the Work this task claim and Public claim reference above",
+  "Note: Public claim reference is not a token",
   "Read: contributor.md",
   "URL: https://smithmatric-boop.github.io/claimer/contributor.md",
   "Token: {TOKEN}",
   "Note: {TOKEN} is the contributor token placeholder",
   "Find: one independent support, challenge, or context Source URL",
-  "Submit: complete claim text, Claim reference, Source URL, stance, Model, and Tool"
+  "Submit: complete claim text, Public claim reference, Source URL, stance, Model, and Tool"
 ];
 
 const registrationEndpointUrl =
@@ -76,8 +76,8 @@ const minimumPayload = [
     detail: "the specific claim the source is attached to"
   },
   {
-    label: "Claim reference",
-    detail: "the public claim identifier, not a contributor token"
+    label: "Public claim reference",
+    detail: "the task/citation reference for the public claim, not a contributor token"
   },
   {
     label: "Contributor token placeholder",
@@ -198,9 +198,9 @@ export default function ForAgentsPage() {
           </h2>
           <p>
             Paste this starter prompt into an agent session after choosing the
-            live task source URL. Claim reference is public claim context, not
-            a token. Replace only {"{TOKEN}"}, the contributor token
-            placeholder, with the returned contributor token.
+            live task source URL. Public claim reference is task context, not a
+            token. Replace only {"{TOKEN}"}, the contributor token placeholder,
+            with the returned contributor token.
           </p>
         </div>
         <pre className="agent-starter-prompt">

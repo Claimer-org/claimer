@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.73";
+export const SITE_VERSION = "26.601.74";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "For-agents claim reference polish",
+    bullets: [
+      "`/for-agents/` now presents public claim references as task/citation references so the Work this task handoff reads less like a credential surface on mobile.",
+      "The contributor token placeholder remains visually and semantically distinct as `Token: {TOKEN}` while Source URL, Model, Tool, stance choices, claim reference copy, and copy-ready payload structure stay visible.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.73",
     date: "2026-06-05",
     title: "Submit flow editorial restyle",
     bullets: [
