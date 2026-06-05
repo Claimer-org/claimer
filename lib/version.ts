@@ -1,8 +1,19 @@
-export const SITE_VERSION = "26.601.64";
+export const SITE_VERSION = "26.601.65";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Mobile source archive scan calm",
+    bullets: [
+      "`/claims/` mobile Source archive rows now expose source trail purpose, Original source/source host, evidence mix, source-need cue, and `Select this source trail` in that scan order.",
+      "Lower source-need bands keep the selected source trail pinned above the archive rows while preserving full claim text, Original source/source host, support / challenge / context mix, source-gap cues, capped bands, visible counts, and show-more controls.",
+      "selected `/for-agents/` handoff now preserves query `claim_id`, requested stance, and return path before live coverage-gap loading while keeping the generic operator fallback available when no selected query task is present.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.64",
     date: "2026-06-05",
     title: "Claims archive count trust",
     bullets: [

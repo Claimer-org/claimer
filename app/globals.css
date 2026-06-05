@@ -1381,6 +1381,24 @@ a.claim-row {
   overflow-wrap: anywhere;
 }
 
+.claim-row-purpose {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.claim-row-purpose-label,
+.claim-row-fact-label {
+  width: fit-content;
+  max-width: 100%;
+  color: var(--foreground-dim);
+  font-size: 0.68rem;
+  font-weight: 850;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
 .claim-row > span:last-child {
   color: var(--foreground-dim);
   font-size: 0.84rem;
@@ -1428,10 +1446,17 @@ a.claim-row {
 }
 
 .claim-row-facts {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.claim-row-evidence,
+.claim-row-need {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px 10px;
+  gap: 4px 7px;
   min-width: 0;
 }
 
@@ -1454,7 +1479,7 @@ a.claim-row {
   overflow-wrap: anywhere;
 }
 
-.claim-row > .claim-row-action {
+.claim-row > span.claim-row-action {
   width: fit-content;
   max-width: 100%;
   border: 1px solid rgba(15, 118, 110, 0.16);
@@ -4246,8 +4271,25 @@ body:has(.reader-editorial) .page-heading h1 {
   color: var(--foreground-dim);
 }
 
-.reader-editorial .claim-row-facts {
-  gap: 3px 7px;
+.reader-editorial .source-list-row .claim-row-facts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px 9px;
+}
+
+.reader-editorial .source-list-row .claim-row-evidence,
+.reader-editorial .source-list-row .claim-row-need {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px 6px;
+}
+
+.reader-editorial .source-list-row .claim-row-purpose-label,
+.reader-editorial .source-list-row .claim-row-fact-label {
+  color: var(--foreground-dim);
+  font-size: 0.62rem;
 }
 
 .reader-editorial .claim-row-coverage {
@@ -5602,6 +5644,18 @@ textarea {
     -webkit-box-orient: vertical;
   }
 
+  .reader-editorial .claim-row-purpose {
+    gap: 2px;
+  }
+
+  .reader-editorial .claim-row-purpose-label,
+  .reader-editorial .claim-row-fact-label {
+    color: var(--accent-strong);
+    font-size: 0.6rem;
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+
   .reader-editorial .claim-row-source {
     display: flex;
     align-items: center;
@@ -5763,25 +5817,76 @@ textarea {
   }
 
   .reader-editorial .source-list-row {
-    gap: 3px;
+    gap: 6px;
     min-height: auto;
     border-radius: 0;
-    padding: 6px 2px;
+    padding: 8px 2px;
   }
 
-  .reader-editorial .source-list-row strong {
+  .reader-editorial .source-list-row .claim-row-purpose strong {
+    display: block;
     font-size: 0.8rem;
-    line-height: 1.16;
-    -webkit-line-clamp: 2;
+    line-height: 1.22;
+    overflow: visible;
+    text-overflow: clip;
+    -webkit-line-clamp: unset;
   }
 
   .reader-editorial .source-list-row .claim-row-source {
+    display: grid;
+    grid-template-columns: minmax(72px, max-content) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 2px 7px;
     font-size: 0.68rem;
+    line-height: 1.18;
+    overflow: visible;
+    white-space: normal;
+  }
+
+  .reader-editorial .source-list-row .claim-row-source-label {
+    display: block;
+    color: var(--foreground-dim);
+    font-size: 0.6rem;
+    font-weight: 850;
     line-height: 1.12;
+    text-transform: uppercase;
+  }
+
+  .reader-editorial .source-list-row .claim-row-source-name,
+  .reader-editorial .source-list-row .claim-row-source-host {
+    display: block;
+    max-width: 100%;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .reader-editorial .source-list-row .claim-row-source-host {
+    grid-column: 2;
+    color: var(--foreground-dim);
+    font-size: 0.64rem;
+  }
+
+  .reader-editorial .source-list-row .claim-row-source-host::before {
+    content: "Host ";
+    margin: 0;
+    color: var(--foreground-dim);
+    font-weight: 850;
   }
 
   .reader-editorial .source-list-row .claim-row-facts {
-    gap: 2px 6px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+
+  .reader-editorial .source-list-row .claim-row-evidence,
+  .reader-editorial .source-list-row .claim-row-need {
+    display: grid;
+    grid-template-columns: minmax(72px, max-content) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 3px 7px;
   }
 
   .reader-editorial .source-list-row .claim-row-coverage {
@@ -5799,13 +5904,19 @@ textarea {
     background: transparent;
     color: var(--foreground-dim);
     font-size: 0.64rem;
+    line-height: 1.16;
     padding: 0;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+    white-space: normal;
   }
 
   .reader-editorial .source-list-row .claim-row-action {
     border: 0;
     background: transparent;
     font-size: 0.64rem;
+    line-height: 1.15;
     padding: 0;
   }
 

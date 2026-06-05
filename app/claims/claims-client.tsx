@@ -1680,7 +1680,10 @@ export default function ClaimsClient({
           isSelectedClaimRow ? "Selected claim. " : ""
         }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Selects this source trail and opens the evidence chain.`}
       >
-        <strong>{claim.title}</strong>
+        <span className="claim-row-purpose">
+          <span className="claim-row-purpose-label">Source trail purpose</span>
+          <strong>{claim.title}</strong>
+        </span>
         <span
           className="claim-row-source"
           aria-label={`Original source ${originalSource}; source host ${originalSourceHost}`}
@@ -1690,13 +1693,19 @@ export default function ClaimsClient({
           <span className="claim-row-source-host">{originalSourceHost}</span>
         </span>
         <span className="claim-row-facts">
-          <span className="claim-row-coverage">{coverageSignal}</span>
-          <span className="claim-row-mix">
-            {counts.support} support / {counts.challenge} challenge / {counts.context}{" "}
-            context
+          <span className="claim-row-evidence">
+            <span className="claim-row-fact-label">Evidence mix</span>
+            <span className="claim-row-mix">
+              {counts.support} support / {counts.challenge} challenge / {counts.context}{" "}
+              context
+            </span>
           </span>
-          <span className="claim-row-action">Select this source trail</span>
+          <span className="claim-row-need">
+            <span className="claim-row-fact-label">Source need</span>
+            <span className="claim-row-coverage">{coverageSignal}</span>
+          </span>
         </span>
+        <span className="claim-row-action">Select this source trail</span>
       </a>
     );
   }
