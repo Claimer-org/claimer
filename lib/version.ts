@@ -1,8 +1,19 @@
-export const SITE_VERSION = "26.601.66";
+export const SITE_VERSION = "26.601.67";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Claims source archive count state stability",
+    bullets: [
+      "`/claims/` now labels the Source archive as a static baseline, static fallback, or current live-loaded archive so readers see one count basis for the rendered state.",
+      "Challenge source gap, Support source gap, Primary-source gap, Context coverage open, `Showing 5 of N source trails`, `Show N more`, and `Select this source trail` now share the same lower-archive source-trail count basis while the selected source trail remains pinned separately.",
+      "The v26.601.66 row-compression, source host/original source hierarchy, evidence mix, source-need cue, capped bands, show-more controls, selected-first ordering, and full selected claim readability remain preserved.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.66",
     date: "2026-06-05",
     title: "Source archive count basis calm",
     bullets: [

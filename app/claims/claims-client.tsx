@@ -99,7 +99,6 @@ const readerSourceNeedFilters: Array<{
 
 const assessmentTargets: AssessmentTarget[] = ["attribution", "veracity", "context"];
 const oneDayMs = 1000 * 60 * 60 * 24;
-const publicLibraryClaimIds = new Set(seedClaims.map((claim) => claim.id));
 
 const blockedTerms = [
   "private individual",
@@ -367,8 +366,7 @@ function readerSourceNeedDisplayClaims(items: Claim[], selectedClaim?: Claim | n
   return items.filter((claim) => claim.id !== selectedClaim.id);
 }
 
-function readerArchiveCueItems(items: Claim[], selectedClaim?: Claim | null) {
-  const sourceNeedItems = readerSourceNeedDisplayClaims(items, selectedClaim);
+function readerArchiveCueItems(sourceNeedItems: Claim[]) {
   const cueCounts = new Map<ReaderArchiveCueLabel, number>(
     readerArchiveCueLabels.map((label) => [label, 0])
   );
@@ -568,18 +566,6 @@ function groupReaderArchiveClaimsByHost(items: Claim[]) {
   return groups;
 }
 
-function formatRecordCount(count: number, label: string, pluralLabel = `${label}s`) {
-  return `${count} ${count === 1 ? label : pluralLabel}`;
-}
-
-function formatPublishedArchiveCount(count: number) {
-  return formatRecordCount(
-    count,
-    "published source entry",
-    "published source entries"
-  );
-}
-
 function readerEvidenceProvenanceValue(value: string) {
   if (value === "Static library record") {
     return "Published source entry";
@@ -596,100 +582,45 @@ function readerEvidenceProvenanceValue(value: string) {
   return value;
 }
 
-function recordOriginCounts(items: Claim[]) {
-  return items.reduce(
-    (counts, claim) => {
-      if (isLiveSupabaseClaimId(claim.id)) {
-        counts.liveContributor += 1;
-      } else if (publicLibraryClaimIds.has(claim.id)) {
-        counts.publicLibrary += 1;
-      } else {
-        counts.savedReader += 1;
-      }
-
-      counts.total += 1;
-      return counts;
-    },
-    {
-      liveContributor: 0,
-      publicLibrary: 0,
-      savedReader: 0,
-      total: 0
-    }
-  );
-}
-
-function readerRecordSourceParts(
-  counts: ReturnType<typeof recordOriginCounts>,
-  { includeLiveContributor = true }: { includeLiveContributor?: boolean } = {}
-) {
-  const parts: string[] = [];
-
-  if (includeLiveContributor) {
-    parts.push(
-      formatRecordCount(counts.liveContributor, "live source entry", "live source entries")
-    );
-  }
-
-  parts.push(
-    formatRecordCount(
-      counts.publicLibrary,
-      "published source entry",
-      "published source entries"
-    )
-  );
-
-  if (counts.savedReader > 0) {
-    parts.push(formatRecordCount(counts.savedReader, "saved reader claim"));
-  }
-
-  return parts.join(" / ");
-}
-
-function readerRecordShowingLabel(
-  filteredCounts: ReturnType<typeof recordOriginCounts>,
-  totalCounts: ReturnType<typeof recordOriginCounts>,
-  liveClaimsState: LiveClaimsState
-) {
-  const showing = formatPublishedArchiveCount(filteredCounts.publicLibrary);
-  const total = formatPublishedArchiveCount(totalCounts.publicLibrary);
-  const archiveState =
-    liveClaimsState === "idle" || liveClaimsState === "loading"
-      ? "available in the source-backed archive"
-      : "in the source-backed archive";
-
-  if (filteredCounts.publicLibrary === totalCounts.publicLibrary) {
-    return `${total} ${archiveState}`;
-  }
-
-  return `${showing} shown from ${total} in the source-backed archive`;
-}
-
-function readerRecordBreakdown(
-  filteredCounts: ReturnType<typeof recordOriginCounts>,
-  totalCounts: ReturnType<typeof recordOriginCounts>,
-  liveClaimsState: LiveClaimsState
-) {
-  const sourceOptions = {
-    includeLiveContributor: liveClaimsState === "ready"
-  };
-  const sourceText =
-    filteredCounts.total === totalCounts.total
-      ? `Includes ${readerRecordSourceParts(totalCounts, sourceOptions)}.`
-      : `Filtered view includes ${readerRecordSourceParts(
-          filteredCounts,
-          sourceOptions
-        )}; full library has ${readerRecordSourceParts(totalCounts, sourceOptions)}.`;
+function readerArchiveCountState(items: Claim[], liveClaimsState: LiveClaimsState) {
+  const countLabel = archiveSectionCountLabel(items.length);
 
   if (liveClaimsState === "idle" || liveClaimsState === "loading") {
-    return "Live source entries are refreshing; published source entries remain visible.";
+    return {
+      tone: "baseline",
+      heading: `Static baseline refreshing: ${countLabel} grouped below.`,
+      detail:
+        "Selected source trail is pinned separately; live source entries are still refreshing.",
+      basis:
+        "Count basis: static baseline source trails in this view; source-need counts exclude the pinned Selected source trail."
+    };
   }
 
   if (liveClaimsState === "error") {
-    return `${sourceText} Live source entries are temporarily unavailable; published source entries remain visible.`;
+    return {
+      tone: "fallback",
+      heading: `Static fallback: ${countLabel} grouped below.`,
+      detail:
+        "Selected source trail is pinned separately; live source entries are temporarily unavailable.",
+      basis:
+        "Count basis: fallback/static source trails in this view; source-need counts exclude the pinned Selected source trail."
+    };
   }
 
-  return sourceText;
+  const hasLiveRows = items.some((claim) => isLiveSupabaseClaimId(claim.id));
+
+  return {
+    tone: "current",
+    heading: `${
+      hasLiveRows ? "Live-loaded archive" : "Current archive"
+    }: ${countLabel} grouped below.`,
+    detail: hasLiveRows
+      ? "Selected source trail is pinned separately; live source entries have settled into this view."
+      : "Selected source trail is pinned separately; the current archive inventory is settled for this view.",
+    basis: hasLiveRows
+      ? "Count basis: current live-loaded source trails in this view; source-need counts exclude the pinned Selected source trail."
+      : "Count basis: current source trails in this view; source-need counts exclude the pinned Selected source trail."
+  };
 }
 
 function feedbackPath(
@@ -1147,22 +1078,6 @@ export default function ClaimsClient({
       return health.hasHighQualitySource;
     });
   }, [activeDomain, activeReaderCue, activeTriage, claims, isReaderMode, searchQuery]);
-  const totalRecordCounts = useMemo(() => recordOriginCounts(claims), [claims]);
-  const filteredRecordCounts = useMemo(
-    () => recordOriginCounts(filteredClaims),
-    [filteredClaims]
-  );
-  const readerRecordShowing = readerRecordShowingLabel(
-    filteredRecordCounts,
-    totalRecordCounts,
-    liveClaimsState
-  );
-  const readerRecordModel = readerRecordBreakdown(
-    filteredRecordCounts,
-    totalRecordCounts,
-    liveClaimsState
-  );
-
   const priorityClaim = useMemo(() => {
     return [...claims].sort((a, b) => priorityScore(b) - priorityScore(a))[0];
   }, [claims]);
@@ -1181,10 +1096,20 @@ export default function ClaimsClient({
       ...filteredClaims.filter((claim) => claim.id !== selectedClaim.id)
     ];
   }, [filteredClaims, isReaderMode, selectedClaim]);
-  const readerArchiveCues = useMemo(
+  const readerArchiveDisplayClaims = useMemo(
     () =>
-      isReaderMode ? readerArchiveCueItems(filteredClaims, selectedClaim) : [],
-    [filteredClaims, isReaderMode, selectedClaim]
+      isReaderMode
+        ? readerSourceNeedDisplayClaims(visibleClaimRows, selectedClaim)
+        : [],
+    [isReaderMode, selectedClaim, visibleClaimRows]
+  );
+  const readerArchiveState = useMemo(
+    () => readerArchiveCountState(readerArchiveDisplayClaims, liveClaimsState),
+    [liveClaimsState, readerArchiveDisplayClaims]
+  );
+  const readerArchiveCues = useMemo(
+    () => (isReaderMode ? readerArchiveCueItems(readerArchiveDisplayClaims) : []),
+    [isReaderMode, readerArchiveDisplayClaims]
   );
   const readerArchiveSections = useMemo(
     () =>
@@ -2004,9 +1929,13 @@ export default function ClaimsClient({
           </div>
           {isReaderMode ? (
             <>
-              <p className="claim-count-note source-list-note">
-                {readerRecordShowing}. {readerRecordModel}
-              </p>
+              <div
+                className={`claim-count-note source-list-note source-archive-count-state ${readerArchiveState.tone}`}
+                aria-label="Source archive count state"
+              >
+                <strong>{readerArchiveState.heading}</strong>
+                <span>{readerArchiveState.detail}</span>
+              </div>
               <div
                 className="source-archive-guide"
                 aria-label="Source archive source and evidence groups"
@@ -2017,9 +1946,7 @@ export default function ClaimsClient({
                   before opening a row.
                 </p>
                 <p className="source-archive-count-basis">
-                  Count basis: currently published/live source entries in this
-                  view; source-need counts exclude the pinned Selected source
-                  trail.
+                  {readerArchiveState.basis}
                 </p>
                 <div className="source-archive-cues">
                   {readerArchiveCues.map((cue) => (

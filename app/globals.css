@@ -4237,6 +4237,39 @@ body:has(.reader-editorial) .page-heading h1 {
   opacity: 0.78;
 }
 
+.reader-editorial .source-archive-count-state {
+  display: grid;
+  gap: 3px;
+  border: 1px solid rgba(23, 33, 38, 0.08);
+  border-left: 3px solid rgba(15, 118, 110, 0.34);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  opacity: 1;
+  padding: 8px 9px;
+}
+
+.reader-editorial .source-archive-count-state.baseline {
+  border-left-color: rgba(180, 83, 9, 0.42);
+}
+
+.reader-editorial .source-archive-count-state.fallback {
+  border-left-color: rgba(190, 18, 60, 0.36);
+}
+
+.reader-editorial .source-archive-count-state strong {
+  color: var(--foreground);
+  font-size: 0.82rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.reader-editorial .source-archive-count-state span {
+  color: var(--foreground-dim);
+  font-size: 0.76rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .reader-editorial .source-archive-guide {
   margin-top: -4px;
   background: #f8fbf8;
