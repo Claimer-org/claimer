@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.70";
+export const SITE_VERSION = "26.601.71";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Claims first paint source preview",
+    bullets: [
+      "`/claims/` now renders a useful source/evidence preview during first paint, including Original source, Source host, Evidence mix, source need cues, and a live-source-entry refresh note before hydrated archive content settles.",
+      "The settled ClaimsClient reader archive still owns live source entries, selected source trail, evidence chain, filters, source-gap cues, and neutral evidence framing after hydration.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.70",
     date: "2026-06-05",
     title: "For agents first task hierarchy",
     bullets: [
