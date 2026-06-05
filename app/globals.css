@@ -1093,7 +1093,7 @@ a.current-record-pin {
   min-width: 0;
 }
 
-.source-archive-cues span {
+.source-archive-cues :is(a, span) {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -1107,6 +1107,12 @@ a.current-record-pin {
   line-height: 1.2;
   padding: 4px 7px;
   overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.source-archive-cues :is(a, span).disabled {
+  opacity: 0.48;
+  pointer-events: none;
 }
 
 .source-archive-cues strong {
@@ -1115,11 +1121,42 @@ a.current-record-pin {
   line-height: 1;
 }
 
+.source-archive-selected-mini {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  border-top: 1px solid rgba(23, 33, 38, 0.08);
+  padding-top: 8px;
+}
+
+.source-archive-selected-mini span,
+.source-archive-selected-mini a {
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.source-archive-selected-mini strong {
+  color: var(--foreground);
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.source-archive-selected-mini a {
+  width: fit-content;
+  max-width: 100%;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 .source-archive-section {
   display: grid;
   gap: 0;
   min-width: 0;
   border-bottom: 1px solid rgba(23, 33, 38, 0.08);
+  scroll-margin-top: 96px;
 }
 
 .source-archive-section.selected {
@@ -1135,12 +1172,30 @@ a.current-record-pin {
   padding: 10px 2px 7px;
 }
 
+.source-archive-section-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-width: 0;
+}
+
 .source-archive-section-heading span {
   color: var(--accent-strong);
   font-size: 0.76rem;
   font-weight: 850;
   line-height: 1.2;
   overflow-wrap: anywhere;
+}
+
+.source-archive-section-title a {
+  color: var(--foreground-dim);
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .source-archive-section-heading strong {
@@ -1162,6 +1217,38 @@ a.current-record-pin {
 .source-archive-section-rows {
   display: grid;
   min-width: 0;
+}
+
+.source-archive-section-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px 10px;
+  min-width: 0;
+  border-top: 1px solid rgba(23, 33, 38, 0.06);
+  padding: 7px 2px 9px;
+}
+
+.source-archive-section-footer span {
+  color: var(--foreground-dim);
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.source-archive-toggle {
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 6px;
+  background: rgba(15, 118, 110, 0.08);
+  color: var(--accent-strong);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1.15;
+  padding: 4px 8px;
 }
 
 .claim-picker-current {
@@ -4021,7 +4108,7 @@ body:has(.reader-editorial) .page-heading h1 {
 .reader-editorial .priority-evidence span,
 .reader-editorial .priority-action > span,
 .reader-editorial .claim-list-heading span,
-.reader-editorial .source-archive-cues span,
+.reader-editorial .source-archive-cues :is(a, span),
 .reader-editorial .claim-domain {
   border: 1px solid rgba(23, 33, 38, 0.1);
   border-radius: 6px;
@@ -5503,7 +5590,7 @@ textarea {
     gap: 5px;
   }
 
-  .source-archive-cues span {
+  .source-archive-cues :is(a, span) {
     align-items: flex-start;
     font-size: 0.65rem;
     line-height: 1.2;
@@ -5522,9 +5609,25 @@ textarea {
     padding: 9px 2px 6px;
   }
 
+  .source-archive-section-title {
+    align-items: flex-start;
+    gap: 3px 7px;
+  }
+
   .source-archive-section-heading strong {
     justify-self: start;
     white-space: normal;
+  }
+
+  .source-archive-section-footer {
+    align-items: flex-start;
+    gap: 5px 8px;
+    padding: 6px 2px 8px;
+  }
+
+  .source-archive-toggle {
+    font-size: 0.68rem;
+    padding: 3px 7px;
   }
 
   .reader-editorial .claim-row-mix {

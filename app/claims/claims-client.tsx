@@ -87,6 +87,7 @@ const readerArchiveCueLabels = [
 ] as const;
 type ReaderArchiveCueLabel = (typeof readerArchiveCueLabels)[number];
 type ReaderArchiveSourceNeedFilter = ReaderArchiveCueLabel | "all";
+const readerArchiveCollapsedLimit = 5;
 
 const readerSourceNeedFilters: Array<{
   value: ReaderArchiveSourceNeedFilter;
@@ -376,22 +377,29 @@ function readerArchiveCueItems(items: Claim[]) {
 
 function readerArchiveSectionDescription(label: ReaderArchiveCueLabel) {
   if (label === "Challenge source gap") {
-    return "Claims with support coverage that still need an independent challenge source.";
+    return "Support sources are present; independent challenge coverage is still open.";
   }
 
   if (label === "Support source gap") {
-    return "Claims with challenge coverage that still need an independent support source.";
+    return "Challenge sources are present; independent support coverage is still open.";
   }
 
   if (label === "Primary-source gap") {
-    return "Claims whose archive trail still needs primary or direct source coverage.";
+    return "Claims that still need primary or direct source coverage.";
   }
 
-  return "Claims with a visible evidence mix where additional context can clarify scope or timing.";
+  return "Evidence mix is visible; context can clarify scope or timing.";
 }
 
 function archiveSectionCountLabel(count: number) {
   return `${count} source trail${count === 1 ? "" : "s"}`;
+}
+
+function readerArchiveSectionDomId(key: string) {
+  return `source-archive-${key
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")}`;
 }
 
 function groupReaderArchiveSections(items: Claim[], selectedClaim?: Claim | null) {
@@ -884,6 +892,9 @@ export default function ClaimsClient({
   const [activeDomain, setActiveDomain] = useState<ClaimDomain | "all">("all");
   const [activeReaderCue, setActiveReaderCue] =
     useState<ReaderArchiveSourceNeedFilter>("all");
+  const [expandedReaderArchiveSections, setExpandedReaderArchiveSections] = useState<
+    string[]
+  >([]);
   const [activeTriage, setActiveTriage] = useState<
     "all" | "needs-challenge" | "needs-support" | "primary-direct"
   >("all");
@@ -1140,6 +1151,10 @@ export default function ClaimsClient({
         : [],
     [isReaderMode, selectedClaim, visibleClaimRows]
   );
+  const expandedReaderArchiveSectionIds = useMemo(
+    () => new Set(expandedReaderArchiveSections),
+    [expandedReaderArchiveSections]
+  );
   const showLiveClaimsSkeleton =
     liveClaimsState === "loading" && (!isReaderMode || visibleClaimRows.length === 0);
 
@@ -1212,6 +1227,14 @@ export default function ClaimsClient({
     if (targetedReviewMode && narrowLayout) {
       setClaimPickerOpen(false);
     }
+  }
+
+  function toggleReaderArchiveSection(sectionKey: string) {
+    setExpandedReaderArchiveSections((currentSections) =>
+      currentSections.includes(sectionKey)
+        ? currentSections.filter((key) => key !== sectionKey)
+        : [...currentSections, sectionKey]
+    );
   }
 
   async function submitClaim(event: React.FormEvent<HTMLFormElement>) {
@@ -1616,8 +1639,10 @@ export default function ClaimsClient({
         }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Opens the source trail and evidence chain.`}
       >
         <strong>{claim.title}</strong>
-        <span className="claim-row-source">
-          <span className="claim-row-source-label">Original source</span>
+        <span
+          className="claim-row-source"
+          aria-label={`Original source ${originalSource}; source host ${originalSourceHost}`}
+        >
           <span className="claim-row-source-name">{originalSource}</span>
           <span className="claim-row-source-host">{originalSourceHost}</span>
         </span>
@@ -1938,12 +1963,34 @@ export default function ClaimsClient({
                 </p>
                 <div className="source-archive-cues">
                   {readerArchiveCues.map((cue) => (
-                    <span key={cue.label}>
+                    <a
+                      aria-disabled={cue.count === 0}
+                      className={cue.count === 0 ? "disabled" : undefined}
+                      href={`#${readerArchiveSectionDomId(cue.label)}`}
+                      key={cue.label}
+                      onClick={(event) => {
+                        if (cue.count === 0) {
+                          event.preventDefault();
+                        }
+                      }}
+                    >
                       <strong>{cue.count}</strong>
                       {cue.label}
-                    </span>
+                    </a>
                   ))}
                 </div>
+                {selectedClaim ? (
+                  <div className="source-archive-selected-mini">
+                    <span>Selected source trail</span>
+                    <strong>{selectedClaim.title}</strong>
+                    <a
+                      href="#selected-source-evidence"
+                      onClick={() => selectClaim(selectedClaim.id)}
+                    >
+                      Return to source trail
+                    </a>
+                  </div>
+                ) : null}
               </div>
             </>
           ) : null}
@@ -1962,24 +2009,76 @@ export default function ClaimsClient({
 
             {isReaderMode ? (
               readerArchiveSections.length > 0 ? (
-                readerArchiveSections.map((section) => (
-                  <section
-                    className={`source-archive-section${
-                      section.selected ? " selected" : ""
-                    }`}
-                    key={section.key}
-                    aria-label={`${section.label} archive section`}
-                  >
-                    <div className="source-archive-section-heading">
-                      <span>{section.label}</span>
-                      <strong>{archiveSectionCountLabel(section.claims.length)}</strong>
-                      <p>{section.description}</p>
-                    </div>
-                    <div className="source-archive-section-rows">
-                      {section.claims.map((claim) => renderReaderArchiveRow(claim))}
-                    </div>
-                  </section>
-                ))
+                readerArchiveSections.map((section) => {
+                  const sectionExpanded =
+                    section.selected || expandedReaderArchiveSectionIds.has(section.key);
+                  const visibleSectionClaims = sectionExpanded
+                    ? section.claims
+                    : section.claims.slice(0, readerArchiveCollapsedLimit);
+                  const hiddenSectionCount =
+                    section.claims.length - visibleSectionClaims.length;
+                  const showSectionToggle =
+                    !section.selected &&
+                    section.claims.length > readerArchiveCollapsedLimit;
+
+                  return (
+                    <section
+                      className={`source-archive-section${
+                        section.selected ? " selected" : ""
+                      }`}
+                      id={readerArchiveSectionDomId(section.key)}
+                      key={section.key}
+                      aria-label={`${section.label} archive section`}
+                    >
+                      <div className="source-archive-section-heading">
+                        <div className="source-archive-section-title">
+                          <span>{section.label}</span>
+                          {!section.selected && selectedClaim ? (
+                            <a
+                              href="#selected-source-evidence"
+                              onClick={() => selectClaim(selectedClaim.id)}
+                            >
+                              Selected source trail
+                            </a>
+                          ) : null}
+                        </div>
+                        <strong>
+                          {visibleSectionClaims.length === section.claims.length
+                            ? archiveSectionCountLabel(section.claims.length)
+                            : `${visibleSectionClaims.length} of ${archiveSectionCountLabel(
+                                section.claims.length
+                              )}`}
+                        </strong>
+                        <p>{section.description}</p>
+                      </div>
+                      <div className="source-archive-section-rows">
+                        {visibleSectionClaims.map((claim) => renderReaderArchiveRow(claim))}
+                      </div>
+                      {showSectionToggle ? (
+                        <div className="source-archive-section-footer">
+                          <span>
+                            {sectionExpanded
+                              ? `All ${archiveSectionCountLabel(
+                                  section.claims.length
+                                )} visible in this source-need band.`
+                              : `Showing ${visibleSectionClaims.length} of ${archiveSectionCountLabel(
+                                  section.claims.length
+                                )} in this source-need band.`}
+                          </span>
+                          <button
+                            className="source-archive-toggle"
+                            onClick={() => toggleReaderArchiveSection(section.key)}
+                            type="button"
+                          >
+                            {sectionExpanded
+                              ? "Show fewer"
+                              : `Show ${hiddenSectionCount} more`}
+                          </button>
+                        </div>
+                      ) : null}
+                    </section>
+                  );
+                })
               ) : liveClaimsState !== "loading" ? (
                 <div className="empty-state compact">
                   <strong>No claims match these filters.</strong>
