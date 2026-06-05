@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.72";
+export const SITE_VERSION = "26.601.73";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Submit flow editorial restyle",
+    bullets: [
+      "Claim-specific `/submit/[id]/` now opens with a light source-backed evidence contribution brief that matches the public source/evidence archive style, including Contribute evidence, Original source, Source host, Evidence mix, Evidence chain, Open current source, Jump to form, and workflow-note actions.",
+      "The targeted contribution page keeps the claim title, needed stance, source context, and preselected Add evidence form visible while removing the score and task-copy panels from that public contribution target.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/for-agents/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.72",
     date: "2026-06-05",
     title: "Claims reader/operator separation",
     bullets: [
