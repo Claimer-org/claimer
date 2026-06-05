@@ -1086,17 +1086,6 @@ a.current-record-pin {
   overflow-wrap: anywhere;
 }
 
-.source-archive-guide .source-archive-count-basis {
-  width: fit-content;
-  max-width: 100%;
-  border: 1px solid rgba(15, 118, 110, 0.14);
-  border-radius: 6px;
-  background: rgba(15, 118, 110, 0.07);
-  color: var(--accent-strong);
-  font-weight: 800;
-  padding: 5px 7px;
-}
-
 .source-archive-cues {
   display: flex;
   flex-wrap: wrap;
@@ -1222,33 +1211,6 @@ a.current-record-pin {
   color: var(--foreground-dim);
   font-size: 0.75rem;
   line-height: 1.35;
-  overflow-wrap: anywhere;
-}
-
-.source-archive-section-context {
-  display: grid;
-  gap: 2px;
-  min-width: 0;
-  margin: 0 0 4px;
-  border: 1px solid rgba(23, 33, 38, 0.08);
-  border-radius: 6px;
-  background: #fbfdfb;
-  padding: 7px 9px;
-  text-decoration: none;
-}
-
-.source-archive-section-context span {
-  color: var(--accent-strong);
-  font-size: 0.68rem;
-  font-weight: 850;
-  line-height: 1.2;
-}
-
-.source-archive-section-context strong {
-  color: var(--foreground);
-  font-size: 0.78rem;
-  font-weight: 750;
-  line-height: 1.25;
   overflow-wrap: anywhere;
 }
 
@@ -4370,13 +4332,13 @@ body:has(.reader-editorial) .page-heading h1 {
 
 .reader-editorial .source-archive-count-state {
   display: grid;
-  gap: 3px;
+  gap: 2px;
   border: 1px solid rgba(23, 33, 38, 0.08);
-  border-left: 3px solid rgba(15, 118, 110, 0.34);
+  border-left: 2px solid rgba(15, 118, 110, 0.28);
   border-radius: var(--radius-sm);
   background: #ffffff;
   opacity: 1;
-  padding: 8px 9px;
+  padding: 7px 9px;
 }
 
 .reader-editorial .source-archive-count-state.baseline {
@@ -4389,14 +4351,14 @@ body:has(.reader-editorial) .page-heading h1 {
 
 .reader-editorial .source-archive-count-state strong {
   color: var(--foreground);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   line-height: 1.25;
   overflow-wrap: anywhere;
 }
 
 .reader-editorial .source-archive-count-state span {
   color: var(--foreground-dim);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
 }
@@ -4404,6 +4366,7 @@ body:has(.reader-editorial) .page-heading h1 {
 .reader-editorial .source-archive-guide {
   margin-top: -4px;
   background: #f8fbf8;
+  padding: 9px;
 }
 
 .reader-editorial .source-list {
@@ -4477,6 +4440,7 @@ body:has(.reader-editorial) .page-heading h1 {
 .reader-editorial .source-list-row .claim-row-fact-label {
   color: var(--foreground-dim);
   font-size: 0.62rem;
+  text-transform: none;
 }
 
 .reader-editorial .claim-row-coverage {
@@ -6285,15 +6249,6 @@ textarea {
     padding: 9px 2px 6px;
   }
 
-  .source-archive-section-context {
-    margin-bottom: 3px;
-    padding: 6px 7px;
-  }
-
-  .source-archive-section-context strong {
-    font-size: 0.74rem;
-  }
-
   .source-archive-section-title {
     align-items: flex-start;
     gap: 3px 7px;
@@ -6430,7 +6385,7 @@ textarea {
     font-size: 0.6rem;
     font-weight: 850;
     line-height: 1.12;
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   .reader-editorial .source-list-row .claim-row-source-name,

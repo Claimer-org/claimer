@@ -399,18 +399,18 @@ function readerArchiveCueItems(sourceNeedItems: Claim[]) {
 
 function readerArchiveSectionDescription(label: ReaderArchiveCueLabel) {
   if (label === "Challenge source gap") {
-    return "Support is present; independent challenge coverage remains open.";
+    return "Needs independent challenge coverage.";
   }
 
   if (label === "Support source gap") {
-    return "Challenge is present; independent support coverage remains open.";
+    return "Needs independent support coverage.";
   }
 
   if (label === "Primary-source gap") {
-    return "Entries still looking for primary or direct source coverage.";
+    return "Needs primary or direct source coverage.";
   }
 
-  return "Evidence mix is visible; context can clarify scope or timing.";
+  return "Has an evidence mix; context can clarify scope or timing.";
 }
 
 function archiveSectionCountLabel(count: number) {
@@ -603,22 +603,18 @@ function readerArchiveCountState(items: Claim[], liveClaimsState: LiveClaimsStat
   if (liveClaimsState === "idle" || liveClaimsState === "loading") {
     return {
       tone: "baseline",
-      heading: `Static baseline refreshing: ${countLabel} grouped below.`,
+      heading: `Static source index refreshing: ${countLabel}.`,
       detail:
-        "Selected source trail is pinned separately; live source entries are still refreshing.",
-      basis:
-        "Count basis: static baseline source trails in this view; source-need counts exclude the pinned Selected source trail."
+        "Counts cover the lower Source archive while the selected source trail stays pinned above."
     };
   }
 
   if (liveClaimsState === "error") {
     return {
       tone: "fallback",
-      heading: `Static fallback: ${countLabel} grouped below.`,
+      heading: `Static source index: ${countLabel}.`,
       detail:
-        "Selected source trail is pinned separately; live source entries are temporarily unavailable.",
-      basis:
-        "Count basis: fallback/static source trails in this view; source-need counts exclude the pinned Selected source trail."
+        "Live refresh is temporarily unavailable; source needs remain browseable from the static archive."
     };
   }
 
@@ -627,14 +623,11 @@ function readerArchiveCountState(items: Claim[], liveClaimsState: LiveClaimsStat
   return {
     tone: "current",
     heading: `${
-      hasLiveRows ? "Live-loaded archive" : "Current archive"
-    }: ${countLabel} grouped below.`,
+      hasLiveRows ? "Live-loaded source index" : "Current source index"
+    }: ${countLabel}.`,
     detail: hasLiveRows
-      ? "Selected source trail is pinned separately; live source entries have settled into this view."
-      : "Selected source trail is pinned separately; the current archive inventory is settled for this view.",
-    basis: hasLiveRows
-      ? "Count basis: current live-loaded source trails in this view; source-need counts exclude the pinned Selected source trail."
-      : "Count basis: current source trails in this view; source-need counts exclude the pinned Selected source trail."
+      ? "Live entries are included; the selected source trail stays pinned above."
+      : "Current published source trails are shown below; the selected source trail stays pinned above."
   };
 }
 
@@ -1628,7 +1621,7 @@ export default function ClaimsClient({
           aria-label={rowAriaLabel}
         >
           <span className="claim-row-purpose">
-            <span className="claim-row-purpose-label">Source trail purpose</span>
+            <span className="claim-row-purpose-label">Selected source trail</span>
             <strong>{claim.title}</strong>
           </span>
           <span
@@ -2005,12 +1998,9 @@ export default function ClaimsClient({
                 aria-label="Source archive source and evidence groups"
               >
                 <p>
-                  Selected source trail stays first. Archive entries are grouped
-                  into source-need bands so readers can scan open source work
-                  before opening a row.
-                </p>
-                <p className="source-archive-count-basis">
-                  {readerArchiveState.basis}
+                  Use the source need filters or cue links to move through the
+                  public source index. Rows keep source need, Original source,
+                  Source host, and Evidence mix visible before claim context.
                 </p>
                 <div className="source-archive-cues">
                   {readerArchiveCues.map((cue) => (
@@ -2084,14 +2074,6 @@ export default function ClaimsClient({
                       <div className="source-archive-section-heading">
                         <div className="source-archive-section-title">
                           <span>{section.label}</span>
-                          {!section.selected && selectedClaim ? (
-                            <a
-                              href="#selected-source-evidence"
-                              onClick={() => selectClaim(selectedClaim.id)}
-                            >
-                              Selected source trail
-                            </a>
-                          ) : null}
                         </div>
                         <strong>
                           {readerSourceNeedDisplayCountLabel(
@@ -2101,16 +2083,6 @@ export default function ClaimsClient({
                         </strong>
                         <p>{section.description}</p>
                       </div>
-                      {!section.selected && selectedClaim ? (
-                        <a
-                          className="source-archive-section-context"
-                          href="#selected-source-evidence"
-                          onClick={() => selectClaim(selectedClaim.id)}
-                        >
-                          <span>Selected source trail</span>
-                          <strong>{selectedClaim.title}</strong>
-                        </a>
-                      ) : null}
                       <div className="source-archive-section-rows">
                         {groupReaderArchiveClaimsByHost(visibleSectionClaims).map(
                           (group) => (

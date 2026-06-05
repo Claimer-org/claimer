@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.74";
+export const SITE_VERSION = "26.601.75";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "Claims archive scan simplification",
+    bullets: [
+      "`/claims/` lower Source archive copy now reads as a calmer public source index, with the selected source trail kept first and source-need guidance expressed once instead of repeated through every section.",
+      "Lower archive rows keep the mobile scan order of source need, Original source and Source host, Evidence mix, concise claim context, and Select this source trail while preserving source-gap cues, filters, show-more controls, and Evidence chain access.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.74",
     date: "2026-06-06",
     title: "For-agents claim reference polish",
     bullets: [
