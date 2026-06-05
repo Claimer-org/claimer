@@ -85,11 +85,20 @@ const readerArchiveCueLabels = [
   "Primary-source gap",
   "Context coverage open"
 ] as const;
+type ReaderArchiveCueLabel = (typeof readerArchiveCueLabels)[number];
+type ReaderArchiveSourceNeedFilter = ReaderArchiveCueLabel | "all";
+
+const readerSourceNeedFilters: Array<{
+  value: ReaderArchiveSourceNeedFilter;
+  label: string;
+}> = [
+  { value: "all", label: "All source needs" },
+  ...readerArchiveCueLabels.map((label) => ({ value: label, label }))
+];
 
 const assessmentTargets: AssessmentTarget[] = ["attribution", "veracity", "context"];
 const oneDayMs = 1000 * 60 * 60 * 24;
 const publicLibraryClaimIds = new Set(seedClaims.map((claim) => claim.id));
-type ReaderArchiveCueLabel = (typeof readerArchiveCueLabels)[number];
 
 const blockedTerms = [
   "private individual",
@@ -363,6 +372,70 @@ function readerArchiveCueItems(items: Claim[]) {
     label,
     count: cueCounts.get(label) ?? 0
   }));
+}
+
+function readerArchiveSectionDescription(label: ReaderArchiveCueLabel) {
+  if (label === "Challenge source gap") {
+    return "Claims with support coverage that still need an independent challenge source.";
+  }
+
+  if (label === "Support source gap") {
+    return "Claims with challenge coverage that still need an independent support source.";
+  }
+
+  if (label === "Primary-source gap") {
+    return "Claims whose archive trail still needs primary or direct source coverage.";
+  }
+
+  return "Claims with a visible evidence mix where additional context can clarify scope or timing.";
+}
+
+function archiveSectionCountLabel(count: number) {
+  return `${count} source trail${count === 1 ? "" : "s"}`;
+}
+
+function groupReaderArchiveSections(items: Claim[], selectedClaim?: Claim | null) {
+  const selectedRow = selectedClaim
+    ? items.find((claim) => claim.id === selectedClaim.id)
+    : undefined;
+  const archiveItems = selectedRow
+    ? items.filter((claim) => claim.id !== selectedRow.id)
+    : items;
+  const sections: Array<{
+    key: string;
+    label: string;
+    description: string;
+    claims: Claim[];
+    selected?: boolean;
+  }> = [];
+
+  if (selectedRow) {
+    sections.push({
+      key: "selected-source-trail",
+      label: "Selected source trail",
+      description:
+        "Start here; the selected claim opens Original source and Evidence chain before lower metadata.",
+      claims: [selectedRow],
+      selected: true
+    });
+  }
+
+  readerArchiveCueLabels.forEach((label) => {
+    const claims = archiveItems.filter((claim) => readerCoverageSignal(claim) === label);
+
+    if (claims.length === 0) {
+      return;
+    }
+
+    sections.push({
+      key: label,
+      label,
+      description: readerArchiveSectionDescription(label),
+      claims
+    });
+  });
+
+  return sections;
 }
 
 function readerCoverageDescription(claim: Claim) {
@@ -809,6 +882,8 @@ export default function ClaimsClient({
   >({});
   const [liveClaimsState, setLiveClaimsState] = useState<LiveClaimsState>("idle");
   const [activeDomain, setActiveDomain] = useState<ClaimDomain | "all">("all");
+  const [activeReaderCue, setActiveReaderCue] =
+    useState<ReaderArchiveSourceNeedFilter>("all");
   const [activeTriage, setActiveTriage] = useState<
     "all" | "needs-challenge" | "needs-support" | "primary-direct"
   >("all");
@@ -998,6 +1073,10 @@ export default function ClaimsClient({
       );
     }
 
+    if (isReaderMode && activeReaderCue !== "all") {
+      result = result.filter((claim) => readerCoverageSignal(claim) === activeReaderCue);
+    }
+
     if (effectiveTriage === "all") {
       return result;
     }
@@ -1015,7 +1094,7 @@ export default function ClaimsClient({
 
       return health.hasHighQualitySource;
     });
-  }, [activeDomain, activeTriage, claims, isReaderMode, searchQuery]);
+  }, [activeDomain, activeReaderCue, activeTriage, claims, isReaderMode, searchQuery]);
   const totalRecordCounts = useMemo(() => recordOriginCounts(claims), [claims]);
   const filteredRecordCounts = useMemo(
     () => recordOriginCounts(filteredClaims),
@@ -1045,20 +1124,21 @@ export default function ClaimsClient({
       return filteredClaims;
     }
 
-    const selectedRow = filteredClaims.find((claim) => claim.id === selectedClaim.id);
-
-    if (!selectedRow) {
-      return filteredClaims;
-    }
-
     return [
-      selectedRow,
+      selectedClaim,
       ...filteredClaims.filter((claim) => claim.id !== selectedClaim.id)
     ];
   }, [filteredClaims, isReaderMode, selectedClaim]);
   const readerArchiveCues = useMemo(
-    () => (isReaderMode ? readerArchiveCueItems(visibleClaimRows) : []),
-    [isReaderMode, visibleClaimRows]
+    () => (isReaderMode ? readerArchiveCueItems(filteredClaims) : []),
+    [filteredClaims, isReaderMode]
+  );
+  const readerArchiveSections = useMemo(
+    () =>
+      isReaderMode
+        ? groupReaderArchiveSections(visibleClaimRows, selectedClaim)
+        : [],
+    [isReaderMode, selectedClaim, visibleClaimRows]
   );
   const showLiveClaimsSkeleton =
     liveClaimsState === "loading" && (!isReaderMode || visibleClaimRows.length === 0);
@@ -1507,6 +1587,52 @@ export default function ClaimsClient({
     }
   }
 
+  function renderReaderArchiveRow(claim: Claim) {
+    const counts = evidenceCounts(claim);
+    const originalSource = claim.sourcePublisher || claim.sourceTitle;
+    const originalSourceHost = sourceHost(claim.sourceUrl);
+    const isSelectedClaimRow = selectedClaim?.id === claim.id;
+    const coverageSignal = readerCoverageSignal(claim);
+    const claimRowClassName = `claim-row source-list-row compact${
+      isSelectedClaimRow ? " active" : ""
+    }`;
+
+    return (
+      <a
+        className={claimRowClassName}
+        href="#selected-source-evidence"
+        key={claim.id}
+        onClick={() => {
+          selectClaim(claim.id);
+          window.requestAnimationFrame(() => {
+            document
+              .getElementById("selected-source-evidence")
+              ?.scrollIntoView({ block: "start" });
+          });
+        }}
+        title={claim.title}
+        aria-label={`${
+          isSelectedClaimRow ? "Selected claim. " : ""
+        }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Opens the source trail and evidence chain.`}
+      >
+        <strong>{claim.title}</strong>
+        <span className="claim-row-source">
+          <span className="claim-row-source-label">Original source</span>
+          <span className="claim-row-source-name">{originalSource}</span>
+          <span className="claim-row-source-host">{originalSourceHost}</span>
+        </span>
+        <span className="claim-row-coverage">{coverageSignal}</span>
+        <span className="claim-row-facts">
+          <span className="claim-row-mix">
+            {counts.support} support / {counts.challenge} challenge / {counts.context}{" "}
+            context
+          </span>
+          <span className="claim-row-action">source trail</span>
+        </span>
+      </a>
+    );
+  }
+
   const workspaceClassName = [
     "workspace",
     isReaderMode ? "reader-workspace" : "",
@@ -1710,22 +1836,42 @@ export default function ClaimsClient({
           </div>
 
           {isReaderMode ? (
-            <label className="reader-filter-row" htmlFor="reader-domain-filter">
-              <span>Topic</span>
-              <select
-                id="reader-domain-filter"
-                onChange={(event) =>
-                  setActiveDomain(event.target.value as ClaimDomain | "all")
-                }
-                value={activeDomain}
-              >
-                {domainFilters.map((domain) => (
-                  <option key={domain} value={domain}>
-                    {domain === "all" ? "All topics" : domain}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <div className="reader-filter-grid" aria-label="Source archive filters">
+              <label className="reader-filter-row" htmlFor="reader-domain-filter">
+                <span>Topic</span>
+                <select
+                  id="reader-domain-filter"
+                  onChange={(event) =>
+                    setActiveDomain(event.target.value as ClaimDomain | "all")
+                  }
+                  value={activeDomain}
+                >
+                  {domainFilters.map((domain) => (
+                    <option key={domain} value={domain}>
+                      {domain === "all" ? "All topics" : domain}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="reader-filter-row" htmlFor="reader-source-need-filter">
+                <span>Source need</span>
+                <select
+                  id="reader-source-need-filter"
+                  onChange={(event) =>
+                    setActiveReaderCue(
+                      event.target.value as ReaderArchiveSourceNeedFilter
+                    )
+                  }
+                  value={activeReaderCue}
+                >
+                  {readerSourceNeedFilters.map((filter) => (
+                    <option key={filter.value} value={filter.value}>
+                      {filter.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
           ) : (
             <>
               <div className="filters" aria-label="Claim domain filters">
@@ -1786,8 +1932,9 @@ export default function ClaimsClient({
                 aria-label="Source archive source and evidence groups"
               >
                 <p>
-                  Rows keep the selected claim first, then use source/evidence gap
-                  cues to show which kind of source work is still open.
+                  Selected source trail stays first. Archive entries are grouped
+                  into source-need bands so readers can scan open source work
+                  before opening a row.
                 </p>
                 <div className="source-archive-cues">
                   {readerArchiveCues.map((cue) => (
@@ -1813,63 +1960,42 @@ export default function ClaimsClient({
               </div>
             ) : null}
 
-            {visibleClaimRows.length > 0 ? (
-              visibleClaimRows.map((claim) => {
+            {isReaderMode ? (
+              readerArchiveSections.length > 0 ? (
+                readerArchiveSections.map((section) => (
+                  <section
+                    className={`source-archive-section${
+                      section.selected ? " selected" : ""
+                    }`}
+                    key={section.key}
+                    aria-label={`${section.label} archive section`}
+                  >
+                    <div className="source-archive-section-heading">
+                      <span>{section.label}</span>
+                      <strong>{archiveSectionCountLabel(section.claims.length)}</strong>
+                      <p>{section.description}</p>
+                    </div>
+                    <div className="source-archive-section-rows">
+                      {section.claims.map((claim) => renderReaderArchiveRow(claim))}
+                    </div>
+                  </section>
+                ))
+              ) : liveClaimsState !== "loading" ? (
+                <div className="empty-state compact">
+                  <strong>No claims match these filters.</strong>
+                  <span>Clear a filter or submit a sourced public claim.</span>
+                </div>
+              ) : null
+            ) : filteredClaims.length > 0 ? (
+              filteredClaims.map((claim) => {
                 const counts = evidenceCounts(claim);
                 const health = evidenceHealth(claim);
                 const originalSource = claim.sourcePublisher || claim.sourceTitle;
-                const originalSourceHost = sourceHost(claim.sourceUrl);
                 const isSelectedClaimRow = selectedClaim?.id === claim.id;
-                const coverageSignal = readerCoverageSignal(claim);
-                const claimRowClassName = isReaderMode
-                  ? `claim-row source-list-row compact${isSelectedClaimRow ? " active" : ""}`
-                  : `claim-row${isSelectedClaimRow ? " active" : ""}`;
-                const readerRowContent = (
-                  <>
-                    <strong>{claim.title}</strong>
-                    <span className="claim-row-source">
-                      <span className="claim-row-source-label">Original source</span>
-                      <span className="claim-row-source-name">{originalSource}</span>
-                      <span className="claim-row-source-host">{originalSourceHost}</span>
-                    </span>
-                    <span className="claim-row-coverage">{coverageSignal}</span>
-                    <span className="claim-row-facts">
-                      <span className="claim-row-mix">
-                        {counts.support} support / {counts.challenge} challenge /{" "}
-                        {counts.context} context
-                      </span>
-                      <span className="claim-row-action">source trail</span>
-                    </span>
-                  </>
-                );
-
-                if (isReaderMode) {
-                  return (
-                    <a
-                      className={claimRowClassName}
-                      href="#selected-source-evidence"
-                      key={claim.id}
-                      onClick={() => {
-                        selectClaim(claim.id);
-                        window.requestAnimationFrame(() => {
-                          document
-                            .getElementById("selected-source-evidence")
-                            ?.scrollIntoView({ block: "start" });
-                        });
-                      }}
-                      title={claim.title}
-                      aria-label={`${
-                        isSelectedClaimRow ? "Selected claim. " : ""
-                      }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Opens the source trail and evidence chain.`}
-                    >
-                      {readerRowContent}
-                    </a>
-                  );
-                }
 
                 return (
                   <button
-                    className={claimRowClassName}
+                    className={`claim-row${isSelectedClaimRow ? " active" : ""}`}
                     key={claim.id}
                     onClick={() => selectClaim(claim.id)}
                     type="button"

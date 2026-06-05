@@ -1,8 +1,19 @@
-export const SITE_VERSION = "26.601.60";
+export const SITE_VERSION = "26.601.61";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Claims mobile edited index",
+    bullets: [
+      "`/claims/` now turns the lower Source archive into an edited index with Topic and Source need filters, selected source trail first, and grouped source-need bands for Challenge source gap, Support source gap, Primary-source gap, and Context coverage open.",
+      "Archive rows still preserve claim text, Original source, source host, support / challenge / context evidence mix, source-gap cue, and source trail action while the selected claim continues through Original source and Evidence chain first.",
+      "Mobile selected-claim headlines now wrap instead of ending on unfinished fragments, keeping the source-first reader flow readable at 390px while preserving neutral source-coverage framing.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.60",
     date: "2026-06-05",
     title: "Mobile microcopy trust polish",
     bullets: [
