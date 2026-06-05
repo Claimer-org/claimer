@@ -1,8 +1,19 @@
-export const SITE_VERSION = "26.601.67";
+export const SITE_VERSION = "26.601.68";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Claims archive mobile density calm",
+    bullets: [
+      "`/claims/` lower mobile Source archive rows now group source need, original source, source host, and evidence mix into a compact summary before the quieter claim context line, so a published source trail can be understood before reading a repeated long claim paragraph.",
+      "Selected source trail remains pinned first and visually distinct, with source trail purpose, full selected claim text, Original source, Evidence chain, capped bands, `Showing 5 of N`, `Show N more`, and `Select this source trail` preserved.",
+      "Static baseline refreshing, Live-loaded archive, Current archive, Count basis, Challenge source gap, Support source gap, Primary-source gap, Context coverage open, live-loaded, and current live-loaded count language remain aligned with the v26.601.67 count-state basis.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.67",
     date: "2026-06-05",
     title: "Claims source archive count state stability",
     bullets: [

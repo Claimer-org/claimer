@@ -1393,7 +1393,15 @@ a.claim-row {
   min-width: 0;
 }
 
+.claim-row-summary,
+.claim-row-context {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
 .claim-row-purpose-label,
+.claim-row-context-label,
 .claim-row-fact-label {
   width: fit-content;
   max-width: 100%;
@@ -1403,6 +1411,11 @@ a.claim-row {
   line-height: 1.15;
   overflow-wrap: anywhere;
   text-transform: uppercase;
+}
+
+.claim-row-context strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .claim-row > span:last-child {
@@ -4291,6 +4304,10 @@ body:has(.reader-editorial) .page-heading h1 {
   padding: 10px 2px;
 }
 
+.reader-editorial .source-list-row.archive-source-row {
+  gap: 7px;
+}
+
 .reader-editorial .source-list-row:hover,
 .reader-editorial .source-list-row.active {
   background: #f4f8f6;
@@ -4317,6 +4334,14 @@ body:has(.reader-editorial) .page-heading h1 {
   gap: 3px 9px;
 }
 
+.reader-editorial .source-list-row.archive-source-row .claim-row-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.45fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 4px 11px;
+  min-width: 0;
+}
+
 .reader-editorial .source-list-row .claim-row-evidence,
 .reader-editorial .source-list-row .claim-row-need {
   display: inline-flex;
@@ -4325,7 +4350,12 @@ body:has(.reader-editorial) .page-heading h1 {
   gap: 3px 6px;
 }
 
+.reader-editorial .source-list-row.archive-source-row .claim-row-source {
+  min-width: 0;
+}
+
 .reader-editorial .source-list-row .claim-row-purpose-label,
+.reader-editorial .source-list-row .claim-row-context-label,
 .reader-editorial .source-list-row .claim-row-fact-label {
   color: var(--foreground-dim);
   font-size: 0.62rem;
@@ -4339,6 +4369,17 @@ body:has(.reader-editorial) .page-heading h1 {
 .reader-editorial .source-list-row .claim-row-mix {
   color: var(--foreground);
   font-weight: 600;
+}
+
+.reader-editorial .source-list-row.archive-source-row .claim-row-context {
+  gap: 2px;
+}
+
+.reader-editorial .source-list-row.archive-source-row .claim-row-context strong {
+  color: var(--foreground-dim);
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.25;
 }
 
 .reader-editorial .source-list-row .claim-row-action {
@@ -5688,6 +5729,7 @@ textarea {
   }
 
   .reader-editorial .claim-row-purpose-label,
+  .reader-editorial .claim-row-context-label,
   .reader-editorial .claim-row-fact-label {
     color: var(--accent-strong);
     font-size: 0.6rem;
@@ -5863,7 +5905,7 @@ textarea {
   }
 
   .reader-editorial .source-list-row.archive-source-row {
-    gap: 4px;
+    gap: 5px;
     padding: 7px 2px 8px;
   }
 
@@ -5876,17 +5918,32 @@ textarea {
     -webkit-line-clamp: unset;
   }
 
-  .reader-editorial .source-list-row.archive-source-row .claim-row-purpose {
-    order: 4;
-    gap: 1px;
-    padding-top: 2px;
+  .reader-editorial .source-list-row.archive-source-row .claim-row-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+    min-width: 0;
   }
 
-  .reader-editorial .source-list-row.archive-source-row .claim-row-purpose strong {
+  .reader-editorial .source-list-row.archive-source-row .claim-row-context {
+    gap: 1px;
+    padding-top: 1px;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-context-label {
+    color: var(--foreground-dim);
+    font-size: 0.58rem;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-context strong {
+    display: block;
     color: var(--foreground-dim);
     font-size: 0.72rem;
-    line-height: 1.22;
     font-weight: 650;
+    line-height: 1.22;
+    overflow: visible;
+    text-overflow: clip;
+    -webkit-line-clamp: unset;
   }
 
   .reader-editorial .source-list-row .claim-row-source {
@@ -5898,10 +5955,6 @@ textarea {
     line-height: 1.18;
     overflow: visible;
     white-space: normal;
-  }
-
-  .reader-editorial .source-list-row.archive-source-row .claim-row-source {
-    order: 2;
   }
 
   .reader-editorial .source-list-row .claim-row-source-label {
@@ -5942,24 +5995,12 @@ textarea {
     gap: 3px;
   }
 
-  .reader-editorial .source-list-row.archive-source-row .claim-row-facts {
-    display: contents;
-  }
-
   .reader-editorial .source-list-row .claim-row-evidence,
   .reader-editorial .source-list-row .claim-row-need {
     display: grid;
     grid-template-columns: minmax(72px, max-content) minmax(0, 1fr);
     align-items: baseline;
     gap: 3px 7px;
-  }
-
-  .reader-editorial .source-list-row.archive-source-row .claim-row-need {
-    order: 1;
-  }
-
-  .reader-editorial .source-list-row.archive-source-row .claim-row-evidence {
-    order: 3;
   }
 
   .reader-editorial .source-list-row .claim-row-coverage {
@@ -5994,7 +6035,7 @@ textarea {
   }
 
   .reader-editorial .source-list-row.archive-source-row .claim-row-action {
-    order: 5;
+    align-self: start;
   }
 
   .reader-editorial .detail {

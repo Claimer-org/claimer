@@ -1590,37 +1590,83 @@ export default function ClaimsClient({
       isSelectedClaimRow ? "active selected-source-row" : "archive-source-row"
     ].join(" ");
 
+    const selectArchiveRow = () => {
+      selectClaim(claim.id);
+      window.requestAnimationFrame(() => {
+        document
+          .getElementById("selected-source-evidence")
+          ?.scrollIntoView({ block: "start" });
+      });
+    };
+    const rowAriaLabel = `${
+      isSelectedClaimRow ? "Selected claim. " : ""
+    }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Selects this source trail and opens the evidence chain.`;
+
+    if (isSelectedClaimRow) {
+      return (
+        <a
+          className={claimRowClassName}
+          href="#selected-source-evidence"
+          key={claim.id}
+          onClick={selectArchiveRow}
+          title={claim.title}
+          aria-label={rowAriaLabel}
+        >
+          <span className="claim-row-purpose">
+            <span className="claim-row-purpose-label">Source trail purpose</span>
+            <strong>{claim.title}</strong>
+          </span>
+          <span
+            className="claim-row-source"
+            aria-label={`Original source ${originalSource}; source host ${originalSourceHost}`}
+          >
+            <span className="claim-row-source-label">Original source</span>
+            <span className="claim-row-source-name">{originalSource}</span>
+            <span className="claim-row-source-host">{originalSourceHost}</span>
+          </span>
+          <span className="claim-row-facts">
+            <span className="claim-row-evidence">
+              <span className="claim-row-fact-label">Evidence mix</span>
+              <span className="claim-row-mix">
+                {counts.support} support / {counts.challenge} challenge / {counts.context}{" "}
+                context
+              </span>
+            </span>
+            <span className="claim-row-need">
+              <span className="claim-row-fact-label">Source need</span>
+              <span className="claim-row-coverage">{coverageSignal}</span>
+            </span>
+          </span>
+          <span className="claim-row-action">Select this source trail</span>
+        </a>
+      );
+    }
+
     return (
       <a
         className={claimRowClassName}
         href="#selected-source-evidence"
         key={claim.id}
-        onClick={() => {
-          selectClaim(claim.id);
-          window.requestAnimationFrame(() => {
-            document
-              .getElementById("selected-source-evidence")
-              ?.scrollIntoView({ block: "start" });
-          });
-        }}
+        onClick={selectArchiveRow}
         title={claim.title}
-        aria-label={`${
-          isSelectedClaimRow ? "Selected claim. " : ""
-        }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Selects this source trail and opens the evidence chain.`}
+        aria-label={rowAriaLabel}
       >
-        <span className="claim-row-purpose">
-          <span className="claim-row-purpose-label">Source trail purpose</span>
-          <strong>{claim.title}</strong>
-        </span>
         <span
-          className="claim-row-source"
-          aria-label={`Original source ${originalSource}; source host ${originalSourceHost}`}
+          className="claim-row-summary"
+          aria-label={`Source need ${coverageSignal}; Original source ${originalSource}; source host ${originalSourceHost}; evidence mix ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context`}
         >
-          <span className="claim-row-source-label">Original source</span>
-          <span className="claim-row-source-name">{originalSource}</span>
-          <span className="claim-row-source-host">{originalSourceHost}</span>
-        </span>
-        <span className="claim-row-facts">
+          <span className="claim-row-need">
+            <span className="claim-row-fact-label">Source need</span>
+            <span className="claim-row-coverage">{coverageSignal}</span>
+          </span>
+          <span
+            className="claim-row-source"
+            aria-label={`Original source ${originalSource}; source host ${originalSourceHost}`}
+          >
+            <span className="claim-row-source-label">Original source</span>
+            <span className="claim-row-source-name">{originalSource}</span>
+            <span className="claim-row-source-host">{originalSourceHost}</span>
+          </span>
           <span className="claim-row-evidence">
             <span className="claim-row-fact-label">Evidence mix</span>
             <span className="claim-row-mix">
@@ -1628,10 +1674,13 @@ export default function ClaimsClient({
               context
             </span>
           </span>
-          <span className="claim-row-need">
-            <span className="claim-row-fact-label">Source need</span>
-            <span className="claim-row-coverage">{coverageSignal}</span>
-          </span>
+        </span>
+        <span
+          className="claim-row-context"
+          aria-label={`source trail purpose and claim context: ${claim.title}`}
+        >
+          <span className="claim-row-context-label">Claim context</span>
+          <strong>{claim.title}</strong>
         </span>
         <span className="claim-row-action">Select this source trail</span>
       </a>
