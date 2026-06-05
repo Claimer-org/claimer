@@ -359,12 +359,21 @@ function readerCoverageSignal(claim: Claim): ReaderArchiveCueLabel {
   return "Context coverage open";
 }
 
-function readerArchiveCueItems(items: Claim[]) {
+function readerSourceNeedDisplayClaims(items: Claim[], selectedClaim?: Claim | null) {
+  if (!selectedClaim) {
+    return items;
+  }
+
+  return items.filter((claim) => claim.id !== selectedClaim.id);
+}
+
+function readerArchiveCueItems(items: Claim[], selectedClaim?: Claim | null) {
+  const sourceNeedItems = readerSourceNeedDisplayClaims(items, selectedClaim);
   const cueCounts = new Map<ReaderArchiveCueLabel, number>(
     readerArchiveCueLabels.map((label) => [label, 0])
   );
 
-  items.forEach((claim) => {
+  sourceNeedItems.forEach((claim) => {
     const label = readerCoverageSignal(claim);
     cueCounts.set(label, (cueCounts.get(label) ?? 0) + 1);
   });
@@ -395,6 +404,16 @@ function archiveSectionCountLabel(count: number) {
   return `${count} source trail${count === 1 ? "" : "s"}`;
 }
 
+function readerSourceNeedDisplayCountLabel(totalCount: number, visibleCount = totalCount) {
+  const totalLabel = archiveSectionCountLabel(totalCount);
+
+  if (visibleCount === totalCount) {
+    return totalLabel;
+  }
+
+  return `${visibleCount} of ${totalLabel}`;
+}
+
 function readerArchiveSectionDomId(key: string) {
   return `source-archive-${key
     .toLowerCase()
@@ -406,9 +425,10 @@ function groupReaderArchiveSections(items: Claim[], selectedClaim?: Claim | null
   const selectedRow = selectedClaim
     ? items.find((claim) => claim.id === selectedClaim.id)
     : undefined;
-  const archiveItems = selectedRow
-    ? items.filter((claim) => claim.id !== selectedRow.id)
-    : items;
+  const archiveItems = readerSourceNeedDisplayClaims(
+    items,
+    selectedRow ?? selectedClaim
+  );
   const sections: Array<{
     key: string;
     label: string;
@@ -1162,8 +1182,9 @@ export default function ClaimsClient({
     ];
   }, [filteredClaims, isReaderMode, selectedClaim]);
   const readerArchiveCues = useMemo(
-    () => (isReaderMode ? readerArchiveCueItems(filteredClaims) : []),
-    [filteredClaims, isReaderMode]
+    () =>
+      isReaderMode ? readerArchiveCueItems(filteredClaims, selectedClaim) : [],
+    [filteredClaims, isReaderMode, selectedClaim]
   );
   const readerArchiveSections = useMemo(
     () =>
@@ -1657,23 +1678,24 @@ export default function ClaimsClient({
         title={claim.title}
         aria-label={`${
           isSelectedClaimRow ? "Selected claim. " : ""
-        }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Opens the source trail and evidence chain.`}
+        }${claim.title}. Original source: ${originalSource}. Source host: ${originalSourceHost}. Evidence mix: ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context. Source gap cue: ${coverageSignal}. Selects this source trail and opens the evidence chain.`}
       >
         <strong>{claim.title}</strong>
         <span
           className="claim-row-source"
           aria-label={`Original source ${originalSource}; source host ${originalSourceHost}`}
         >
+          <span className="claim-row-source-label">Original source</span>
           <span className="claim-row-source-name">{originalSource}</span>
           <span className="claim-row-source-host">{originalSourceHost}</span>
         </span>
-        <span className="claim-row-coverage">{coverageSignal}</span>
         <span className="claim-row-facts">
+          <span className="claim-row-coverage">{coverageSignal}</span>
           <span className="claim-row-mix">
             {counts.support} support / {counts.challenge} challenge / {counts.context}{" "}
             context
           </span>
-          <span className="claim-row-action">source trail</span>
+          <span className="claim-row-action">Select this source trail</span>
         </span>
       </a>
     );
@@ -1982,6 +2004,10 @@ export default function ClaimsClient({
                   into source-need bands so readers can scan open source work
                   before opening a row.
                 </p>
+                <p className="selected-source-exclusion">
+                  Source-need counts exclude the Selected source trail because it
+                  stays pinned above those source trails.
+                </p>
                 <div className="source-archive-cues">
                   {readerArchiveCues.map((cue) => (
                     <a
@@ -2064,11 +2090,10 @@ export default function ClaimsClient({
                           ) : null}
                         </div>
                         <strong>
-                          {visibleSectionClaims.length === section.claims.length
-                            ? archiveSectionCountLabel(section.claims.length)
-                            : `${visibleSectionClaims.length} of ${archiveSectionCountLabel(
-                                section.claims.length
-                              )}`}
+                          {readerSourceNeedDisplayCountLabel(
+                            section.claims.length,
+                            visibleSectionClaims.length
+                          )}
                         </strong>
                         <p>{section.description}</p>
                       </div>
@@ -2109,8 +2134,9 @@ export default function ClaimsClient({
                               ? `All ${archiveSectionCountLabel(
                                   section.claims.length
                                 )} visible in this source-need band.`
-                              : `Showing ${visibleSectionClaims.length} of ${archiveSectionCountLabel(
-                                  section.claims.length
+                              : `Showing ${readerSourceNeedDisplayCountLabel(
+                                  section.claims.length,
+                                  visibleSectionClaims.length
                                 )} in this source-need band.`}
                           </span>
                           <button

@@ -1,8 +1,19 @@
-export const SITE_VERSION = "26.601.63";
+export const SITE_VERSION = "26.601.64";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Claims archive count trust",
+    bullets: [
+      "`/claims/` now uses the same selected-source exclusion basis for source-gap cue counts and expanded Source archive source-need bands, removing the unexplained cue-to-band count mismatch.",
+      "Lower Source archive rows now use a calmer mobile title/source hierarchy while preserving claim text, Original source/source host, support / challenge / context mix, source-gap cue, capped bands, visible counts, and show-more controls.",
+      "Archive row actions now say `Select this source trail` so readers know the row changes the selected source trail before opening Original source and Evidence chain.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.63",
     date: "2026-06-05",
     title: "Claims archive editorial index",
     bullets: [

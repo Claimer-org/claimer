@@ -1086,6 +1086,11 @@ a.current-record-pin {
   overflow-wrap: anywhere;
 }
 
+.source-archive-guide .selected-source-exclusion {
+  color: var(--accent-strong);
+  font-weight: 750;
+}
+
 .source-archive-cues {
   display: flex;
   flex-wrap: wrap;
@@ -4242,7 +4247,7 @@ body:has(.reader-editorial) .page-heading h1 {
 }
 
 .reader-editorial .claim-row-facts {
-  gap: 4px 8px;
+  gap: 3px 7px;
 }
 
 .reader-editorial .claim-row-coverage {
@@ -4260,6 +4265,7 @@ body:has(.reader-editorial) .page-heading h1 {
   background: transparent;
   color: var(--accent-strong);
   padding: 0;
+  text-align: left;
 }
 
 .reader-editorial .source-inspection {
@@ -5582,7 +5588,7 @@ textarea {
   .reader-editorial .claim-row {
     gap: 5px;
     border-radius: var(--radius-sm);
-    min-height: 90px;
+    min-height: auto;
     padding: 9px 10px;
   }
 
@@ -5747,6 +5753,9 @@ textarea {
     font-size: 0.68rem;
     justify-self: start;
     padding: 2px 6px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 
   .reader-editorial .source-list {
@@ -5754,13 +5763,31 @@ textarea {
   }
 
   .reader-editorial .source-list-row {
-    min-height: 92px;
+    gap: 3px;
+    min-height: auto;
     border-radius: 0;
-    padding: 8px 2px;
+    padding: 6px 2px;
   }
 
   .reader-editorial .source-list-row strong {
+    font-size: 0.8rem;
+    line-height: 1.16;
     -webkit-line-clamp: 2;
+  }
+
+  .reader-editorial .source-list-row .claim-row-source {
+    font-size: 0.68rem;
+    line-height: 1.12;
+  }
+
+  .reader-editorial .source-list-row .claim-row-facts {
+    gap: 2px 6px;
+  }
+
+  .reader-editorial .source-list-row .claim-row-coverage {
+    font-size: 0.62rem;
+    line-height: 1.1;
+    padding: 1px 5px;
   }
 
   .reader-editorial .source-list-row.active {
@@ -5771,12 +5798,14 @@ textarea {
     border: 0;
     background: transparent;
     color: var(--foreground-dim);
+    font-size: 0.64rem;
     padding: 0;
   }
 
   .reader-editorial .source-list-row .claim-row-action {
     border: 0;
     background: transparent;
+    font-size: 0.64rem;
     padding: 0;
   }
 
