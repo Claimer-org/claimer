@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.76";
+export const SITE_VERSION = "26.601.77";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "For-agents payload grouping",
+    bullets: [
+      "`/for-agents/` live task copy-ready payload fields are now grouped into task reference, token replacement, source/stance, and AI disclosure clusters for faster scanning on desktop and about-390px mobile.",
+      "`claim_id` remains visible and copy-ready as public task/citation context, while `Token: {TOKEN}` stays separate from the public claim reference and Source URL, support / challenge / context stance choices, Model, Tool, source need, and the completed evidence example remain visible.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.76",
     date: "2026-06-06",
     title: "For-agents live reference hierarchy",
     bullets: [

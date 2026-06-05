@@ -29,6 +29,13 @@ type RequestedGapTask = {
   stance: StanceChoice;
 };
 
+type PayloadGroup = {
+  title: string;
+  description: string;
+  tone?: "reference" | "token" | "source" | "disclosure";
+  lines: string[];
+};
+
 const evidenceTarget = 10;
 const stanceChoices = ["support", "challenge", "context"] as const;
 type StanceChoice = (typeof stanceChoices)[number];
@@ -261,35 +268,104 @@ function gapActionLabel(stance: StanceChoice) {
   return "Find support source";
 }
 
-function liveTaskPayload(gap: CoverageGap, claimText: string) {
+function liveTaskPayloadGroups(gap: CoverageGap, claimText: string): PayloadGroup[] {
   return [
-    `Claim: ${claimText}`,
-    `Public claim reference: ${claimReferenceText(gap)}`,
-    `claim_id: ${payloadClaimId(gap)}`,
-    "claim_id note: public task/citation reference, not a contributor token",
-    "Token: {TOKEN}",
-    "Token note: contributor token placeholder; replace with your issued token",
-    "Source URL: <paste one public source URL>",
-    "Stance: support | challenge | context",
-    "Model: <AI model name>",
-    "Tool: <agent, browser, or script>",
-    "Need: find one independent support, challenge, or context source URL for this claim"
-  ].join("\n");
+    {
+      title: "Task reference",
+      description: "Public task/citation context",
+      tone: "reference",
+      lines: [
+        `Claim: ${claimText}`,
+        `Public claim reference: ${claimReferenceText(gap)}`,
+        `claim_id: ${payloadClaimId(gap)}`,
+        "claim_id note: public task/citation reference, not a contributor token"
+      ]
+    },
+    {
+      title: "Token replacement",
+      description: "Contributor token placeholder",
+      tone: "token",
+      lines: [
+        "Token: {TOKEN}",
+        "Token note: contributor token placeholder; replace with your issued token"
+      ]
+    },
+    {
+      title: "Source and stance",
+      description: "Required source need",
+      tone: "source",
+      lines: [
+        "Source URL: <paste one public source URL>",
+        "Stance: support | challenge | context",
+        "Need: find one independent support, challenge, or context source URL for this claim"
+      ]
+    },
+    {
+      title: "AI disclosure",
+      description: "Required run disclosure",
+      tone: "disclosure",
+      lines: ["Model: <AI model name>", "Tool: <agent, browser, or script>"]
+    }
+  ];
 }
 
-function requestedGapPayload(task: RequestedGapTask) {
+function requestedGapPayloadGroups(task: RequestedGapTask): PayloadGroup[] {
   return [
-    `Claim text: ${task.claimText}`,
-    `claim_id: ${task.claimId}`,
-    "claim_id note: public task/citation reference, not a contributor token",
-    `Stance: ${task.stance}`,
-    "Token: {TOKEN}",
-    "Token note: contributor token placeholder; replace with your issued token",
-    "Source URL: <paste one public source URL>",
-    "Model: <AI model name>",
-    "Tool: <agent, browser, or script>",
-    `Source trail: ${task.sourceTrailPath}`
-  ].join("\n");
+    {
+      title: "Task reference",
+      description: "Public task/citation context",
+      tone: "reference",
+      lines: [
+        `Claim text: ${task.claimText}`,
+        `claim_id: ${task.claimId}`,
+        "claim_id note: public task/citation reference, not a contributor token",
+        `Source trail: ${task.sourceTrailPath}`
+      ]
+    },
+    {
+      title: "Token replacement",
+      description: "Contributor token placeholder",
+      tone: "token",
+      lines: [
+        "Token: {TOKEN}",
+        "Token note: contributor token placeholder; replace with your issued token"
+      ]
+    },
+    {
+      title: "Source and stance",
+      description: "Requested source gap",
+      tone: "source",
+      lines: [
+        "Source URL: <paste one public source URL>",
+        `Stance: ${task.stance}`,
+        "Allowed stance choices: support | challenge | context"
+      ]
+    },
+    {
+      title: "AI disclosure",
+      description: "Required run disclosure",
+      tone: "disclosure",
+      lines: ["Model: <AI model name>", "Tool: <agent, browser, or script>"]
+    }
+  ];
+}
+
+function renderPayloadGroups(groups: PayloadGroup[]) {
+  return (
+    <div className="payload-group-list" aria-label="Grouped copy-ready payload fields">
+      {groups.map((group) => (
+        <section className={`payload-group ${group.tone ?? ""}`} key={group.title}>
+          <div className="payload-group-heading">
+            <h4>{group.title}</h4>
+            <span>{group.description}</span>
+          </div>
+          <pre className="payload-group-lines">
+            <code>{group.lines.join("\n")}</code>
+          </pre>
+        </section>
+      ))}
+    </div>
+  );
 }
 
 function sourceTrailHref(value: string) {
@@ -333,6 +409,8 @@ function parseRequestedGapTask(search: string): RequestedGapTask | null {
 }
 
 function renderRequestedGapTask(task: RequestedGapTask) {
+  const payloadGroups = requestedGapPayloadGroups(task);
+
   return (
     <aside
       className={`requested-gap-task ${task.stance}`}
@@ -368,9 +446,7 @@ function renderRequestedGapTask(task: RequestedGapTask) {
         <code>claim_id</code>. Replace only <code>{"Token: {TOKEN}"}</code>{" "}
         with the contributor token.
       </p>
-      <pre className="agent-starter-prompt">
-        <code>{requestedGapPayload(task)}</code>
-      </pre>
+      {renderPayloadGroups(payloadGroups)}
       <a className="text-link" href={task.sourceTrailPath}>
         Back to claim/source trail
       </a>
@@ -387,6 +463,7 @@ function renderLiveTaskState(
   const shouldUseFallback = state !== "ready" || !gap;
   const taskGap = shouldUseFallback ? fallbackLiveTask : gap;
   const claimText = claimTextForGap(taskGap, fullClaimTitles);
+  const payloadGroups = liveTaskPayloadGroups(taskGap, claimText);
   const stateMessage =
     state === "loading"
       ? "Fallback task is available now while live coverage-gap data loads. Live data replaces this handoff when it resolves."
@@ -468,12 +545,11 @@ function renderLiveTaskState(
         <div className="live-task-payload">
           <span>Copy-ready payload</span>
           <p className="payload-helper">
-            Keep <code>claim_id</code> as public task context. Replace only{" "}
+            Copy the grouped fields together. Keep <code>claim_id</code> as
+            public task/citation context, and replace only{" "}
             <code>{"Token: {TOKEN}"}</code> with the contributor token.
           </p>
-          <pre className="agent-starter-prompt">
-            <code>{liveTaskPayload(taskGap, claimText)}</code>
-          </pre>
+          {renderPayloadGroups(payloadGroups)}
         </div>
       </article>
     </>
