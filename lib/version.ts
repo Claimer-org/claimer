@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.71";
+export const SITE_VERSION = "26.601.72";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Claims reader/operator separation",
+    bullets: [
+      "`/claims/` now keeps public source/evidence browsing ahead of copyable contribution tasks by leaving source-gap context near the Evidence chain while placing copy-ready source tasks behind a Contribute evidence disclosure.",
+      "The contributor affordance remains source/evidence-oriented with `Help fill this source gap`, so readers can keep browsing the selected source trail, Original source, Evidence chain, filters, source archive, and source-gap cues before opening operator payloads.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, claim detail routes, and the `v26.601.71` first-paint source preview remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.71",
     date: "2026-06-05",
     title: "Claims first paint source preview",
     bullets: [

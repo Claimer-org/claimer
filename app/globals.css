@@ -3714,12 +3714,79 @@ a.claim-row {
 
 .gap-action-panel {
   display: grid;
-  gap: 10px;
   min-width: 0;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.gap-action-disclosure {
+  min-width: 0;
+}
+
+.gap-action-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 10px;
+  align-items: center;
+  min-width: 0;
+  cursor: pointer;
+  list-style: none;
+  padding: 12px 14px;
+}
+
+.gap-action-summary::-webkit-details-marker {
+  display: none;
+}
+
+.gap-action-summary::after {
+  content: "Open";
+  justify-self: end;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #f3f7f4;
+  color: var(--foreground-dim);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 4px 7px;
+}
+
+.gap-action-disclosure[open] .gap-action-summary::after {
+  content: "Hide";
+}
+
+.gap-action-summary span {
+  color: var(--foreground-dim);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.gap-action-summary strong {
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.gap-action-summary small {
+  grid-column: 1 / -1;
+  color: var(--foreground-dim);
+  font-size: 0.8rem;
+  font-weight: 650;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.gap-action-panel-body {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  border-top: 1px solid var(--line);
   background: #fbfdfb;
-  padding: 14px;
+  padding: 12px 14px 14px;
 }
 
 .gap-action-panel-heading {
@@ -4718,6 +4785,18 @@ body:has(.reader-editorial) .page-heading h1 {
     margin-top: 0;
     font-size: 0.78rem;
     line-height: 1.35;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-provenance-list {
+    order: 4;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .evidence-standards {
+    order: 5;
+  }
+
+  .reader-workspace:not(.targeted-review-workspace) .gap-action-panel {
+    order: 6;
   }
 
   .reader-workspace:not(.targeted-review-workspace) .evidence {
@@ -6290,7 +6369,7 @@ textarea {
     .evidence-section
     .gap-action-panel,
   .claim-detail-article .evidence-section .gap-action-panel {
-    order: 3;
+    order: 6;
   }
 
   .reader-workspace:not(.targeted-review-workspace)
@@ -6298,7 +6377,7 @@ textarea {
     .evidence-section
     .evidence-metadata-note,
   .claim-detail-article .evidence-section .evidence-metadata-note {
-    order: 4;
+    order: 3;
     margin-top: 0;
   }
 
@@ -6307,7 +6386,7 @@ textarea {
     .evidence-section
     .evidence-provenance-list,
   .claim-detail-article .evidence-section .evidence-provenance-list {
-    order: 5;
+    order: 4;
   }
 
   .reader-workspace:not(.targeted-review-workspace)
@@ -6315,7 +6394,7 @@ textarea {
     .evidence-section
     .evidence-standards,
   .claim-detail-article .evidence-section .evidence-standards {
-    order: 6;
+    order: 5;
   }
 
   .claim-detail-article {

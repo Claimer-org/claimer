@@ -243,37 +243,52 @@ function GapContributionActions({
   attribution: AttributionParams;
 }) {
   const stances = missingGapStances(claim);
+  const taskLabel =
+    stances.length === 1
+      ? `${gapActionLabel(stances[0])} task`
+      : `${stances.length} source tasks`;
 
   return (
     <aside
       className="gap-action-panel"
-      aria-label="Gap-specific contribution actions"
+      aria-label="Source/evidence contribution pathway"
     >
-      <div className="gap-action-panel-heading">
-        <span>Gap-specific contribution actions</span>
-        <strong>Copy one missing source task</strong>
-      </div>
-      <div className="gap-action-grid">
-        {stances.map((stance) => (
-          <article className={`gap-action-card ${stance}`} key={stance}>
-            <div className="gap-action-card-heading">
-              <Link href={forAgentsGapHref(claim, stance, attribution)}>
-                {gapActionLabel(stance)}
-              </Link>
-              <span>Stance: {stance}</span>
-            </div>
-            <pre className="gap-action-payload">
-              <code>{gapActionPayload(claim, stance, attribution)}</code>
-            </pre>
-            <Link
-              className="text-link"
-              href={claimReaderPath(claim.id, attribution)}
-            >
-              Back to claim/source trail
-            </Link>
-          </article>
-        ))}
-      </div>
+      <details className="gap-action-disclosure">
+        <summary className="gap-action-summary">
+          <span>Contribute evidence</span>
+          <strong>Help fill this source gap</strong>
+          <small>
+            {taskLabel} available after the source trail and evidence chain.
+          </small>
+        </summary>
+        <div className="gap-action-panel-body">
+          <div className="gap-action-panel-heading">
+            <span>Copy-ready source tasks</span>
+            <strong>Use one missing source task</strong>
+          </div>
+          <div className="gap-action-grid">
+            {stances.map((stance) => (
+              <article className={`gap-action-card ${stance}`} key={stance}>
+                <div className="gap-action-card-heading">
+                  <Link href={forAgentsGapHref(claim, stance, attribution)}>
+                    {gapActionLabel(stance)}
+                  </Link>
+                  <span>Stance: {stance}</span>
+                </div>
+                <pre className="gap-action-payload">
+                  <code>{gapActionPayload(claim, stance, attribution)}</code>
+                </pre>
+                <Link
+                  className="text-link"
+                  href={claimReaderPath(claim.id, attribution)}
+                >
+                  Back to claim/source trail
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </details>
     </aside>
   );
 }
@@ -787,8 +802,8 @@ function EvidenceStandardsBlock({
   return (
     <aside className="evidence-standards" aria-labelledby="evidence-standards-title">
       <div className="evidence-standards-copy">
-        <span>Evidence standards</span>
-        <h4 id="evidence-standards-title">Methodology and corrections</h4>
+        <span>Source/evidence standards</span>
+        <h4 id="evidence-standards-title">Reading standards and corrections</h4>
         <p>
           Claimer keeps support, challenge, and context evidence separate and
           stores source-backed evidence, not editorial conclusions.
@@ -798,15 +813,15 @@ function EvidenceStandardsBlock({
           whether the source actually supports the submitted evidence summary.
         </p>
         <p>
-          If source coverage looks missing, stale, or incorrect, use the
-          sourced-evidence or feedback path. Corrections mean adding or
+          If source coverage looks missing, stale, or incorrect, contribute
+          source/evidence or send feedback. Corrections mean adding or
           challenging sourced evidence, not rewriting a claim into an editorial
           conclusion.
         </p>
       </div>
       <div className="evidence-standards-actions">
         <Link className="button compact" href={actionHref}>
-          Add sourced evidence
+          Contribute evidence
         </Link>
         <Link className="button compact" href={feedbackHref}>
           Send feedback
@@ -2268,10 +2283,6 @@ export default function ClaimsClient({
                     <p className="source-gap-line">
                       {readerMissingSourceGapLine(selectedClaim)}
                     </p>
-                    <GapContributionActions
-                      claim={selectedClaim}
-                      attribution={attribution}
-                    />
                     <p className="evidence-metadata-note">
                       <strong>Model/tool metadata:</strong> {readerEvidenceMetadataNote}
                     </p>
@@ -2303,6 +2314,12 @@ export default function ClaimsClient({
                       selectedClaim.id,
                       attribution
                     )}
+                  />
+                ) : null}
+                {isReaderMode ? (
+                  <GapContributionActions
+                    claim={selectedClaim}
+                    attribution={attribution}
                   />
                 ) : null}
               </section>
