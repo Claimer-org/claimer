@@ -1658,9 +1658,12 @@ export default function ClaimsClient({
     const originalSourceHost = sourceHost(claim.sourceUrl);
     const isSelectedClaimRow = selectedClaim?.id === claim.id;
     const coverageSignal = readerCoverageSignal(claim);
-    const claimRowClassName = `claim-row source-list-row compact${
-      isSelectedClaimRow ? " active" : ""
-    }`;
+    const claimRowClassName = [
+      "claim-row",
+      "source-list-row",
+      "compact",
+      isSelectedClaimRow ? "active selected-source-row" : "archive-source-row"
+    ].join(" ");
 
     return (
       <a
@@ -2013,9 +2016,10 @@ export default function ClaimsClient({
                   into source-need bands so readers can scan open source work
                   before opening a row.
                 </p>
-                <p className="selected-source-exclusion">
-                  Source-need counts exclude the Selected source trail because it
-                  stays pinned above those source trails.
+                <p className="source-archive-count-basis">
+                  Count basis: currently published/live source entries in this
+                  view; source-need counts exclude the pinned Selected source
+                  trail.
                 </p>
                 <div className="source-archive-cues">
                   {readerArchiveCues.map((cue) => (

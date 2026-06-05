@@ -1,8 +1,19 @@
-export const SITE_VERSION = "26.601.65";
+export const SITE_VERSION = "26.601.66";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-05",
+    title: "Source archive count basis calm",
+    bullets: [
+      "`/claims/` now places a count-basis cue beside Source archive source-need counts so readers can see that counts come from currently published/live source entries in the active view and exclude the pinned selected source trail.",
+      "Lower mobile Source archive rows now scan by source need, Original source/source host, evidence mix, then claim context, reducing repeated long-claim parsing while keeping full claim text readable on the page.",
+      "Challenge source gap, Support source gap, Primary-source gap, Context coverage open, capped source-need bands, `Showing 5 of N`, `Show N more`, and `Select this source trail` behavior remain coherent for the live source-entry count.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.65",
     date: "2026-06-05",
     title: "Mobile source archive scan calm",
     bullets: [

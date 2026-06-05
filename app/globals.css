@@ -1086,9 +1086,15 @@ a.current-record-pin {
   overflow-wrap: anywhere;
 }
 
-.source-archive-guide .selected-source-exclusion {
+.source-archive-guide .source-archive-count-basis {
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  border-radius: 6px;
+  background: rgba(15, 118, 110, 0.07);
   color: var(--accent-strong);
-  font-weight: 750;
+  font-weight: 800;
+  padding: 5px 7px;
 }
 
 .source-archive-cues {
@@ -5823,6 +5829,11 @@ textarea {
     padding: 8px 2px;
   }
 
+  .reader-editorial .source-list-row.archive-source-row {
+    gap: 4px;
+    padding: 7px 2px 8px;
+  }
+
   .reader-editorial .source-list-row .claim-row-purpose strong {
     display: block;
     font-size: 0.8rem;
@@ -5830,6 +5841,19 @@ textarea {
     overflow: visible;
     text-overflow: clip;
     -webkit-line-clamp: unset;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-purpose {
+    order: 4;
+    gap: 1px;
+    padding-top: 2px;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-purpose strong {
+    color: var(--foreground-dim);
+    font-size: 0.72rem;
+    line-height: 1.22;
+    font-weight: 650;
   }
 
   .reader-editorial .source-list-row .claim-row-source {
@@ -5841,6 +5865,10 @@ textarea {
     line-height: 1.18;
     overflow: visible;
     white-space: normal;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source {
+    order: 2;
   }
 
   .reader-editorial .source-list-row .claim-row-source-label {
@@ -5881,12 +5909,24 @@ textarea {
     gap: 3px;
   }
 
+  .reader-editorial .source-list-row.archive-source-row .claim-row-facts {
+    display: contents;
+  }
+
   .reader-editorial .source-list-row .claim-row-evidence,
   .reader-editorial .source-list-row .claim-row-need {
     display: grid;
     grid-template-columns: minmax(72px, max-content) minmax(0, 1fr);
     align-items: baseline;
     gap: 3px 7px;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-need {
+    order: 1;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-evidence {
+    order: 3;
   }
 
   .reader-editorial .source-list-row .claim-row-coverage {
@@ -5918,6 +5958,10 @@ textarea {
     font-size: 0.64rem;
     line-height: 1.15;
     padding: 0;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-action {
+    order: 5;
   }
 
   .reader-editorial .detail {
