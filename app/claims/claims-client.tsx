@@ -2136,13 +2136,20 @@ export default function ClaimsClient({
                                 )} in this source-need band.`}
                           </span>
                           <button
+                            aria-label={
+                              sectionExpanded
+                                ? `Show fewer source trails in ${section.label}`
+                                : `Show ${hiddenSectionCount} more source trails in ${section.label}`
+                            }
                             className="source-archive-toggle"
                             onClick={() => toggleReaderArchiveSection(section.key)}
                             type="button"
                           >
                             {sectionExpanded
-                              ? "Show fewer"
-                              : `Show ${hiddenSectionCount} more`}
+                              ? "Show fewer source trails"
+                              : hiddenSectionCount > 0
+                                ? `Show ${hiddenSectionCount} more source trails`
+                                : "Show more source trails"}
                           </button>
                         </div>
                       ) : null}

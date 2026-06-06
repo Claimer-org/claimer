@@ -1,12 +1,22 @@
-export const SITE_VERSION = "26.601.84";
+export const SITE_VERSION = "26.601.85";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
     date: "2026-06-06",
+    title: "Claims source archive expansion affordance",
+    bullets: [
+      "`/claims/` capped Source archive sections now expose an obvious reader-facing show-more control while preserving selected source trail, Source archive, Original source, Source host, Evidence mix, Evidence chain, source gap cues, filters, contribution actions, and `Select this source trail`.",
+      "The capped archive continuation now reads as `Show more source trails` / `Show N more source trails` with a stable mobile tap area, while keeping source need groups visible instead of hiding the archive behind a modal.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, homepage, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.84",
+    date: "2026-06-06",
     title: "For-agents selected handoff evidence summary",
     bullets: [
-      "Selected `/for-agents/` handoffs now show the current evidence/source mix near the payload while preserving selected claim text, `claim_id`, stance, Source URL, Model, Tool, `Token: {TOKEN}`, and the return path.",
+      "Selected `/for-agents/` handoffs now show the current evidence/source mix near the payload while preserving selected claim text, `claim_id`, stance, Source URL, Model, Tool, the token placeholder, and the return path.",
       "When live coverage contains the selected `claim_id`, the handoff uses that evidence count, unique contributor count when present, and support / challenge / context mix; the OpenAI GPT-4o selected handoff keeps Current evidence count 1, Support 1, Challenge 0, and Context 0 from the existing starter counts when live coverage has not provided that selected mix.",
       "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, homepage, and claim detail routes remain unchanged."
     ]
