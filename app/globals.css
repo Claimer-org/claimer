@@ -985,6 +985,7 @@ a.current-record-pin {
   gap: 6px;
   margin: 0;
   min-width: 0;
+  position: relative;
 }
 
 .reader-filter-row span {
@@ -1078,12 +1079,25 @@ a.current-record-pin {
   padding: 10px;
 }
 
+.source-archive-guide .source-archive-count-state,
+.source-archive-guide .reader-filter-grid {
+  margin: 0;
+}
+
 .source-archive-guide p {
   margin: 0;
   color: var(--foreground-dim);
   font-size: 0.78rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.source-archive-control-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: 8px;
+  min-width: 0;
 }
 
 .source-archive-cues {
@@ -1122,19 +1136,16 @@ a.current-record-pin {
 }
 
 .source-archive-selected-mini {
-  position: sticky;
-  top: 88px;
-  z-index: 3;
   display: grid;
   gap: 4px;
   min-width: 0;
-  margin: -2px 0 10px;
+  margin: 0;
   border: 1px solid rgba(23, 33, 38, 0.1);
   border-left: 3px solid rgba(30, 107, 85, 0.42);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.97);
+  background: #ffffff;
   color: inherit;
-  box-shadow: 0 8px 18px rgba(23, 33, 38, 0.08);
+  box-shadow: none;
   padding: 8px 10px;
   text-decoration: none;
 }
@@ -4572,6 +4583,10 @@ body:has(.reader-editorial) .page-heading h1 {
   padding: 9px;
 }
 
+.reader-editorial .source-archive-guide .source-archive-count-state {
+  margin: 0;
+}
+
 .reader-editorial .source-list {
   gap: 0;
   border-top: 1px solid rgba(23, 33, 38, 0.08);
@@ -6455,18 +6470,22 @@ textarea {
   }
 
   .source-archive-guide {
-    gap: 7px;
-    padding: 8px;
+    gap: 6px;
+    padding: 7px;
+  }
+
+  .source-archive-control-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
   }
 
   .source-archive-selected-mini {
-    top: 8px;
     gap: 3px;
-    margin: 0 0 8px;
+    margin: 0;
     border-left-width: 3px;
     border-radius: 7px;
-    box-shadow: 0 6px 14px rgba(23, 33, 38, 0.08);
-    padding: 8px;
+    box-shadow: none;
+    padding: 6px 7px;
   }
 
   .source-archive-selected-label,
@@ -6482,18 +6501,29 @@ textarea {
   }
 
   .reader-filter-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 7px;
-    margin: 10px 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    margin: 0;
   }
 
   .reader-filter-row {
-    gap: 4px;
+    gap: 3px;
+  }
+
+  .source-archive-guide .reader-filter-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .reader-filter-row select {
-    min-height: 36px;
-    padding: 7px 10px;
+    min-height: 32px;
+    padding: 6px 8px;
+    font-size: 0.68rem;
   }
 
   .source-archive-cues {
@@ -6627,10 +6657,10 @@ textarea {
 
   .reader-editorial .source-list-row.archive-source-row .claim-row-source-line,
   .reader-editorial .source-list-row.archive-source-row .claim-row-host-line {
-    display: grid;
-    grid-template-columns: minmax(68px, max-content) minmax(0, 1fr);
+    display: flex;
     align-items: baseline;
-    gap: 2px 7px;
+    flex-wrap: wrap;
+    gap: 2px 5px;
     min-width: 0;
   }
 
@@ -6746,6 +6776,14 @@ textarea {
     grid-template-columns: minmax(72px, max-content) minmax(0, 1fr);
     align-items: baseline;
     gap: 3px 7px;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-evidence,
+  .reader-editorial .source-list-row.archive-source-row .claim-row-need {
+    display: inline-flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 2px 5px;
   }
 
   .reader-editorial .source-list-row .claim-row-coverage {

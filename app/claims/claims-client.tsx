@@ -974,8 +974,8 @@ export default function ClaimsClient({
         } catch (seedError) {
           seedEvidenceStatus =
             seedError instanceof Error
-              ? ` Seed evidence table unavailable until migration is applied: ${seedError.message}`
-              : " Seed evidence table unavailable until migration is applied.";
+              ? ` Seed evidence table unavailable: ${seedError.message}`
+              : " Seed evidence table unavailable.";
         }
 
         if (!isMounted) {
@@ -1903,44 +1903,7 @@ export default function ClaimsClient({
             />
           </div>
 
-          {isReaderMode ? (
-            <div className="reader-filter-grid" aria-label="Source archive filters">
-              <label className="reader-filter-row" htmlFor="reader-domain-filter">
-                <span>Topic</span>
-                <select
-                  id="reader-domain-filter"
-                  onChange={(event) =>
-                    setActiveDomain(event.target.value as ClaimDomain | "all")
-                  }
-                  value={activeDomain}
-                >
-                  {domainFilters.map((domain) => (
-                    <option key={domain} value={domain}>
-                      {domain === "all" ? "All topics" : domain}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label className="reader-filter-row" htmlFor="reader-source-need-filter">
-                <span>Source need</span>
-                <select
-                  id="reader-source-need-filter"
-                  onChange={(event) =>
-                    setActiveReaderCue(
-                      event.target.value as ReaderArchiveSourceNeedFilter
-                    )
-                  }
-                  value={activeReaderCue}
-                >
-                  {readerSourceNeedFilters.map((filter) => (
-                    <option key={filter.value} value={filter.value}>
-                      {filter.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </div>
-          ) : (
+          {!isReaderMode ? (
             <>
               <div className="filters" aria-label="Claim domain filters">
                 {domainFilters.map((domain) => (
@@ -1977,7 +1940,7 @@ export default function ClaimsClient({
                 ))}
               </div>
             </>
-          )}
+          ) : null}
           {!isReaderMode && supabaseMessage ? (
             <p className="form-message">{supabaseMessage}</p>
           ) : null}
@@ -1993,60 +1956,103 @@ export default function ClaimsClient({
           {isReaderMode ? (
             <>
               <div
-                className={`claim-count-note source-list-note source-archive-count-state ${readerArchiveState.tone}`}
-                aria-label="Source archive count state"
-              >
-                <strong>{readerArchiveState.heading}</strong>
-                <span>{readerArchiveState.detail}</span>
-              </div>
-              <div
                 className="source-archive-guide"
                 aria-label="Source archive source and evidence groups"
               >
-                <p>
-                  Use the source need filters or cue links to move through the
-                  public source index. Rows keep source need, Original source,
-                  Source host, and Evidence mix visible before claim context.
-                </p>
-                <div className="source-archive-cues">
-                  {readerArchiveCues.map((cue) => (
-                    <a
-                      aria-disabled={cue.count === 0}
-                      className={cue.count === 0 ? "disabled" : undefined}
-                      href={`#${readerArchiveSectionDomId(cue.label)}`}
-                      key={cue.label}
-                      onClick={(event) => {
-                        if (cue.count === 0) {
-                          event.preventDefault();
-                        }
-                      }}
-                    >
-                      <strong>{cue.count}</strong>
-                      {cue.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              {selectedClaim ? (
-                <a
-                  className="source-archive-selected-mini"
-                  href="#selected-source-evidence"
-                  onClick={() => selectClaim(selectedClaim.id)}
-                  aria-label={`Return to selected source trail and Evidence chain for ${selectedClaim.title}`}
+                <div
+                  className={`claim-count-note source-list-note source-archive-count-state ${readerArchiveState.tone}`}
+                  aria-label="Source archive count state"
                 >
-                  <span className="source-archive-selected-label">
-                    Selected source trail
-                  </span>
-                  <strong>{selectedClaim.title}</strong>
-                  <span className="source-archive-selected-source">
-                    Original source:{" "}
-                    {selectedClaim.sourcePublisher || sourceHost(selectedClaim.sourceUrl)}
-                  </span>
-                  <span className="source-archive-return-action">
-                    Return to source and evidence
-                  </span>
-                </a>
-              ) : null}
+                  <strong>{readerArchiveState.heading}</strong>
+                  <span>{readerArchiveState.detail}</span>
+                </div>
+                <p>
+                  Filters and cue links move through the public source index;
+                  rows keep source need, Original source, Source host, and
+                  Evidence mix visible.
+                </p>
+                <div className="source-archive-control-row">
+                  <div className="reader-filter-grid" aria-label="Source archive filters">
+                    <label className="reader-filter-row" htmlFor="reader-domain-filter">
+                      <span className="reader-filter-label">Topic</span>
+                      <select
+                        aria-label="Topic filter"
+                        id="reader-domain-filter"
+                        onChange={(event) =>
+                          setActiveDomain(event.target.value as ClaimDomain | "all")
+                        }
+                        value={activeDomain}
+                      >
+                        {domainFilters.map((domain) => (
+                          <option key={domain} value={domain}>
+                            {domain === "all" ? "All topics" : domain}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label
+                      className="reader-filter-row"
+                      htmlFor="reader-source-need-filter"
+                    >
+                      <span className="reader-filter-label">Source need</span>
+                      <select
+                        aria-label="Source need filter"
+                        id="reader-source-need-filter"
+                        onChange={(event) =>
+                          setActiveReaderCue(
+                            event.target.value as ReaderArchiveSourceNeedFilter
+                          )
+                        }
+                        value={activeReaderCue}
+                      >
+                        {readerSourceNeedFilters.map((filter) => (
+                          <option key={filter.value} value={filter.value}>
+                            {filter.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
+                  <div className="source-archive-cues" aria-label="Source need cue links">
+                    {readerArchiveCues.map((cue) => (
+                      <a
+                        aria-disabled={cue.count === 0}
+                        className={cue.count === 0 ? "disabled" : undefined}
+                        href={`#${readerArchiveSectionDomId(cue.label)}`}
+                        key={cue.label}
+                        onClick={(event) => {
+                          if (cue.count === 0) {
+                            event.preventDefault();
+                          }
+                        }}
+                      >
+                        <strong>{cue.count}</strong>
+                        {cue.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                {selectedClaim ? (
+                  <a
+                    className="source-archive-selected-mini"
+                    href="#selected-source-evidence"
+                    onClick={() => selectClaim(selectedClaim.id)}
+                    aria-label={`Return to selected source trail and Evidence chain for ${selectedClaim.title}`}
+                  >
+                    <span className="source-archive-selected-label">
+                      Selected source trail
+                    </span>
+                    <strong>{selectedClaim.title}</strong>
+                    <span className="source-archive-selected-source">
+                      Original source:{" "}
+                      {selectedClaim.sourcePublisher || sourceHost(selectedClaim.sourceUrl)}
+                    </span>
+                    <span className="source-archive-return-action">
+                      Return to source and evidence
+                    </span>
+                  </a>
+                ) : null}
+              </div>
             </>
           ) : null}
 

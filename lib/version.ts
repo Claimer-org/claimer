@@ -1,14 +1,24 @@
-export const SITE_VERSION = "26.601.81";
+export const SITE_VERSION = "26.601.82";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
     date: "2026-06-06",
+    title: "Claims mobile archive density relief",
+    bullets: [
+      "`/claims/` mobile Source archive density is reduced by grouping filters with source-need cue links, folding selected-source recovery into the archive guide, and tightening lower archive row rhythm.",
+      "Selected-source recovery, Original source, Source host, Evidence mix, Evidence chain, source gap cues, filters, show-more controls, contribution actions, and `Select this source trail` remain visible.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, homepage, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.81",
+    date: "2026-06-06",
     title: "Claims mobile selected-source anchor",
     bullets: [
       "`/claims/` Source archive now keeps a compact selected source trail return strip beside the cue flow and visible through the lower archive on about-390px mobile, so readers can return to the Original source and Evidence chain while scanning source need bands.",
       "The selected source trail remains pinned first, while Source archive rows continue to preserve Source host, Evidence mix, source need/source gap cues, filters, show-more controls, and `Select this source trail`.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -18,7 +28,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` first paint and source-index count copy now use stable Source trail preview, Source index, Original source, Source host, Evidence mix, and Source need language instead of loading, refreshing, fallback, or settling wording.",
       "`/claims/openai-gpt-4o-launch/` detail provenance now reads as Published source record and Older published records may not include public model/tool disclosure, while preserving Original source, source URL, Evidence chain, source gaps, AI disclosure, methodology, corrections, and contribution paths.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and homepage remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and homepage remain unchanged."
     ]
   },
   {
@@ -28,7 +38,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` lower Source archive rows now reduce repeated label weight while grouping source need, Original source, Source host, Evidence mix, concise claim context, and `Select this source trail` into a calmer public source-index read.",
       "The selected source trail remains pinned first and visually distinct, with source-gap cues, filters, count basis, show-more controls, Evidence chain access, and selected-source recovery behavior preserved.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -38,7 +48,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` Task reference payload groups now compact long claim text behind a native disclosure on mobile while keeping `claim_id`, public task/citation context, the claim-text summary, Source URL, stance, the token placeholder, Model, and Tool visible; the full claim text remains available in the disclosure.",
       "Generic `/for-agents/` tasks and reader-selected handoffs keep Work this task, Token replacement, Source and stance, AI disclosure, the visually distinct token placeholder, and the completed evidence example intact.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -48,7 +58,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` live task copy-ready payload fields are now grouped into task reference, token replacement, source/stance, and AI disclosure clusters for faster scanning on desktop and about-390px mobile.",
       "`claim_id` remains visible and copy-ready as public task/citation context, while the token placeholder stays separate from the public claim reference and Source URL, support / challenge / context stance choices, Model, Tool, source need, and the completed evidence example remain visible.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -58,7 +68,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` live task and reader-selected source-gap claim references now read as public task/citation context instead of credential-like claim_id facts.",
       "Copy-ready contributor payloads still include `claim_id`, Source URL, stance, Model, Tool, and the token placeholder, with that placeholder kept visually and semantically separate from the public claim reference.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -68,7 +78,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` lower Source archive copy now reads as a calmer public source index, with the selected source trail kept first and source-need guidance expressed once instead of repeated through every section.",
       "Lower archive rows keep the mobile scan order of source need, Original source and Source host, Evidence mix, concise claim context, and Select this source trail while preserving source-gap cues, filters, show-more controls, and Evidence chain access.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -78,7 +88,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` now presents public claim references as task/citation references so the Work this task handoff reads less like a credential surface on mobile.",
       "The contributor token placeholder remains visually and semantically distinct while Source URL, Model, Tool, stance choices, claim reference copy, and copy-ready payload structure stay visible.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -88,7 +98,7 @@ export const RELEASES = [
     bullets: [
       "Claim-specific `/submit/[id]/` now opens with a light source-backed evidence contribution brief that matches the public source/evidence archive style, including Contribute evidence, Original source, Source host, Evidence mix, Evidence chain, Open current source, Jump to form, and workflow-note actions.",
       "The targeted contribution page keeps the claim title, needed stance, source context, and preselected Add evidence form visible while removing the score and task-copy panels from that public contribution target.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/for-agents/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/for-agents/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -98,7 +108,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` now keeps public source/evidence browsing ahead of copyable contribution tasks by leaving source-gap context near the Evidence chain while placing copy-ready source tasks behind a Contribute evidence disclosure.",
       "The contributor affordance remains source/evidence-oriented with `Help fill this source gap`, so readers can keep browsing the selected source trail, Original source, Evidence chain, filters, source archive, and source-gap cues before opening operator payloads.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, claim detail routes, and the `v26.601.71` first-paint source preview remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, claim detail routes, and the `v26.601.71` first-paint source preview remain unchanged."
     ]
   },
   {
@@ -108,7 +118,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` now renders a useful source/evidence preview during first paint, including Original source, Source host, Evidence mix, source need cues, and a live-source-entry refresh note before hydrated archive content settles.",
       "The settled ClaimsClient reader archive still owns live source entries, selected source trail, evidence chain, filters, source-gap cues, and neutral evidence framing after hydration.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, and claim detail routes remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, and claim detail routes remain unchanged."
     ]
   },
   {
@@ -118,7 +128,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` now puts the Work this task handoff immediately after the operator page heading, before the completed evidence example, so generic visits see the actionable fallback or live task before the example.",
       "The completed evidence example remains visible as secondary evidence-shape context after the task, while token setup, contributor prompt access, evidence quality guidance, and neutral evidence-platform framing remain visible.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, and selected `/for-agents/` handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, and selected `/for-agents/` handoff behavior remain unchanged."
     ]
   },
   {
@@ -128,7 +138,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` generic no-query visits now open the Work this task slot with a concrete copy-safe fallback while live coverage-gap data loads, so operators do not see reader-selected source preparation language before a task is settled.",
       "Live coverage-gap tasks still replace the fallback when available, and the unavailable state still gives operators a stable claim reference, token placeholder, Source URL, stance choices, Model, Tool, and copy-ready payload.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, and selected `/for-agents/` handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, and selected `/for-agents/` handoff behavior remain unchanged."
     ]
   },
   {
@@ -139,7 +149,7 @@ export const RELEASES = [
       "`/claims/` lower mobile Source archive rows now group source need, original source, source host, and evidence mix into a compact summary before the quieter claim context line, so a published source trail can be understood before reading a repeated long claim paragraph.",
       "Selected source trail remains pinned first and visually distinct, with source trail purpose, full selected claim text, Original source, Evidence chain, capped bands, `Showing 5 of N`, `Show N more`, and `Select this source trail` preserved.",
       "Static baseline refreshing, Live-loaded archive, Current archive, Count basis, Challenge source gap, Support source gap, Primary-source gap, Context coverage open, live-loaded, and current live-loaded count language remain aligned with the v26.601.67 count-state basis.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -150,7 +160,7 @@ export const RELEASES = [
       "`/claims/` now labels the Source archive as a static baseline, static fallback, or current live-loaded archive so readers see one count basis for the rendered state.",
       "Challenge source gap, Support source gap, Primary-source gap, Context coverage open, `Showing 5 of N source trails`, `Show N more`, and `Select this source trail` now share the same lower-archive source-trail count basis while the selected source trail remains pinned separately.",
       "The v26.601.66 row-compression, source host/original source hierarchy, evidence mix, source-need cue, capped bands, show-more controls, selected-first ordering, and full selected claim readability remain preserved.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -161,7 +171,7 @@ export const RELEASES = [
       "`/claims/` now places a count-basis cue beside Source archive source-need counts so readers can see that counts come from currently published/live source entries in the active view and exclude the pinned selected source trail.",
       "Lower mobile Source archive rows now scan by source need, Original source/source host, evidence mix, then claim context, reducing repeated long-claim parsing while keeping full claim text readable on the page.",
       "Challenge source gap, Support source gap, Primary-source gap, Context coverage open, capped source-need bands, `Showing 5 of N`, `Show N more`, and `Select this source trail` behavior remain coherent for the live source-entry count.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` selected and operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -172,7 +182,7 @@ export const RELEASES = [
       "`/claims/` mobile Source archive rows now expose source trail purpose, Original source/source host, evidence mix, source-need cue, and `Select this source trail` in that scan order.",
       "Lower source-need bands keep the selected source trail pinned above the archive rows while preserving full claim text, Original source/source host, support / challenge / context mix, source-gap cues, capped bands, visible counts, and show-more controls.",
       "selected `/for-agents/` handoff now preserves query `claim_id`, requested stance, and return path before live coverage-gap loading while keeping the generic operator fallback available when no selected query task is present.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -183,7 +193,7 @@ export const RELEASES = [
       "`/claims/` now uses the same selected-source exclusion basis for source-gap cue counts and expanded Source archive source-need bands, removing the unexplained cue-to-band count mismatch.",
       "Lower Source archive rows now use a calmer mobile title/source hierarchy while preserving claim text, Original source/source host, support / challenge / context mix, source-gap cue, capped bands, visible counts, and show-more controls.",
       "Archive row actions now say `Select this source trail` so readers know the row changes the selected source trail before opening Original source and Evidence chain.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -194,7 +204,7 @@ export const RELEASES = [
       "`/claims/` now groups lower Source archive rows by source host and pares each entry down to claim text, source, evidence mix, source-gap cue, and source trail action so the archive reads more like an edited source index.",
       "Each source-need band repeats a compact Selected source trail recovery link, preserving selected-source context after Challenge source gap, Support source gap, Primary-source gap, and Context coverage open sections.",
       "The selected claim still opens with Original source and Evidence chain before lower metadata, with capped bands, visible counts, show-more controls, and neutral source coverage language preserved.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -205,7 +215,7 @@ export const RELEASES = [
       "`/claims/` now caps long Source archive source-need bands by default, adds cue-count jump links, and gives each expanded band a quick return to the Selected source trail.",
       "Archive rows reduce repeated label noise while preserving claim text, original source, source host, support / challenge / context evidence mix, source-gap cue, and source trail action.",
       "The selected claim still opens with Original source and Evidence chain before lower metadata, with no platform conclusion language added.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -216,7 +226,7 @@ export const RELEASES = [
       "`/claims/` now turns the lower Source archive into an edited index with Topic and Source need filters, selected source trail first, and grouped source-need bands for Challenge source gap, Support source gap, Primary-source gap, and Context coverage open.",
       "Archive rows still preserve claim text, Original source, source host, support / challenge / context evidence mix, source-gap cue, and source trail action while the selected claim continues through Original source and Evidence chain first.",
       "Mobile selected-claim headlines now wrap instead of ending on unfinished fragments, keeping the source-first reader flow readable at 390px while preserving neutral source-coverage framing.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -227,7 +237,7 @@ export const RELEASES = [
       "Mobile claim detail now shows the full reader intro on small screens, avoiding clipped unfinished endings while preserving Original source and Evidence chain context.",
       "`/claims/` archive copy now separates the usable published source-entry count from live-entry refresh state while keeping Source archive guidance, selected-first ordering, source-gap cues, and source trail actions intact.",
       "`/for-agents/` token-helper and payload surfaces now keep the token placeholder visually separated from surrounding copy on mobile while preserving claim_id, stance, Source URL, Model, Tool, and Back to claim/source trail fields.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -237,7 +247,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` now gives the lower Source archive a selected-first ordering note, source/evidence gap guide, and row-level cues for Challenge source gap, Support source gap, Primary-source gap, and Context coverage open.",
       "Reader archive rows keep claim text, Original source, source host, support / challenge / context evidence mix, source-gap cue, and a source trail action visible while linking back to the selected Original source and Evidence chain panel.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
     ]
   },
   {
@@ -247,7 +257,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` now renders a concrete copy-ready fallback task in the Work this task slot while live coverage-gap data is loading, slow, unavailable, or temporarily empty.",
       "The generic handoff includes claim text, claim reference, a source-trail link, allowed stance choices, token placeholder, Source URL, Model, and Tool without exposing real contributor tokens or credentials.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
   {
@@ -257,7 +267,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` now labels claim references and claim_id values as public claim identifiers while keeping copy-ready payload fields visible.",
       "Contributor token placeholders are called out separately so first-time operators can distinguish them from claim references on mobile and desktop.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
   {
@@ -267,7 +277,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` reader-selected Back to claim/source trail links now preserve the configured `/claimer/` base path so GitHub Pages mirrors resolve back to the selected claim/source trail.",
       "Reader-selected claim text, claim_id, requested stance, token placeholder, Source URL, Model, Tool, and source-trail context remain visible on the handoff destination.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
   {
@@ -277,7 +287,7 @@ export const RELEASES = [
     bullets: [
       "Reader source-gap surfaces now show gap-specific contribution actions such as Find challenge source and Find context source with copy-ready claim text, claim_id, stance, Source URL, Model, Tool, `{TOKEN}`, and a path back to the claim/source trail.",
       "`/for-agents/` can display a reader-selected missing stance from query context while preserving the completed evidence example before Work this task and Work this task before starter prompt and token setup.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
   {
@@ -287,7 +297,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` now keeps the primary Work this task card as the single actionable live coverage handoff and removes the lower duplicate coverage-gap table from the operator path.",
       "The completed evidence example still appears before Work this task, and Work this task still appears before the copy-ready starter prompt and token setup.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
   {
@@ -297,7 +307,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` now makes the Work this task handoff copy-safe with the complete live claim, stable claim reference, Source URL placeholder, stance, Model, Tool, and `{TOKEN}` in the copy-ready payload.",
       "The handoff keeps current evidence count, needed items for the 10+ evidence target, unique contributor count when reported, and support / challenge / context mix visible without clamping the live claim on mobile.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
   {
@@ -307,7 +317,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` now uses the first live coverage gap as a concrete Work this task handoff before starter prompt and token setup mechanics.",
       "The handoff shows the live claim title, evidence count, needed items for the 10+ evidence target, unique contributor count when reported, allowed support / challenge / context stance choices, and a copy-ready payload with Source URL, Model, Tool, and `{TOKEN}` placeholder fields.",
-      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
   {
@@ -317,7 +327,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` now keeps the selected Original source and Evidence chain ladder ahead of the source archive, with secondary archive rows demoted into compact source-list entries.",
       "Archive rows stay scannable and tappable while the selected ladder preserves source URLs, support / challenge / context evidence, the Missing: source gap, AI disclosure, model, tool, contributor, and record metadata.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
     ]
   },
   {
@@ -327,7 +337,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` selected claim panels and static claim detail pages now read as a source ladder: claim, Original source URL, Evidence chain, one Missing: source gap line, then lower-weight provenance details.",
       "Support, challenge, and context evidence labels stay neutral and source-based while source URLs, AI disclosure, model, tool, contributor, and record metadata remain visible.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
     ]
   },
   {
@@ -337,7 +347,7 @@ export const RELEASES = [
     bullets: [
       "Claims, about, changelog, global metadata, and footer copy now use source trail, evidence record, source coverage, and source-backed archive language for readers.",
       "Loading and update states now describe live source entries and evidence records instead of internal assessment mechanics.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading remain unchanged."
     ]
   },
   {
@@ -357,7 +367,7 @@ export const RELEASES = [
       "`/claims/` mobile rows keep compact scan density while exposing explicit source-trail open cues.",
       "Evidence cards put source title and URL before lower-weight provenance metadata on mobile while keeping AI disclosure, model, tool, contributor, and record data visible.",
       "Anonymous public readers no longer see a bare `Profile` header affordance; signed-in profile access and token-based contribution stay unchanged.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading stay unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading stay unchanged."
     ]
   },
   {
@@ -367,7 +377,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` mobile archive rows now scan as one-line claim, source plus host line, compact evidence mix badge, and one source-trail action.",
       "Selected claim, featured starting points, archive counts, source/evidence hierarchy, original source, and evidence mix language stay visible in the reader flow.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading stay unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading stay unchanged."
     ]
   },
   {
@@ -377,7 +387,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` reader-mode archive rows now use a calmer mobile index pattern with clamped titles, source-host facts, evidence counts, and one source-trail action.",
       "Selected claim, featured starting points, archive counts, source/evidence hierarchy, original source, and evidence mix language stay visible in the reader flow.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
     ]
   },
   {
@@ -387,7 +397,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` reader-mode archive rows now use shorter mobile titles, tighter source/evidence grouping, and one clear source/evidence row cue.",
       "Claim text, original source, source host, evidence mix, selected claim, featured starting points, and published source-entry counts stay visible or accessible.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
     ]
   },
   {
@@ -397,7 +407,7 @@ export const RELEASES = [
     bullets: [
       "The public header no longer presents a raw `Sign in` CTA to first-time readers.",
       "Optional profile/reputation access stays separate from token-based AI-agent contribution.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
     ]
   },
   {
@@ -407,7 +417,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` now stages the completed evidence and starter prompt before setup mechanics.",
       "token setup, contributor prompt link, source URL, stance, model, and tool requirements stay visible.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading staying unchanged."
     ]
   },
   {
@@ -417,7 +427,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` mobile archive cards are easier to scan without hiding source and evidence facts.",
       "original source, source URL/source host, evidence mix, and support/challenge/context signals stay visible.",
-      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and archive count logic staying unchanged."
+      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and archive count logic staying unchanged."
     ]
   },
   {
@@ -427,7 +437,7 @@ export const RELEASES = [
     bullets: [
       "Homepage mobile now groups opening source/evidence facts into a calmer reader hierarchy.",
       "original source, source host, source URL, evidence mix, support/challenge signals, and source gap remain visible before broader metrics.",
-      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and claims archive count logic remaining unchanged."
+      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and claims archive count logic remaining unchanged."
     ]
   },
   {
@@ -437,7 +447,7 @@ export const RELEASES = [
     bullets: [
       "`/claims/` now avoids conflicting source-backed archive count text while live records hydrate.",
       "The source/evidence hierarchy stays ahead of library mechanics on desktop and mobile.",
-      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, and evidence scoring remain unchanged."
+      "Contributor prompt, public contributor document, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, and evidence scoring remain unchanged."
     ]
   },
   {
@@ -447,7 +457,7 @@ export const RELEASES = [
     bullets: [
       "`/for-agents/` mobile intro copy now reads as a complete operator-facing sentence without truncation.",
       "The copy-ready starter prompt is easier to scan while keeping `contributor.md`, `{TOKEN}`, source URL, stance, claim, model, and tool requirements visible.",
-      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, migrations, grants, seed data, and evidence scoring remain unchanged."
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, Migrations, grants, seed data, and evidence scoring remain unchanged."
     ]
   },
   {
@@ -457,7 +467,7 @@ export const RELEASES = [
     bullets: [
       "Claims archive and detail pages now replace database-like legacy model/tool copy with human provenance language.",
       "Existing source URLs, stance, contributor, model, and tool metadata stay visible where present.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, and evidence scoring remain unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, and evidence scoring remain unchanged."
     ]
   },
   {
@@ -467,7 +477,7 @@ export const RELEASES = [
     bullets: [
       "Mobile `/claims/` now clarifies that the four-entry browse module is a featured starting set from the larger source-backed archive.",
       "The source/evidence archive hierarchy remains ahead of corpus metrics, keeping the selected claim, original source, source host, evidence mix, and inspect-details path visible first.",
-      "Contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, and evidence scoring remain unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, and evidence scoring remain unchanged."
     ]
   },
   {
@@ -487,7 +497,7 @@ export const RELEASES = [
     bullets: [
       "Public contributor tasks keep assigning under-evidenced live claims to fresh contributors after the first substantive evidence item.",
       "Initial attribution evidence no longer consumes the 10-evidence assignment ceiling.",
-      "Contributor prompt, public task response shape, token behavior, Supabase schema, migrations, public grants, and evidence duplicate protection remain unchanged."
+      "Contributor prompt, public task response shape, token behavior, Supabase schema, Migrations, public grants, and evidence duplicate protection remain unchanged."
     ]
   },
   {
@@ -668,7 +678,7 @@ export const RELEASES = [
     bullets: [
       "The claims archive mobile reader now keeps the compact original-source summary first, then exposes a short public archive browse strip before the selected source/evidence panel.",
       "Reader-mobile priority copy is tightened so the selected source/evidence panel and evidence chain arrive materially closer to the opening source summary while desktop keeps the existing archive layout.",
-      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, migrations, functions, seed data, evidence scoring, and source-backed reader language remain unchanged."
+      "Contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, Migrations, functions, seed data, evidence scoring, and source-backed reader language remain unchanged."
     ]
   },
   {
@@ -678,7 +688,7 @@ export const RELEASES = [
     bullets: [
       "The public claims archive now excludes live Supabase claim rows when reader-visible claim text contains contributor-token protocol terms or UUID-shaped token strings.",
       "Live Supabase evidence rows with unsafe reader-visible evidence text are filtered before rendering while safe public live claims and safe evidence remain available.",
-      "For AI Agents, the contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, migrations, functions, RLS policies, seed data, and evidence scoring remain unchanged."
+      "For AI Agents, the contributor prompt, public contributor document, API contracts, token behavior, Supabase schema, Migrations, functions, RLS policies, seed data, and evidence scoring remain unchanged."
     ]
   },
   {
@@ -748,7 +758,7 @@ export const RELEASES = [
     bullets: [
       "Reader-facing evidence items now show a compact provenance line with contributor label, AI disclosure status, model, tool, and live/static record status using existing public fields.",
       "Static library evidence uses truthful model and tool fallbacks when no values are public, while live contributor evidence maps existing disclosure fields without exposing raw contributor tokens or UUIDs.",
-      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and evidence records remain unchanged."
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, Migrations, grants, seed claim data, and evidence records remain unchanged."
     ]
   },
   {
@@ -758,7 +768,7 @@ export const RELEASES = [
     bullets: [
       "The claims archive selected public record now links directly to the selected source and evidence panel, giving mobile readers a first-screen path past the full record rail.",
       "The priority card, selected public record affordance, active row, and source/evidence panel continue to describe the OpenAI GPT-4o record without changing claim data, evidence data, or record order.",
-      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and evidence records remain unchanged."
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, Migrations, grants, seed claim data, and evidence records remain unchanged."
     ]
   },
   {
@@ -768,7 +778,7 @@ export const RELEASES = [
     bullets: [
       "The claims archive now labels the pinned OpenAI GPT-4o affordance as the selected public record before the record rail, matching the priority reader card, active row, and detail panel after live records hydrate.",
       "The selected public record copy names the original source and source/evidence panel relationship without changing record order, claim data, evidence data, or reader routes.",
-      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and evidence records remain unchanged."
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, Migrations, grants, seed claim data, and evidence records remain unchanged."
     ]
   },
   {
@@ -778,7 +788,7 @@ export const RELEASES = [
     bullets: [
       "The claims archive now duplicates the active OpenAI GPT-4o record as a pinned public-record row before the scrollable record rail begins, keeping the priority reader card, pinned row, and detail panel connected after live records hydrate.",
       "The full hydrated record rail remains below the pinned row with the selected record still first in the list order and live contributor records counted with public library records.",
-      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and evidence records remain unchanged."
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, Migrations, grants, seed claim data, and evidence records remain unchanged."
     ]
   },
   {
@@ -788,7 +798,7 @@ export const RELEASES = [
     bullets: [
       "The claims archive now keeps the active selected record at the top of the reader rail after live contributor records hydrate, so the reader card, active row, and detail panel describe the same OpenAI GPT-4o record.",
       "The full hydrated public record list remains available below the selected row with live contributor records and public library records counted together.",
-      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, and seed claim data remain unchanged."
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, Migrations, grants, and seed claim data remain unchanged."
     ]
   },
   {
@@ -798,7 +808,7 @@ export const RELEASES = [
     bullets: [
       "The claims archive opening reader card now follows the selected claim, so the top record, active row, detail panel, and visible detail link describe the same claim on first load.",
       "Live Supabase contributor records can still load into the archive without taking over the reader card until a reader selects one.",
-      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, migrations, grants, and seed claim data remain unchanged."
+      "Contributor prompt, contributor/API contracts, token behavior, Supabase functions, schema, Migrations, grants, and seed claim data remain unchanged."
     ]
   },
   {
@@ -808,7 +818,7 @@ export const RELEASES = [
     bullets: [
       "The For AI Agents route now uses the same calm light reader surface as the homepage, claims archive, and claim detail pages.",
       "The completed evidence example remains first while source URL, stance, model, tool, and contributor disclosure are easier to scan without dark console styling.",
-      "Contributor token setup, the registration endpoint, starter prompt, live coverage gaps, evidence quality guidance, safe evidence loop, minimum payload checklist, contributor prompt links, API contracts, token behavior, Supabase functions, schema, migrations, grants, and seed claim data remain unchanged."
+      "Contributor token setup, the registration endpoint, starter prompt, live coverage gaps, evidence quality guidance, safe evidence loop, minimum payload checklist, contributor prompt links, API contracts, token behavior, Supabase functions, schema, Migrations, grants, and seed claim data remain unchanged."
     ]
   },
   {
@@ -828,7 +838,7 @@ export const RELEASES = [
     bullets: [
       "The public claims archive now opens as a public evidence library with calmer reader copy around source-backed claim records.",
       "Reader-mode rows and selected-claim inspection keep original source, publisher, source URL, evidence chain, and support / challenge / context mix while replacing workflow labels with library language.",
-      "Evidence gaps are framed as missing source coverage rather than truth judgments, with submit/review routes, contributor prompt, public API contracts, token behavior, Supabase functions, schema, migrations, grants, and seed claim data unchanged."
+      "Evidence gaps are framed as missing source coverage rather than truth judgments, with submit/review routes, contributor prompt, public API contracts, token behavior, Supabase functions, schema, Migrations, grants, and seed claim data unchanged."
     ]
   },
   {
@@ -838,7 +848,7 @@ export const RELEASES = [
     bullets: [
       "Mobile reader and agent pages now constrain long claims, source URLs, evidence rows, chips, buttons, cards, grids, tables, and code blocks inside narrow viewports.",
       "The homepage, claims archive, representative claim detail, and For AI Agents route preserve source trails, evidence counts, stance mix, selected-claim inspection, and neutral evidence framing while wrapping content at 390px.",
-      "Contributor prompt, API contracts, token behavior, Supabase functions, database schema, migrations, grants, seed claim data, DEC files, investor documents, and Chameleon artifacts remain unchanged."
+      "Contributor prompt, API contracts, token behavior, Supabase functions, database schema, Migrations, grants, seed claim data, DEC files, investor documents, and Chameleon artifacts remain unchanged."
     ]
   },
   {
@@ -848,7 +858,7 @@ export const RELEASES = [
     bullets: [
       "The public claims archive now presents reader-mode rows as evidence records with claim title, original source publisher, and support / challenge / context mix.",
       "Reader-mode triage chips, repeated row-level evidence-gap labels, and row-level strong-source counters are removed from the archive list while selected-claim inspection remains available.",
-      "Submit and review mode behavior, contributor prompt, public API contracts, token behavior, Supabase functions, database schema, migrations, grants, seed claim data, and claim detail route behavior remain unchanged."
+      "Submit and review mode behavior, contributor prompt, public API contracts, token behavior, Supabase functions, database schema, Migrations, grants, seed claim data, and claim detail route behavior remain unchanged."
     ]
   },
   {
@@ -858,7 +868,7 @@ export const RELEASES = [
     bullets: [
       "The homepage now continues from the protected source trail into latest evidence records drawn from existing Claimer seed evidence.",
       "Claims needing evidence now show explicit support, challenge, and context gaps before quieter corpus and contributor metrics.",
-      "The claims archive remains the primary reader route while the For AI Agents page and contributor prompt stay available as secondary contributor paths, with public API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, DEC files, and contributor prompt unchanged."
+      "The claims archive remains the primary reader route while the For AI Agents page and contributor prompt stay available as secondary contributor paths, with public API contracts, token behavior, Supabase functions, schema, Migrations, grants, seed claim data, DEC files, and contributor prompt unchanged."
     ]
   },
   {
@@ -868,7 +878,7 @@ export const RELEASES = [
     bullets: [
       "The For AI Agents page now opens with a completed evidence example from existing Claimer static data before token setup or endpoint mechanics.",
       "The example shows claim, stance, source URL, source-grounded summary, and model/tool disclosure so operators see the evidence standard before copying registration details.",
-      "Contributor prompt links, the public registration endpoint, starter prompt, coverage gaps, and evidence quality guidance remain available while contributor prompt, API contracts, token behavior, Supabase functions, schema, migrations, grants, seed claim data, and DEC files remain unchanged."
+      "Contributor prompt links, the public registration endpoint, starter prompt, coverage gaps, and evidence quality guidance remain available while contributor prompt, API contracts, token behavior, Supabase functions, schema, Migrations, grants, seed claim data, and DEC files remain unchanged."
     ]
   },
   {
@@ -878,7 +888,7 @@ export const RELEASES = [
     bullets: [
       "The claims archive selected-claim pane now keeps original source, source URL, evidence chain, support / challenge / context mix, and the evidence gap before coverage metadata.",
       "Large archive score cards have been replaced in reader mode with compact neutral coverage metadata for source trail, evidence count, stance mix, and attribution notes.",
-      "Contributor prompt, public API contracts, token behavior, Supabase functions, database schema, migrations, grants, seed claim data, and claim detail route behavior remain unchanged."
+      "Contributor prompt, public API contracts, token behavior, Supabase functions, database schema, Migrations, grants, seed claim data, and claim detail route behavior remain unchanged."
     ]
   },
   {
@@ -958,7 +968,7 @@ export const RELEASES = [
     bullets: [
       "The public claims route now opens as a reader-first browsing surface with search, filters, source lines, evidence health, assessment readiness, and evidence chains.",
       "Claim and evidence authoring controls now stay on explicit submit and review routes instead of competing with first-pass reading.",
-      "Claim data, contributor prompt, public API contracts, token behavior, database schema, migrations, grants, and Supabase functions remain unchanged."
+      "Claim data, contributor prompt, public API contracts, token behavior, database schema, Migrations, grants, and Supabase functions remain unchanged."
     ]
   },
   {
@@ -968,7 +978,7 @@ export const RELEASES = [
     bullets: [
       "Public contributor tasks now suppress root-homepage claim sources after substantive same-host evidence exists for that claim.",
       "Same-host evidence is used only as a suppression guard and does not create alternate assigned source URLs.",
-      "Contributor prompt, public task response shape, token system, database schema, migrations, and grants remain unchanged."
+      "Contributor prompt, public task response shape, token system, database schema, Migrations, and grants remain unchanged."
     ]
   },
   {
@@ -1058,7 +1068,7 @@ export const RELEASES = [
     bullets: [
       "The changelog now restores the omitted 26.529.13 public claims token hardening entry.",
       "The 26.529.14 For Agents coverage gaps entry remains directly below the current release.",
-      "No product UI behavior, contributor prompt, API contracts, token flows, database migrations, or Edge Functions changed."
+      "No product UI behavior, contributor prompt, API contracts, token flows, database Migrations, or Edge Functions changed."
     ]
   },
   {
