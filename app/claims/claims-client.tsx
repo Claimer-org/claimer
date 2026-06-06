@@ -53,6 +53,13 @@ type ContributionPrompt = {
   title: string;
   message: string;
 };
+type ReaderArchiveSection = {
+  key: string;
+  label: string;
+  description: string;
+  claims: Claim[];
+  selected?: boolean;
+};
 
 const storageKey = "claimer.localClaims.v1";
 const claimPackType = "claimer.claim-pack";
@@ -417,6 +424,10 @@ function archiveSectionCountLabel(count: number) {
   return `${count} source trail${count === 1 ? "" : "s"}`;
 }
 
+function archiveHostCountLabel(count: number) {
+  return `${count} source host${count === 1 ? "" : "s"}`;
+}
+
 function readerSourceNeedDisplayCountLabel(totalCount: number, visibleCount = totalCount) {
   const totalLabel = archiveSectionCountLabel(totalCount);
 
@@ -442,13 +453,7 @@ function groupReaderArchiveSections(items: Claim[], selectedClaim?: Claim | null
     items,
     selectedRow ?? selectedClaim
   );
-  const sections: Array<{
-    key: string;
-    label: string;
-    description: string;
-    claims: Claim[];
-    selected?: boolean;
-  }> = [];
+  const sections: ReaderArchiveSection[] = [];
 
   if (selectedRow) {
     sections.push({
@@ -579,6 +584,14 @@ function groupReaderArchiveClaimsByHost(items: Claim[]) {
   });
 
   return groups;
+}
+
+function readerArchiveSectionSourceSummary(section: ReaderArchiveSection) {
+  const hostCount = groupReaderArchiveClaimsByHost(section.claims).length;
+
+  return `${archiveSectionCountLabel(section.claims.length)} across ${archiveHostCountLabel(
+    hostCount
+  )}`;
 }
 
 function readerEvidenceProvenanceValue(value: string) {
@@ -1128,6 +1141,13 @@ export default function ClaimsClient({
     () => new Set(expandedReaderArchiveSections),
     [expandedReaderArchiveSections]
   );
+  const expandedReaderArchiveMapSections = useMemo(
+    () =>
+      readerArchiveSections.filter(
+        (section) => !section.selected && expandedReaderArchiveSectionIds.has(section.key)
+      ),
+    [expandedReaderArchiveSectionIds, readerArchiveSections]
+  );
   const showLiveClaimsSkeleton =
     liveClaimsState === "loading" && (!isReaderMode || visibleClaimRows.length === 0);
 
@@ -1203,11 +1223,21 @@ export default function ClaimsClient({
   }
 
   function toggleReaderArchiveSection(sectionKey: string) {
+    const sectionWillExpand = !expandedReaderArchiveSectionIds.has(sectionKey);
+
     setExpandedReaderArchiveSections((currentSections) =>
       currentSections.includes(sectionKey)
         ? currentSections.filter((key) => key !== sectionKey)
         : [...currentSections, sectionKey]
     );
+
+    if (sectionWillExpand) {
+      window.requestAnimationFrame(() => {
+        document
+          .getElementById(readerArchiveSectionDomId(sectionKey))
+          ?.scrollIntoView({ block: "start" });
+      });
+    }
   }
 
   async function submitClaim(event: React.FormEvent<HTMLFormElement>) {
@@ -2032,6 +2062,40 @@ export default function ClaimsClient({
                     ))}
                   </div>
                 </div>
+                {expandedReaderArchiveMapSections.length > 0 ? (
+                  <div
+                    className="source-archive-expanded-map"
+                    aria-label="expanded archive map source need navigation"
+                  >
+                    <div className="source-archive-expanded-map-heading">
+                      <span>Expanded archive map</span>
+                      <strong>
+                        {expandedReaderArchiveMapSections.length} source need{" "}
+                        {expandedReaderArchiveMapSections.length === 1
+                          ? "band"
+                          : "bands"}
+                      </strong>
+                    </div>
+                    <div className="source-archive-expanded-map-items">
+                      {expandedReaderArchiveMapSections.map((section) => (
+                        <div className="source-archive-expanded-map-item" key={section.key}>
+                          <a href={`#${readerArchiveSectionDomId(section.key)}`}>
+                            <strong>{section.label}</strong>
+                            <span>{readerArchiveSectionSourceSummary(section)}</span>
+                          </a>
+                          <button
+                            aria-label={`Show fewer source trails in ${section.label}`}
+                            className="source-archive-map-collapse"
+                            onClick={() => toggleReaderArchiveSection(section.key)}
+                            type="button"
+                          >
+                            Show fewer source trails
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
                 {selectedClaim ? (
                   <a
                     className="source-archive-selected-mini"
@@ -2086,7 +2150,7 @@ export default function ClaimsClient({
                     <section
                       className={`source-archive-section${
                         section.selected ? " selected" : ""
-                      }`}
+                      }${sectionExpanded && !section.selected ? " expanded" : ""}`}
                       id={readerArchiveSectionDomId(section.key)}
                       key={section.key}
                       aria-label={`${section.label} archive section`}
@@ -2102,6 +2166,23 @@ export default function ClaimsClient({
                           )}
                         </strong>
                         <p>{section.description}</p>
+                        {sectionExpanded && !section.selected ? (
+                          <div
+                            className="source-archive-section-summary"
+                            aria-label={`${section.label} source need navigation`}
+                          >
+                            <span>Expanded source need navigation</span>
+                            <strong>{readerArchiveSectionSourceSummary(section)}</strong>
+                            <button
+                              aria-label={`Show fewer source trails in ${section.label}`}
+                              className="source-archive-toggle source-archive-heading-toggle"
+                              onClick={() => toggleReaderArchiveSection(section.key)}
+                              type="button"
+                            >
+                              Show fewer source trails
+                            </button>
+                          </div>
+                        ) : null}
                       </div>
                       <div className="source-archive-section-rows">
                         {groupReaderArchiveClaimsByHost(visibleSectionClaims).map(

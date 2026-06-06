@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.85";
+export const SITE_VERSION = "26.601.86";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "Claims expanded Source archive map",
+    bullets: [
+      "Expanded `/claims/` Source archive sections now include a compact reader-facing expanded archive map / source need navigation and stronger group summaries while preserving selected source trail, Source archive, Original source, Source host, Evidence mix, Evidence chain, source gap cues, filters, contribution actions, `Select this source trail`, `Show more source trails`, and collapse behavior.",
+      "Expanded source-need bands now expose source-trail and source-host counts near the section header, plus a visible `Show fewer source trails` control before the full expanded row list, while row-level source facts remain visible.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, homepage, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.85",
     date: "2026-06-06",
     title: "Claims source archive expansion affordance",
     bullets: [
