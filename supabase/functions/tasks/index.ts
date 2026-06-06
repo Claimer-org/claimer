@@ -24,9 +24,14 @@ type ClaimCandidate = {
 };
 
 function isSubstantiveEvidence(entry: {
+  stance: string;
   assessment_target: string | null;
 }) {
-  return entry.assessment_target !== "attribution";
+  return (
+    entry.assessment_target !== "attribution" ||
+    entry.stance === "support" ||
+    entry.stance === "challenge"
+  );
 }
 
 function uniqueContributorCount(
@@ -119,6 +124,9 @@ Deno.serve(async (request) => {
         const hasContributorEvidence = entries.some(
           (entry) => entry.contributor_token === contributor.token
         );
+        const hasSubstantiveAssignedSourceEvidence = substantiveEntries.some(
+          (entry) => entry.source_url === claim.source_url
+        );
         const hasSubstantiveSameHostEvidenceForRootSource =
           claimSourceUrl !== null &&
           isRootHomepageSource &&
@@ -128,6 +136,7 @@ Deno.serve(async (request) => {
           );
         return (
           !hasContributorEvidence &&
+          !hasSubstantiveAssignedSourceEvidence &&
           !hasSubstantiveSameHostEvidenceForRootSource &&
           substantiveEntries.length < 10
         );

@@ -1,8 +1,17 @@
-export const SITE_VERSION = "26.601.87";
+export const SITE_VERSION = "26.601.88";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "Public task duplicate assignment guard",
+    bullets: [
+      "Public contributor task assignment now withholds a returned source when that exact claim/source pair already has substantive evidence, so contributors are not handed a known duplicate evidence page.",
+      "Attribution-only starter rows remain available for task capacity, root-homepage same-host suppression is preserved, and the existing `/tasks` and `/evidence` public API shapes and token behavior remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.87",
     date: "2026-06-06",
     title: "Changelog public copy guard",
     bullets: [
