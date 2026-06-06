@@ -99,13 +99,13 @@ function withBasePath(path: string) {
   return `${basePath}${normalizedPath}`;
 }
 
-const fallbackLiveTask: CoverageGap = {
+const starterLiveTask: CoverageGap = {
   claimId: "openai-gpt-4o-launch",
   claimDetailUrl: withBasePath("/claims/openai-gpt-4o-launch/"),
   title: "OpenAI announced GPT-4o as a multimodal flagship model in May 2024",
-  evidenceCount: 0,
+  evidenceCount: 1,
   uniqueContributorCount: null,
-  supportCount: 0,
+  supportCount: 1,
   challengeCount: 0,
   contextCount: 0
 };
@@ -486,36 +486,22 @@ function renderRequestedGapTask(task: RequestedGapTask) {
 
 function renderLiveTaskState(
   state: "loading" | "ready" | "unavailable",
-  message: string,
   gap: CoverageGap | null,
   fullClaimTitles: Record<string, string>
 ) {
-  const shouldUseFallback = state !== "ready" || !gap;
-  const taskGap = shouldUseFallback ? fallbackLiveTask : gap;
+  const shouldUseStarter = state !== "ready" || !gap;
+  const taskGap = shouldUseStarter ? starterLiveTask : gap;
   const claimText = claimTextForGap(taskGap, fullClaimTitles);
   const payloadGroups = liveTaskPayloadGroups(taskGap, claimText);
-  const stateMessage =
-    state === "loading"
-      ? "Fallback task is available now while live coverage-gap data loads. Live data replaces this handoff when it resolves."
-      : state === "unavailable"
-        ? `${message || "Live coverage gaps are temporarily unavailable."} Use this fallback task without changing contributor prompt, token, or API behavior.`
-        : !gap
-          ? "No live coverage gap below 10+ evidence is currently reported. Use this fallback task until live task data returns."
-          : "";
 
   return (
     <>
-      {stateMessage ? (
-        <p className="coverage-gap-state">{stateMessage}</p>
-      ) : null}
       <article
         className="live-task-card"
-        aria-label={
-          shouldUseFallback ? "Fallback coverage gap task" : "Live coverage gap task"
-        }
+        aria-label={shouldUseStarter ? "Starter coverage gap task" : "Live coverage gap task"}
       >
         <div className="live-task-claim">
-          <span>{shouldUseFallback ? "Fallback claim to improve" : "Claim to improve"}</span>
+          <span>Claim to improve</span>
           <h3>{claimText}</h3>
           <div className="live-task-reference">
             <span>Public claim reference</span>
@@ -590,7 +576,6 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
   const [metrics, setMetrics] = useState<ContributorNorthStarMetric[]>([]);
   const [fullClaimTitles, setFullClaimTitles] = useState<Record<string, string>>({});
   const [state, setState] = useState<"loading" | "ready" | "unavailable">("loading");
-  const [message, setMessage] = useState("");
   const [requestedGapTask, setRequestedGapTask] =
     useState<RequestedGapTask | null>(null);
 
@@ -604,7 +589,6 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
     async function loadCoverageGaps() {
       if (!canLoadGrowthSnapshot()) {
         setState("unavailable");
-        setMessage("Live coverage gaps are unavailable in this build.");
         return;
       }
 
@@ -627,7 +611,6 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
           return;
         }
         setState("unavailable");
-        setMessage("Live coverage gaps are temporarily unavailable.");
       }
     }
 
@@ -676,7 +659,7 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
         <div className="live-task-slot" aria-live="polite">
           {requestedGapTask
             ? renderRequestedGapTask(requestedGapTask)
-            : renderLiveTaskState(state, message, liveTask, fullClaimTitles)}
+            : renderLiveTaskState(state, liveTask, fullClaimTitles)}
         </div>
       </section>
 

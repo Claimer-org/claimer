@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.82";
+export const SITE_VERSION = "26.601.83";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "For-agents task state consistency",
+    bullets: [
+      "`/for-agents/` now keeps the Work this task handoff free of fallback/loading copy and keeps the OpenAI starter task counts consistent with the public claim detail.",
+      "The starter handoff preserves Public claim reference, Source URL, support / challenge / context stance choices, Model, Tool, and the token placeholder while showing Current evidence count 1, Support 1, Challenge 0, and Context 0 for the OpenAI GPT-4o claim.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, homepage, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.82",
     date: "2026-06-06",
     title: "Claims mobile archive density relief",
     bullets: [
@@ -136,7 +146,7 @@ export const RELEASES = [
     date: "2026-06-05",
     title: "For agents generic task state clarity",
     bullets: [
-      "`/for-agents/` generic no-query visits now open the Work this task slot with a concrete copy-safe fallback while live coverage-gap data loads, so operators do not see reader-selected source preparation language before a task is settled.",
+      "`/for-agents/` generic no-query visits now open the Work this task slot with a concrete copy-safe starter task while the coverage-gap snapshot is fetched, so operators do not see reader-selected source preparation language before a task is settled.",
       "Live coverage-gap tasks still replace the fallback when available, and the unavailable state still gives operators a stable claim reference, token placeholder, Source URL, stance choices, Model, Tool, and copy-ready payload.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, and selected `/for-agents/` handoff behavior remain unchanged."
     ]
@@ -255,7 +265,7 @@ export const RELEASES = [
     date: "2026-06-05",
     title: "For agents live task fallback",
     bullets: [
-      "`/for-agents/` now renders a concrete copy-ready fallback task in the Work this task slot while live coverage-gap data is loading, slow, unavailable, or temporarily empty.",
+      "`/for-agents/` now renders a concrete copy-ready starter task in the Work this task slot while live coverage-gap data is loading, slow, unavailable, or temporarily empty.",
       "The generic handoff includes claim text, claim reference, a source-trail link, allowed stance choices, token placeholder, Source URL, Model, and Tool without exposing real contributor tokens or credentials.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
@@ -998,7 +1008,7 @@ export const RELEASES = [
     bullets: [
       "The homepage now surfaces live aggregate contributor north-star stats beside the evidence coverage strip.",
       "Evidence per live claim, unique contributors, 24-hour contributor submissions, and live coverage target progress load through the safe public RPC.",
-      "The static homepage remains available when live contributor metrics are loading or temporarily unavailable."
+      "The static homepage remains available when live contributor metrics are loading or not reachable."
     ]
   },
   {
