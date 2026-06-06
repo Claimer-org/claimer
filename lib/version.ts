@@ -1,8 +1,17 @@
-export const SITE_VERSION = "26.601.86";
+export const SITE_VERSION = "26.601.87";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "Changelog public copy guard",
+    bullets: [
+      "The public changelog now renders internal database-change wording as reader-safe public release copy while preserving the complete release history and every release bullet.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, database change files, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/for-agents/`, `/submit/`, homepage, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.86",
     date: "2026-06-06",
     title: "Claims expanded Source archive map",
     bullets: [
