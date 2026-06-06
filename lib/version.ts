@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.78";
+export const SITE_VERSION = "26.601.79";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "Claims source archive label calm",
+    bullets: [
+      "`/claims/` lower Source archive rows now reduce repeated label weight while grouping source need, Original source, Source host, Evidence mix, concise claim context, and `Select this source trail` into a calmer public source-index read.",
+      "The selected source trail remains pinned first and visually distinct, with source-gap cues, filters, count basis, show-more controls, Evidence chain access, and selected-source recovery behavior preserved.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.78",
     date: "2026-06-06",
     title: "For-agents task reference compact",
     bullets: [

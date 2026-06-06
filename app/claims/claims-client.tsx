@@ -1660,22 +1660,30 @@ export default function ClaimsClient({
         aria-label={rowAriaLabel}
       >
         <span
-          className="claim-row-summary"
+          className="claim-row-summary claim-row-archive-summary"
           aria-label={`Source need ${coverageSignal}; Original source ${originalSource}; source host ${originalSourceHost}; evidence mix ${counts.support} support, ${counts.challenge} challenge, ${counts.context} context`}
         >
-          <span className="claim-row-need">
+          <span className="claim-row-need claim-row-archive-need">
             <span className="claim-row-fact-label">Source need</span>
             <span className="claim-row-coverage">{coverageSignal}</span>
           </span>
-          <span
-            className="claim-row-source"
-            aria-label={`Original source ${originalSource}; source host ${originalSourceHost}`}
-          >
-            <span className="claim-row-source-label">Original source</span>
-            <span className="claim-row-source-name">{originalSource}</span>
-            <span className="claim-row-source-host">{originalSourceHost}</span>
+          <span className="claim-row-source-stack">
+            <span
+              className="claim-row-source-line"
+              aria-label={`Original source ${originalSource}`}
+            >
+              <span className="claim-row-source-label">Original source</span>
+              <span className="claim-row-source-name">{originalSource}</span>
+            </span>
+            <span
+              className="claim-row-host-line"
+              aria-label={`Source host ${originalSourceHost}`}
+            >
+              <span className="claim-row-source-host-label">Source host</span>
+              <span className="claim-row-source-host">{originalSourceHost}</span>
+            </span>
           </span>
-          <span className="claim-row-evidence">
+          <span className="claim-row-evidence claim-row-archive-evidence">
             <span className="claim-row-fact-label">Evidence mix</span>
             <span className="claim-row-mix">
               {counts.support} support / {counts.challenge} challenge / {counts.context}{" "}

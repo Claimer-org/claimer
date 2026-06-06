@@ -1364,6 +1364,7 @@ a.claim-row {
 
 .claim-row-purpose-label,
 .claim-row-context-label,
+.claim-row-source-host-label,
 .claim-row-fact-label {
   width: fit-content;
   max-width: 100%;
@@ -1403,12 +1404,28 @@ a.claim-row {
   gap: 0 5px;
 }
 
+.claim-row-source-stack {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.claim-row-source-line,
+.claim-row-host-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 6px;
+  min-width: 0;
+}
+
 .claim-row-source-label {
   color: var(--foreground-dim);
   font-weight: 700;
 }
 
-.claim-row-source-label::after {
+.claim-row-source-label::after,
+.claim-row-source-host-label::after {
   content: ":";
 }
 
@@ -1419,6 +1436,11 @@ a.claim-row {
 
 .claim-row-source-host {
   color: var(--foreground-dim);
+}
+
+.claim-row-host-line .claim-row-source-host::before {
+  content: none;
+  margin: 0;
 }
 
 .claim-row-source-host::before {
@@ -4587,10 +4609,56 @@ body:has(.reader-editorial) .page-heading h1 {
 
 .reader-editorial .source-list-row .claim-row-purpose-label,
 .reader-editorial .source-list-row .claim-row-context-label,
+.reader-editorial .source-list-row .claim-row-source-host-label,
 .reader-editorial .source-list-row .claim-row-fact-label {
   color: var(--foreground-dim);
   font-size: 0.62rem;
   text-transform: none;
+}
+
+.reader-editorial .source-list-row.archive-source-row .claim-row-source-stack {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.reader-editorial .source-list-row.archive-source-row .claim-row-source-line,
+.reader-editorial .source-list-row.archive-source-row .claim-row-host-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 6px;
+  min-width: 0;
+}
+
+.reader-editorial .source-list-row.archive-source-row .claim-row-source-label,
+.reader-editorial .source-list-row.archive-source-row .claim-row-source-host-label,
+.reader-editorial .source-list-row.archive-source-row .claim-row-fact-label,
+.reader-editorial .source-list-row.archive-source-row .claim-row-context-label {
+  color: rgba(59, 69, 64, 0.62);
+  font-size: 0.58rem;
+  font-weight: 650;
+  line-height: 1.1;
+  text-transform: none;
+}
+
+.reader-editorial .source-list-row.archive-source-row .claim-row-source-name {
+  color: var(--foreground);
+  font-size: 0.86rem;
+  font-weight: 760;
+  line-height: 1.22;
+}
+
+.reader-editorial .source-list-row.archive-source-row .claim-row-source-host {
+  color: var(--foreground-dim);
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.reader-editorial .source-list-row.archive-source-row .claim-row-host-line .claim-row-source-host::before {
+  content: none;
+  margin: 0;
 }
 
 .reader-editorial .claim-row-coverage {
@@ -6311,6 +6379,7 @@ textarea {
 
   .reader-editorial .claim-row-purpose-label,
   .reader-editorial .claim-row-context-label,
+  .reader-editorial .claim-row-source-host-label,
   .reader-editorial .claim-row-fact-label {
     color: var(--accent-strong);
     font-size: 0.6rem;
@@ -6497,6 +6566,57 @@ textarea {
     min-width: 0;
   }
 
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source-stack {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source-line,
+  .reader-editorial .source-list-row.archive-source-row .claim-row-host-line {
+    display: grid;
+    grid-template-columns: minmax(68px, max-content) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 2px 7px;
+    min-width: 0;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source-label,
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source-host-label,
+  .reader-editorial .source-list-row.archive-source-row .claim-row-fact-label,
+  .reader-editorial .source-list-row.archive-source-row .claim-row-context-label {
+    color: rgba(59, 69, 64, 0.62);
+    font-size: 0.55rem;
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1.08;
+    text-transform: none;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source-name,
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source-host {
+    display: block;
+    max-width: 100%;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source-name {
+    color: var(--foreground);
+    font-size: 0.72rem;
+    font-weight: 760;
+    line-height: 1.16;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-source-host {
+    color: var(--foreground-dim);
+    font-size: 0.62rem;
+    font-weight: 650;
+    line-height: 1.14;
+  }
+
   .reader-editorial .source-list-row.archive-source-row .claim-row-context {
     gap: 1px;
     padding-top: 1px;
@@ -6596,6 +6716,11 @@ textarea {
     overflow-wrap: anywhere;
     text-overflow: clip;
     white-space: normal;
+  }
+
+  .reader-editorial .source-list-row.archive-source-row .claim-row-mix {
+    color: var(--foreground);
+    font-weight: 650;
   }
 
   .reader-editorial .source-list-row .claim-row-action {
