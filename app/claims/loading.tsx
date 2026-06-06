@@ -35,20 +35,20 @@ export default function ClaimsLoading() {
         <p className="eyebrow">Public evidence library</p>
         <h1 id="claims-loading-title">Browse claims by source and evidence mix</h1>
         <p>
-          Live source entries are still loading or refreshing; this static
-          preview keeps source trails visible while the reader archive settles.
+          Start with source-backed records: inspect Original source, Source host,
+          Evidence mix, and Source need before opening a selected source trail.
         </p>
       </header>
 
       <section
         className="claims-first-paint-shell"
-        aria-label="Source and evidence preview while claims load"
+        aria-label="Source and evidence preview"
       >
         <div className="claims-first-paint-status">
-          <strong>Static source preview refreshing</strong>
+          <strong>Source trail preview</strong>
           <span>
             Preview rows include Original source, Source host, Evidence mix, and
-            a source need cue before live source entries settle.
+            a source need cue for reader inspection.
           </span>
         </div>
 

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.79";
+export const SITE_VERSION = "26.601.80";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "Reader loading copy calm",
+    bullets: [
+      "`/claims/` first paint and source-index count copy now use stable Source trail preview, Source index, Original source, Source host, Evidence mix, and Source need language instead of loading, refreshing, fallback, or settling wording.",
+      "`/claims/openai-gpt-4o-launch/` detail provenance now reads as Published source record and Older published records may not include public model/tool disclosure, while preserving Original source, source URL, Evidence chain, source gaps, AI disclosure, methodology, corrections, and contribution paths.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and homepage remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.79",
     date: "2026-06-06",
     title: "Claims source archive label calm",
     bullets: [

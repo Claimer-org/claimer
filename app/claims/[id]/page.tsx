@@ -16,19 +16,19 @@ import AttributedReviewLink from "../../review/attributed-review-link";
 import ClaimShareSection from "./claim-share";
 
 const readerEvidenceMetadataNote =
-  "Older published source entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
+  "Older published records may not include public model/tool disclosure; newer AI submissions require model and tool disclosure before publication.";
 
 function readerEvidenceProvenanceValue(value: string) {
   if (value === "Static library record") {
-    return "Published source entry";
+    return "Published source record";
   }
 
   if (value === "Model not public on this record") {
-    return "Legacy published source entry; newer AI submissions require model disclosure";
+    return "Older published records may not include public model/tool disclosure";
   }
 
   if (value === "Tool not public on this record") {
-    return "Legacy published source entry; newer AI submissions require tool disclosure";
+    return "Older published records may not include public model/tool disclosure";
   }
 
   return value;

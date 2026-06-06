@@ -78,7 +78,7 @@ const sourceQualities: SourceQuality[] = [
 ];
 
 const readerEvidenceMetadataNote =
-  "Older published source entries may lack public model/tool metadata; newer AI submissions require disclosure before publication.";
+  "Older published records may not include public model/tool disclosure; newer AI submissions require model and tool disclosure before publication.";
 const readerArchiveCueLabels = [
   "Challenge source gap",
   "Support source gap",
@@ -583,15 +583,15 @@ function groupReaderArchiveClaimsByHost(items: Claim[]) {
 
 function readerEvidenceProvenanceValue(value: string) {
   if (value === "Static library record") {
-    return "Published source entry";
+    return "Published source record";
   }
 
   if (value === "Model not public on this record") {
-    return "Legacy published source entry; newer AI submissions require model disclosure";
+    return "Older published records may not include public model/tool disclosure";
   }
 
   if (value === "Tool not public on this record") {
-    return "Legacy published source entry; newer AI submissions require tool disclosure";
+    return "Older published records may not include public model/tool disclosure";
   }
 
   return value;
@@ -603,18 +603,18 @@ function readerArchiveCountState(items: Claim[], liveClaimsState: LiveClaimsStat
   if (liveClaimsState === "idle" || liveClaimsState === "loading") {
     return {
       tone: "baseline",
-      heading: `Static source index refreshing: ${countLabel}.`,
+      heading: `Source index: ${countLabel}.`,
       detail:
-        "Counts cover the lower Source archive while the selected source trail stays pinned above."
+        "Counts use published source records in the lower Source archive while the selected source trail stays pinned above."
     };
   }
 
   if (liveClaimsState === "error") {
     return {
       tone: "fallback",
-      heading: `Static source index: ${countLabel}.`,
+      heading: `Source index: ${countLabel}.`,
       detail:
-        "Live refresh is temporarily unavailable; source needs remain browseable from the static archive."
+        "Counts use published source records in the lower Source archive while source needs remain browseable."
     };
   }
 
@@ -622,12 +622,10 @@ function readerArchiveCountState(items: Claim[], liveClaimsState: LiveClaimsStat
 
   return {
     tone: "current",
-    heading: `${
-      hasLiveRows ? "Live-loaded source index" : "Current source index"
-    }: ${countLabel}.`,
+    heading: `Source index: ${countLabel}.`,
     detail: hasLiveRows
-      ? "Live entries are included; the selected source trail stays pinned above."
-      : "Current published source trails are shown below; the selected source trail stays pinned above."
+      ? "Published and current source records are shown below; the selected source trail stays pinned above."
+      : "Published source trails are shown below; the selected source trail stays pinned above."
   };
 }
 
@@ -2050,7 +2048,7 @@ export default function ClaimsClient({
             aria-live="polite"
           >
             {showLiveClaimsSkeleton ? (
-              <div className="skeleton-list" aria-label="Refreshing live source entries">
+              <div className="skeleton-list" aria-label="Source record placeholders">
                 <span className="skeleton-row" />
                 <span className="skeleton-row" />
               </div>
