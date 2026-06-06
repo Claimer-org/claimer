@@ -1122,28 +1122,59 @@ a.current-record-pin {
 }
 
 .source-archive-selected-mini {
+  position: sticky;
+  top: 88px;
+  z-index: 3;
   display: grid;
   gap: 4px;
   min-width: 0;
-  border-top: 1px solid rgba(23, 33, 38, 0.08);
-  padding-top: 8px;
+  margin: -2px 0 10px;
+  border: 1px solid rgba(23, 33, 38, 0.1);
+  border-left: 3px solid rgba(30, 107, 85, 0.42);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.97);
+  color: inherit;
+  box-shadow: 0 8px 18px rgba(23, 33, 38, 0.08);
+  padding: 8px 10px;
+  text-decoration: none;
 }
 
-.source-archive-selected-mini span,
-.source-archive-selected-mini a {
+.source-archive-selected-mini:hover,
+.source-archive-selected-mini:focus-visible {
+  border-color: rgba(30, 107, 85, 0.32);
+  background: #ffffff;
+}
+
+.source-archive-selected-mini:focus-visible {
+  outline: 2px solid rgba(30, 107, 85, 0.32);
+  outline-offset: 2px;
+}
+
+.source-archive-selected-label,
+.source-archive-return-action {
   color: var(--accent-strong);
   font-size: 0.72rem;
   font-weight: 800;
   line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .source-archive-selected-mini strong {
   color: var(--foreground);
   font-size: 0.82rem;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
-.source-archive-selected-mini a {
+.source-archive-selected-source {
+  color: var(--foreground-dim);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.source-archive-return-action {
   width: fit-content;
   max-width: 100%;
   text-decoration: underline;
@@ -6426,6 +6457,28 @@ textarea {
   .source-archive-guide {
     gap: 7px;
     padding: 8px;
+  }
+
+  .source-archive-selected-mini {
+    top: 8px;
+    gap: 3px;
+    margin: 0 0 8px;
+    border-left-width: 3px;
+    border-radius: 7px;
+    box-shadow: 0 6px 14px rgba(23, 33, 38, 0.08);
+    padding: 8px;
+  }
+
+  .source-archive-selected-label,
+  .source-archive-selected-source,
+  .source-archive-return-action {
+    font-size: 0.66rem;
+    line-height: 1.18;
+  }
+
+  .source-archive-selected-mini strong {
+    font-size: 0.74rem;
+    line-height: 1.18;
   }
 
   .reader-filter-grid {

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.80";
+export const SITE_VERSION = "26.601.81";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "Claims mobile selected-source anchor",
+    bullets: [
+      "`/claims/` Source archive now keeps a compact selected source trail return strip beside the cue flow and visible through the lower archive on about-390px mobile, so readers can return to the Original source and Evidence chain while scanning source need bands.",
+      "The selected source trail remains pinned first, while Source archive rows continue to preserve Source host, Evidence mix, source need/source gap cues, filters, show-more controls, and `Select this source trail`.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/for-agents/`, `/submit/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.80",
     date: "2026-06-06",
     title: "Reader loading copy calm",
     bullets: [
@@ -26,8 +36,8 @@ export const RELEASES = [
     date: "2026-06-06",
     title: "For-agents task reference compact",
     bullets: [
-      "`/for-agents/` Task reference payload groups now compact long claim text behind a native disclosure on mobile while keeping `claim_id`, public task/citation context, the claim-text summary, Source URL, stance, `Token: {TOKEN}`, Model, and Tool visible; the full claim text remains available in the disclosure.",
-      "Generic `/for-agents/` tasks and reader-selected handoffs keep Work this task, Token replacement, Source and stance, AI disclosure, the visually distinct `Token: {TOKEN}` placeholder, and the completed evidence example intact.",
+      "`/for-agents/` Task reference payload groups now compact long claim text behind a native disclosure on mobile while keeping `claim_id`, public task/citation context, the claim-text summary, Source URL, stance, the token placeholder, Model, and Tool visible; the full claim text remains available in the disclosure.",
+      "Generic `/for-agents/` tasks and reader-selected handoffs keep Work this task, Token replacement, Source and stance, AI disclosure, the visually distinct token placeholder, and the completed evidence example intact.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
@@ -37,7 +47,7 @@ export const RELEASES = [
     title: "For-agents payload grouping",
     bullets: [
       "`/for-agents/` live task copy-ready payload fields are now grouped into task reference, token replacement, source/stance, and AI disclosure clusters for faster scanning on desktop and about-390px mobile.",
-      "`claim_id` remains visible and copy-ready as public task/citation context, while `Token: {TOKEN}` stays separate from the public claim reference and Source URL, support / challenge / context stance choices, Model, Tool, source need, and the completed evidence example remain visible.",
+      "`claim_id` remains visible and copy-ready as public task/citation context, while the token placeholder stays separate from the public claim reference and Source URL, support / challenge / context stance choices, Model, Tool, source need, and the completed evidence example remain visible.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
@@ -47,7 +57,7 @@ export const RELEASES = [
     title: "For-agents live reference hierarchy",
     bullets: [
       "`/for-agents/` live task and reader-selected source-gap claim references now read as public task/citation context instead of credential-like claim_id facts.",
-      "Copy-ready contributor payloads still include `claim_id`, Source URL, stance, Model, Tool, and `Token: {TOKEN}`, with the token placeholder kept visually and semantically separate from the public claim reference.",
+      "Copy-ready contributor payloads still include `claim_id`, Source URL, stance, Model, Tool, and the token placeholder, with that placeholder kept visually and semantically separate from the public claim reference.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
@@ -67,7 +77,7 @@ export const RELEASES = [
     title: "For-agents claim reference polish",
     bullets: [
       "`/for-agents/` now presents public claim references as task/citation references so the Work this task handoff reads less like a credential surface on mobile.",
-      "The contributor token placeholder remains visually and semantically distinct as `Token: {TOKEN}` while Source URL, Model, Tool, stance choices, claim reference copy, and copy-ready payload structure stay visible.",
+      "The contributor token placeholder remains visually and semantically distinct while Source URL, Model, Tool, stance choices, claim reference copy, and copy-ready payload structure stay visible.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
     ]
   },
@@ -117,7 +127,7 @@ export const RELEASES = [
     title: "For agents generic task state clarity",
     bullets: [
       "`/for-agents/` generic no-query visits now open the Work this task slot with a concrete copy-safe fallback while live coverage-gap data loads, so operators do not see reader-selected source preparation language before a task is settled.",
-      "Live coverage-gap tasks still replace the fallback when available, and the unavailable state still gives operators a stable claim reference, `Token: {TOKEN}`, Source URL, stance choices, Model, Tool, and copy-ready payload.",
+      "Live coverage-gap tasks still replace the fallback when available, and the unavailable state still gives operators a stable claim reference, token placeholder, Source URL, stance choices, Model, Tool, and copy-ready payload.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, and selected `/for-agents/` handoff behavior remain unchanged."
     ]
   },
@@ -216,7 +226,7 @@ export const RELEASES = [
     bullets: [
       "Mobile claim detail now shows the full reader intro on small screens, avoiding clipped unfinished endings while preserving Original source and Evidence chain context.",
       "`/claims/` archive copy now separates the usable published source-entry count from live-entry refresh state while keeping Source archive guidance, selected-first ordering, source-gap cues, and source trail actions intact.",
-      "`/for-agents/` token-helper and payload surfaces now keep `Token: {TOKEN}` visually separated from surrounding copy on mobile while preserving claim_id, stance, Source URL, Model, Tool, and Back to claim/source trail fields.",
+      "`/for-agents/` token-helper and payload surfaces now keep the token placeholder visually separated from surrounding copy on mobile while preserving claim_id, stance, Source URL, Model, Tool, and Back to claim/source trail fields.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, and `/for-agents/` operator handoff behavior remain unchanged."
     ]
   },
@@ -236,7 +246,7 @@ export const RELEASES = [
     title: "For agents live task fallback",
     bullets: [
       "`/for-agents/` now renders a concrete copy-ready fallback task in the Work this task slot while live coverage-gap data is loading, slow, unavailable, or temporarily empty.",
-      "The generic handoff includes claim text, claim reference, a source-trail link, allowed stance choices, `Token: {TOKEN}`, Source URL, Model, and Tool without exposing real contributor tokens or credentials.",
+      "The generic handoff includes claim text, claim reference, a source-trail link, allowed stance choices, token placeholder, Source URL, Model, and Tool without exposing real contributor tokens or credentials.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
@@ -246,7 +256,7 @@ export const RELEASES = [
     title: "For agents payload readability",
     bullets: [
       "`/for-agents/` now labels claim references and claim_id values as public claim identifiers while keeping copy-ready payload fields visible.",
-      "Contributor token placeholders are called out separately so first-time operators can distinguish `Token: {TOKEN}` from claim references on mobile and desktop.",
+      "Contributor token placeholders are called out separately so first-time operators can distinguish them from claim references on mobile and desktop.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },
@@ -256,7 +266,7 @@ export const RELEASES = [
     title: "For agents return link base path",
     bullets: [
       "`/for-agents/` reader-selected Back to claim/source trail links now preserve the configured `/claimer/` base path so GitHub Pages mirrors resolve back to the selected claim/source trail.",
-      "Reader-selected claim text, claim_id, requested stance, `Token: {TOKEN}`, Source URL, Model, Tool, and source-trail context remain visible on the handoff destination.",
+      "Reader-selected claim text, claim_id, requested stance, token placeholder, Source URL, Model, Tool, and source-trail context remain visible on the handoff destination.",
       "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, and live data loading contracts remain unchanged."
     ]
   },

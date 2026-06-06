@@ -224,7 +224,7 @@ function gapActionPayload(
   attribution: AttributionParams = {}
 ) {
   return [
-    "Token: {TOKEN}",
+    "Contributor token placeholder: {TOKEN}",
     `Claim text: ${claim.title}`,
     `claim_id: ${claim.id}`,
     `Stance: ${stance}`,
@@ -2026,19 +2026,27 @@ export default function ClaimsClient({
                     </a>
                   ))}
                 </div>
-                {selectedClaim ? (
-                  <div className="source-archive-selected-mini">
-                    <span>Selected source trail</span>
-                    <strong>{selectedClaim.title}</strong>
-                    <a
-                      href="#selected-source-evidence"
-                      onClick={() => selectClaim(selectedClaim.id)}
-                    >
-                      Return to source trail
-                    </a>
-                  </div>
-                ) : null}
               </div>
+              {selectedClaim ? (
+                <a
+                  className="source-archive-selected-mini"
+                  href="#selected-source-evidence"
+                  onClick={() => selectClaim(selectedClaim.id)}
+                  aria-label={`Return to selected source trail and Evidence chain for ${selectedClaim.title}`}
+                >
+                  <span className="source-archive-selected-label">
+                    Selected source trail
+                  </span>
+                  <strong>{selectedClaim.title}</strong>
+                  <span className="source-archive-selected-source">
+                    Original source:{" "}
+                    {selectedClaim.sourcePublisher || sourceHost(selectedClaim.sourceUrl)}
+                  </span>
+                  <span className="source-archive-return-action">
+                    Return to source and evidence
+                  </span>
+                </a>
+              ) : null}
             </>
           ) : null}
 
