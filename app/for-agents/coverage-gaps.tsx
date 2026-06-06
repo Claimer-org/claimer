@@ -29,11 +29,19 @@ type RequestedGapTask = {
   stance: StanceChoice;
 };
 
+type PayloadLine =
+  | string
+  | {
+      kind: "claim";
+      label: string;
+      value: string;
+    };
+
 type PayloadGroup = {
   title: string;
   description: string;
   tone?: "reference" | "token" | "source" | "disclosure";
-  lines: string[];
+  lines: PayloadLine[];
 };
 
 const evidenceTarget = 10;
@@ -275,7 +283,7 @@ function liveTaskPayloadGroups(gap: CoverageGap, claimText: string): PayloadGrou
       description: "Public task/citation context",
       tone: "reference",
       lines: [
-        `Claim: ${claimText}`,
+        { kind: "claim", label: "Claim", value: claimText },
         `Public claim reference: ${claimReferenceText(gap)}`,
         `claim_id: ${payloadClaimId(gap)}`,
         "claim_id note: public task/citation reference, not a contributor token"
@@ -316,7 +324,7 @@ function requestedGapPayloadGroups(task: RequestedGapTask): PayloadGroup[] {
       description: "Public task/citation context",
       tone: "reference",
       lines: [
-        `Claim text: ${task.claimText}`,
+        { kind: "claim", label: "Claim text", value: task.claimText },
         `claim_id: ${task.claimId}`,
         "claim_id note: public task/citation reference, not a contributor token",
         `Source trail: ${task.sourceTrailPath}`
@@ -350,6 +358,28 @@ function requestedGapPayloadGroups(task: RequestedGapTask): PayloadGroup[] {
   ];
 }
 
+function renderPayloadLine(line: PayloadLine, index: number) {
+  if (typeof line === "string") {
+    return (
+      <code className="payload-group-line" key={`${line}-${index}`}>
+        {line}
+      </code>
+    );
+  }
+
+  return (
+    <details className="payload-claim-disclosure" key={`${line.label}-${index}`}>
+      <summary>
+        <span>{line.label}</span>
+        <strong>{line.value}</strong>
+      </summary>
+      <code className="payload-group-line payload-claim-text">
+        {line.label}: {line.value}
+      </code>
+    </details>
+  );
+}
+
 function renderPayloadGroups(groups: PayloadGroup[]) {
   return (
     <div className="payload-group-list" aria-label="Grouped copy-ready payload fields">
@@ -359,9 +389,9 @@ function renderPayloadGroups(groups: PayloadGroup[]) {
             <h4>{group.title}</h4>
             <span>{group.description}</span>
           </div>
-          <pre className="payload-group-lines">
-            <code>{group.lines.join("\n")}</code>
-          </pre>
+          <div className="payload-group-lines">
+            {group.lines.map((line, index) => renderPayloadLine(line, index))}
+          </div>
         </section>
       ))}
     </div>

@@ -2877,6 +2877,8 @@ a.claim-row {
 }
 
 .payload-group-lines {
+  display: grid;
+  gap: 4px;
   min-width: 0;
   max-width: 100%;
   border: 0;
@@ -2891,7 +2893,8 @@ a.claim-row {
   word-break: break-word;
 }
 
-.payload-group-lines code {
+.payload-group-line {
+  display: block;
   border: 0;
   background: transparent;
   color: inherit;
@@ -2899,6 +2902,49 @@ a.claim-row {
   padding: 0;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+.payload-claim-disclosure {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #f8faf7;
+  overflow: hidden;
+}
+
+.payload-claim-disclosure summary {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  min-width: 0;
+  cursor: pointer;
+  padding: 6px 7px;
+}
+
+.payload-claim-disclosure summary span {
+  flex: 0 0 auto;
+  color: #46665a;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.payload-claim-disclosure summary strong {
+  min-width: 0;
+  color: #344d43;
+  font-size: 0.76rem;
+  font-weight: 650;
+  line-height: 1.28;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.payload-claim-text {
+  border-top: 1px solid var(--line);
+  padding: 7px;
 }
 
 .payload-group.token .payload-group-lines {
@@ -6962,6 +7008,24 @@ textarea {
     line-height: 1.38;
   }
 
+  .payload-claim-disclosure summary {
+    padding: 5px 6px;
+  }
+
+  .payload-claim-disclosure summary span {
+    font-size: 0.66rem;
+  }
+
+  .payload-claim-disclosure summary strong,
+  .payload-group-line {
+    font-size: 0.7rem;
+    line-height: 1.34;
+  }
+
+  .payload-claim-text {
+    padding: 6px;
+  }
+
   .for-agents-page.reader-editorial .live-task-reference > span {
     font-size: 0.68rem;
   }
@@ -7401,6 +7465,12 @@ textarea {
   .payload-group-lines {
     font-size: 0.68rem;
     line-height: 1.34;
+  }
+
+  .payload-claim-disclosure summary strong,
+  .payload-group-line {
+    font-size: 0.68rem;
+    line-height: 1.32;
   }
 
   .score strong,

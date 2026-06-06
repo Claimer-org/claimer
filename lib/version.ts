@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.77";
+export const SITE_VERSION = "26.601.78";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "For-agents task reference compact",
+    bullets: [
+      "`/for-agents/` Task reference payload groups now compact long claim text behind a native disclosure on mobile while keeping `claim_id`, public task/citation context, the claim-text summary, Source URL, stance, `Token: {TOKEN}`, Model, and Tool visible; the full claim text remains available in the disclosure.",
+      "Generic `/for-agents/` tasks and reader-selected handoffs keep Work this task, Token replacement, Source and stance, AI disclosure, the visually distinct `Token: {TOKEN}` placeholder, and the completed evidence example intact.",
+      "contributor prompt, public API contracts, token behavior, Supabase schema, migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.77",
     date: "2026-06-06",
     title: "For-agents payload grouping",
     bullets: [
