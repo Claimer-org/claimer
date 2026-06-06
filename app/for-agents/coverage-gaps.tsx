@@ -22,6 +22,16 @@ type CoverageGap = {
   contextCount: number;
 };
 
+type EvidenceMix = Pick<
+  CoverageGap,
+  | "claimId"
+  | "evidenceCount"
+  | "uniqueContributorCount"
+  | "supportCount"
+  | "challengeCount"
+  | "contextCount"
+>;
+
 type RequestedGapTask = {
   claimId: string;
   claimText: string;
@@ -192,6 +202,34 @@ function toCoverageGap(item: DetailItem): CoverageGap | null {
     claimId,
     claimDetailUrl,
     title,
+    evidenceCount,
+    uniqueContributorCount,
+    supportCount,
+    challengeCount,
+    contextCount
+  };
+}
+
+function toEvidenceMix(item: DetailItem): EvidenceMix | null {
+  const claimId = textValue(item, "claim_id").trim();
+  const evidenceCount = optionalNumberValue(item, "evidence_count");
+  const uniqueContributorCount = optionalNumberValue(item, "unique_contributor_count");
+  const supportCount = optionalNumberValue(item, "support_count");
+  const challengeCount = optionalNumberValue(item, "challenge_count");
+  const contextCount = optionalNumberValue(item, "context_count");
+
+  if (
+    !claimId ||
+    evidenceCount === null ||
+    supportCount === null ||
+    challengeCount === null ||
+    contextCount === null
+  ) {
+    return null;
+  }
+
+  return {
+    claimId,
     evidenceCount,
     uniqueContributorCount,
     supportCount,
@@ -438,7 +476,10 @@ function parseRequestedGapTask(search: string): RequestedGapTask | null {
   };
 }
 
-function renderRequestedGapTask(task: RequestedGapTask) {
+function renderRequestedGapTask(
+  task: RequestedGapTask,
+  selectedEvidenceMix: EvidenceMix | null
+) {
   const payloadGroups = requestedGapPayloadGroups(task);
 
   return (
@@ -476,6 +517,7 @@ function renderRequestedGapTask(task: RequestedGapTask) {
         <code>claim_id</code>. Replace only <code>{"Token: {TOKEN}"}</code>{" "}
         with the contributor token.
       </p>
+      {renderSelectedHandoffEvidence(selectedEvidenceMix)}
       {renderPayloadGroups(payloadGroups)}
       <a className="text-link" href={task.sourceTrailPath}>
         Back to claim/source trail
@@ -572,6 +614,78 @@ function renderLiveTaskState(
   );
 }
 
+function selectedHandoffEvidenceMix(
+  task: RequestedGapTask,
+  coverageMixes: EvidenceMix[]
+) {
+  const liveMix = coverageMixes.find((mix) => mix.claimId === task.claimId);
+
+  if (liveMix) {
+    return liveMix;
+  }
+
+  if (task.claimId === starterLiveTask.claimId) {
+    return starterLiveTask;
+  }
+
+  return null;
+}
+
+function renderUniqueContributorFact(mix: EvidenceMix) {
+  if (mix.uniqueContributorCount === null) {
+    return null;
+  }
+
+  return (
+    <div>
+      <dt>Unique contributors</dt>
+      <dd>{mix.uniqueContributorCount}</dd>
+    </div>
+  );
+}
+
+function renderSelectedHandoffEvidence(mix: EvidenceMix | null) {
+  return (
+    <section
+      className="selected-handoff-evidence"
+      aria-label="Selected handoff evidence"
+    >
+      <div className="selected-handoff-evidence-heading">
+        <span>Selected handoff evidence</span>
+        {mix ? (
+          <p>Current evidence/source mix for this selected payload.</p>
+        ) : (
+          <p>
+            Check this selected handoff against the claim/source trail before
+            submitting another source.
+          </p>
+        )}
+      </div>
+      {mix ? (
+        <dl className="selected-handoff-evidence-facts">
+          <div>
+            <dt>Current evidence count</dt>
+            <dd>{mix.evidenceCount}</dd>
+          </div>
+          {renderUniqueContributorFact(mix)}
+          <div>
+            <dt>Support</dt>
+            <dd>{mix.supportCount}</dd>
+          </div>
+          <div>
+            <dt>Challenge</dt>
+            <dd>{mix.challengeCount}</dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>{mix.contextCount}</dd>
+          </div>
+        </dl>
+      ) : null}
+    </section>
+  );
+}
+
 export default function CoverageGaps({ children }: CoverageGapsProps) {
   const [metrics, setMetrics] = useState<ContributorNorthStarMetric[]>([]);
   const [fullClaimTitles, setFullClaimTitles] = useState<Record<string, string>>({});
@@ -634,7 +748,17 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
         ),
     [metrics]
   );
+  const coverageMixes = useMemo(
+    () =>
+      claimCoverageItems(metrics)
+        .map(toEvidenceMix)
+        .filter((mix): mix is EvidenceMix => mix !== null),
+    [metrics]
+  );
   const liveTask = coverageGaps[0] ?? null;
+  const requestedEvidenceMix = requestedGapTask
+    ? selectedHandoffEvidenceMix(requestedGapTask, coverageMixes)
+    : null;
 
   return (
     <>
@@ -658,7 +782,7 @@ export default function CoverageGaps({ children }: CoverageGapsProps) {
         </div>
         <div className="live-task-slot" aria-live="polite">
           {requestedGapTask
-            ? renderRequestedGapTask(requestedGapTask)
+            ? renderRequestedGapTask(requestedGapTask, requestedEvidenceMix)
             : renderLiveTaskState(state, liveTask, fullClaimTitles)}
         </div>
       </section>

@@ -1,8 +1,18 @@
-export const SITE_VERSION = "26.601.83";
+export const SITE_VERSION = "26.601.84";
 
 export const RELEASES = [
   {
     version: SITE_VERSION,
+    date: "2026-06-06",
+    title: "For-agents selected handoff evidence summary",
+    bullets: [
+      "Selected `/for-agents/` handoffs now show the current evidence/source mix near the payload while preserving selected claim text, `claim_id`, stance, Source URL, Model, Tool, `Token: {TOKEN}`, and the return path.",
+      "When live coverage contains the selected `claim_id`, the handoff uses that evidence count, unique contributor count when present, and support / challenge / context mix; the OpenAI GPT-4o selected handoff keeps Current evidence count 1, Support 1, Challenge 0, and Context 0 from the existing starter counts when live coverage has not provided that selected mix.",
+      "Contributor prompt, public API contracts, token behavior, Supabase schema, Migrations, grants, seed data, evidence scoring, live data loading contracts, `/claims/`, `/submit/`, homepage, and claim detail routes remain unchanged."
+    ]
+  },
+  {
+    version: "26.601.83",
     date: "2026-06-06",
     title: "For-agents task state consistency",
     bullets: [
